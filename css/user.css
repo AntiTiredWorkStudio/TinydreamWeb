@@ -1,0 +1,255 @@
+/* 个人中心样式表 */
+body{
+    background-color: #edf0f5;
+}
+.user{
+    border-top: 1px solid #cccac9;
+    min-height: 4.16rem;
+}
+/* 用户头像--样式处理 */
+.user .header{
+    margin: 0.30rem auto 0;
+    width: 1.74rem;
+    height: 1.74rem;
+    border-radius: 50%;
+    position: relative;
+    z-index: 20;
+    box-shadow: 0.02rem 0rem 0.02rem 0.02rem #f1f1f1,-0.02rem 0rem 0.05rem 0.02rem #f1f1f1,0rem 0.02rem 0.05rem 0.02rem #f1f1f1,0 -0.02rem 0.05rem 0.02rem #f1f1f1;
+}
+.user .header img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+/* 用户信息--样式处理 */
+.user .user_info{
+    width: 6.90rem;
+    height: 3.06rem;
+    background-color: #fff;
+    position: absolute;
+    z-index: -5;
+    border-radius: 0.20rem;
+    top: 1.10rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.user .user_info .message{ 
+    width: 5.78rem;
+    margin: 0 auto;
+    margin-top: 1.07rem;
+}
+.user .user_info .nickName{
+    text-align: center;
+    margin-bottom: 0.30rem;
+}
+.user .user_info .message .dream_poolInfo{
+    overflow: hidden;
+}
+.user .user_info .message .dream_poolInfo div.left,div.middle,div.right{
+    float: left;
+}
+.user .user_info .message .dream_poolInfo div.left{
+    /* margin-right: 0.30rem;  */
+}
+.user .user_info .message .dream_poolInfo div.middle{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+.user .user_info .message .dream_poolInfo div.right{
+    margin-right: 0;
+    float: left;
+}
+.user .user_info .message .dream_poolInfo div .num{
+    text-align: center;
+    font-size: 0.46rem;
+    font-weight: bolder;
+}
+.user .user_info .message .dream_poolInfo div .tip{
+    font-size: 0.24rem;
+    color: #999;
+}
+.user .user_info .message .dream_poolInfo div.line{
+    float: left;
+    /* width: 0.01rem; */
+    height: 0.68rem;
+    background: #eee;
+}
+
+/* .user .user_info .message .dream_userInfo div{
+    display: inline-block;
+    text-align: center;
+    font-size: 46rem;
+}
+.user .user_info .message .dream_userInfo div.line{
+    width: 2rem;
+    height: 68rem;
+    background: #f8f8f8;
+    margin-right:30rem;
+    margin-left:20rem;
+}
+.user .user_info .message .dream_userInfo div text{
+    display: block;
+    font-size: 24rem;
+    color: #999;
+} */
+/* 个人中心板块--样式处理 */
+.user .plate{
+    width: 6.90rem;
+    position: absolute;
+    top: 4.46rem;
+    border-radius: 0.20rem;
+    left: 0.30rem;
+}
+.user .plate .user_title{
+    font-size: 0.28rem;
+    margin-bottom: 0.14rem;
+}
+.user .plate .user_title span{
+    display: inline-block;
+    width: 0.10rem;
+    height: 0.35rem;
+    background: #00d094;
+    margin-right: 0.20rem; 
+}
+/* 功能模块--样式处理 */
+.user .plate .module{
+    width: 100%;
+    height: 5.42rem;
+    background: #fff;
+    border-radius: 0.20rem;
+    position: relative;
+}
+.user .plate .module .block{
+    width: 2.29rem;
+    border-right:0.01rem solid #fcfcfc;
+    float: left;
+    height: 1.80rem;
+    border-bottom: 0.01rem solid #fcfcfc; 
+    position: relative;
+    box-sizing: border-box;
+}
+.user .plate .module .block.line{
+    border-right: none;
+}
+.user .plate .module .block.bottom{
+    border-bottom: none;
+}
+.user .plate .module .block.bottom.psa{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.user .plate .module .block .block_main{
+    width: 100%;
+    text-align: center;
+}
+.user .plate .module .block a{
+    color: #333;
+}
+.user .plate .module .block .block_main span{
+    display: block;
+    font-size: 0.24rem;
+    margin-top: 0.20rem;
+    text-align: center;
+}
+.user .plate .module .block .block_main .icon{
+    width: 100%;
+    margin-top: 0.30rem;
+}
+.user .plate .module .block .block_main .icon_join{
+    height: 0.66rem;
+    background: url(http://tdream.antit.top/image/join.png) no-repeat center center;
+    background-size: 0.60rem 0.66rem;
+}
+.user .plate .module .block .block_main .icon_service{
+    margin-top: 0.28rem;
+    height: 66rem;
+    background: url(http://tdream.antit.top/image/server.png) no-repeat center center;
+    background-size: 0.68rem 0.66rem;
+}
+.user .plate .module .block .block_main .icon_phone{
+    height: 0.66rem;
+    background: url(http://tdream.antit.top/image/tele.png) no-repeat center center;
+    background-size: 0.48rem 0.66rem;
+}
+.user .plate .module .block .block_main .icon_name{
+    height: 0.66rem;
+    background: url(http://tdream.antit.top/image/identify.png) no-repeat center center;
+    background-size: 0.86rem 0.66rem;
+}
+.user .plate .module .block .block_main .icon_notice{
+    height: 0.66rem;
+    background: url(http://tdream.antit.top/image/notice.png) no-repeat center center;
+    background-size: 0.66rem 0.66rem;
+}
+.user .plate .module .block .block_main .icon_cach{
+    height: 0.66rem;
+    background: url(http://tdream.antit.top/image/contact.png) no-repeat center center;
+    background-size: 0.66rem 0.66rem;
+}
+.user .plate .module .block .block_main .icon_feed{
+    height: 0.66rem;
+    background: url(http://tdream.antit.top/image/suggest.png) no-repeat center center;
+    background-size: 0.66rem 0.66rem;
+}
+.user .plate .module .block .block_main .icon_question{
+    height: 0.66rem;
+    background: url(http://tdream.antit.top/image/question.png) no-repeat center center;
+    background-size: 0.66rem 0.66rem;
+}
+.user .footer{
+    height: 1.28rem;
+    border-top:1px solid #ddd;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+}
+.user .footer ul li{
+    float: left;
+    width: 2.50rem;
+    text-align: center;
+    margin-top: 0.2rem;
+}
+.user .footer ul li a{
+    color: #b2b2b2;
+    font-size: 0.22rem;
+}
+/* .user .footer ul li p{
+    margin-top: 0.1rem;
+} */
+.user .footer ul li .icon_home{
+    display: inline-block;
+    width: 0.38rem;
+    height: 0.42rem;
+    background: url(http://tdream.antit.top/image/nav_index_disable.png) no-repeat;
+    background-size: 0.38rem 0.42rem; 
+}
+.user .footer ul li .icon_user{
+    display: inline-block;
+    width: 0.38rem;
+    height: 0.42rem;
+    background: url(http://tdream.antit.top/image/nav_index_disable.png) no-repeat;
+    background-size: 0.38rem 0.42rem; 
+}
+.user .footer ul li .icon_dream{
+    display: inline-block;
+    width: 0.38rem;
+    height: 0.42rem;
+    background: url(http://tdream.antit.top/image/nav_dream_disable.png) no-repeat;
+    background-size: 0.38rem 0.42rem; 
+}
+.user .footer ul li .icon_user{
+    display: inline-block;
+    width: 0.38rem;
+    height: 0.42rem;
+    background: url(http://tdream.antit.top/image/nav_owner_disable.png) no-repeat;
+    background-size: 0.38rem 0.42rem; 
+}
+.user .footer ul li.active a{
+    color:#00d094;
+}
+.user .footer ul li.active .icon_user{
+    background: url(http://tdream.antit.top/image/nav_owner.png) no-repeat;
+    background-size: 0.38rem 0.42rem; 
+}

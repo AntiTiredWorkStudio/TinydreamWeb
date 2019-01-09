@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>常见问题</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/question.css">
+</head>
+<body>
+    <!--问题详情页面-->
+<!-- 
+    title：问题标题
+    question_info:问题详细内容
+ -->
+    <div class='question'>
+        <div class='questionInfo'>
+            
+        </div>
+    </div>
+    <script id="template" type="text/template">
+        <div class='question_list'>
+            <div class='title'><%= question %></div>
+            <span class='info'><%= text %></span>
+        </div>
+    </script>
+    <script src="../lib/jquery-1.12.3.min.js"></script>
+    <script src="../lib/underscore-min.js"></script>
+    <script src="../lib/rem.js"></script>
+    <script src="../js/question.js"></script>
+</body>
+</html>

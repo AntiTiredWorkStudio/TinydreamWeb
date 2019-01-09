@@ -1,2 +1,134 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>参与互助</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="home">
+        <div class="banner"></div>
+        <div class="male_screen">
+          <span class="tip">暂无人购买</span>
+          <div class="info">
+            <div class="logo"></div>
+            <span class="username">Lisa</span>
+            <span class="male_tip">1小时前参与了1份小梦想</span>
+          </div>
+        </div>
+        <div class="help">
+          <div class="title">梦想互助001期</div>
+          <div class="progress">
+            <canvas class="top_canvas" id="canvas" width="190" height="190"></canvas>
+            <canvas style="z-index:-5" width="190" height="190" class="bottom" id="bottom"></canvas>
+            <div class="dreamInfo">
+              <div class="time">
+                <i class="icon_clock"></i>
+                <span class="timeout">180:45:32</span>
+              </div>
+              <div class="money_number">￥14,000</div>
+              <p class="tip_mes">目前互助金</p>
+            </div>
+          </div>
+          <div class="targetAndprice">
+            <div class="left">
+              <div class="number">20,0000</div>
+              <div class="text">互助目标</div>
+            </div>
+            <div class="right">
+              <div class="number">5元/份</div>
+              <div class="text">价格</div>
+            </div>
+          </div>
+          <button class="join">参与互助</button>
+          <p class="tip_msg">每个人支付少量互助金，从中随机产生1名幸运者获得互助总资金启动梦想！</p>
+        </div>
+        <div class="lucky">
+          <a href="html/luckyer.html">往期幸运者</a>
+        </div>
+        <div class="rules">
+          <div class="title">
+            <div class="line left"></div>
+            <div class="circle left"></div>
+            <p>小梦想互助规则</p>
+            <div class='circle right'></div>
+            <div class='line right'></div>
+          </div>
+          <div class='steps'>
+            <div class='step'>
+                <div class='icon_one icon'></div>
+                <div class='step_text'>多人互助</div>
+            </div>
+            <div class='line'></div>
+            <div class='step'>
+                <div class='icon_two icon'></div>
+                <div class='step_text'>1人幸运</div>
+            </div>
+            <div class='line'></div>
+            <div class='step'>
+                 <div class='icon_three icon'></div>
+                 <div class='step_text'>启动梦想</div>
+            </div>
+            <div class='line'></div>
+            <div class='step'>
+                <div class='icon_four icon'></div>
+                <div class='step_text'>梦想报道</div>
+            </div>
+          </div>
+          <div class='rules_info'>
+            <div class='info_msg'>
+                <div class='rules_msg'>
+                    <div class='rules_box'>
+                        <div class='icon_indexOne'></div>
+                        <span>多人互助 — — 参与互助每个人支付少量互助金</span>
+                    </div>
+                    <div class='rules_box'>
+                        <div class='icon_indexTwo'></div>
+                        <span>1人幸运 — — 公平随机产生1名幸运者</span>
+                    </div>
+                    <div class='rules_box'>
+                        <div class='icon_indexThree'></div>
+                        <span>启动梦想 — — 幸运者得到互助总资金启动梦想</span>
+                    </div>
+                    <div class='rules_box'>
+                        <div class='icon_indexFour'></div>
+                        <span>梦想报道 — — 梦想执行跟踪报道</span>
+                    </div>
+                    <div class='rules_box'>
+                        <a href="html/rules.html">了解更多</span>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <ul>
+            <li class="active">
+              <a href="index.html">
+                <i class="icon icon_home"></i>
+                <p class="text">参与互助</p>
+              </a>
+            </li>
+            <li>
+              <a href="html/dream.html">
+                <i class="icon icon_dream"></i>
+                <p class="text">小梦想</p>
+              </a>
+            </li>
+            <li>
+              <a href="html/user.html">
+                <i class="icon icon_user"></i>
+                <p class="text">个人中心</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <script src="lib/jquery-1.12.3.min.js"></script>
+    <script src="lib/rem.js"></script>
+    <script src="js/index.js"></script>
+</body>
 </html>

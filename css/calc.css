@@ -1,0 +1,16 @@
+/* pages/calc/calc.wxss */
+.calc{
+    border-top: 0.02rem solid #eeeeed;
+}
+.calc .title{
+    margin-top: 0.40rem;
+    font-size: 0.28rem;
+    margin-bottom: 0.40rem;
+    margin-left: 0.30rem;
+}
+.calc .main{
+    margin-left: 0.30rem;
+    font-size: 0.24rem;
+    color: #808080;
+    line-height: 0.50rem;
+}

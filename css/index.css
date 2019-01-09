@@ -1,0 +1,368 @@
+/* 首页样式 */
+.home{
+    width: 100%;
+}
+body{
+    background-color: #fff;
+}
+/* banner */
+.banner{
+    width: 6.8rem;
+    margin: 0 auto;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    height: 1.88rem;
+    background: url(http://tdream.antit.top/image/banner.png) no-repeat;
+    background-size: 6.8rem 1.88rem;
+}
+.home .male_screen{
+    width: 6.8rem;
+    margin: 0 auto;
+    height: 0.68rem;
+    line-height: 0.68rem;
+    border-radius: 0.10rem;
+    margin-bottom: 0.20rem;
+    box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 54, 208, .1),-0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1),0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1),0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1);
+}
+.home .male_screen .tip{
+    font-size: 0.26rem;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    line-height: 0.68rem;
+    color:#666;
+    text-align: center;
+    display: none;
+}
+.home .male_screen .info{
+    width: calc(100% - 0.4rem);
+    margin: 0 auto;
+    overflow: hidden;
+    line-height: 0.68rem;
+}
+.home .male_screen .logo{
+    float: left;
+    width: 0.48rem;
+    height: 0.48rem;
+    border-radius: 50%;
+    background: url(http://tdream.antit.top/image/avatar.png) no-repeat;
+    background-size: 0.48rem 0.48rem;
+    margin-top: 0.1rem;
+    margin-right: 0.1rem;
+    vertical-align: middle;
+}
+.home .male_screen .username{
+    font-size: 0.26rem;
+    float: left;
+}
+.home .male_screen .male_tip{
+    font-size: 0.26rem;
+    float: right;
+}
+/* 梦想池 */
+.home .help{
+    width: 6.80rem;
+    min-height: 7.50rem;
+    margin: 0 auto;
+    border-radius: 0.10rem;
+    box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 54, 208, .1),-0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1),0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1),0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1);
+}
+.home .help .title{
+    font-size: 0.32rem;
+    margin-left:0.30rem;
+    padding-top: 0.30rem;
+}
+.home .help .progress{
+    width: 3.80rem;
+    height: 3.80rem;
+    margin: 0.50rem auto 0;
+    position: relative;
+}
+.home .help .progress canvas{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: none;
+    transform: translate(-50%,-50%);
+}
+.home .help .progress .dreamInfo{
+    font-size: 0.28rem;
+    position: absolute;
+    top: 1.05rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.home .help .progress .dreamInfo .time{
+    font-size: 0.28rem;
+    color: #00d094;
+    text-align: center;
+}
+.home .help .progress .dreamInfo .time .icon_clock{
+    background: url(http://tdream.antit.top/image/clock.png) no-repeat;
+    display: inline-block;
+    width: 0.23rem;
+    height: 0.23rem;
+    background-size: 0.23rem 0.23rem;
+    vertical-align: middle;
+}
+.home .help .progress .dreamInfo .money_number{
+    font-size: 0.52rem;
+    color: #ffc057;
+    text-align: center;
+    margin-top: 0.3rem;
+    margin-bottom: 0.1rem;
+}
+.home .help .progress .dreamInfo .tip_mes{
+    font-size: 0.24rem;
+    color:#999;
+    text-align: center;
+}
+.home .help .targetAndprice{
+    width: 6rem;
+    margin: 0 auto;
+    margin-top: 0.4rem;
+    overflow: hidden;
+}
+.home .help .targetAndprice .left{
+    float: left;
+    text-align: center;
+}
+.home .help .targetAndprice .number{
+    font-size: 0.38rem;
+    color: #ffc057;
+    margin-bottom: 0.1rem;
+}
+.home .help .targetAndprice .text{
+    font-size: 0.24rem;
+    color: #999;
+}
+.home .help .targetAndprice .right{
+    float: right;
+    text-align: right;
+}
+.home .help .join{
+    width: 6rem;
+    margin: 0 auto;
+    margin-top: 0.34rem;
+    height: 0.78rem;
+    border-radius: 0.39rem;
+    background: #00d094;
+    color: #fff;
+    font-size: 0.42rem;
+    margin-bottom: 0.1rem;
+    border: none;
+    left: 50%;
+    margin-left: 0.4rem;
+}
+.home .help .tip_msg{
+    text-align: center;
+    font-size: 0.2rem;
+    color: #999;
+    padding: 0 0 0.2rem 0;
+}
+.home .lucky{
+    text-align: right;
+    width: 6.8rem;
+    margin: 0 auto;
+    margin-top: 0.2rem;
+}
+.home .lucky a{
+    font-size: 0.3rem;
+    color: #595959;
+    text-decoration: underline;
+}
+.home .rules{
+    width: 6.3rem;
+    margin: 0 auto;
+    margin-top: 0.4rem;
+    position: relative;
+}
+.home .rules .title{
+    width: 100%;
+    font-size: 0.32rem;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.home .rules .title p{
+    float: left;
+    text-align: center;
+    margin-left: 2rem;
+    color: #00d094;
+}
+.home .rules .title .circle{
+    width: 0.1rem;
+    height: 0.1rem;
+    background-color: #00d094;
+    border-radius: 50%;
+    position: absolute;
+}
+.home .rules .title .circle.left{
+    left: 1.76rem;
+    top: 0.18rem
+}
+.home .rules .title .circle.right{
+    right: 1.76rem;
+    top: 0.18rem
+}
+.home .rules .title .line{
+    width: 1.76rem;
+    height: 0.02rem;
+    position: relative;
+    top: 0.22rem;
+}
+.home .rules .title .line.left{
+    background: linear-gradient(to right, white , #00d094);
+}
+.home .rules .title .line.right{
+    float:right;
+    background: linear-gradient(to right, #00d094 , white);
+}
+/* 规则--样式处理 */
+.home .steps{
+    position: relative;
+    top: 0.60rem;
+    height: 0.93rem;
+    margin: 0 auto;
+}
+.home .steps div.step{
+    float: left;
+    text-align: center;
+}
+.home .steps div.step .icon{
+    width: 0.38rem;
+    height: 0.38rem;
+    border-radius: 50%;
+    background-size: 0.38rem 0.38rem;
+    margin: 0 auto;
+}
+.home .steps div.icon_one{
+    background-image: url(http://tdream.antit.top/image/active_index1.png);
+}
+.home .steps div.icon_two{
+    background-image: url(http://tdream.antit.top/image/avtive_index2.png);
+}
+.home .steps div.icon_three{
+    background-image: url(http://tdream.antit.top/image/avtive_index3.png);
+}
+.home .steps div.icon_four{
+    background-image: url(http://tdream.antit.top/image/active_index4.png);
+}
+.home .steps div.step:last-child{
+    float: right;
+}
+.home .steps .line{
+    width: 0.70rem;
+    height: 0.02rem;
+    float: left;
+    background: #edf0f5;
+    position: relative;
+    top: 0.19rem; 
+}
+.home .steps .step .step_text{
+   margin-top: 0.20rem;
+   text-align: center;
+   font-size: 0.26rem;
+   color: #595959;
+}
+.home .rules_info{
+    width: 100%;
+    height: 3.82rem;
+    background-color: #fafbfc;
+    border-radius: 0.20rem;
+    margin-top: 0.90rem;
+}
+.home .rules_info .info_msg{
+    margin-left: 0.20rem;
+    padding-top: 0.40rem;
+}
+.home .rules_info .info_msg .rules_box{
+    margin-bottom: 0.24rem;
+    width: 100%;
+}
+.home .rules_info .info_msg div div{
+    width: 0.36rem;
+    height: 0.36rem;
+    background-repeat: no-repeat;
+    background-size: 0.36rem 0.36rem;
+    border-radius: 50%; 
+    margin-right: 0.30rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+.home .rules_info .info_msg span{
+    font-size: 0.24rem;
+    color: #595959;
+}
+.home .rules_info .info_msg div div.icon_indexOne{
+    background-image: url(http://tdream.antit.top/image/index1.png)
+}
+.home .rules_info .info_msg div div.icon_indexTwo{
+    background-image: url(http://tdream.antit.top/image/index2.png)
+}
+.home .rules_info .info_msg div div.icon_indexThree{
+    background-image: url(http://tdream.antit.top/image/index3.png)
+}
+.home .rules_info .info_msg div div.icon_indexFour{
+    background-image: url(http://tdream.antit.top/image/index4.png)
+}
+.home .rules_info .info_msg .rules_box:nth-child(5){
+    text-align: center;
+    padding-bottom: 2rem;
+    font-size: 0.28rem;
+    margin-top: 0.30rem;
+    line-height: 0.36rem;
+}
+.home .rules_info .info_msg .rules_box:nth-child(5) a{
+    text-decoration: underline;
+    color: #595959;
+}
+.home .footer{
+    height: 1.28rem;
+    border-top:1px solid #ddd;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+}
+.home .footer ul li{
+    float: left;
+    width: 2.50rem;
+    text-align: center;
+    margin-top: 0.2rem;
+}
+.home .footer ul li a{
+    color: #b2b2b2;
+    font-size: 0.22rem;
+}
+/* .home .footer ul li p{
+    margin-top: 0.1rem;
+} */
+.home .footer ul li .icon_home{
+    display: inline-block;
+    width: 0.38rem;
+    height: 0.42rem;
+    background: url(http://tdream.antit.top/image/nav_index_disable.png) no-repeat;
+    background-size: 0.38rem 0.42rem; 
+}
+.home .footer ul li .icon_dream{
+    display: inline-block;
+    width: 0.38rem;
+    height: 0.42rem;
+    background: url(http://tdream.antit.top/image/nav_dream_disable.png) no-repeat;
+    background-size: 0.38rem 0.42rem; 
+}
+.home .footer ul li .icon_user{
+    display: inline-block;
+    width: 0.38rem;
+    height: 0.42rem;
+    background: url(http://tdream.antit.top/image/nav_owner_disable.png) no-repeat;
+    background-size: 0.38rem 0.42rem; 
+}
+.home .footer ul li.active a{
+    color:#00d094;
+}
+.home .footer ul li.active .icon_home{
+    background: url(http://tdream.antit.top/image/nav_index.png) no-repeat;
+    background-size: 0.38rem 0.42rem; 
+}

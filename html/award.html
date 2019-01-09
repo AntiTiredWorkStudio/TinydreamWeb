@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>查看领奖进度</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/award.css">
+</head>
+<body>
+    <!--查看领奖进度-->
+<!-- 
+    tip:说明（告诉用户这个版块作用）
+    bottom:版块下半部分
+ -->
+    <div class='award'>
+        <div class='main'>
+            <div class='award_info perfect'>
+                <div class='title'>
+                    <div class='left'>完善梦想</div>
+                    <div class='right'>等待完善</div>
+                </div>
+                <div class='tip'>
+                    小梦想 —— 幸运梦想 —— 完善梦想即可
+                </div>
+                <div class='bottom'>
+                    <div class='progress '>
+                        <div class='progress_main'>
+                            <div class='index active'>
+                                <div class='icon'></div>
+                                <div>梦想提交</div>
+                                <div class='line'></div>
+                            </div>
+                             <div class='index'>
+                                <div class='icon'></div>
+                                <div>资料审核</div>
+                                <div class='line'></div>
+                            </div>
+                            <div class='index'>
+                                <div class='icon'></div>
+                                <div>等待打款</div>
+                                <div class='line'></div>
+                            </div>
+                            <div class='index'>
+                                <div class='icon'></div>
+                                <div>互助金颁发</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='award_info audit'>
+                 <div class='title'>
+                    <div class='left'>资料审核</div>
+                    <div class='right'>资料审核不通过</div>
+                </div>
+                <div class='tip'>
+                    资料审核1——2个工作日
+                </div>
+                <div class='bottom'>
+                    <div class='progress '>
+                        <div class='progress_main'>
+                            <div class='index active'>
+                                <div class='icon'></div>
+                                <div>梦想提交</div>
+                                <div class='line {{status == 1 ? "activeLine" : ""}}'></div>
+                            </div>
+                             <div class='index active'>
+                                <div class='icon'></div>
+                                <div>资料审核</div>
+                                <div class='line'></div>
+                            </div>
+                            <div class='index'>
+                                <div class='icon'></div>
+                                <div>等待打款</div>
+                                <div class='line'></div>
+                            </div>
+                            <div class='index'>
+                                <div class='icon'></div>
+                                <div>互助金颁发</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='award_info Issued'>
+                <div class='title'>
+                    <div class='left'>互助金颁发</div>
+                    <div class='right'></div>
+                </div>
+                <div class='tip'>
+                    互助金已颁发
+                </div>
+                <div class='bottom'>
+                    <div class='progress '>
+                        <div class='progress_main'>
+                            <div class='index active'>
+                                <div class='icon'></div>
+                                <div>梦想提交</div>
+                                <div class='line {{status == 1 ? "activeLine" : ""}}'></div>
+                            </div>
+                             <div class='index active'>
+                                <div class='icon'></div>
+                                <div>资料审核</div>
+                                <div class='line {{flag == 1 ? "activeLine" : ""}}'></div>
+                            </div>
+                            <div class='index active'>
+                                <div class='icon'></div>
+                                <div>等待打款</div>
+                                <div class='line {{flag == 1 ? "activeLine" : ""}}'></div>
+                            </div>
+                            <div class='index active'>
+                                <div class='icon'></div>
+                                <div>互助金颁发</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../lib/jquery-1.12.3.min.js"></script>
+    <script src="../lib/rem.js"></script>
+</body>
+</html>
