@@ -1,0 +1,70 @@
+/* 幸运者详情样式表 */
+.lucky_user{
+    border-top: 0.02rem solid #dedcdc;
+}
+/* 用户头像处理 */
+.lucky_user .header{
+    width: 1.80rem;
+    height: 1.80rem;
+    margin: 0.30rem auto 0;
+    box-shadow: 0.02rem 0rem 10rem 0.02rem rgba(0, 54, 208, .05),-0.02rem 0 10rem 0.02rem rgba(0, 54, 208, .05),0 0.02rem 10rem 0.02rem rgba(0, 54, 208, .05),0 -0.02rem 10rem 0.02rem rgba(0, 54, 208, .05);
+    border-radius: 50%;
+} 
+.header img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.lucky_user .user_name{
+    margin-top: 0.20rem;
+    font-size: 0.32rem;
+    color: #666;
+    margin-bottom: 0.10rem;
+    text-align: center;
+}
+.lucky_user .title{
+    color: #00d094;
+    font-size: 0.28rem;
+    text-align: center;
+    margin-bottom: 0.20rem;
+}
+.lucky_user .info{
+    font-size: 0.26rem;
+    color: #666;
+    text-align: center;
+}
+.lucky_user .info .icon_flag{
+    display: inline-block;
+    margin-right: 0.10rem;
+    width: 0.18rem;
+    height: 0.22rem;
+    background: url(http://tdream.antit.top/image/flag.png) no-repeat;
+    background-size: 0.18rem 0.22rem;
+}
+/* 梦想详情 */
+.lucky_user .dream_info{
+    width: 100%;
+}
+.lucky_user .dream_info .dream_title{
+    margin-left: 0.25rem;
+    width: 1.66rem;
+    height: 0.48rem;
+    color: #fff;
+    background: #00d094;
+    border-radius: 0.24rem;
+    line-height: 0.48rem;
+    text-align: center;
+    font-size: 0.32rem;
+}
+.lucky_user .dream_info .textarea{
+    width: 6.58rem;
+    margin:0.30rem auto;
+    color: #5e5e5e;
+    font-size: 0.32rem;
+}
+.lucky_user .dream_info img{
+    width: 6.90rem;
+    margin: 0.20rem 0.30rem 0;
+    height: 3.60rem;
+    border-radius: 0.10rem;
+}

@@ -1,0 +1,46 @@
+/* 小程序授权页面--样式处理 */
+.guide{
+    width: 100;
+    border-top: 0.02rem solid #cccac9;
+}
+.header{
+    width: 6.30rem;
+    border-bottom: 0.02rem solid #cccac9;
+    margin: 0 auto;
+    padding-bottom: 0.80rem;
+    text-align: center;
+}
+.logo{
+    margin: 0 auto;
+    width: 1.60rem;
+    height: 1.60rem;
+    border-radius: 0.20rem;
+    background: url(http://tdream.antit.top/image/logo.png) no-repeat;
+    background-size: 1.60rem 1.60rem;
+}
+.app_name{
+    font-size: 0.38rem;
+    margin-top: 0.20rem;
+}
+.company{
+    margin: 0 auto;
+    margin-top: 0.80rem;
+    width: 6.30rem;
+    font-size: 0.32rem;
+    margin-bottom: 0.60rem;
+}
+.auth{
+    font-size: 0.28rem;
+    color: #999;
+    margin-bottom: 1.10rem;
+    text-align: center;
+}
+button{
+    border:none;
+    width: 6.30rem;
+    border-radius: 0.10rem;
+    color: #fff;
+    height: 0.88rem;
+    background-color: #05bf02;
+    margin: 0 0.6rem;
+}

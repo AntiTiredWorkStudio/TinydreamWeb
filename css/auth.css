@@ -1,0 +1,95 @@
+/* 实名认证样式表 */
+body{
+    background-color: #f0f3f7;
+}
+.auth{
+    border-top: 0.02rem solid #d6d4d3;
+    width: 100%;
+}
+button{
+    border: none;
+}
+.auth .auth_main{
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 0.30rem;
+    padding-right: 0.30rem;
+    background: #fff;
+    box-shadow:  0.02rem 0rem 0.1rem 0.02rem rgba(0, 54, 208, .05),-0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .05),0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .05),0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .05);
+}
+.auth .auth_main .real_name{
+    font-size: 0.30rem;
+    color: #606060;
+    position: relative;
+    overflow: hidden;
+    line-height: 0.30rem;
+    padding-top: 0.45rem;
+    padding-bottom: 0.42rem;
+    border-bottom: 0.02rem solid #f5f5f5;
+}
+.auth .auth_main .real_name .tip{
+    float: left;
+}
+.auth .auth_main .real_name input{
+   margin-left: 0.60rem;
+   color: #b2b2b2;
+   vertical-align: middle;
+   float: right;
+   background: #fff;
+   border: none;
+   text-align: right;
+   outline: 0;
+}
+.auth .auth_main .real_name view{
+    display: inline-block;
+    position: relative;
+    top: 0.05rem;
+}
+.auth .auth_main .real_name div.icon{
+    position: absolute;
+    top: 0.54rem;
+    right: 0.06rem;
+    width: 0.26rem;
+    height: 0.15rem;
+    background-color: red;
+    background: url(http://tdream.antit.top/image/yeah.png) no-repeat;
+    background-size: 0.26rem 0.15rem;
+}
+.auth .auth_main .real_name .steps{
+    margin-top: 0.30rem;
+    margin-bottom: 0.40rem;
+    color: #b2b2b2;
+}
+.auth .auth_main .real_name .steps view{
+    padding-bottom: 0.1rem;
+}
+.auth .auth_main .real_name .id_img{
+    width: 4.30rem;
+    height: 3.26rem;
+    /* background-color: #000; */
+    margin: 0 auto;
+    display: block;
+    position: static;
+}
+.auth .auth_main .real_name img{
+    width: 4.30rem;
+    height: 3.26rem;
+}
+.submit{
+    margin: 0 auto;
+    margin-top: 1.00rem;
+    width: 6.60rem;
+    padding-bottom:1.20rem; 
+}
+.submit button::after{
+    border:none;
+}
+.submit button{
+    width: 100%;
+    height: 0.78rem;
+    line-height: 0.78rem;
+    border-radius: 0.39rem;
+    background-color: #00d6a7;
+    color: #fff;
+    font-size: 0.36rem;
+}

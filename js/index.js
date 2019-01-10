@@ -24,4 +24,14 @@ $(function(){
         ctx.arc(95, 95, 80, Math.PI/-2, 1.3 * Math.PI - Math.PI / 2, false);
         ctx.stroke()
     }
+    // 互助页面跳转
+    $('.help').click(function(e){
+        e.stopPropagation();
+        window.location.href="html/dreamHelp.html"
+    })
+    // 参与互助
+    $('.join').click(function(e){
+        e.stopPropagation();
+        window.location.href="html/payInfo.html"
+    })
 })

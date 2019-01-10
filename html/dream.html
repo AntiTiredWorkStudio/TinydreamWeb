@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小梦想</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/dream.css">
+</head>
+<body>
+    <!-- 小梦想页面 -->
+<!-- 
+    dream:小梦想页面
+    dream_main:小梦想主体内容
+    dreamTab:梦想栏与幸运梦想栏切换按钮
+    dream_list:已添加的梦想
+    dream_info:梦想的信息展示
+    dream_logo:梦想图片
+    dream_right:梦想信息部分
+    dream_msg:梦想名称
+    createTime:创建时间及按钮
+    *******************************
+    此处为幸运梦想类名
+    luckyDream：幸运梦想列表
+ -->
+    <div class='dream'>
+    <!-- 当没有梦想的时候显示空 -->
+        <div class='empty' style="display:none">
+            <div class='empty_bg'></div>
+        </div>
+        <div class='dream_main' style="display:block">
+            <div class='dreamTab'>
+                <div class='dream_type'>
+                    <ul>
+                        <li class="active">小梦想</li>
+                        <li>幸运梦想</li>
+                    </ul>
+                </div>
+            </div>
+            <div class='dream_list'>
+                <div class='dream_info'>
+                    <div class='dream_logo'></div>
+                    <div class='dream_right'>
+                        <div class='dream_msg'>现制定一个小目标,完成一个小梦想</div>
+                        <div class='createTime'>
+                            <span class='time'>2018.12.20</span>
+                            <button class='view'>查看详情</button>
+                        </div>
+                    </div>
+                </div>
+                <div class='luckyDream'>
+                    <div class='dream_logo'>20,0000</div>
+                    <div class='dream_right'>
+                        <div class='dream_msg'><span>现制定一个小目标,完成一个小梦想</span><div class='icon_success'></div></div>
+                        <div class='tip'>
+                            <span class='tip_text'>梦想池20181220期</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='add'></div>
+        <div class="footer">
+            <ul>
+              <li>
+                <a href="../index.html">
+                  <i class="icon icon_home"></i>
+                  <p class="text">参与互助</p>
+                </a>
+              </li>
+              <li class="active">
+                <a href="../html/dream.html">
+                  <i class="icon icon_dream"></i>
+                  <p class="text">小梦想</p>
+                </a>
+              </li>
+              <li>
+                <a href="../html/user.html">
+                  <i class="icon icon_user"></i>
+                  <p class="text">个人中心</p>
+                </a>
+              </li>
+            </ul>
+        </div>
+    </div>
+    <script src="../lib/jquery-1.12.3.min.js"></script>    
+    <script src="../lib/rem.js"></script>
+    <script src="../js/dream.js"></script>
+</body>
+</html>

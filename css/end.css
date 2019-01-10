@@ -1,0 +1,165 @@
+/**详情样式表**/
+/* 梦想互助池--样式处理 */
+body{
+    background: #f0f0f0;
+}
+.home{
+    border-top: 0.02rem solid #eddddd;
+    background: #fff;
+}
+.home .home_content{
+    background: #fff;
+}
+.home .home_content .end .title{
+    margin-top: 0.40rem;
+    font-size: 0.32rem;
+    color: #4c4c4c;
+    margin-bottom: 0.30rem;
+}
+.home .home_content .end .dream_info{
+    width: 100%;
+    min-height: 2.35rem;
+    box-shadow: 0.02rem 0rem 0.1rem 0.02rem rgba(0, 54, 208, .1),-0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1),0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1),0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1);
+    border-radius: 0.10rem;
+}
+.home .home_content .end .dream_info .box_info{
+    width: 6.30rem;
+    margin: 0 auto;
+    padding-top: 0.40rem;
+    /* overflow: hidden; */
+    height: 3.50rem;
+    position: relative;
+}
+.home .home_content .end .dream_info .box_info .left{
+    float: left;
+}
+.home .home_content .end .dream_info .box_info .left .money{
+    font-size: 0.28rem;
+    color: #808080;
+    margin-bottom: 0.25rem;
+}
+.home .home_content .end .dream_info .box_info .left .money_txt{
+    font-size: 0.92rem;
+    color: #ffc057;
+    margin-bottom: 0.15rem;
+}
+.home .home_content .end .dream_info .box_info .left .lucky{
+    font-size: 0.28rem;
+    color: #808080;
+    margin-bottom: 0.10rem;
+}
+.home .home_content .end .dream_info .box_info .left .lucky span{
+    color: #00d094;
+    font-size: 0.30rem;
+}
+.home .home_content .end .dream_info .box_info .left .endTime{
+    font-size: 0.24rem;
+    color: #b2b2b2;
+    padding-bottom: 0.30rem;
+}
+.home .home_content .end .dream_info .box_info .right{
+    float: right;
+    position: absolute;
+    right: 0;
+}
+.home .home_content .end .dream_info .box_info .right .price{
+    font-size: 0.28rem;
+    color: #808080;
+    margin-bottom: 0.40rem;
+}
+.home .home_content .end .dream_info .box_info .right .look_info{
+    width: 2.34rem;
+    height: 0.78rem;
+    line-height: 0.78rem;
+    background-color: #00d094;
+    color: #fff;
+    text-align: center;
+    font-size: 0.30rem;
+    border-top-left-radius: 0.39rem;
+    border-bottom-left-radius: 0.39rem;
+    position: absolute;
+    right: -0.30rem;
+}
+
+.home .home_content .end{
+    width: 6.90rem;
+    margin: 0 auto;
+}
+/* tab切换--样式处理 */
+.home .home_content .tab{
+    width: 4.66rem;
+    background-color: #fff;
+    margin: 0.94rem auto 0;
+    overflow: hidden;
+    font-size: 0.32rem;
+}
+.home .home_content .tab div.left{
+    float: left;
+    padding-bottom: 0.20rem;
+    color: #808080;
+}
+.home .home_content .tab div.right{
+    float: right;
+    padding-bottom: 0.20rem;
+     color: #808080;
+}
+.home .home_content .tab div.active{
+    border-bottom: 0.02rem solid #00d094;
+    color: #00d094;
+}
+.home .tabBox{
+    background-color: #f0f0f0f0;
+}
+.home .tabBox .tip{
+    padding-top: 1.28rem;
+    font-size: 0.28rem;
+    color: #808080;
+    text-align: center;
+}
+.home .tabList{
+    width: 6.90rem;
+    margin:0 auto;
+    margin-top: 0.30rem;
+    overflow: hidden;
+}
+.home .tabList .number{
+    width: 3.30rem;
+    height: 0.68rem;
+    line-height: 0.68rem;
+    border-radius: 0.34rem;
+    float: left;
+    margin-right: 0.20rem;
+    font-size: 0.28rem;
+    background-color: #ffc057;
+    color: #fff;
+    margin-top: 0.30rem;
+    text-align: center;
+}
+.home .tabList .number:nth-child(2n){
+    margin-right: 0;
+}
+.home .user_number{
+    width: 100%;
+    background-color: #f0f0f0;
+}
+.home .user_number .user{
+    width: 6.38rem;
+    margin: 0 auto;
+    padding-top: 0.30rem;
+    overflow: hidden;
+}
+.home .user_number .user div{
+    float: left;
+    font-size: 0.26rem;
+}
+.home .user_number .user div.phone{
+    margin-right: 0.50rem;
+}
+.home .user_number .user div.num{
+    margin-right: 0.50rem;
+}
+.home .user_number .user div.title{
+    float: right;
+}
+
+

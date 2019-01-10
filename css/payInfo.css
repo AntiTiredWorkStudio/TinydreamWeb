@@ -1,0 +1,240 @@
+/* pages/payInfo/payInfo.wxss */
+.payInfo{
+    border-top: 0.02rem solid #eeeeed;
+}
+/* 梦想互助池--样式处理 */
+.home .home_content .dream_info{
+    width: 100%;
+    margin-top: 0.20rem;
+    border-radius: 0.10rem;
+    height: 7.70rem;
+    text-align: center;
+}
+.home .home_content .dream_info .dream_title{
+    margin: 0 auto;
+    width: 5.90rem;
+    font-size: 0.32rem;
+    text-align: left;
+}
+.home .home_content .dream_info .progress{
+   margin: 0.50rem auto 0;
+    width: 3.80rem;
+    height:3.80rem;
+    position: relative;
+}
+.home .home_content .dream_info .progress .circle{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.home .home_content .dream_info .progress .timeout{
+    position: absolute;
+    top: 1.05rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.home .home_content .dream_info .progress .timeout .icon_clock{
+    width: 0.23rem;
+    height:0.23rem;
+    background: url(http://tdream.antit.top/image/clock.png) no-repeat;
+    background-size: 0.23rem 0.23rem;
+    margin-right: 0.10rem;
+    display: inline-block;
+}
+.home .home_content .dream_info .progress .timeout .timeout_ui{
+    font-size: 0.28rem;
+    color: #00d094;
+    display: inline-block;
+}
+.home .home_content .dream_info .progress .help_money{
+    position: absolute;
+    top: 1.50rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.65rem;
+    color: #ffc057;
+}
+.home .home_content .dream_info .progress .present_money{
+    position: absolute;
+    bottom: 1.00rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.24rem;
+    color: #999;
+}
+
+/* 修改的样式 */
+.home .home_content .dream_info .targetAndPrice{
+    width: 6.00rem;
+    margin: 0 auto;
+}
+.home .home_content .dream_info .targetAndPrice .target{
+    overflow: hidden;
+    height: 0.50rem;
+    line-height: 0.50rem;
+    position: relative;
+    margin-bottom: 0.56rem;
+}
+.home .home_content .dream_info .targetAndPrice .target div:nth-child(2){
+    position: absolute;
+    color: #999;
+    left: 0;
+    font-size: 0.26rem;
+}
+.home .home_content .dream_info .targetAndPrice .target div:nth-child(1) div{
+    width: 0.70rem;
+    height: 0.37rem;
+    display: inline-block;
+    margin-right: 0;
+    background-repeat: no-repeat;
+    background-size: 0.70rem 0.37rem; 
+}
+.copies{
+    margin-right: 0 !important;
+    line-height: 0.25rem;
+}
+.copies_money{
+    position: relative;
+    margin-right: 0!important;
+}
+.copies span{
+    font-size: 0.30rem;
+    top:0;
+    position: absolute;
+    left: 0.80rem;
+    color: #333;
+}
+.home .home_content .dream_info .targetAndPrice .target div:nth-child(1) div.icon_add{
+    right: 1.10rem;
+    top: 0.065rem;
+    background-image: url(http://tdream.antit.top/image/plus.png)
+}
+.home .home_content .dream_info .targetAndPrice .target div:nth-child(1) div.icon_incer{
+    position: absolute;
+    right: 0;
+    top: 0.065rem;
+    background-image: url(http://tdream.antit.top/image/substract.jpg)
+}
+
+.home .home_content .dream_info .targetAndPrice .target div:nth-child(1){
+    width: 1.80rem;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    margin-right: 0.24rem;
+    color: #00d094;
+    font-size: 0.38rem;
+}
+.dream .dream{
+    font-size: 0.30rem !important;
+    color: #333 !important;
+    margin-right: 0 !important;
+}
+.dream .icon_select{
+    width: 0.16rem !important;
+    height: 0.28rem !important;
+    position: absolute;
+    right: 0;
+    top: 0.11rem;
+    background: url(http://tdream.antit.top/image/arrow.png) no-repeat;
+    background-size: 0.16rem 0.28rem !important;
+}
+.price{
+    text-align: center;
+    font-size: 0.26rem;
+    color: #999;
+}
+.price span{
+    color: #00d094;
+    font-size: 0.36rem;
+}
+/* 参与互助--样式处理 */
+.home .home_content .dream_info .join_help{
+    border:none;
+    width: 6.00rem;
+    margin: 0 auto 0;
+    position: relative;
+    top: 0.34rem;
+    height: 0.78rem;
+    line-height: 0.78rem;
+    background-color: #00d094;
+    border-radius: 0.39rem;
+    font-size: 0.42rem;
+    color: #fff; 
+    outline: none;
+}
+.home .home_content .dream_info .tip_msg{
+    font-size: 0.20rem;
+    color: #999;
+    position: relative;
+    top: 0.25rem;
+}
+/* 分享按钮 */
+.share{
+    width: 0.39rem;
+    height: 0.43rem;
+    background: url(http://tdream.antit.top/image/share.jpg) no-repeat;
+    background-size: 0.39rem 0.43rem;
+    position: absolute;
+    top: 0.30rem;
+    right: 0.66rem;
+}
+/* 弹窗 */
+.home .mask{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.mask .mask_bg{
+    background-color: #fff;
+    width: 5.10rem;
+    min-height: 5.60rem;
+    position: absolute;
+    border-radius: 0.20rem;
+    left: 1.20rem;
+    top: 3.40rem;
+}
+.mask .mask_bg .icon_success{
+    width: 3.00rem;
+    height: 1.53rem;
+    margin: 0.30rem 1.05rem 0 1.05rem;
+}
+.mask .mask_bg .tip{
+    width: 3.30rem;
+    margin: 0.50rem auto;
+    text-align: center;
+    font-size: 0.28rem;
+    color: #4c4c4c;
+    white-space: normal
+}
+.mask .mask_bg .notice{
+    width: 4.66rem;
+    margin: 0 auto 0.38rem;
+    font-size: 0.22rem;
+    color: #808080;
+    text-align: center;
+    white-space: normal
+}
+.mask .mask_bg button{
+    border: none;
+    background-color: #00d094;
+    color: #fff;
+    width: 4.00rem;
+    height: 0.82rem;
+    border-radius: 0.41rem;
+    margin: 0 0.55rem;
+    line-height: 0.82rem;
+    font-size: 0.32rem;
+    margin-bottom: 0.5rem;
+}
+/* 关闭 */
+.mask .close{
+    width: 0.60rem;
+    height: 0.60rem;
+    position: absolute;
+    top: 0.70rem;
+    right: 0.30rem;
+}

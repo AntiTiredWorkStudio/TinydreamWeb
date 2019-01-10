@@ -1,0 +1,247 @@
+/* 小梦想样式表 */
+body{
+    width: 100%;
+    height: 100%;
+    background: #edf0f5;
+}
+/* 空梦想--样式处理 */
+.dream{
+    width: 100%;
+}
+.dream .empty{
+    width: 4.90rem;
+    margin: 1.48rem auto 0;
+    font-size: 0.32rem;
+    color: #fff;
+    text-align: center;
+    display: none;
+}
+.dream .empty .empty_bg{
+    width: 4.89rem;
+    height:1.83rem;
+    background: url(http://tdream.antit.top/image/empty.png) no-repeat;
+    margin-bottom: 0.27rem;
+    background-size: 4.89rem 1.83rem;
+}
+.dream .empty.show{
+    display: block;
+}
+/* 梦想主体--样式处理 */
+.dream .dream_main{
+    border-top: 0.02rem solid #cccac9;
+    display: none;
+    width: 100%;
+}
+/* 切换栏--样式处理 */
+.dream .dream_main .dreamTab{
+    width: 100%;
+    height: 0.88rem;
+    background-color: #fff;
+}
+.dream .dream_main .dreamTab .dream_type{
+    width: 5.42rem;
+    margin: 0 auto;
+    height: 100%;
+    line-height: 0.88rem;
+}
+.dream .dream_main .dreamTab .dream_type ul li{
+    font-size: 0.28rem;
+    color:#666;
+    width: 1.68rem;
+    height: 100%;
+    background-color: #fff;
+    border: none;
+    text-align: center;
+    line-height: 0.88rem;
+    border-radius: 0;
+    float: left;
+}
+.dream .dream_main .dreamTab .dream_type ul li:nth-child(2){
+    float:right;
+}
+/* .dream .dream_main .dreamTab .dream_type button.dream-small{
+    float: left;
+}
+.dream .dream_main .dreamTab .dream_type button.lucky-dream{
+    float: right;
+} */
+.dream .dream_main .dreamTab .dream_type li.active{
+    border-bottom: 0.02rem solid #00d094;
+    color: #00d094;
+}
+/* 梦想列表--样式处理 */
+.dream .dream_main .dream_list{
+    width: 100%;
+    margin-top: 0.20rem;
+}
+.dream .dream_main .dream_list .dream_info{
+    width: 6.90rem;
+    margin: 0 auto 0.20rem;
+    height: 2.20rem;
+    border-radius: 0.20rem;
+    background-color: #fff;
+}
+.dream .dream_main .dream_list .dream_info .dream_logo{
+    float: left;
+    width: 2.05rem;
+    height: 100%;
+    background: url(http://tdream.antit.top/image/dream_bg.png) no-repeat;
+    background-size: 2.05rem 2.20rem;
+}
+.dream .dream_main .dream_list .dream_right{
+    display: inline-block;
+    margin-left: 0.10rem;
+    height: 100%;
+}
+.dream .dream_main .dream_list .dream_right .dream_msg{
+    padding-top: 0.10rem;
+    padding-bottom: 0.20rem;
+    font-size: 0.30rem;
+    width: 4.24rem;
+    height: 1.00rem;
+    /* height: 128rem; */
+    border-bottom: 1px solid #f0f0f0;
+    box-sizing: unset
+}
+.dream .dream_main .dream_list .dream_right .dream_msg span{
+    width: 4.40rem;
+    display: inline-block;
+}
+.dream .dream_main .dream_list .dream_right .createTime{
+    width: 4.40rem;
+    margin-left: 0.10rem;
+    font-size: 0.27rem;
+    color: #808080;
+    margin-top: 0.20rem;
+    overflow: hidden;
+    position: relative;
+}
+.dream .dream_main .dream_list .dream_right .createTime .time{
+    position: absolute;
+    bottom: 0;
+}
+.dream .dream_main .dream_list .dream_right .createTime button{
+    border:none;
+    float: right;
+    width: 1.60rem;
+    height: 0.48rem;
+    background-color: #00d094;
+    color: #fff;
+    font-size: 0.24rem;
+    line-height: 0.48rem;
+    border-radius: 0.24rem;
+}
+.dream .dream_main.show{
+    display: block;  
+}
+/* 添加梦想按钮--样式处理 */
+.add{
+    position: absolute;
+    bottom: 1.88rem;
+    right: 0.50rem;
+    width: 1.46rem;
+    height: 1.46rem;
+    border-radius: 50%;
+    background: url(http://tdream.antit.top/image/add.png) no-repeat;
+    background-size: 1.46rem 1.46rem;
+}
+/* 幸运梦想列表--样式处理 */
+.luckyDream{
+    width: 6.90rem;
+    margin:0.20rem auto 0;
+    background-color: #fff;
+    border-radius: 0.20rem;
+    height: 2.00rem;
+    position: relative;
+}
+.luckyDream .dream_logo{
+   width: 2.20rem;
+   height: 2.00rem;
+   background: url(http://tdream.antit.top/image/y.png) no-repeat;
+   background-size: 2.20rem 2.00rem; 
+   float: left;
+   line-height: 2.00rem;
+   text-align: center;
+   font-size: 0.48rem;
+   color: #fff;
+}
+.luckyDream .dream_right{
+    display: inline-block;
+    margin-left: 0.10rem;
+    height: 100%;
+}
+.luckyDream .dream_msg{
+    padding-top: 0.10rem;
+    padding-bottom: 0.20rem;
+    font-size: 0.30rem !important;
+    width: 4.24rem !important;
+    height: 100rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+.luckyDream .dream_msg span{
+    display: inline-block;
+    width: 3.24rem !important;
+}
+.luckyDream .icon_success{
+    width: 0.84rem;
+    height: 0.84rem;
+    background: url(http://tdream.antit.top/image/success.png) no-repeat;
+    background-size: 0.84rem 0.84rem;
+    position: absolute;
+    top: 0.20rem;
+    right: 0.20rem;
+}
+.luckyDream .tip{
+    font-size: 0.24rem;
+    margin-top: 0.25rem;
+}
+
+.dream .footer{
+    height: 1.28rem;
+    border-top:1px solid #ddd;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+}
+.dream .footer ul li{
+    float: left;
+    width: 2.50rem;
+    text-align: center;
+    margin-top: 0.2rem;
+}
+.dream .footer ul li a{
+    color: #b2b2b2;
+    font-size: 0.22rem;
+}
+/* .dream .footer ul li p{
+    margin-top: 0.1rem;
+} */
+.dream .footer ul li .icon_home{
+    display: inline-block;
+    width: 0.38rem;
+    height: 0.42rem;
+    background: url(http://tdream.antit.top/image/nav_index_disable.png) no-repeat;
+    background-size: 0.38rem 0.42rem; 
+}
+.dream .footer ul li .icon_dream{
+    display: inline-block;
+    width: 0.38rem;
+    height: 0.42rem;
+    background: url(http://tdream.antit.top/image/nav_dream_disable.png) no-repeat;
+    background-size: 0.38rem 0.42rem; 
+}
+.dream .footer ul li .icon_user{
+    display: inline-block;
+    width: 0.38rem;
+    height: 0.42rem;
+    background: url(http://tdream.antit.top/image/nav_owner_disable.png) no-repeat;
+    background-size: 0.38rem 0.42rem; 
+}
+.dream .footer ul li.active a{
+    color:#00d094;
+}
+.dream .footer ul li.active .icon_dream{
+    background: url(http://tdream.antit.top/image/nav_dream.png) no-repeat;
+    background-size: 0.38rem 0.42rem; 
+}

@@ -1,0 +1,194 @@
+/* 完善梦想/添加梦想样式表 */
+body{
+    background-color: #f7f8fa;
+}
+.add{
+    border-top: 0.02rem solid #dedcdc;
+}
+.add .add_main{
+    width: 6.90rem;
+    margin: 0.40rem auto 0;
+}
+.add .add_main .title{
+    font-size: 0.36rem;
+    margin-bottom: 0.10rem;
+}
+.add .add_main .type{
+    font-size: 0.26rem;
+    color: #999;
+    margin-bottom: 0.20rem;
+}
+.add .add_main .dream_title{
+    box-shadow: 0.02rem 0rem 0.2rem 0.02rem rgba(0, 54, 208, .05),-0.02rem 0 0.2rem 0.02rem rgba(0, 54, 208, .05),0 0.02rem 0.2rem 0.02rem rgba(0, 54, 208, .05),0 -0.02rem 0.2rem 0.02rem rgba(0, 54, 208, .05);
+    width: 100%;
+    height: 0.88rem;
+    background-color: #fff;
+    border-radius: 0.10rem;
+    line-height: 0.88rem;
+    color: #ccc;
+    font-size: 0.30rem;
+    margin-bottom: 0.40rem;
+}
+.add .add_main .dream_title input{
+    width: 6.50rem;
+    padding: 0.20rem;
+    border: none;
+    outline: 0;
+}
+.add .add_main .info{
+    margin-bottom: 0.20rem;
+}
+.add .add_main .dream_info{
+    width: 6.90rem;
+    height: 2.60rem;
+}
+.add .add_main .dream_info textarea{
+    width: 6.50rem;
+    height: 2.40rem;
+    padding: 0.20rem;
+    font-size: 0.30rem;
+    line-height: normal;
+    padding-bottom:0; 
+    border: none;
+    outline: 0;
+    border-radius: 0.01rem;
+}
+.add .add_main .upload span{
+    font-size: 0.22rem;
+    color: #00d094;
+}
+.add .add_main .btns button{
+    border: none;
+    outline: 0;
+    background-color: #fff;
+    display: inline-block;
+    height: 0.88rem;
+    width: 2.80rem;
+    line-height: 0.88rem;
+    text-align: center;
+    box-shadow: 0.02 0rem 0.2rem 0.02 rgba(0, 54, 208, .05),-0.02 0 0.2rem 0.02 rgba(0, 54, 208, .05),0 0.02 0.2rem 0.02 rgba(0, 54, 208, .05),0 -0.02 0.2rem 0.02 rgba(0, 54, 208, .05);
+}
+.add .add_main .btns div{
+    font-size: 0.24rem;
+    float: right;
+    height: 0.88rem;
+    line-height: 0.88rem;
+    margin-right: 0.50rem;
+}
+.add .add_main .btns div span{
+    color: #00d094;
+    text-decoration: underline;
+}
+.add .add_main .text{
+    margin-top: 1.20rem;
+    margin-bottom: 0.60rem;
+    font-size: 0.30rem;
+    color: #999;
+}
+.add .add_main .text .tip{
+    text-indent: 0.02em;
+}
+.add .add_main button.submit {
+    height: 100%;
+    width: 5rem;
+    margin: 0 1rem;
+    color: #fff;
+    text-align: center;
+    font-size: 0.26rem;
+    line-height: 0.88rem;
+    background-color: #00d094;
+    margin-bottom: 0.50rem;
+    margin-top: 0.50rem;
+}
+.add .add_main .area{
+    font-size: 0.26rem;
+    color: #999;
+    text-align: center;
+    
+}
+.add .add_main .area{
+    line-height: 0.17rem;
+}
+.add .add_main .area span{
+    color: #00d094;
+}
+
+.check{
+    width: 0.20rem;
+    height: 0.20rem;
+    margin-right: 0.20rem;
+    position: relative;
+    top: -0.04rem;
+    border:0.04rem solid #00d094;
+}
+
+/* 遮罩层 */
+.mask{
+    position: absolute;
+    left: 0;
+    height: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, .5);
+    display: block;
+}
+.close{
+    width: 0.50rem;
+    height: 0.50rem;
+    position: absolute;
+    bottom: 0.68rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border:0.08rem solid #fff;
+    color: #fff;
+    text-align: center;
+    line-height: 0.50rem;
+    font-size: 0.40rem;
+    font-weight: bolder;
+}
+/* 提交成功--样式处理 */
+.submit_mask{
+    background-color: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* display: none; */
+}
+.submit_mask .bg{
+    width: 5.10rem;
+    height: 3.26rem;
+    padding-top: 2.64rem;
+    background: url(http://tdream.antit.top/image/detial.png) no-repeat;
+    background-size: 5.10rem 6.00rem; 
+    position: absolute;
+    top: 3.40rem;
+    left: 1.20rem;
+    padding-bottom: 0.30rem;
+}
+.submit_mask .bg .title{
+    margin-top: 0.30rem;
+    text-align: center;
+    font-size: 0.28rem;
+    margin-bottom: 0.10rem; 
+}
+.submit_mask .bg .text{
+    width: 3.66rem;
+    margin: 0 auto;
+    font-size: 0.22rem;
+    text-align: center;
+    color: #808080;
+    margin-bottom: 0.26rem;
+    line-height: 0.40rem;
+}
+.submit_mask button{
+    background-color: #00d094;
+    color: #fff;
+    font-size: 0.32rem;
+    height: 0.82rem;
+    line-height: 0.82rem;
+    border-radius: 0.41rem;
+    width: 4.00rem;
+    margin: 0 auto;
+}

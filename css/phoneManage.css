@@ -1,0 +1,93 @@
+/* 手机号管理--样式处理 */
+.phoneMangement{
+    border-top: 0.02rem solid #d6d4d3;
+
+}
+.title{
+    margin-top: 0.80rem;
+    text-align: center;
+    font-size: 0.36rem;
+}
+.oldPhoneNum{
+    font-size: 0.30rem;
+    color: #bababa;
+    margin-top: 0.20rem;
+    text-align: center;
+}
+.phoneNum{
+    width: 6.30rem;
+    margin: 0 auto;
+    border-bottom: 0.02rem solid #00d6a7;
+    padding-bottom: 0.20rem;
+}
+.phoneNum .icon{
+    width: 0.44rem;
+    height: 0.60rem;
+    display: inline-block;
+    margin-right: 0.35rem;
+    background: url(http://tdream.antit.top/image/tele.png) no-repeat;
+    background-size: 0.44rem 0.60rem;
+    vertical-align: middle;
+}
+.phoneNum input{
+    display: inline-block;
+    font-size: 0.32rem;
+    color: #b2b2b2;
+    border: none;
+    outline: 0;
+}
+.auth_code{
+    border-bottom: 0.02rem solid #ccc;
+    width: 6.30rem;
+    margin: 0 auto;
+    padding-top: 0.70rem;
+    padding-bottom: 0.20rem;
+    position: relative
+}
+.auth_code .icon{
+    width: 0.49rem;
+    height: 0.41rem;
+    display: inline-block;
+    margin-right: 0.35rem;
+    background: url(http://tdream.antit.top/image/mail_grey.png) no-repeat;
+    background-size: 0.49rem 0.41rem;
+    vertical-align: middle;
+    outline: 0;
+}
+.auth_code .icon.focus{
+    background: url(http://tdream.antit.top/image/mail_green.png);
+    background-size: 0.49rem 0.41rem;
+}
+.auth_code input{
+    display: inline-block;
+    font-size: 0.32rem;
+    color: #b2b2b2;
+    border:none;
+    outline: 0;
+}
+button{
+    border: none;
+    color: #fff;
+    background-color: #00d6a7;
+    margin: 0 0.45rem;
+    margin-top: 5.34rem;
+    height: 0.78rem;
+    line-height: 0.78rem;
+    border-radius: 0.39rem;
+    width: 6.60rem;
+}
+.auth_code button{
+    width: 1.80rem;
+    height: 0.58rem;
+    font-size: 0.30rem;
+    line-height: 0.58rem;
+    border-radius: 0.29rem;
+    position: absolute;
+    margin: 0;
+    top: 0.53rem;
+    right: 0;
+}
+.auth_code button.disabled{
+    background-color: #c0c0c0;
+    color: #999;
+}
