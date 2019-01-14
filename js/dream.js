@@ -5,10 +5,13 @@ $(function(){
         uid:userInfo.openid
     },function(code,data){
         if(code == 0){
-            console.log(data)
+            if(data.dreams == null || ""){
+                $('.empty').show();
+                $('.dream_main').hide();
+            }
         }
     },function(code,data){
-        console.log(data);
+        console.log("缺少参数"+data.context);
     })
     // 查看小梦想详情
     $('.view').click(function(){
