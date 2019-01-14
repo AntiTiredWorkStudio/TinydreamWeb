@@ -21,6 +21,7 @@ $(function(){
        //请求失败的处理
        if(code != 0){
            alert("请求缺少参数"+data)
+           console.log(data)
        }
       }
     );
