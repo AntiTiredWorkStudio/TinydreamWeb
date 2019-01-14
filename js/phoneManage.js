@@ -96,7 +96,7 @@ $(function(){
             },function(code,data){
                 if(code == 0){
                     $('.tip').html('绑定成功').show().delay(1000).hide(1000);
-                    window.reload();
+                    window.location.reload();
                 }
             },function(code,data){
                 if(code == 2){
