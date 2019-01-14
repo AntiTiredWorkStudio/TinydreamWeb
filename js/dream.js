@@ -5,7 +5,8 @@ $(function(){
         uid:userInfo.openid
     },function(code,data){
         if(code == 0){
-            if(data.dreams == null || ""){
+            if(data.dreams.length == 0){
+                console.log(123)
                 $('.empty').show();
                 $('.dream_main').hide();
             }
