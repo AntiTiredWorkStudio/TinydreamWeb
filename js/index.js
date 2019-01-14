@@ -2,8 +2,23 @@ $(function(){
      // 检测是否登录
      WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){//result:请求状态,data 请求结果
-           console.log(Options.GetUserInfo());
+           var userInfo = Options.GetUserInfo();
            $('#test').html(JSON.stringify(Options.GetUserInfo()));
+           TD_Request("us", "enter", {
+               uid:userInfo.openid,
+               nickname:userInfo.nickname,
+               headicon:userInfo.headimgurl
+           }, function (code, data) {
+            //请求成功的处理
+            if(code == 0) {
+                console.log(data)
+            }
+          }, function (code, data) {
+            // 请求失败的处理
+            if(code!=0){
+                alert("登录失败，参数错误"+data.context)
+            }
+          })
         }
     );
     var canvas = document.getElementById('canvas');
