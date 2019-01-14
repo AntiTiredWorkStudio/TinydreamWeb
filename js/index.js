@@ -1,7 +1,7 @@
 $(function(){
     // 检测是否登录
     var userInfo = Options.GetUserInfo();
-    console.log(userinfo)
+    console.log(userInfo)
     TD_Request("us", "enter",
       {
         uid: userInfo.openid,
