@@ -4,7 +4,7 @@ $(function(){
     TD_Request("dr","dlist",{
         uid:userInfo.openid
     },function(code,data){
-        if(code == 1){
+        if(code == 0){
             console.log(data)
         }
     },function(code,data){
