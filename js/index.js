@@ -15,7 +15,6 @@ $(function(){
             //请求成功的处理
             if(code == 0) {
                 // 首页公屏
-                alert(data.description);
                 let buyinfo = data.buyinfo;
                 console.log(buyinfo)
                 if(buyinfo == "" || null){
