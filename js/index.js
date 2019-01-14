@@ -53,8 +53,8 @@ $(function(){
                     e.stopPropagation();
                     console.log(data)
                     TD_Request("ds","buy",{
-                        uid:data.openid,
-                        pid:data.pid
+                        uid:data.selfifno.uid,
+                        pid:data.mainpool.pid
                     },function(code,data){
                         console.log(code,data)
                     },function(code,data){
