@@ -8,7 +8,7 @@ $(function(){
                 {
                   uid: userInfo.openid,
                   nickname: userInfo.nickname,
-                  headicon: userInfo.headimgur,
+                  headicon: userInfo.headimgurl,
                 }, function (code, data) {
                 // 请求成功的处理
                     if(code == 0){
