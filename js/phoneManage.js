@@ -82,6 +82,7 @@ $(function(){
     })
     // 绑定手机
     $('.submit').click(function(){
+        console.log(111)
         if($('.phoneNum input').val() == "" || null){
             $('tip').html('手机号不能为空').show().delay(200).hide();
             return;
