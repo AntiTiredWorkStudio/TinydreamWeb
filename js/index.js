@@ -14,20 +14,18 @@ $(function(){
                     if(code == 0){
                         alert(data.description);
                         console.log(data)
+                        // 公屏
+                        // var buyInfo = data
                     }
                 }, function (code, data) {
                     //请求失败的处理
                     if(code != 0){
                         alert("请求缺少参数"+data.context)
-                        console.log(data)
                     }
                 }
             );
         }
     );
-    var buyInfo = Options.GetUserInfo();
-    // 屏幕滚动
-    console.log(buyInfo)
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext("2d");
     ready();
