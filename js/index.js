@@ -1,12 +1,4 @@
 $(function(){
-    // 检测是否登录
-    WebApp.Init('wxc5216d15dd321ac5',
-    function(result,data){
-        console.log(Options.GetUserInfo());
-            $('#test').html(JSON.stringify(Options.GetUserInfo()));
-        }
-    );
-    var userInfo = Options.GetUserInfo();
     TD_Request("us", "enter",
       {
         uid: userInfo.openid,
@@ -20,7 +12,7 @@ $(function(){
       }, function (code, data) {
        //请求失败的处理
        if(code != 0){
-           alert("请求缺少参数"+data)
+           alert("请求缺少参数"+data.context)
            console.log(data)
        }
       }
