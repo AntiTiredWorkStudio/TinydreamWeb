@@ -13,6 +13,7 @@ $(function(){
            }, function (code, data) {
             //请求成功的处理
             if(code == 0) {
+                // 首页公屏
                 alert(data.description);
                 let buyinfo = data.buyinfo;
                 console.log(buyinfo)
@@ -32,6 +33,8 @@ $(function(){
                         $dom.appendTo('.cont');
                     })
                 }
+                // 梦想互助池
+                console.log(data)
             }
           }, function (code, data) {
             // 请求失败的处理
