@@ -22,11 +22,11 @@ $(function(){
                     console.log(templateStr)
                     var complid = _.template(templateStr);
                     _.each(buyinfo,function(item){
+                        console.log(buyinfo.length)
                         console.log(item)
                         var str = complid(item);
                         $dom = $(str);
                         $dom.appendTo('.cont');
-                        console.log(item.length);
                     })
                 }
             }
