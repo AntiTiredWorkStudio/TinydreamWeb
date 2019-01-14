@@ -58,7 +58,7 @@ $(function(){
                     },function(code,data){
                         console.log(data)
                     },function(code,data){
-                        
+                        console.log(data)
                     })
                 })
             }
