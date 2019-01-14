@@ -76,11 +76,10 @@ $(function(){
                 })
                 // 倒计时
                 var sec = data.mainpool.duration;
-                var dd = parseInt(sec / (1000 * 60 * 60 * 24));
-                var dh = parseInt(sec % (1000 * 60 * 60 * 24) /  (1000 * 60 * 60));
-                var dm = parseInt(sec % (1000 * 60 * 60) /  (1000 * 60));
-                var ds = sec % (1000 * 60) / 1000;
-                console.log(sec,dd,dh,dm,ds); 
+                var dh = parseInt(sec % (1000 * 60 * 60) /  (1000 * 60));
+                var dm = parseInt(sec % (1000 * 60) /  1000);
+                var ds = sec % 1000;
+                console.log(sec,dh,dm,ds); 
             }
           }, function (code, data) {
             // 请求失败的处理
