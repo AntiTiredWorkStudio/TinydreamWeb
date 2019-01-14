@@ -76,9 +76,9 @@ $(function(){
                 })
                 // 倒计时
                 var sec = data.mainpool.duration;
-                var dh = parseInt(sec % (1000 * 60 * 60) /  (1000 * 60));
-                var dm = parseInt(sec % (1000 * 60) /  1000);
-                var ds = sec % 1000;
+                var dh = parseInt(sec % (60 * 60) / 60);
+                var dm = parseInt(sec % 60);
+                var ds = sec;
                 console.log(sec,dh,dm,ds); 
             }
           }, function (code, data) {
