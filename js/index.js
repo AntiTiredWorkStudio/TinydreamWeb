@@ -1,4 +1,18 @@
 $(function(){
+    // 检测是否登录
+    var userInfo = Options.GetUserInfo();
+    console.log(userinfo)
+    TD_Request("us", "enter",
+      {
+        uid: userInfo.openid,
+        nickname: userInfo.nickname,
+        headicon: userInfo.headicon,
+      }, function (code, data) {
+        //请求成功的处理
+      }, function (code, data) {
+       //请求失败的处理
+      }
+    );
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext("2d");
     ready();
