@@ -25,7 +25,7 @@ $(function(){
                         console.log(item)
                         var str = complid(item);
                         $dom = $(str);
-                        $dom.appendTo('.info');
+                        $dom.appendTo('.cont');
                     })
                 }
             }
