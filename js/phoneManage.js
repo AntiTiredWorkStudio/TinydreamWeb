@@ -56,6 +56,7 @@ $(function(){
             console.log(data);
         },function(code,data){
             // 请求失败
+            console.log(data);
             console.log('发送失败')
         })
         // 进行网络请求
