@@ -62,7 +62,7 @@ $(function(){
                         pid:data.mainpool.pid
                     },function(code,data){
                         if(code == 0 || data.result == true){
-                            localStorage.setItem('buy',data.actions);
+                            localStorage.setItem('buy',JSON.stringify(data.actions));
                             window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
                         }
                     },function(code,data){
