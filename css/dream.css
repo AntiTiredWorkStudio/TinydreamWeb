@@ -260,11 +260,10 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%,-55%);
     background: #fff;
     min-height: 7.5rem;
     padding: 0.5rem 0;
-    transform: translateY(-55%);
 }
 .mask .mask_main p{
     width: 6.6rem;
