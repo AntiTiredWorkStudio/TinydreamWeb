@@ -94,3 +94,10 @@ button{
     background-color: #c0c0c0;
     color: #999;
 }
+/* 信息提示 */
+.tip{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
