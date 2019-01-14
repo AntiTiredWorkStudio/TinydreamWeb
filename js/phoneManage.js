@@ -50,9 +50,9 @@ $(function(){
     // 获取手机验证码
     $('.getCode').click(function(){
         var num = 60;
+        $(this).addClass('disabled').html(num+'s').attr('disabled');
         var timer = setInterval(function(){
-            num--;
-            $(this).addClass('disabled').html(num+'s').attr('disabled');
+            num = num--;
             if(num<10){
                 num = "0"+num;
                 $(this).html(num+'s');
