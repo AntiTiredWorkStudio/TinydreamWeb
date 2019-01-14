@@ -55,7 +55,7 @@ $(function(){
             // 请求成功
             console.log(data);
             if(data.sresult.status == "OK"){
-                $('.tip').html('验证码已发送，请注意查收').show().hide(200);
+                $('.tip').html('验证码已发送，请注意查收').show().delay(1000).hide(100);
             }
         },function(code,data){
             // 请求失败
@@ -85,10 +85,10 @@ $(function(){
         console.log(111)
        console.log($('.phoneNum input').val())
         if($('.phoneNum input').val() == "" || null){
-            $('.tip').html('手机号不能为空').show().hide(200);
+            $('.tip').html('手机号不能为空').show().delay(1000).hide(100);
             return;
         }else if($('.auth_code input').val() == "" || null){
-            $('.tip').html('验证码不能为空').show().hide(200);
+            $('.tip').html('验证码不能为空').show().delay(1000).hide(100);
             return;
         }else{
             TD_Request('va','bind',{
