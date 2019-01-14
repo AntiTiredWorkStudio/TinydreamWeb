@@ -28,6 +28,7 @@ $(function(){
                         console.log(item.ptime)
                         var date = new Date().getTime() / 1000;
                         var timer = DescriptionTime(date - item.ptime);
+                        item.timer = timer;
                         console.log(timer);
                         console.log(date);
                         var str = complid(item);
