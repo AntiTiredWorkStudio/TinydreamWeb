@@ -14,6 +14,16 @@ $(function(){
                 alert(data.description);
                 let buyinfo = data.buyinfo;
                 console.log(buyinfo)
+                if(buyinfo == "" || null){
+                    $('.tip').show();
+                }else{
+                    $('.tip').hide();
+                    var templateStr = $('#template').html();
+                    var complid = _.template(templateStr);
+                    _.each(buyinfo,function(item){
+                        console.log(item)
+                    })
+                }
             }
           }, function (code, data) {
             // 请求失败的处理
