@@ -48,9 +48,9 @@ $(function(){
                 drawCircle(ctx,prop);
                 // 遮罩层
                 if(!data.award.result){
-                    $('.mask').fadeIn();
-                }else{
                     $('.mask').hide();
+                }else{
+                    $('.mask').fadeIn();
                 }
                 // 点击参与互助
                 // 参与互助
