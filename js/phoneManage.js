@@ -49,6 +49,16 @@ $(function(){
     })
     // 获取手机验证码
     $('.getCode').click(function(){
+        TD_Request("va","getcode",{
+            tele:$('.phoneNum input').val()
+        },function(code,data){
+            // 请求成功
+            console.log(data);
+        },function(code,data){
+            // 请求失败
+            console.log('发送失败')
+        })
+        // 进行网络请求
         var num = 60;
         $(this).addClass('disabled').html(num+'s').attr('disabled');
         var timer = setInterval(function(){
