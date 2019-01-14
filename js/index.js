@@ -34,7 +34,17 @@ $(function(){
                     })
                 }
                 // 梦想互助池
-                console.log(data)
+                var mainpool = data.mainpool;
+                // 标题
+                $('.title').html(mainpool.ptitle);
+                // 目标互助金
+                $('.help_number').html(mainpool.tbill);
+                // 当前互助累计金额
+                $('.money_number').html("￥"+mainpool.cbill);
+                // 单价
+                $('.price_number').html(mainpool.ubill+"元/份")
+                ready();
+                drawCircle(ctx);
             }
           }, function (code, data) {
             // 请求失败的处理
@@ -47,8 +57,6 @@ $(function(){
     );
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext("2d");
-    ready();
-    drawCircle(ctx);
     function ready(){
         var canvas = document.getElementById('bottom');
         var cxt_arc = canvas.getContext("2d");
