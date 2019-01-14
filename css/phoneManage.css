@@ -1,4 +1,7 @@
 /* 手机号管理--样式处理 */
+body{
+    background: #fff;
+}
 .phoneMangement{
     border-top: 0.02rem solid #d6d4d3;
 
