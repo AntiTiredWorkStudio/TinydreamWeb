@@ -368,3 +368,11 @@ body{
     background: url(http://tdream.antit.top/image/nav_index.png) no-repeat;
     background-size: 0.38rem 0.42rem; 
 }
+/* 弹窗 */
+.mask{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0.5);
+    position: relative;
+    z-index: 999;
+}
