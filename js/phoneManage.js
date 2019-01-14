@@ -96,7 +96,7 @@ $(function(){
             },function(code,data){
                 if(code == 0){
                     $('.tip').html('绑定成功').show().delay(1000).hide(1000);
-                    window.location.reload();
+                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";
                 }
             },function(code,data){
                 if(code == 2){
