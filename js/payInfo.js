@@ -1,5 +1,5 @@
 $(function(){
-    var buy = localStorage.getItem('buy');
+    var buy = JSON.parse(localStorage.getItem('buy'));
     console.log(buy);
     ready();
     var canvas = document.getElementById('canvas');
