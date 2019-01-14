@@ -12,6 +12,7 @@ $(function(){
                 }, function (code, data) {
                 // 请求成功的处理
                     if(code == 0){
+                        alert(data.description);
                         console.log(data)
                     }
                 }, function (code, data) {
