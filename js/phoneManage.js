@@ -55,7 +55,7 @@ $(function(){
             // 请求成功
             console.log(data);
             if(data.sresult.status == "OK"){
-                $('tip').html('验证码已发送，请注意查收').show().delay(200).hide();
+                $('tip').html('验证码已发送，请注意查收').show().hide(200);
             }
         },function(code,data){
             // 请求失败
@@ -83,11 +83,12 @@ $(function(){
     // 绑定手机
     $('.submit').click(function(){
         console.log(111)
+        console.log()
         if($('.phoneNum input').val() == "" || null){
-            $('tip').html('手机号不能为空').show().delay(200).hide();
+            $('tip').html('手机号不能为空').show().hide(200);
             return;
         }else if($('.auth_code input').val() == "" || null){
-            $('tip').html('验证码不能为空').show().delay(200).hide();
+            $('tip').html('验证码不能为空').show().hide(200);
             return;
         }else{
             TD_Request('va','bind',{
