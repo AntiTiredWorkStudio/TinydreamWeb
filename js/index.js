@@ -7,7 +7,7 @@ $(function(){
         }
     );
     login();
-    console.log(login)
+    console.log(login())
     TD_Request("us", "enter",
       {
         uid: userInfo.openid,
