@@ -50,12 +50,12 @@ $(function(){
     // 获取手机验证码
     $('.getCode').click(function(){
         var num = 60;
-        $(this).addClass('disabled').html(num).attr('disabled');
         var timer = setInterval(function(){
             num--;
+            $(this).addClass('disabled').html(num+'s').attr('disabled');
             if(num<10){
                 num = "0"+num;
-                $(this).html(num);
+                $(this).html(num+'s');
             }
             if(num <= 0){
                 num = 0;
