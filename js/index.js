@@ -93,6 +93,7 @@ $(function(){
     // 参与互助
     $('.join').click(function(e){
         e.stopPropagation();
+        var userInfo = Options.GetUserInfo();
         TD_Request("ds","buy",{
             uid:userInfo.openid,
             pid:userInfo.pid
