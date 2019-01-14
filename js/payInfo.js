@@ -1,5 +1,5 @@
 $(function(){
-    DT_Request("ds", "ord", {
+    TD_Request("ds", "ord", {
       action:JSON.parse(localStorage.getItem('buy'))
     }, function(code,data){
       // 请求成功
