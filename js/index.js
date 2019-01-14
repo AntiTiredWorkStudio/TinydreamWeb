@@ -25,7 +25,7 @@ $(function(){
             );
         }
     );
-    var buyInfo = Options.GetUserInfo().buyinfo;
+    var buyInfo = Options.GetUserInfo();
     // 屏幕滚动
     console.log(buyInfo)
     var canvas = document.getElementById('canvas');
