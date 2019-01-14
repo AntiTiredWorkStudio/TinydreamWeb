@@ -11,12 +11,17 @@ $(function(){
       {
         uid: userInfo.openid,
         nickname: userInfo.nickname,
-        headicon: userInfo.headimgurl,
+        headicon: userInfo.headimgur,
       }, function (code, data) {
-        console.log(code)
-        console.log(data)
+        // 请求成功的处理
+          if(code == 0){
+              console.log(data)
+          }
       }, function (code, data) {
        //请求失败的处理
+       if(code != 0){
+           alert("请求缺少参数"+data)
+       }
       }
     );
     var canvas = document.getElementById('canvas');
