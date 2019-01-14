@@ -11,7 +11,7 @@ $(function(){
       {
         uid: userInfo.openid,
         nickname: userInfo.nickname,
-        headicon: userInfo.headicon,
+        headicon: userInfo.headimgurl,
       }, function (code, data) {
         console.log(code)
         console.log(data)
