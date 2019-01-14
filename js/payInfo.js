@@ -1,6 +1,7 @@
 $(function(){
+    var buy = JSON.parse(localStorage.getItem('buy'))
     TD_Request("ds", "ord", {
-      action:JSON.parse(localStorage.getItem('buy'))
+      action:buy
     }, function(code,data){
       // 请求成功
       if(code == 0){
