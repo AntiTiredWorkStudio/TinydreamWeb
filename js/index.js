@@ -47,6 +47,19 @@ $(function(){
                 var prop = (mainpool.cbill / 100) / (mainpool.tbill / 100);
                 ready();
                 drawCircle(ctx,prop);
+                // 点击参与互助
+                // 参与互助
+                $('.join').click(function(e){
+                    e.stopPropagation();
+                    TD_Request("ds","buy",{
+                        uid:data.openid,
+                        pid:data.pid
+                    },function(code,data){
+                        console.log(code,data)
+                    },function(code,data){
+                        console.log(code,data);
+                    })
+                })
             }
           }, function (code, data) {
             // 请求失败的处理
@@ -89,18 +102,5 @@ $(function(){
     $('.help').click(function(e){
         e.stopPropagation();
         window.location.href="html/dreamHelp.html"
-    })
-    // 参与互助
-    $('.join').click(function(e){
-        e.stopPropagation();
-        var userInfo = Options.GetUserInfo();
-        TD_Request("ds","buy",{
-            uid:userInfo.openid,
-            pid:userInfo.pid
-        },function(code,data){
-            console.log(data)
-        },function(code,data){
-            console.log(code);
-        })
     })
 })
