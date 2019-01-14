@@ -26,7 +26,8 @@ $(function(){
                     _.each(buyinfo,function(item){
                         console.log(buyinfo.length)
                         console.log(item.ptime)
-                        console.log(currenttimeStamp)
+                        var date = new Date();
+                        console.log(date);
                         var str = complid(item);
                         $dom = $(str);
                         $dom.appendTo('.cont');
