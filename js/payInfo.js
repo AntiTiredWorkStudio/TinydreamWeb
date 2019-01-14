@@ -3,7 +3,7 @@ $(function(){
       action:JSON.parse(localStorage.getItem('buy'))
     }, function(code,data){
       // 请求成功
-      if(code == 1){
+      if(code == 0){
         console.log(data)
       }
     }, function(code,data){
