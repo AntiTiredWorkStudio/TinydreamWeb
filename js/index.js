@@ -7,14 +7,14 @@ $(function(){
         }
     );
     var userInfo = Options.GetUserInfo();
-    console.log(userInfo)
     TD_Request("us", "enter",
       {
         uid: userInfo.openid,
         nickname: userInfo.nickname,
         headicon: userInfo.headicon,
       }, function (code, data) {
-        //请求成功的处理
+        console.log(code)
+        console.log(data)
       }, function (code, data) {
        //请求失败的处理
       }
