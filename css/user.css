@@ -194,7 +194,7 @@ body{
 }
 .user .plate .module .block .block_main .icon_question{
     height: 0.66rem;
-    background: url(http://tdream.antit.top/image/question.png) no-repeat center center;
+    background: url(../images/question.png) no-repeat center center;
     background-size: 0.66rem 0.66rem;
 }
 .user .footer{
