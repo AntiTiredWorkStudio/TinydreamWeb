@@ -56,16 +56,9 @@ $(function(){
                         uid:data.selfinfo.uid,
                         pid:data.mainpool.pid
                     },function(code,data){
-                        if(!data.result){
-                            alert("您好，你还"+data.context+"绑定后才能继续参与互助");
-                            window.location.href = "../html/payInfo.html";
-                        }else{
-                            window.location.href = "../html/payInfo.html";
-                        }
+                        console.log(data)
                     },function(code,data){
-                        if(data.code != 0){
-                            alert("参数错误"+data.context)
-                        }
+                        
                     })
                 })
             }
