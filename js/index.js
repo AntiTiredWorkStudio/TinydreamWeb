@@ -25,7 +25,7 @@ $(function(){
                     var complid = _.template(templateStr);
                     _.each(buyinfo,function(item){
                         console.log(buyinfo.length)
-                        console.log(item)
+                        console.log(item.ptime)
                         var str = complid(item);
                         $dom = $(str);
                         $dom.appendTo('.cont');
