@@ -24,6 +24,6 @@ $(function(){
     })
     // 添加梦想
     $('.add').click(function(){
-        window.location.href="../html/add.html";
+        $('.close').fadeIn();
     })
 })
