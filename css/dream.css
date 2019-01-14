@@ -245,3 +245,54 @@ body{
     background: url(http://tdream.antit.top/image/nav_dream.png) no-repeat;
     background-size: 0.38rem 0.42rem; 
 }
+/* 梦想发布弹窗 */
+.mask{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.mask .mask_main{
+    width: 6.8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    min-height: 7.5rem;
+    padding: 0.5rem 0;
+}
+.mask .mask_main p{
+    width: 6.6rem;
+    margin: 0.2rem auto 0;
+    font-size: 0.3rem;
+    text-align: center;
+}
+.mask .mask_main .area{
+    font-size: 0.3rem;
+    color: #999;
+    width: 6rem;
+}
+.mask .mask_main p input,textarea{
+    resize: none;
+    margin-top: 0.2rem;
+    width: 6rem;
+    border:0.02rem solid #00d094;
+    outline: 0;
+    padding: 0.2rem;
+}
+.mask .mask_main p .check{
+    width: 0.3rem;
+    height: 0.3rem;
+    background-color: #00a094;
+}
+.mask .mask_main p button{
+    width: 6.5rem;
+    height: 0.68rem;
+    border-radius: 0.34rem;
+    background-color: #00d094;
+    color: #fff;
+    line-height: 0.68rem;
+}
