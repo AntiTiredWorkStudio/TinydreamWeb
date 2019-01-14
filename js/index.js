@@ -1,30 +1,28 @@
 $(function(){
      // 检测是否登录
     WebApp.Init('wxc5216d15dd321ac5',
-        function login(result,data){
+        function(result,data){
             var userInfo = Options.GetUserInfo();
             $('#test').html(JSON.stringify(Options.GetUserInfo())); 
+            TD_Request("us", "enter",
+                {
+                  uid: userInfo.openid,
+                  nickname: userInfo.nickname,
+                  headicon: userInfo.headimgur,
+                }, function (code, data) {
+                // 请求成功的处理
+                    if(code == 0){
+                        console.log(data)
+                    }
+                }, function (code, data) {
+                    //请求失败的处理
+                    if(code != 0){
+                        alert("请求缺少参数"+data.context)
+                        console.log(data)
+                    }
+                }
+            );
         }
-    );
-    login();
-    console.log(login())
-    TD_Request("us", "enter",
-      {
-        uid: userInfo.openid,
-        nickname: userInfo.nickname,
-        headicon: userInfo.headimgur,
-      }, function (code, data) {
-        // 请求成功的处理
-          if(code == 0){
-              console.log(data)
-          }
-      }, function (code, data) {
-       //请求失败的处理
-       if(code != 0){
-           alert("请求缺少参数"+data.context)
-           console.log(data)
-       }
-      }
     );
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext("2d");
