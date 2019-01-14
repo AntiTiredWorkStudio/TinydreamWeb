@@ -1,11 +1,13 @@
 $(function(){
      // 检测是否登录
-     WebApp.Init('wxc5216d15dd321ac5',
+     var userInfo = WebApp.Init('wxc5216d15dd321ac5',
         function(result,data){
-            var userInfo = Options.GetUserInfo();
+            return Options.GetUserInfo();
             $('#test').html(JSON.stringify(Options.GetUserInfo()));
+            console.log(userInfo)
         }
     );
+    console.log(userInfo)
     TD_Request("us", "enter",
       {
         uid: userInfo.openid,
