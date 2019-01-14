@@ -6,13 +6,17 @@ $(function(){
     },function(code,data){
         if(code == 0){
             if(data.dreams.length == 0){
-                console.log(123)
                 $('.empty').show();
                 $('.dream_main').hide();
             }
         }
     },function(code,data){
         console.log("缺少参数"+data.context);
+    })
+    // 关闭弹窗
+    $('.close').click(function(e){
+        e.stopPropagation();
+        $(this).delay(1000).hide(100)
     })
     // 查看小梦想详情
     $('.view').click(function(){
