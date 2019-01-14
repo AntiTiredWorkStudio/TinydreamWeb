@@ -50,7 +50,7 @@ $(function(){
                 // 点击参与互助
                 // 参与互助
                 $('.join').click(function(e){
-                    e.stopPropagation();\
+                    e.stopPropagation();
                     console.log(data)
                     TD_Request("ds","buy",{
                         uid:data.openid,
