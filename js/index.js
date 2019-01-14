@@ -19,6 +19,7 @@ $(function(){
                 }else{
                     $('.tip').hide();
                     var templateStr = $('#template').html();
+                    console.log(templateStr)
                     var complid = _.template(templateStr);
                     _.each(buyinfo,function(item){
                         console.log(item)
