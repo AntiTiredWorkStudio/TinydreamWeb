@@ -51,7 +51,7 @@ $(function(){
                 // 参与互助
                 $('.join').click(function(e){
                     e.stopPropagation();
-                    console.log(data)
+                    // console.log(data)
                     TD_Request("ds","buy",{
                         uid:data.selfinfo.uid,
                         pid:data.mainpool.pid
