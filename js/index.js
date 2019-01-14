@@ -1,5 +1,11 @@
 $(function(){
-    wxLogin();
+     // 检测是否登录
+     WebApp.Init('wxc5216d15dd321ac5',
+        function(result,data){
+            var userInfo = Options.GetUserInfo();
+            $('#test').html(JSON.stringify(Options.GetUserInfo()));
+        }
+    );
     TD_Request("us", "enter",
       {
         uid: userInfo.openid,
