@@ -40,6 +40,7 @@ $(function(){
                 // 目标互助金
                 $('.help_number').html(mainpool.tbill / 100);
                 // 当前互助累计金额
+                var mainpool.cbill = 1000;
                 $('.money_number').html("￥"+mainpool.cbill / 100);
                 // 单价
                 $('.price_number').html(mainpool.ubill / 100 +"元/份");
