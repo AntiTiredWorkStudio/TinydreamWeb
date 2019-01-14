@@ -264,6 +264,7 @@ body{
     background: #fff;
     min-height: 7.5rem;
     padding: 0.5rem 0;
+    transform: translateY(-55%);
 }
 .mask .mask_main p{
     width: 6.6rem;
