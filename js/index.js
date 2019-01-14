@@ -26,7 +26,7 @@ $(function(){
                         var str = complid(item);
                         $dom = $(str);
                         $dom.appendTo('.info');
-                        $('.info_main .logo').css('background-image','url('+item.headimgurl+')');
+                        $('.info_main .logo').css('background-image','url('+item.headicon+')');
                     })
                 }
             }
