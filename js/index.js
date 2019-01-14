@@ -11,12 +11,15 @@ $(function(){
            }, function (code, data) {
             //请求成功的处理
             if(code == 0) {
-                console.log(data)
+                alert(data.description);
+                let buyinfo = userInfo.buyinfo;
+                console.log(buyinfo)
             }
           }, function (code, data) {
             // 请求失败的处理
             if(code!=0){
-                alert("登录失败，参数错误"+data.context)
+                alert("登录失败，参数错误"+data.context);
+                return;
             }
           })
         }
