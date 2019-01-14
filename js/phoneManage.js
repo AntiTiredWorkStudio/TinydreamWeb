@@ -100,13 +100,13 @@ $(function(){
                 }
             },function(code,data){
                 if(code == 2){
-                    $('.tip').html(data.context).show().delay(1000).hide(1000);
+                    $('.tip').html(data.context).show().delay(1000).hide(100);
                     return;
                 }else if(code == 3){
-                    $('.tip').html(data.context).show().delay(1000).hide(1000);
+                    $('.tip').html(data.context).show().delay(1000).hide(100);
                     return;
                 }else if(code == 16){
-                    $('.tip').html(data.context).show().delay(1000).hide(1000);
+                    $('.tip').html(data.context).show().delay(1000).hide(100);
                     return;
                 }
             })
