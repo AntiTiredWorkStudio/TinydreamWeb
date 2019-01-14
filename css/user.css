@@ -49,7 +49,7 @@ body{
     float: left;
 }
 .user .user_info .message .dream_poolInfo div.left{
-    /* margin-right: 0.30rem;  */
+    margin-right: 0.30rem; 
 }
 .user .user_info .message .dream_poolInfo div.middle{
     margin-left: 0.5rem;
