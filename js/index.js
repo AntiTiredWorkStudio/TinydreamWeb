@@ -38,13 +38,14 @@ $(function(){
                 // 标题
                 $('.title').html(mainpool.ptitle);
                 // 目标互助金
-                $('.help_number').html(mainpool.tbill);
+                $('.help_number').html(mainpool.tbill / 100);
                 // 当前互助累计金额
-                $('.money_number').html("￥"+mainpool.cbill);
+                $('.money_number').html("￥"+mainpool.cbill / 100);
                 // 单价
-                $('.price_number').html(mainpool.ubill+"元/份")
+                $('.price_number').html(mainpool.ubill / 100 +"元/份");
+                var prop = (mainpool.cbill / 100) / (mainpool.tbill / 100);
                 ready();
-                drawCircle(ctx);
+                drawCircle(ctx,prop);
             }
           }, function (code, data) {
             // 请求失败的处理
@@ -67,7 +68,10 @@ $(function(){
         cxt_arc.arc(95, 95, 80, 0, 2 * Math.PI, false);
         cxt_arc.stroke();
     }
-    function drawCircle(ctx){
+    function drawCircle(ctx,prop){
+        if(prop == 0){
+            ctx.clearRect(0,0,190,190);
+        }
         ctx.clearRect(0,0,190,190);
         ctx.fillStyle = 'white';
         ctx.clearRect(0,0,190,190);
@@ -75,7 +79,7 @@ $(function(){
         ctx.strokeStyle = '#ffc057';
         ctx.lineCap = 'round';
         ctx.beginPath();
-        ctx.arc(95, 95, 80, Math.PI/-2, 1.3 * Math.PI - Math.PI / 2, false);
+        ctx.arc(95, 95, 80, Math.PI/-2, prop * Math.PI - Math.PI / 2, false);
         ctx.stroke()
     }
     // 互助页面跳转
