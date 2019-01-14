@@ -9,7 +9,7 @@ $(function(){
             if(data.tele == ""){
                 $('.oldPhoneNum').hide();
             }else{
-                $('.oldPhoneNum').html(data.tele);
+                $('.oldPhoneNum').html("当前绑定的手机号为 "+ data.tele);
                 $('.oldPhoneNum').show();
             }
         }
@@ -82,8 +82,6 @@ $(function(){
     })
     // 绑定手机
     $('.submit').click(function(){
-        console.log(111)
-       console.log($('.phoneNum input').val())
         if($('.phoneNum input').val() == "" || null){
             $('.tip').html('手机号不能为空').show().delay(1000).hide(100);
             return;
@@ -96,9 +94,21 @@ $(function(){
                 tele:$('.phoneNum input').val(),
                 code:$('.auth_code input').val()
             },function(code,data){
-                console.log(code,data);
+                if(code == 0){
+                    $('.tip').html('绑定成功').show().delay(1000).hide(1000);
+                    window.reload();
+                }
             },function(code,data){
-                console.log(code,data)
+                if(code == 2){
+                    $('.tip').html(daata.context).show().delay(1000).hide(1000);
+                    return;
+                }else if(code == 3){
+                    $('.tip').html(daata.context).show().delay(1000).hide(1000);
+                    return;
+                }else if(code == 16){
+                    $('.tip').html(daata.context).show().delay(1000).hide(1000);
+                    return;
+                }
             })
         }
     })
