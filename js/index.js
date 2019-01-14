@@ -62,8 +62,8 @@ $(function(){
                         pid:data.mainpool.pid
                     },function(code,data){
                         if(code == 0 || data.result == true){
-                            console.log(data)
-                            // window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
+                            localStorage.setItem('buy',data.actions);
+                            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
                         }
                     },function(code,data){
                         console.log(data)
