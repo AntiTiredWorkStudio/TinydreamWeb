@@ -35,13 +35,11 @@ $(function(){
                 $('.getCode').addClass('disabled');
                 return;
             }
-        }else{
-            $('.tip').html('手机号位数不合法').show();
-            return;
         }
     })
     // 短信验证输入框
     $('.auth_code input').on('focus',function(){
+        $('.tip').html('').hide();
         $(this).prev('.icon_mail').addClass('focus');
     })
     $('.auth_code input').on('blur',function(){
@@ -52,7 +50,7 @@ $(function(){
     // 获取手机验证码
     $('.getCode').click(function(){
         var num = 60;
-        $(this).html(num).attr('disabled').addClass('disabled');
+        $(this).addClass('disabled').html(num).attr('disabled');
         var timer = setInterval(function(){
             num--;
             if(num<10){
