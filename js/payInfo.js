@@ -1,6 +1,6 @@
 $(function(){
     DT_Request("ds", "ord", {
-      action:localStorage.getItem('buy')
+      action:JSON.parse(localStorage.getItem('buy'))
     }, function(code,data){
       // 请求成功
       if(code == 1){
