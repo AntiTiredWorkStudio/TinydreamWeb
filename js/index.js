@@ -46,6 +46,12 @@ $(function(){
                 var prop = (mainpool.cbill / 100) / (mainpool.tbill / 100);
                 ready();
                 drawCircle(ctx,prop);
+                // 遮罩层
+                if(!data.award.result){
+                    $('.mask').fadeIn();
+                }else{
+                    $('.mask').hide();
+                }
                 // 点击参与互助
                 // 参与互助
                 $('.join').click(function(e){
