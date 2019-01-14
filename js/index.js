@@ -74,6 +74,12 @@ $(function(){
                         }
                     })
                 })
+                // 倒计时
+                var sec = data.mainpool.duration 
+                var dd = sec / 3600 / 24;
+                var dh = sec / 3600;
+                var dm = sec / 60;
+                console.log(sec,dd,dh,dm); 
             }
           }, function (code, data) {
             // 请求失败的处理
