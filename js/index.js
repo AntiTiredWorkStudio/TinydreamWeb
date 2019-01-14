@@ -12,7 +12,7 @@ $(function(){
             //请求成功的处理
             if(code == 0) {
                 alert(data.description);
-                let buyinfo = userInfo.buyinfo;
+                let buyinfo = data.buyinfo;
                 console.log(buyinfo)
             }
           }, function (code, data) {
