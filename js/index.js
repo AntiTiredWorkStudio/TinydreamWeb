@@ -26,6 +26,7 @@ $(function(){
                         var str = complid(item);
                         $dom = $(str);
                         $dom.appendTo('.cont');
+                        console.log(item.length);
                     })
                 }
             }
