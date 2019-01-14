@@ -1,4 +1,5 @@
 $(function(){
+    $('.mask').css('height',$(window).height());
      // 检测是否登录
      WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){//result:请求状态,data 请求结果
@@ -56,7 +57,6 @@ $(function(){
           })
         }
     );
-    $('.mask').css('height',$(window).height());
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext("2d");
     function ready(){
@@ -93,6 +93,13 @@ $(function(){
     // 参与互助
     $('.join').click(function(e){
         e.stopPropagation();
-        window.location.href="html/payInfo.html"
+        TD_Request("ds","buy",{
+            uid:userInfo.openid,
+            pid:userInfo.pid
+        },function(code,data){
+            console.log(data)
+        },function(code,data){
+            console.log(code);
+        })
     })
 })
