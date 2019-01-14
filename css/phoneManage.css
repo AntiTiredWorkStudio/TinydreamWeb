@@ -95,6 +95,14 @@ button{
     color: #999;
 }
 /* 信息提示 */
+.mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
 .tip{
     position: absolute;
     top: 50%;
@@ -105,5 +113,6 @@ button{
     font-size: 0.26rem;
     padding: 0.2rem;
     border-radius: 0.1rem;
+    display: none;
 
 }

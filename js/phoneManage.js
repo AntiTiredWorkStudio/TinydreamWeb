@@ -53,6 +53,7 @@ $(function(){
         $(this).addClass('disabled').html(num+'s').attr('disabled');
         var timer = setInterval(function(){
             num = num--;
+            $(this).html(num+'s')
             if(num<10){
                 num = "0"+num;
                 $(this).html(num+'s');
