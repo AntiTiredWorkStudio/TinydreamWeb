@@ -54,6 +54,9 @@ $(function(){
         },function(code,data){
             // 请求成功
             console.log(data);
+            if(data.sresult.status == "OK"){
+                $('tip').html('验证码已发送，请注意查收').show().delay(200).hide();
+            }
         },function(code,data){
             // 请求失败
             console.log('发送失败'+data.context)
@@ -76,5 +79,25 @@ $(function(){
                 $('.getCode').html('重新获取')
             }
         },1000)
+    })
+    // 绑定手机
+    $('.submit').click(function(){
+        if($('.phoneNum input').val() == "" || null){
+            $('tip').html('手机号不能为空').show().delay(200).hide();
+            return;
+        }else if($('.auth_code input').val() == "" || null){
+            $('tip').html('验证码不能为空').show().delay(200).hide();
+            return;
+        }else{
+            TD_Request('va','bind',{
+                uid:userInfo.openid,
+                tele:$('.phoneNum input').val(),
+                code:$('.auth_code input').val()
+            },function(code,data){
+                console.log(code,data);
+            },function(code,data){
+                console.log(code,data)
+            })
+        }
     })
 })
