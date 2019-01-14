@@ -49,15 +49,14 @@ $(function(){
     })
     // 获取手机验证码
     $('.getCode').click(function(){
-        TD_Request("va","getcode",{
+        TD_Request("va","gcode",{
             tele:$('.phoneNum input').val()
         },function(code,data){
             // 请求成功
             console.log(data);
         },function(code,data){
             // 请求失败
-            console.log(data);
-            console.log('发送失败')
+            console.log('发送失败'+data.context)
         })
         // 进行网络请求
         var num = 60;
