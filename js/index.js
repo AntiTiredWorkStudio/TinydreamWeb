@@ -75,11 +75,7 @@ $(function(){
                     })
                 })
                 // 倒计时
-                var sec = data.mainpool.duration;
-                var dh = parseInt(sec % (60 * 60) / 60);
-                var dm = parseInt(sec % 60);
-                var ds = sec;
-                console.log(sec,dh,dm,ds); 
+               
             }
           }, function (code, data) {
             // 请求失败的处理
