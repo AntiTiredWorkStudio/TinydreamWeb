@@ -1,5 +1,5 @@
 $(function(){
-    
+    wxLogin();
     TD_Request("us", "enter",
       {
         uid: userInfo.openid,
