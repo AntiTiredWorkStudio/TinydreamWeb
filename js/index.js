@@ -57,13 +57,13 @@ $(function(){
                         pid:data.mainpool.pid
                     },function(code,data){
                         if(code == 0 || data.result == true){
-                            window.location.href = "../html/payInfo.html";
+                            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
                         }
                     },function(code,data){
                         console.log(data)
                         if(code != 0 || !data.result){
                             alert("您尚"+data.context+",绑定手机后才能继续参与互助");
-                            window.location.href = "../html/payInfo.html";
+                            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html";
                         }
                     })
                 })
