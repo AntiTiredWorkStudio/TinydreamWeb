@@ -16,6 +16,7 @@ body{
     background-size: 6.8rem 1.88rem;
 }
 .home .male_screen{
+    overflow: hidden;
     width: 6.8rem;
     margin: 0 auto;
     height: 0.68rem;
