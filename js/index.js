@@ -1,5 +1,11 @@
 $(function(){
     // 检测是否登录
+    WebApp.Init('wxc5216d15dd321ac5',
+    function(result,data){
+        console.log(Options.GetUserInfo());
+            $('#test').html(JSON.stringify(Options.GetUserInfo()));
+        }
+    );
     var userInfo = Options.GetUserInfo();
     console.log(userInfo)
     TD_Request("us", "enter",
