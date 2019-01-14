@@ -75,10 +75,11 @@ $(function(){
                     })
                 })
                 // 倒计时
-                var sec = data.mainpool.duration 
-                var dd = sec / 3600 / 24;
-                var dh = sec / 3600;
-                var dm = sec / 60;
+                var sec = data.mainpool.duration * 1000;
+                var dd = parseInt(sec / (1000 * 60 * 60 * 24));
+                var dh = parseInt(sec % (1000 * 60 * 60 * 24)) /  (1000 * 60 * 60);
+                var dm = parseInt(sec % (1000 * 60 * 60)) /  (1000 * 60);
+                var ds = parseInt(sec % (1000 * 60)) /  1000);
                 console.log(sec,dd,dh,dm); 
             }
           }, function (code, data) {
