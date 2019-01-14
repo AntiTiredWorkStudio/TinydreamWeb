@@ -45,7 +45,8 @@ body{
     width: 0.48rem;
     height: 0.48rem;
     border-radius: 50%;
-    background: url(http://tdream.antit.top/image/avatar.png) no-repeat;
+    background-image: url(http://tdream.antit.top/image/avatar.png);
+    background-repeat: no-repeat;
     background-size: 0.48rem 0.48rem;
     margin-top: 0.1rem;
     margin-right: 0.1rem;
