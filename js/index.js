@@ -15,8 +15,8 @@ $(function(){
             //请求成功的处理
             if(code == 0) {
                 // 首页公屏
+                console.log(data)
                 let buyinfo = data.buyinfo;
-                console.log(buyinfo)
                 if(buyinfo == "" || null){
                     $('.tip').show();
                 }else{
