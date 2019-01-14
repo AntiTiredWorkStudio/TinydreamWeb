@@ -63,7 +63,9 @@ $(function(){
                             window.location.href = "../html/payInfo.html";
                         }
                     },function(code,data){
-                        alert('参数错误'+data.context)
+                        if(code!=0){
+                            alert('参数错误'+data.context)
+                        }
                     })
                 })
             }
