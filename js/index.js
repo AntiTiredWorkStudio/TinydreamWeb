@@ -21,16 +21,12 @@ $(function(){
                 }else{
                     $('.tip').hide();
                     var templateStr = $('#template').html();
-                    console.log(templateStr)
                     var complid = _.template(templateStr);
                     _.each(buyinfo,function(item){
-                        console.log(buyinfo.length)
-                        console.log(item.ptime)
+                        console.log(item)
                         var date = new Date().getTime() / 1000;
                         var timer = DescriptionTime(date - item.ptime);
                         item.timer = timer;
-                        console.log(timer);
-                        console.log(date);
                         var str = complid(item);
                         $dom = $(str);
                         $dom.appendTo('.cont');
