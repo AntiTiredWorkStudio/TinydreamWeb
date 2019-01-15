@@ -82,7 +82,7 @@ $(function(){
                     })
                 })
                 // 倒计时
-               var timeout = (data.mainpool.ptime + data.mainpool.duration) - new Date().getTime();
+               var timeout = (data.mainpool.ptime + data.mainpool.duration) - (new Date().getTime() / 1000);
                console.log(timeout)
             }
           }, function (code, data) {
