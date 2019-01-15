@@ -88,15 +88,14 @@ $(function(){
                     uid:userInfo.openid,
                     oid:actions.pay.oid,
                     bill:fee * 100,
-                    pcount:$('.copies_money span').html(num),
+                    pcount:$('.copies_money span').html(),
                     action:localStorage.getItem('actions')
                   },function(code,data){
-                    if(code == 0){
-                      console.log(data)
-                      alert(JSON.stringify(data.numbers))
-                    }
+                    alert(1)
+                    alert(JSON.stringify(data.numbers))
                   },function(code,data){
                     alert(JSON.stringify(data))
+                    alert(2)
                   })
                 } 
              }); 
@@ -110,6 +109,21 @@ $(function(){
       if(code != 0){
         console.log(data)
       }
+    })
+    // 选择梦想
+    TD_Request('dr','dlist',{
+      uid:userInfo.openid
+    },function(code,data){
+      if(code == 0){
+        // $.each(data.dreams,function(index,item){
+        //   $('.dream').select({
+        //     title: "选择梦想",
+        //     items: []
+        //   });
+        // })
+      }
+    },function(code,data){
+      console.log(data)
     })
     ready();
     var canvas = document.getElementById('canvas');
