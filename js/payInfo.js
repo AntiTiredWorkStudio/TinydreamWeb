@@ -23,9 +23,9 @@ $(function(){
       num++;
       if(num > buy.buy.dayLim) {
         num = buy.buy.dayLim;
-        $('.copies_money span').html(html);
+        $('.copies_money span').html(num);
       }
-      $('.copies_money span').html(html);
+      $('.copies_money span').html(num);
     })
     $('.icon_incer').click(function(){
       num--;
