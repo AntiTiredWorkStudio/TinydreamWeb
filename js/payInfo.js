@@ -4,6 +4,7 @@ $(function(){
     TD_Request("ds", "ord", {
       action:localStorage.getItem('buy')
     }, function(code,data){
+      localStorage.setItem('actions',JSON.stringify(data.actions));
       // 请求成功
       if(code == 0){
         console.log(data)
@@ -82,9 +83,19 @@ $(function(){
               "paySign":data.paySign //微信签名 
               },function(res){
                 if(res.err_msg == "get_brand_wcpay_request:ok" ){
-                  console.log(res);
-                  console.log(data);
-                  alert(JSON.stringify(res));
+                  var actions = JSON.parse(localStorage.getItem('actions'));
+                  TD_Request("ds","pay",{
+                    uid:userInfo.openid,
+                    oid:actions.pay.oid,
+                    bill:fee * 100,
+                    pcount:$('.copies_money span').html(num),
+                    action:localStorage.getItem('actions');
+                  },function(code,data){
+                    if(code == 0){
+                      console.log(data)
+                      alert(JSON.stringify(data.numbers))
+                    }
+                  })
                 } 
              }); 
           }
