@@ -13,6 +13,7 @@ $(function(){
             var str = compiled(item);
             var $dom = $(str);
             item.ptime = new Date(item.ptime);
+            console.log(item.ptime);
             $dom.appendTo('.notice')
         })
     },function(code,data){
