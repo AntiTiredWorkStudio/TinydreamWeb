@@ -35,6 +35,7 @@ $(function(){
     // 类型切换
     $('.dream_type ul li').click(function(){
         $(this).addClass('active').siblings().removeClass('active');
+        console.log($(this).index());
     })
     // 查看小梦想详情
     $('.view').click(function(){
