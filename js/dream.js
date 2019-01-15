@@ -57,8 +57,12 @@ $(function(){
                             var str1 = compolied1(item);
                             var $dom1 = $(str1);
                             $dom1.appendTo('.dream_list');
-                            if(item.state == "SUCCESS"){
-                                
+                            if(item.state == "SUCCESS" || item.state == "DOING"){
+                                $('.dream_logo').html(item.pool.tbill / 100);
+                                $('.dream_msg span').html(item.title);
+                                $('.tip_text').html(item.pool.ptitle);
+                            }else{
+                                alert('暂无幸运梦想');
                             }
                         })
                         
