@@ -10,32 +10,33 @@ $(function(){
         $('.help_money').html("￥"+data.pool.cbill/100);
         $('.target_money').html("￥"+data.pool.tbill/100)
         drawCircle(ctx,(data.pool.cbill/100)/(data.pool.tbill/100));
+        // 能够卖的份数
+        var num = $('.copies_money span').html();
+        $('.icon_add').click(function(){
+          num++;
+          if(num > buy.buy.dayLim) {
+            num = buy.buy.dayLim;
+            $('.copies_money span').html(num);
+          }
+          $('.copies_money span').html(num);
+          $('.price span').html(data.pool.ubill/100 * $('.copies_money span').html()+"元");
+        })
+        $('.icon_incer').click(function(){
+          num--;
+          if(num <= 0){
+            num = 0;
+            $('.copies_money span').html(num);
+          }
+          $('.copies_money span').html(num);
+          $('.price span').html(data.pool.ubill/100 * $('.copies_money span').html()+"元");
+        })
         $('.price i').html(data.pool.ubill/100+"元/份");
-        $('.price span').html(data.pool.ubill/100 * $('.copies_money span').html()+"元");
       }
     }, function(code,data){
       // 请求失败
       if(code != 0){
         console.log(data)
       }
-    })
-    // 能够卖的份数
-    var num = $('.copies_money span').html();
-    $('.icon_add').click(function(){
-      num++;
-      if(num > buy.buy.dayLim) {
-        num = buy.buy.dayLim;
-        $('.copies_money span').html(num);
-      }
-      $('.copies_money span').html(num);
-    })
-    $('.icon_incer').click(function(){
-      num--;
-      if(num <= 0){
-        num = 0;
-        $('.copies_money span').html(num);
-      }
-      $('.copies_money span').html(num);
     })
     ready();
     var canvas = document.getElementById('canvas');
