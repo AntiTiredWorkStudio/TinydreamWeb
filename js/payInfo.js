@@ -115,12 +115,12 @@ $(function(){
       uid:userInfo.openid
     },function(code,data){
       if(code == 0){
-        $.each(data.dreams,function(index,item){
-          $('.dream').select({
-            title: "选择梦想",
-            items: ["法官", "医生", "猎人", "学生", "记者", "其他"]
-          });
-        })
+        // $.each(data.dreams,function(index,item){
+        //   $('.dream').select({
+        //     title: "选择梦想",
+        //     items: []
+        //   });
+        // })
       }
     },function(code,data){
       console.log(data)
