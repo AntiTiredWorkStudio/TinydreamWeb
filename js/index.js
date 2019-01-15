@@ -94,7 +94,32 @@ $(function(){
                        dm = parseInt(dm % 60);
                    }
                }
-               console.log(dh+":"+dm+":"+ds);
+               var timer = setInterval(function(){
+                   ds--;
+                   if(ds<10){
+                       ds = "0" + ds;
+                   }
+                   if(ds<0){
+                       dm--;
+                       ds = 59
+                       if(dm < 10){
+                        dm = "0" + dm;
+                       }
+                       if(dm < 0){
+                           dh--;
+                           dm = 59;
+                           if(dh<10){
+                               dh = "0" + dh
+                           }
+                           if(dh<0){
+                             dh = 0;
+                             dm = 0;
+                             ds = 0;
+                             clearInterval(timer)
+                           }
+                       }
+                   }
+               },1000)
                 
             }
           }, function (code, data) {
