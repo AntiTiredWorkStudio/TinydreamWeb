@@ -1,10 +1,4 @@
 $(function(){
-  console.log($('.price span.fee').html());
-    if($('.price span.fee').html() == 0){
-      $('.wxPay').attr('disabled','disabled');
-    }else{
-      $('.wxPay').removeAttr('disabled');
-    }
     var userInfo = Options.GetUserInfo(); 
     var buy = JSON.parse(localStorage.getItem('buy'));
     TD_Request("ds", "ord", {
@@ -18,7 +12,8 @@ $(function(){
         $('.target_money').html("￥"+data.pool.tbill/100)
         drawCircle(ctx,(data.pool.cbill/100)/(data.pool.tbill/100));
         // 能够卖的份数
-        var num = $('.copies_money span').html();
+        var num = $('.copies_money span').html(1);
+        $('.price span.fee').html(data.pool.ubill/100 * $('.copies_money span').html());
         $('.icon_add').click(function(){
           num++;
           if(num > buy.buy.dayLim) {
