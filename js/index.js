@@ -82,7 +82,7 @@ $(function(){
                     })
                 })
                 // 倒计时
-               setTimeout(function(){
+               setInterval(function(){
                 var ptime = parseInt(data.mainpool.ptime);
                 var daurtion = parseInt(data.mainpool.duration);
                 var time = parseInt(new Date().getTime() / 1000);
