@@ -2,8 +2,6 @@ $(function(){
     // 获取模板字符串
     var templateStr = $('#template').html();
     var compolied = _.template(templateStr);
-    var templateStr1 = $('#template1').html();
-    var compolied1 = _.template(templateStr1);
     // 获取梦想列标
     var userInfo = Options.GetUserInfo();
     update();
@@ -56,8 +54,7 @@ $(function(){
                         $('.dream_main').hide();
                     }else{
                         _.each(data.dreams,function(item){
-                            var str1 = compolied1(item);
-                            var $dom1 = $(str1);
+
                             $dom1.appendTo('.dream_list');
                             if(item.state == "SUCCESS" || item.state == "DOING"){
                                 $("<div class='luckyDream'><div class='dream_logo'>"+item.pool.tbill / 100+"</div><div class='dream_right'><div class='dream_msg'><span>"+item.title+"</span><div class='icon_success'></div></div> <div class='tip'><span class='tip_text'>"+item.pool.ptitle+"</span></div></div></div>").appendTo('..dream_list')
