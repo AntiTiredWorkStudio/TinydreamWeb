@@ -1,0 +1,309 @@
+var typeIdList = ['type_running','type_end','type_join'];
+
+/*测试用*/
+/*Options = {
+    Url: "https://tinydream.antit.top",//http://localhost:8003 , https://tinydream.antit.top
+    Auth: null,
+    AccessToken: null,
+    UserInfo: JSON.stringify({
+        openid:"ovVIv5T653mGLorarTQB1oXBCdiA"//"on8W94tv5jTTiItf1uJCBdLJPyic"
+    }),
+    GetUserInfo: function () {
+        return this.UserInfo != null ? JSON.parse(this.UserInfo) : null;
+    }
+}*/
+/*测试用*/
+
+var uid = Options.GetUserInfo().openid;
+console.log(uid);
+
+var onClickTypeBtn = function(btn){
+    if(PoolManager.typeSelection == btn.currentTarget.id){
+        return;
+    }
+    PoolManager.typeSelection = btn.currentTarget.id;
+    $('#pool_List').html("");
+    PoolManager[PoolManager.typeSelection].seek = 0;
+    PoolManager[PoolManager.typeSelection].poolList = [];
+    PoolManager.LoadCurrentSelection(onPoolViewBuild);
+}
+
+
+
+var onPoolViewBuild = function (poolInfo) {
+    var snippetID = 'pool_'+PoolManager.typeSelection;
+    if(PoolManager.typeSelection == 'type_join'){
+
+        var joinViewObject = WebApp.View.CreateSingleView(snippetID);
+        var endViewObject = WebApp.View.CreateSingleView("pool_type_end");
+
+        for(var key in poolInfo){
+            if(poolInfo[key].state == 'FINISHED'){
+                endViewObject = WebApp.View.AddViewData(endViewObject,poolInfo[key]);
+                console.log(endViewObject);
+            }else{
+                joinViewObject = WebApp.View.AddViewData(joinViewObject,poolInfo[key]);
+            }
+        }
+
+
+        WebApp.View.BuildsView([joinViewObject,endViewObject],"http://tinydream.antit.top/TinydreamWeb/view",
+            function(result,data){
+                var content = $('#pool_List').html();
+                $('#pool_List').html(content + data[snippetID] + data["pool_type_end"]);
+                switchTypeClass(PoolManager.typeSelection);
+                $('#btn_join').click(onJoinPool);
+                //console.log("build",data[snippetID] + data["pool_type_end"]);
+            }
+        );
+    }else {
+        var viewObject = WebApp.View.CreateSingleView(snippetID);
+        for(var key in poolInfo) {
+            viewObject = WebApp.View.AddViewData(viewObject,poolInfo[key]);
+        }
+
+        WebApp.View.BuildsView([viewObject],"http://tinydream.antit.top/TinydreamWeb/view",
+            function(result,data){
+                var content = $('#pool_List').html();
+                $('#pool_List').html(content + data[snippetID]);
+                switchTypeClass(PoolManager.typeSelection);
+                $('#btn_join').click(onJoinPool);
+               // console.log("build",data[snippetID]);
+            }
+        );
+    }
+}
+
+var onClickPoolInfo = function (res) {
+    console.log(res.currentTarget.attributes[1].nodeValue);
+    //console.log(res.currentTarget.attributes[1].nodeValue);
+    var tPid = res.currentTarget.attributes[1].nodeValue;
+}
+
+var onJoinPool = function (res) {
+    //console.log(res.currentTarget);
+    console.log(res.currentTarget.attributes[1].nodeValue);
+    var tPid = res.currentTarget.attributes[1].nodeValue;
+    TD_Request('ds','buy',{"uid":uid,"pid":tPid},function(code,data){
+        console.log(data);
+        window.localStorage.setItem('buy',JSON.stringify(data.actions));
+        if(data.actions.hasOwnProperty('editdream')){
+            window.location.href = 'add.html';
+        }else {
+            window.location.href = 'payInfo.html';
+        }
+    },function(code,data){
+        console.log(data);
+    });
+}
+
+
+
+var switchTypeClass = function (type_btn) {
+    for (var key in typeIdList){
+        if(typeIdList[key] == type_btn){
+            $('#'+typeIdList[key]).addClass('active');
+        }else{
+            $('#'+typeIdList[key]).removeClass('active');
+        }
+    }
+}
+
+var PoolManager = {
+    typeSelection : '',
+    LoadCurrentSelection:function (complete) {
+      if(this.hasOwnProperty(this.typeSelection)){
+          this[this.typeSelection].LoadPoolByIndex(complete);
+      }
+    },
+    type_running :{
+        count:0,
+        seek:0,
+        size:5,
+        LoadPoolByIndex:function(complete){
+            var typeObject = this;
+            if(typeObject.seek>typeObject.count){
+                console.log("已经全部加载");
+                return;
+            }
+            this.PoolRequest(function (result, data) {
+                if(result){
+                    typeObject.seek = typeObject.seek + typeObject.size;
+
+                    var pools = DreamPoolsAnalysis(data.Pools);
+                    for(var key in pools){
+                        typeObject.poolList.push(pools[key]);
+                    }
+
+                    complete(pools);
+                }
+            });
+        },
+        PoolRequest:function (complete) {
+            TD_Request("ds","plistr",
+                {
+                    seek:this.seek,
+                    count:this.size
+                },
+                function (code,data) {
+                    complete(true,data);
+                },
+                function(code,data){
+                    complete(false,data);
+                }
+            );
+        },
+        poolList:[]
+    },
+    type_join:{
+        count:0,
+        seek:0,
+        size:5,
+        LoadPoolByIndex:function(complete){
+            var typeObject = this;
+            if(typeObject.seek>typeObject.count){
+                console.log("已经全部加载");
+                return;
+            }
+            this.PoolRequest(function (result, data) {
+                if(result){
+                    typeObject.seek = typeObject.seek + typeObject.size;
+
+                    var pools = DreamPoolsAnalysis(data.Pools);
+                    for(var key in pools){
+                        typeObject.poolList.push(pools[key]);
+                    }
+
+                    complete(pools);
+                }
+            });
+        },
+        PoolRequest:function (complete) {
+            TD_Request("ds","plistj",
+                {
+                    uid:uid,
+                    seek:this.seek,
+                    count:this.size
+                },
+                function (code,data) {
+                    complete(true,data);
+                },
+                function(code,data){
+                    complete(false,data);
+                }
+            );
+        },
+        poolList:[]
+    },
+    type_end:{
+        count:0,
+        seek:0,
+        size:5,
+        LoadPoolByIndex:function(complete){
+            var typeObject = this;
+            if(typeObject.seek>typeObject.count){
+                console.log("已经全部加载");
+                return;
+            }
+            this.PoolRequest(function (result, data) {
+                if(result){
+                    typeObject.seek = typeObject.seek + typeObject.size;
+
+                    var pools = DreamPoolsAnalysis(data.Pools);
+                    for(var key in pools){
+                        typeObject.poolList.push(pools[key]);
+                    }
+
+                    complete(pools);
+                }
+            });
+        },
+        PoolRequest:function (complete) {
+            TD_Request("ds","plistf",
+                {
+                    seek:this.seek,
+                    count:this.size
+                },
+                function (code,data) {
+                    complete(true,data);
+                },
+                function(code,data){
+                    complete(false,data);
+                }
+            );
+        },
+        poolList:[]
+    }
+}
+
+
+var DreamPoolsAnalysis = function (pools) {
+    var resultPool = [];
+    for(var key in pools){
+        resultPool[key] = DreamPoolAnalysis(pools[key]);
+    }
+    return resultPool;
+}
+//分析梦想池
+var DreamPoolAnalysis = function(pool) {
+    var billResult = BillExchange(pool.cbill);
+    pool.realBill = billResult.value;
+    pool.realUnit = billResult.unit;
+    pool.percentVal = Math.floor((pool.cbill / pool.tbill) * 10000) / 100
+    pool.rubill = pool.ubill * 0.01
+    pool.day = Math.floor(pool.duration / 86400)
+    var rtbill = BillExchange(pool.tbill);
+    pool.rtbillValue = rtbill.value;
+    pool.rtbillUnit = rtbill.unit;
+    var rubill = BillExchange(pool.ubill);
+    pool.rubillValue = rubill.value;
+    pool.rubillUnit = rubill.unit;
+    pool.rduration = DescriptionTime(pool.duration);
+    var timeLess = (parseInt(pool.ptime) + parseInt(pool.duration)) - JSTimeToPHPTime(PRC_TIME());
+    pool.timeLess = DescriptionTime(timeLess);
+    if(pool.ubill >0){
+        pool.joincount = pool.cbill / pool.ubill
+    }else{
+        pool.joincount = pool.pcount
+    }
+    if (pool.state == 'RUNNING') {
+        pool.billHint = "目前互助金"
+    } else if (pool.state == 'FINISHED') {
+        pool.billHint = "最终互助金"
+    }
+    return pool
+}
+
+var OnReachBottom = function () {
+    PoolManager.LoadCurrentSelection(onPoolViewBuild);
+    //console.log("页面触底");
+}
+
+
+var pageInit = function () {
+
+    $('#type_running').click(onClickTypeBtn);
+    $('#type_end').click(onClickTypeBtn);
+    $('#type_join').click(onClickTypeBtn);
+    $('#poolinfo').click(onClickPoolInfo);
+    $('#pool_List').html("");
+    TD_Request('ds','pcount',{uid:uid},
+        function (code, data) {
+            PoolManager.type_running.count = data.rcount;
+            PoolManager.type_join.count = data.ucount;
+            PoolManager.type_end.count = data.fcount;
+            //获得数量
+            onClickTypeBtn({
+                currentTarget:{
+                    id:'type_running'
+                }
+            });//初始化种类
+        },
+        function (code, data) {
+            console.log(data);
+        }
+    );
+}
+
+
+pageInit();
