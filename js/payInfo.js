@@ -37,7 +37,7 @@ $(function(){
       $('.wxPay').click(function(){
         TD_Request("ds","wxpayweb",{
           oid:data.order.oid,
-          bill:$('.price span').html() * 100,
+          bill:Number($('.price span').html()) * 100,
           uid:userInfo.openid
         },function(code,data){
           if(code == 0){
