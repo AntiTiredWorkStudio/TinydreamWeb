@@ -30,7 +30,7 @@ $(function(){
         }else if($('.info').val() == ""){
             alert("梦想简介不能为空");
             return;
-        }else if($('.check').val()!="on"){
+        }else if(!$("input[type='checkbox']").is(':checked')){
             alert('您还没有同意协议呢！');
             return;
         }else{
