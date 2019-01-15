@@ -34,6 +34,28 @@ $(function(){
         })
         $('.price i').html(data.pool.ubill/100+"元/份");
       }
+      // 倒计时
+      setInterval(function(){
+        var ptime = parseInt(data.pool.ptime);
+        var daurtion = parseInt(data.pool.duration);
+        var time = parseInt(new Date().getTime() / 1000);
+        var timeout = parseInt((ptime + daurtion) - time);
+        if(timeout>=0){
+            var h = Math.floor(timeout/60/60);
+            if(h<10){
+                h = "0"+h;
+            }
+            var m = Math.floor(timeout/60%60);
+            if(m<10){
+                m = "0"+m;
+            }
+            var s = Math.floor(timeout%60);    
+            if(s<10){
+                s = "0"+s;
+            }  
+        }
+        $('.timeout_ui').html(h+":"+m+":"+s);
+       },1000)
       // 统一下单
       $('.wxPay').click(function(){
         var fee = $('.price span.fee').html();
