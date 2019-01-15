@@ -116,11 +116,9 @@ $(function(){
     },function(code,data){
       if(code == 0){
         $.each(data.dreams,function(index,item){
-          var arr = []
-          arr.push(item.title);
           $('.dream').select({
             title: "选择梦想",
-            items: arr
+            items: ["法官", "医生", "猎人", "学生", "记者", "其他"]
           });
         })
       }
