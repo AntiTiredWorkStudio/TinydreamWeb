@@ -21,17 +21,16 @@ $(function(){
     var num = $('.copies_money span').html();
     $('.icon_add').click(function(){
       num++;
-      console.log(num)
-      if(num >= 5-buy.buy.dayLim){
-        num = 5-buy.buy.dayLim;
-        $('.copies_money span').html(num);
+      if(num > buy.buy.dayLim) {
+        num = buy.buy.dayLim;
+        $('.copies_money span').html(html);
       }
-      $('.copies_money span').html(num);
+      $('.copies_money span').html(html);
     })
     $('.icon_incer').click(function(){
       num--;
       if(num <= 0){
-        num = 1;
+        num = 0;
         $('.copies_money span').html(num);
       }
       $('.copies_money span').html(num);
