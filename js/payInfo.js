@@ -1,4 +1,5 @@
 $(function(){
+  console.log($('.price span.fee').html());
     if($('.price span.fee').html() == 0){
       $('.wxPay').attr('disabled','disabled');
     }else{
