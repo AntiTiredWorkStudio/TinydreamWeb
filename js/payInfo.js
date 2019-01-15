@@ -1,5 +1,18 @@
 $(function(){
     var buy = JSON.parse(localStorage.getItem('buy'))
+    TD_Request("ds", "ord", {
+      action:buy
+    }, function(code,data){
+      // 请求成功
+      if(code == 0){
+        console.log(data)
+      }
+    }, function(code,data){
+      // 请求失败
+      if(code != 0){
+        console.log(data)
+      }
+    })
     ready();
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext("2d");
