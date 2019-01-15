@@ -21,6 +21,7 @@ $(function(){
     var num = $('.copies_money span').html();
     $('.icon_add').click(function(){
       num++;
+      console.log(num)
       if(num >= 5-buy.buy.dayLim){
         num = 5-buy.buy.dayLim;
         $('.copies_money span').html(num);
