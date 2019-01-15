@@ -111,16 +111,21 @@ $(function(){
       }
     })
     // 选择梦想
-    $('.dream_tip').click(function(){
-      TD_Request('dr','dlist',{
-        uid:userInfo.openid
-      },function(code,data){
-        if(code == 0){
-          console.log(data)
-        }
-      },function(code,data){
-        console.log(data)
-      })
+    TD_Request('dr','dlist',{
+      uid:userInfo.openid
+    },function(code,data){
+      if(code == 0){
+        $.each(data.dreams,function(index,item){
+          var arr = []
+          arr.push(item.title);
+          $('.dream').select({
+            title: "选择梦想",
+            items: arr
+          });
+        })
+      }
+    },function(code,data){
+      console.log(data)
     })
     ready();
     var canvas = document.getElementById('canvas');
