@@ -34,10 +34,12 @@ $(function(){
         $('.price i').html(data.pool.ubill/100+"元/份");
       }
       // 统一下单
+      var fee = $('.price span').html();
+      console.log(fee);
       $('.wxPay').click(function(){
         TD_Request("ds","wxpayweb",{
           oid:data.order.oid,
-          bill:Number($('.price span').html()) * 100,
+          bill:Number() * 100,
           uid:userInfo.openid
         },function(code,data){
           if(code == 0){
