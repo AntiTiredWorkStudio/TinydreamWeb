@@ -1,4 +1,7 @@
 $(function(){
+    // 获取模板字符串
+    var templateStr = $('#template').html();
+    var compolied = _.template(templateStr);
     // 获取梦想列标
     var userInfo = Options.GetUserInfo();
     TD_Request("dr","dlist",{
@@ -9,10 +12,21 @@ $(function(){
                 $('.empty').show();
                 $('.dream_main').hide();
             }else{
-                console.log(data.dreams);
-                $.each(data.dreams,function(index,item){
-                    console.log(item);
+                _.each(data.dreams,function(item){
+                    if(item.state == "SUCCESS" || item.state == "DOING"){
+                       item.status = '成功'
+                    }
+                    if(item.state == "FAILED"){
+                        item.status = '失败'
+                    }
+                    if(item.state == "SUBMIT"){
+                        item.status == '未中奖'
+                    }
+                    var str = compolied(item);
+                    var $dom = $(str);
+                    $dom.appendTo('.dream_list');  
                 })
+                
             }
         }
     },function(code,data){
