@@ -10,7 +10,7 @@ $(function(){
                 $('.dream_main').hide();
             }else{
                 console.log(data.dreams);
-                $each(data.dreams,function(item,index){
+                $.each(data.dreams,function(item,index){
                     console.log(item);
                 })
             }
