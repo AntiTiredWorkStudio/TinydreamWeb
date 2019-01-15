@@ -82,7 +82,7 @@ $(function(){
                     })
                 })
                 // 倒计时
-               setInterval(function(){
+               var timer = setInterval(function(){
                 var ptime = parseInt(data.mainpool.ptime);
                 var daurtion = parseInt(data.mainpool.duration);
                 var time = parseInt(new Date().getTime() / 1000);
@@ -99,6 +99,9 @@ $(function(){
                     var s = Math.floor(timeout%60);    
                     if(s<10){
                         s = "0"+s;
+                    }
+                    if(h == 0 && m==0 && s==0){
+                        window.location.reload();
                     }  
                 }
                 $('.timeout').html(h+":"+m+":"+s);

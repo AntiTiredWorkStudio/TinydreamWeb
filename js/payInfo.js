@@ -55,6 +55,9 @@ $(function(){
             if(s<10){
                 s = "0"+s;
             }  
+            if(h == 0 && m==0 && s==0){
+              window.location.reload();
+            }  
         }
         $('.timeout_ui').html(h+":"+m+":"+s);
        },1000)
