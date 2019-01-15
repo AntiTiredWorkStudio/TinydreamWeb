@@ -82,7 +82,8 @@ $(function(){
                     })
                 })
                 // 倒计时
-               
+               var timeout = (data.mainpool.ptime + data.mainpool.duration) - new Date().getTime();
+               console.log(timeout)
             }
           }, function (code, data) {
             // 请求失败的处理
