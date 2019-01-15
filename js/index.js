@@ -119,6 +119,7 @@ $(function(){
                            }
                        }
                    }
+                   $('.timeout').html(dh+":"+dm+":"+ds);
                },1000)
                 
             }
