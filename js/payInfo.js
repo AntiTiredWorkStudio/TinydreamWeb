@@ -34,9 +34,9 @@ $(function(){
         $('.price i').html(data.pool.ubill/100+"元/份");
       }
       // 统一下单
-      var fee = $('.price span').html();
-      console.log(fee);
       $('.wxPay').click(function(){
+        var fee = $('.price span').html();
+        console.log(fee);
         TD_Request("ds","wxpayweb",{
           oid:data.order.oid,
           bill:Number() * 100,
