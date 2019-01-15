@@ -5,6 +5,10 @@ $(function(){
       // 请求成功
       if(code == 0){
         console.log(data)
+        $('.dream_title').html(data.pool.ptitle);
+        $('.help_money').html("￥"+data.pool.cbill/100);
+        $('.target_money').html("￥"+data.pool.tbill/100)
+        drawCircle(ctx,(data.pool.cbill/100)/(data.pool.tbill/100))
       }
     }, function(code,data){
       // 请求失败
