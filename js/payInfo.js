@@ -110,6 +110,18 @@ $(function(){
         console.log(data)
       }
     })
+    // 选择梦想
+    $('.dream_tip').click(function(){
+      TD_Request('dr','dlist',{
+        uid:userInfo.openid
+      },function(code,data){
+        if(code == 0){
+          console.log(data)
+        }
+      },function(code,data){
+        console.log(data)
+      })
+    })
     ready();
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext("2d");
