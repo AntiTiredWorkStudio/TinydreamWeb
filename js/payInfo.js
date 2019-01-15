@@ -95,6 +95,8 @@ $(function(){
                       console.log(data)
                       alert(JSON.stringify(data.numbers))
                     }
+                  },function(code,data){
+                    alert(JSON.stringify(data))
                   })
                 } 
              }); 
