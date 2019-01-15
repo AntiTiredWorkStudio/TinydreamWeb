@@ -1,6 +1,6 @@
 $(function(){
     if($('.price span.fee').html() == 0){
-      $('.wxPay').attr('disabled');
+      $('.wxPay').attr('disabled','disabled');
     }else{
       $('.wxPay').removeAttr('disabled');
     }
