@@ -2,40 +2,72 @@ $(function(){
     // 获取模板字符串
     var templateStr = $('#template').html();
     var compolied = _.template(templateStr);
+    var templateStr1 = $('#template1').html();
+    var compolied1 = _.template(templateStr1);
     // 获取梦想列标
     var userInfo = Options.GetUserInfo();
-    TD_Request("dr","dlist",{
-        uid:userInfo.openid
-    },function(code,data){
-        if(code == 0){
-            if(data.dreams.length == 0){
-                $('.empty').show();
-                $('.dream_main').hide();
-            }else{
-                _.each(data.dreams,function(item){
-                    var str = compolied(item);
-                    var $dom = $(str);
-                    $dom.appendTo('.dream_list');
-                    if(item.state == "SUCCESS" || item.state == "DOING"){
-                        $('.time').html('成功')
-                     }
-                     if(item.state == "FAILED"){
-                         $('.time').html('失败')
-                     }
-                     if(item.state == "SUBMIT"){
-                         $('.time').html('未中奖')
-                     }  
-                })
-                
+    update();
+    function update(){
+        TD_Request("dr","dlist",{
+            uid:userInfo.openid
+        },function(code,data){
+            if(code == 0){
+                if(data.dreams.length == 0){
+                    $('.empty').show();
+                    $('.dream_main').hide();
+                }else{
+                    _.each(data.dreams,function(item){
+                        var str = compolied(item);
+                        var $dom = $(str);
+                        $dom.appendTo('.dream_list');
+                        if(item.state == "SUCCESS" || item.state == "DOING"){
+                            $('.time').html('成功')
+                         }
+                         if(item.state == "FAILED"){
+                             $('.time').html('失败')
+                         }
+                         if(item.state == "SUBMIT"){
+                             $('.time').html('未中奖')
+                         }  
+                    })
+                    
+                }
             }
-        }
-    },function(code,data){
-        console.log("缺少参数"+data.context);
-    })
+        },function(code,data){
+            console.log("缺少参数"+data.context);
+        })
+    }
     // 类型切换
     $('.dream_type ul li').click(function(){
+        $('.dream_list').empty();
         $(this).addClass('active').siblings().removeClass('active');
         console.log($(this).index());
+        if($(this).index() == 0){
+            update();
+        }else{
+            TD_Request("dr","dlist",{
+                uid:userInfo.openid
+            },function(code,data){
+                if(code == 0){
+                    if(data.dreams.length == 0){
+                        $('.empty').show();
+                        $('.dream_main').hide();
+                    }else{
+                        _.each(data.dreams,function(item){
+                            var str1 = compolied1(item);
+                            var $dom1 = $(str1);
+                            $dom1.appendTo('.dream_list');
+                            if(item.state == "SUCCESS"){
+                                
+                            }
+                        })
+                        
+                    }
+                }
+            },function(code,data){
+                console.log("缺少参数"+data.context);
+            })
+        }
     })
     // 查看小梦想详情
     $('.view').click(function(){
