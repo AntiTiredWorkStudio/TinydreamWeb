@@ -24,18 +24,20 @@ $(function(){
     // 发布梦想
     $('.submit').click(function(){
         if($('.title').val() == ""){
-            alert('梦想标题不能为空')
+            alert('梦想标题不能为空');
+            console.log($('.check').val())
             return;
         }else if($('.info').val() == ""){
             alert("梦想简介不能为空");
             return;
         }else if($('.check').val()!="on"){
-            alert('您还没有同意协议呢！')
+            alert('您还没有同意协议呢！');
+            return;
         }else{
             TD_Request("dr","dedit",{
                 uid:userInfo.openid,
                 title:$('.title').val(),
-                content:$('info').val()
+                content:$('.info').val()
             },function(code,data){
                 console.log(data)
             },function(code,data){
