@@ -82,8 +82,8 @@ $(function(){
                     })
                 })
                 // 倒计时
-               var ptime = data.mainpool.ptime;
-               var daurtion = data.mainpool.duration;
+               var ptime = parseInt(data.mainpool.ptime);
+               var daurtion = parseInt(data.mainpool.duration);
                var time = parseInt(new Date().getTime() / 1000);
                var timeout = parseInt((ptime + daurtion));
                console.log(ptime,daurtion,time,timeout);
