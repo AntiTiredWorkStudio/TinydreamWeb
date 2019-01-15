@@ -88,9 +88,9 @@ $(function(){
                 var time = parseInt(new Date().getTime() / 1000);
                 var timeout = parseInt((ptime + daurtion) - time);
                 if(timeout>=0){
-                    var h = Math.floor(leftTime/60/60);
-                    var m = Math.floor(leftTime/60%60);
-                    var s = Math.floor(leftTime%60);      
+                    var h = Math.floor(timeout/60/60);
+                    var m = Math.floor(timeout/60%60);
+                    var s = Math.floor(timeout%60);      
                 }
                 $('.timeout').html(h+":"+m+":"+s);
                },1000)
