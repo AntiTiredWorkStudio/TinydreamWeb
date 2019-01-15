@@ -82,44 +82,17 @@ $(function(){
                     })
                 })
                 // 倒计时
-               var ptime = parseInt(data.mainpool.ptime);
-               var daurtion = parseInt(data.mainpool.duration);
-               var time = parseInt(new Date().getTime() / 1000);
-               var timeout = parseInt((ptime + daurtion) - time);
-               if(timeout > 60){
-                   var dm = parseInt(timeout / 60);
-                   var ds = parseInt(timeout % 60);
-                   if(dm > 60){
-                       var dh = parseInt(dm / 60);
-                       dm = parseInt(dm % 60);
-                   }
-               }
-               var timer = setInterval(function(){
-                   ds--;
-                   if(ds<10){
-                       ds = "0" + ds;
-                   }
-                   if(ds<0){
-                       ds = 59
-                       dm--;
-                       if(dm < 10){
-                        dm = "0" + dm;
-                       }
-                       if(dm < 0){
-                           dh--;
-                           dm = 59;
-                           if(dh<10){
-                               dh = "0" + dh
-                           }
-                           if(dh<0){
-                             dh = 0;
-                             dm = 0;
-                             ds = 0;
-                             clearInterval(timer)
-                           }
-                       }
-                   }
-                   $('.timeout').html(dh+":"+dm+":"+ds);
+               setTimeout(function(){
+                var ptime = parseInt(data.mainpool.ptime);
+                var daurtion = parseInt(data.mainpool.duration);
+                var time = parseInt(new Date().getTime() / 1000);
+                var timeout = parseInt((ptime + daurtion) - time);
+                if(timeout>=0){
+                    var h = Math.floor(leftTime/60/60);
+                    var m = Math.floor(leftTime/60%60);
+                    var s = Math.floor(leftTime%60);      
+                }
+                $('.timeout').html(h+":"+m+":"+s);
                },1000)
                 
             }
