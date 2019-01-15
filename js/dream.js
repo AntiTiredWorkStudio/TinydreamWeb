@@ -32,6 +32,10 @@ $(function(){
     },function(code,data){
         console.log("缺少参数"+data.context);
     })
+    // 类型切换
+    $('.dream_type ul li').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    })
     // 查看小梦想详情
     $('.view').click(function(){
         window.location.href="../html/add.html";
