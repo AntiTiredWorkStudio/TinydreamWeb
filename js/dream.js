@@ -8,6 +8,8 @@ $(function(){
             if(data.dreams.length == 0){
                 $('.empty').show();
                 $('.dream_main').hide();
+            }else{
+                console.log(data.dreams);
             }
         }
     },function(code,data){
