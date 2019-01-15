@@ -10,8 +10,8 @@ $(function(){
         $('.help_money').html("￥"+data.pool.cbill/100);
         $('.target_money').html("￥"+data.pool.tbill/100)
         drawCircle(ctx,(data.pool.cbill/100)/(data.pool.tbill/100));
-        $('price i').html(data.pool.ubill/100+"元/份");
-        $('price span').html(data.pool.ubill/100 * $('.copies_money span').html()+"元");
+        $('.price i').html(data.pool.ubill/100+"元/份");
+        $('.price span').html(data.pool.ubill/100 * $('.copies_money span').html()+"元");
       }
     }, function(code,data){
       // 请求失败
