@@ -40,6 +40,7 @@ $(function(){
                 content:$('.info').val()
             },function(code,data){
                 console.log(data)
+                window.location.reload();
             },function(code,data){
                 alert(data.context)
             })
