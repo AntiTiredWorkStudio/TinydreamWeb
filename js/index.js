@@ -89,17 +89,17 @@ $(function(){
                 var timeout = parseInt((ptime + daurtion) - time);
                 if(timeout>=0){
                     var h = Math.floor(timeout/60/60);
+                    if(h<10){
+                        h = "0"+h;
+                    }
                     var m = Math.floor(timeout/60%60);
-                    var s = Math.floor(timeout%60);      
-                }
-                if(h>10){
-                    h = "0"+h;
-                }
-                if(m>10){
-                    m = "0"+m;
-                } 
-                if(s>10){
-                    s = "0"+s;
+                    if(m<10){
+                        m = "0"+m;
+                    }
+                    var s = Math.floor(timeout%60);    
+                    if(s<10){
+                        s = "0"+s;
+                    }  
                 }
                 $('.timeout').html(h+":"+m+":"+s);
                },1000)
