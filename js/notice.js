@@ -9,7 +9,7 @@ $(function(){
         count:20
     },function(code,data){
         console.log(data)
-        _.each(data.msg,function(item){
+        _.each(data.msgs,function(item){
             var str = compiled(item);
             var $dom = $(str);
             item.ptime = new Date(item.ptime);
