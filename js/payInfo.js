@@ -12,7 +12,8 @@ $(function(){
         $('.target_money').html("￥"+data.pool.tbill/100)
         drawCircle(ctx,(data.pool.cbill/100)/(data.pool.tbill/100));
         // 能够卖的份数
-        var num = $('.copies_money span').html();
+        var num = 1;
+        $('.copies_money span').html(num);
         $('.price span.fee').html(data.pool.ubill/100 * $('.copies_money span').html());
         $('.icon_add').click(function(){
           num++;
