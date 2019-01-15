@@ -84,6 +84,25 @@ $(function(){
                 // 倒计时
                var timeout = (data.mainpool.ptime + data.mainpool.duration) - (new Date().getTime() / 1000);
                console.log(timeout)
+                var second = parseInt(timeout);// 秒
+                var min = 00;// 分
+                var hour = 00;// 小时
+                if(second > 60) {
+                    min = parseInt(second/60);
+                    second = parseInt(second%60);
+                    if(min > 60) {
+                        hour = parseInt(min/60);
+                        min = parseInt(min%60);
+                        }
+                    }
+                var result = ""+parseInt(second)+"秒";
+                if(min > 0) {
+                    result = ""+parseInt(min)+"分"+result;
+                }
+                if(hour > 0) {
+                    result = ""+parseInt(hour)+"小时"+result;
+                }
+                console.log(result)
             }
           }, function (code, data) {
             // 请求失败的处理
