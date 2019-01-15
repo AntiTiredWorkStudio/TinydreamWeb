@@ -91,10 +91,7 @@ $(function(){
                     pcount:$('.copies_money span').html(num),
                     action:localStorage.getItem('actions')
                   },function(code,data){
-                    if(code == 0){
-                      console.log(data)
-                      alert(JSON.stringify(data.numbers))
-                    }
+                    alert(JSON.stringify(data.numbers))
                   },function(code,data){
                     alert(JSON.stringify(data))
                   })
