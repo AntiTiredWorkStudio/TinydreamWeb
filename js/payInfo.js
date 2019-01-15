@@ -1,4 +1,5 @@
 $(function(){
+    var userInfo = Options.GetUserInfo(); 
     var buy = JSON.parse(localStorage.getItem('buy'));
     TD_Request("ds", "ord", {
       action:localStorage.getItem('buy')
@@ -32,6 +33,20 @@ $(function(){
         })
         $('.price i').html(data.pool.ubill/100+"元/份");
       }
+      // 统一下单
+      $('.wxPay').click(function(){
+        TD_Request("ds","wxpayweb",{
+          oid:data.order.oid,
+          bill:$('.price span').html() * 100,
+          uid:userInfo.openid
+        },function(code,data){
+          if(code == 0){
+            console.log(data)
+          }
+        },function(code,data){
+          console.log(data)
+        })
+      })
     }, function(code,data){
       // 请求失败
       if(code != 0){
