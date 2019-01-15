@@ -86,7 +86,15 @@ $(function(){
                var daurtion = parseInt(data.mainpool.duration);
                var time = parseInt(new Date().getTime() / 1000);
                var timeout = parseInt((ptime + daurtion) - time);
-               console.log(ptime,daurtion,time,timeout);
+               if(timeout > 60){
+                   var dm = parseInt(timeout / 60);
+                   var ds = parseInt(timeout % 60);
+                   if(dm > 60){
+                       var dh = parseInt(dm / 60);
+                       dm = parseInt(dm % 60);
+                   }
+               }
+               console.log(dh+":"+dm+":"+ds);
                 
             }
           }, function (code, data) {
