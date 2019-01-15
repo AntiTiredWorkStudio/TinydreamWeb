@@ -85,7 +85,7 @@ $(function(){
                var ptime = data.mainpool.ptime;
                var daurtion = data.mainpool.duration;
                var time = parseInt(new Date().getTime() / 1000);
-               var timeout = (ptime + daurtion) - time;
+               var timeout = (ptime + daurtion);
                console.log(ptime,daurtion,time,timeout);
                 var second = parseInt(timeout);// 秒
                 var min = 00;// 分
