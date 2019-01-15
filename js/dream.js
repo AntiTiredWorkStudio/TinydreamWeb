@@ -43,8 +43,10 @@ $(function(){
         $(this).addClass('active').siblings().removeClass('active');
         console.log($(this).index());
         if($(this).index() == 0){
+            $('.add').show();
             update();
         }else{
+            $('.add').hide();
             TD_Request("dr","dlist",{
                 uid:userInfo.openid
             },function(code,data){
