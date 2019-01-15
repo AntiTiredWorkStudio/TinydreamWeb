@@ -29,17 +29,17 @@ $(function(){
             $('.copies_money span').html(num);
           }
           $('.copies_money span').html(num);
-          $('.price span').html(data.pool.ubill/100 * $('.copies_money span').html()+"元");
+          $('.price span.fee').html(data.pool.ubill/100 * $('.copies_money span').html());
         })
         $('.price i').html(data.pool.ubill/100+"元/份");
       }
       // 统一下单
       $('.wxPay').click(function(){
-        var fee = $('.price span').html();
+        var fee = $('.price span.fee').html();
         console.log(fee);
         TD_Request("ds","wxpayweb",{
           oid:data.order.oid,
-          bill:Number() * 100,
+          bill:fee * 100,
           uid:userInfo.openid
         },function(code,data){
           if(code == 0){
