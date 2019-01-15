@@ -20,7 +20,7 @@ $(function(){
             $('.copies_money span').html(num);
           }
           $('.copies_money span').html(num);
-          $('.price span').html(data.pool.ubill/100 * $('.copies_money span').html()+"元");
+          $('.price span.fee').html(data.pool.ubill/100 * $('.copies_money span').html());
         })
         $('.icon_incer').click(function(){
           num--;
