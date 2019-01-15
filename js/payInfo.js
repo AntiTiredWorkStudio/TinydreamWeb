@@ -1,4 +1,9 @@
 $(function(){
+    if($('.price span.fee').html() == 0){
+      $('.wxPay').attr('disabled');
+    }else{
+      $('.wxPay').removeAttr('disabled');
+    }
     var userInfo = Options.GetUserInfo(); 
     var buy = JSON.parse(localStorage.getItem('buy'));
     TD_Request("ds", "ord", {
