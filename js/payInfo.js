@@ -84,6 +84,7 @@ $(function(){
                 if(res.err_msg == "get_brand_wcpay_request:ok" ){
                   console.log(res);
                   console.log(data);
+                  alert(JSON.stringify(data));
                 } 
              }); 
           }
