@@ -148,7 +148,7 @@ body{
 /* 幸运梦想列表--样式处理 */
 .luckyDream{
     width: 6.90rem;
-    margin:0.20rem auto 0;
+    margin:0 auto 0.2rem;
     background-color: #fff;
     border-radius: 0.20rem;
     height: 2.00rem;
