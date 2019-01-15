@@ -36,7 +36,7 @@ $(function(){
                 // 梦想互助池
                 var mainpool = data.mainpool;
                 // 标题
-                $('.title').html(mainpool.ptitle);
+                $('.pool_title').html(mainpool.ptitle);
                 // 目标互助金
                 $('.help_number').html(mainpool.tbill / 100);
                 // 当前互助累计金额
