@@ -82,8 +82,10 @@ $(function(){
                     })
                 })
                 // 倒计时
-               var timeout = (data.mainpool.ptime + data.mainpool.duration) - (new Date().getTime() / 1000);
-               console.log(timeout)
+               var ptime = data.mainpool.ptime;
+               var daurtion = data.mainpool.daurtion;
+               var time = new Date().getTime() / 1000;
+               console.log(ptime,daurtion,time);
                 var second = parseInt(timeout);// 秒
                 var min = 00;// 分
                 var hour = 00;// 小时
