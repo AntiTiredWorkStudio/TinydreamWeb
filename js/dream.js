@@ -13,18 +13,18 @@ $(function(){
                 $('.dream_main').hide();
             }else{
                 _.each(data.dreams,function(item){
-                    if(item.state == "SUCCESS" || item.state == "DOING"){
-                       item.status = '成功'
-                    }
-                    if(item.state == "FAILED"){
-                        item.status = '失败'
-                    }
-                    if(item.state == "SUBMIT"){
-                        item.status == '未中奖'
-                    }
                     var str = compolied(item);
                     var $dom = $(str);
-                    $dom.appendTo('.dream_list');  
+                    $dom.appendTo('.dream_list');
+                    if(item.state == "SUCCESS" || item.state == "DOING"){
+                        $('.time').html('成功')
+                     }
+                     if(item.state == "FAILED"){
+                         $('.time').html('失败')
+                     }
+                     if(item.state == "SUBMIT"){
+                         $('.time').html('未中奖')
+                     }  
                 })
                 
             }
