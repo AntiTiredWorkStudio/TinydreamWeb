@@ -19,6 +19,7 @@ $(function(){
           if(num > buy.buy.dayLim) {
             num = buy.buy.dayLim;
             $('.copies_money span').html(num);
+            console.log(num);
           }
           $('.copies_money span').html(num);
           $('.price span.fee').html(data.pool.ubill/100 * $('.copies_money span').html());
