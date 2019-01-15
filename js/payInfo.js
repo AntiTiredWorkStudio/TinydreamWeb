@@ -89,7 +89,7 @@ $(function(){
                     oid:actions.pay.oid,
                     bill:fee * 100,
                     pcount:$('.copies_money span').html(num),
-                    action:localStorage.getItem('actions');
+                    action:localStorage.getItem('actions')
                   },function(code,data){
                     if(code == 0){
                       console.log(data)
