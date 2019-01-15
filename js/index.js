@@ -100,8 +100,8 @@ $(function(){
                        ds = "0" + ds;
                    }
                    if(ds<0){
-                       dm--;
                        ds = 59
+                       dm--;
                        if(dm < 10){
                         dm = "0" + dm;
                        }
