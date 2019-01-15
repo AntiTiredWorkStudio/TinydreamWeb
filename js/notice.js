@@ -12,7 +12,7 @@ $(function(){
         _.each(data.msgs,function(item){
             var str = compiled(item);
             var $dom = $(str);
-            item.ptime = new Date(item.ptime);
+            item.ptime = GetLocalTime(item.ptime);
             console.log(item.ptime);
             $dom.appendTo('.notice')
         })
