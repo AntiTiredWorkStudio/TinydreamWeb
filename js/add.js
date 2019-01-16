@@ -16,8 +16,8 @@ $(function(){
         state: state
     },function(code,data){
         console.log(data)
-        $('.title').value = data.dream.title;
-        $('.dr_info').value = data.dream.content;
+        $('.title').val(data.dream.title);
+        $('.dr_info').val(data.dream.content);
     },function(code,data){
         console.log("错误信息："+data.context);
     })
