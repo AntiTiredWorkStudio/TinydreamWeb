@@ -109,7 +109,7 @@ $(function(){
         $('.tabList').hide();
         getOrder(number);  
     })
-    getOrd();
+    getOrd(number);
     // 公用
     function getOrd(number){
         TD_Request('ds','precs',{
