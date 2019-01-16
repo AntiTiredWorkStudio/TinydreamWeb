@@ -64,6 +64,7 @@ $(function(){
        },1000)
       // 统一下单
       $('.wxPay').click(function(){
+        console.log($('#dream').attr("data-values"));
         var fee = $('.price span.fee').html();
         console.log(fee);
         TD_Request("ds","wxpayweb",{
@@ -126,7 +127,6 @@ $(function(){
           items: arr,
           onClose:function(){
             $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html())
-            console.log($('#dream').attr("data-values"));
           }
         });
       }
