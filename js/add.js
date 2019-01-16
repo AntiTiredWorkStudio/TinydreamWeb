@@ -1,70 +1,69 @@
 $(function(){
+    // 开启上传
+    // WebApp.InitUpload();
     var userInfo = Options.GetUserInfo();
-    // 获取梦想id
-    var dr = JSON.parse(localStorage.getItem('dr'));
-    if(dr.state!="all"){
-        var state = "all"
-        $('.supper').show();
-        $('title').html('编辑梦想')
-        get()
+    // 获取did
+    var did = JSON.parse(localStorage.getItem('dr')).did;
+    var state = JSON.parse(localStorage.getItem('dr')).state;
+    state = "all";
+    if(state != "all"){
+        $('.supper').hide()
     }else{
-        $('.supper').show();
-        $('title').html('完善梦想')
-        var state = "all"
+        $('.supper').show()
     }
+
     // 获取梦想列表
-    get()
-    function get(){
-        TD_Request("dr","gdream",{
-            uid:userInfo.openid,
-            did:dr.did,
-            state: state
-        },function(code,data){
-            console.log(data)
-            $('.dr_title').val(data.dream.title);
-            $('.dr_info').val(data.dream.content);
-            if(data.upload!=undefined || data.upload!=""){
-                var upload = data.upload
-                // 开启上传api
-                WebApp.InitUpload();
-                // 文件上传
-               $('.uploaded').click(function(){
+    TD_Request("dr","gdream",{
+        uid:userInfo.openid,
+        did:did,
+        state:"all"
+    },function(code,data){
+        console.log(data);
+        $('.dr_title').val(data.dream.title);
+        $('.dr_info').val(data.dream.content);
+        if(data.upload != '' || data.upload != "undefined") {
+            console.log(data.upload);
+            // 文件上传
+            $('.uploaded').change(function(e){
+                console.log(e.target.files[0].name.split(".")[1])
                 WebApp.UploadWithSDK({
-                    token:upload.uptoken,
-                    domain:upload.upurl,
-                    filename:upload.fileName,
-                    tfile:$('.uploaded').val(),
+                    token:data.upload.uptoken,
+                    domain:data.upload.upurl,
+                    tfile:e.target.files[0],
+                    filename:data.upload.fileName,
                     OnQiniuComplete:function(res){
                         console.log(res);
                     }
                 })
-               })
-            }
-        },function(code,data){
-            console.log("错误信息："+data.context);
-        })
-    }
+            })
+        }
+    },function(code,data){
+        console.log('获取失败：'+data.context)
+    })
+
+    // 修改梦想
     $('.submit').click(function(){
         if($('.dr_title').val() == ''){
-            alert('梦想标题不能为空');
+            alert('请填写梦想标题');
             return;
         }else if($('.dr_info').val() == ''){
-            alert('梦想简介不能为空');
+            alert('请填写梦想简介');
             return;
-        }else if(!$("input[type='checkbox']").is(':checked')){
+        }else if(!$('input[type="checkbox"]').is(':checked')){
             alert('请勾选协议');
-            return;  
+            return;
         }else{
             TD_Request("dr","gedit",{
                 uid:userInfo.openid,
-                did:dr.did,
+                did:did,
                 contentList:JSON.stringify({"title":$('.dr_title').val(),"content":$('.dr_info').val()})
             },function(code,data){
-                alert('修改成功');
+                console.log(data);
+                alert('修改成功!');
                 window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
             },function(code,data){
-                console.log("修改失败:"+data.context)
-            })
+                console.log('修改失败'+data.context);
+            }) 
         }
     })
 })
