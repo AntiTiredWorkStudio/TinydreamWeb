@@ -91,8 +91,7 @@ $(function(){
                     pcount:$('.copies_money span').html(),
                     action:localStorage.getItem('actions')
                   },function(code,data){
-                    alert(1)
-                    alert(JSON.stringify(data.numbers))
+                    
                   },function(code,data){
                     alert(JSON.stringify(data))
                     alert(2)
