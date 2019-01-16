@@ -57,7 +57,7 @@ body{
     font-size: 0.22rem;
     color: #00d094;
 }
-.add .add_main .btns button{
+.add .add_main .btns .uploaded{
     border: none;
     outline: 0;
     background-color: #fff;
