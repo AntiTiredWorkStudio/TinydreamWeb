@@ -3,7 +3,8 @@ $(function(){
     // 获取梦想id
     var dr = JSON.parse(localStorage.getItem('dr'));
     if(dr.state!="all"){
-        $('.supper').hide();
+        var state = "all"
+        $('.supper').show();
         $('title').html('编辑梦想')
     }else{
         $('.supper').show();
