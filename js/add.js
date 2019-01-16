@@ -3,6 +3,7 @@ $(function(){
     // 获取did
     var did = JSON.parse(localStorage.getItem('dr')).did;
     var state = JSON.parse(localStorage.getItem('dr')).state;
+    state = "all";
     if(state != "all"){
         $('.supper').hide()
     }else{
@@ -20,6 +21,18 @@ $(function(){
         $('.dr_info').val(data.dream.content);
         if(data.upload != '' || data.upload != "undefined") {
             console.log(data.upload);
+            // 开启上传
+            WebApp.InitUpload();
+            // 文件上传
+            WebApp.UploadWithSDK({
+                token:data.upload.uptoken,
+                domain:data.upload.upurl,
+                tfile:$('.uploaded').val(),
+                filename:data.upload.fileName,
+                OnQiniuComplete:function(res){
+                    console.log(res);
+                }
+            })
         }
     },function(code,data){
         console.log('获取失败：'+data.context)
