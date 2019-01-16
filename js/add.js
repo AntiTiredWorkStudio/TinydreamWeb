@@ -1,20 +1,19 @@
 $(function(){
     var userInfo = Options.GetUserInfo();
-    // 获取梦想id
-    get(userInfo)
     var dr = JSON.parse(localStorage.getItem('dr'));
+    // 获取梦想id
     if(dr.state!="all"){
         var state = "all"
         $('.supper').show();
         $('title').html('编辑梦想')
-        get(userInfo)
+        get(userInfo,dr,state)
     }else{
         $('.supper').show();
         $('title').html('完善梦想')
         var state = "all"
     }
     // 获取梦想列表
-    console.log(userInfo)
+    console.log(userInfo,dr,state)
     function get(userInfo){
         console.log(userInfo)
         TD_Request("dr","gdream",{
