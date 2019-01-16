@@ -5,7 +5,6 @@ $(function(){
     // 获取did
     var did = JSON.parse(localStorage.getItem('dr')).did;
     var state = JSON.parse(localStorage.getItem('dr')).state;
-    state = "all";
     if(state != "all"){
         $('.supper').hide()
     }else{
@@ -16,7 +15,7 @@ $(function(){
     TD_Request("dr","gdream",{
         uid:userInfo.openid,
         did:did,
-        state:"all"
+        state:state
     },function(code,data){
         console.log(data);
         $('.dr_title').val(data.dream.title);
