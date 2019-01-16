@@ -298,7 +298,7 @@ body{
     color: #fff;
     line-height: 0.68rem;
 }
-.mask .off{
+.mask .mask_main p button.off{
     text-align: center;
     width: 3.2rem;
     height: 0.68rem;
@@ -307,4 +307,5 @@ body{
     background-color: #ccc;
     color: #b2b2b2;
     float: right;
+    margin-left: 0.02rem;
 }
