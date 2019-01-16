@@ -28,6 +28,7 @@ $(function(){
                 // 开启上传api
                 WebApp.InitUpload();
                 // 文件上传
+               $('.uploaded').click(function(){
                 WebApp.UploadWithSDK({
                     token:upload.uptoken,
                     domain:upload.upurl,
@@ -37,6 +38,7 @@ $(function(){
                         console.log(res);
                     }
                 })
+               })
             }
         },function(code,data){
             console.log("错误信息："+data.context);
