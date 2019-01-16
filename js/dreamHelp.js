@@ -53,8 +53,10 @@ var onPoolViewBuild = function (poolInfo) {
                 $('#pool_List').html(content + data[snippetID] + data["pool_type_end"]);
                 switchTypeClass(PoolManager.typeSelection);
                 $('#btn_join').click(onJoinPool);
-				$('#poolinfo').click(onClickPoolInfo);
-                //console.log("build",data[snippetID] + data["pool_type_end"]);
+                //console.log(poolInfo);
+                for(var key in poolInfo){
+                    $('#poolinfo_'+poolInfo[key].pid).click(onClickPoolInfo);
+                }
             }
         );
     }else {
@@ -69,8 +71,10 @@ var onPoolViewBuild = function (poolInfo) {
                 $('#pool_List').html(content + data[snippetID]);
                 switchTypeClass(PoolManager.typeSelection);
                 $('#btn_join').click(onJoinPool);
-                $('#poolinfo').click(onClickPoolInfo);
-               // console.log("build",data[snippetID]);
+                //console.log(poolInfo);
+                for(var key in poolInfo){
+                    $('#poolinfo_'+poolInfo[key].pid).click(onClickPoolInfo);
+                }
             }
         );
     }
