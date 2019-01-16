@@ -202,6 +202,9 @@ $(function(){
           imgUrl:"",
           success:function(res){
             console.log(res);
+          },
+          complete:function(res){
+            console.log(res)
           }
         })
       })
