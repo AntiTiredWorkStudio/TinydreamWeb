@@ -46,7 +46,7 @@
             <div class='dream_info'>
                 <div class='dream_logo'></div>
                 <div class='dream_right'>
-                    <div class='dream_msg'><%= title %></div>
+                    <div class='dream_msg' data-id="<%= did %>"><%= title %></div>
                     <div class='createTime'>
                         <span class='time'><%= status %></span>
                         <button class='view'>查看详情</button>
@@ -56,6 +56,7 @@
         </script>
         <div class='add'></div>
         <div class="mask close">
+            <div class="off">X</div>
             <div class="mask_main">
                 <p>
                     <span>梦想标题<br></span>

@@ -68,11 +68,14 @@ $(function(){
     })
     // 查看小梦想详情
     $('.view').click(function(){
-        window.location.href="../html/add.html";
+       console.log(1);
     })
     // 添加梦想
     $('.add').click(function(){
         $('.close').fadeIn();
+    })
+    $('.off').click(function(){
+        $('.close').fadeOut();
     })
     // 发布梦想
     $('.submit').click(function(){
