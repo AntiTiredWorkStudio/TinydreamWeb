@@ -14,6 +14,9 @@ $(function(){
         drawCircle(ctx,(data.pool.cbill/100)/(data.pool.tbill/100));
         // 能够卖的份数
         var num = 1;
+        if(buy.buy.dayLim == 0){
+          num = 0;
+        }
         $('.copies_money span').html(num);
         $('.price span.fee').html(data.pool.ubill/100 * $('.copies_money span').html());
         $('.icon_add').click(function(){
@@ -68,6 +71,10 @@ $(function(){
           alert('请选择梦想后进行支付！');
           return;
         }
+        if($('.price span.fee').html() == 0){
+          alert('支付失败');
+          return;
+        }
         var did = $('#dream').attr("data-values");
         var fee = $('.price span.fee').html();
         console.log(fee);
@@ -97,7 +104,6 @@ $(function(){
                     action:localStorage.getItem('actions'),
                     did:$('#dream').attr("data-values")
                   },function(code,data){
-                    window.location.reload();
                     $('.mask').fadeIn();
                     var number = data.numbers;
                     var lid = [];
@@ -183,5 +189,6 @@ $(function(){
     // 关闭弹窗
     $('.close').click(function(){
       $('.mask').fadeOut();
+      window.location.reload();
     })
 });
