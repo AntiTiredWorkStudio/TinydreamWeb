@@ -95,7 +95,7 @@ $(function(){
                     bill:fee * 100,
                     pcount:$('.copies_money span').html(),
                     action:localStorage.getItem('actions'),
-                    did:
+                    did:$('#dream').attr("data-values")
                   },function(code,data){
                     $('.mask').fadeIn();
                     alert(JSON.stringify(data.numbers))
