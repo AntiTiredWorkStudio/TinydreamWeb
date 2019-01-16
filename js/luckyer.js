@@ -1,5 +1,5 @@
 /*测试用*/
-Options = {
+/*Options = {
     Url: "https://tinydream.antit.top",//http://localhost:8003 , https://tinydream.antit.top
     Auth: null,
     AccessToken: null,
@@ -9,7 +9,7 @@ Options = {
     GetUserInfo: function () {
         return this.UserInfo != null ? JSON.parse(this.UserInfo) : null;
     }
-}
+}*/
 /*测试用*/
 
 var uid = Options.GetUserInfo().openid;
@@ -22,7 +22,7 @@ var luckeyManager = {
     data: {
       awards:[]
     },
-    luckyInfo(res){
+    luckyInfo:function(res){
 		console.log(res);
       /*C.SetPageIntendData("award", this.data.awards[res.currentTarget.id]);
         wx.navigateTo({
@@ -101,8 +101,7 @@ var onAwardViewBuild = function (awardItem) {
 }
 
 var OnViewDetials = function(res){
-	console.log(res.currentTarget.id);
-    window.localStorage.setItem('dreamInfo',JSON.stringify(luckeyManager.data.awards[res.currentTarget.id]));
+    window.localStorage.setItem('dreamInfo',JSON.stringify(luckeyManager.data.awards[res.currentTarget.attributes[1].nodeValue]));
     window.location.href = 'luckyInfo.html';
 }
 
