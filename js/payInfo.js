@@ -98,6 +98,10 @@ $(function(){
                     did:$('#dream').attr("data-values")
                   },function(code,data){
                     $('.mask').fadeIn();
+                    var number = data.numbers;
+                    for(key in number){
+                      alert(number[key])
+                    }
                     alert(JSON.stringify(data.numbers))
                   },function(code,data){
                     alert(JSON.stringify(data))
