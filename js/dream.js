@@ -28,6 +28,11 @@ $(function(){
                              $('.time').html('未中奖')
                          }  
                     })
+                    // 查看小梦想详情
+                    $('.view').click(function(){
+                        localStorage.setItem('did',$(this).attr('data-id'))
+                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/add.html"
+                    })
                     
                 }
             }
@@ -65,10 +70,6 @@ $(function(){
                 console.log("缺少参数"+data.context);
             })
         }
-    })
-    // 查看小梦想详情
-    $('.view').click(function(){
-       console.log(1);
     })
     // 添加梦想
     $('.add').click(function(){
