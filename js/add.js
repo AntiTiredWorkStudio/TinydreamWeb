@@ -35,7 +35,7 @@ $(function(){
             TD_Request("dr","gedit",{
                 uid:userInfo.openid,
                 did:dr.did,
-                contentList:{"title":$('.dr_title').val(),"content":$('.dr_info').val()}
+                contentList:JSON.stringify({"title":$('.dr_title').val(),"content":$('.dr_info').val()})
             },function(code,data){
                 alert('修改成功');
                 window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
