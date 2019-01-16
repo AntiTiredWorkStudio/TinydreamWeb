@@ -23,6 +23,21 @@ $(function(){
             console.log(data)
             $('.dr_title').val(data.dream.title);
             $('.dr_info').val(data.dream.content);
+            if(data.upload!=undefined || data.upload!=""){
+                var upload = data.upload
+                // 开启上传api
+                WebApp.InitUpload();
+                // 文件上传
+                WebApp.UploadWithSDK({
+                    token:upload.uptoken,
+                    domain:upload.upurl,
+                    filename:upload.fileName,
+                    tfile:$('.uploaded').val(),
+                    OnQiniuComplete:function(res){
+                        console.log(res);
+                    }
+                })
+            }
         },function(code,data){
             console.log("错误信息："+data.context);
         })
