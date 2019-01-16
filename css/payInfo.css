@@ -238,3 +238,20 @@
     top: 0.70rem;
     right: 0.30rem;
 }
+/* 选择框处理 */
+.toolbar .toolbar-inner{
+    height: 1rem;
+    line-height: 1rem;
+}
+.toolbar .picker-button{
+    font-size: 0.6rem;
+    line-height: 1rem;
+    height: 1rem;
+}
+.toolbar .title{
+    font-size: 0.6rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: left;
+    text-indent: 1em;
+}
