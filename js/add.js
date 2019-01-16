@@ -13,7 +13,7 @@ $(function(){
         var state = "all"
     }
     // 获取梦想列表
-    get(userinfo)
+    get(userInfo)
     function get(userInfo){
         console.log(userInfo)
         TD_Request("dr","gdream",{
