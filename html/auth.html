@@ -7,39 +7,33 @@
     <title>实名认证</title>
     <link rel="stylesheet" href="../css/public.css">
     <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/weui.css">
 </head>
 <body>
     <!--实名认证-->
     <div class='auth'>
         <div class='auth_main'>
+            <h1 id="hintInfo" style=""></h1>
             <div class='real_name'>
                 <div class="tip">真实姓名</div>
-                <input type="text" placeholder='请输入您的真实姓名' name='real_name'>
-            </div>
-            <div class='real_name'>
-                <div class="tip">性别</div>
-                <div style="float:right">
-                    <label>
-                        <input type="radio" name="sex" class="sex" style="float:unset">
-                        男
-                    </label>
-                    <label>
-                        <input type="radio" name="sex" class="sex" style="float:unset">
-                        女
-                    </label>
-                </div>
+                <input id="input_realName" type="text" placeholder='请输入您的真实姓名' name='real_name'>
             </div>
             <div class='real_name'>
                 <div class="tip">身份证号</div>
-                <input type="text" placeholder='请输入您的身份证号码' maxlength="18" name='idcard'>
+                <input id="input_idCardNum" type="text" placeholder='请输入您的身份证号码' maxlength="18" name='idcard'>
             </div>
             <div class='real_name'>
                 <div class="tip">银行卡号</div>
-                <input type="number" placeholder='请输入您的银行卡号码' name='bankcard' pattern="\d*">
+                <input id="input_CardNum" type="number" placeholder='请输入您的银行卡号码' name='bankcard' pattern="\d*">
             </div>
             <div class='real_name'>
                 <div class="tip">选择银行</div>
-                <input disabled name='bank' placeholder="银行类型">
+                <input id="input_bankType"  name='bank' placeholder="银行类型">
+            </div>
+
+            <div class='real_name'>
+                <div class="tip">银行卡号</div>
+                <input id="input_OpenBank" type="text" placeholder='请输入您的银行卡开户行' name='openBank'>
             </div>
             <div class='real_name'>
                 <div>请拍照并上传您的手持身份证正面的照片</div>
@@ -49,15 +43,22 @@
                     <div>3.确保照片的内容完整并清晰可见</div>
                 </div>
                 <div class='id_img'>
-                    <img src='http://tdream.antit.top/image/idf.png'>
+
+                    <img id="imgView" src='http://tdream.antit.top/image/idf.png'>
+                    <input class="uploader_input" id="input_photo" type="file" name="photo" accept="image/*">
+                    </img>
                 </div>
             </div>
         </div>
         <div class='submit'>
-            <button>提交审核</button>
+            <button id="btn_submit">提交审核</button>
         </div>
     </div>
     <script src="../lib/jquery-1.12.3.min.js"></script>
     <script src="../lib/rem.js"></script>
+    <script src="../lib/weui.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
+    <script src="../js/auth.js"></script>
 </body>
 </html>
