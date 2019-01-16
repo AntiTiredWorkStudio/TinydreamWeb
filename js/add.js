@@ -3,6 +3,7 @@ $(function(){
     // 获取did
     var did = JSON.parse(localStorage.getItem('dr')).did;
     var state = JSON.parse(localStorage.getItem('dr')).state;
+    console.log(state);
 
     // 获取梦想列表
     TD_Request("dr","gdream",{
