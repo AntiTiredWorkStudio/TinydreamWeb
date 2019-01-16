@@ -20,7 +20,7 @@ $(function(){
         console.log(data);
         $('.dr_title').val(data.dream.title);
         $('.dr_info').val(data.dream.content);
-        if(data.upload != "undefined") {
+        if(data.upload != undefined) {
             console.log(data.upload);
             // 文件上传
             var file;
