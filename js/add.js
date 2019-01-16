@@ -3,18 +3,22 @@ $(function(){
     // 获取did
     var did = JSON.parse(localStorage.getItem('dr')).did;
     var state = JSON.parse(localStorage.getItem('dr')).state;
-    console.log(state);
+    if(state != "all"){
+        $('.supper').hide()
+    }else{
+        $('.supper').show()
+    }
 
     // 获取梦想列表
     TD_Request("dr","gdream",{
         uid:userInfo.openid,
         did:did,
-        state:state
+        state:"all"
     },function(code,data){
         console.log(data);
         $('.dr_title').val(data.dream.title);
         $('.dr_info').val(data.dream.content);
-        if(data.upload != '' || data.upload != undefined) {
+        if(data.upload != '' || data.upload != "undefined") {
             console.log(data.upload);
         }
     },function(code,data){
