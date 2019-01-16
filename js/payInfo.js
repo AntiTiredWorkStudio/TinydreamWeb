@@ -95,7 +95,6 @@ $(function(){
                     alert(JSON.stringify(data.numbers))
                   },function(code,data){
                     alert(JSON.stringify(data))
-                    alert(2)
                   })
                 } 
              }); 
@@ -115,12 +114,15 @@ $(function(){
       uid:userInfo.openid
     },function(code,data){
       if(code == 0){
-        // $.each(data.dreams,function(index,item){
-        //   $('.dream').select({
-        //     title: "选择梦想",
-        //     items: []
-        //   });
-        // })
+        $.each(data.dreams,function(index,item){
+          var arr = [];
+          arr.push(item.title);
+          console.log(arr)
+          $('.dream').select({
+            title: "选择梦想",
+            items: []
+          });
+        })
       }
     },function(code,data){
       console.log(data)
@@ -154,4 +156,9 @@ $(function(){
         ctx.arc(95, 95, 80, Math.PI/-2, prop * Math.PI - Math.PI / 2, false);
         ctx.stroke()
     }
+
+    // 关闭弹窗
+    $('.close').click(function(){
+      $('.mask').fadeOut();
+    })
 });
