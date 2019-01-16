@@ -64,7 +64,11 @@ $(function(){
        },1000)
       // 统一下单
       $('.wxPay').click(function(){
-        console.log($('#dream').attr("data-values"));
+        if($('#dream strong').html() == ''){
+          alert('请选择梦想后进行支付！');
+          return;
+        }
+        var did = $('#dream').attr("data-values");
         var fee = $('.price span.fee').html();
         console.log(fee);
         TD_Request("ds","wxpayweb",{
@@ -90,7 +94,8 @@ $(function(){
                     oid:actions.pay.oid,
                     bill:fee * 100,
                     pcount:$('.copies_money span').html(),
-                    action:localStorage.getItem('actions')
+                    action:localStorage.getItem('actions'),
+                    did:
                   },function(code,data){
                     $('.mask').fadeIn();
                     alert(JSON.stringify(data.numbers))
