@@ -24,7 +24,7 @@ $(function(){
         if(data.upload != '' || data.upload != "undefined") {
             console.log(data.upload);
             // 文件上传
-            $('.uploaded').bind("onchange",function(e){
+            $('.uploaded').change(function(e){
                 console.log(e)
                 WebApp.UploadWithSDK({
                     token:data.upload.uptoken,
