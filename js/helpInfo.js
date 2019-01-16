@@ -3,6 +3,8 @@ $(function(){
     // 获取奖池信息
     var poolInfo = JSON.parse(localStorage.getItem('poolInfo'));
     console.log(poolInfo);
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext("2d");
 
     // 动态填入数据
     $('.dream_title').html(poolInfo.ptitle);
@@ -131,8 +133,6 @@ $(function(){
     }
 
     // 图例
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext("2d");
     function ready(){
         var canvas = document.getElementById('bottom');
         var cxt_arc = canvas.getContext("2d");
