@@ -2,50 +2,44 @@ $(function(){
     var userInfo = Options.GetUserInfo();
     var dr = JSON.parse(localStorage.getItem('dr'));
     // 获取梦想id
-    get(userInfo,dr,state = dr.state)
     if(dr.state!="all"){
         var state = "all"
         $('.supper').show();
         $('title').html('编辑梦想')
-        get(userInfo,dr,state)
     }else{
         $('.supper').show();
         $('title').html('完善梦想')
         var state = "all"
     }
     // 获取梦想列表
-    console.log(userInfo,dr,state)
-    function get(userInfo){
-        console.log(userInfo)
-        TD_Request("dr","gdream",{
-            uid:userInfo.openid,
-            did:dr.did,
-            state: state
-        },function(code,data){
-            console.log(data)
-            $('.dr_title').val(data.dream.title);
-            $('.dr_info').val(data.dream.content);
-            if(data.upload!=undefined || data.upload!=""){
-                var upload = data.upload
-                // 开启上传api
-                WebApp.InitUpload();
-                // 文件上传
-               $('.uploaded').click(function(){
-                WebApp.UploadWithSDK({
-                    token:upload.uptoken,
-                    domain:upload.upurl,
-                    filename:upload.fileName,
-                    tfile:$('.uploaded').val(),
-                    OnQiniuComplete:function(res){
-                        console.log(res);
-                    }
-                })
-               })
-            }
-        },function(code,data){
-            console.log("错误信息："+data.context);
-        })
-    }
+    TD_Request("dr","gdream",{
+        uid:userInfo.openid,
+        did:dr.did,
+        state: state
+    },function(code,data){
+        console.log(data)
+        $('.dr_title').val(data.dream.title);
+        $('.dr_info').val(data.dream.content);
+        if(data.upload!=undefined || data.upload!=""){
+            var upload = data.upload
+            // 开启上传api
+            WebApp.InitUpload();
+            // 文件上传
+           $('.uploaded').click(function(){
+            WebApp.UploadWithSDK({
+                token:upload.uptoken,
+                domain:upload.upurl,
+                filename:upload.fileName,
+                tfile:$('.uploaded').val(),
+                OnQiniuComplete:function(res){
+                    console.log(res);
+                }
+            })
+           })
+        }
+    },function(code,data){
+        console.log("错误信息："+data.context);
+    })
     $('.submit').click(function(){
         if($('.dr_title').val() == ''){
             alert('梦想标题不能为空');
