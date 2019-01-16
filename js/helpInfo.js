@@ -105,7 +105,7 @@ $(function(){
     $('.tab div.left').click(function(){
        
     })
-    $('.right').click(function(){
+    $('.tab div.right').click(function(){
         $('.tabList').hide();
         getOrder(number);  
     })
@@ -118,6 +118,9 @@ $(function(){
             max:10
         },function(code,data){
             console.log(data)
+            $.each(data.orders,function(index,item){
+                $("<div class='user'><div class='phone'>"+item.tele+"</div><div class='num'>"+item.dcount+"份</div><div class='look' style='color:#00d094'>查看编号</div><div class='title'>"+item.dtitle+"</div></div>").appendTo('.user')
+            })
             $('.btns').click(function(){
                 if(number>=data.orders.length){
                     alert('已经没有那么多了');
