@@ -126,7 +126,7 @@ $(function(){
           items: arr,
           onClose:function(){
             $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html())
-            console.log($('.dream').attr("data-values"));
+            console.log($('#dream').attr());
           }
         });
       }
