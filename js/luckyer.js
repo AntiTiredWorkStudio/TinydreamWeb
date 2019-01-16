@@ -1,5 +1,5 @@
 /*测试用*/
-/*Options = {
+Options = {
     Url: "https://tinydream.antit.top",//http://localhost:8003 , https://tinydream.antit.top
     Auth: null,
     AccessToken: null,
@@ -9,7 +9,7 @@
     GetUserInfo: function () {
         return this.UserInfo != null ? JSON.parse(this.UserInfo) : null;
     }
-}*/
+}
 /*测试用*/
 
 var uid = Options.GetUserInfo().openid;
@@ -93,8 +93,8 @@ var onAwardViewBuild = function (awardItem) {
             function(result,data){
                 var content = $('#vlist').html();
                 $('#vlist').html(content + data[snippetID]);
-				for(var key in awardItem){
-					$("#pool_"+awardItem[key].pid).click(OnViewDetials);
+				for(var key in luckeyManager.data.awards){
+					$("#pool_"+luckeyManager.data.awards[key].pid).click(OnViewDetials);
 				}
             }
         );
@@ -102,6 +102,8 @@ var onAwardViewBuild = function (awardItem) {
 
 var OnViewDetials = function(res){
 	console.log(res.currentTarget.id);
+    window.localStorage.setItem('dreamInfo',JSON.stringify(luckeyManager.data.awards[res.currentTarget.id]));
+    window.location.href = 'luckyInfo.html';
 }
 
 var OnReachBottom = function () {
