@@ -92,7 +92,7 @@ $(function(){
             alert('您还没有同意协议呢！');
             return;
         }else{
-            TD_Request("dr","gedit",{
+            TD_Request("dr","dedit",{
                 uid:userInfo.openid,
                 title:$('.title').val(),
                 content:$('.info').val()
