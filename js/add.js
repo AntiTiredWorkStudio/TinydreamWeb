@@ -2,6 +2,7 @@ $(function(){
     var userInfo = Options.GetUserInfo();
     var dr = JSON.parse(localStorage.getItem('dr'));
     // 获取梦想id
+    get(userInfo,dr)
     if(dr.state!="all"){
         var state = "all"
         $('.supper').show();
