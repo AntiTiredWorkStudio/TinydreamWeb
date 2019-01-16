@@ -25,7 +25,7 @@ $(function(){
             console.log(data.upload);
             // 文件上传
             $('.uploaded').change(function(e){
-                console.log(e)
+                console.log(e.target.files[0])
                 WebApp.UploadWithSDK({
                     token:data.upload.uptoken,
                     domain:data.upload.upurl,
