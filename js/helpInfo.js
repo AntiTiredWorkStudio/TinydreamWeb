@@ -112,7 +112,7 @@ $(function(){
     getOrd(number);
     // 公用
     function getOrd(number){
-        TD_Request('ds','precs',{
+        TD_Request('ds','preco',{
             pid:poolInfo.pid,
             min:number,
             max:10
