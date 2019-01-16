@@ -16,7 +16,7 @@ body{
     border-radius: 0.10rem;
     box-shadow: 0.02rem 0rem 0.20rem 0.02rem rgba(0, 54, 208, .05),-0.02rem 0 0.20rem 0.02rem rgba(0, 54, 208, .05),0 0.02rem 0.20rem 0.02rem rgba(0, 54, 208, .05),0 -0.02rem 0.20rem 0.02rem rgba(0, 54, 208, .05);
     background-color: #fff;
-    margin-bottom: 0.30rem;
+    /*margin-bottom: 0.30rem;*/
 }
 .lucky .lucky_list .lucky_main .left{
     float: left;
