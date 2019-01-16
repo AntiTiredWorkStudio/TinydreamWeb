@@ -32,7 +32,7 @@ $(function(){
             alert('请勾选协议');
             return;  
         }else{
-            TD_Request('dr','dedit',{
+            TD_Request('ds','dedit',{
                 uid:userInfo.openid,
                 did:dr.did,
                 contentList:{"title":$('.dr_title').val(),"content":$('.dr_info').val()}
