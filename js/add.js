@@ -1,4 +1,6 @@
 $(function(){
+    // 开启上传
+    WebApp.InitUpload();
     var userInfo = Options.GetUserInfo();
     // 获取did
     var did = JSON.parse(localStorage.getItem('dr')).did;
@@ -21,8 +23,6 @@ $(function(){
         $('.dr_info').val(data.dream.content);
         if(data.upload != '' || data.upload != "undefined") {
             console.log(data.upload);
-            // 开启上传
-            WebApp.InitUpload();
             // 文件上传
             $('.uploaded').click(function(){
                 WebApp.UploadWithSDK({
