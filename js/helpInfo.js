@@ -103,9 +103,11 @@ $(function(){
         $(this).addClass('active').siblings().removeClass('active')
     })
     $('.tab div.left').click(function(){
-       
+        $('.user_number').hide()
+        $('.tabList').show();
     })
     $('.tab div.right').click(function(){
+        $('.user_number').show()
         $('.tabList').hide();
         getOrd(number);  
     })
@@ -122,7 +124,7 @@ $(function(){
                 $("<div class='user'><div class='phone'>"+item.tele+"</div><div class='num'>"+item.dcount+"份</div><div class='look' style='color:#00d094'>查看编号</div><div class='title'>"+item.dtitle+"</div></div>").appendTo('.user')
             })
             $('.btns').click(function(){
-                if(number>=data.orders.length){
+                if(data.orders.length <= 0){
                     alert('已经没有那么多了');
                     return;
                 }else{
