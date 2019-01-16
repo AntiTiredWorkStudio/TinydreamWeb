@@ -93,3 +93,18 @@ button{
     color: #fff;
     font-size: 0.36rem;
 }
+
+.uploader_input {
+    position: absolute;
+    z-index: 1;
+    top: 2.35rem;
+    left: 1rem;
+    margin: 0;
+    padding: 0;
+    width: 4.30rem;
+    height: 3.26rem;
+    opacity: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background: url(http://tdream.antit.top/image/idf.png) no-repeat;
+    display: block;
+}
