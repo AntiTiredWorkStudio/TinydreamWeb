@@ -45,7 +45,6 @@ $(function(){
         var ptime = parseInt(poolInfo.ptime);
         var dtime = parseInt(poolInfo.duration);
         var endtime = GetLocalTime(parseInt(ptime+dtime))
-        $('.timeout_ui').html(endtime+'结束');
         $('.state').html('已结束');
         $('.join_help').html('等待开奖').css({background:'#ccc',color:'#b2b2b2'}).attr('disabled')
     }else if(poolInfo.state != "RUNNING" && poolInfo.award == "YES"){
