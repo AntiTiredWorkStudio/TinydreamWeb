@@ -118,7 +118,7 @@ $(function(){
         $.each(data.dreams,function(index,item){
           console.log(item);
           console.log(item.title);
-          arr.push({title:item.title,values:item.did});
+          arr.push({title:item.title,value:item.did});
           console.log(arr)
         })
         $('.dream').select({
