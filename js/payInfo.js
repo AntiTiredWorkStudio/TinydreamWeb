@@ -100,7 +100,7 @@ $(function(){
                     $('.mask').fadeIn();
                     var number = data.numbers;
                     for(key in number){
-                      alert(number[key])
+                      alert(JSON.stringify(number[key]))
                     }
                     alert(JSON.stringify(data.numbers))
                   },function(code,data){
@@ -132,7 +132,7 @@ $(function(){
           console.log(arr)
         })
         $('.dream').select({
-          title: "选择梦想",
+          // title: "选择梦想",
           items: arr,
           onClose:function(){
             $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html())
