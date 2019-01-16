@@ -125,7 +125,7 @@ $(function(){
           title: "选择梦想",
           items: arr,
           onClose:function(){
-            $('.dream input').val() = $('.weui_cell_ft input:radio[name="weui-select"]:checked').val()
+            $('.dream input').val($('.weui_cell_ft input:radio[name="weui-select"]:checked').val())
           }
         });
       }
