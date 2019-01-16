@@ -107,7 +107,7 @@ $(function(){
     })
     $('.tab div.right').click(function(){
         $('.tabList').hide();
-        getOrder(number);  
+        getOrd(number);  
     })
     getOrd(number);
     // 公用
