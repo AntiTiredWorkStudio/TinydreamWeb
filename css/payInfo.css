@@ -82,7 +82,7 @@
     font-size: 0.26rem;
 }
 .home .home_content .dream_info .targetAndPrice .target div:nth-child(1) div{
-    width: 0.70rem;
+    min-width: 0.70rem;
     height: 0.37rem;
     display: inline-block;
     margin-right: 0;
@@ -239,17 +239,17 @@
     right: 0.30rem;
 }
 /* 选择框处理 */
-.toolbar .toolbar-inner{
+.weui-picker-modal.weui-picker-modal-visible .toolbar .toolbar-inner{
     height: 1rem !important;
     line-height: 1rem!important;
 }
-.toolbar .picker-button{
+.weui-picker-modal.weui-picker-modal-visible .toolbar .picker-button{
     font-size: 17px!important;
     line-height: 1rem!important;
     height: 1rem!important;
 }
-.toolbar .title{
-    font-size: 17px!important;
+.weui-picker-modal.weui-picker-modal-visible .toolbar .title{
+    font-size: 0.34rem!important;
     height: 1rem!important;
     line-height: 1rem!important;
     text-align: left!important;
