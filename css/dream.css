@@ -290,10 +290,22 @@ body{
     background-color: #00a094;
 }
 .mask .mask_main p button{
-    width: 6.5rem;
+    float: left;
+    width: 3.2rem;
     height: 0.68rem;
     border-radius: 0.34rem;
     background-color: #00d094;
     color: #fff;
     line-height: 0.68rem;
+}
+.mask .mask_main p button.off{
+    text-align: center;
+    width: 3.2rem;
+    height: 0.68rem;
+    color: #fff;
+    border: none;
+    background-color: #ccc;
+    color: #b2b2b2;
+    float: right;
+    margin-left: 0.02rem;
 }
