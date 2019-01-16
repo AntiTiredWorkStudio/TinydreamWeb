@@ -240,18 +240,18 @@
 }
 /* 选择框处理 */
 .toolbar .toolbar-inner{
-    height: 1rem;
-    line-height: 1rem;
+    height: 1rem !important;
+    line-height: 1rem!important;
 }
 .toolbar .picker-button{
-    font-size: 0.6rem;
-    line-height: 1rem;
-    height: 1rem;
+    font-size: 0.6rem!important;
+    line-height: 1rem!important;
+    height: 1rem!important;
 }
 .toolbar .title{
-    font-size: 0.6rem;
-    height: 1rem;
-    line-height: 1rem;
-    text-align: left;
-    text-indent: 1em;
+    font-size: 0.6rem!important;
+    height: 1rem!important;
+    line-height: 1rem!important;
+    text-align: left!important;
+    text-indent: 1em!important;
 }
