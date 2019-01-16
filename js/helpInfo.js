@@ -68,7 +68,7 @@ $(function(){
     $('.tab div.left').click(function(){
        
     })
-
+    getOrd();
     // 公用
     function getOrd(number){
         console.log(userInfo,poolInfo)

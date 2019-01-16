@@ -30,6 +30,7 @@ body{
     margin-top: 0.50rem;
     margin-left: 1.50rem;
     width: 3.80rem;
+    text-align: center;
     height:3.80rem;
     position: relative;
 }
@@ -59,7 +60,7 @@ body{
 }
 .home .home_content .dream_info .progress .help_money{
     position: absolute;
-    top: 1.75rem;
+    top: 1.70rem;
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.5rem;
