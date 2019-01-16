@@ -25,15 +25,10 @@ $(function(){
             console.log(data.upload);
             // 文件上传
             $('.uploaded').change(function(e){
-                console.log(e.target.files[0].name.split(".")[1])
-                WebApp.UploadWithSDK({
-                    token:data.upload.uptoken,
-                    domain:data.upload.upurl,
-                    tfile:e.target.files[0],
-                    filename:data.upload.fileName,
-                    OnQiniuComplete:function(res){
+                console.log(e);
+                //console.log(e.target.files[0].name.split(".")[1])
+                WebApp.UploadWithSDK(data.upload.uptoken,data.upload.upurl,e.target.files[0],data.upload.fileName,function(res){
                         console.log(res);
-                    }
                 })
             })
         }
