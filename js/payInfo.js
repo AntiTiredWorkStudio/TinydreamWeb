@@ -122,7 +122,7 @@ $(function(){
           console.log(arr)
           $('.dream').select({
             title: "选择梦想",
-            items: []
+            items: arr
           });
         })
       }
