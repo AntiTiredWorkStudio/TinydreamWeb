@@ -35,6 +35,10 @@ $(function(){
                 }
                 // 梦想互助池
                 var mainpool = data.mainpool;
+                if(mainpool.length == 0 || mainpool == ''){
+                    $('.help').html("暂无更多梦想池").css('text-aligin','center');
+                    return;
+                }
                 // 标题
                 $('.pool_title').html(mainpool.ptitle);
                 // 目标互助金

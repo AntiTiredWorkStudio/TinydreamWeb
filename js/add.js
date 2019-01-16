@@ -29,7 +29,7 @@ $(function(){
                 WebApp.UploadWithSDK({
                     token:data.upload.uptoken,
                     domain:data.upload.upurl,
-                    tfile:e.target.files[0].File,
+                    tfile:e.target.files[0],
                     filename:data.upload.fileName,
                     OnQiniuComplete:function(res){
                         console.log(res);
