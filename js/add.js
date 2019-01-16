@@ -6,7 +6,7 @@ $(function(){
         $('supper').hide();
         $('title').html('编辑梦想')
     }else{
-        $('supper').show();
+        $('.supper').show();
         $('title').html('完善梦想')
     }
     TD_Request("dr","gdream",{
@@ -16,6 +16,6 @@ $(function(){
     },function(code,data){
         console.log(data)
     },function(code,data){
-        console.log(data);
+        console.log("错误信息："+data);
     })
 })
