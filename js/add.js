@@ -24,14 +24,16 @@ $(function(){
             // 开启上传
             WebApp.InitUpload();
             // 文件上传
-            WebApp.UploadWithSDK({
-                token:data.upload.uptoken,
-                domain:data.upload.upurl,
-                tfile:$('.uploaded').val(),
-                filename:data.upload.fileName,
-                OnQiniuComplete:function(res){
-                    console.log(res);
-                }
+            $('.uploaded').click(function(){
+                WebApp.UploadWithSDK({
+                    token:data.upload.uptoken,
+                    domain:data.upload.upurl,
+                    tfile:$('.uploaded').val(),
+                    filename:data.upload.fileName,
+                    OnQiniuComplete:function(res){
+                        console.log(res);
+                    }
+                })
             })
         }
     },function(code,data){
