@@ -28,7 +28,7 @@ $(function(){
         }else if($('.dr_info').val() == ''){
             alert('梦想简介不能为空');
             return;
-        }else if(!$('input[type="checkbox"]:checked')){
+        }else if(!$("input[type='checkbox']").is(':checked')){
             alert('请勾选协议');
             return;  
         }else{
