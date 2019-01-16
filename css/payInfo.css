@@ -253,5 +253,5 @@
     height: 1rem!important;
     line-height: 1rem!important;
     text-align: left!important;
-    text-indent: 1em!important;
+    padding: 0 0 0 15px!important;
 }
