@@ -1,7 +1,7 @@
 var typeIdList = ['type_running','type_end','type_join'];
 
 /*测试用*/
-/*Options = {
+Options = {
     Url: "https://tinydream.antit.top",//http://localhost:8003 , https://tinydream.antit.top
     Auth: null,
     AccessToken: null,
@@ -11,7 +11,7 @@ var typeIdList = ['type_running','type_end','type_join'];
     GetUserInfo: function () {
         return this.UserInfo != null ? JSON.parse(this.UserInfo) : null;
     }
-}*/
+}
 /*测试用*/
 
 var uid = Options.GetUserInfo().openid;
@@ -53,9 +53,9 @@ var onPoolViewBuild = function (poolInfo) {
                 $('#pool_List').html(content + data[snippetID] + data["pool_type_end"]);
                 switchTypeClass(PoolManager.typeSelection);
                 $('#btn_join').click(onJoinPool);
-                //console.log(poolInfo);
-                for(var key in poolInfo){
-                    $('#poolinfo_'+poolInfo[key].pid).click(onClickPoolInfo);
+                var eventList = PoolManager[PoolManager.typeSelection].poolList;
+                for(var key in eventList){
+                    $('#poolinfo_'+eventList[key].pid).click(onClickPoolInfo);
                 }
             }
         );
@@ -71,9 +71,9 @@ var onPoolViewBuild = function (poolInfo) {
                 $('#pool_List').html(content + data[snippetID]);
                 switchTypeClass(PoolManager.typeSelection);
                 $('#btn_join').click(onJoinPool);
-                //console.log(poolInfo);
-                for(var key in poolInfo){
-                    $('#poolinfo_'+poolInfo[key].pid).click(onClickPoolInfo);
+                var eventList = PoolManager[PoolManager.typeSelection].poolList;
+                for(var key in eventList){
+                    $('#poolinfo_'+eventList[key].pid).click(onClickPoolInfo);
                 }
             }
         );
@@ -84,6 +84,14 @@ var onClickPoolInfo = function (res) {
     console.log(res.currentTarget.attributes[1].nodeValue);
     //console.log(res.currentTarget.attributes[1].nodeValue);
     var tPid = res.currentTarget.attributes[1].nodeValue;
+    for(var key in PoolManager[PoolManager.typeSelection].poolList){
+        if(PoolManager[PoolManager.typeSelection].poolList[key].pid == tPid){
+            window.localStorage.setItem('poolInfo',JSON.stringify(PoolManager[PoolManager.typeSelection].poolList[key]));
+            window.localStorage.setItem('tabType',PoolManager.typeSelection);
+            window.location.href='helpInfo.html';
+            return;
+        }
+    }
 }
 
 var onJoinPool = function (res) {
