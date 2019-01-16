@@ -69,6 +69,7 @@ var onPoolViewBuild = function (poolInfo) {
                 $('#pool_List').html(content + data[snippetID]);
                 switchTypeClass(PoolManager.typeSelection);
                 $('#btn_join').click(onJoinPool);
+                $('#poolinfo').click(onClickPoolInfo);
                // console.log("build",data[snippetID]);
             }
         );
@@ -282,7 +283,13 @@ var OnReachBottom = function () {
 
 
 var pageInit = function () {
+    var selectionType = window.localStorage.getItem('tabType');
+    if(selectionType==null){
+        selectionType = 'type_running';
 
+    }else{
+        window.localStorage.removeItem('tabType');
+    }
     $('#type_running').click(onClickTypeBtn);
     $('#type_end').click(onClickTypeBtn);
     $('#type_join').click(onClickTypeBtn);
@@ -295,7 +302,7 @@ var pageInit = function () {
             //获得数量
             onClickTypeBtn({
                 currentTarget:{
-                    id:'type_running'
+                    id:selectionType
                 }
             });//初始化种类
         },
