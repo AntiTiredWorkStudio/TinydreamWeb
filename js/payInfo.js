@@ -106,6 +106,9 @@ $(function(){
                       var obj = number[key];
                       lid.push(obj.lid)
                     }
+                    $.each(lid,function(index,item){
+                      $('.num').html(item+"、").css("color","#00d094");
+                    })
                     alert(JSON.stringify(lid))
                     alert(JSON.stringify(data.numbers))
                   },function(code,data){
