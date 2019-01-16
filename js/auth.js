@@ -1,5 +1,5 @@
 /*测试用*/
-Options = {
+/*Options = {
     Url: "https://tinydream.antit.top",//http://localhost:8003 , https://tinydream.antit.top
     Auth: null,
     AccessToken: null,
@@ -9,7 +9,7 @@ Options = {
     GetUserInfo: function () {
         return this.UserInfo != null ? JSON.parse(this.UserInfo) : null;
     }
-}
+}*/
 /*测试用*/
 
 WebApp.InitUpload();
