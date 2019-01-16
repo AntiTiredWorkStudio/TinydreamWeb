@@ -97,11 +97,16 @@ $(function(){
                     action:localStorage.getItem('actions'),
                     did:$('#dream').attr("data-values")
                   },function(code,data){
+                    window.location.reload();
                     $('.mask').fadeIn();
                     var number = data.numbers;
+                    var lid = [];
                     for(key in number){
                       alert(JSON.stringify(number[key]))
+                      var obj = number[key];
+                      lid.push(obj.lid)
                     }
+                    alert(JSON.stringify(lid))
                     alert(JSON.stringify(data.numbers))
                   },function(code,data){
                     alert(JSON.stringify(data))
