@@ -6,22 +6,27 @@ $(function(){
         var state = "all"
         $('.supper').show();
         $('title').html('编辑梦想')
+        get()
     }else{
         $('.supper').show();
         $('title').html('完善梦想')
         var state = "all"
     }
-    TD_Request("dr","gdream",{
-        uid:userInfo.openid,
-        did:dr.did,
-        state: state
-    },function(code,data){
-        console.log(data)
-        $('.dr_title').val(data.dream.title);
-        $('.dr_info').val(data.dream.content);
-    },function(code,data){
-        console.log("错误信息："+data.context);
-    })
+    // 获取梦想列表
+    get()
+    function get(){
+        TD_Request("dr","gdream",{
+            uid:userInfo.openid,
+            did:dr.did,
+            state: state
+        },function(code,data){
+            console.log(data)
+            $('.dr_title').val(data.dream.title);
+            $('.dr_info').val(data.dream.content);
+        },function(code,data){
+            console.log("错误信息："+data.context);
+        })
+    }
     $('.submit').click(function(){
         if($('.dr_title').val() == ''){
             alert('梦想标题不能为空');
