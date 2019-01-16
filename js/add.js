@@ -1,6 +1,6 @@
 $(function(){
     // 开启上传
-    WebApp.InitUpload();
+    // WebApp.InitUpload();
     var userInfo = Options.GetUserInfo();
     // 获取did
     var did = JSON.parse(localStorage.getItem('dr')).did;
