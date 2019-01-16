@@ -189,6 +189,22 @@ $(function(){
     // 关闭弹窗
     $('.close').click(function(){
       $('.mask').fadeOut();
-      window.location.reload();
+      window.location.href="http://tinydream.antit.top/TinydreamWeb/html/dreamHelp.html";
     })
-});
+
+    //分享
+    wx.ready(function(){
+      $('.share').click(function(){
+        wx.updateAppMessageShareData({
+          title:"小梦想互助",
+          desc:"互助小额零钱，夺大额梦想金！",
+          link:"http://tinydream.antit.top/TinydreamWeb/index.html",
+          imgUrl:"",
+          success:function(res){
+            console.log(res);
+          }
+        })
+      })
+    })
+     
+})
