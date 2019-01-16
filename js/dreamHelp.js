@@ -53,6 +53,7 @@ var onPoolViewBuild = function (poolInfo) {
                 $('#pool_List').html(content + data[snippetID] + data["pool_type_end"]);
                 switchTypeClass(PoolManager.typeSelection);
                 $('#btn_join').click(onJoinPool);
+				$('#poolinfo').click(onClickPoolInfo);
                 //console.log("build",data[snippetID] + data["pool_type_end"]);
             }
         );
@@ -285,7 +286,6 @@ var pageInit = function () {
     $('#type_running').click(onClickTypeBtn);
     $('#type_end').click(onClickTypeBtn);
     $('#type_join').click(onClickTypeBtn);
-    $('#poolinfo').click(onClickPoolInfo);
     $('#pool_List').html("");
     TD_Request('ds','pcount',{uid:uid},
         function (code, data) {
