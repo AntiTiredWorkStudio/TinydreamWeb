@@ -118,12 +118,15 @@ $(function(){
         $.each(data.dreams,function(index,item){
           console.log(item);
           console.log(item.title);
-          arr.push(item.title);
+          arr.push({title:item.title,did:item.did});
           console.log(arr)
         })
         $('.dream').select({
           title: "选择梦想",
-          items: arr
+          items: arr,
+          onClose:function(){
+            $('.dream input').val() = $('.weui_cell_ft input[type=radio]:checked').val()
+          }
         });
       }
     },function(code,data){
