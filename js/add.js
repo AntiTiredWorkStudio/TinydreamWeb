@@ -46,6 +46,9 @@ $(function(){
                 }else{
                     WebApp.UploadWithSDK(data.upload.uptoken,data.upload.upurl,file,data.upload.fileName,function(res){
                         console.log(res);
+                        if(res.result){
+                            var url = data.upload.domain + "/" + res.imgName
+                        }
                     })  
                     TD_Request("dr","gedit",{
                         uid:userInfo.openid,
@@ -54,18 +57,18 @@ $(function(){
                     },function(code,data){
                         console.log(data);
                         alert('修改成功!');
-                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
+                        $('.submit_mask').fadeIn();
+                        $('.submit_mask button').click(function(){
+                            $('.submit_mask').fadeOut();
+                            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
+                        })
                     },function(code,data){
                         console.log('修改失败'+data.context);
                     }) 
                 }
             })
-        }
-    },function(code,data){
-        console.log('获取失败：'+data.context)
-    })
-
-    // 修改梦想
+        }else{
+            // 修改梦想
     $('.submit').click(function(){
         if($('.dr_title').val() == ''){
             alert('请填写梦想标题');
@@ -89,5 +92,9 @@ $(function(){
                 console.log('修改失败'+data.context);
             }) 
         }
+    })
+        }
+    },function(code,data){
+        console.log('获取失败：'+data.context)
     })
 })
