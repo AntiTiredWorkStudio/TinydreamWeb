@@ -118,14 +118,14 @@ $(function(){
         $.each(data.dreams,function(index,item){
           console.log(item);
           console.log(item.title);
-          arr.push({title:item.title,did:item.did});
+          arr.push({title:item.title,values:item.did});
           console.log(arr)
         })
         $('.dream').select({
           title: "选择梦想",
           items: arr,
           onClose:function(){
-            $('.dream input').val($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html())
+            $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html())
           }
         });
       }
