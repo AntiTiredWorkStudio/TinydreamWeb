@@ -105,6 +105,7 @@
     color: #333;
 }
 .home .home_content .dream_info .targetAndPrice .target div:nth-child(1) div.icon_add{
+    width: 0.7rem;
     right: 1.10rem;
     top: 0.065rem;
     background-image: url(http://tdream.antit.top/image/plus.png)
