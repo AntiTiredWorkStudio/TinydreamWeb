@@ -22,7 +22,7 @@ var luckeyManager = {
     data: {
       awards:[]
     },
-    luckyInfo(res){
+    luckyInfo:function(res){
 		console.log(res);
       /*C.SetPageIntendData("award", this.data.awards[res.currentTarget.id]);
         wx.navigateTo({
@@ -101,8 +101,7 @@ var onAwardViewBuild = function (awardItem) {
 }
 
 var OnViewDetials = function(res){
-	console.log(res.currentTarget.id);
-    window.localStorage.setItem('dreamInfo',JSON.stringify(luckeyManager.data.awards[res.currentTarget.id]));
+    window.localStorage.setItem('dreamInfo',JSON.stringify(luckeyManager.data.awards[res.currentTarget.attributes[1].nodeValue]));
     window.location.href = 'luckyInfo.html';
 }
 
