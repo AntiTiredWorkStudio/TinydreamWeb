@@ -120,11 +120,11 @@ $(function(){
           console.log(item.title);
           arr.push(item.title);
           console.log(arr)
-          $('.dream').select({
-            title: "选择梦想",
-            items: arr
-          });
         })
+        $('.dream').select({
+          title: "选择梦想",
+          items: arr
+        });
       }
     },function(code,data){
       console.log(data)
