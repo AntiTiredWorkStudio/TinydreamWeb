@@ -114,8 +114,10 @@ $(function(){
       uid:userInfo.openid
     },function(code,data){
       if(code == 0){
+        var arr = [];
         $.each(data.dreams,function(index,item){
-          var arr = [];
+          console.log(item);
+          console.log(item.title);
           arr.push(item.title);
           console.log(arr)
           $('.dream').select({
