@@ -12,7 +12,7 @@ $(function(){
     TD_Request("dr","gdream",{
         uid:userInfo.openid,
         did:dr.did,
-        state:dr.state
+        // state:dr.state
     },function(code,data){
         console.log(data)
     },function(code,data){
