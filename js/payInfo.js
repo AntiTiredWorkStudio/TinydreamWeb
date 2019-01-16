@@ -121,7 +121,7 @@ $(function(){
           arr.push(item.title);
           console.log(arr)
         })
-        $('.dream').select({
+        $('.dream input').select({
           title: "选择梦想",
           items: arr
         });
