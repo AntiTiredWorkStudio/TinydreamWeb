@@ -13,8 +13,8 @@ $(function(){
         var state = "all"
     }
     // 获取梦想列表
-    get()
-    function get(){
+    get(userinfo)
+    function get(userInfo){
         TD_Request("dr","gdream",{
             uid:userInfo.openid,
             did:dr.did,
