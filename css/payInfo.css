@@ -82,7 +82,7 @@
     font-size: 0.26rem;
 }
 .home .home_content .dream_info .targetAndPrice .target div:nth-child(1) div{
-    width: 0.70rem;
+    min-width: 0.70rem;
     height: 0.37rem;
     display: inline-block;
     margin-right: 0;
@@ -105,6 +105,7 @@
     color: #333;
 }
 .home .home_content .dream_info .targetAndPrice .target div:nth-child(1) div.icon_add{
+    width: 0.7rem;
     right: 1.10rem;
     top: 0.065rem;
     background-image: url(http://tdream.antit.top/image/plus.png)
@@ -237,4 +238,21 @@
     position: absolute;
     top: 0.70rem;
     right: 0.30rem;
+}
+/* 选择框处理 */
+.weui-picker-modal.weui-picker-modal-visible .toolbar .toolbar-inner{
+    height: 1rem !important;
+    line-height: 1rem!important;
+}
+.weui-picker-modal.weui-picker-modal-visible .toolbar .picker-button{
+    font-size: 17px!important;
+    line-height: 1rem!important;
+    height: 1rem!important;
+}
+.weui-picker-modal.weui-picker-modal-visible .toolbar .title{
+    font-size: 0.34rem!important;
+    height: 1rem!important;
+    line-height: 1rem!important;
+    text-align: left!important;
+    padding: 0 0 0 15px!important;
 }

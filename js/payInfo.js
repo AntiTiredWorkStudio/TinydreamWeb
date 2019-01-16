@@ -64,6 +64,11 @@ $(function(){
        },1000)
       // 统一下单
       $('.wxPay').click(function(){
+        if($('#dream strong').html() == ''){
+          alert('请选择梦想后进行支付！');
+          return;
+        }
+        var did = $('#dream').attr("data-values");
         var fee = $('.price span.fee').html();
         console.log(fee);
         TD_Request("ds","wxpayweb",{
@@ -89,13 +94,25 @@ $(function(){
                     oid:actions.pay.oid,
                     bill:fee * 100,
                     pcount:$('.copies_money span').html(),
-                    action:localStorage.getItem('actions')
+                    action:localStorage.getItem('actions'),
+                    did:$('#dream').attr("data-values")
                   },function(code,data){
-                    alert(1)
+                    window.location.reload();
+                    $('.mask').fadeIn();
+                    var number = data.numbers;
+                    var lid = [];
+                    for(key in number){
+                      alert(JSON.stringify(number[key]))
+                      var obj = number[key];
+                      lid.push(obj.lid)
+                    }
+                    $.each(lid,function(index,item){
+                      $('.num').html(item+"、").css("color","#00d094");
+                    })
+                    alert(JSON.stringify(lid))
                     alert(JSON.stringify(data.numbers))
                   },function(code,data){
                     alert(JSON.stringify(data))
-                    alert(2)
                   })
                 } 
              }); 
@@ -115,12 +132,20 @@ $(function(){
       uid:userInfo.openid
     },function(code,data){
       if(code == 0){
-        // $.each(data.dreams,function(index,item){
-        //   $('.dream').select({
-        //     title: "选择梦想",
-        //     items: []
-        //   });
-        // })
+        var arr = [];
+        $.each(data.dreams,function(index,item){
+          console.log(item);
+          console.log(item.title);
+          arr.push({title:item.title,value:item.did});
+          console.log(arr)
+        })
+        $('.dream').select({
+          title: "选择梦想",
+          items: arr,
+          onClose:function(){
+            $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html())
+          }
+        });
       }
     },function(code,data){
       console.log(data)
@@ -154,4 +179,9 @@ $(function(){
         ctx.arc(95, 95, 80, Math.PI/-2, prop * Math.PI - Math.PI / 2, false);
         ctx.stroke()
     }
+
+    // 关闭弹窗
+    $('.close').click(function(){
+      $('.mask').fadeOut();
+    })
 });
