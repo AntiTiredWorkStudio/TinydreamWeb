@@ -13,6 +13,7 @@ $(function(){
         var state = "all"
     }
     // 获取梦想列表
+    console.log(userInfo);
     get(userInfo)
     function get(userInfo){
         console.log(userInfo)
