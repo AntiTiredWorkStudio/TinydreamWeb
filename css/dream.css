@@ -289,24 +289,22 @@ body{
     height: 0.3rem;
     background-color: #00a094;
 }
-.mask .off{
-    width: 0.4rem;
-    height: 0.4rem;
-    color: #fff;
-    font-weight: bolder;
-    font-size: 0.32rem;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    margin-left: -0.2rem;
-    border-radius: 50%;
-    border:2px solid #fff;
-}
 .mask .mask_main p button{
-    width: 6.5rem;
+    float: left;
+    width: 3.2rem;
     height: 0.68rem;
     border-radius: 0.34rem;
     background-color: #00d094;
     color: #fff;
     line-height: 0.68rem;
+}
+.mask .off{
+    text-align: center;
+    width: 3.2rem;
+    height: 0.68rem;
+    color: #fff;
+    border: none;
+    background-color: #ccc;
+    color: #b2b2b2;
+    float: right;
 }
