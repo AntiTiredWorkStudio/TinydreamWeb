@@ -25,8 +25,8 @@ $(function(){
                     var complid = _.template(templateStr);
                     _.each(buyinfo,function(item){
                         console.log(item)
-                        var date = new Date().getTime() / 1000;
-                        var timer = DescriptionTime(date - item.ptime);
+                        var date = parseInt(new Date().getTime() / 1000);
+                        var timer = parseInt(DescriptionTime(date - item.ptime));
                         item.timer = timer;
                         var str = complid(item);
                         $dom = $(str);
