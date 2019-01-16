@@ -11,13 +11,13 @@ $(function(){
     $('.target_money').html(poolInfo.rtbillValue+poolInfo.rtbillUnit);
     if(poolInfo.state == "RUNNING" && poolInfo.award == "NO") {
         $('.state').html('互助中');
-        $('.join_help').removeAttr('disabled').html('参与互助').css({background:'#00d094',color:'#fff'})
+        $('.join_help').html('参与互助').css({background:'#00d094',color:'#fff'}).removeAttr('disabled')
     }else if(poolInfo.state != "RUNNING" && poolInfo.award == "NO"){
         $('.state').html('已结束');
-        $('.join_help').html('等待开奖').attr('disabled').css({background:'#ccc',color:'#b2b2b2'})
+        $('.join_help').html('等待开奖').css({background:'#ccc',color:'#b2b2b2'}).attr('disabled')
     }else if(poolInfo.state != "RUNNING" && poolInfo.award == "YES"){
         $('.state').html('已结束');
-        $('.join_help').attr('disabled').html('已完成').css({background:'#f60',color:'#fff'})
+        $('.join_help').css({background:'#f60',color:'#fff'}).html('已完成').attr('disabled')
     }
 
     // 获取开奖奖池状态
@@ -38,16 +38,16 @@ $(function(){
             },function(code,data){
                 console.log("获取失败："+data.context)
             })
-            $('.join_help').attr('disabled').html('已完成').css({background:'#f60',color:'#fff'})
+            $('.join_help').html('已完成').css({background:'#f60',color:'#fff'}).attr('disabled')
         }
     },function(code,data){
         console.log('获取失败：'+data.context)
         if(poolInfo.state == "RUNNING" && code == 59) {
             $('.state').html('互助中');
-            $('.join_help').removeAttr('disabled').html('参与互助').css({background:'#00d094',color:'#fff'})
+            $('.join_help').html('参与互助').css({background:'#00d094',color:'#fff'}).removeAttr('disabled')
         }else if(poolInfo.state != "RUNNING" && code == 59){
             $('.state').html('已结束');
-            $('.join_help').attr('disabled').html('等待开奖').css({background:'#ccc',color:'#b2b2b2'})
+            $('.join_help').html('等待开奖').css({background:'#ccc',color:'#b2b2b2'}).attr('disabled')
         }
     })
 
