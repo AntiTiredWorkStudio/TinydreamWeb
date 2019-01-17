@@ -52,23 +52,23 @@ $(function(){
                         console.log(res);
                         if(res.result){
                            url = data.upload.domain + "/" + res.imgName
+                           TD_Request("dr","gedit",{
+                                uid:userInfo.openid,
+                                did:did,
+                                contentList:JSON.stringify({"title":$('.dr_title').val(),"content":$('.dr_info').val(),"videourl":url})
+                            },function(code,data){
+                                console.log(data);
+                                alert('提交成功!');
+                                $('.submit_mask').fadeIn();
+                                $('.submit_mask button').click(function(){
+                                    $('.submit_mask').fadeOut();
+                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
+                                })
+                            },function(code,data){
+                                console.log('提交失败'+data.context);
+                            }) 
                         }
                     })  
-                    TD_Request("dr","gedit",{
-                        uid:userInfo.openid,
-                        did:did,
-                        contentList:JSON.stringify({"title":$('.dr_title').val(),"content":$('.dr_info').val(),"videourl":url})
-                    },function(code,data){
-                        console.log(data);
-                        alert('提交成功!');
-                        $('.submit_mask').fadeIn();
-                        $('.submit_mask button').click(function(){
-                            $('.submit_mask').fadeOut();
-                            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
-                        })
-                    },function(code,data){
-                        console.log('提交失败'+data.context);
-                    }) 
                 }
             })
         }else{
