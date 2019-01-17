@@ -33,6 +33,9 @@ $(function(){
 
             $('.submit').click(function(){
                 console.log(file)
+                if(file == '' || file == undefined){
+                    alert('请上传小梦想公函')
+                }
                 if($('.dr_title').val() == ''){
                     alert('请填写梦想标题');
                     return;
@@ -42,8 +45,6 @@ $(function(){
                 }else if(!$('input[type="checkbox"]').is(':checked')){
                     alert('请勾选协议');
                     return;
-                }else if(file == '' || file == 'undefined'){
-                    alert('请上传小梦想公函')
                 }else{
                     var url;
                     WebApp.UploadWithSDK(data.upload.uptoken,data.upload.upurl,file,data.upload.fileName,function(res){
