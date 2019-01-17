@@ -34,7 +34,8 @@ $(function(){
             $('.submit').click(function(){
                 console.log(file)
                 if(file == '' || file == undefined){
-                    alert('请上传小梦想公函')
+                    alert('请上传小梦想公函');
+                    return;
                 }
                 if($('.dr_title').val() == ''){
                     alert('请填写梦想标题');
