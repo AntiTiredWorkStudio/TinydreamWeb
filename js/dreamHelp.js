@@ -88,7 +88,7 @@ var onClickPoolInfo = function (res) {
         if(PoolManager[PoolManager.typeSelection].poolList[key].pid == tPid){
             window.localStorage.setItem('poolInfo',JSON.stringify(PoolManager[PoolManager.typeSelection].poolList[key]));
             window.localStorage.setItem('tabType',PoolManager.typeSelection);
-			if(PoolManager.typeSelection == "type_end"){
+			if(PoolManager[PoolManager.typeSelection].poolList[key].state == "FINISHED"){
 				window.location.href = "end.html";
 			}else{
 				window.location.href='helpInfo.html';
