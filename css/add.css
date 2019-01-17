@@ -158,7 +158,7 @@ body{
 }
 .submit_mask .bg{
     width: 5.10rem;
-    height: 3.26rem;
+    min-height: 3.26rem;
     padding-top: 2.64rem;
     background: url(http://tdream.antit.top/image/detial.png) no-repeat;
     background-size: 5.10rem 6.00rem; 
