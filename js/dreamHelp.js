@@ -255,6 +255,7 @@ var PoolManager = {
 }
 
 
+//分析梦想池
 var DreamPoolsAnalysis = function (pools) {
     var resultPool = [];
     for(var key in pools){
@@ -262,8 +263,8 @@ var DreamPoolsAnalysis = function (pools) {
     }
     return resultPool;
 }
-//分析梦想池
-var DreamPoolAnalysis = function(pool) {
+
+/*var DreamPoolAnalysis = function(pool) {
     var billResult = BillExchange(pool.cbill);
     pool.realBill = billResult.value;
     pool.realUnit = billResult.unit;
@@ -290,7 +291,7 @@ var DreamPoolAnalysis = function(pool) {
         pool.billHint = "最终互助金"
     }
     return pool
-}
+}*/
 
 var OnReachBottom = function () {
     PoolManager.LoadCurrentSelection(onPoolViewBuild);
