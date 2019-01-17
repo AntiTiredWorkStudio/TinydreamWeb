@@ -68,7 +68,7 @@ $(function(){
                     return;
                 }
             })
-            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html"
+            // window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html"
         })
     }else if(poolInfo.state != "RUNNING"){
         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/end.html'
