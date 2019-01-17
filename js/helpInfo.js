@@ -44,43 +44,36 @@ $(function(){
         $('.join_help').click(function(){
             window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html"
         })
+    }else if(poolInfo.state != "RUNNING"){
+        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/end.html'
     }
 
-    // 获取开奖奖池状态
-    TD_Request('aw','lfromp',{
+    // 获取参与总数
+    TD_Request('ds','precs',{
         pid:poolInfo.pid
     },function(code,data){
-
+        $('.count').html(data.ordCount)
     },function(code,data){
-        if(poolInfo.state == "RUNNING" && code == '59'){
-            var timer = setInterval(function(){
-                var ptime = parseInt(poolInfo.ptime);
-                var daurtion = parseInt(poolInfo.duration);
-                var time = parseInt(new Date().getTime() / 1000);
-                var timeout = parseInt((ptime + daurtion) - time);
-                if(timeout>=0){
-                    var h = Math.floor(timeout/60/60);
-                    if(h<10){
-                        h = "0"+h;
-                    }
-                    var m = Math.floor(timeout/60%60);
-                    if(m<10){
-                        m = "0"+m;
-                    }
-                    var s = Math.floor(timeout%60);    
-                    if(s<10){
-                        s = "0"+s;
-                    }
-                    if(h == 0 && m==0 && s==0){
-                        window.location.reload();
-                    }  
-                }
-                $('.timeout_ui').html(h+":"+m+":"+s);
-            },1000)
-        }else if(poolInfo.state != "RUNNING" && code == '59'){
-            
-        }
+        console.log("获取失败："+data.context)
     })
+    var num = 1;
+    $('btns').click(function(){
+        num++;
+        getord(num)
+    })
+    getord(0);
+    // 获取用户梦想信息
+    function getord(number){
+        TD_Request('ds','preco',{
+            pid:poolInfo.pid,
+            min:number,
+            max:10
+        },function(code,data){
+            console.log(data)
+        },function(code,data){
+            console.log(data)
+        })
+    }
 
     // 图例
     function ready(){

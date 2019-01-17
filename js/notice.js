@@ -27,6 +27,7 @@ $(function(){
                 console.log(data)
                 var info =  DreamPoolAnalysis(data.pool);
                 localStorage.setItem('poolInfo',JSON.stringify(info))
+                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/helpInfo.html"
             },function(code,data){
                 console.log(data)
             })
