@@ -56,12 +56,17 @@ $(function(){
     },function(code,data){
         console.log("获取失败："+data.context)
     })
-    var num = 1;
+    $('.tab div').click(function(){
+        $(this).addClass('active').siblings().removeClass('active')
+    })
+    var num = 0;
+    $('.right').click(function(){
+        getord(num);
+    })
     $('btns').click(function(){
-        num++;
+        num = num+10;
         getord(num)
     })
-    getord(0);
     // 获取用户梦想信息
     function getord(number){
         TD_Request('ds','preco',{
@@ -70,6 +75,10 @@ $(function(){
             max:10
         },function(code,data){
             console.log(data)
+            console.log(max);
+            $.each(data.orders,function(index,item){
+                $('<div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" lid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div>').appendTo('.user');
+            })
         },function(code,data){
             console.log(data)
         })
