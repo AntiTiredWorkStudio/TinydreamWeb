@@ -16,7 +16,10 @@ $(function(){
             var str = compiled(item);
             console.log(str);
             var $dom = $(str);
-            $dom.appendTo('.notice')
+            $dom.appendTo('.notice');
+        })
+        $('.notice_message span').click(function(){
+            console.log($(this).attr('data-info'));
         })
     },function(code,data){
         console.log(data)
