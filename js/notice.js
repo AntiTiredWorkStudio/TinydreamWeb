@@ -25,6 +25,7 @@ $(function(){
                 pid:obj.pid
             },function(code,data){
                 console.log(data)
+                var info =  DreamPoolAnalysis(data)
             },function(code,data){
                 console.log(data)
             })
