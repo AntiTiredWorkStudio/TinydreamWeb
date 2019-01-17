@@ -26,7 +26,7 @@ $(function(){
                     _.each(buyinfo,function(item){
                         console.log(item)
                         var date = parseInt(new Date().getTime() / 1000);
-                        var timer = parseInt(DescriptionTime(date - item.ptime));
+                        var timer = DescriptionTime(date - item.ptime);
                         console.log(timer);
                         item.timer = timer;
                         var str = complid(item);
