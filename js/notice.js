@@ -25,7 +25,8 @@ $(function(){
                 pid:obj.pid
             },function(code,data){
                 console.log(data)
-                var info =  DreamPoolAnalysis(data)
+                var info =  DreamPoolAnalysis(data.pool);
+                localStorage.setItem('poolInfo',JSON.stringify(info))
             },function(code,data){
                 console.log(data)
             })
