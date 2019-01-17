@@ -26,7 +26,7 @@ $(function(){
     var dtime = parseInt(poolInfo.duration);
     var time = ptime + dtime
     var endTime = GetLocalTime(time);
-    $('.endTime').htmml("结束时间"+endTime)
+    $('.endTime').html("结束时间"+endTime)
 
 
     $('.tab div').click(function(){
