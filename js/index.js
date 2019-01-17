@@ -3,9 +3,10 @@ $(function(){
      // 检测是否登录
      WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){//result:请求状态,data 请求结果
+           alert(result);
            console.log(result,data);
            var userInfo = Options.GetUserInfo();
-           alert(userInfo.openid)
+           alert(userInfo.openid);
            $('#test').html(JSON.stringify(Options.GetUserInfo()));
            TD_Request("us", "enter", {
                uid:userInfo.openid,
