@@ -76,21 +76,37 @@ $(function(){
             max:10
         },function(code,data){
             if(data.orders.length == 0){
-                $('.tip').html('当前没有用户参与').show()
+                $('.tip').html('当前没有用户参与').show();
+                $('.btns').hide();
             }else{
-                $('.tip').html('当前没有用户参与').hide()
+                $('.tip').html('当前没有用户参与').hide();
+                $('.btns').show();
             }
             console.log(data)
             console.log(number+10);
+            $.each(data.orders,function(index,item){
+                $('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" oid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div></div>').appendTo('.user_number');
+            })
+            $('.look').click(function(){
+                TD_Request('aw','onums',{
+                    oid:$(this).attr('oid')
+                },function(code,data){
+                    console.log(data);
+                    var str = ''
+                    $.each(data.onums,function(index,item){
+                        str+=item.lid+'；'
+                    })
+                    alert('您本期编号：'+str);
+                },function(code,data){
+                    console.log(data)
+                })
+            })
             if(number+10 >= data.orders.length){
                 $('.btns').html('我是有底线的~~');
                 return;
             }else{
                 $('.btns').html('点击加载更多');
             }
-            $.each(data.orders,function(index,item){
-                $('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" lid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div></div>').appendTo('.user_number');
-            })
         },function(code,data){
             console.log(data)
         })
