@@ -2,10 +2,12 @@
 /* 梦想互助池--样式处理 */
 body{
     background: #ccc;
+    height: 100%;
 }
 .home{
     border-top: 0.02rem solid #eddddd;
     background: #fff;
+    height: 100%;
 }
 .home .home_content{
     width: 6.90rem;
@@ -188,7 +190,7 @@ body{
 }
 .home .user_number{
     width: 100%;
-    /* background-color: #f0f0f0; */
+    background-color: #f0f0f0;
 }
 .home .user_number .user{
     width: 6.38rem;
