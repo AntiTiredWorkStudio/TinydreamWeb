@@ -75,7 +75,7 @@ $(function(){
             max:10
         },function(code,data){
             console.log(data)
-            console.log(max);
+            console.log(number+10);
             $.each(data.orders,function(index,item){
                 $('<div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" lid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div>').appendTo('.user');
             })
