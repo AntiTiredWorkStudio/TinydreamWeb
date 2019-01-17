@@ -82,6 +82,12 @@ $(function(){
             }
             console.log(data)
             console.log(number+10);
+            if(number+10 >= data.orders.length){
+                $('.btns').html('我是有底线的~~');
+                return;
+            }else{
+                $('.btns').html('点击加载更多');
+            }
             $.each(data.orders,function(index,item){
                 $('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" lid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div></div>').appendTo('.user_number');
             })
