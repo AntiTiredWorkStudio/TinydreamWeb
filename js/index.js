@@ -4,6 +4,7 @@ $(function(){
      WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){//result:请求状态,data 请求结果
            alert(result);
+           alert(JSON.stringify(data))
            console.log(result,data);
            var userInfo = Options.GetUserInfo();
            alert(userInfo.openid);
