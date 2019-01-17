@@ -41,100 +41,13 @@ $(function(){
         },1000)
         $('.state').html('互助中');
         $('.join_help').html('参与互助').css({background:'#00d094',color:'#fff'}).removeAttr('disabled')
-    }else if(poolInfo.state != "RUNNING" && poolInfo.award == "NO"){
-        var ptime = parseInt(poolInfo.ptime);
-        var dtime = parseInt(poolInfo.duration);
-        var endtime = GetLocalTime(parseInt(ptime+dtime))
-        $('.state').html('已结束');
-        $('.join_help').html('等待开奖').css({background:'#ccc',color:'#b2b2b2'}).attr('disabled')
-    }else if(poolInfo.state != "RUNNING" && poolInfo.award == "YES"){
-        var ptime = parseInt(poolInfo.ptime);
-        var dtime = parseInt(poolInfo.duration);
-        var endtime = GetLocalTime(parseInt(ptime+dtime));
-        $('.timeout_ui').html(endtime+'结束');
-        $('.state').html('已结束');
-        $('.join_help').css({background:'#f60',color:'#fff'}).html('已完成').attr('disabled')
+        $('.join_help').click(function(){
+            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html"
+        })
     }
 
     // 获取开奖奖池状态
-    TD_Request('aw','lfromp',{
-        pid:poolInfo.pid,
-    },function(code,data){
-        if(poolInfo.state != "RUNNING" && code == 0){
-            var award = code;
-            TD_Request('ds','pdetial',{
-                uid:userInfo.openid,
-                pid:poolInfo.pid
-            },function(code,data){
-                console.log(data)
-                $.each(data.lottey,function(key,value){
-                    console.log(value);
-                    $('.state').html(value.lid);
-                })
-            },function(code,data){
-                console.log("获取失败："+data.context)
-            })
-            $('.join_help').html('已完成').css({background:'#f60',color:'#fff'}).attr('disabled')
-        }
-    },function(code,data){
-        console.log('获取失败：'+data.context)
-        if(poolInfo.state == "RUNNING" && code == 59) {
-            $('.state').html('互助中');
-            $('.join_help').html('参与互助').css({background:'#00d094',color:'#fff'}).removeAttr('disabled')
-        }else if(poolInfo.state != "RUNNING" && code == 59){
-            $('.state').html('已结束');
-            $('.join_help').html('等待开奖').css({background:'#ccc',color:'#b2b2b2'}).attr('disabled')
-        }
-    })
-
-    // 获取购买总数
-    TD_Request('ds','precs',{
-        pid:poolInfo.pid,
-    },function(code,data){
-        $('.count').html(data.ordCount)
-    },function(code,data){
-        console.log('获取失败：'+data.context)
-    })
-
-    // 编号类型切换
-    var number = 0; //初始状态
-    $('.tab div').click(function(){
-        $(this).addClass('active').siblings().removeClass('active')
-    })
-    $('.tab div.left').click(function(){
-        $('.user_number').hide()
-        $('.tabList').show();
-    })
-    $('.tab div.right').click(function(){
-        $('.user_number').show()
-        $('.tabList').hide();
-        getOrd(number);  
-    })
-    getOrd(number);
-    // 公用
-    function getOrd(number){
-        TD_Request('ds','preco',{
-            pid:poolInfo.pid,
-            min:number,
-            max:10
-        },function(code,data){
-            console.log(data)
-            $.each(data.orders,function(index,item){
-                $("<div class='user'><div class='phone'>"+item.tele+"</div><div class='num'>"+item.dcount+"份</div><div class='look' style='color:#00d094'>查看编号</div><div class='title'>"+item.dtitle+"</div></div>").appendTo('.user')
-            })
-            $('.btns').click(function(){
-                if(data.orders.length <= 0){
-                    alert('已经没有那么多了');
-                    return;
-                }else{
-                    number++;
-                    getOrd(number)
-                }
-            })
-        },function(code,data){
-            console.log('获取失败：'+data.context)
-        })
-    }
+    
 
     // 图例
     function ready(){
