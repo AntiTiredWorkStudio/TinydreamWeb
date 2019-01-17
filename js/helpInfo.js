@@ -68,11 +68,30 @@ $(function(){
     $('.left').click(function(){
         $('.user_number').empty().hide();
         $('.tabList').show();
+        TD_Request('ds','pdetail',{
+            uid:userInfo.openid,
+            pid:poolInfo.pid
+        },function(code,data){
+            console.log(data)
+            if(data.lottey.length == 0){
+                $('.tip').html('您尚未参与互助').show();
+            }else{
+                $.each(data.lottey,function(index,item){
+                    $("<div class='number'>"+item.lid+"</div>").appendTo('.tabList')
+                })
+            }
+        },function(code,data){
+            console.log(data)
+        })
     })
     $('.btns.click').click(function(){
         num = num+10;
         getord(num)
     })
+    // // 获取编号
+    // function self(){
+
+    // }
     // 获取用户梦想信息
     function getord(number){
         TD_Request('ds','preco',{
@@ -103,7 +122,7 @@ $(function(){
                         str = str+=item.lid+'；'
                     })
                     console.log(str)
-                    alert('编号：'+str);
+                    alert('编号\n'+str);
                 },function(code,data){
                     console.log(data)
                 })
