@@ -21,6 +21,13 @@ $(function(){
         }
     })
 
+    // 结束时间
+    var ptime = parseInt(poolInfo.ptime);
+    var dtime = parseInt(poolInfo.duration);
+    var time = ptime + dtime
+    var endTime = GetLocalTime(time);
+    $('.endTime').htmml("结束时间 "+endTime)
+
 
     $('.tab div').click(function(){
         $(this).addClass('active').siblings().removeClass('active')
