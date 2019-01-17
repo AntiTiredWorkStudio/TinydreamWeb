@@ -63,12 +63,13 @@ $(function(){
     $('.right').click(function(){
         $('.user_number').show();
         $('.tabList').empty().hide();
+        $('.btns.click').show();
         getord(num);
     })
     $('.left').click(function(){
         $('.user_number').empty().hide();
         $('.tabList').show();
-        self();
+        self(); 
     })
     $('.btns.click').click(function(){
         num = num+10;
