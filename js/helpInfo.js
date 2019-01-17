@@ -62,7 +62,12 @@ $(function(){
     var num = 0;
     $('.right').click(function(){
         $('.user_number').show();
+        $('.tabList').empty().hide();
         getord(num);
+    })
+    $('.left').click(function(){
+        $('.user_number').empty().hide();
+        $('.tabList').show();
     })
     $('.btns.click').click(function(){
         num = num+10;
@@ -93,11 +98,12 @@ $(function(){
                     oid:$(this).attr('oid')
                 },function(code,data){
                     console.log(data);
+                    var str = '';
                     $.each(data.nums,function(index,item){
                         str = str+=item.lid+'；'
                     })
                     console.log(str)
-                    alert('您本期编号：'+str);
+                    alert('编号：'+str);
                 },function(code,data){
                     console.log(data)
                 })
@@ -108,7 +114,7 @@ $(function(){
                 return;
             }else{
                 $('.btns').html('点击加载更多').show();
-                $('.tips').html('我是有底线的~~').hide();
+                $('.tips').html('我是有底线的~~').hide()
             }
         },function(code,data){
             console.log(data)
