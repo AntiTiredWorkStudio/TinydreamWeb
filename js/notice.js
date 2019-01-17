@@ -19,7 +19,14 @@ $(function(){
             $dom.appendTo('.notice');
         })
         $('.notice_message span').click(function(){
-            console.log($(this).attr('data-info'));
+            var obj = JSON.parse($(this).attr('data-info'));
+            TD_Request('type','buy',{
+                pid:obj.pid
+            },function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data)
+            })
         })
     },function(code,data){
         console.log(data)
