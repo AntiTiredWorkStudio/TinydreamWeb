@@ -10,11 +10,13 @@ $(function(){
     },function(code,data){
         console.log(data)
         _.each(data.msgs,function(item){
-            var str = compiled(item);
-            var $dom = $(str);
             var localTime = GetLocalTime(item.ptime);
+            item.localTime = localTime;
+            console.log(item.ptime)
+            var str = compiled(item);
+            console.log(str);
+            var $dom = $(str);
             $dom.appendTo('.notice')
-            $('.time').html(localTime)
         })
     },function(code,data){
         console.log(data)
