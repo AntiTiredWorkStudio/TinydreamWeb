@@ -61,9 +61,10 @@ $(function(){
     })
     var num = 0;
     $('.right').click(function(){
+        $('.user_number').show();
         getord(num);
     })
-    $('btns').click(function(){
+    $('.btns').click(function(){
         num = num+10;
         getord(num)
     })
@@ -74,10 +75,15 @@ $(function(){
             min:number,
             max:10
         },function(code,data){
+            if(data.orders.length == 0){
+                $('.tip').html('当前没有用户参与').show()
+            }else{
+                $('.tip').html('当前没有用户参与').hide()
+            }
             console.log(data)
             console.log(number+10);
             $.each(data.orders,function(index,item){
-                $('<div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" lid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div>').appendTo('.user');
+                $('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" lid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div></div>').appendTo('.user_number');
             })
         },function(code,data){
             console.log(data)
