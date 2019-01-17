@@ -47,7 +47,40 @@ $(function(){
     }
 
     // 获取开奖奖池状态
-    
+    TD_Request('aw','lfromp',{
+        pid:poolInfo.pid
+    },function(code,data){
+
+    },function(code,data){
+        if(poolInfo.state == "RUNNING" && code == '59'){
+            var timer = setInterval(function(){
+                var ptime = parseInt(poolInfo.ptime);
+                var daurtion = parseInt(poolInfo.duration);
+                var time = parseInt(new Date().getTime() / 1000);
+                var timeout = parseInt((ptime + daurtion) - time);
+                if(timeout>=0){
+                    var h = Math.floor(timeout/60/60);
+                    if(h<10){
+                        h = "0"+h;
+                    }
+                    var m = Math.floor(timeout/60%60);
+                    if(m<10){
+                        m = "0"+m;
+                    }
+                    var s = Math.floor(timeout%60);    
+                    if(s<10){
+                        s = "0"+s;
+                    }
+                    if(h == 0 && m==0 && s==0){
+                        window.location.reload();
+                    }  
+                }
+                $('.timeout_ui').html(h+":"+m+":"+s);
+            },1000)
+        }else if(poolInfo.state != "RUNNING" && code == '59'){
+            
+        }
+    })
 
     // 图例
     function ready(){
