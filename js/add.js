@@ -5,6 +5,7 @@ $(function(){
     // 获取did
     var did = JSON.parse(localStorage.getItem('dr')).did;
     var state = JSON.parse(localStorage.getItem('dr')).state;
+    state = 'all'
     if(state != "all"){
         $('.supper').hide()
     }else{
@@ -31,6 +32,7 @@ $(function(){
             })
 
             $('.submit').click(function(){
+                console.log(file)
                 if($('.dr_title').val() == ''){
                     alert('请填写梦想标题');
                     return;
