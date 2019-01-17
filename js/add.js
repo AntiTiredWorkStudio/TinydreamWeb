@@ -5,6 +5,7 @@ $(function(){
     // 获取did
     var did = JSON.parse(localStorage.getItem('dr')).did;
     var state = JSON.parse(localStorage.getItem('dr')).state;
+    // state = 'all'
     if(state != "all"){
         $('.supper').hide()
     }else{
@@ -31,6 +32,11 @@ $(function(){
             })
 
             $('.submit').click(function(){
+                console.log(file)
+                if(file == '' || file == undefined){
+                    alert('请上传小梦想公函');
+                    return;
+                }
                 if($('.dr_title').val() == ''){
                     alert('请填写梦想标题');
                     return;
@@ -40,30 +46,29 @@ $(function(){
                 }else if(!$('input[type="checkbox"]').is(':checked')){
                     alert('请勾选协议');
                     return;
-                }else if(file == '' || file == 'undefined'){
-                    alert('请上传小梦想公函')
                 }else{
+                    var url;
                     WebApp.UploadWithSDK(data.upload.uptoken,data.upload.upurl,file,data.upload.fileName,function(res){
                         console.log(res);
                         if(res.result){
-                            var url = data.upload.domain + "/" + res.imgName
+                           url = data.upload.domain + "/" + res.imgName
+                           TD_Request("dr","gedit",{
+                                uid:userInfo.openid,
+                                did:did,
+                                contentList:JSON.stringify({"title":$('.dr_title').val(),"content":$('.dr_info').val(),"videourl":url})
+                            },function(code,data){
+                                console.log(data);
+                                alert('提交成功!');
+                                $('.submit_mask').fadeIn();
+                                $('.submit_mask button').click(function(){
+                                    $('.submit_mask').fadeOut();
+                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
+                                })
+                            },function(code,data){
+                                console.log('提交失败'+data.context);
+                            }) 
                         }
                     })  
-                    TD_Request("dr","gedit",{
-                        uid:userInfo.openid,
-                        did:did,
-                        contentList:JSON.stringify({"title":$('.dr_title').val(),"content":$('.dr_info').val()})
-                    },function(code,data){
-                        console.log(data);
-                        alert('修改成功!');
-                        $('.submit_mask').fadeIn();
-                        $('.submit_mask button').click(function(){
-                            $('.submit_mask').fadeOut();
-                            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
-                        })
-                    },function(code,data){
-                        console.log('修改失败'+data.context);
-                    }) 
                 }
             })
         }else{
