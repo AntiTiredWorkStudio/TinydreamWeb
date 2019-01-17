@@ -188,7 +188,7 @@ body{
 }
 .home .user_number{
     width: 100%;
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
 }
 .home .user_number .user{
     width: 6.38rem;
