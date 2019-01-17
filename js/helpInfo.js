@@ -96,6 +96,7 @@ $(function(){
                     $.each(data.onums,function(index,item){
                         str+=item.lid+'；'
                     })
+                    console.log(str)
                     alert('您本期编号：'+str);
                 },function(code,data){
                     console.log(data)
