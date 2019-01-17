@@ -68,7 +68,16 @@ $(function(){
     $('.left').click(function(){
         $('.user_number').empty().hide();
         $('.tabList').show();
-        TD_Request('ds','pdetail',{
+        self();
+    })
+    $('.btns.click').click(function(){
+        num = num+10;
+        getord(num)
+    })
+    // // 获取编号
+    self();
+    function self(){
+        TD_Request('ds','pdetial',{
             uid:userInfo.openid,
             pid:poolInfo.pid
         },function(code,data){
@@ -83,15 +92,7 @@ $(function(){
         },function(code,data){
             console.log(data)
         })
-    })
-    $('.btns.click').click(function(){
-        num = num+10;
-        getord(num)
-    })
-    // // 获取编号
-    // function self(){
-
-    // }
+    }
     // 获取用户梦想信息
     function getord(number){
         TD_Request('ds','preco',{
