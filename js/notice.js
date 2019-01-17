@@ -19,7 +19,8 @@ $(function(){
             $dom.appendTo('.notice');
         })
         $('.notice_message span').click(function(){
-            var obj = JSON.parse($(this).attr('data-info'));
+            var json = $(this).attr('data-info');
+            var obj = JSON.parse(json);
             TD_Request('type','buy',{
                 pid:obj.pid
             },function(code,data){
