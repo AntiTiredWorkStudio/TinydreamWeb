@@ -5,7 +5,7 @@ $(function(){
     console.log(poolInfo);
 
     // 动态填入数据
-    $('.title').html(poolInfo.ptitle+"（已结束）");
+    $('.dr_title').html(poolInfo.ptitle+"（已结束）");
     $('.money_txt').html(poolInfo.realBill + poolInfo.realUnit)
     $('.money').html(poolInfo.billHint);
     $('.price').html(poolInfo.rubillValue+"/份")
