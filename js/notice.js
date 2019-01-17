@@ -10,7 +10,9 @@ $(function(){
     },function(code,data){
         console.log(data)
         _.each(data.msgs,function(item){
+            console.log(item.ptime)
             var str = compiled(item);
+            console.log(str);
             var $dom = $(str);
             var localTime = GetLocalTime(item.ptime);
             $dom.appendTo('.notice')
