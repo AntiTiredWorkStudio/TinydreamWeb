@@ -88,7 +88,11 @@ var onClickPoolInfo = function (res) {
         if(PoolManager[PoolManager.typeSelection].poolList[key].pid == tPid){
             window.localStorage.setItem('poolInfo',JSON.stringify(PoolManager[PoolManager.typeSelection].poolList[key]));
             window.localStorage.setItem('tabType',PoolManager.typeSelection);
-            window.location.href='helpInfo.html';
+			if(PoolManager.typeSelection == "type_end"){
+				window.location.href = "end.html";
+			}else{
+				window.location.href='helpInfo.html';
+			}
             return;
         }
     }
