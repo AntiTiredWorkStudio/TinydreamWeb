@@ -27,6 +27,7 @@ $(function(){
                         console.log(item)
                         var date = parseInt(new Date().getTime() / 1000);
                         var timer = parseInt(DescriptionTime(date - item.ptime));
+                        console.log(timer);
                         item.timer = timer;
                         var str = complid(item);
                         $dom = $(str);
