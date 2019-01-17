@@ -20,7 +20,7 @@ $(function(){
         })
         $('.notice_message span').click(function(){
             var json = $(this).attr('data-info');
-            var obj = JSON.parse(json);
+            var obj = eval("("+json+")");
             TD_Request('type','buy',{
                 pid:obj.pid
             },function(code,data){
