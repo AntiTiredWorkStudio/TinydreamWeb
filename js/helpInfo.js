@@ -64,7 +64,7 @@ $(function(){
         $('.user_number').show();
         getord(num);
     })
-    $('.btns').click(function(){
+    $('.btns.click').click(function(){
         num = num+10;
         getord(num)
     })
@@ -93,7 +93,7 @@ $(function(){
                     oid:$(this).attr('oid')
                 },function(code,data){
                     console.log(data);
-                    $.each(data.onums,function(index,item){
+                    $.each(data.nums,function(index,item){
                         str = str+=item.lid+'；'
                     })
                     console.log(str)
@@ -103,10 +103,12 @@ $(function(){
                 })
             })
             if(number+10 >= data.orders.length){
-                $('.btns').html('我是有底线的~~');
+                $('.btns').hide();
+                $('.tips').html('我是有底线的~~').show();
                 return;
             }else{
-                $('.btns').html('点击加载更多');
+                $('.btns').html('点击加载更多').show();
+                $('.tips').html('我是有底线的~~').hide();
             }
         },function(code,data){
             console.log(data)
