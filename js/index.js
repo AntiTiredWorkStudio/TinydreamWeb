@@ -5,7 +5,7 @@ $(function(){
         function(result,data){//result:请求状态,data 请求结果
            console.log(result,data);
            var userInfo = Options.GetUserInfo();
-           console.log(userInfo.openid)
+           alert(userInfo.openid)
            $('#test').html(JSON.stringify(Options.GetUserInfo()));
            TD_Request("us", "enter", {
                uid:userInfo.openid,
