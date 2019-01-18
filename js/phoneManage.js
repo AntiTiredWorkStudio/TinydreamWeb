@@ -102,6 +102,25 @@ $(function(){
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";
                     }else{
                         console.log(mainpool)
+                        TD_Request("ds","buy",{
+                            uid:userInfo.uid,
+                            pid:mainpool.pid
+                        },function(code,data){
+                            if(code == 0 || data.result == true){
+                                console.log(data)
+                                if(data.actions.buy.dream == "" || data.actions.buy.dream == undefined){
+                                    if(confirm("您还没有添加梦想，添加梦想后才能参与互助")){
+                                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
+                                    }else{
+                                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html"
+                                    }
+                                }
+                                localStorage.setItem('buy',JSON.stringify(data.actions));
+                                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
+                            }
+                        },function(code,data){
+                            
+                        })
                     }
                    
                 }
