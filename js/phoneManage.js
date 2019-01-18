@@ -103,7 +103,7 @@ $(function(){
                     }else{
                         console.log(mainpool)
                         TD_Request("ds","buy",{
-                            uid:userInfo.uid,
+                            uid:userInfo.openid,
                             pid:mainpool.pid
                         },function(code,data){
                             if(code == 0 || data.result == true){
