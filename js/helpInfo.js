@@ -130,15 +130,22 @@ $(function(){
             if(data.orders.length == 0){
                 $('.tip').html('当前没有用户参与').show();
                 $('.btns').hide();
+                return;
+            }else if(data.orders.length <= 10 && data.orders.length>0){
+                $('.tip').html('当前没有用户参与').hide();
+                $('.btns').hide();
+                $.each(data.orders,function(index,item){
+                    $('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" oid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div></div>').appendTo('.user_number');
+                })
             }else{
                 $('.tip').html('当前没有用户参与').hide();
                 $('.btns').show();
+                $.each(data.orders,function(index,item){
+                    $('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" oid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div></div>').appendTo('.user_number');
+                })
             }
             console.log(data)
             console.log(number+10);
-            $.each(data.orders,function(index,item){
-                $('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" oid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div></div>').appendTo('.user_number');
-            })
             var str = ''//编号
             $('.look').click(function(){
                 TD_Request('aw','onums',{
