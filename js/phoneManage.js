@@ -119,7 +119,7 @@ $(function(){
                                 window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
                             }
                         },function(code,data){
-                            
+                            console.log(data)
                         })
                     }
                    
