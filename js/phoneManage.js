@@ -56,6 +56,8 @@ $(function(){
             console.log(data);
             if(data.sresult.status == "OK"){
                 $('.tip').html('验证码已发送，请注意查收').show().delay(1000).hide(100);
+            }else{
+
             }
         },function(code,data){
             // 请求失败
@@ -109,6 +111,7 @@ $(function(){
                             if(code == 0 || data.result == true){
                                 console.log(data)
                                 if(data.actions.editdream!=''|| data.actions.editdream!= undefined){
+                                    console.log(data.actions)
                                     if(confirm("您还没有添加梦想，添加梦想后才能参与互助")){
                                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
                                     }else{
