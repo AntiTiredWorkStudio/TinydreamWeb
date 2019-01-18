@@ -89,12 +89,13 @@ $(function(){
     $('.right').click(function(){
         $('.user_number').show();
         $('.tabList').empty().hide();
-        $('.btns.click').show();
+        $('.user_number').empty();
         getord(num);
     })
     $('.left').click(function(){
         $('.user_number').empty().hide();
         $('.tabList').show();
+        $('.tabList').empty();
         self(); 
     })
     $('.btns.click').click(function(){
