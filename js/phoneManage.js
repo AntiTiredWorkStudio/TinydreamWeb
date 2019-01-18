@@ -114,9 +114,10 @@ $(function(){
                                     }else{
                                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html"
                                     }
+                                }else{
+                                    localStorage.setItem('buy',JSON.stringify(data.actions));
+                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
                                 }
-                                localStorage.setItem('buy',JSON.stringify(data.actions));
-                                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
                             }
                         },function(code,data){
                             console.log(data)
