@@ -104,6 +104,7 @@ $(function(){
     // // 获取编号
     self();
     function self(){
+        $('.tabList').empty();
         TD_Request('ds','pdetial',{
             uid:userInfo.openid,
             pid:poolInfo.pid
