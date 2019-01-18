@@ -47,8 +47,8 @@ $(function(){
         self(); 
     })
     $('.btns.click').click(function(){
-        num = num+10;
-        getord(num)
+        var cnum = num+10;
+        getord(cnum)
     })
     // // 获取编号
     self();
@@ -59,7 +59,7 @@ $(function(){
         },function(code,data){
             console.log(data)
             if(data.lottey.length == 0){
-                $('.tip').html('您尚未参与互助').show();
+                $('.tip').html('您尚未参与该梦想池互助').show();
             }else{
                 $.each(data.lottey,function(index,item){
                     $("<div class='number'>"+item.lid+"</div>").appendTo('.tabList')
@@ -77,10 +77,10 @@ $(function(){
             max:10
         },function(code,data){
             if(data.orders.length == 0){
-                $('.tip').html('当前没有用户参与').show();
+                $('.tip').html('此梦想池没有用户参与').show();
                 $('.btns').hide();
             }else{
-                $('.tip').html('当前没有用户参与').hide();
+                $('.tip').html('此梦想池没有用户参与').hide();
                 $('.btns').show();
             }
             console.log(data)
