@@ -34,12 +34,14 @@ $(function(){
     })
     var num = 0;
     $('.right').click(function(){
+        $('user_number').empty()
         $('.user_number').show();
         $('.tabList').empty().hide();
         $('.btns.click').show();
         getord(num);
     })
     $('.left').click(function(){
+        $('.tabList').empty()
         $('.user_number').empty().hide();
         $('.tabList').show();
         self(); 

@@ -115,8 +115,7 @@ $(function(){
                     $.each(lid,function(index,item){
                       $('.num').html(item+"、").css("color","#00d094");
                     })
-                    alert(JSON.stringify(lid))
-                    alert(JSON.stringify(data.numbers))
+                    localStorage.clear('buy');
                   },function(code,data){
                     alert(JSON.stringify(data))
                   })
