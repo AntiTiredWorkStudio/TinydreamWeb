@@ -90,6 +90,7 @@ $(function(){
                         console.log(data);
                         if(code == 11 || !data.result){
                             alert("您尚"+data.context+",绑定手机后才能继续参与互助");
+                            localStorage.setItem('mainpool',JSON.stringify(mainpool));
                             window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html";
                         }else if(code == 18){
                             alert("您当日购买次数已达上限");
