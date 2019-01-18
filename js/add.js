@@ -101,4 +101,7 @@ $(function(){
     },function(code,data){
         console.log('获取失败：'+data.context)
     })
+    $('.xieyi').click(function(){
+        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/xieyi.html"
+    })
 })
