@@ -2,6 +2,8 @@ $(function(){
     // 获取模板字符串
     var templateStr = $('#template').html();
     var compolied = _.template(templateStr);
+    // 获取梦想添加信息
+    var dream = JSON.parse(localStorage.getItem('buy'))
     // 获取梦想列标
     var userInfo = Options.GetUserInfo();
     update();
@@ -98,7 +100,12 @@ $(function(){
                 content:$('.info').val()
             },function(code,data){
                 console.log(data)
-                window.location.reload();
+                if(dream == '' || dream == undefined){
+                    window.location.reload();
+                }else{
+                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/payInfo.html'
+                }
+               
             },function(code,data){
                 alert(data.context)
             })

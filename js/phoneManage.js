@@ -108,7 +108,7 @@ $(function(){
                         },function(code,data){
                             if(code == 0 || data.result == true){
                                 console.log(data)
-                                if(data.actions.buy.dream == "" || data.actions.buy.dream == undefined){
+                                if(data.actions.editdream!=''|| data.actions.editdream!= undefined){
                                     if(confirm("您还没有添加梦想，添加梦想后才能参与互助")){
                                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
                                     }else{
