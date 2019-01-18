@@ -33,7 +33,7 @@ $(function(){
         $(this).addClass('active').siblings().removeClass('active')
     })
     var num = 0;
-    $('.right').click(function(){
+    $('.tab div.right').click(function(){
         $('.user_number').empty()
         $('.user_number').show();
         $('.tabList').empty().hide();
