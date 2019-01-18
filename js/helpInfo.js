@@ -98,8 +98,8 @@ $(function(){
         self(); 
     })
     $('.btns.click').click(function(){
-        num = num+10;
-        getord(num)
+        var cnum = num+10;
+        getord(cnum)
     })
     // // 获取编号
     self();
