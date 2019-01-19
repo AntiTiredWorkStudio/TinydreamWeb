@@ -1,6 +1,5 @@
 $(function(){
     // 获取用户信息
-    WebApp.JSAPI.Init()
     var userInfo = Options.GetUserInfo()
     TD_Request("va", "pbind", {
         uid:userInfo.openid,
@@ -144,4 +143,5 @@ $(function(){
             })
         }
     })
+    WebApp.JSAPI.Init()
 })

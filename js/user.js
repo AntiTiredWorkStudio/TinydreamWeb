@@ -1,5 +1,4 @@
 $(function(){
-    WebApp.JSAPI.Init()
     var userInfo = Options.GetUserInfo();
     TD_Request("us","selfinfo",{
         uid:userInfo.openid
@@ -16,4 +15,5 @@ $(function(){
             console.log(data);
         }
     })
+    WebApp.JSAPI.Init()
 })

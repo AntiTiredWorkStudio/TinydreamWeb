@@ -115,4 +115,5 @@ $(function(){
     $('.xieyi').click(function(){
         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/xieyi.html"
     })
+    WebApp.JSAPI.Init()
 })

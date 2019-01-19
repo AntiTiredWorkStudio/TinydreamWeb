@@ -1,6 +1,5 @@
 
 $(function(){
-    WebApp.JSAPI.Init()
     var userInfo = Options.GetUserInfo();
     var templateStr = $('#template').html();
     var compiled = _.template(templateStr)
@@ -37,4 +36,5 @@ $(function(){
     },function(code,data){
         console.log(data)
     })
+    WebApp.JSAPI.Init()
 })

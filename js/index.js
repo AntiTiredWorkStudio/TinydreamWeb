@@ -171,4 +171,5 @@ $(function(){
         e.stopPropagation();
         window.location.href="html/dreamHelp.html"
     })
+    WebApp.JSAPI.Init()
 })

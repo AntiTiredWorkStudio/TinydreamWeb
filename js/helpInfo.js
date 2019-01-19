@@ -1,5 +1,4 @@
 $(function(){
-    WebApp.JSAPI.Init()
     var userInfo = Options.GetUserInfo();
     // 获取奖池信息
     var poolInfo = JSON.parse(localStorage.getItem('poolInfo'));
@@ -208,4 +207,5 @@ $(function(){
         ctx.arc(95, 95, 80, Math.PI/-2, prop * Math.PI - Math.PI / 2, false);
         ctx.stroke()
     }
+    WebApp.JSAPI.Init()
 })

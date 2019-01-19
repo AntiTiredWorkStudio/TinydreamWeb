@@ -11,7 +11,6 @@
     }
 }*/
 /*测试用*/
-WebApp.JSAPI.Init()
 WebApp.InitUpload();
 var openid = Options.GetUserInfo().openid;
 console.log(openid);
@@ -481,3 +480,4 @@ var FinishLoading = function () {
 }
 
 authManager.onLoad();
+WebApp.JSAPI.Init()

@@ -11,7 +11,6 @@
     }
 }*/
 /*测试用*/
-WebApp.JSAPI.Init()
 var uid = Options.GetUserInfo().openid;
 
 var luckeyManager = {
@@ -110,4 +109,5 @@ var OnReachBottom = function () {
 }
 
 luckeyManager.Init();
+WebApp.JSAPI.Init()
 

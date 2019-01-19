@@ -1,5 +1,4 @@
 $(function(){
-    WebApp.JSAPI.Init()
     // 开启上传
     // WebApp.InitUpload();
     var userInfo = Options.GetUserInfo();
@@ -105,4 +104,5 @@ $(function(){
     $('.xieyi').click(function(){
         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/xieyi.html"
     })
+    WebApp.JSAPI.Init()
 })
