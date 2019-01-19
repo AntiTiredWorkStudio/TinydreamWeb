@@ -1,6 +1,6 @@
 $(function(){
     // 获取模板字符串
-    WebApp.JSAPI.Init()
+    // WebApp.JSAPI.Init()
     var templateStr = $('#template').html();
     var compolied = _.template(templateStr);
     // 获取梦想添加信息
