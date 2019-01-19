@@ -109,5 +109,5 @@ var OnReachBottom = function () {
 }
 
 luckeyManager.Init();
-WebApp.JSAPI.Init()
+// WebApp.JSAPI.Init()
 

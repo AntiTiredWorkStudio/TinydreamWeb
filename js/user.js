@@ -15,5 +15,5 @@ $(function(){
             console.log(data);
         }
     })
-    WebApp.JSAPI.Init()
+    // WebApp.JSAPI.Init()
 })

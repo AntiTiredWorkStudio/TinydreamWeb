@@ -480,4 +480,4 @@ var FinishLoading = function () {
 }
 
 authManager.onLoad();
-WebApp.JSAPI.Init()
+// WebApp.JSAPI.Init()

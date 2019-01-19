@@ -121,5 +121,5 @@ $(function(){
     $('.look_info').click(function(){
         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/calc.html"
     })
-    WebApp.JSAPI.Init()
+    // WebApp.JSAPI.Init()
 })

@@ -143,5 +143,5 @@ $(function(){
             })
         }
     })
-    WebApp.JSAPI.Init()
+    // WebApp.JSAPI.Init()
 })

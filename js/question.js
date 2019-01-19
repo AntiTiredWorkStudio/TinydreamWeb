@@ -9,5 +9,5 @@ $(function(){
             $dom.appendTo('.questionInfo');
         })
     })
-    WebApp.JSAPI.Init()
+    // WebApp.JSAPI.Init()
 })

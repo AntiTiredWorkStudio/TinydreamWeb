@@ -330,4 +330,4 @@ var pageInit = function () {
 
 
 pageInit();
-WebApp.JSAPI.Init()
+// WebApp.JSAPI.Init()

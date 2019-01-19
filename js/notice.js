@@ -36,5 +36,5 @@ $(function(){
     },function(code,data){
         console.log(data)
     })
-    WebApp.JSAPI.Init()
+    // WebApp.JSAPI.Init()
 })

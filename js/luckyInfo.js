@@ -47,4 +47,4 @@ var onLuckyInfoViewBuild = function (dreamInfo) {
 }
 
 luckyInfoManager.Init();
-WebApp.JSAPI.Init()
+// WebApp.JSAPI.Init()
