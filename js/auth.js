@@ -11,7 +11,7 @@
     }
 }*/
 /*测试用*/
-
+WebApp.JSAPI.Init()
 WebApp.InitUpload();
 var openid = Options.GetUserInfo().openid;
 console.log(openid);

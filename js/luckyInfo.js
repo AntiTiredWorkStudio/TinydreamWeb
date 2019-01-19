@@ -11,7 +11,7 @@
     }
 }*/
 /*测试用*/
-
+WebApp.JSAPI.Init()
 var uid = Options.GetUserInfo().openid;
 
 var luckyInfoManager = {

@@ -1,5 +1,6 @@
 $(function(){
     // 获取模板字符串
+    WebApp.JSAPI.Init()
     var templateStr = $('#template').html();
     var compolied = _.template(templateStr);
     // 获取梦想添加信息
@@ -103,7 +104,7 @@ $(function(){
                 if(dream == '' || dream == undefined){
                     window.location.reload();
                 }else{
-                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/payInfo.html'
+                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/payInfo.html'
                 }
                
             },function(code,data){

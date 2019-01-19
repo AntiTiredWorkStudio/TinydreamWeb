@@ -13,7 +13,7 @@ var typeIdList = ['type_running','type_end','type_join'];
     }
 }*/
 /*测试用*/
-
+WebApp.JSAPI.Init()
 var uid = Options.GetUserInfo().openid;
 console.log(uid);
 

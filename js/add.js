@@ -1,4 +1,5 @@
 $(function(){
+    WebApp.JSAPI.Init()
     // 开启上传
     // WebApp.InitUpload();
     var userInfo = Options.GetUserInfo();

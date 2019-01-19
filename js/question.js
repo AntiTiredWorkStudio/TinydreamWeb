@@ -1,4 +1,5 @@
 $(function(){
+    WebApp.JSAPI.Init()
     var templateStr = $('#template').html();
     var complate = _.template(templateStr);
     $.get('../data/data.json',function(data){

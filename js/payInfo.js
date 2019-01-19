@@ -1,4 +1,5 @@
 $(function(){
+  WebApp.JSAPI.Init()
     var userInfo = Options.GetUserInfo(); 
     var buy = JSON.parse(localStorage.getItem('buy'));
     TD_Request("ds", "ord", {

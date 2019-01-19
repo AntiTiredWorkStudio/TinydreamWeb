@@ -1,4 +1,5 @@
 $(function(){
+    WebApp.JSAPI.Init()
     $('.mask').css('height',$(window).height());
      // 检测是否登录
      WebApp.Init('wxc5216d15dd321ac5',//appid

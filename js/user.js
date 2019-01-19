@@ -1,4 +1,5 @@
 $(function(){
+    WebApp.JSAPI.Init()
     var userInfo = Options.GetUserInfo();
     TD_Request("us","selfinfo",{
         uid:userInfo.openid
