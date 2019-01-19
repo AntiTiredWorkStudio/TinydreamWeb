@@ -80,7 +80,7 @@ $(function(){
                             console.log(data)
                             if(data.actions.editdream!=''|| data.actions.editdream!= undefined){
                                 console.log(data.actions.editdream)
-                                // return;
+                                return;
                                 if(confirm("您还没有添加梦想，添加梦想后才能参与互助")){
                                     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
                                 }else{
