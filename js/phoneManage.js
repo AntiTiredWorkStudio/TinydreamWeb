@@ -111,7 +111,7 @@ $(function(){
                         },function(code,data){
                             if(code == 0 || data.result == true){
                                 console.log(data)
-                                if(data.actions.editdream!=''|| data.actions.editdream!= undefined){
+                                if(data.actions.hasOwnProperty('editdream')){
                                     console.log(data.actions)
                                     // return;
                                     if(confirm("您还没有添加梦想，添加梦想后才能参与互助")){

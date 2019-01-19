@@ -78,7 +78,7 @@ $(function(){
                         console.log(data);
                         if(code == 0 || data.result == true){
                             console.log(data)
-                            if(data.actions.hasOwnProperty('editdream')){
+                            if(!data.actions.hasOwnProperty('editdream')){
                                 // console.log(data.actions.editdream)
                                 // return;
                                 localStorage.setItem('buy',JSON.stringify(data.actions));
