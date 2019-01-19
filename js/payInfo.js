@@ -108,7 +108,6 @@ $(function(){
                     var number = data.numbers;
                     var lid = [];
                     for(key in number){
-                      alert(JSON.stringify(number[key]))
                       var obj = number[key];
                       lid.push(obj.lid)
                     }
@@ -144,6 +143,9 @@ $(function(){
           arr.push({title:item.title,value:item.did});
           console.log(arr)
         })
+        console.log(arr[arr.length-1])
+        $('.dream strong').html(arr[arr.length-1].title);
+        $('.dream').attr('data-values',arr[arr.length-1].value);
         $('.dream').select({
           title: "选择梦想",
           items: arr,
