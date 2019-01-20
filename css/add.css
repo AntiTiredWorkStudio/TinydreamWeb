@@ -99,6 +99,7 @@ body{
     background-color: #00d094;
     margin-bottom: 0.50rem;
     margin-top: 0.50rem;
+    border-radius: 0.44rem;
 }
 .add .add_main .area{
     font-size: 0.26rem;
