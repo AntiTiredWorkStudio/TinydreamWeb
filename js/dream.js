@@ -112,10 +112,18 @@ $(function(){
             })
         }
     })
-    $("input[type='checkbox']:checked").parent('label').css({
-        background:"url(https://tdream.antit.top/image/Toggle_True.jpg) no-repeat",
-        "background-size":"0.3rem 0.3rem"
-    })
+    if($("input[type='checkbox']").is(':checked')){
+        $(".chec label").css({
+            background:"url(https://tdream.antit.top/image/Toggle_True.jpg) no-repeat",
+            "background-size":"0.3rem 0.3rem"
+        })
+    }else{
+        $(".chec label").css({
+            background:"url(https://tdream.antit.top/image/Toggle_False.jpg) no-repeat",
+            "background-size":"0.3rem 0.3rem"
+        })
+    }
+    
     $('.xieyi').click(function(){
         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/xieyi.html"
     })
