@@ -150,6 +150,10 @@
     font-size: 0.36rem;
 }
 .icon_right{
+    display: inline-block;
+    width: 0.16rem;
+    height: 0.28rem;
+    font-style: normal;
     background: url(http://tdream.antit.top/image/arrow.png) no-repeat;
     background-size: 0.16rem 0.28rem !important;
 }
