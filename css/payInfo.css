@@ -157,6 +157,7 @@
     font-style: normal;
     background: url(http://tdream.antit.top/image/arrow.png) no-repeat;
     background-size: 0.16rem 0.28rem !important;
+    margin-left: 0.1rem;
 }
 /* 参与互助--样式处理 */
 .home .home_content .dream_info .join_help{
