@@ -129,7 +129,8 @@
 .dream .dream{
     font-size: 0.30rem !important;
     color: #333 !important;
-    margin-right: 0 !important;
+    margin-right: 0.2rem !important;
+    width: 0.5rem;
 }
 .dream .icon_select{
     width: 0.16rem !important;
