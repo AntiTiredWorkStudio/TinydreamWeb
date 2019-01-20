@@ -112,6 +112,10 @@ $(function(){
             })
         }
     })
+    $("input[type='checkbox']:checked").parent('label').css({
+        background:"url(https://tdream.antit.top/image/Toggle_True.jpg) no-repeat",
+        "background-size":"0.3rem 0.3rem"
+    })
    $('.chec').click(function(){
     $("input[type='checkbox']:checked").parent('label').css({
         background:"url(https://tdream.antit.top/image/Toggle_True.jpg) no-repeat",
