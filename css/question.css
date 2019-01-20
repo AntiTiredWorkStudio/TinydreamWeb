@@ -25,7 +25,7 @@ body{
     color: #999;
     padding-bottom: 0.30rem;
 }
-.question_list{
+.tip.question_list{
     width: 6.9rem;
     min-height: 5.48rem;
     margin: 0 auto;
