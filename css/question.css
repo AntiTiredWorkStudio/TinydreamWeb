@@ -27,6 +27,7 @@ body{
 }
 .question_list{
     width: 6.9rem;
+    min-height: 2.48rem;
     margin: 0 auto;
     padding-top: 0.3rem;
     font-size: 0.32rem;
