@@ -113,6 +113,7 @@ $(function(){
         }
     })
     if($("input[type='checkbox']").is(':checked')){
+        console.log($("input[type='checkbox']").is(':checked'))
         $(".chec label").css({
             background:"url(https://tdream.antit.top/image/Toggle_True.jpg) no-repeat",
             "background-size":"0.3rem 0.3rem"
