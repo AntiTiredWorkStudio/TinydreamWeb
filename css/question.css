@@ -25,3 +25,9 @@ body{
     color: #999;
     padding-bottom: 0.30rem;
 }
+.question_list{
+    width: 6.9rem;
+    margin: 0 auto;
+    padding-top: 0.3rem;
+    font-size: 0.24rem;
+}
