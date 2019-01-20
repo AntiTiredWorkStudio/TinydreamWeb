@@ -316,6 +316,7 @@ body{
     background: url(https://tdream.antit.top/image/Toggle_False.jpg) no-repeat;
     background-size: 0.3rem 0.3rem;
     position: relative;
+    vertical-align: middle;
 }
 .chec .check{
     position: absolute;
