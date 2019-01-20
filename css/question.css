@@ -30,9 +30,12 @@ body{
     margin: 0 auto;
     padding-top: 0.3rem;
     font-size: 0.32rem;
+    position: relative;
 }
 .question_list img{
-    width: 1.5rem;
-    height: 1.48rem;
-    margin: 0 auto;
+    width: 2.5rem;
+    height: 2.48rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
