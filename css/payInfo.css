@@ -149,6 +149,10 @@
     color: #00d094;
     font-size: 0.36rem;
 }
+.icon_right{
+    background: url(http://tdream.antit.top/image/arrow.png) no-repeat;
+    background-size: 0.16rem 0.28rem !important;
+}
 /* 参与互助--样式处理 */
 .home .home_content .dream_info .join_help{
     border:none;
