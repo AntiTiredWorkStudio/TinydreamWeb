@@ -171,4 +171,12 @@ $(function(){
         e.stopPropagation();
         window.location.href="html/dreamHelp.html"
     })
+    // 系统通知
+    TD_Request("no","nc",{
+        uid:userInfo.openid
+    },function(code,data){
+        console.log(data)
+    },function(code,data){
+        console.log(data)
+    })
 })

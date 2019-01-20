@@ -1,3 +1,4 @@
+WebApp.JSAPI.Init();
 $(function(){
     var userInfo = Options.GetUserInfo();
     // 获取奖池信息

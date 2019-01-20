@@ -1,3 +1,4 @@
+WebApp.JSAPI.Init();
 var typeIdList = ['type_running','type_end','type_join'];
 
 /*测试用*/
@@ -12,6 +13,7 @@ var typeIdList = ['type_running','type_end','type_join'];
         return this.UserInfo != null ? JSON.parse(this.UserInfo) : null;
     }
 }*/
+
 /*测试用*/
 var uid = Options.GetUserInfo().openid;
 console.log(uid);

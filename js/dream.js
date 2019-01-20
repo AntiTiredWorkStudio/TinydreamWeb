@@ -1,3 +1,4 @@
+WebApp.JSAPI.Init();
 $(function(){
     // 获取模板字符串
     // WebApp.JSAPI.Init()

@@ -1,3 +1,4 @@
+WebApp.JSAPI.Init();
 $(function(){
     var userInfo = Options.GetUserInfo(); 
     var buy = JSON.parse(localStorage.getItem('buy'));

@@ -1,3 +1,4 @@
+WebApp.JSAPI.Init();
 $(function(){
     var templateStr = $('#template').html();
     var complate = _.template(templateStr);

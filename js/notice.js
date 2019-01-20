@@ -1,4 +1,5 @@
 
+WebApp.JSAPI.Init();
 $(function(){
     var userInfo = Options.GetUserInfo();
     var templateStr = $('#template').html();

@@ -1,3 +1,4 @@
+WebApp.JSAPI.Init();
 $(function(){
     WebApp.JSAPI.Init()
     var userInfo = Options.GetUserInfo();

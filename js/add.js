@@ -1,3 +1,4 @@
+WebApp.JSAPI.Init();
 $(function(){
     // 开启上传
     // WebApp.InitUpload();

@@ -390,7 +390,10 @@ body{
     border-top-left-radius: 0.34rem;
     border-bottom-left-radius: 0.34rem;
     transform: translate(0,0);
-    transition: all 1s linear 0;
+    transition: all 1s linear 0s;
+}
+.icon_notice.hide{
+    transform: translate(1.10rem,0);
 }
 .icon_notice .left{
     width: 0.44rem;
