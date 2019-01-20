@@ -445,7 +445,7 @@ body{
     font-size: 0.56rem;
     color: #ffc057;
 }
-.mask .bg .tip{
+.mask .bg .mask_tip{
     position: absolute;
     top: 2.60rem;
     width: 5.00rem;
