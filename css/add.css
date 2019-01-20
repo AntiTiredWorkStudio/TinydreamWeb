@@ -213,7 +213,7 @@ body{
 .chec i{
     font-style: normal;
     display: inline-block;
-    margin-left: 0.8rem;
+    margin-left: 0.5rem;
 }
 .chec .check{
     position: absolute;
