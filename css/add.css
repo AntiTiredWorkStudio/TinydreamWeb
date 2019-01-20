@@ -192,3 +192,16 @@ body{
     width: 4.00rem;
     margin: 0 auto;
 }
+.chec label{
+    width: 0.3rem;
+    height: 0.3rem;
+    display: inline-block;
+    background: url(https://tdream.antit.top/image/Toggle_False.jpg) no-repeat;
+    background-size: 0.3rem 0.3rem;
+    position: relative;
+    vertical-align: middle;
+}
+.chec .check{
+    position: absolute;
+    left: -9999em;
+}
