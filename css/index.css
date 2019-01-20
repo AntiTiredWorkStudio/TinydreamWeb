@@ -433,6 +433,10 @@ body{
     transform: translateY(-50%);
     top: 50%;
 }
+.mask .bg img{
+    width: 100%;
+    height: auto;
+}
 .mask .bg .title{
     width: 100%;
     position: absolute;
