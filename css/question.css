@@ -31,3 +31,8 @@ body{
     padding-top: 0.3rem;
     font-size: 0.32rem;
 }
+.question_list img{
+    width: 1.5rem;
+    height: 1.48rem;
+    margin: 0 auto;
+}
