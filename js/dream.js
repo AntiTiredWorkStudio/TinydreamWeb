@@ -118,6 +118,11 @@ $(function(){
                 background:"url(https://tdream.antit.top/image/Toggle_True.jpg) no-repeat",
                 "background-size":"0.3rem 0.3rem"
             })
+        }else{
+            $("input[type='checkbox']:checked").parent('label').css({
+                background:"url(https://tdream.antit.top/image/Toggle_False.jpg) no-repeat",
+                "background-size":"0.3rem 0.3rem"
+            })
         }
         console.log($("input[type='checkbox']").is(':checked'))
    })
