@@ -10,6 +10,14 @@ $(function(){
            var userInfo = Options.GetUserInfo();
           // alert(userInfo.openid);
            $('#test').html(JSON.stringify(Options.GetUserInfo()));
+           // 系统通知
+            TD_Request("no","nc",{
+                uid:userInfo.openid
+            },function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data)
+            })
            TD_Request("us", "enter", {
                uid:userInfo.openid,
                nickname:userInfo.nickname,
@@ -170,13 +178,5 @@ $(function(){
     $('.help').click(function(e){
         e.stopPropagation();
         window.location.href="html/dreamHelp.html"
-    })
-    // 系统通知
-    TD_Request("no","nc",{
-        uid:userInfo.openid
-    },function(code,data){
-        console.log(data)
-    },function(code,data){
-        console.log(data)
     })
 })
