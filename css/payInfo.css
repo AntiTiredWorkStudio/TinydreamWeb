@@ -275,13 +275,14 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 999;
 }
 .icon .icon_top{
     width: 2.56rem;
     height: 6.25rem;
     position: absolute;
-    right: 0.2rem;
-    top: 0.2rem;
+    right: 0.5rem;
+    top: 0.5rem;
     background: url(https://tdream.antit.top/image/guideLine.png) no-repeat;
     background-size: 2.56rem 6.25rem;
 }
