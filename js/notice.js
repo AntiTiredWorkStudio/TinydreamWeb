@@ -24,7 +24,7 @@ $(function(){
             var json = $(this).attr('data-info');
             var obj = eval("("+json+")");
             var nid = $(this).attr('data-nid');
-            TD_Request("no","ngl",{nid:nid},function(code,data){
+            TD_Request("no","ngl",{uid:userInfo.openid},function(code,data){
                 console.log(data)
             },function(code,data){
                 console.log(data)
