@@ -1,3 +1,4 @@
+WebApp.JSAPI.Init();
 $(function(){
     var userInfo = Options.GetUserInfo();
     TD_Request("us","selfinfo",{
