@@ -23,7 +23,7 @@ $(function(){
                 }else{
                     $('.icon_notice').removeClass('hide');
                 }
-                $('.text').html(data.ncount)
+                $('.ntext').html(data.ncount)
             },function(code,data){
                 console.log(data)
             })
