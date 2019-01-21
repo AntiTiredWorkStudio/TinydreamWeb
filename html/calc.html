@@ -11,18 +11,21 @@
 <body>
     <!-- 计算公式详情页面 -->
     <div class='calc'>
-        <div class='title'>本期中奖计算步骤:</div>
+        <div id="title" class='title'>本期中奖计算步骤:</div>
         <div class='main'>
-            <div>[(2018137+305111520+100001)/ 1000]取余数 +10000000</div>
-            <div>=(307229658 / 1000)  取余数 +10000000</div>
-            <div>=658+10000000（658为余数）</div>
-            <div>=10000658</div>
+            <div id="Step01">[(2018137+305111520+100001)/ 1000]取余数 +10000000</div>
+            <div id="Step02">=(307229658 / 1000)  取余数 +10000000</div>
+            <div id="Step03">=658+10000000（658为余数）</div>
+            <div id="Step04">=10000658</div>
             <div class='steps'>
-            <div>得出幸运者编号为：10000658</div>
+            <div id="Step05">得出幸运者编号为：10000658</div>
             </div>
         </div>
     </div>
     <script src="../lib/jquery-1.12.3.min.js"></script>
     <script src="../lib/rem.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
+    <script src="../js/cacu.js"></script>
 </body>
 </html>
