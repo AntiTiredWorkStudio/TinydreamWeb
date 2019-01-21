@@ -6,28 +6,105 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>联系客服</title>
     <style>
-        .container{
-            width: 6.9rem;
-            margin: 0 auto;
-            padding: 0.5rem 0;
-            position: relative;
-            text-align: center;
-            font-size: 0.28rem;
-            color: #999;
-        }
-        img{
-            width: 5rem;
-            height: 4.98rem;
-            position: absolute;
-            left: 50%;
-            transform: translate(-50%);
-        }
+        /* 梦想服务--样式处理 */
+body{
+    background-color: #f0f3f7;
+    width: 100%;
+}
+.avatar{
+    width: 2.06rem;
+    height: 2.06rem;
+    border-radius: 50%;
+    margin: 0.50rem auto 0;
+    background-color: #fff;
+    position: relative;
+    z-index: 5;
+}
+.avatar image{
+    width: 1.98rem;
+    height: 1.98rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.04rem;
+    left: 0.04rem;
+}
+.dreamServer .main{
+    width: 6.80rem;
+    border-radius: 0.20rem;
+    background-color: #fff;
+    position: absolute;
+    top: 1.53rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/* 梦想服务内容--样式处理 */
+.dreamServer .main .main_box{
+    width: 100%;
+    margin-top: 1.28rem;
+    text-align: center;
+    padding-bottom: 0.38rem;
+}
+.dreamServer .main .main_box .title{
+    width: 2.60rem;
+    margin: 0 auto;
+    height: 0.62rem;
+    background-color: #00d6a7;
+    color: #fff;
+    border-radius: 0.31rem;
+    font-size: 0.36rem;
+    line-height: 0.62rem;
+}
+.dreamServer .main .main_box .text{
+    padding-top: 0.34rem;
+    font-size: 0.28rem;
+    color: #00d6a7;
+    padding-bottom: 0.30rem;
+}
+.dreamServer .main .main_box .tip{
+    font-size: 0.28rem;
+    padding-top: 0.52rem;
+    margin-bottom: 0.60rem;
+}
+.dreamServer .main .main_box .qrcode{
+    width: 4.13rem;
+    height: 4.13rem;
+    background-color: red;
+    margin: 0 auto;
+    background: url(http://tdream.antit.top/image/frame.png) no-repeat;
+    background-size: 4.13rem 4.13rem;
+}
+.dreamServer .main .main_box .qrcode_main{
+    width: 3.33rem;
+    height: 3.33rem;
+    position: relative;
+    top: 0.40rem;
+    left:0.40rem;
+    background: url(http://tdream.antit.top/image/qrcode.png) no-repeat;
+    background-size: 3.33rem 3.33rem;
+}
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="https://tdream.antit.top/image/qrcode.jpg" alt="">
-        <span>长按识别二维码添加客服</span>
+   <!--梦想服务页面-->
+<!-- 
+    avatar:用户头像
+    main_box:内容的盒子
+    text:文字
+ -->
+<div class='dreamServer'>
+        <div class='avatar'>
+            <img src='http://tdream.antit.top/image/avatar.png'>
+        </div>
+        <div class='main'>
+            <div class='main_box'>
+                <div class='title'>联系客服</div>
+                <div class='tip'>长按二维码复制客服微信</div>
+                <div class='qrcode'>
+                    <div class='qrcode_main'></div>
+                </div>
+            </div>
+        </div>
     </div>
+    
 </body>
 </html>
