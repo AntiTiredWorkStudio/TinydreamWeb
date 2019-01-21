@@ -267,3 +267,21 @@
     text-align: left!important;
     padding: 0 0 0 15px!important;
 }
+/* 提示 */
+.icon{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.icon .icon_top{
+    width: 2.56rem;
+    height: 6.25rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: url(https://tdream.antit.top/image/guideLine.png) no-repeat;
+    background-size: 2.56rem 6.25rem;
+}

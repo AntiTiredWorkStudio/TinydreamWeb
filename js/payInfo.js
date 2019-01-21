@@ -195,21 +195,8 @@ $(function(){
     })
 
     //分享
-    wx.ready(function(){
-      $('.share').click(function(){
-        wx.updateAppMessageShareData({
-          title:"小梦想互助",
-          desc:"互助小额零钱，夺大额梦想金！",
-          link:"http://tinydream.antit.top/TinydreamWeb/index.html",
-          imgUrl:"",
-          success:function(res){
-            console.log(res);
-          },
-          complete:function(res){
-            console.log(res)
-          }
-        })
-      })
+  
+    $('.share').click(function(){
+     
     })
-    // WebApp.JSAPI.Init()
 })
