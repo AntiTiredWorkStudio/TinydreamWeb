@@ -5,7 +5,7 @@ $(function(){
     var templateStr = $('#template').html();
     var compiled = _.template(templateStr)
 
-    TD_Request("no","ng",{
+    TD_Request("no","ngl",{
         uid:userInfo.openid,
         seek:0,
         count:20
@@ -24,21 +24,21 @@ $(function(){
             var json = $(this).attr('data-info');
             var obj = eval("("+json+")");
             var nid = $(this).attr('data-nid');
-            TD_Request("no","ngl",{uid:userInfo.openid},function(code,data){
+            TD_Request("no","nr",{nid:nid},function(code,data){
                 console.log(data)
+                TD_Request("dp","pinfo",{
+                    pid:obj.pid
+                },function(code,data){
+                    console.log(data)
+                    var info =  DreamPoolAnalysis(data.pool);
+                    localStorage.setItem('poolInfo',JSON.stringify(info))
+                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/helpInfo.html"
+                },function(code,data){
+                    console.log(data)
+                })
             },function(code,data){
                 console.log(data)
             })
-            // TD_Request("dp","pinfo",{
-            //     pid:obj.pid
-            // },function(code,data){
-            //     console.log(data)
-            //     var info =  DreamPoolAnalysis(data.pool);
-            //     localStorage.setItem('poolInfo',JSON.stringify(info))
-            //     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/helpInfo.html"
-            // },function(code,data){
-            //     console.log(data)
-            // })
         })
     },function(code,data){
         console.log(data)

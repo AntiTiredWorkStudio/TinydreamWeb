@@ -15,6 +15,12 @@ $(function(){
                 uid:userInfo.openid
             },function(code,data){
                 console.log(data)
+                if(data.ncount == 0){
+                    $('.icon_notice').addClass('hide')
+                }else{
+                    $('.icon_notice').removeClass('hide');
+                }
+                $('.text').html(data.ncount)
             },function(code,data){
                 console.log(data)
             })
