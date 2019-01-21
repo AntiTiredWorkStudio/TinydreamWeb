@@ -179,4 +179,12 @@ $(function(){
         e.stopPropagation();
         window.location.href="html/dreamHelp.html"
     })
+    //客服
+    $('.icon_notice .left').click(function(){
+        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/cach.html"
+    })
+    // banner
+    $('.banner').click(function(){
+        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
+    })
 })
