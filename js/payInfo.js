@@ -197,7 +197,7 @@ $(function(){
     //分享
   
     $('.share').click(function(){
-      $('icon.').show()
+      $('.icon').show()
     })
     $('.icon.close').click(function(){
       window.location.href="http://tinydream.antit.top/TinydreamWeb/html/dreamHelp.html";
