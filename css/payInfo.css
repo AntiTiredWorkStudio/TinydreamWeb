@@ -280,8 +280,8 @@
     width: 2.56rem;
     height: 6.25rem;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 0.2rem;
+    top: 0.2rem;
     background: url(https://tdream.antit.top/image/guideLine.png) no-repeat;
     background-size: 2.56rem 6.25rem;
 }
