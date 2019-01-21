@@ -11,6 +11,9 @@ $(function(){
           // alert(userInfo.openid);
            $('#test').html(JSON.stringify(Options.GetUserInfo()));
            // 系统通知
+           $('.right').click(function(){
+               window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/notice.html"
+           })
             TD_Request("no","nc",{
                 uid:userInfo.openid
             },function(code,data){
