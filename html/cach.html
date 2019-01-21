@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>联系客服</title>
+    <link rel="stylesheet" href="../css/public.css">
     <style>
         /* 梦想服务--样式处理 */
 body{
@@ -93,7 +94,7 @@ body{
  -->
 <div class='dreamServer'>
         <div class='avatar'>
-            <img src='http://tdream.antit.top/image/avatar.png'>
+            
         </div>
         <div class='main'>
             <div class='main_box'>
@@ -105,6 +106,14 @@ body{
             </div>
         </div>
     </div>
-    
+    <script src="../lib/jquery-1.12.3.min.js"></script>
+    <script src="../lib/rem.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
+    <script>
+        var img = new Image();
+        var userInfo = Options.GetUserInfo();
+        img.src = userInfo.headicon
+    </script>
 </body>
 </html>
