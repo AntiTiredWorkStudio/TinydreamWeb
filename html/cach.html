@@ -111,9 +111,8 @@ body{
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script>
-        var img = new Image();
         var userInfo = Options.GetUserInfo();
-        img.src = userInfo.headimgurl
+        $('<img src="'+userInfo.headimgurl+'">').appendTo('.avatar')
     </script>
 </body>
 </html>
