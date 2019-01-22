@@ -106,6 +106,8 @@ body{
 }
 .home .home_content .dream_info .targetAndPrice .price{
     /* float: right; */
+    float: left;
+    margin-left: 1.35rem;
 }
 /* 参与互助--样式处理 */
 .home .home_content .dream_info .join_help::after{
