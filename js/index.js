@@ -23,7 +23,7 @@ $(function(){
                 }else{
                     $('.icon_notice').removeClass('hide');
                 }
-                $('.ntext').html(data.ncount)
+                $('.ntext').html(data.ncount).css("font-size","0.05rem")
             },function(code,data){
                 console.log(data)
             })
