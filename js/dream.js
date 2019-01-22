@@ -105,7 +105,7 @@ $(function(){
                 console.log(data)
                 if(dream == '' || dream == undefined){
                     console.log(dream)
-                    // window.location.reload();
+                    window.location.reload();
                 }else{
                     window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/payInfo.html'
                 }
