@@ -103,6 +103,32 @@ $(function(){
                 content:$('.info').val()
             },function(code,data){
                 console.log(data)
+                if(dream.hasOwnProperty('editdream')){
+                    update();
+                    var mainpool = JSON.parse(localStorage.getItem('mainpool'));
+                    if(mainpool == '' || mainpool == undefined){
+                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";
+                    }else{
+                        console.log(mainpool)
+                        TD_Request("ds","buy",{
+                            uid:userInfo.openid,
+                            pid:mainpool.pid
+                        },function(code,data){
+                            if(code == 0 || data.result == true){
+                                console.log(data)
+                                if(data.actions.hasOwnProperty('editdream')){
+                                    console.log(data.actions)
+                                    localStorage.setItem('buy',JSON.stringify(data.actions));
+                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
+                                }else{
+                                    window.location.reload()
+                                }
+                            }
+                        },function(code,data){
+                            console.log(data)
+                        })
+                    }
+                }
                 if(dream == '' || dream == undefined){
                     console.log(dream)
                     window.location.reload();
