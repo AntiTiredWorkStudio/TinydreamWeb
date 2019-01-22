@@ -1,5 +1,5 @@
 WebApp.JSAPI.Init();
-SaveStorage("pid","100001");
+//SaveStorage("pid","100001");测试用
 
 var CaculateManager = {
 	title:"",
