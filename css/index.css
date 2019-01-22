@@ -403,11 +403,11 @@ body{
     background-size: 0.46rem 0.42rem;
 }
 .icon_notice .right .text{
-    width: 0.18rem;
-    height: 0.18rem;
+    width: 0.2rem;
+    height: 0.2rem;
     background: red;
     border-radius: 50%;
-    font-size: 0.16rem;
+    font-size: 0.24rem;
     color: #fff;
     text-align: center;
     line-height: 0.18rem;
