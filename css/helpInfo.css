@@ -39,7 +39,8 @@ body{
 .home .home_content .dream_info .progress .circle{
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%)
 }
 .home .home_content .dream_info .progress .timeout{
     position: absolute;

@@ -25,7 +25,8 @@
 .home .home_content .dream_info .progress .circle{
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%)
 }
 .home .home_content .dream_info .progress .timeout{
     position: absolute;
@@ -46,6 +47,7 @@
     color: #00d094;
     display: inline-block;
 }
+
 .home .home_content .dream_info .progress .help_money{
     position: absolute;
     top: 1.50rem;
