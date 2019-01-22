@@ -106,9 +106,9 @@ body{
     display: block;
 }
 .home .home_content .dream_info .targetAndPrice .price{
-    position: absolute;
+    /* position: absolute;
     right: 0;
-    top: 0;
+    top: 0; */
 }
 /* 参与互助--样式处理 */
 .home .home_content .dream_info .join_help::after{
