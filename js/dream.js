@@ -119,23 +119,16 @@ $(function(){
                                 if(data.actions.hasOwnProperty('editdream')){
                                     console.log(data.actions)
                                     localStorage.setItem('buy',JSON.stringify(data.actions));
-                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
-                                }else{
-                                    window.location.reload()
+                                    // window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
                                 }
                             }
                         },function(code,data){
                             console.log(data)
                         })
                     }
-                }
-                if(dream == '' || dream == undefined){
-                    console.log(dream)
-                    window.location.reload();
                 }else{
-                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/payInfo.html'
-                }
-               
+                  window.location.reload()
+                }               
             },function(code,data){
                 alert(data.context)
             })
