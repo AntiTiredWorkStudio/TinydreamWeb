@@ -5,16 +5,15 @@ $(function(){
      WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){//result:请求状态,data 请求结果
            //alert(result);
-           //alert(JSON.stringify(data))
            console.log(result,data);
            var userInfo = Options.GetUserInfo();
           // alert(userInfo.openid);
-           $('#test').html(JSON.stringify(Options.GetUserInfo()));
+          $('#test').html(JSON.stringify(Options.GetUserInfo()));
            // 系统通知
            $('.right').click(function(){
                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/notice.html"
            })
-            TD_Request("no","nc",{
+           TD_Request("no","nc",{
                 uid:userInfo.openid
             },function(code,data){
                 // console.log(data)
@@ -27,6 +26,7 @@ $(function(){
             },function(code,data){
                 // console.log(data)
             })
+			
            TD_Request("us", "enter", {
                uid:userInfo.openid,
                nickname:userInfo.nickname,
@@ -36,7 +36,7 @@ $(function(){
             if(code == 0) {
                 // 首页公屏
                 // console.log(data)
-                let buyinfo = data.buyinfo;
+                var buyinfo = data.buyinfo;
                 if(buyinfo == "" || null){
                     $('.tip').show();
                 }else{
