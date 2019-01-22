@@ -102,6 +102,7 @@ $(function(){
                                 window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
                             }else{
                                 if(confirm("您还没有添加梦想，添加梦想后才能参与互助")){
+                                    localStorage.setItem('buy',JSON.stringify(data.actions));
                                     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
                                 }else{
                                     window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html"
