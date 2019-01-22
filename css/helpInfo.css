@@ -82,6 +82,7 @@ body{
     margin: 0 auto;
     overflow: hidden;
     margin-top: 0.40rem;
+    position: relative;
 }
 .home .home_content .dream_info .targetAndPrice .target{
     float: left;
@@ -105,9 +106,9 @@ body{
     display: block;
 }
 .home .home_content .dream_info .targetAndPrice .price{
-    /* float: right; */
-    float: left;
-    margin-left: 1.1rem;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 /* 参与互助--样式处理 */
 .home .home_content .dream_info .join_help::after{
