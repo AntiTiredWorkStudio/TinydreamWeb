@@ -182,7 +182,7 @@
     top: 0.25rem;
 }
 /* 分享按钮 */
-.share{
+/* .share{
     width: 0.39rem;
     height: 0.43rem;
     background: url(http://tdream.antit.top/image/share.jpg) no-repeat;
@@ -190,7 +190,7 @@
     position: absolute;
     top: 0.30rem;
     right: 0.66rem;
-}
+} */
 /* 弹窗 */
 .home .mask{
     width: 100%;

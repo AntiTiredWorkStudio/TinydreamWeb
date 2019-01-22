@@ -11,10 +11,19 @@ $(function(){
           // alert(userInfo.openid);
            $('#test').html(JSON.stringify(Options.GetUserInfo()));
            // 系统通知
+           $('.right').click(function(){
+               window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/notice.html"
+           })
             TD_Request("no","nc",{
                 uid:userInfo.openid
             },function(code,data){
                 console.log(data)
+                if(data.ncount == 0){
+                    $('.icon_notice').addClass('hide')
+                }else{
+                    $('.icon_notice').removeClass('hide');
+                }
+                $('.ntext').html(data.ncount).css("font-size","0.05rem")
             },function(code,data){
                 console.log(data)
             })
@@ -37,9 +46,9 @@ $(function(){
                     _.each(buyinfo,function(item){
                         console.log(item)
                         var date = parseInt(new Date().getTime() / 1000);
-                        var timer = DescriptionTime(date - item.ptime);
+                        var time = DescriptionTime(date - item.ptime);
                         console.log(timer);
-                        item.timer = timer;
+                        item.time = time;
                         var str = complid(item);
                         $dom = $(str);
                         $dom.appendTo('.cont');
