@@ -105,10 +105,14 @@ body{
     color: #999;
     display: block;
 }
-.home .home_content .dream_info .targetAndPrice .price{
+.home .home_content .dream_info .targetAndPrice .price {
     /* position: absolute;
     right: 0;
     top: 0; */
+}
+.home .home_content .dream_info .targetAndPrice .price .price_tip{
+    display: inline-block;
+    margin-top: 0.1rem;
 }
 /* 参与互助--样式处理 */
 .home .home_content .dream_info .join_help::after{
