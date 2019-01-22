@@ -119,7 +119,7 @@ $(function(){
                                 if(!data.actions.hasOwnProperty('editdream')){
                                     console.log(data.actions)
                                     localStorage.setItem('buy',JSON.stringify(data.actions));
-                                    // window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
+                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
                                 }
                             }
                         },function(code,data){
