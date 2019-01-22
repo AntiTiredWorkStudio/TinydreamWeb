@@ -102,7 +102,7 @@ $(function(){
                 title:$('.title').val(),
                 content:$('.info').val()
             },function(code,data){
-                // console.log(data)
+                console.log(data)
                 if(dream == '' || dream == undefined){
                     window.location.reload();
                 }else{
