@@ -11,7 +11,7 @@ $(function(){
         count:20
     },function(code,data){
         console.log(data)
-        data.msg.sort(compare('ptime'));
+        data.msg.ptime.sort(a-b);
         _.each(data.msgs,function(item){
             var localTime = GetLocalTime(item.ptime);
             item.localTime = localTime;

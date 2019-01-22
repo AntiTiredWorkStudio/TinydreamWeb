@@ -249,8 +249,9 @@
     width: 0.60rem;
     height: 0.60rem;
     position: absolute;
-    top: 0.70rem;
-    right: 0.30rem;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%)
 }
 /* 选择框处理 */
 .weui-picker-modal.weui-picker-modal-visible .toolbar .toolbar-inner{
