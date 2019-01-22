@@ -50,7 +50,7 @@ $(function(){
     $('.dream_type ul li').click(function(){
         $('.dream_list').empty();
         $(this).addClass('active').siblings().removeClass('active');
-        console.log($(this).index());
+        // console.log($(this).index());
         if($(this).index() == 0){
             $('.add').show();
             update();
@@ -102,7 +102,7 @@ $(function(){
                 title:$('.title').val(),
                 content:$('.info').val()
             },function(code,data){
-                console.log(data)
+                // console.log(data)
                 if(dream == '' || dream == undefined){
                     window.location.reload();
                 }else{
@@ -137,7 +137,7 @@ $(function(){
                 "background-size":"0.3rem 0.3rem"
             })
         }
-        console.log($("input[type='checkbox']").is(':checked'))
+        // console.log($("input[type='checkbox']").is(':checked'))
    })
    $('.xieyi').click(function(){
     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/xieyi.html"

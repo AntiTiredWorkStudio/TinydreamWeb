@@ -17,15 +17,15 @@ $(function(){
             TD_Request("no","nc",{
                 uid:userInfo.openid
             },function(code,data){
-                console.log(data)
+                // console.log(data)
                 if(data.ncount == 0){
                     $('.icon_notice').addClass('hide')
                 }else{
                     $('.icon_notice').removeClass('hide');
                 }
-                $('.ntext').html(data.ncount).css("font-size","0.05rem")
+                $('.ntext').html(data.ncount).css("font-size","6px")
             },function(code,data){
-                console.log(data)
+                // console.log(data)
             })
            TD_Request("us", "enter", {
                uid:userInfo.openid,
@@ -35,7 +35,7 @@ $(function(){
             //请求成功的处理
             if(code == 0) {
                 // 首页公屏
-                console.log(data)
+                // console.log(data)
                 let buyinfo = data.buyinfo;
                 if(buyinfo == "" || null){
                     $('.tip').show();
@@ -44,10 +44,10 @@ $(function(){
                     var templateStr = $('#template').html();
                     var complid = _.template(templateStr);
                     _.each(buyinfo,function(item){
-                        console.log(item)
+                        // console.log(item)
                         var date = parseInt(new Date().getTime() / 1000);
                         var time = DescriptionTime(date - item.ptime);
-                        console.log(timer);
+                        // console.log(timer);
                         item.time = time;
                         var str = complid(item);
                         $dom = $(str);
@@ -92,7 +92,7 @@ $(function(){
                         uid:data.selfinfo.uid,
                         pid:data.mainpool.pid
                     },function(code,data){
-                        console.log(data);
+                        // console.log(data);
                         if(code == 0 || data.result == true){
                             console.log(data)
                             if(!data.actions.hasOwnProperty('editdream')){

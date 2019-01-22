@@ -49,9 +49,9 @@ $(function(){
                 uid:userInfo.openid,
                 pid:poolInfo.pid
             },function(code,data){
-                console.log(data);
+                // console.log(data);
                 if(code == 0 || data.result == true){
-                    console.log(data)
+                    // console.log(data)
                     if(data.actions.hasOwnProperty('editdream')){
                         if(confirm("您还没有添加梦想，添加梦想后才能参与互助")){
                             window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
@@ -114,7 +114,7 @@ $(function(){
             uid:userInfo.openid,
             pid:poolInfo.pid
         },function(code,data){
-            console.log(data)
+            // console.log(data)
             if(data.lottey.length == 0){
                 $('.tip').html('您尚未参与互助').show();
             }else{
@@ -150,19 +150,19 @@ $(function(){
                     $('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" oid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div></div>').appendTo('.user_number');
                 })
             }
-            console.log(data)
-            console.log(number+10);
+            // console.log(data)
+            // console.log(number+10);
             var str = ''//编号
             $('.look').click(function(){
                 TD_Request('aw','onums',{
                     oid:$(this).attr('oid')
                 },function(code,data){
-                    console.log(data);
+                    // console.log(data);
                     var str = '';
                     $.each(data.nums,function(index,item){
                         str = str+=item.lid+'；'
                     })
-                    console.log(str)
+                    // console.log(str)
                     alert('编号\n'+str);
                 },function(code,data){
                     console.log(data)

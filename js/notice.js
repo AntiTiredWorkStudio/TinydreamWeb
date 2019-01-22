@@ -11,6 +11,7 @@ $(function(){
         count:20
     },function(code,data){
         console.log(data)
+        data.sort(compare('data.ptime'));
         _.each(data.msgs,function(item){
             var localTime = GetLocalTime(item.ptime);
             item.localTime = localTime;
@@ -43,5 +44,14 @@ $(function(){
     },function(code,data){
         console.log(data)
     })
+
+    // 排序
+    function compare(property){
+        return function(a,b){
+            var value1 = a[property];
+            var value2 = b[property];
+            return value1 - value2;
+        }
+    }
     // WebApp.JSAPI.Init()
 })

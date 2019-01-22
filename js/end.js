@@ -59,7 +59,7 @@ $(function(){
             uid:userInfo.openid,
             pid:poolInfo.pid
         },function(code,data){
-            console.log(data)
+            // console.log(data)
             if(data.lottey.length == 0){
                 $('.tip').html('您尚未参与该梦想池互助').show();
             }else{
@@ -85,8 +85,8 @@ $(function(){
                 $('.tip').html('此梦想池没有用户参与').hide();
                 $('.btns').show();
             }
-            console.log(data)
-            console.log(number+10);
+            // console.log(data)
+            // console.log(number+10);
             $.each(data.orders,function(index,item){
                 $('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" oid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div></div>').appendTo('.user_number');
             })
@@ -95,12 +95,12 @@ $(function(){
                 TD_Request('aw','onums',{
                     oid:$(this).attr('oid')
                 },function(code,data){
-                    console.log(data);
+                    // console.log(data);
                     var str = '';
                     $.each(data.nums,function(index,item){
                         str = str+=item.lid+'；'
                     })
-                    console.log(str)
+                    // console.log(str)
                     alert('编号\n'+str);
                 },function(code,data){
                     console.log(data)

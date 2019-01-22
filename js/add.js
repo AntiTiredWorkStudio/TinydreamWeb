@@ -19,21 +19,21 @@ $(function(){
         did:did,
         state:state
     },function(code,data){
-        console.log(data);
+        // console.log(data);
         $('.dr_title').val(data.dream.title);
         $('.dr_info').val(data.dream.content);
         if(data.upload != undefined) {
-            console.log(data.upload);
+            // console.log(data.upload);
             // 文件上传
             var file;
             $('.uploaded').change(function(e){
-                console.log(e);
+                // console.log(e);
                 //console.log(e.target.files[0].name.split(".")[1])
                 file = e.target.files[0];
             })
 
             $('.submit').click(function(){
-                console.log(file)
+                // console.log(file)
                 if(file == '' || file == undefined){
                     alert('请上传小梦想公函');
                     return;
@@ -50,7 +50,7 @@ $(function(){
                 }else{
                     var url;
                     WebApp.UploadWithSDK(data.upload.uptoken,data.upload.upurl,file,data.upload.fileName,function(res){
-                        console.log(res);
+                        // console.log(res);
                         if(res.result){
                            url = data.upload.domain + "/" + res.imgName
                            TD_Request("dr","gedit",{
@@ -58,7 +58,7 @@ $(function(){
                                 did:did,
                                 contentList:JSON.stringify({"title":$('.dr_title').val(),"content":$('.dr_info').val(),"videourl":url})
                             },function(code,data){
-                                console.log(data);
+                                // console.log(data);
                                 alert('提交成功!');
                                 $('.submit_mask').fadeIn();
                                 $('.submit_mask button').click(function(){
@@ -90,7 +90,7 @@ $(function(){
                 did:did,
                 contentList:JSON.stringify({"title":$('.dr_title').val(),"content":$('.dr_info').val()})
             },function(code,data){
-                console.log(data);
+                // console.log(data);
                 alert('修改成功!');
                 window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
             },function(code,data){
@@ -128,7 +128,7 @@ $(function(){
                 "background-size":"0.3rem 0.3rem"
             })
         }
-        console.log($("input[type='checkbox']").is(':checked'))
+        // console.log($("input[type='checkbox']").is(':checked'))
    })
     // WebApp.JSAPI.Init()
 })
