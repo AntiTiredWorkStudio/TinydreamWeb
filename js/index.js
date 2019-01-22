@@ -46,9 +46,9 @@ $(function(){
                     _.each(buyinfo,function(item){
                         console.log(item)
                         var date = parseInt(new Date().getTime() / 1000);
-                        var timer = DescriptionTime(date - item.ptime);
+                        var time = DescriptionTime(date - item.ptime);
                         console.log(timer);
-                        item.timer = timer;
+                        item.time = time;
                         var str = complid(item);
                         $dom = $(str);
                         $dom.appendTo('.cont');
