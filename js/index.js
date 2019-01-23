@@ -46,7 +46,7 @@ $(function(){
                     $('.tip').hide();
                     var templateStr = $('#template').html();
                     var complid = _.template(templateStr);
-                    _.each(buyinfo,function(item){
+                    _.each(info,function(item){
                         // console.log(item)
                         var date = parseInt(new Date().getTime() / 1000);
                         var time = DescriptionTime(date - item.ptime);
