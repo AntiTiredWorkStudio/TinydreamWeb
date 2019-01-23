@@ -40,6 +40,8 @@ $(function(){
                 if(buyinfo == "" || null){
                     $('.tip').show();
                 }else{
+                    var info = buyinfo.unshift();
+                    console.log(info)
                     $('.tip').hide();
                     var templateStr = $('#template').html();
                     var complid = _.template(templateStr);
