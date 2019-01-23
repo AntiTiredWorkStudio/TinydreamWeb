@@ -41,8 +41,9 @@ $(function(){
                     $('.tip').show();
                 }else{
                     console.log(buyinfo)
+                    var info;
                     setInterval(function(){
-                        var info = buyinfo.shift();
+                        info = buyinfo.shift();
                         buyinfo.push(info)
                     },1000)
                     console.log(info)
