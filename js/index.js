@@ -48,8 +48,11 @@ $(function(){
                         $('.tip').hide();
                         $('.logo').css('background-image','url('+info.headicon+')');
                         $('.username').html(info.nickname);
+                        var date = parseInt(new Date().getTime() / 1000);
+                        var time = DescriptionTime(date - item.ptime);
+                        info.time = time;
                         $('.male_tip').html(info.time+"前参与了"+info.dcount+"份小梦想")
-                    },1000)
+                    },2000)
                     console.log(info)
                    
                     // var templateStr = $('#template').html();
