@@ -16,7 +16,7 @@ $(function(){
     TD_Request('aw','lfromp',{
         pid:poolInfo.pid
     },function(code,data){
-        $('.lucky span').html()
+        $('.lucky span').html(data.lid)
     },function(code,data){
         if(code == 59){
             $('.lucky span').html('等待开奖')
