@@ -41,21 +41,27 @@ $(function(){
                     $('.tip').show();
                 }else{
                     console.log(buyinfo)
-                    var info = buyinfo.shift();
+                    setInterval(function(){
+                        var info = buyinfo.shift();
+                        buyinfo.push(info)
+                    },1000)
                     console.log(info)
                     $('.tip').hide();
-                    var templateStr = $('#template').html();
-                    var complid = _.template(templateStr);
-                    _.each(info,function(item){
-                        // console.log(item)
-                        var date = parseInt(new Date().getTime() / 1000);
-                        var time = DescriptionTime(date - item.ptime);
-                        // console.log(timer);
-                        item.time = time;
-                        var str = complid(item);
-                        $dom = $(str);
-                        $dom.appendTo('.cont');
-                    })
+                    $('.logo').css('background-image','url('+info.headicon+')');
+                    $('.username').html(info.nickname);
+                    $('.male_tip').html(info.time+"前参与了"+info.dcount+"份小梦想")
+                    // var templateStr = $('#template').html();
+                    // var complid = _.template(templateStr);
+                    // _.each(info,function(item){
+                    //     // console.log(item)
+                    //     var date = parseInt(new Date().getTime() / 1000);
+                    //     var time = DescriptionTime(date - item.ptime);
+                    //     // console.log(timer);
+                    //     item.time = time;
+                    //     var str = complid(item);
+                    //     $dom = $(str);
+                    //     $dom.appendTo('.cont');
+                    // })
                 }
                 // 梦想互助池
                 var mainpool = data.mainpool;
