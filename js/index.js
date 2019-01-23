@@ -41,7 +41,7 @@ $(function(){
                     $('.tip').show();
                 }else{
                     console.log(buyinfo)
-                    var info = buyinfo.unshift();
+                    var info = buyinfo.shift();
                     console.log(info)
                     $('.tip').hide();
                     var templateStr = $('#template').html();
