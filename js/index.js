@@ -45,12 +45,13 @@ $(function(){
                     setInterval(function(){
                         info = buyinfo.shift();
                         buyinfo.push(info)
+                        $('.tip').hide();
+                        $('.logo').css('background-image','url('+info.headicon+')');
+                        $('.username').html(info.nickname);
+                        $('.male_tip').html(info.time+"前参与了"+info.dcount+"份小梦想")
                     },1000)
                     console.log(info)
-                    $('.tip').hide();
-                    $('.logo').css('background-image','url('+info.headicon+')');
-                    $('.username').html(info.nickname);
-                    $('.male_tip').html(info.time+"前参与了"+info.dcount+"份小梦想")
+                   
                     // var templateStr = $('#template').html();
                     // var complid = _.template(templateStr);
                     // _.each(info,function(item){
