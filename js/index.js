@@ -51,8 +51,8 @@ $(function(){
                         var date = parseInt(new Date().getTime() / 1000);
                         var time = DescriptionTime(date - info.ptime);
                         info.time = time;
-                        $('.male_tip').html(info.time+"前参与了"+info.dcount+"份小梦想")
-                    },2000)
+                        $('.male_tip').html(info.time+"前参与了"+info.dcount+"份小梦想").fadeIn()
+                    },4000)
                     console.log(info)
                    
                     // var templateStr = $('#template').html();
