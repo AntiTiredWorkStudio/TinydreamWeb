@@ -40,7 +40,7 @@ $(function(){
                 if(buyinfo == "" || null){
                     $('.tip').show();
                 }else{
-                    console.log(info)
+                    console.log(buyinfo)
                     var info = buyinfo.unshift();
                     console.log(info)
                     $('.tip').hide();
