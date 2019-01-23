@@ -74,6 +74,9 @@ $(function(){
                 $('.money_number').html("￥"+mainpool.cbill / 100);
                 // 单价
                 $('.price_number').html(mainpool.ubill / 100 +"元/份");
+                if(mainpool.ubill == mainpool.cbill){
+                    window.location.reload();
+                }
                 var prop = (mainpool.cbill / 100) / (mainpool.tbill / 100);
                 ready();
                 drawCircle(ctx,prop);
