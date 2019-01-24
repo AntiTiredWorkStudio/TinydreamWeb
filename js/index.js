@@ -107,7 +107,18 @@ $(function(){
                 if(!data.award.result){
                     $('.mask').hide();
                 }else{
+					console.log(data.award);
                     $('.mask').fadeIn();
+					$('#awardHint').html(
+						"恭喜您成为梦想互助"+data.award.pid+"期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!"
+					);
+					$('#btn_perfect').click(
+						function(res){
+							$('.mask').hide();
+							SaveStorage("award",JSON.stringify(data.award));
+							window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html";
+						}
+					);
                 }
                 // 点击参与互助
                 // 参与互助
