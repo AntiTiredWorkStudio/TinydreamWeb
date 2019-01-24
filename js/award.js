@@ -38,7 +38,7 @@ $(function(){
                 })
                 $('.tip').html('互助金已颁发');
                 $('.progress_main .index.active .line').addClass('activeLine')
-                $('.progress_main .index').eq(2).addClass('active')
+                $('.progress_main .index').eq(3).addClass('active')
             }
         }else{
             alert('梦想状态不符合要求')
