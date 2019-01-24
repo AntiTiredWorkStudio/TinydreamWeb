@@ -74,7 +74,7 @@ $(function(){
 						$('.dream_list').empty();
                         _.each(data.dreams,function(item){
                             if(item.state == "SUCCESS" || item.state == "DOING"){
-								// console.log(item);;
+								console.log(item);
                                 $("<div class='luckyDream'><div class='dream_logo'>"+item.pool.tbill / 100+"</div><div class='dream_right'><div class='dream_msg'><span>"+item.title+"</span>"+((item.state == "SUCCESS")?"<div class='icon_success'></div>":"")+"</div> <div class='tip'><span class='tip_text'>"+item.pool.ptitle+"</span></div></div></div>").appendTo('.dream_list')
                             }
                         })
