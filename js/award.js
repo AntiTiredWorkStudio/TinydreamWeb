@@ -12,7 +12,9 @@ $(function(){
             $('.title .right').html('等待完善')
             $('.tip').html('小梦想 —— 幸运梦想 —— 完善梦想即可');
             $('.progress_main .index').addClass('active')
-        }else if(data.dream.state == '')
+        }else if(data.dream.state == 'VERIFY'){
+            
+        }
     },function(code,data){
         console.log(data)
     })
