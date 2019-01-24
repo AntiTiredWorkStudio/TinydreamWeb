@@ -16,6 +16,9 @@ $(function(){
             var localTime = GetLocalTime(item.ptime);
             item.localTime = localTime;
             console.log(item.ptime)
+            console.log(item)
+			var msgState = "["+(item.state=="READ"?"已读":"未读")+"]";
+			item.content = msgState+item.content;
             var str = compiled(item);
             console.log(str);
             var $dom = $(str);

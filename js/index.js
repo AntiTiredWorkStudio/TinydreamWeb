@@ -238,24 +238,3 @@ $(function(){
         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
     })
 })
-
-var loadingObject;
-var Loading = function () {
-    if(loadingObject!=null){
-        FinishLoading();
-    }
-    loadingObject = weui.loading('loading', {
-        className: 'custom-classname'
-    });
-}
-
-
-
-var FinishLoading = function () {
-    if(loadingObject == null){
-        return;
-    }
-    loadingObject.hide(function () {
-
-    });
-}
