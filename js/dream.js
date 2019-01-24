@@ -46,12 +46,19 @@ $(function(){
             console.log("缺少参数"+data.context);
         })
     }
-    // 类型切换
-    $('.dream_type ul li').click(function(){
+   
+	var onDreamSwitch = function(res){
         $('.dream_list').empty();
-        $(this).addClass('active').siblings().removeClass('active');
+		
+		$("#tab_dream").removeClass('active');
+		$("#tab_lucky").removeClass('active');
+		
+		$("#"+res.currentTarget.id).addClass('active');
+		
+        //$(this).addClass('active').siblings().removeClass('active');
         // console.log($(this).index());
-        if($(this).index() == 0){
+		
+        if(res.currentTarget.id == "tab_dream"){
             $('.add').show();
             update();
         }else{
@@ -64,10 +71,11 @@ $(function(){
                         $('.empty').show();
                         $('.dream_main').hide();
                     }else{
+						$('.dream_list').empty();
                         _.each(data.dreams,function(item){
                             if(item.state == "SUCCESS" || item.state == "DOING"){
 								console.log(item);;
-                                $("<div class='luckyDream'><div class='dream_logo'>"+item.pool.tbill / 100+"</div><div class='dream_right'><div class='dream_msg'><span>"+item.title+"</span><div class='icon_success'></div></div> <div class='tip'><span class='tip_text'>"+item.pool.ptitle+"</span></div></div></div>").appendTo('..dream_list')
+                                $("<div class='luckyDream'><div class='dream_logo'>"+item.pool.tbill / 100+"</div><div class='dream_right'><div class='dream_msg'><span>"+item.title+"</span>"+((item.state == "SUCCESS")?"<div class='icon_success'></div>":"")+"</div> <div class='tip'><span class='tip_text'>"+item.pool.ptitle+"</span></div></div></div>").appendTo('.dream_list')
                             }
                         })
                         
@@ -77,7 +85,18 @@ $(function(){
                 console.log("缺少参数"+data.context);
             })
         }
-    })
+    }
+	 // 类型切换
+    $('.dream_type ul li').click(onDreamSwitch)
+	
+	if(ExistStorage('award')){
+		var awardCache = JSON.parse(GetStorage('award'));
+		RemoveStorage('award');
+		if(awardCache.result){
+			onDreamSwitch({currentTarget:{id:"tab_lucky"}});
+		}
+	}
+	
     // 添加梦想
     $('.add').click(function(){
         $('.close').fadeIn();
