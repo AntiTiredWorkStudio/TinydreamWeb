@@ -6,4 +6,8 @@ $(function(){
         localStorage.setItem('dr','{"did":"'+lucky.did+'","state":"all"}')
         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/add.html'
     })
+    $('.look').click(function(){
+        localStorage.setItem('did',did);
+        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/award.html'
+    })
 })
