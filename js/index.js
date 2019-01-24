@@ -1,5 +1,6 @@
 WebApp.JSAPI.Init();
 $(function(){
+	Loading();
     $('.mask').css('height',$(window).height());
      // 检测是否登录
      WebApp.Init('wxc5216d15dd321ac5',//appid
@@ -32,6 +33,7 @@ $(function(){
                nickname:userInfo.nickname,
                headicon:userInfo.headimgurl
            }, function (code, data) {
+             FinishLoading();
             //请求成功的处理
             if(code == 0) {
                 // 首页公屏
@@ -185,6 +187,7 @@ $(function(){
                 
             }
           }, function (code, data) {
+             FinishLoading();
             // 请求失败的处理
             if(code!=0){
                 alert("登录失败，参数错误"+data.context);
@@ -235,3 +238,24 @@ $(function(){
         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
     })
 })
+
+var loadingObject;
+var Loading = function () {
+    if(loadingObject!=null){
+        FinishLoading();
+    }
+    loadingObject = weui.loading('loading', {
+        className: 'custom-classname'
+    });
+}
+
+
+
+var FinishLoading = function () {
+    if(loadingObject == null){
+        return;
+    }
+    loadingObject.hide(function () {
+
+    });
+}
