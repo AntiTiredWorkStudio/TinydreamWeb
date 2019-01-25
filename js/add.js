@@ -84,11 +84,25 @@ $(function(){
 							if(res.imgName){
                                 // console.log(updateForm)
                                 updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
-                                
                             }
-                            console.log(res)
-                            console.log(res.imgName)
-                            console.log(updateForm)
+                            if(updateForm['videourl'] != ''){
+                                $('<img src="'+updateForm['videourl']+'">').css({
+                                    position:'absolute',
+                                    top:'50%',
+                                    left:'50%',
+                                    transform:'translate(-50%,-50%)',
+                                    width:'7.1rem',
+                                    height:'auto',
+                                }).appendTo('.gh')
+                                $('.g_h').click(function(e){
+                                    e.stopPropagation();
+                                    $('.gh').fadeIn()
+                                })
+                                $('gh').bind('click',function(e){
+                                    e.stopPropagation();
+                                    $(this).fadeOut()
+                                })
+                            }
                            TD_Request("dr","gedit",{
                                 uid:userInfo.openid,
                                 did:did,
