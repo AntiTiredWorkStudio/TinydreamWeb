@@ -21,18 +21,22 @@ $(function(){
                     $('.dream_main').hide();
                 }else{
                     _.each(data.dreams,function(item){
+                        if(item.state == "DOING"){
+                            item.status ='正在进行';
+                         }
+                        if(item.state == "SUCCESS"){
+                            item.status ='成功';
+                         }
+                         if(item.state == "FAILED"){
+                             item.status ='失败';
+                         }
+                         if(item.state == "SUBMIT"){
+                             item.status ='未中奖';
+                         }  
+						 console.log("state",item);
                         var str = compolied(item);
                         var $dom = $(str);
                         $dom.appendTo('.dream_list');
-                        if(item.state == "SUCCESS" || item.state == "DOING"){
-                            $('.time').html('成功')
-                         }
-                         if(item.state == "FAILED"){
-                             $('.time').html('失败')
-                         }
-                         if(item.state == "SUBMIT"){
-                             $('.time').html('未中奖')
-                         }  
                     })
                     // 查看小梦想详情
                     $('.view').click(function(){
