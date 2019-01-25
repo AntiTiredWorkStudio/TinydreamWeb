@@ -22,11 +22,14 @@ $(function(){
             if(data.dream.payment == 0){
                 $('.title .left').html('等待打款')
                 $('.title .right').html('审核通过').css('color','green')
-                $('.tip').html('3个工作日内打款');
+				$('.tip').html('3个工作日内打款');
+				$('.progress_main .index.active .line').addClass('activeLine')
+				$('.progress_main .index').eq(1).addClass('active')
                 $('.progress_main .index.active .line').addClass('activeLine')
                 $('.progress_main .index').eq(2).addClass('active')
             }else{
-                $('.title .left').html('互助金颁发')
+                $('.title .left').html('互助金颁发') 
+				$('.title .right').html('')
                 $('.title .right').css({
                     position:'absolute',
                     top: '0.10rem',
@@ -37,6 +40,10 @@ $(function(){
                     'background-size': '1.40rem 1.40rem',
                 })
                 $('.tip').html('互助金已颁发');
+				$('.progress_main .index.active .line').addClass('activeLine')
+				$('.progress_main .index').eq(1).addClass('active')
+                $('.progress_main .index.active .line').addClass('activeLine')
+                $('.progress_main .index').eq(2).addClass('active')
                 $('.progress_main .index.active .line').addClass('activeLine')
                 $('.progress_main .index').eq(3).addClass('active')
             }

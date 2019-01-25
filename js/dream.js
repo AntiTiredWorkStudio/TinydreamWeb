@@ -9,6 +9,7 @@ $(function(){
     var dream = JSON.parse(localStorage.getItem('buy'))
     // 获取梦想列标
     var userInfo = Options.GetUserInfo();
+	$('.dream_list').empty();
     update();
     function update(){
         TD_Request("dr","dlist",{
@@ -20,24 +21,36 @@ $(function(){
                     $('.dream_main').hide();
                 }else{
                     _.each(data.dreams,function(item){
+                        if(item.state == "VERIFY"){
+                            item.status ='审核中';
+                         }
+                        if(item.state == "DOING"){
+                            item.status ='正在进行';
+                         }
+                        if(item.state == "SUCCESS"){
+                            item.status ='成功';
+                         }
+                         if(item.state == "FAILED"){
+                             item.status ='失败(过期)';
+                         }
+                         if(item.state == "SUBMIT"){
+                             item.status ='未中奖';
+                         }  
+						 console.log("state",item);
                         var str = compolied(item);
                         var $dom = $(str);
                         $dom.appendTo('.dream_list');
-                        if(item.state == "SUCCESS" || item.state == "DOING"){
-                            $('.time').html('成功')
-                         }
-                         if(item.state == "FAILED"){
-                             $('.time').html('失败')
-                         }
-                         if(item.state == "SUBMIT"){
-                             $('.time').html('未中奖')
-                         }  
                     })
                     // 查看小梦想详情
                     $('.view').click(function(){
-                        var dr = {did:$(this).attr('data-id'),state:''}
-                        localStorage.setItem('dr',JSON.stringify(dr))
-                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/add.html"
+						if($(this).attr('data-state') == "DOING" || $(this).attr('data-state') == "VERIFY" || $(this).attr('data-state') == "SUCCESS"){
+							onDreamSwitch({currentTarget:{id:'tab_lucky'}});
+							return;
+						}else{
+							var dr = {did:$(this).attr('data-id'),state:''}
+							localStorage.setItem('dr',JSON.stringify(dr))
+							window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/add.html"
+						}
                     })
                     
                 }
@@ -73,7 +86,7 @@ $(function(){
                     }else{
 						$('.dream_list').empty();
                         _.each(data.dreams,function(item){
-                            if(item.state == "SUCCESS" || item.state == "DOING"){
+                            if(item.state == "SUCCESS" || item.state == "DOING" || item.state == "VERIFY"){
 								console.log(item);
                                 $("<div class='luckyDream' data-lucky='"+JSON.stringify(item)+"' data-dream='"+item.id+"'><div class='dream_logo'>"+item.pool.tbill / 100+"</div><div class='dream_right'><div class='dream_msg'><span>"+item.title+"</span>"+((item.state == "SUCCESS")?"<div class='icon_success'></div>":"")+"</div> <div class='tip'><span class='tip_text'>"+item.pool.ptitle+"</span></div></div></div>").appendTo('.dream_list')
                             }
