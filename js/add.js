@@ -116,7 +116,7 @@ $(function(){
                         }
                     }
 					
-					if(file != ''){
+					if(file != null){
 						WebApp.UploadWithSDK(data.upload.uptoken,data.upload.upurl,file,data.upload.fileName,UpdateDream)  
 					}else{
 						UpdateDream({result:true});
