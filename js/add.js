@@ -2,14 +2,6 @@ WebApp.JSAPI.Init();
 $(function(){
     // 开启上传
     // WebApp.InitUpload();
-    $('<img src="http://tdream.antit.top/image/transactionform.jpg">').css({
-                        position:'absolute',
-                        left:'50%',
-                        top:'50%',
-                        width:'7.1rem',
-                        height:'auto',
-                        transform:'translate(-50%,-50%)'
-                    }).appendTo('.gh')
     var userInfo = Options.GetUserInfo();
     // 获取did
     var did = JSON.parse(localStorage.getItem('dr')).did;
@@ -90,13 +82,22 @@ $(function(){
                                 updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
                                 if(updateForm['videourl'] != ''){
                                     $('.font').html('查看已上传的');
-                                    $('<img src="http://tdream.antit.top/image/transactionform.jpg">').css({
+                                    $('<img src="'+updateForm['videourl']+'">').css({
                                         position:'absolute',
                                         left:'50%',
                                         top:'50%',
                                         width:'7.1rem',
-                                        height:'auto'
+                                        height:'auto',
+                                        transform:'translate(-50%,-50%)',
+                                        'z-index':999
                                     }).appendTo('.gh')
+                                    $('.g_h').click(function(){
+                                        $('.gh').fadeIn()
+                                    })
+                                    $('.gh').bind('click',function(e){
+                                        e.stopPropagation();
+                                        $(this).fadeOut()
+                                    })
                                 }else{
                                     $('.font').html('上传打印盖章的')
                                 }
