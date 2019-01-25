@@ -32,7 +32,7 @@ $(function(){
                 file = e.target.files[0];
                 console.log(file)
                 $('.font').html('查看已上传的');
-                $('<img src="'+updateForm['videourl']+'">').css({
+                $('<img src="'+file.path+'">').css({
                     position:'absolute',
                     left:'50%',
                     top:'50%',
