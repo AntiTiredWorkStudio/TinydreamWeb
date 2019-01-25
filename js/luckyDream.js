@@ -16,6 +16,7 @@ $(function(){
             },function(code,data){
                 console.log(data)   
                alert('您还未实名认证，请认证后在进行完善')
+               window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/auth.html'
             })
 			
 		})
