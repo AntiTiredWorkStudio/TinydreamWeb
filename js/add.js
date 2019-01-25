@@ -30,24 +30,6 @@ $(function(){
                 // console.log(e);
                 //console.log(e.target.files[0].name.split(".")[1])
                 file = e.target.files[0];
-                console.log(file)
-                $('.font').html('查看已上传的');
-                $('<img src="'+file.path+'">').css({
-                    position:'absolute',
-                    left:'50%',
-                    top:'50%',
-                    width:'7.1rem',
-                    height:'auto',
-                    transform:'translate(-50%,-50%)',
-                    'z-index':999
-                }).appendTo('.gh')
-                $('.g_h').click(function(){
-                    $('.gh').fadeIn()
-                })
-                $('.gh').bind('click',function(e){
-                    e.stopPropagation();
-                    $(this).fadeOut()
-                })
                                 
             })
             console.log(data)
@@ -55,6 +37,7 @@ $(function(){
             $('.submit').click(function(){
                 // console.log(file)
                 console.log(data.dream.videourl)
+                console.log(file)
                 if(data.dream.videourl == '' &&　(file == '' || file == undefined)){
                     alert('请上传小梦想公函');
                     return;
