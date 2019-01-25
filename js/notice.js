@@ -28,21 +28,39 @@ $(function(){
             var json = $(this).attr('data-info');
             var obj = eval("("+json+")");
             var nid = $(this).attr('data-nid');
-            TD_Request("no","nr",{nid:nid},function(code,data){
-                console.log(data)
-                TD_Request("dp","pinfo",{
-                    pid:obj.pid
-                },function(code,data){
+            if(obj.type=='buy'){
+                TD_Request("no","nr",{nid:nid},function(code,data){
                     console.log(data)
-                    var info =  DreamPoolAnalysis(data.pool);
-                    localStorage.setItem('poolInfo',JSON.stringify(info))
-                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/helpInfo.html"
+                    TD_Request("dp","pinfo",{
+                        pid:obj.pid
+                    },function(code,data){
+                        console.log(data)
+                        var info =  DreamPoolAnalysis(data.pool);
+                        localStorage.setItem('poolInfo',JSON.stringify(info))
+                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/helpInfo.html"
+                    },function(code,data){
+                        console.log(data)
+                    })
                 },function(code,data){
                     console.log(data)
                 })
-            },function(code,data){
-                console.log(data)
-            })
+            }else if(obj.type == 'lucky'){
+                    TD_Request("no","nr",{nid:nid},function(code,data){
+                    console.log(data)
+                    TD_Request("dp","pinfo",{
+                        pid:obj.pid
+                    },function(code,data){
+                        console.log(data)
+                        var info =  DreamPoolAnalysis(data.pool);
+                        localStorage.setItem('poolInfo',JSON.stringify(info))
+                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
+                    },function(code,data){
+                        console.log(data)
+                    })
+                },function(code,data){
+                    console.log(data)
+                })
+            }
         })
     },function(code,data){
         console.log(data)

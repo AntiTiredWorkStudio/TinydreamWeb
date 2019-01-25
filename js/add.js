@@ -31,12 +31,12 @@ $(function(){
                 //console.log(e.target.files[0].name.split(".")[1])
                 file = e.target.files[0];
             })
-            console.log(typeof file)
+            // console.log(typeof file)
             $('.submit').click(function(){
-                // console.log(file)
-                console.log(data)
-                console.log(data.dream.videourl)
-                if(file == null &&　typeof file == 'undefined'){
+                // // console.log(file)
+                // console.log(data)
+                // console.log(data.dream.videourl)
+                if(data.dream.videourl == '' &&　typeof file == 'undefined'){
                     alert('请上传小梦想公函');
                     return;
                 }

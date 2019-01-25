@@ -107,7 +107,8 @@ $(function(){
     $('.dream_type ul li').click(onDreamSwitch)
 	
 	if(ExistStorage('award')){
-		var awardCache = JSON.parse(GetStorage('award'));
+        var awardCache = JSON.parse(GetStorage('award'));
+        console.log(awardCache)
 		RemoveStorage('award');
 		if(awardCache.result){
 			onDreamSwitch({currentTarget:{id:"tab_lucky"}});
