@@ -30,7 +30,24 @@ $(function(){
                 // console.log(e);
                 //console.log(e.target.files[0].name.split(".")[1])
                 file = e.target.files[0];
-            })
+                console.log(file)
+                $('.font').html('查看已上传的');
+                $('<img src="'+updateForm['videourl']+'">').css({
+                    position:'absolute',
+                    left:'50%',
+                    top:'50%',
+                    width:'7.1rem',
+                    height:'auto',
+                    transform:'translate(-50%,-50%)',
+                    'z-index':999
+                }).appendTo('.gh')
+                $('.g_h').click(function(){
+                    $('.gh').fadeIn()
+                })
+                $('.gh').bind('click',function(e){
+                    e.stopPropagation();
+                    $(this).fadeOut()
+                })
             console.log(data)
            
             $('.submit').click(function(){
@@ -81,28 +98,9 @@ $(function(){
 							var updateForm = {"title":$('.dr_title').val(),"content":$('.dr_info').val()};
 							if(res.imgName){
                                 // console.log(updateForm)
-                                // updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
+                                updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
                                 // if(updateForm['videourl'] != ''){
-                                //     $('.font').html('查看已上传的');
-                                //     $('<img src="'+updateForm['videourl']+'">').css({
-                                //         position:'absolute',
-                                //         left:'50%',
-                                //         top:'50%',
-                                //         width:'7.1rem',
-                                //         height:'auto',
-                                //         transform:'translate(-50%,-50%)',
-                                //         'z-index':999
-                                //     }).appendTo('.gh')
-                                //     $('.g_h').click(function(){
-                                //         $('.gh').fadeIn()
-                                //     })
-                                //     $('.gh').bind('click',function(e){
-                                //         e.stopPropagation();
-                                //         $(this).fadeOut()
-                                //     })
-                                // }else{
-                                //     $('.font').html('上传打印盖章的')
-                                // }
+                                   
 							}
                            TD_Request("dr","gedit",{
                                 uid:userInfo.openid,
