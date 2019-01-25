@@ -54,7 +54,7 @@ $(function(){
                         $(this).fadeOut()
                     })
                 }
-                if(data.dream.videourl == '' &&　(file == '' || file == undefined)){
+                if(data.dream.videourl == '' &&　typeof file == undefined){
                     alert('请上传小梦想公函');
                     return;
                 }
