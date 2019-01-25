@@ -81,9 +81,9 @@ $(function(){
 							var updateForm = {"title":$('.dr_title').val(),"content":$('.dr_info').val()};
 							if(res.imgName){
                                 updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
-                                if(data.dream.videourl != ''){
+                                if(updateForm['videourl'] != ''){
                                     $('.font').html('查看已上传的');
-                                    $('<img src="'+data.dream.videourl+'">').css({
+                                    $('<img src="'+updateForm['videourl']+'">').css({
                                         position:'absolute',
                                         left:'50%',
                                         top:'50%',
