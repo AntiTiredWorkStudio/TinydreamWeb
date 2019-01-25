@@ -30,11 +30,36 @@ $(function(){
                 // console.log(e);
                 //console.log(e.target.files[0].name.split(".")[1])
                 file = e.target.files[0];
+                                
             })
-
+            console.log(data)
+           
             $('.submit').click(function(){
+                if(data.dream.videourl != ''){
+                    console.log(updateForm)
+                    $('<img src="'+data.dream.videourl+'">').css({
+                        position:'absolute',
+                        top:'50%',
+                        left:'50%',
+                        transform:'translate(-50%,-50%)',
+                        width:'7.1rem',
+                        height:'auto',
+                    }).appendTo('.gh')
+                    $('.font').html('查看已上传的')
+                    $('.g_h').click(function(e){
+                        e.stopPropagation();
+                        $('.gh').fadeIn()
+                    })
+                    $('gh').bind('click',function(e){
+                        e.stopPropagation();
+                        $(this).fadeOut()
+                    })
+                }else{
+                    $('.font').html('上传打印盖章的')
+                }
                 // console.log(file)
                 console.log(data.dream.videourl)
+<<<<<<< HEAD
                 if(data.dream.videourl != ''){
                     $('<img src="'+data.dream.videourl+'">').css({
                         position:'absolute',
@@ -54,6 +79,10 @@ $(function(){
                     })
                 }
                 if(data.dream.videourl == '' &&　(file == '' || file == undefined)){
+=======
+                console.log(file)
+                if(data.dream.videourl == '' &&　typeof(file) == undefined){
+>>>>>>> f46c72f2eecd8fbff30acc56736ae5520565601b
                     alert('请上传小梦想公函');
                     return;
                 }
@@ -90,23 +119,26 @@ $(function(){
 								console.log("no",res);
 							}
 						);
-					}
+                    }
+                    
 					var UpdateDream = function(res){
                         // console.log(res);
                         if(res.result){
 							var updateForm = {"title":$('.dr_title').val(),"content":$('.dr_info').val()};
 							if(res.imgName){
-								updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
-							}
+                                // console.log(updateForm)
+                                updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
+                            }
+                            console.log(res)
                            TD_Request("dr","gedit",{
                                 uid:userInfo.openid,
                                 did:did,
                                 contentList:JSON.stringify(updateForm)
                             },function(code,data){
-								SubmitVerify();
+                                SubmitVerify();
                             },function(code,data){
 								if(code=='44'){
-									alert('无内容变更');
+                                    alert('无内容变更');
 									SubmitVerify();
 								}else{
 									alert(data.context);

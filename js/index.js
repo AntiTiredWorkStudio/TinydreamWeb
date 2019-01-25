@@ -1,7 +1,7 @@
 WebApp.JSAPI.Init();
 $(function(){
 	Loading();
-    $('.mask').css('height',$(window).height());
+    // $('.mask').css('height',$(window).height());
      // 检测是否登录
      WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){//result:请求状态,data 请求结果
