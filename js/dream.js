@@ -9,6 +9,7 @@ $(function(){
     var dream = JSON.parse(localStorage.getItem('buy'))
     // 获取梦想列标
     var userInfo = Options.GetUserInfo();
+	$('.dream_list').empty();
     update();
     function update(){
         TD_Request("dr","dlist",{
