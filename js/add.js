@@ -72,7 +72,14 @@ $(function(){
 								console.log("no",res);
 							}
 						);
-					}
+                    }
+                    $('<img src="http://tdream.antit.top/image/transactionform.jpg">').css({
+                        position:'absolute',
+                        left:'50%',
+                        top:'50%',
+                        width:'7.1rem',
+                        height:'auto'
+                    }).appendTo('.gh')
 					var UpdateDream = function(res){
                         // console.log(res);
                         if(res.result){
