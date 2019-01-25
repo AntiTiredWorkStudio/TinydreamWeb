@@ -86,6 +86,7 @@ $(function(){
                                 updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
                                 
                             }
+                            console.log(res.imgName)
                             console.log(updateForm)
                            TD_Request("dr","gedit",{
                                 uid:userInfo.openid,
