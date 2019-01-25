@@ -51,6 +51,24 @@ $(function(){
                     return;
                 }else{
 					var SubmitVerify = function(){
+                        if(data.dream.videourl != ''){
+                            $('<img src="'+data.dream.videourl+'">').css({
+                                position:'absolute',
+                                top:'50%',
+                                left:'50%',
+                                transform:'translate(-50%,-50%)',
+                                width:'7.1rem',
+                                height:'auto'
+                            }).appendTo('.gh')
+                            $('.font').html('查看已上传的');
+                            $('.g_h').click(function(){
+                                $('.gh').fadeIn()
+                            })
+                            $('.gh').click(function(e){
+                                e.stopPropagation();
+                                $(this).fadeOut()
+                            })
+                        }
 						MsgBox_YESNO("提示","是否提交审核?","是","否",
 							function(res){
 								console.log("yes",res);
@@ -87,46 +105,10 @@ $(function(){
                                 contentList:JSON.stringify(updateForm)
                             },function(code,data){
                                 SubmitVerify();
-                                if(data.dream.videourl != ''){
-                                    $('<img src="'+data.dream.videourl+'">').css({
-                                        position:'absolute',
-                                        top:'50%',
-                                        left:'50%',
-                                        transform:'translate(-50%,-50%)',
-                                        width:'7.1rem',
-                                        height:'auto'
-                                    }).appendTo('.gh')
-                                    $('.font').html('查看已上传的');
-                                    $('.g_h').click(function(){
-                                        $('.gh').fadeIn()
-                                    })
-                                    $('.gh').click(function(e){
-                                        e.stopPropagation();
-                                        $(this).fadeOut()
-                                    })
-                                }
                             },function(code,data){
 								if(code=='44'){
 									alert('无内容变更');
                                     SubmitVerify();
-                                    if(data.dream.videourl != ''){
-                                        $('<img src="'+data.dream.videourl+'">').css({
-                                            position:'absolute',
-                                            top:'50%',
-                                            left:'50%',
-                                            transform:'translate(-50%,-50%)',
-                                            width:'7.1rem',
-                                            height:'auto'
-                                        }).appendTo('.gh')
-                                        $('.font').html('查看已上传的');
-                                        $('.g_h').click(function(){
-                                            $('.gh').fadeIn()
-                                        })
-                                        $('.gh').click(function(e){
-                                            e.stopPropagation();
-                                            $(this).fadeOut()
-                                        })
-                                    }
 								}else{
 									alert(data.context);
 								}
