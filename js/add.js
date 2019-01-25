@@ -36,7 +36,7 @@ $(function(){
                 // console.log(file)
                 console.log(data)
                 console.log(data.dream.videourl)
-                if(data.dream.videourl == '' &&　typeof file == 'undefined'){
+                if(file == '' &&　typeof file == 'undefined'){
                     alert('请上传小梦想公函');
                     return;
                 }
