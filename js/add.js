@@ -32,9 +32,7 @@ $(function(){
                 file = e.target.files[0];
             })
             console.log(data)
-            }else{
-                $('.font').html('上传打印盖章的')
-            }
+           
             $('.submit').click(function(){
                 // console.log(file)
                 console.log(data.dream.videourl)
@@ -83,9 +81,9 @@ $(function(){
 							var updateForm = {"title":$('.dr_title').val(),"content":$('.dr_info').val()};
 							if(res.imgName){
                                 updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
-                                if(updateForm['videourl'] != ''){
+                                if(data.dream.videourl != ''){
                                     $('.font').html('查看已上传的');
-                                    $('<img src="'+updateForm['videourl']+'">').css({
+                                    $('<img src="'+data.dream.videourl+'">').css({
                                         position:'absolute',
                                         left:'50%',
                                         top:'50%',
@@ -101,6 +99,9 @@ $(function(){
                                         e.stopPropagation();
                                         $(this).fadeOut()
                                     })
+                                }else{
+                                    $('.font').html('上传打印盖章的')
+                                }
 							}
                            TD_Request("dr","gedit",{
                                 uid:userInfo.openid,
