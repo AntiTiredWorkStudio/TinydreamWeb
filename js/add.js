@@ -48,6 +48,8 @@ $(function(){
                     e.stopPropagation();
                     $(this).fadeOut()
                 })
+                                
+            })
             console.log(data)
            
             $('.submit').click(function(){
@@ -99,8 +101,7 @@ $(function(){
 							if(res.imgName){
                                 // console.log(updateForm)
                                 updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
-                                // if(updateForm['videourl'] != ''){
-                                   
+                                
 							}
                            TD_Request("dr","gedit",{
                                 uid:userInfo.openid,
