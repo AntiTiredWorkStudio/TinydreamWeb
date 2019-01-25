@@ -78,7 +78,19 @@ $(function(){
                         if(res.result){
 							var updateForm = {"title":$('.dr_title').val(),"content":$('.dr_info').val()};
 							if(res.imgName){
-								updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
+                                updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
+                                if(updateForm['videourl'] != ''){
+                                    $('.font').html('查看已上传的');
+                                    $('<img src="'+updateForm['videourl']+'">').css({
+                                        position:'absolute',
+                                        left:'50%',
+                                        top:'50%',
+                                        width:'7.1rem',
+                                        height:'auto'
+                                    }).appendTo('.gh')
+                                }else{
+                                    $('.font').html('上传打印盖章的')
+                                }
 							}
                            TD_Request("dr","gedit",{
                                 uid:userInfo.openid,
