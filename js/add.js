@@ -34,6 +34,7 @@ $(function(){
 
             $('.submit').click(function(){
                 // console.log(file)
+                console.log(data)
                 console.log(data.dream.videourl)
                 if(data.dream.videourl != ''){
                     $('<img src="'+data.dream.videourl+'">').css({
