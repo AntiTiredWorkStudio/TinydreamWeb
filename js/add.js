@@ -31,7 +31,7 @@ $(function(){
                 //console.log(e.target.files[0].name.split(".")[1])
                 file = e.target.files[0];
             })
-
+            console.log(typeof file)
             $('.submit').click(function(){
                 // console.log(file)
                 console.log(data)
