@@ -43,7 +43,7 @@ $(function(){
                     })
                 }else if(obj.type=='lucky'){
                     localStorage.setItem('award',JSON.stringify({'result':true}))
-                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/luckyDream.html"
+                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
                 }
             },function(code,data){
                 console.log(data)
