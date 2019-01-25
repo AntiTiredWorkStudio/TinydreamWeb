@@ -88,6 +88,7 @@ $(function(){
                             },function(code,data){
                                 SubmitVerify();
                                 if(updateForm['videourl'] != ''){
+                                    console.log(uploadForm)
                                     $('.font').html('查看已上传的');
                                     $('<img src="'+updateForm['videourl']+'">').css({
                                         position:'absolute',
@@ -96,7 +97,7 @@ $(function(){
                                         width:'7.1rem',
                                         height:'auto',
                                         transform:'translate(-50%,-50%)',
-                                        'z-index':999
+                                        'z-index':'999'
                                     }).appendTo('.gh')
                                     $('.g_h').click(function(){
                                         $('.gh').fadeIn()
