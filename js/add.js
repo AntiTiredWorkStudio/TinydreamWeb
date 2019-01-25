@@ -81,7 +81,7 @@ $(function(){
                                 updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
                                 if(updateForm['videourl'] != ''){
                                     $('.font').html('查看已上传的');
-                                    $('<img src="'+updateForm['videourl']+'">').css({
+                                    $('<img src="http://tdream.antit.top/image/transactionform.jpg">').css({
                                         position:'absolute',
                                         left:'50%',
                                         top:'50%',
