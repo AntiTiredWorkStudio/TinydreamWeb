@@ -11,11 +11,13 @@ $(function(){
                 uid:userInfo.openid
             },function(code,data){
                 console.log(data)
+                localStorage.setItem('dr','{"did":"'+lucky.did+'","state":"all"}')
+			    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/add.html'
             },function(code,data){
-                console.log(data)
+                console.log(data)   
+               alert('您还未实名认证，请认证后在进行完善')
             })
-			// localStorage.setItem('dr','{"did":"'+lucky.did+'","state":"all"}')
-			// window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/add.html'
+			
 		})
 	}
     $('.look').click(function(){
