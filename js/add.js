@@ -86,6 +86,7 @@ $(function(){
                                 updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
                             }
                             if(updateForm['videourl'] != ''){
+                                console.log(updateForm)
                                 $('<img src="'+updateForm['videourl']+'">').css({
                                     position:'absolute',
                                     top:'50%',
