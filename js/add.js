@@ -34,7 +34,25 @@ $(function(){
 
             $('.submit').click(function(){
                 // console.log(file)
-				console.log(data.dream.videourl)
+                console.log(data.dream.videourl)
+                if(data.dream.videourl != ''){
+                    $('<img src="'+data.dream.videourl+'">').css({
+                        position:'absolute',
+                        top:'50%',
+                        left:'50%',
+                        transform:'translate(-50%,-50%)',
+                        width:'7.1rem',
+                        height:'auto'
+                    }).appendTo('.gh')
+                    $('.font').html('查看已上传的');
+                    $('.g_h').click(function(){
+                        $('.gh').fadeIn()
+                    })
+                    $('.gh').click(function(e){
+                        e.stopPropagation();
+                        $(this).fadeOut()
+                    })
+                }
                 if(data.dream.videourl == '' &&　(file == '' || file == undefined)){
                     alert('请上传小梦想公函');
                     return;
