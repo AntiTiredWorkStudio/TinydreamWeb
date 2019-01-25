@@ -31,6 +31,7 @@ $(function(){
                 //console.log(e.target.files[0].name.split(".")[1])
                 file = e.target.files[0];
             })
+            console.log(data)
             if(data.dream.videourl != ''){
                 $('.font').html('查看已上传的');
                 $('<img src="'+data.dream.videourl+'">').css({
