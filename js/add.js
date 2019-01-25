@@ -2,6 +2,13 @@ WebApp.JSAPI.Init();
 $(function(){
     // 开启上传
     // WebApp.InitUpload();
+    $('<img src="http://tdream.antit.top/image/transactionform.jpg">').css({
+                        position:'absolute',
+                        left:'50%',
+                        top:'50%',
+                        width:'7.1rem',
+                        height:'auto'
+                    }).appendTo('.gh')
     var userInfo = Options.GetUserInfo();
     // 获取did
     var did = JSON.parse(localStorage.getItem('dr')).did;
@@ -73,13 +80,7 @@ $(function(){
 							}
 						);
                     }
-                    $('<img src="http://tdream.antit.top/image/transactionform.jpg">').css({
-                        position:'absolute',
-                        left:'50%',
-                        top:'50%',
-                        width:'7.1rem',
-                        height:'auto'
-                    }).appendTo('.gh')
+                    
 					var UpdateDream = function(res){
                         // console.log(res);
                         if(res.result){
