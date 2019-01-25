@@ -32,24 +32,6 @@ $(function(){
                 file = e.target.files[0];
             })
             console.log(data)
-            if(data.dream.videourl != ''){
-                $('.font').html('查看已上传的');
-                $('<img src="'+data.dream.videourl+'">').css({
-                    position:'absolute',
-                    left:'50%',
-                    top:'50%',
-                    width:'7.1rem',
-                    height:'auto',
-                    transform:'translate(-50%,-50%)',
-                    'z-index':999
-                }).appendTo('.gh')
-                $('.g_h').click(function(){
-                    $('.gh').fadeIn()
-                })
-                $('.gh').bind('click',function(e){
-                    e.stopPropagation();
-                    $(this).fadeOut()
-                })
             }else{
                 $('.font').html('上传打印盖章的')
             }
@@ -101,6 +83,24 @@ $(function(){
 							var updateForm = {"title":$('.dr_title').val(),"content":$('.dr_info').val()};
 							if(res.imgName){
                                 updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
+                                if(updateForm['videourl'] != ''){
+                                    $('.font').html('查看已上传的');
+                                    $('<img src="'+updateForm['videourl']+'">').css({
+                                        position:'absolute',
+                                        left:'50%',
+                                        top:'50%',
+                                        width:'7.1rem',
+                                        height:'auto',
+                                        transform:'translate(-50%,-50%)',
+                                        'z-index':999
+                                    }).appendTo('.gh')
+                                    $('.g_h').click(function(){
+                                        $('.gh').fadeIn()
+                                    })
+                                    $('.gh').bind('click',function(e){
+                                        e.stopPropagation();
+                                        $(this).fadeOut()
+                                    })
 							}
                            TD_Request("dr","gedit",{
                                 uid:userInfo.openid,
