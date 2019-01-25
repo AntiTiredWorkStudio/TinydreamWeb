@@ -112,6 +112,7 @@ $(function(){
                             },function(code,data){
 								if(code=='44'){
                                     alert('无内容变更');
+                                    console.log(uploadForm)
                                     if(updateForm['videourl'] != ''){
                                         $('.font').html('查看已上传的');
                                         $('<img src="'+updateForm['videourl']+'">').css({
