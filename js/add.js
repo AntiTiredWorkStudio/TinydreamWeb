@@ -80,6 +80,7 @@ $(function(){
                         if(res.result){
 							var updateForm = {"title":$('.dr_title').val(),"content":$('.dr_info').val()};
 							if(res.imgName){
+                                console.log(updateForm)
                                 updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
                                 if(updateForm['videourl'] != ''){
                                     $('.font').html('查看已上传的');
