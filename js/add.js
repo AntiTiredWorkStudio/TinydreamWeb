@@ -7,7 +7,8 @@ $(function(){
                         left:'50%',
                         top:'50%',
                         width:'7.1rem',
-                        height:'auto'
+                        height:'auto',
+                        transform:'translate(-50%,-50%)'
                     }).appendTo('.gh')
     var userInfo = Options.GetUserInfo();
     // 获取did
