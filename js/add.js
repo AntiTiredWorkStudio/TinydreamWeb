@@ -94,6 +94,7 @@ $(function(){
                                     width:'7.1rem',
                                     height:'auto',
                                 }).appendTo('.gh')
+                                $('.font').html('查看已上传的')
                                 $('.g_h').click(function(e){
                                     e.stopPropagation();
                                     $('.gh').fadeIn()
@@ -102,6 +103,8 @@ $(function(){
                                     e.stopPropagation();
                                     $(this).fadeOut()
                                 })
+                            }else{
+                                $('.font').html('上传打印盖章的')
                             }
                            TD_Request("dr","gedit",{
                                 uid:userInfo.openid,
