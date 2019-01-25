@@ -35,6 +35,28 @@ $(function(){
             console.log(data)
            
             $('.submit').click(function(){
+                if(data.dream.videourl != ''){
+                    console.log(updateForm)
+                    $('<img src="'+data.dream.videourl+'">').css({
+                        position:'absolute',
+                        top:'50%',
+                        left:'50%',
+                        transform:'translate(-50%,-50%)',
+                        width:'7.1rem',
+                        height:'auto',
+                    }).appendTo('.gh')
+                    $('.font').html('查看已上传的')
+                    $('.g_h').click(function(e){
+                        e.stopPropagation();
+                        $('.gh').fadeIn()
+                    })
+                    $('gh').bind('click',function(e){
+                        e.stopPropagation();
+                        $(this).fadeOut()
+                    })
+                }else{
+                    $('.font').html('上传打印盖章的')
+                }
                 // console.log(file)
                 console.log(data.dream.videourl)
                 console.log(file)
@@ -86,28 +108,6 @@ $(function(){
                                 updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
                             }
                             console.log(res)
-                            if(updateForm['videourl'] != ''){
-                                console.log(updateForm)
-                                $('<img src="'+updateForm['videourl']+'">').css({
-                                    position:'absolute',
-                                    top:'50%',
-                                    left:'50%',
-                                    transform:'translate(-50%,-50%)',
-                                    width:'7.1rem',
-                                    height:'auto',
-                                }).appendTo('.gh')
-                                $('.font').html('查看已上传的')
-                                $('.g_h').click(function(e){
-                                    e.stopPropagation();
-                                    $('.gh').fadeIn()
-                                })
-                                $('gh').bind('click',function(e){
-                                    e.stopPropagation();
-                                    $(this).fadeOut()
-                                })
-                            }else{
-                                $('.font').html('上传打印盖章的')
-                            }
                            TD_Request("dr","gedit",{
                                 uid:userInfo.openid,
                                 did:did,
