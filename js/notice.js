@@ -27,10 +27,10 @@ $(function(){
         $('.notice_message span').click(function(){
             var json = $(this).attr('data-info');
             var obj = eval("("+json+")");
-            var nid = $(this).attr('data-nid');
-            if(obj.type=='buy'){
-                TD_Request("no","nr",{nid:nid},function(code,data){
-                    console.log(data)
+            var nid = $(this).attr('data-nid'); 
+            TD_Request("no","nr",{nid:nid},function(code,data){
+                console.log(data)
+                if(obj.type == 'buy'){
                     TD_Request("dp","pinfo",{
                         pid:obj.pid
                     },function(code,data){
@@ -41,27 +41,13 @@ $(function(){
                     },function(code,data){
                         console.log(data)
                     })
-                },function(code,data){
-                    console.log(data)
-                })
-            }else if(obj.type == 'lucky'){
-                    TD_Request("no","nr",{nid:nid},function(code,data){
-                    console.log(data)
-                    TD_Request("dp","pinfo",{
-                        pid:obj.pid
-                    },function(code,data){
-                        console.log(data)
-                        var info =  DreamPoolAnalysis(data.pool);
-                        // localStorage.setItem('poolInfo',JSON.stringify(info))
-                        console.log(info)
-                        // window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
-                    },function(code,data){
-                        console.log(data)
-                    })
-                },function(code,data){
-                    console.log(data)
-                })
-            }
+                }else if(obj.type=='lucky'){
+                    localStorage.setItem('award',JSON.stringify({'result':true}))
+                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/luckyDream.html"
+                }
+            },function(code,data){
+                console.log(data)
+            })
         })
     },function(code,data){
         console.log(data)
