@@ -28,7 +28,7 @@ $(function(){
                             item.status ='成功';
                          }
                          if(item.state == "FAILED"){
-                             item.status ='失败';
+                             item.status ='失败(过期)';
                          }
                          if(item.state == "SUBMIT"){
                              item.status ='未中奖';
@@ -40,9 +40,14 @@ $(function(){
                     })
                     // 查看小梦想详情
                     $('.view').click(function(){
-                        var dr = {did:$(this).attr('data-id'),state:''}
-                        localStorage.setItem('dr',JSON.stringify(dr))
-                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/add.html"
+						if($(this).attr('data-state') == "DOING" || $(this).attr('data-state') == "VERIFY" || $(this).attr('data-state') == "SUCCESS"){
+							onDreamSwitch({currentTarget:{id:'tab_lucky'}});
+							return;
+						}else{
+							var dr = {did:$(this).attr('data-id'),state:''}
+							localStorage.setItem('dr',JSON.stringify(dr))
+							window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/add.html"
+						}
                     })
                     
                 }
