@@ -100,8 +100,8 @@ $(function(){
                 // 单价
                 $('.price_number').html(mainpool.ubill / 100 +"元/份");
                 console.log(mainpool)
-                if(mainpool.ubill == mainpool.cbill){
-                    // window.location.reload();
+                if(mainpool.ubill == mainpool.tbill){
+                    window.location.reload();
                 }
                 var prop = (mainpool.cbill / 100) / (mainpool.tbill / 100);
                 ready();
