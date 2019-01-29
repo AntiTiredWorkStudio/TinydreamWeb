@@ -73,6 +73,7 @@ body{
 .dream .dream_main .dream_list{
     width: 100%;
     margin-top: 0.20rem;
+    position: relative;
 }
 .dream .dream_main .dream_list .dream_info{
     width: 6.90rem;
