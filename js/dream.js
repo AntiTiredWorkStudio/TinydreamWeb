@@ -20,6 +20,9 @@ $(function(){
                     $('.empty').show();
                     $('.dream_main').hide();
                 }else{
+                    if(data.dreams.length >= 5){
+                        $('.add').hide()
+                    }
                     _.each(data.dreams,function(item){
                         if(item.state == "VERIFY"){
                             item.status ='审核中';
@@ -84,11 +87,6 @@ $(function(){
                         $('.empty').show();
                         $('.dream_main').hide();
                     }else{
-                        if(data.dreams.length >= 5){
-                            $('.add').hide()
-                        }else{
-                            $('.add').show()
-                        }
 						$('.dream_list').empty();
                         _.each(data.dreams,function(item){
                             if(item.state == "SUCCESS" || item.state == "DOING" || item.state == "VERIFY"){
