@@ -18,9 +18,7 @@ $(function(){
             if(code == 0){
                 if(data.dreams.length == 0){
                     $('.empty').show();
-                    $('.dream_main').empty();
-                    $('.dream_main').css('border','none');
-                    $('<div class="add"></div>').appendTo('.dream_main')
+                    $('.dream_main').hide();
                 }else{
                     _.each(data.dreams,function(item){
                         if(item.state == "VERIFY"){

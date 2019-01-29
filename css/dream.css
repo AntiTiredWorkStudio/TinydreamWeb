@@ -137,9 +137,6 @@ body{
 }
 /* 添加梦想按钮--样式处理 */
 .add{
-    position: absolute;
-    bottom: 1.88rem;
-    right: 0.50rem;
     width: 1.46rem;
     height: 1.46rem;
     border-radius: 50%;
