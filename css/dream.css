@@ -142,6 +142,7 @@ body{
     border-radius: 50%;
     background: url(http://tdream.antit.top/image/add.png) no-repeat;
     background-size: 1.46rem 1.46rem;
+    margin-right: 0.3rem;
 }
 /* 幸运梦想列表--样式处理 */
 .luckyDream{
