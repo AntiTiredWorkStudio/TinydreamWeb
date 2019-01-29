@@ -143,7 +143,9 @@ $(function(){
                 content:$('.info').val()
             },function(code,data){
                 console.log(data)
-                if(dream.hasOwnProperty('editdream')){
+                if(typeof dream == 'undefined' || dream == '' || dream == null){
+                    window.location.reload()
+                }else if(dream.hasOwnProperty('editdream')){
                     update();
                     var mainpool = JSON.parse(localStorage.getItem('mainpool'));
 					RemoveStorage('mainpool');
