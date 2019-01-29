@@ -42,8 +42,8 @@ $(function(){
             return;
           }
           num--;
-          if(num <= 0){
-            num = 0;
+          if(num <= 1){
+            num = 1;
             $('.copies_money span').html(num);
           }
           $('.copies_money span').html(num);
