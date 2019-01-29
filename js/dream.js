@@ -114,7 +114,9 @@ $(function(){
 			onDreamSwitch({currentTarget:{id:"tab_lucky"}});
 		}
 	}
-	
+	if(ExistStorage('mainpool')){
+        $('.close').fadeIn();
+	}
     // 添加梦想
     $('.add').click(function(){
         $('.close').fadeIn();
@@ -144,6 +146,7 @@ $(function(){
                 if(dream.hasOwnProperty('editdream')){
                     update();
                     var mainpool = JSON.parse(localStorage.getItem('mainpool'));
+					RemoveStorage('mainpool');
                     if(mainpool == '' || mainpool == undefined){
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";
                     }else{
