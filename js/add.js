@@ -9,8 +9,10 @@ $(function(){
     // state = 'all'
     if(state != "all"){
         $('.supper').hide()
+        $('title').html('编辑梦想')
     }else{
         $('.supper').show()
+        $('title').html('完善梦想')
     }
 
     // 获取梦想列表
@@ -145,7 +147,12 @@ $(function(){
                 alert('修改成功!');
                 window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
             },function(code,data){
-                console.log('修改失败'+data.context);
+                if(code == 44){
+                    alert('无内容变更');
+                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/dream.html'
+                }else{
+                    alert(data.context)
+                }
             }) 
         }
     })
