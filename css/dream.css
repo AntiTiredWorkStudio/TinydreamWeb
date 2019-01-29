@@ -7,6 +7,7 @@ body{
 /* 空梦想--样式处理 */
 .dream{
     width: 100%;
+    padding-bottom: 1.29rem;
 }
 .dream .empty{
     width: 4.90rem;
