@@ -72,12 +72,12 @@ $(function(){
       function wxpay(){
         WeixinJSBridge.invoke(
           'getBrandWCPayRequest', {
-          "appId":data.appId,     //公众号名称，由商户传入     
-          "timeStamp":data.timeStamp,         //时间戳，自1970年以来的秒数     
-          "nonceStr":data.nonceStr, //随机串     
-          "package":data.package,     
-          "signType":data.signType,         //微信签名方式：     
-          "paySign":data.paySign //微信签名 
+          "appId":pay.appId,     //公众号名称，由商户传入     
+          "timeStamp":pay.timeStamp,         //时间戳，自1970年以来的秒数     
+          "nonceStr":pay.nonceStr, //随机串     
+          "package":pay.package,     
+          "signType":pay.signType,         //微信签名方式：     
+          "paySign":pay.paySign //微信签名 
           },function(res){
             if(res.err_msg == "get_brand_wcpay_request:ok" ){
               var actions = JSON.parse(localStorage.getItem('actions'));
@@ -107,6 +107,7 @@ $(function(){
             } 
          }); 
       }
+
       $('.wxPay').click(function(){
         if($('#dream strong').html() == ''){
           alert('请选择梦想后进行支付！');
@@ -126,6 +127,7 @@ $(function(){
             uid:userInfo.openid
           },function(code,data){
             if(code == 0){
+              pay = data;
               wxpay()
             }
           },function(code,data){
