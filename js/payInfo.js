@@ -1,5 +1,6 @@
 WebApp.JSAPI.Init();
 $(function(){
+    var pay = null;
     var userInfo = Options.GetUserInfo(); 
     var buy = JSON.parse(localStorage.getItem('buy'));
     TD_Request("ds", "ord", {
@@ -68,6 +69,44 @@ $(function(){
         $('.timeout_ui').html(h+":"+m+":"+s);
        },1000)
       // 统一下单
+      function wxpay(){
+        WeixinJSBridge.invoke(
+          'getBrandWCPayRequest', {
+          "appId":data.appId,     //公众号名称，由商户传入     
+          "timeStamp":data.timeStamp,         //时间戳，自1970年以来的秒数     
+          "nonceStr":data.nonceStr, //随机串     
+          "package":data.package,     
+          "signType":data.signType,         //微信签名方式：     
+          "paySign":data.paySign //微信签名 
+          },function(res){
+            if(res.err_msg == "get_brand_wcpay_request:ok" ){
+              var actions = JSON.parse(localStorage.getItem('actions'));
+              TD_Request("ds","pay",{
+                uid:userInfo.openid,
+                oid:actions.pay.oid,
+                bill:fee * 100,
+                pcount:$('.copies_money span').html(),
+                action:localStorage.getItem('actions'),
+                did:$('#dream').attr("data-values")
+              },function(code,data){
+                $('.mask').fadeIn();
+                var number = data.numbers;
+                var lid = [];
+                for(key in number){
+                  var obj = number[key];
+                  lid.push(obj.lid)
+                }
+                $.each(lid,function(index,item){
+                  $('.num').html(item+"、").css("color","#00d094");
+                })
+                console.log(data)
+                localStorage.clear('buy');
+              },function(code,data){
+                alert(JSON.stringify(data))
+              })
+            } 
+         }); 
+      }
       $('.wxPay').click(function(){
         if($('#dream strong').html() == ''){
           alert('请选择梦想后进行支付！');
@@ -80,53 +119,21 @@ $(function(){
         var did = $('#dream').attr("data-values");
         var fee = $('.price span.fee').html();
         console.log(fee);
-        TD_Request("ds","wxpayweb",{
-          oid:data.order.oid,
-          bill:fee * 100,
-          uid:userInfo.openid
-        },function(code,data){
-          if(code == 0){
+        if(pay == null){
+          TD_Request("ds","wxpayweb",{
+            oid:data.order.oid,
+            bill:fee * 100,
+            uid:userInfo.openid
+          },function(code,data){
+            if(code == 0){
+              wxpay()
+            }
+          },function(code,data){
             console.log(data)
-            WeixinJSBridge.invoke(
-              'getBrandWCPayRequest', {
-              "appId":data.appId,     //公众号名称，由商户传入     
-              "timeStamp":data.timeStamp,         //时间戳，自1970年以来的秒数     
-              "nonceStr":data.nonceStr, //随机串     
-              "package":data.package,     
-              "signType":data.signType,         //微信签名方式：     
-              "paySign":data.paySign //微信签名 
-              },function(res){
-                if(res.err_msg == "get_brand_wcpay_request:ok" ){
-                  var actions = JSON.parse(localStorage.getItem('actions'));
-                  TD_Request("ds","pay",{
-                    uid:userInfo.openid,
-                    oid:actions.pay.oid,
-                    bill:fee * 100,
-                    pcount:$('.copies_money span').html(),
-                    action:localStorage.getItem('actions'),
-                    did:$('#dream').attr("data-values")
-                  },function(code,data){
-                    $('.mask').fadeIn();
-                    var number = data.numbers;
-                    var lid = [];
-                    for(key in number){
-                      var obj = number[key];
-                      lid.push(obj.lid)
-                    }
-                    $.each(lid,function(index,item){
-                      $('.num').html(item+"、").css("color","#00d094");
-                    })
-                    console.log(data)
-                    localStorage.clear('buy');
-                  },function(code,data){
-                    alert(JSON.stringify(data))
-                  })
-                } 
-             }); 
-          }
-        },function(code,data){
-          console.log(data)
-        })
+          })
+        }else{
+          wxpay()
+        }    
       })
     }, function(code,data){
       // 请求失败
