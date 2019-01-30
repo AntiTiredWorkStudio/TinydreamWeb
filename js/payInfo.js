@@ -77,26 +77,18 @@ $(function(){
         $('.timeout_ui').html(h+":"+m+":"+s);
        },1000)
       // 统一下单
-      function wxpay(){
-        WeixinJSBridge.invoke(
-          'getBrandWCPayRequest', {
-          "appId":pay.appId,     //公众号名称，由商户传入     
-          "timeStamp":pay.timeStamp,         //时间戳，自1970年以来的秒数     
-          "nonceStr":pay.nonceStr, //随机串     
-          "package":pay.package,     
-          "signType":pay.signType,         //微信签名方式：     
-          "paySign":pay.paySign //微信签名 
-          },function(res){
-            if(res.err_msg == "get_brand_wcpay_request:ok" ){
-              var actions = JSON.parse(localStorage.getItem('actions'));
+      function wxpay(fee){
+		  /*var actions = JSON.parse(window.localStorage.getItem('actions'));
+			  
               TD_Request("ds","pay",{
                 uid:userInfo.openid,
                 oid:actions.pay.oid,
                 bill:fee * 100,
                 pcount:$('.copies_money span').html(),
-                action:localStorage.getItem('actions'),
+                action:window.localStorage.getItem('actions'),
                 did:$('#dream').attr("data-values")
               },function(code,data){
+              //alert(JSON.stringify(data));
                 $('.mask').fadeIn();
                 var number = data.numbers;
                 var lid = [];
@@ -112,7 +104,45 @@ $(function(){
               },function(code,data){
                 alert(JSON.stringify(data))
               })
-            } 
+		  return;*/
+		  
+        WeixinJSBridge.invoke(
+          'getBrandWCPayRequest', {
+          "appId":pay.appId,     //公众号名称，由商户传入     
+          "timeStamp":pay.timeStamp,         //时间戳，自1970年以来的秒数     
+          "nonceStr":pay.nonceStr, //随机串     
+          "package":pay.package,     
+          "signType":pay.signType,         //微信签名方式：     
+          "paySign":pay.paySign //微信签名 
+          },function(res){
+            if(res.err_msg == "get_brand_wcpay_request:ok" ){
+			  var actions = JSON.parse(window.localStorage.getItem('actions'));
+			  
+              TD_Request("ds","pay",{
+                uid:userInfo.openid,
+                oid:actions.pay.oid,
+                bill:fee * 100,
+                pcount:$('.copies_money span').html(),
+                action:window.localStorage.getItem('actions'),
+                did:$('#dream').attr("data-values")
+              },function(code,data){
+              //alert(JSON.stringify(data));
+                $('.mask').fadeIn();
+                var number = data.numbers;
+                var lid = [];
+                for(key in number){
+                  var obj = number[key];
+                  lid.push(obj.lid)
+                }
+                $.each(lid,function(index,item){
+                  $('.num').html(item+"、").css("color","#00d094");
+                })
+                console.log(data)
+                localStorage.clear('buy');
+              },function(code,data){
+                alert(JSON.stringify(data))
+              })
+            }
          }); 
       }
 
@@ -129,20 +159,23 @@ $(function(){
         var fee = $('.price span.fee').html();
         console.log(fee);
         if(pay == null){
+		console.log("pay is null",data.order.oid,fee * 100,userInfo.openid);
           TD_Request("ds","wxpayweb",{
             oid:data.order.oid,
             bill:fee * 100,
             uid:userInfo.openid
           },function(code,data){
+			  console.log(data);
             if(code == 0){
               pay = data;
-              wxpay()
+              wxpay(fee)
             }
           },function(code,data){
             console.log(data)
-          })
+          });
         }else{
-          wxpay()
+			console.log("pay is not null");
+          wxpay(fee)
         }    
       })
     }, function(code,data){
