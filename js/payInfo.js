@@ -142,9 +142,7 @@ $(function(){
               },function(code,data){
                 alert(JSON.stringify(data))
               })
-            }else{
-              alert(JSON.stringify(res));
-			}
+            }
          }); 
       }
 
