@@ -63,8 +63,7 @@
     font-size: 0.32rem;
 }
 .lucky_user .dream_info img{
-    width: 6.90rem;
-    margin: 0.20rem 0.30rem 0;
+    width: 100%;
     height: 3.60rem;
     border-radius: 0.10rem;
 }
