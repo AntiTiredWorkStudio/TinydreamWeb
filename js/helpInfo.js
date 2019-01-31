@@ -82,7 +82,7 @@ $(function(){
     TD_Request('ds','precs',{
         pid:poolInfo.pid
     },function(code,data){
-        $('.count').html(data.ordCount)
+        $('.count').html(poolInfo.pcount)
     },function(code,data){
         console.log("获取失败："+data.context)
     })
