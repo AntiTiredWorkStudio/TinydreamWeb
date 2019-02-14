@@ -82,7 +82,7 @@ $(function(){
     TD_Request('ds','precs',{
         pid:poolInfo.pid
     },function(code,data){
-        $('.count').html(data.ordCount)
+        $('.count').html(poolInfo.pcount)
     },function(code,data){
         console.log("获取失败："+data.context)
     })
@@ -103,8 +103,8 @@ $(function(){
         self(); 
     })
     $('.btns.click').click(function(){
-        var cnum = num+10;
-        getord(cnum)
+        num = num+10;
+        getord(num)
     })
     // // 获取编号
     self();
@@ -128,6 +128,58 @@ $(function(){
     }
     // 获取用户梦想信息
     function getord(number){
+		TD_Request('ds','precs',{pid:poolInfo.pid},
+			function(code,data){
+				var orderCount = data.ordCount;
+				if(orderCount == 0){
+					$('.tip').html('此梦想池没有用户参与').show();
+					$('.btns').hide();
+				}else{
+					$('.tip').html('此梦想池没有用户参与').hide();
+					$('.btns').show();
+				}
+				TD_Request('ds','preco',{
+					pid:poolInfo.pid,
+					min:number,
+					max:10
+				},function(code,data){
+					// console.log(data)
+					// console.log(number+10);
+					$.each(data.orders,function(index,item){
+						$('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" oid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div></div>').appendTo('.user_number');
+					})
+					var str = ''//编号
+					$('.look').click(function(){
+						TD_Request('aw','onums',{
+							oid:$(this).attr('oid')
+						},function(code,data){
+							// console.log(data);
+							var str = '';
+							$.each(data.nums,function(index,item){
+								str = str+=item.lid+'；'
+							})
+							// console.log(str)
+							alert('编号\n'+str);
+						},function(code,data){
+							console.log(data)
+						})
+					})
+					if(number+10 >= orderCount){
+						$('.btns').hide();
+						$('.tips').html('我是有底线的~~').show();
+						return;
+					}else{
+						$('.btns').html('点击加载更多').show();
+						$('.tips').html('我是有底线的~~').hide()
+					}
+				},function(code,data){
+					console.log(data)
+				})
+			},
+			function(code,data){}
+		)
+		/*
+		return;		
         TD_Request('ds','preco',{
             pid:poolInfo.pid,
             min:number,
@@ -179,7 +231,8 @@ $(function(){
         },function(code,data){
             console.log(data)
         })
-    }
+    */
+	}
 
     // 图例
     function ready(){

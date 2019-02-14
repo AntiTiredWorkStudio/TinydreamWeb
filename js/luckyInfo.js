@@ -34,7 +34,11 @@ var luckyInfoManager = {
 var onLuckyInfoViewBuild = function (dreamInfo) {
     var snippetID = "lucky_Info";
     var luckyInfoViewObject = WebApp.View.CreateSingleView(snippetID);
-
+	if(dreamInfo.imgurl==""){
+		dreamInfo.photo="暂无照片";
+	}else{
+		dreamInfo.photo="<img src='"+dreamInfo.imgurl+"'>";
+	}
     luckyInfoViewObject = WebApp.View.AddViewData(luckyInfoViewObject,dreamInfo);
     //for(var key in dreamInfo){
     //}
