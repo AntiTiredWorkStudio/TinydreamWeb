@@ -1,4 +1,7 @@
 WebApp.JSAPI.Init();
+if(!ExistStorage("buy")){
+	window.location.href="../index.html";
+}
 $(function(){
     var pay = null;
     var userInfo = Options.GetUserInfo(); 
