@@ -2,7 +2,7 @@ $(function(){
     var userInfo = Options.GetUserInfo();
     var lucky = JSON.parse(localStorage.getItem('lucky'));
     var did = localStorage.getItem('did');
-    $('.lucky_tip').html('恭喜您在：'+lucky.lottery.lid+'期第'+did+'个梦想'+lucky.lottery.lid+'编号成为幸运编号，本期互助总资金为'+lucky.pool.cbill / 100+'元')
+    $('.lucky_tip').html('恭喜您在：'+lucky.lottery.pid+'期第'+did+'个梦想'+lucky.lottery.lid+'编号成为幸运编号，本期互助总资金为'+lucky.pool.cbill / 100+'元')
 	if(lucky.state!="DOING"){
 		$('.btn').css("display","none");
 	}else{
