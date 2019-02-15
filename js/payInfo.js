@@ -202,8 +202,9 @@ $(function(){
         console.log(arr[arr.length-1])
         if(arr[arr.length-1].title.length>4){
           $('.dream strong').html(arr[arr.length-1].title.substr(0,3).concat('...'));
-        }
-        $('.dream strong').html(arr[arr.length-1].title);
+        }else{
+          $('.dream strong').html(arr[arr.length-1].title);
+        }    
         $('.dream').attr('data-values',arr[arr.length-1].value);
         $('.dream').select({
           title: "选择梦想",
