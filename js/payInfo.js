@@ -201,7 +201,7 @@ $(function(){
         })
         console.log(arr[arr.length-1])
         if(arr[arr.length-1].title.length>4){
-          $('.dream strong').html(arr[arr.length-1].title.substr(0,3).concat('...'));
+          $('.dream strong').html(arr[arr.length-1].title.substr(0,4).concat('...'));
         }else{
           $('.dream strong').html(arr[arr.length-1].title);
         }    
@@ -210,8 +210,16 @@ $(function(){
           title: "选择梦想",
           items: arr,
           onClose:function(){
-           
-            $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html())
+            if(typeof $('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html() == 'undefined'){
+              $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html())
+            }else{
+              if($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html().length > 4){
+                $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html().substr(0,4).concat('...'))
+              }else{
+                $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html())
+              }
+            }
+            
             console.log($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html())
           }
         });
