@@ -11,6 +11,7 @@ html,body{
 }
 .payInfo .main{
     width: 6.9rem;
+    margin: 0 auto;
     padding-top:0.3rem;
 }
 .payInfo .main div{
