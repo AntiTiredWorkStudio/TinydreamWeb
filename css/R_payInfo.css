@@ -1,0 +1,9 @@
+.payInfo{
+    background: #efefef;
+    width: 100%;
+    position: relative;
+}
+.payInfo .main{
+    width: 6.9rem;
+    margin-top:0.3rem;
+}
