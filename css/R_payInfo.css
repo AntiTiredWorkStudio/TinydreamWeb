@@ -1,9 +1,38 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: #efefef;
+}
 .payInfo{
     background: #efefef;
     width: 100%;
     position: relative;
+    height: 100%;
 }
 .payInfo .main{
     width: 6.9rem;
-    margin-top:0.3rem;
+    padding-top:0.3rem;
+}
+.payInfo .main div{
+    background-color: #fff;
+    height: 0.88rem;
+    line-height: 0.88rem;
+    border-radius: 0.1rem;
+}
+.payInfo .main div .title{
+    display: inline-block;
+    padding-left: 0.3rem;
+    font-size: 0.3rem;
+}
+.payInfo .main div .right{
+    float: right;
+    height: 100%;
+}
+.payInfo .main div .right input{
+    border: none;
+    font-size: 0.3rem;
+    color: #999;
+    min-width: 1rem;
+    text-align: right;
+    margin-right: 0.2rem;
 }
