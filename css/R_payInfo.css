@@ -37,7 +37,7 @@ html,body{
     border: none;
     font-size: 0.3rem;
     color: #999;
-    min-width: 1rem;
+    max-width: 1rem;
     text-align: right;
     margin-right: 0.2rem;
     outline: 0;
