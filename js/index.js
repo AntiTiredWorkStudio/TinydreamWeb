@@ -241,6 +241,6 @@ $(function(){
     })
     // banner
     $('.banner').click(function(){
-        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
+        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/RedEnvelope.html"
     })
 })
