@@ -42,3 +42,12 @@ html,body{
     margin-right: 0.2rem;
     outline: 0;
 }
+.payInfo .main div:nth-child(3){
+    margin-bottom: 0.1rem;
+}
+.payInfo .main .tip{
+    font-size: 0.26rem;
+    color: #333;
+    width: 6.3rem;
+    margin: 0 auto;
+}
