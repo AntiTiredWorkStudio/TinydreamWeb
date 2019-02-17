@@ -20,7 +20,8 @@
 .red_envelope .bg_image{
     width: 7.5rem;
     height: 6.08rem;
-    background: #ffc057;
+    background: url(https://tdream.antit.top/image/Red_SendLucky.jpg) no-repeat;
+    background-size: 7.5rem 6.08rem;
 }
 /* 按钮处理 */
 .red_envelope .btns{
