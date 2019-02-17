@@ -100,7 +100,7 @@ var onClickPoolInfo = function (res) {
 }
 
 var onJoinPool = function (res) {
-    //console.log(res.currentTarget);
+    console.log(res.currentTarget);
     console.log(res.currentTarget.attributes[1].nodeValue);
     var tPid = res.currentTarget.attributes[1].nodeValue;
     TD_Request('ds','buy',{"uid":uid,"pid":tPid},function(code,data){
