@@ -16,8 +16,6 @@ html,body{
 }
 /* 文字处理 */
 .share p{
-    width: 3.9rem;
-    margin: 0 auto;
     margin-bottom: 0.5rem;
     color: white;
     font-size: 0.36rem;
