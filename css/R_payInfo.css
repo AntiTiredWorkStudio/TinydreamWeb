@@ -74,7 +74,9 @@ html,body{
     color: white;
     font-size: 0.36rem;
     background-color: red;
-    margin: 0 auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     margin-bottom: 1.2rem;
 }
 /* 文字处理 */
