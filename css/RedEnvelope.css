@@ -7,6 +7,7 @@
 .red_envelope .record{
     width: 6.9rem;
     margin: 0.5rem auto 0.3rem;
+    overflow: hidden;
 }
 .red_envelope .record span{
     font-size: 0.3rem;
@@ -48,6 +49,8 @@
 .red_envelope .btns p{
     text-align: center;
     font-size: 0.3rem;
+}
+.red_envelope .btns p span{
     border-bottom: 1px solid #595959;
     color: #595959;
 }
