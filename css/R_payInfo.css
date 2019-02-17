@@ -18,6 +18,7 @@ html,body{
     height: 0.88rem;
     line-height: 0.88rem;
     border-radius: 0.1rem;
+    margin: 0 auto;
 }
 .payInfo .main div .title{
     display: inline-block;
@@ -27,6 +28,7 @@ html,body{
 .payInfo .main div .right{
     float: right;
     height: 100%;
+    padding-right: 0.3rem;
 }
 .payInfo .main div .right input{
     border: none;
