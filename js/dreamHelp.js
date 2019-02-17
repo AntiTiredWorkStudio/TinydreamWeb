@@ -114,6 +114,7 @@ var onJoinPool = function (res) {
     },function(code,data){
         console.log(data);
     });
+    return;
 }
 
 
