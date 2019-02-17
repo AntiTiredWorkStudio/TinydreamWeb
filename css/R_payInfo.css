@@ -57,14 +57,14 @@ html,body{
     background-color: #efefef;
     margin-bottom: 0.56rem;
 }
-.payInfo .main div.money span{
+/* .payInfo .main div.money span{
     display: inline-block;
     margin-right: 0.2rem;
 }
 .payInfo .main div.money strong{
     display: inline-block;
     margin-left: 0.2rem;
-}
+} */
 /* 支付按钮处理 */
 .payInfo .main .pay{
     width: 3.28rem;
