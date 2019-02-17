@@ -21,6 +21,7 @@ html,body{
     margin-bottom: 0.5rem;
     color: white;
     font-size: 0.36rem;
+    text-align: center;
 }
 /* 按钮处理 */
 .share button{
