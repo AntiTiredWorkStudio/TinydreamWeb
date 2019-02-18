@@ -10,6 +10,11 @@ $(function(){
            console.log(result,data);
            var userInfo = Options.GetUserInfo();
           // alert(userInfo.openid);
+          if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
+              $('.banner').click(function(){
+                  window.location.href == 'window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/record.html"'
+              })
+          }
           $('#test').html(JSON.stringify(Options.GetUserInfo()));
            // 系统通知
            $('.right').click(function(){
