@@ -30,13 +30,13 @@ $(function(){
           if(pay != null){
             alert('您还有尚未支付的订单，支付完成后重试')
             return;
-          }else if(data.actions.pay.pless == 0){
+          }else if(data.actions.pay.pless - $('.copies_money span').html(num) == 0){
             $('.copies_money span').html('0');
             alert('该梦想池已达到最大数量');
             return;
           }else{
             num++;
-            console.log(data.actions.pay.pless)
+            console.log(data.actions.pay.pless - $('.copies_money span').html(num))
             if(num > buy.buy.dayLim) {
               num = buy.buy.dayLim;
               $('.copies_money span').html(num);
