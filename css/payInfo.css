@@ -25,7 +25,8 @@
 .home .home_content .dream_info .progress .circle{
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%)
 }
 .home .home_content .dream_info .progress .timeout{
     position: absolute;
@@ -46,6 +47,7 @@
     color: #00d094;
     display: inline-block;
 }
+
 .home .home_content .dream_info .progress .help_money{
     position: absolute;
     top: 1.50rem;
@@ -182,7 +184,7 @@
     top: 0.25rem;
 }
 /* 分享按钮 */
-.share{
+/* .share{
     width: 0.39rem;
     height: 0.43rem;
     background: url(http://tdream.antit.top/image/share.jpg) no-repeat;
@@ -190,7 +192,7 @@
     position: absolute;
     top: 0.30rem;
     right: 0.66rem;
-}
+} */
 /* 弹窗 */
 .home .mask{
     width: 100%;
@@ -247,8 +249,9 @@
     width: 0.60rem;
     height: 0.60rem;
     position: absolute;
-    top: 0.70rem;
-    right: 0.30rem;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%)
 }
 /* 选择框处理 */
 .weui-picker-modal.weui-picker-modal-visible .toolbar .toolbar-inner{

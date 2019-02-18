@@ -1,49 +1,87 @@
 WebApp.JSAPI.Init();
 $(function(){
-    $('.mask').css('height',$(window).height());
+	Loading();
+    // $('.mask').css('height',$(window).height());
      // 检测是否登录
      WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){//result:请求状态,data 请求结果
            //alert(result);
-           //alert(JSON.stringify(data))
            console.log(result,data);
            var userInfo = Options.GetUserInfo();
           // alert(userInfo.openid);
-           $('#test').html(JSON.stringify(Options.GetUserInfo()));
+          $('#test').html(JSON.stringify(Options.GetUserInfo()));
            // 系统通知
-            TD_Request("no","nc",{
+           $('.right').click(function(){
+               window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/notice.html"
+           })
+        //    清除mainpool
+           if(localStorage.getItem('mainpool')){
+               localStorage.clear('mainpool')
+           }
+           TD_Request("no","nc",{
                 uid:userInfo.openid
             },function(code,data){
-                console.log(data)
+                // console.log(data)
+                if(data.ncount == 0){
+                    $('.icon_notice').addClass('hide')
+                }else{
+                    $('.icon_notice').removeClass('hide');
+                }
+                $('.ntext').html(data.ncount).css("font-size","6px")
             },function(code,data){
-                console.log(data)
+                // console.log(data)
             })
+			
            TD_Request("us", "enter", {
                uid:userInfo.openid,
                nickname:userInfo.nickname,
                headicon:userInfo.headimgurl
            }, function (code, data) {
+             FinishLoading();
             //请求成功的处理
             if(code == 0) {
                 // 首页公屏
-                console.log(data)
-                let buyinfo = data.buyinfo;
+                // console.log(data)
+                var buyinfo = data.buyinfo;
                 if(buyinfo == "" || null){
                     $('.tip').show();
                 }else{
+                    console.log(buyinfo)
+                    var info;
+                    info = buyinfo.shift();
+                    buyinfo.push(info)
                     $('.tip').hide();
-                    var templateStr = $('#template').html();
-                    var complid = _.template(templateStr);
-                    _.each(buyinfo,function(item){
-                        console.log(item)
+                    $('.logo').css('background-image','url('+info.headicon+')');
+                    $('.username').html(info.nickname);
+                    var date = parseInt(new Date().getTime() / 1000);
+                    var time = DescriptionTime(date - info.ptime);
+                    info.time = time;
+                    $('.male_tip').html(info.time+"前参与了"+info.dcount+"份小梦想").fadeIn()
+                    setInterval(function(){
+                        info = buyinfo.shift();
+                        buyinfo.push(info)
+                        $('.tip').hide();
+                        $('.logo').css('background-image','url('+info.headicon+')');
+                        $('.username').html(info.nickname);
                         var date = parseInt(new Date().getTime() / 1000);
-                        var timer = DescriptionTime(date - item.ptime);
-                        console.log(timer);
-                        item.timer = timer;
-                        var str = complid(item);
-                        $dom = $(str);
-                        $dom.appendTo('.cont');
-                    })
+                        var time = DescriptionTime(date - info.ptime);
+                        info.time = time;
+                        $('.male_tip').html(info.time+"前参与了"+info.dcount+"份小梦想").fadeIn()
+                    },4000)
+                    console.log(info)
+                   
+                    // var templateStr = $('#template').html();
+                    // var complid = _.template(templateStr);
+                    // _.each(info,function(item){
+                    //     // console.log(item)
+                    //     var date = parseInt(new Date().getTime() / 1000);
+                    //     var time = DescriptionTime(date - item.ptime);
+                    //     // console.log(timer);
+                    //     item.time = time;
+                    //     var str = complid(item);
+                    //     $dom = $(str);
+                    //     $dom.appendTo('.cont');
+                    // })
                 }
                 // 梦想互助池
                 var mainpool = data.mainpool;
@@ -65,6 +103,10 @@ $(function(){
                 $('.money_number').html("￥"+mainpool.cbill / 100);
                 // 单价
                 $('.price_number').html(mainpool.ubill / 100 +"元/份");
+                console.log(mainpool)
+                if(mainpool.ubill == mainpool.tbill){
+                    window.location.reload();
+                }
                 var prop = (mainpool.cbill / 100) / (mainpool.tbill / 100);
                 ready();
                 drawCircle(ctx,prop);
@@ -72,7 +114,18 @@ $(function(){
                 if(!data.award.result){
                     $('.mask').hide();
                 }else{
+					console.log(data.award);
                     $('.mask').fadeIn();
+					$('#awardHint').html(
+						"恭喜您成为梦想互助"+data.award.pid+"期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!"
+					);
+					$('#btn_perfect').click(
+						function(res){
+							$('.mask').hide();
+							SaveStorage("award",JSON.stringify(data.award));
+							window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html";
+						}
+					);
                 }
                 // 点击参与互助
                 // 参与互助
@@ -83,7 +136,7 @@ $(function(){
                         uid:data.selfinfo.uid,
                         pid:data.mainpool.pid
                     },function(code,data){
-                        console.log(data);
+                        // console.log(data);
                         if(code == 0 || data.result == true){
                             console.log(data)
                             if(!data.actions.hasOwnProperty('editdream')){
@@ -93,6 +146,8 @@ $(function(){
                                 window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
                             }else{
                                 if(confirm("您还没有添加梦想，添加梦想后才能参与互助")){
+                                    localStorage.setItem('buy',JSON.stringify(data.actions));
+									localStorage.setItem('mainpool',JSON.stringify(mainpool));
                                     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
                                 }else{
                                     window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html"
@@ -138,6 +193,7 @@ $(function(){
                 
             }
           }, function (code, data) {
+             FinishLoading();
             // 请求失败的处理
             if(code!=0){
                 alert("登录失败，参数错误"+data.context);
@@ -185,6 +241,6 @@ $(function(){
     })
     // banner
     $('.banner').click(function(){
-        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
+        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/RedEnvelope.html"
     })
 })

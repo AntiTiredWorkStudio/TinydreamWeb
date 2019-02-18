@@ -16,7 +16,7 @@ $(function(){
     TD_Request('aw','lfromp',{
         pid:poolInfo.pid
     },function(code,data){
-        $('.lucky span').html()
+        $('.lucky span').html(data.lid)
     },function(code,data){
         if(code == 59){
             $('.lucky span').html('等待开奖')
@@ -40,6 +40,7 @@ $(function(){
         $('.user_number').show();
         $('.tabList').empty().hide();
         $('.btns.click').show();
+		num = 0;
         getord(num);
     })
     $('.left').click(function(){
@@ -49,8 +50,8 @@ $(function(){
         self(); 
     })
     $('.btns.click').click(function(){
-        var cnum = num+10;
-        getord(cnum)
+        num = num+10;
+        getord(num)
     })
     // // 获取编号
     self();
@@ -59,7 +60,7 @@ $(function(){
             uid:userInfo.openid,
             pid:poolInfo.pid
         },function(code,data){
-            console.log(data)
+            // console.log(data)
             if(data.lottey.length == 0){
                 $('.tip').html('您尚未参与该梦想池互助').show();
             }else{
@@ -73,53 +74,60 @@ $(function(){
     }
     // 获取用户梦想信息
     function getord(number){
-        TD_Request('ds','preco',{
-            pid:poolInfo.pid,
-            min:number,
-            max:10
-        },function(code,data){
-            if(data.orders.length == 0){
-                $('.tip').html('此梦想池没有用户参与').show();
-                $('.btns').hide();
-            }else{
-                $('.tip').html('此梦想池没有用户参与').hide();
-                $('.btns').show();
-            }
-            console.log(data)
-            console.log(number+10);
-            $.each(data.orders,function(index,item){
-                $('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" oid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div></div>').appendTo('.user_number');
-            })
-            var str = ''//编号
-            $('.look').click(function(){
-                TD_Request('aw','onums',{
-                    oid:$(this).attr('oid')
-                },function(code,data){
-                    console.log(data);
-                    var str = '';
-                    $.each(data.nums,function(index,item){
-                        str = str+=item.lid+'；'
-                    })
-                    console.log(str)
-                    alert('编号\n'+str);
-                },function(code,data){
-                    console.log(data)
-                })
-            })
-            if(number+10 >= data.orders.length){
-                $('.btns').hide();
-                $('.tips').html('我是有底线的~~').show();
-                return;
-            }else{
-                $('.btns').html('点击加载更多').show();
-                $('.tips').html('我是有底线的~~').hide()
-            }
-        },function(code,data){
-            console.log(data)
-        })
+        TD_Request('ds','precs',{pid:poolInfo.pid},
+			function(code,data){
+				var orderCount = data.ordCount;
+				if(orderCount == 0){
+					$('.tip').html('此梦想池没有用户参与').show();
+					$('.btns').hide();
+				}else{
+					$('.tip').html('此梦想池没有用户参与').hide();
+					$('.btns').show();
+				}
+				TD_Request('ds','preco',{
+					pid:poolInfo.pid,
+					min:number,
+					max:10
+				},function(code,data){
+					// console.log(data)
+					// console.log(number+10);
+					$.each(data.orders,function(index,item){
+						$('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" oid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div></div>').appendTo('.user_number');
+					})
+					var str = ''//编号
+					$('.look').click(function(){
+						TD_Request('aw','onums',{
+							oid:$(this).attr('oid')
+						},function(code,data){
+							// console.log(data);
+							var str = '';
+							$.each(data.nums,function(index,item){
+								str = str+=item.lid+'；'
+							})
+							// console.log(str)
+							alert('编号\n'+str);
+						},function(code,data){
+							console.log(data)
+						})
+					})
+					if(number+10 >= orderCount){
+						$('.btns').hide();
+						$('.tips').html('我是有底线的~~').show();
+						return;
+					}else{
+						$('.btns').html('点击加载更多').show();
+						$('.tips').html('我是有底线的~~').hide()
+					}
+				},function(code,data){
+					console.log(data)
+				})
+			},
+			function(code,data){}
+		)
     }
 
     $('.look_info').click(function(){
+		SaveStorage("pid",poolInfo.pid);
         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/calc.html"
     })
     // WebApp.JSAPI.Init()

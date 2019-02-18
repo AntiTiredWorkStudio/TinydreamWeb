@@ -8,7 +8,7 @@ $(function(){
             $('.header img').attr('src',data.selfinfo.headicon);
             $('.nickName').html(data.selfinfo.nickname);
             $('.left .num').html(data.selfinfo.totalJoin);
-            $('.middle .num').html(data.selfinfo.totalReward);
+            $('.middle .num').html(data.selfinfo.totalReward / 100);
             $('.right .num').html(data.selfinfo.dayBuy);
         }
     },function(code,data){

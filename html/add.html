@@ -7,6 +7,7 @@
     <title>添加梦想</title>
     <link rel="stylesheet" href="../css/public.css">
     <link rel="stylesheet" href="../css/add.css">
+    <link rel="stylesheet" href="../css/weui.css">
 </head>
 <body>
     <!--添加梦想/完善梦想-->
@@ -15,6 +16,9 @@
     dream_info：梦想简介
  -->
     <div class='add'>
+        <div class="gh" style="width:100%;height:100%;background-color:rgba(0,0,0,.5);position:fixed;left:0;top:0;z-index: 999;display: none">
+            
+        </div>
         <div class='mask' style='width:100%;height:100%;display:none'>
             <div class='close'>X</div>
         </div>
@@ -29,8 +33,8 @@
                 <textarea placeholder='请输入您的梦想简介' maxlength='140' class="dr_info"></textarea>
             </div>
             <div class='title upload info  supper'>
-                上传打印盖章的
-                <span>《小梦想互助幸运者梦想互助金申请公函》</span>
+                <i class="font" style="font-style:normal">上传打印盖章的</i>
+                <span class="g_h">《小梦想互助幸运者梦想互助金申请公函》</span>
             </div>
             <div class='btns  supper'>
                 <input type="file" class='uploaded' name="image" accept="image/*">
@@ -68,6 +72,8 @@
     </div>
     <script src="../lib/jquery-1.12.3.min.js"></script>
     <script src="../lib/rem.js"></script>
+    <script src="../lib/weui.js"></script>
+    <script src="../lib/weuiManager.js"></script>
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script type="text/javascript" src="https://tinydream.antit.top/admin/js/qiniu.min.js"></script>

@@ -1,0 +1,90 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: #efefef;
+    overflow: hidden;
+}
+.payInfo{
+    background: #efefef;
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+.payInfo .main{
+    width: 6.9rem;
+    margin: 0 auto;
+    padding-top:0.3rem;
+}
+.payInfo .main div{
+    background-color: #fff;
+    height: 0.88rem;
+    width: 100%;
+    line-height: 0.88rem;
+    border-radius: 0.1rem;
+    margin: 0 auto;
+    margin-bottom: 0.4rem;
+}
+.payInfo .main div .title{
+    display: inline-block;
+    padding-left: 0.3rem;
+    font-size: 0.3rem;
+}
+.payInfo .main div .right{
+    float: right;
+    height: 100%;
+    padding-right: 0.3rem;
+}
+.payInfo .main div .right input{
+    border: none;
+    font-size: 0.3rem;
+    color: #999;
+    max-width: 2rem;
+    text-align: right;
+    margin-right: 0.2rem;
+    outline: 0;
+}
+.payInfo .main div:nth-child(3){
+    margin-bottom: 0.1rem;
+}
+.payInfo .main .tip{
+    font-size: 0.26rem;
+    color: #333;
+    width: 6.3rem;
+    margin: 0 auto;
+}
+.payInfo .main div.money{
+    text-align: center;
+    font-size: 0.72rem;
+    background-color: #efefef;
+    margin-bottom: 0.56rem;
+}
+/* .payInfo .main div.money span{
+    display: inline-block;
+    margin-right: 0.2rem;
+}
+.payInfo .main div.money strong{
+    display: inline-block;
+    margin-left: 0.2rem;
+} */
+/* 支付按钮处理 */
+.payInfo .main .pay{
+    width: 3.28rem;
+    height: 0.88rem;
+    border:none;
+    border-radius: 0.44rem;
+    color: white;
+    font-size: 0.36rem;
+    background-color: red;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 1.2rem;
+}
+/* 文字处理 */
+.payInfo .main i{
+    font-style: normal;
+    display: block;
+    text-align: center;
+    font-size: 0.26rem;
+    color: #999;
+}

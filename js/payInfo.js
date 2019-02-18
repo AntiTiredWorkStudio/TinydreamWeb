@@ -1,5 +1,9 @@
 WebApp.JSAPI.Init();
+if(!ExistStorage("buy")){
+	window.location.href="../index.html";
+}
 $(function(){
+    var pay = null;
     var userInfo = Options.GetUserInfo(); 
     var buy = JSON.parse(localStorage.getItem('buy'));
     TD_Request("ds", "ord", {
@@ -10,6 +14,7 @@ $(function(){
       if(code == 0){
         console.log(data)
         $('.dream_title').html(data.pool.ptitle);
+        $('.mask .tip').html('您已成功参与'+data.pool.pid+'期小梦想互助')
         $('.help_money').html("￥"+data.pool.cbill/100);
         $('.target_money').html("￥"+data.pool.tbill/100)
         drawCircle(ctx,(data.pool.cbill/100)/(data.pool.tbill/100));
@@ -21,6 +26,10 @@ $(function(){
         $('.copies_money span').html(num);
         $('.price span.fee').html(data.pool.ubill/100 * $('.copies_money span').html());
         $('.icon_add').click(function(){
+          if(pay != null){
+            alert('您还有尚未支付的订单，支付完成后重试')
+            return;
+          }
           num++;
           if(num > buy.buy.dayLim) {
             num = buy.buy.dayLim;
@@ -31,9 +40,13 @@ $(function(){
           $('.price span.fee').html(data.pool.ubill/100 * $('.copies_money span').html());
         })
         $('.icon_incer').click(function(){
+          if(pay != null){
+            alert('您还有尚未支付的订单，支付完成后重试')
+            return;
+          }
           num--;
-          if(num <= 0){
-            num = 0;
+          if(num <= 1){
+            num = 1;
             $('.copies_money span').html(num);
           }
           $('.copies_money span').html(num);
@@ -67,6 +80,75 @@ $(function(){
         $('.timeout_ui').html(h+":"+m+":"+s);
        },1000)
       // 统一下单
+      function wxpay(fee){
+		  /*var actions = JSON.parse(window.localStorage.getItem('actions'));
+			  
+              TD_Request("ds","pay",{
+                uid:userInfo.openid,
+                oid:actions.pay.oid,
+                bill:fee * 100,
+                pcount:$('.copies_money span').html(),
+                action:window.localStorage.getItem('actions'),
+                did:$('#dream').attr("data-values")
+              },function(code,data){
+              //alert(JSON.stringify(data));
+                $('.mask').fadeIn();
+                var number = data.numbers;
+                var lid = [];
+                for(key in number){
+                  var obj = number[key];
+                  lid.push(obj.lid)
+                }
+                $.each(lid,function(index,item){
+                  $('.num').html(item+"、").css("color","#00d094");
+                })
+                console.log(data)
+                localStorage.clear('buy');
+              },function(code,data){
+                alert(JSON.stringify(data))
+              })
+		  return;*/
+		  
+        WeixinJSBridge.invoke(
+          'getBrandWCPayRequest', {
+          "appId":pay.appId,     //公众号名称，由商户传入     
+          "timeStamp":pay.timeStamp,         //时间戳，自1970年以来的秒数     
+          "nonceStr":pay.nonceStr, //随机串     
+          "package":pay.package,     
+          "signType":pay.signType,         //微信签名方式：     
+          "paySign":pay.paySign //微信签名 
+          },function(res){
+            if(res.err_msg == "get_brand_wcpay_request:ok" ){
+			  var actions = JSON.parse(window.localStorage.getItem('actions'));
+			  
+              TD_Request("ds","pay",{
+                uid:userInfo.openid,
+                oid:actions.pay.oid,
+                bill:fee * 100,
+                pcount:$('.copies_money span').html(),
+                action:window.localStorage.getItem('actions'),
+                did:$('#dream').attr("data-values")
+              },function(code,data){
+              //alert(JSON.stringify(data));
+                $('.mask').fadeIn();
+                var number = data.numbers;
+                var lid = [];
+                for(key in number){
+                  var obj = number[key];
+                  lid.push(obj.lid)
+                }
+                $.each(lid,function(index,item){
+                  $('.num').html(item+"、").css("color","#00d094");
+                })
+                console.log(data)
+                localStorage.clear('buy');
+              },function(code,data){
+                alert(JSON.stringify(data))
+              })
+            }
+         }); 
+      }
+
       $('.wxPay').click(function(){
         if($('#dream strong').html() == ''){
           alert('请选择梦想后进行支付！');
@@ -79,52 +161,25 @@ $(function(){
         var did = $('#dream').attr("data-values");
         var fee = $('.price span.fee').html();
         console.log(fee);
-        TD_Request("ds","wxpayweb",{
-          oid:data.order.oid,
-          bill:fee * 100,
-          uid:userInfo.openid
-        },function(code,data){
-          if(code == 0){
+        if(pay == null){
+		console.log("pay is null",data.order.oid,fee * 100,userInfo.openid);
+          TD_Request("ds","wxpayweb",{
+            oid:data.order.oid,
+            bill:fee * 100,
+            uid:userInfo.openid
+          },function(code,data){
+			  console.log(data);
+            if(code == 0){
+              pay = data;
+              wxpay(fee)
+            }
+          },function(code,data){
             console.log(data)
-            WeixinJSBridge.invoke(
-              'getBrandWCPayRequest', {
-              "appId":data.appId,     //公众号名称，由商户传入     
-              "timeStamp":data.timeStamp,         //时间戳，自1970年以来的秒数     
-              "nonceStr":data.nonceStr, //随机串     
-              "package":data.package,     
-              "signType":data.signType,         //微信签名方式：     
-              "paySign":data.paySign //微信签名 
-              },function(res){
-                if(res.err_msg == "get_brand_wcpay_request:ok" ){
-                  var actions = JSON.parse(localStorage.getItem('actions'));
-                  TD_Request("ds","pay",{
-                    uid:userInfo.openid,
-                    oid:actions.pay.oid,
-                    bill:fee * 100,
-                    pcount:$('.copies_money span').html(),
-                    action:localStorage.getItem('actions'),
-                    did:$('#dream').attr("data-values")
-                  },function(code,data){
-                    $('.mask').fadeIn();
-                    var number = data.numbers;
-                    var lid = [];
-                    for(key in number){
-                      var obj = number[key];
-                      lid.push(obj.lid)
-                    }
-                    $.each(lid,function(index,item){
-                      $('.num').html(item+"、").css("color","#00d094");
-                    })
-                    localStorage.clear('buy');
-                  },function(code,data){
-                    alert(JSON.stringify(data))
-                  })
-                } 
-             }); 
-          }
-        },function(code,data){
-          console.log(data)
-        })
+          });
+        }else{
+			console.log("pay is not null");
+          wxpay(fee)
+        }    
       })
     }, function(code,data){
       // 请求失败
@@ -145,13 +200,27 @@ $(function(){
           console.log(arr)
         })
         console.log(arr[arr.length-1])
-        $('.dream strong').html(arr[arr.length-1].title);
+        if(arr[arr.length-1].title.length>4){
+          $('.dream strong').html(arr[arr.length-1].title.substr(0,4).concat('...'));
+        }else{
+          $('.dream strong').html(arr[arr.length-1].title);
+        }    
         $('.dream').attr('data-values',arr[arr.length-1].value);
         $('.dream').select({
           title: "选择梦想",
           items: arr,
           onClose:function(){
-            $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html())
+            if(typeof $('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html() == 'undefined'){
+              $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html())
+            }else{
+              if($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html().length > 4){
+                $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html().substr(0,4).concat('...'))
+              }else{
+                $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html())
+              }
+            }
+            
+            console.log($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev().children('p').html())
           }
         });
       }
@@ -197,7 +266,7 @@ $(function(){
     //分享
   
     $('.share').click(function(){
-      $('icon.').show()
+      $('.icon').show()
     })
     $('.icon.close').click(function(){
       window.location.href="http://tinydream.antit.top/TinydreamWeb/html/dreamHelp.html";

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>普通红包</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/R_payInfo.css">
+</head>
+<body>
+    <!-- 
+        payInfo：红包支付详情页
+        main: 页面内容容器
+     -->
+    <div class="payInfo">
+        <div class="main">
+            <div>
+                <p class="title">小梦想互助期号</p>
+                <p class="right">
+                    <input type="text" disabled value="20190206">
+                    <span>期</span>
+                </p>
+            </div>
+            <div>
+                <p class="title">领取红包人数</p>
+                <p class="right">
+                    <input type="number" value="1" placeholder="领取人数">
+                    <span>位</span>
+                </p>
+            </div>
+            <div>
+                <p class="title">每个红包参与的互助份数</p>
+                <p class="right">
+                    <input type="number" disabled value="1" style="max-width:1rem">
+                    <span>份</span>
+                </p>
+            </div>
+            <p style="margin-bottom:0.2rem" class="tip">当前为<span style="color:#f25542">普通红包</span></p>
+            <p class="tip">注:每人只可领取1个红包，每个红包的参与互助份数固定，价格为5元/份。</p>
+            <div style="margin-top:0.6rem;height:1.28rem;line-height:1.28rem;margin-bottom:1.2rem">
+                <input type="text" placeholder="给你们一个实现小梦想的机会" style="width:6.3rem;outline:0;padding:0 0.3rem;font-size:0.34rem;color:#999">
+            </div>
+            <div class="money">
+                <span>￥</span>
+                <strong style="font-style:normal">40.00</strong>
+            </div>
+            <button class="pay">微信支付</button>
+            <i>* 金额为5元的整数倍，每人每天在平台支付不超过25元</i>
+        </div>
+    </div>
+    <script src="../lib/jquery-1.12.3.min.js"></script>
+    <script src="../lib/rem.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
+    <script src="../js/R_payInfo.js"></script>
+</body>
+</html>

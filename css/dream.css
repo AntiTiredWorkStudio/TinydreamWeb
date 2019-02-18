@@ -7,6 +7,7 @@ body{
 /* 空梦想--样式处理 */
 .dream{
     width: 100%;
+    padding-bottom: 2.92rem;
 }
 .dream .empty{
     width: 4.90rem;
@@ -73,6 +74,7 @@ body{
 .dream .dream_main .dream_list{
     width: 100%;
     margin-top: 0.20rem;
+    position: relative;
 }
 .dream .dream_main .dream_list .dream_info{
     width: 6.90rem;
@@ -136,14 +138,12 @@ body{
 }
 /* 添加梦想按钮--样式处理 */
 .add{
-    position: absolute;
-    bottom: 1.88rem;
-    right: 0.50rem;
     width: 1.46rem;
     height: 1.46rem;
     border-radius: 50%;
     background: url(http://tdream.antit.top/image/add.png) no-repeat;
     background-size: 1.46rem 1.46rem;
+    margin-right: 0.3rem;
 }
 /* 幸运梦想列表--样式处理 */
 .luckyDream{

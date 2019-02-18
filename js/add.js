@@ -9,8 +9,10 @@ $(function(){
     // state = 'all'
     if(state != "all"){
         $('.supper').hide()
+        $('title').html('编辑梦想')
     }else{
         $('.supper').show()
+        $('title').html('完善梦想')
     }
 
     // 获取梦想列表
@@ -19,22 +21,24 @@ $(function(){
         did:did,
         state:state
     },function(code,data){
-        console.log(data);
+        // console.log(data);
         $('.dr_title').val(data.dream.title);
         $('.dr_info').val(data.dream.content);
         if(data.upload != undefined) {
-            console.log(data.upload);
+            // console.log(data.upload);
             // 文件上传
             var file;
             $('.uploaded').change(function(e){
-                console.log(e);
+                // console.log(e);
                 //console.log(e.target.files[0].name.split(".")[1])
                 file = e.target.files[0];
             })
-
+            // console.log(typeof file)
             $('.submit').click(function(){
-                console.log(file)
-                if(file == '' || file == undefined){
+                // // console.log(file)
+                // console.log(data)
+                // console.log(data.dream.videourl)
+                if(data.dream.videourl == '' &&　typeof file == 'undefined'){
                     alert('请上传小梦想公函');
                     return;
                 }
@@ -48,28 +52,77 @@ $(function(){
                     alert('请勾选协议');
                     return;
                 }else{
-                    var url;
-                    WebApp.UploadWithSDK(data.upload.uptoken,data.upload.upurl,file,data.upload.fileName,function(res){
-                        console.log(res);
+					var SubmitVerify = function(){
+                        if(data.dream.videourl != ''){
+                            $('<img src="'+data.dream.videourl+'">').css({
+                                position:'absolute',
+                                top:'50%',
+                                left:'50%',
+                                transform:'translate(-50%,-50%)',
+                                width:'7.1rem',
+                                height:'auto'
+                            }).appendTo('.gh')
+                            $('.font').html('查看已上传的');
+                            $('.g_h').click(function(){
+                                $('.gh').fadeIn()
+                            })
+                            $('.gh').click(function(e){
+                                e.stopPropagation();
+                                $(this).fadeOut()
+                            })
+                        }
+						MsgBox_YESNO("提示","是否提交审核?","是","否",
+							function(res){
+								console.log("yes",res);
+								
+								 TD_Request("ds", "sver",{
+									uid:userInfo.openid,
+									did:did
+								},function(code,data){
+									$('.submit_mask').fadeIn();
+									$('.submit_mask button').click(function(){
+									$('.submit_mask').fadeOut();
+										window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
+									})
+								},function(code,data){
+									alert(data.context);
+									window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
+								}
+								);
+							},function(res){
+								console.log("no",res);
+							}
+						);
+					}
+					var UpdateDream = function(res){
+                        // console.log(res);
                         if(res.result){
-                           url = data.upload.domain + "/" + res.imgName
+							var updateForm = {"title":$('.dr_title').val(),"content":$('.dr_info').val()};
+							if(res.imgName){
+								updateForm['videourl'] = data.upload.domain + "/" + res.imgName;
+							}
                            TD_Request("dr","gedit",{
                                 uid:userInfo.openid,
                                 did:did,
-                                contentList:JSON.stringify({"title":$('.dr_title').val(),"content":$('.dr_info').val(),"videourl":url})
+                                contentList:JSON.stringify(updateForm)
                             },function(code,data){
-                                console.log(data);
-                                alert('提交成功!');
-                                $('.submit_mask').fadeIn();
-                                $('.submit_mask button').click(function(){
-                                    $('.submit_mask').fadeOut();
-                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
-                                })
+                                SubmitVerify();
                             },function(code,data){
-                                console.log('提交失败'+data.context);
+								if(code=='44'){
+									alert('无内容变更');
+                                    SubmitVerify();
+								}else{
+									alert(data.context);
+								}
                             }) 
                         }
-                    })  
+                    }
+					
+					if(file != null){
+						WebApp.UploadWithSDK(data.upload.uptoken,data.upload.upurl,file,data.upload.fileName,UpdateDream)  
+					}else{
+						UpdateDream({result:true});
+					}
                 }
             })
         }else{
@@ -90,11 +143,16 @@ $(function(){
                 did:did,
                 contentList:JSON.stringify({"title":$('.dr_title').val(),"content":$('.dr_info').val()})
             },function(code,data){
-                console.log(data);
+                // console.log(data);
                 alert('修改成功!');
                 window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
             },function(code,data){
-                console.log('修改失败'+data.context);
+                if(code == 44){
+                    alert('无内容变更');
+                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/dream.html'
+                }else{
+                    alert(data.context)
+                }
             }) 
         }
     })
@@ -128,7 +186,7 @@ $(function(){
                 "background-size":"0.3rem 0.3rem"
             })
         }
-        console.log($("input[type='checkbox']").is(':checked'))
+        // console.log($("input[type='checkbox']").is(':checked'))
    })
     // WebApp.JSAPI.Init()
 })

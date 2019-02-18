@@ -1,3 +1,4 @@
+console.log(WebApp);
 WebApp.JSAPI.Init();
 $(function(){
     // 获取模板字符串
@@ -8,6 +9,7 @@ $(function(){
     var dream = JSON.parse(localStorage.getItem('buy'))
     // 获取梦想列标
     var userInfo = Options.GetUserInfo();
+	$('.dream_list').empty();
     update();
     function update(){
         TD_Request("dr","dlist",{
@@ -18,25 +20,40 @@ $(function(){
                     $('.empty').show();
                     $('.dream_main').hide();
                 }else{
+                    if(data.dreams.length >= 5){
+                        $('.add').hide()
+                    }
                     _.each(data.dreams,function(item){
+                        if(item.state == "VERIFY"){
+                            item.status ='审核中';
+                         }
+                        if(item.state == "DOING"){
+                            item.status ='正在进行';
+                         }
+                        if(item.state == "SUCCESS"){
+                            item.status ='成功';
+                         }
+                         if(item.state == "FAILED"){
+                             item.status ='失败(过期)';
+                         }
+                         if(item.state == "SUBMIT"){
+                             item.status ='未中奖';
+                         }  
+						 console.log("state",item);
                         var str = compolied(item);
                         var $dom = $(str);
                         $dom.appendTo('.dream_list');
-                        if(item.state == "SUCCESS" || item.state == "DOING"){
-                            $('.time').html('成功')
-                         }
-                         if(item.state == "FAILED"){
-                             $('.time').html('失败')
-                         }
-                         if(item.state == "SUBMIT"){
-                             $('.time').html('未中奖')
-                         }  
                     })
                     // 查看小梦想详情
                     $('.view').click(function(){
-                        var dr = {did:$(this).attr('data-id'),state:''}
-                        localStorage.setItem('dr',JSON.stringify(dr))
-                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/add.html"
+						if($(this).attr('data-state') == "DOING" || $(this).attr('data-state') == "VERIFY" || $(this).attr('data-state') == "SUCCESS"){
+							onDreamSwitch({currentTarget:{id:'tab_lucky'}});
+							return;
+						}else{
+							var dr = {did:$(this).attr('data-id'),state:''}
+							localStorage.setItem('dr',JSON.stringify(dr))
+							window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/add.html"
+						}
                     })
                     
                 }
@@ -45,12 +62,19 @@ $(function(){
             console.log("缺少参数"+data.context);
         })
     }
-    // 类型切换
-    $('.dream_type ul li').click(function(){
+   
+	var onDreamSwitch = function(res){
         $('.dream_list').empty();
-        $(this).addClass('active').siblings().removeClass('active');
-        console.log($(this).index());
-        if($(this).index() == 0){
+		
+		$("#tab_dream").removeClass('active');
+		$("#tab_lucky").removeClass('active');
+		
+		$("#"+res.currentTarget.id).addClass('active');
+		
+        //$(this).addClass('active').siblings().removeClass('active');
+        // console.log($(this).index());
+		
+        if(res.currentTarget.id == "tab_dream"){
             $('.add').show();
             update();
         }else{
@@ -63,19 +87,39 @@ $(function(){
                         $('.empty').show();
                         $('.dream_main').hide();
                     }else{
+						$('.dream_list').empty();
                         _.each(data.dreams,function(item){
-                            if(item.state == "SUCCESS" || item.state == "DOING"){
-                                $("<div class='luckyDream'><div class='dream_logo'>"+item.pool.tbill / 100+"</div><div class='dream_right'><div class='dream_msg'><span>"+item.title+"</span><div class='icon_success'></div></div> <div class='tip'><span class='tip_text'>"+item.pool.ptitle+"</span></div></div></div>").appendTo('..dream_list')
+                            if(item.state == "SUCCESS" || item.state == "DOING" || item.state == "VERIFY"){
+								console.log(item);
+                                $("<div class='luckyDream' data-lucky='"+JSON.stringify(item)+"' data-dream='"+item.id+"'><div class='dream_logo'>"+item.pool.tbill / 100+"</div><div class='dream_right'><div class='dream_msg'><span>"+item.title+"</span>"+((item.state == "SUCCESS")?"<div class='icon_success'></div>":"")+"</div> <div class='tip'><span class='tip_text'>"+item.pool.ptitle+"</span></div></div></div>").appendTo('.dream_list')
                             }
                         })
-                        
+                        $('.luckyDream').click(function(){
+                            localStorage.setItem('did',$(this).index()+1)
+                            localStorage.setItem('lucky',$(this).attr('data-lucky'))
+                            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/luckyDream.html'
+                        })
                     }
                 }
             },function(code,data){
                 console.log("缺少参数"+data.context);
             })
         }
-    })
+    }
+	 // 类型切换
+    $('.dream_type ul li').click(onDreamSwitch)
+	
+	if(ExistStorage('award')){
+        var awardCache = JSON.parse(GetStorage('award'));
+        console.log(awardCache)
+		RemoveStorage('award');
+		if(awardCache.result){
+			onDreamSwitch({currentTarget:{id:"tab_lucky"}});
+		}
+	}
+	if(ExistStorage('mainpool')){
+        $('.close').fadeIn();
+	}
     // 添加梦想
     $('.add').click(function(){
         $('.close').fadeIn();
@@ -102,12 +146,35 @@ $(function(){
                 content:$('.info').val()
             },function(code,data){
                 console.log(data)
-                if(dream == '' || dream == undefined){
-                    window.location.reload();
+                if(typeof dream == 'undefined' || dream == '' || dream == null){
+                    window.location.reload()
+                }else if(dream.hasOwnProperty('editdream')){
+                    update();
+                    var mainpool = JSON.parse(localStorage.getItem('mainpool'));
+					RemoveStorage('mainpool');
+                    if(mainpool == '' || mainpool == undefined){
+                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";
+                    }else{
+                        console.log(mainpool)
+                        TD_Request("ds","buy",{
+                            uid:userInfo.openid,
+                            pid:mainpool.pid
+                        },function(code,data){
+                            if(code == 0 || data.result == true){
+                                console.log(data)
+                                if(!data.actions.hasOwnProperty('editdream')){
+                                    console.log(data.actions)
+                                    localStorage.setItem('buy',JSON.stringify(data.actions));
+                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
+                                }
+                            }
+                        },function(code,data){
+                            console.log(data)
+                        })
+                    }
                 }else{
-                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/payInfo.html'
-                }
-               
+                  window.location.reload()
+                }               
             },function(code,data){
                 alert(data.context)
             })
@@ -136,7 +203,7 @@ $(function(){
                 "background-size":"0.3rem 0.3rem"
             })
         }
-        console.log($("input[type='checkbox']").is(':checked'))
+        // console.log($("input[type='checkbox']").is(':checked'))
    })
    $('.xieyi').click(function(){
     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/xieyi.html"

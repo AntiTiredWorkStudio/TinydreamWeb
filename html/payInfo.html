@@ -7,6 +7,60 @@
     <title>小梦想支付</title>
     <link rel="stylesheet" href="../css/public.css">
     <link rel="stylesheet" href="../css/payInfo.css">
+    <!-- <script src="../lib/rem.js"></script> -->
+    <script>
+        window.onload = function(){
+            //designWidth:设计稿的实际宽度值，需要根据实际设置
+//maxWidth:制作稿的最大宽度值，需要根据实际设置
+//这段js的最后面有两个参数记得要设置，一个为设计稿实际宽度，一个为制作稿最大宽度，例如设计稿为750，最大宽度为750，则为(750,750)
+;(function(designWidth, maxWidth) {
+  var doc = document,
+  win = window,
+  docEl = doc.documentElement,
+  remStyle = document.createElement("style"),
+  tid;
+  //浏览器竖屏与横屏转换的BUG。
+  function refreshRem() {
+      var width = docEl.getBoundingClientRect().width;
+      maxWidth = maxWidth || 540;
+      width>maxWidth && (width=maxWidth);
+      var rem = width * 100 / designWidth;
+      remStyle.innerHTML = 'html{font-size:' + rem + 'px;}';
+  }
+
+  if (docEl.firstElementChild) {
+      docEl.firstElementChild.appendChild(remStyle);
+  } else {
+      var wrap = doc.createElement("div");
+      wrap.appendChild(remStyle);
+      doc.write(wrap.innerHTML);
+      wrap = null;
+  }
+  //要等 wiewport 设置好后才能执行 refreshRem，不然 refreshRem 会执行2次；
+  refreshRem();
+
+  win.addEventListener("resize", function() {
+      clearTimeout(tid); //防止执行两次
+      tid = setTimeout(refreshRem, 300);
+  }, false);
+
+  win.addEventListener("pageshow", function(e) {
+      if (e.persisted) { // 浏览器后退的时候重新计算
+          clearTimeout(tid);
+          tid = setTimeout(refreshRem, 300);
+      }
+  }, false);
+
+  if (doc.readyState === "complete") {
+      doc.body.style.fontSize = "16px";
+  } else {
+      doc.addEventListener("DOMContentLoaded", function(e) {
+          doc.body.style.fontSize = "16px";
+      }, false);
+  }
+})(750, 750);
+        }
+    </script>
     <link rel="stylesheet" href="//cdn.bootcss.com/weui/0.4.3/style/weui.min.css">
     <link rel="stylesheet" href="../css/jquery-weui.css">
 </head>
@@ -27,7 +81,7 @@
         <div class='home_content'>
             <div class='dream_info'>
                 <div class='dream_title'>梦想互动20181219期</div>
-                <div class='share'></div>
+                <!-- <div class='share'></div> -->
                 <div class='progress'>
                     <canvas class="circle top_canvas" id="canvas" width="190" height="190"></canvas>
                     <canvas style="z-index:-5" width="190" height="190" class="circle bottom" id="bottom"></canvas>
@@ -57,7 +111,7 @@
             </div>
         </div>
         <div class='mask' style="display:none">
-            <div class='mask_bg'>
+            <div class='mask_bg' style="padding-bottom:0.1rem">
                 <img class='icon_success' src='http://tdream.antit.top/image/stars.png'>
                 <div class='tip'>
                     您已成功参与20181227期小梦想互助
@@ -65,9 +119,10 @@
                 <div class='notice'>
                    您的编号为：<i style="font-style:normal" class="num"></i>赶紧邀请小伙伴们一起来参加小梦想互助吧！
                 </div>
-                <button class="share">邀 请</button>
+                <p style="width:3.3rem;text-align:center;margin:0 auto">点击右上角“...”分享转发给好友</p>
             </div>
             <img class='close' src='http://tdream.antit.top/image/close.png'>
+            <img src="https://tdream.antit.top/image/guideLine.png" alt="" style="width:0.98rem;height:1.80rem;position: absolute;right: 0.7rem;top: 0.15rem">
         </div>
     </div>
     <script src="../lib/jquery-1.12.3.min.js"></script>
@@ -76,7 +131,6 @@
     <script src="//cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/jquery-weui/0.8.3/js/jquery-weui.min.js"></script>
     <script src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
-    <script src="../lib/rem.js"></script>
     <script src="../js/payInfo.js"></script>
 </body>
 </html>

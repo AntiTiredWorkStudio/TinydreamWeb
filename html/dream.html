@@ -26,22 +26,22 @@
  -->
     <div class='dream'>
     <!-- 当没有梦想的时候显示空 -->
-        <div class='empty' style="display:none">
+        <div class='empty' style="display:none;position: relative;">
             <div class='empty_bg'></div>
         </div>
-        <div class='dream_main' style="display:block">
+        <div class='dream_main' style="display:block;position: relative;">
             <div class='dreamTab'>
                 <div class='dream_type'>
                     <ul>
-                        <li class="active">小梦想</li>
-                        <li>幸运梦想</li>
+                        <li id="tab_dream" class="active">小梦想</li>
+                        <li id="tab_lucky">幸运梦想</li>
                     </ul>
                 </div>
             </div>
             <div class='dream_list'>
-                
-            </div>
+            </div>        
         </div>
+        <div class='add' style="float:right"></div> 
         <script type="text/template" id="template">
             <div class='dream_info'>
                 <div class='dream_logo'></div>
@@ -49,12 +49,12 @@
                     <div class='dream_msg'><%= title %></div>
                     <div class='createTime'>
                         <span class='time'><%= status %></span>
-                        <button class='view' data-id="<%= did %>">查看详情</button>
+                        <button class='view' data-state="<%= state %>" data-id="<%= did %>">查看详情</button>
                     </div>
                 </div>
             </div>
         </script>
-        <div class='add'></div>
+        
         <div class="mask close">
             <div class="mask_main">
                 <p>
@@ -112,9 +112,9 @@
     </div>
     <script src="../lib/jquery-1.12.3.min.js"></script>    
     <script src="../lib/rem.js"></script>
-    <script src="../js/dream.js"></script>
 	<script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
+    <script src="../js/dream.js"></script>
     <script src="../lib/underscore-min.js"></script>
 	<script>
 		console.log(Options.GetUserInfo());

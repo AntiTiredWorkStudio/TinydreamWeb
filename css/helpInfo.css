@@ -39,7 +39,8 @@ body{
 .home .home_content .dream_info .progress .circle{
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%)
 }
 .home .home_content .dream_info .progress .timeout{
     position: absolute;
@@ -81,6 +82,7 @@ body{
     margin: 0 auto;
     overflow: hidden;
     margin-top: 0.40rem;
+    position: relative;
 }
 .home .home_content .dream_info .targetAndPrice .target{
     float: left;
@@ -95,13 +97,24 @@ body{
     display: block;
     text-align: center;
 }
+.home .home_content .dream_info .targetAndPrice .target .target_money, .home .home_content .dream_info .targetAndPrice .price .price_money.right{
+
+}
 .home .home_content .dream_info .targetAndPrice .target .target_tip,.home .home_content .dream_info .targetAndPrice .price .price_tip{
     font-size: 0.24rem;
     color: #999;
     display: block;
 }
-.home .home_content .dream_info .targetAndPrice .price{
+.home .home_content .dream_info .targetAndPrice .price {
     float: right;
+}
+.home .home_content .dream_info .targetAndPrice .price .price_tip{
+    display: inline-block;
+    margin-top: 0.1rem;
+}
+.home .home_content .dream_info .targetAndPrice .price .price_money.count{
+    margin-top: 0.05rem;
+    margin-bottom: 0;
 }
 /* 参与互助--样式处理 */
 .home .home_content .dream_info .join_help::after{

@@ -11,9 +11,9 @@ body{
     margin: 0 auto;
     margin-top: 0.2rem;
     margin-bottom: 0.2rem;
-    height: 1.88rem;
-    background: url(http://tdream.antit.top/image/banner.png) no-repeat;
-    background-size: 6.8rem 1.88rem;
+    height: 1.86rem;
+    background: url(https://tdream.antit.top/image/Red_SendPack.jpg) no-repeat;
+    background-size: 6.8rem 1.86rem;
     border-radius: 0.1rem;
 }
 .home .male_screen{
@@ -112,8 +112,6 @@ body{
     font-size: 0.52rem;
     color: #ffc057;
     text-align: center;
-    margin-top: 0.3rem;
-    margin-bottom: 0.1rem;
 }
 .home .help .progress .dreamInfo .tip_mes{
     font-size: 0.24rem;
@@ -159,7 +157,7 @@ body{
 }
 .home .help .tip_msg{
     text-align: center;
-    font-size: 0.2rem;
+    font-size: 0.19rem;
     color: #999;
     padding: 0 0 0.2rem 0;
 }
@@ -404,11 +402,11 @@ body{
     background-size: 0.46rem 0.42rem;
 }
 .icon_notice .right .text{
-    width: 0.18rem;
-    height: 0.18rem;
+    width: 0.2rem;
+    height: 0.2rem;
     background: red;
     border-radius: 50%;
-    font-size: 0.16rem;
+    font-size: 0.24rem;
     color: #fff;
     text-align: center;
     line-height: 0.18rem;

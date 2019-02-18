@@ -7,23 +7,21 @@
     <title>参与互助</title>
     <link rel="stylesheet" href="css/public.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/weui.css">
 </head>
 <body>
     <div class="home">
         <div class="banner"></div>
         <div class="male_screen">
           <span class="tip">暂无人购买</span>
-          <marquee behavior="" direction="up" scrolldelay="500" class="cont" style="width:100%;height:100%;">
-    
-          </marquee>
-        </div>
-        <script type="text/template" id="template">
-          <div class="info">
-            <div class="logo" style="background-image:url(<%= headicon %>)"></div>
-            <span class="username"><%= nickname %></span>
-            <span class="male_tip"><%= timer %>前参与了<%= dcount %>份小梦想</span>
+          <div class="cont">
+            <div class="info">
+              <div class="logo"></div>
+              <span class="username"></span>
+              <span class="male_tip"></span>
+            </div>
           </div>
-        </script>
+        </div>
         <div class="help">
           <div class="title pool_title"></div>
           <div class="progress">
@@ -132,25 +130,27 @@
           </ul>
         </div>
         
-        <div class='mask' style="display:none">
+        <div class='mask' style="display:none;width: 100%;height: 100%;position: fixed;left: 0">
             <div class='bg'>
                 <img src='http://tdream.antit.top/image/blankcrown.png' class='img'>
                 <div class='title'>幸运提示</div>
-                <div class='mask_tip'>
+                <div id="awardHint" class='mask_tip'>
                     恭喜您成为梦想互助XXXX期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!
                 </div>
-                <button class='dream'>完善梦想</button>
+                <button id="btn_perfect" class='dream'>完善梦想</button>
             </div>
         </div>
         <div class='icon_notice'>
             <div class='left'></div>
             <div class='right'>
-                <div class='text'></div>
+                <div class='text ntext'></div>
             </div>
         </div>
     </div>
     <script src="lib/jquery-1.12.3.min.js"></script>
     <script src="lib/underscore-min.js"></script>
+    <script src="lib/weui.js"></script>
+    <script src="lib/weuiManager.js"></script>
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script src="lib/rem.js"></script>

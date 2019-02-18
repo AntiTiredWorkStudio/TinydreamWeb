@@ -1,0 +1,57 @@
+.red_envelope {
+    border-top: 1px solid #dedcdc;
+    width: 100%;
+    position: relative;
+}
+/* 文字处理 */
+.red_envelope .record{
+    width: 6.9rem;
+    margin: 0.5rem auto 0.3rem;
+    overflow: hidden;
+}
+.red_envelope .record span{
+    font-size: 0.3rem;
+    /* text-decoration: underline; */
+    color: #595959;
+    float: right;
+    border-bottom: 1px solid #595959;
+}
+/* 背景处理 */
+.red_envelope .bg_image{
+    width: 7.5rem;
+    height: 6.08rem;
+    background: url(https://tdream.antit.top/image/Red_SendLucky.jpg) no-repeat;
+    background-size: 7.5rem 6.08rem;
+}
+/* 按钮处理 */
+.red_envelope .btns{
+    width: 5.12rem;
+    margin: 0.6rem auto 0;
+}
+.red_envelope .btns button{
+    width: 100%;
+    height: 0.88rem;
+    border-radius: 0.44rem;
+    text-align: center;
+    font-size: 0.36rem;
+    border: none;
+}
+.red_envelope .btns button.ordinary{
+    background-color: #ffc057;
+    color: white;
+    margin-bottom: 0.3rem;
+}
+.red_envelope .btns button.luck{
+    background-color: #deceee;
+    color: #999;
+    margin-bottom: 1.08rem;
+}
+/* 规则按钮处理 */
+.red_envelope .btns p{
+    text-align: center;
+    font-size: 0.3rem;
+}
+.red_envelope .btns p span{
+    border-bottom: 1px solid #595959;
+    color: #595959;
+}

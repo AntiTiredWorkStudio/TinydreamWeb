@@ -71,9 +71,10 @@ var onPoolViewBuild = function (poolInfo) {
                 var content = $('#pool_List').html();
                 $('#pool_List').html(content + data[snippetID]);
                 switchTypeClass(PoolManager.typeSelection);
-                $('#btn_join').click(onJoinPool);
                 var eventList = PoolManager[PoolManager.typeSelection].poolList;
                 for(var key in eventList){
+//					console.log("[btn_join]"+eventList[key].pid);
+					$('#btn_join_'+eventList[key].pid).click(onJoinPool);
                     $('#poolinfo_'+eventList[key].pid).click(onClickPoolInfo);
                 }
             }
@@ -100,8 +101,9 @@ var onClickPoolInfo = function (res) {
 }
 
 var onJoinPool = function (res) {
-    //console.log(res.currentTarget);
-    console.log(res.currentTarget.attributes[1].nodeValue);
+//     console.log("btn_join_",res.currentTarget);
+    // console.log(res.currentTarget.attributes[1].nodeValue);
+	
     var tPid = res.currentTarget.attributes[1].nodeValue;
     TD_Request('ds','buy',{"uid":uid,"pid":tPid},function(code,data){
         console.log(data);
