@@ -1,0 +1,50 @@
+body,html{
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+}
+.rules{
+    border-top: 1px solid #d2d0cf;
+    width: 100%;
+}
+.rules .main{
+    width: 100%;
+    background-color: #fff;
+}
+.rules .content{
+    width: 7.1rem;
+    margin: 0 auto;
+    margin-bottom: 0.2rem;
+    padding: 0.26rem 0 0.3rem;
+}
+.rules .content .title{
+    font-size: 0.3rem;
+}
+.rules .content .title .icon{
+    width: 0.36rem;
+    height: 036rem;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: 0.36rem 0.36rem;
+    margin-right: 0.1rem;
+}
+.rules .content p{
+    width: 6.18rem;
+    margin: 0.2rem auto;
+}
+.rules .content .title .icon_one{
+    background-image: url(https://tdream.antit.top/image/Red_1.jpg);
+    background-size: 0.36rem 0.36rem;
+}
+.rules .content .title .icon_two{
+    background-image: url(https://tdream.antit.top/image/Red_2.jpg);
+    background-size: 0.36rem 0.36rem;
+}
+.rules .content .title .icon_three{
+    background-image: url(https://tdream.antit.top/image/Red_3.jpg);
+    background-size: 0.36rem 0.36rem;
+}
+.rules .content .title .icon_four{
+    background-image: url(https://tdream.antit.top/image/Red_4.jpg);
+    background-size: 0.36rem 0.36rem;
+}
