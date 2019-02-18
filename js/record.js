@@ -5,6 +5,7 @@ $(function(){
     var userInfo = Options.GetUserInfo();
     // 用户头像
     $('.headicon').css('background','url('+userInfo.headimgurl+') no-repeat')
+    $('.tip').html(userInfo.nickname+'收到的梦想红包共')
     $('.top ul li').click(function(){
         $(this).addClass('active').siblings().removeClass('active')
     })
