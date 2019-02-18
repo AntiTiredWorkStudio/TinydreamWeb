@@ -13,13 +13,11 @@ $(function(){
     $('.r_left').click(function(){  
         $('.tip').html(userInfo.nickname+'收到的梦想红包共')
         $('.count').html('15')
-        $('.txt').html('个')
         $('.tip_txt').html('')
     })
     $('.r_right').click(function(){  
         $('.tip').html(userInfo.nickname+'发出的梦想红包共')
         $('.count').html('15')
-        $('.txt').html('元')
-        $('.tip_txt').html('发出红包总数<span style="color:#f25542">15</span>个')
+        $('.tip_txt').html('发出红包总数<span style="color:#f25542">15</span>元').css('font-size','0.3rem')
     })
 })
