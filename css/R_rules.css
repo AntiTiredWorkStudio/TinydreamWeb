@@ -21,16 +21,20 @@ body,html{
     font-size: 0.3rem;
 }
 .rules .content .title .icon{
+    display: inline-block;
     width: 0.36rem;
     height: 036rem;
     border-radius: 50%;
     background-repeat: no-repeat;
     background-size: 0.36rem 0.36rem;
     margin-right: 0.1rem;
+    vertical-align: middle;
 }
 .rules .content p{
     width: 6.18rem;
     margin: 0.2rem auto;
+    font-size: 0.28rem;
+    color: #999;
 }
 .rules .content .title .icon_one{
     background-image: url(https://tdream.antit.top/image/Red_1.jpg);
