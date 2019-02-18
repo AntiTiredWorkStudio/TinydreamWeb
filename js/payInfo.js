@@ -23,6 +23,7 @@ $(function(){
         if(buy.buy.dayLim == 0){
           num = 0;
         }
+        console.log(buy)
         $('.copies_money span').html(num);
         $('.price span.fee').html(data.pool.ubill/100 * $('.copies_money span').html());
         $('.icon_add').click(function(){
