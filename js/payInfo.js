@@ -98,7 +98,7 @@ if (!ExistStorage("buy")) {
             // 统一下单
 
             function wxpay(fee) {
-              var actions = JSON.parse(window.localStorage.getItem('actions'));
+                /*var actions = JSON.parse(window.localStorage.getItem('actions'));
 			  
               TD_Request("ds","pay",{
                 uid:userInfo.openid,
@@ -124,7 +124,7 @@ if (!ExistStorage("buy")) {
               },function(code,data){
                 alert(JSON.stringify(data))
               })
-		          // return;
+		  return;*/
 
                 WeixinJSBridge.invoke(
                     'getBrandWCPayRequest', {
