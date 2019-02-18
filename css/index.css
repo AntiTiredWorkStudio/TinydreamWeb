@@ -14,6 +14,7 @@ body{
     height: 1.88rem;
     background: url(http://tdream.antit.top/image/banner.png) no-repeat;
     background-size: 6.8rem 1.88rem;
+    border-radius: 0.1rem;
 }
 .home .male_screen{
     overflow: hidden;
