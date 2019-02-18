@@ -1,6 +1,7 @@
 WebApp.JSAPI.Init();
 $(function(){
-	Loading();
+    window.localStorage.clear();
+    Loading();
     // $('.mask').css('height',$(window).height());
      // 检测是否登录
      WebApp.Init('wxc5216d15dd321ac5',//appid
@@ -14,7 +15,6 @@ $(function(){
            $('.right').click(function(){
                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/notice.html"
            })
-           window.localStorage.clear();
         //    清除mainpool
            if(localStorage.getItem('mainpool')){
                localStorage.clear('mainpool')
