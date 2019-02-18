@@ -80,5 +80,12 @@
 }
 .content .info .right{
     float: right;
+}
+.content .info .right .count{
     font-size: 0.36rem;
+    margin-bottom: 0.14rem;
+}
+.content .info .right .f_count{
+    font-size: 0.26rem;
+    color: #999;
 }
