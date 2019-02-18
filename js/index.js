@@ -10,15 +10,13 @@ $(function(){
            console.log(result,data);
            var userInfo = Options.GetUserInfo();
           // alert(userInfo.openid);
-          if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                $('.banner').click(function(){
+            $('.banner').click(function(){
+                if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
                     window.location.href == 'window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/record.html"'
-                })
-          }else{
-                $('.banner').click(function(){
+                }else{
                     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
-                })
-          }
+                }
+            })
           $('#test').html(JSON.stringify(Options.GetUserInfo()));
            // 系统通知
            $('.right').click(function(){
