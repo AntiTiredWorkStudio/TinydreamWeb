@@ -1,7 +1,8 @@
 WebApp.JSAPI.Init();
 if(!ExistStorage("buy")){
+	$("body").html("");
 	window.location.href="../index.html";
-}
+}else{
 $(function(){
     var pay = null;
     var userInfo = Options.GetUserInfo(); 
@@ -9,6 +10,7 @@ $(function(){
     TD_Request("ds", "ord", {
       action:localStorage.getItem('buy')
     }, function(code,data){
+	  RemoveStorage('buy');
       localStorage.setItem('actions',JSON.stringify(data.actions));
       // 请求成功
       if(code == 0){
@@ -286,3 +288,4 @@ $(function(){
       window.location.href="http://tinydream.antit.top/TinydreamWeb/html/dreamHelp.html";
     })
 })
+}
