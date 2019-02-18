@@ -14,6 +14,7 @@ $(function(){
            $('.right').click(function(){
                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/notice.html"
            })
+           window.localStorage.clear();
         //    清除mainpool
            if(localStorage.getItem('mainpool')){
                localStorage.clear('mainpool')
