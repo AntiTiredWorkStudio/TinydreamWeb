@@ -23,12 +23,12 @@ body,html{
 .rules .content .title .icon{
     display: inline-block;
     width: 0.36rem;
-    height: 036rem;
+    height: 0.36rem;
     border-radius: 50%;
     background-repeat: no-repeat;
     background-size: 0.36rem 0.36rem;
     margin-right: 0.1rem;
-    vertical-align: middle;
+    vertical-align: top;
 }
 .rules .content p{
     width: 6.18rem;
