@@ -28,7 +28,7 @@
     width: 2.9rem;
     float: right;
 }
-.header .top ul li.active{
+.header .top ul li.active span{
     border-bottom: 1px solid #f25542;
     color:#f25542;
 }
