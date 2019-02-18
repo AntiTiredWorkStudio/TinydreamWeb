@@ -30,6 +30,8 @@ $(function(){
           if(pay != null){
             alert('您还有尚未支付的订单，支付完成后重试')
             return;
+          }else if(true){
+            console.log(data.actions)
           }
           num++;
           if(num > buy.buy.dayLim) {
