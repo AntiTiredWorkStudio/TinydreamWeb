@@ -41,7 +41,7 @@
 .header .headicon{
     width: 1.6rem;
     height: 1.6rem;
-    margin: 0.4rem auto 0.2rem;
+    margin: 0.4rem auto 0.5rem;
     background: red;
     background-size: 1.6rem 1.6rem;
 }
@@ -50,7 +50,7 @@
     text-align: center;
 }
 .header .user p{
-    margin-top: 0.3rem;
+    /* margin-top: 0.3rem; */
     font-size: 1.2rem;
     text-align: center;
 }
