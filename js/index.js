@@ -2,7 +2,7 @@ WebApp.JSAPI.Init();
 $(function(){
     window.localStorage.clear();
     Loading();
-    // $('.mask').css('height',$(window).height());
+    $('.packmask').css('height',$(window).height());
      // 检测是否登录
      WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){//result:请求状态,data 请求结果
@@ -15,13 +15,19 @@ $(function(){
            $('.right').click(function(){
                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/notice.html"
            })
+        //    测试
            $('.banner').click(function(){
+                if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
+                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/record.html"
+                }else{
+                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
+                }
+            })
             if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/record.html"
+                $('.packmask').show()
             }else{
-                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
+                $('.packmask').hide()
             }
-        })
         //    清除mainpool
            if(localStorage.getItem('mainpool')){
                localStorage.clear('mainpool')
