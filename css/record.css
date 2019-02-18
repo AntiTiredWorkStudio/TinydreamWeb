@@ -58,12 +58,14 @@
 .content {
     width: 100%;
     background-color: #fff;
+    overflow: hidden;
 }
 .content .info{
     width: 6.9rem;
     margin: 0 auto;
     padding: 0.2rem 0;
     border-bottom: 1px solid #f0f0f0;
+    overflow: hidden;
 }
 .content .info .left{
     float: left;
