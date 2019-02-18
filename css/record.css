@@ -54,3 +54,29 @@
     font-size: 1.2rem;
     text-align: center;
 }
+/* 列表部分处理 */
+.content {
+    width: 100%;
+    background-color: #fff;
+}
+.content .info{
+    width: 6.9rem;
+    margin: 0 auto;
+    padding: 0.2rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.content .info .left{
+    float: left;
+}
+.content .info .left .username{
+    font-size: 0.36rem;
+    margin-bottom: 0.2rem;
+}
+.content .info .left .time{
+    color: #999;
+    font-size: 0.26rem;
+}
+.content .info .right{
+    float: right;
+    font-size: 0.36rem;
+}
