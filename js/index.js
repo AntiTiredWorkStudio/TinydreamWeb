@@ -11,6 +11,14 @@ $(function(){
            var userInfo = Options.GetUserInfo();
           // alert(userInfo.openid);
           $('#test').html(JSON.stringify(Options.GetUserInfo()));
+        //   测试
+        $('.banner').click(function(){
+            if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
+                window.location.href == "http://tinydream.antit.top/TinydreamWeb/html/record.html"
+            }else{
+                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
+            }
+        })
            // 系统通知
            $('.right').click(function(){
                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/notice.html"
@@ -244,11 +252,4 @@ $(function(){
     // $('.banner').click(function(){
     //     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
     // })
-    $('.banner').click(function(){
-        if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-            window.location.href == "http://tinydream.antit.top/TinydreamWeb/html/record.html"
-        }else{
-            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
-        }
-    })
 })
