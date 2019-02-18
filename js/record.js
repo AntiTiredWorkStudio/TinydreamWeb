@@ -18,6 +18,6 @@ $(function(){
     $('.r_right').click(function(){  
         $('.tip').html(userInfo.nickname+'发出的梦想红包共')
         $('.count').html('15')
-        $('.tip_txt').html('发出红包总数<span style="color:#f25542">15</span>元').css('font-size','0.3rem')
+        $('.tip_txt').html('发出红包总数<span style="color:#f25542">75</span>元').css('font-size','0.3rem')
     })
 })
