@@ -21,7 +21,7 @@ $(function(){
         $('.tip').html(userInfo.nickname+'发出的梦想红包共')
         $('.count').html('15')
         $('.tip_txt').html('发出红包总数<span style="color:#f25542">75</span>元').css('font-size','0.3rem');
-        $('.info .right .coun').html('2个');
-        $('.info .right .f_count').html('2/2');
+        $('.info .right .coun').html('3个');
+        $('.info .right .f_count').html('3/3');
     })
 })
