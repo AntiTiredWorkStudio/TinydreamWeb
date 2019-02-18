@@ -29,6 +29,8 @@
     float: right;
 }
 .header .top ul li.active span{
+    display: inline-block;
+    height: 100%;
     border-bottom: 1px solid #f25542;
     color:#f25542;
 }
