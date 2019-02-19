@@ -7,19 +7,23 @@ if (!ExistStorage("buy")) {
         var pay = null;
         var userInfo = Options.GetUserInfo();
         var buy = JSON.parse(localStorage.getItem('buy'));
+        var actions;
+        var pool;
         TD_Request("ds", "ord", {
             action: localStorage.getItem('buy')
         }, function (code, data) {
             RemoveStorage('buy');
             localStorage.setItem('actions', JSON.stringify(data.actions));
+            actions = data.actions
+            pool = data.pool;
             // 请求成功
             if (code == 0) {
                 console.log(data)
-                $('.dream_title').html(data.pool.ptitle);
-                $('.mask .tip').html('您已成功参与' + data.pool.pid + '期小梦想互助')
-                $('.help_money').html("￥" + data.pool.cbill / 100);
-                $('.target_money').html("￥" + data.pool.tbill / 100)
-                drawCircle(ctx, (data.pool.cbill / 100) / (data.pool.tbill / 100));
+                $('.dream_title').html(pool.ptitle);
+                $('.mask .tip').html('您已成功参与' + pool.pid + '期小梦想互助')
+                $('.help_money').html("￥" + pool.cbill / 100);
+                $('.target_money').html("￥" + pool.tbill / 100)
+                drawCircle(ctx, (pool.cbill / 100) / (pool.tbill / 100));
                 // 能够卖的份数
                 var num = 1;
                 if (buy.buy.dayLim == 0) {
@@ -27,53 +31,69 @@ if (!ExistStorage("buy")) {
                 }
                 console.log(buy)
                 $('.copies_money span').html(num);
-                $('.price span.fee').html(data.pool.ubill / 100 * $('.copies_money span').html());
+                $('.price span.fee').html(pool.ubill / 100 * $('.copies_money span').html());
                 $('.icon_add').click(function () {
-                    if (pay != null) {
-                        alert('您还有尚未支付的订单，支付完成后重试')
-                        return;
-                    } else if (data.actions.pay.pless - $('.copies_money span').html(num) == 0) {
+                    // if (pay != null) {
+                    //     alert('您还有尚未支付的订单，支付完成后重试')
+                    //     return;
+                    /* } else */if (actions.pay.pless - $('.copies_money span').html(num) == 0) {
                         $('.copies_money span').html('0');
                         alert('该梦想池已达到最大数量');
                         return;
                     } else {
                         num++;
-                        console.log(data.actions.pay.pless - $('.copies_money span').html(num))
+                        console.log(actions.pay.pless - $('.copies_money span').html(num))
                         if (num > buy.buy.dayLim) {
                             num = buy.buy.dayLim;
                             $('.copies_money span').html(num);
                             console.log(num);
                         }
 
-                        if (num > data.actions.pay.pless) {
-                            num = data.actions.pay.pless;
+                        if (num > actions.pay.pless) {
+                            num = actions.pay.pless;
                             $('.copies_money span').html(num);
                             console.log(num);
                         }
 
                         $('.copies_money span').html(num);
-                        $('.price span.fee').html(data.pool.ubill / 100 * $('.copies_money span').html());
+                        $('.price span.fee').html(pool.ubill / 100 * $('.copies_money span').html());
+                        TD_Request('ds','ord',{
+                            action:JSON.stringify(buy)
+                        },function(code,data){
+                            actions = data.actions
+                            pool = data.pool
+                        },function(code,data){
+                            console.log(data)
+                        })
                     }
                 })
                 $('.icon_incer').click(function () {
-                    if (pay != null) {
-                        alert('您还有尚未支付的订单，支付完成后重试')
-                        return;
-                    }
+                    // if (pay != null) {
+                    //     alert('您还有尚未支付的订单，支付完成后重试')
+                    //     return;
+                    // }
                     num--;
                     if (num <= 1) {
                         num = 1;
                         $('.copies_money span').html(num);
                     }
                     $('.copies_money span').html(num);
-                    $('.price span.fee').html(data.pool.ubill / 100 * $('.copies_money span').html());
+                    $('.price span.fee').html(pool.ubill / 100 * $('.copies_money span').html());
+                    TD_Request('ds','ord',{
+                        action:JSON.stringify(buy)
+                    },function(code,data){
+                        actions = data.actions
+                        pool = data.pool;
+                    },function(code,data){
+                        console.log(data)
+                    })
                 })
-                $('.price i').html(data.pool.ubill / 100 + "元/份");
+                $('.price i').html(pool.ubill / 100 + "元/份");
             }
             // 倒计时
             setInterval(function () {
-                var ptime = parseInt(data.pool.ptime);
-                var daurtion = parseInt(data.pool.duration);
+                var ptime = parseInt(pool.ptime);
+                var daurtion = parseInt(pool.duration);
                 var time = parseInt(new Date().getTime() / 1000);
                 var timeout = parseInt((ptime + daurtion) - time);
                 if (timeout >= 0) {
@@ -136,14 +156,14 @@ if (!ExistStorage("buy")) {
                     "paySign": pay.paySign //微信签名 
                 }, function (res) {
                     if (res.err_msg == "get_brand_wcpay_request:ok") {
-                        var actions = JSON.parse(window.localStorage.getItem('actions'));
+                        // var actions = JSON.parse(window.localStorage.getItem('actions'));
 
                         TD_Request("ds", "pay", {
                             uid: userInfo.openid,
                             oid: actions.pay.oid,
                             bill: fee * 100,
                             pcount: $('.copies_money span').html(),
-                            action: window.localStorage.getItem('actions'),
+                            action: JSON.stringify(actions),
                             did: $('#dream').attr("data-values")
                         }, function (code, data) {
                             //alert(JSON.stringify(data));
@@ -181,7 +201,7 @@ if (!ExistStorage("buy")) {
                 if (pay == null) {
                     console.log("pay is null", data.order.oid, fee * 100, userInfo.openid);
                     TD_Request("ds", "wxpayweb", {
-                        oid: data.order.oid,
+                        oid: actions.oid,
                         bill: fee * 100,
                         uid: userInfo.openid
                     }, function (code, data) {
