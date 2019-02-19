@@ -1,8 +1,8 @@
 WebApp.JSAPI.Init();
 if (!ExistStorage("buy")) {
-    $("body").html("");
-    window.location.href = "../index.html";
-} else {
+    // $("body").html("");
+    // window.location.href = "../index.html";
+// } else {
     $(function () {
         var actions = null,
             pool = null;
