@@ -14,7 +14,7 @@ if (!ExistStorage("buy")) {
         }
         function pay_ord(){
             TD_Request("ds", "ord", {
-                action: localStorage.getItem('buy')
+                action: JSON.stringify(buy)
             }, function (code, data) {
                 RemoveStorage('buy');
                 localStorage.setItem('actions', JSON.stringify(data.actions));
