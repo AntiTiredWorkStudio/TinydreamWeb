@@ -33,7 +33,6 @@ if (!ExistStorage("buy")) {
                     $('.icon_add').click(function () {
                         if (pay != null) {
                             // alert('您还有尚未支付的订单，支付完成后重试')
-                            pay_ord()
                             num++;
                             console.log(data.actions.pay.pless - $('.copies_money span').html(num))
                             if (num > buy.buy.dayLim) {
@@ -50,6 +49,7 @@ if (!ExistStorage("buy")) {
     
                             $('.copies_money span').html(num);
                             $('.price span.fee').html(data.pool.ubill / 100 * $('.copies_money span').html());
+                            pay_ord()
                             return;
                         } else if (data.actions.pay.pless - $('.copies_money span').html(num) == 0) {
                             $('.copies_money span').html('0');
@@ -77,7 +77,6 @@ if (!ExistStorage("buy")) {
                     $('.icon_incer').click(function () {
                         if (pay != null) {
                             // alert('您还有尚未支付的订单，支付完成后重试')
-                            pay_ord()
                             num--;
                             if (num <= 1) {
                                 num = 1;
@@ -85,6 +84,7 @@ if (!ExistStorage("buy")) {
                             }
                             $('.copies_money span').html(num);
                             $('.price span.fee').html(data.pool.ubill / 100 * $('.copies_money span').html());
+                            pay_ord()
                             return;
                         }else{
                             num--;
