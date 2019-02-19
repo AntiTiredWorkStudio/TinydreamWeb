@@ -78,6 +78,7 @@ var onPoolViewBuild = function (poolInfo) {
 					$('#btn_join_'+eventList[key].pid).click(onJoinPool);
                     $('#poolinfo_'+eventList[key].pid).click(onClickPoolInfo);
                 }
+				BottomLoading = false;//加载完毕
             }
         );
     }
