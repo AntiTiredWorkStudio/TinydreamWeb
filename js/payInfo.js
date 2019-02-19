@@ -7,8 +7,8 @@ if (!ExistStorage("buy")) {
         var pay = null;
         var userInfo = Options.GetUserInfo();
         var buy = JSON.parse(localStorage.getItem('buy'));
-        pay();
-        function pay(){
+        pay_ord();
+        function pay_ord(){
             TD_Request("ds", "ord", {
                 action: localStorage.getItem('buy')
             }, function (code, data) {
@@ -34,7 +34,7 @@ if (!ExistStorage("buy")) {
                         if (pay != null) {
                             // alert('您还有尚未支付的订单，支付完成后重试')
                             // return;
-                            pay()
+                            pay_ord()
                         } else if (data.actions.pay.pless - $('.copies_money span').html(num) == 0) {
                             $('.copies_money span').html('0');
                             alert('该梦想池已达到最大数量');
@@ -62,7 +62,7 @@ if (!ExistStorage("buy")) {
                         if (pay != null) {
                             // alert('您还有尚未支付的订单，支付完成后重试')
                             // return;
-                            pay()
+                            pay_ord()
                         }
                         num--;
                         if (num <= 1) {
