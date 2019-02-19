@@ -27,11 +27,11 @@ $(function(){
                     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
                 }
             })
-            if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                $('.packmask').show()
-            }else{
-                $('.packmask').hide()
-            }
+            // if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
+            //     $('.packmask').show()
+            // }else{
+            //     $('.packmask').hide()
+            // }
         //    清除mainpool
            if(localStorage.getItem('mainpool')){
                localStorage.clear('mainpool')
