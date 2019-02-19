@@ -502,10 +502,18 @@ body{
 .packmask .bg .main p{
     font-size: 0.3rem;
     color: #ffc057;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.1rem;
     text-align: center;
 }
 .packmask .bg .main p.msg{
     font-size: 0.36rem;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
+}
+.packmask .bg .main button{
+    width: 1.68rem;
+    height: 1.68rem;
+    opacity: 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
