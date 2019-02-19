@@ -499,3 +499,12 @@ body{
     background: url(https://tdream.antit.top/image/Red_avatar.jpg) no-repeat;
     background-size: 0.88rem 0.88rem;
 }
+.packmask .bg .main p{
+    font-size: 0.3rem;
+    color: #ffc057;
+    margin-bottom: 0.3rem;
+}
+.packmask .bg .main p.msg{
+    font-size: 0.36rem;
+    margin-bottom: 1.15rem;
+}
