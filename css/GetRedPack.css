@@ -33,15 +33,14 @@
     color: #ffc057;
     font-size: 0.28rem;
     width: 6.9rem;
-    padding: 0 0.3rem;
-    text-align: center;
+    margin: 0 auto;
 }
 .get_pack .footer{
     width: 100%;
 }
 .get_pack .footer p{
     width: 6.6rem;
-    padding: 0 0.45rem;
+    margin: 0 auto;
     color: #999;
     font-size: 0.24rem;
     margin-bottom: 0.1rem;
