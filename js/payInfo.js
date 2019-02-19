@@ -4,6 +4,7 @@ if (!ExistStorage("buy")) {
     window.location.href = "../index.html";
 } else {
     $(function () {
+        var actions = null,pool = null;
         var pay = null;
         var userInfo = Options.GetUserInfo();
         var buy = JSON.parse(localStorage.getItem('buy'));
@@ -17,85 +18,16 @@ if (!ExistStorage("buy")) {
                 // 请求成功
                 if (code == 0) {
                     console.log(data)
+                    actions = data.actions;
+                    pool = data.pool;
                     $('.dream_title').html(data.pool.ptitle);
                     $('.mask .tip').html('您已成功参与' + data.pool.pid + '期小梦想互助')
                     $('.help_money').html("￥" + data.pool.cbill / 100);
                     $('.target_money').html("￥" + data.pool.tbill / 100)
                     drawCircle(ctx, (data.pool.cbill / 100) / (data.pool.tbill / 100));
-                    // 能够卖的份数
-                    var num = 1;
-                    if (buy.buy.dayLim == 0) {
-                        num = 0;
-                    }
-                    console.log(buy)
-                    $('.copies_money span').html(num);
+                   
                     $('.price span.fee').html(data.pool.ubill / 100 * $('.copies_money span').html());
-                    $('.icon_add').click(function () {
-                        if (pay != null) {
-                            // alert('您还有尚未支付的订单，支付完成后重试')
-                            num++;
-                            console.log(data.actions.pay.pless - $('.copies_money span').html(num))
-                            if (num > buy.buy.dayLim) {
-                                num = buy.buy.dayLim;
-                                $('.copies_money span').html(num);
-                                console.log(num);
-                            }
-    
-                            if (num > data.actions.pay.pless) {
-                                num = data.actions.pay.pless;
-                                $('.copies_money span').html(num);
-                                console.log(num);
-                            }
-    
-                            $('.copies_money span').html(num);
-                            $('.price span.fee').html(data.pool.ubill / 100 * $('.copies_money span').html());
-                            pay_ord()
-                            return;
-                        } else if (data.actions.pay.pless - $('.copies_money span').html(num) == 0) {
-                            $('.copies_money span').html('0');
-                            alert('该梦想池已达到最大数量');
-                            return;
-                        } else {
-                            num++;
-                            console.log(data.actions.pay.pless - $('.copies_money span').html(num))
-                            if (num > buy.buy.dayLim) {
-                                num = buy.buy.dayLim;
-                                $('.copies_money span').html(num);
-                                console.log(num);
-                            }
-    
-                            if (num > data.actions.pay.pless) {
-                                num = data.actions.pay.pless;
-                                $('.copies_money span').html(num);
-                                console.log(num);
-                            }
-    
-                            $('.copies_money span').html(num);
-                            $('.price span.fee').html(data.pool.ubill / 100 * $('.copies_money span').html());
-                        }
-                    })
-                    $('.icon_incer').click(function () {
-                        if (pay != null) {
-                            // alert('您还有尚未支付的订单，支付完成后重试')
-                            num--;
-                            if (num <= 1) {
-                                num = 1;
-                                $('.copies_money span').html(num);
-                            }
-                            $('.copies_money span').html(num);
-                            $('.price span.fee').html(data.pool.ubill / 100 * $('.copies_money span').html());
-                            pay_ord()
-                            return;
-                        }else{
-                            num--;
-                            if (num <= 1) {
-                                num = 1;
-                                $('.copies_money span').html(num);
-                            }
-                            $('.copies_money span').html(num);
-                            $('.price span.fee').html(data.pool.ubill / 100 * $('.copies_money span').html());   
-                        }
-                    })
+                   
                     $('.price i').html(data.pool.ubill / 100 + "元/份");
                 }
                 // 倒计时
@@ -233,11 +165,86 @@ if (!ExistStorage("buy")) {
                 }
             })
         }
+
+         // 能够卖的份数
+         var num = 1;
+         if (buy.buy.dayLim == 0) {
+             num = 0;
+         }
+         console.log(buy)
+         $('.copies_money span').html(num);
+
+        $('.icon_add').click(function () {
+            if (pay != null) {
+                // alert('您还有尚未支付的订单，支付完成后重试')
+                num++;
+                console.log(actions.pay.pless - $('.copies_money span').html(num))
+                if (num > buy.buy.dayLim) {
+                    num = buy.buy.dayLim;
+                    $('.copies_money span').html(num);
+                    console.log(num);
+                }
+
+                if (num > actions.pay.pless) {
+                    num = actions.pay.pless;
+                    $('.copies_money span').html(num);
+                    console.log(num);
+                }
+
+                $('.copies_money span').html(num);
+                $('.price span.fee').html(data.pool.ubill / 100 * $('.copies_money span').html());
+                pay_ord()
+                return;
+            } else if (actions.pay.pless - $('.copies_money span').html(num) == 0) {
+                $('.copies_money span').html('0');
+                alert('该梦想池已达到最大数量');
+                return;
+            } else {
+                num++;
+                console.log(actions.pay.pless - $('.copies_money span').html(num))
+                if (num > buy.buy.dayLim) {
+                    num = buy.buy.dayLim;
+                    $('.copies_money span').html(num);
+                    console.log(num);
+                }
+
+                if (num > actions.pay.pless) {
+                    num = actions.pay.pless;
+                    $('.copies_money span').html(num);
+                    console.log(num);
+                }
+
+                $('.copies_money span').html(num);
+                $('.price span.fee').html(pool.ubill / 100 * $('.copies_money span').html());
+            }
+        })
+        $('.icon_incer').click(function () {
+            if (pay != null) {
+                // alert('您还有尚未支付的订单，支付完成后重试')
+                num--;
+                if (num <= 1) {
+                    num = 1;
+                    $('.copies_money span').html(num);
+                }
+                $('.copies_money span').html(num);
+                $('.price span.fee').html(pool.ubill / 100 * $('.copies_money span').html());
+                pay_ord()
+                return;
+            }else{
+                num--;
+                if (num <= 1) {
+                    num = 1;
+                    $('.copies_money span').html(num);
+                }
+                $('.copies_money span').html(num);
+                $('.price span.fee').html(pool.ubill / 100 * $('.copies_money span').html());   
+            }
+        })
         // TD_Request("ds", "ord", {
         //     action: localStorage.getItem('buy')
         // }, function (code, data) {
         //     RemoveStorage('buy');
-        //     localStorage.setItem('actions', JSON.stringify(data.actions));
+        //     localStorage.setItem('actions', JSON.stringify(actions));
         //     // 请求成功
         //     if (code == 0) {
         //         console.log(data)
