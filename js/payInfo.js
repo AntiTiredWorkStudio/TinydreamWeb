@@ -4,11 +4,14 @@ if (!ExistStorage("buy")) {
     window.location.href = "../index.html";
 } else {
     $(function () {
-        var actions,
-            pool;
+        var actions = null,
+            pool = null;
         var pay = null;
         var userInfo = Options.GetUserInfo();
         var buy = JSON.parse(localStorage.getItem('buy'));
+        if(actions == null || pool == null){
+            pay_ord();
+        }
         function pay_ord(){
             TD_Request("ds", "ord", {
                 action: localStorage.getItem('buy')
