@@ -201,7 +201,7 @@ if (!ExistStorage("buy")) {
                 if (pay == null) {
                     console.log("pay is null", data.order.oid, fee * 100, userInfo.openid);
                     TD_Request("ds", "wxpayweb", {
-                        oid: actions.oid,
+                        oid: actions.pay.oid,
                         bill: fee * 100,
                         uid: userInfo.openid
                     }, function (code, data) {
