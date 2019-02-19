@@ -503,8 +503,9 @@ body{
     font-size: 0.3rem;
     color: #ffc057;
     margin-bottom: 0.3rem;
+    text-align: center;
 }
 .packmask .bg .main p.msg{
     font-size: 0.36rem;
-    margin-bottom: 1.15rem;
+    margin-bottom: 0.6rem;
 }
