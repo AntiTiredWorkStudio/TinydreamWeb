@@ -198,8 +198,8 @@ if (!ExistStorage("buy")) {
                 var did = $('#dream').attr("data-values");
                 var fee = $('.price span.fee').html();
                 console.log(fee);
-                if (pay == null) {
-                    console.log("pay is null", data.order.oid, fee * 100, userInfo.openid);
+                // if (pay == null) {
+                //     console.log("pay is null", data.order.oid, fee * 100, userInfo.openid);
                     TD_Request("ds", "wxpayweb", {
                         oid: actions.pay.oid,
                         bill: fee * 100,
@@ -213,10 +213,10 @@ if (!ExistStorage("buy")) {
                     }, function (code, data) {
                         console.log(data)
                     });
-                } else {
-                    console.log("pay is not null");
-                    wxpay(fee)
-                }
+                // } else {
+                //     console.log("pay is not null");
+                //     wxpay(fee)
+                // }
             })
         }, function (code, data) {
             // 请求失败
