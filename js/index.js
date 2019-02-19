@@ -15,7 +15,11 @@ $(function(){
            $('.right').click(function(){
                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/notice.html"
            })
-        //    测试
+           //    梦想红包
+           $('.packmask button').click(function(){
+               window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html'
+           })
+           //    测试
            $('.banner').click(function(){
                 if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
                     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/record.html"
