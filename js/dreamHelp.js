@@ -58,6 +58,7 @@ var onPoolViewBuild = function (poolInfo) {
                 for(var key in eventList){
                     $('#poolinfo_'+eventList[key].pid).click(onClickPoolInfo);
                 }
+				BottomLoading = false;//加载完毕
             }
         );
     }else {
@@ -77,6 +78,7 @@ var onPoolViewBuild = function (poolInfo) {
 					$('#btn_join_'+eventList[key].pid).click(onJoinPool);
                     $('#poolinfo_'+eventList[key].pid).click(onClickPoolInfo);
                 }
+				BottomLoading = false;//加载完毕
             }
         );
     }
@@ -223,21 +225,24 @@ var PoolManager = {
         LoadPoolByIndex:function(complete){
             var typeObject = this;
             if(typeObject.seek>typeObject.count){
+				//alert(typeObject.seek+","+typeObject.count);
                 console.log("已经全部加载");
                 return;
-            }
-            this.PoolRequest(function (result, data) {
-                if(result){
-                    typeObject.seek = typeObject.seek + typeObject.size;
+            }else{
+				this.PoolRequest(function (result, data) {
+					if(result){
+						//
+						typeObject.seek = typeObject.seek + typeObject.size;
 
-                    var pools = DreamPoolsAnalysis(data.Pools);
-                    for(var key in pools){
-                        typeObject.poolList.push(pools[key]);
-                    }
+						var pools = DreamPoolsAnalysis(data.Pools);
+						for(var key in pools){
+							typeObject.poolList.push(pools[key]);
+						}
 
-                    complete(pools);
-                }
-            });
+						complete(pools);
+					}
+				});
+			}
         },
         PoolRequest:function (complete) {
             TD_Request("ds","plistf",
@@ -296,7 +301,14 @@ var DreamPoolsAnalysis = function (pools) {
     return pool
 }*/
 
+var BottomLoading = false;//当到底时的加载状态记录
+
 var OnReachBottom = function () {
+	if(BottomLoading){
+		return;
+	}else{
+		BottomLoading = true;
+	}
     PoolManager.LoadCurrentSelection(onPoolViewBuild);
     //console.log("页面触底");
 }

@@ -28,8 +28,8 @@ $(function(){
     var dtime = parseInt(poolInfo.duration);
     var time = ptime + dtime
     var endTime = GetLocalTime(time);
-    $('.endTime').html("结束时间"+endTime)
-
+    //$('.endTime').html("结束时间"+endTime)
+	$('.endTime').html("")//未搞好数据库前先隐藏显示
 
     $('.tab div').click(function(){
         $(this).addClass('active').siblings().removeClass('active')
