@@ -6,7 +6,7 @@ body{
     background-color: #fff;
 }
 /* banner */
-.swiper-container{
+.home .swiper-container{
     width: 6.8rem;
     height: 1.86rem;
     margin: 0.2rem auto;
