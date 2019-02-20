@@ -151,6 +151,7 @@ $(function(){
 					);
 					$('#btn_perfect').click(
 						function(res){
+                            res.stopPropagation()
                             console.log(res)
 							$('.mask').hide();
                             SaveStorage("award",JSON.stringify(data.award));
@@ -291,4 +292,7 @@ $(function(){
     //       el: '.swiper-pagination',
     //     },
     // });
+    $('.close').click(function(){
+        $(this).fadeOut();
+    })
 })
