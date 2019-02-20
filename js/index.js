@@ -150,7 +150,7 @@ $(function(){
                             console.log(res)
 							$('.mask').hide();
 							SaveStorage("award",JSON.stringify(data.award));
-							window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html";
+							// window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html";
 						}
 					);
                 }
