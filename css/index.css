@@ -9,12 +9,11 @@ body{
 .swiper-container{
     width: 6.8rem;
     height: 1.86rem;
+    margin: 0.2rem auto;
 }
 .banner{
     width: 6.8rem;
     margin: 0 auto;
-    margin-top: 0.2rem;
-    margin-bottom: 0.2rem;
     height: 1.86rem;
     background: url(http://tdream.antit.top/image/banner.png) no-repeat;
     background-size: 6.8rem 1.86rem;
