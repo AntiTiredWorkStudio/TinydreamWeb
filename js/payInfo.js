@@ -179,6 +179,7 @@ if (!ExistStorage("buy")) {
                             // }
                             $('.num').html(lid.join('、')).css("color", "#00d094");
                             console.log(data)
+                            // 关闭弹窗
                             localStorage.clear('buy');
                         }, function (code, data) {
                             alert(JSON.stringify(data))
@@ -306,10 +307,16 @@ if (!ExistStorage("buy")) {
             ctx.stroke()
         }
 
-        // 关闭弹窗
         $('.close').click(function () {
             $('.mask').fadeOut();
-            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dreamHelp.html";
+            TD_Request('dp','pinfo',{
+                pid:pool.pid
+            },function(code,data){
+                var obj = DreamPoolAnalysis(data.pool)
+                console.log(obj)
+                localStorage.setItem('poolinfo',JSON.stringify(obj))
+                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dreamHelp.html";
+            })
         })
 
         //分享
