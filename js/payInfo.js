@@ -314,7 +314,7 @@ if (!ExistStorage("buy")) {
             },function(code,data){
                 var obj = DreamPoolAnalysis(data.pool)
                 console.log(obj)
-                localStorage.setItem('poolinfo',JSON.stringify(obj))
+                localStorage.setItem('poolInfo',JSON.stringify(obj))
                 // if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM') {
                 //     return;
                 // }
