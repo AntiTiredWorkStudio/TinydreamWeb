@@ -6,14 +6,23 @@ body{
     background-color: #fff;
 }
 /* banner */
+.swiper-container{
+    width: 6.8rem;
+    height: 1.86rem;
+}
 .banner{
     width: 6.8rem;
     margin: 0 auto;
     margin-top: 0.2rem;
     margin-bottom: 0.2rem;
-    height: 1.88rem;
+    height: 1.86rem;
     background: url(http://tdream.antit.top/image/banner.png) no-repeat;
-    background-size: 6.8rem 1.88rem;
+    background-size: 6.8rem 1.86rem;
+    /* float: left; */
+}
+.banner1{
+    background: url(https://tdream.antit.top/image/Red_SendPack.jpg) no-repeat;
+    background-size: 6.8rem 1.86rem;
 }
 .home .male_screen{
     overflow: hidden;
