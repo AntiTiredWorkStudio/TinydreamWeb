@@ -20,12 +20,17 @@ $(function(){
                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html'
            })
            //    测试
-           $('.banner').click(function(){
+           $('.banner1').click(function(){
+                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
+            })
+            if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
+                $('.banner').show();
+            }else{
+                $('.banner2').hide()
+            }
+            $('.banner2').click(function(){
                 if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/record.html"
-                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/php/location.php"
-                }else{
-                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
+                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html'
                 }
             })
             // if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
