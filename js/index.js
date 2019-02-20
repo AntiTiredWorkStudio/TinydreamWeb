@@ -24,9 +24,9 @@ $(function(){
                 window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
             })
             if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                $('.banner').show();
+                $('.banner2').show();
             }else{
-                $('.banner2').hide()
+                $('.banner1').hide()
             }
             $('.banner2').click(function(){
                 if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
@@ -268,9 +268,9 @@ $(function(){
     //     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
     // })
     // 首页轮播
-    var swiper = new Swiper('.swiper-container', {
-        pagination: {
-          el: '.swiper-pagination',
-        },
-    });
+    // var swiper = new Swiper('.swiper-container', {
+    //     pagination: {
+    //       el: '.swiper-pagination',
+    //     },
+    // });
 })
