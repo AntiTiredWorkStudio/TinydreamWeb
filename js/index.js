@@ -25,8 +25,10 @@ $(function(){
             })
             if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
                 $('.banner2').show();
-            }else{
                 $('.banner1').hide()
+            }else{
+                $('.banner1').show()
+                $('.banner2').hide()
             }
             $('.banner2').click(function(){
                 if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
