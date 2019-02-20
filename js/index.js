@@ -147,6 +147,7 @@ $(function(){
 					);
 					$('#btn_perfect').click(
 						function(res){
+                            console.log(res)
 							$('.mask').hide();
 							SaveStorage("award",JSON.stringify(data.award));
 							window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html";
