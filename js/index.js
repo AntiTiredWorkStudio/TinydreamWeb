@@ -10,6 +10,7 @@ $(function(){
            console.log(result,data);
            var userInfo = Options.GetUserInfo();
           // alert(userInfo.openid);
+          var did;//幸运梦想编号
           $('#test').html(JSON.stringify(Options.GetUserInfo()));
            // 系统通知
            $('.right').click(function(){
@@ -67,6 +68,7 @@ $(function(){
             //请求成功的处理
             if(code == 0) {
                 console.log(data)
+                did = data.award.did;
                 // 首页公屏
                 // console.log(data)
                 var buyinfo = data.buyinfo;
@@ -151,8 +153,9 @@ $(function(){
 						function(res){
                             console.log(res)
 							$('.mask').hide();
-							SaveStorage("award",JSON.stringify(data.award));
-							// window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html";
+                            SaveStorage("award",JSON.stringify(data.award));
+                            SaveStorage("award",JSON.stringify({'did':did,state:'all'}));
+							window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/add.html";
 						}
 					);
                 }
