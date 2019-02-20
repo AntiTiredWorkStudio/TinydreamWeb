@@ -315,10 +315,14 @@ if (!ExistStorage("buy")) {
                 var obj = DreamPoolAnalysis(data.pool)
                 console.log(obj)
                 localStorage.setItem('poolinfo',JSON.stringify(obj))
-                if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM') {
-                    return;
-                }
-                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dreamHelp.html";
+                // if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM') {
+                //     return;
+                // }
+                if(obj.state == 'RUNNING'){
+                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/helpInfo.html";
+                }else{
+                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/end.html";
+                }    
             })
         })
 
