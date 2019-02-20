@@ -175,6 +175,9 @@ if (!ExistStorage("buy")) {
                                 lid.push(obj.lid)
                             }
                             $.each(lid, function (index, item) {
+                                if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
+                                    alert(item);
+                                }
                                 $('.num').html(item + "、").css("color", "#00d094");
                             })
                             console.log(data)
