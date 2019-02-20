@@ -262,4 +262,10 @@ $(function(){
     // $('.banner').click(function(){
     //     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
     // })
+    // 首页轮播
+    var swiper = new Swiper('.swiper-container', {
+        pagination: {
+          el: '.swiper-pagination',
+        },
+    });
 })
