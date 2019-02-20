@@ -155,7 +155,17 @@ $(function(){
 							$('.mask').hide();
                             SaveStorage("award",JSON.stringify(data.award));
                             SaveStorage("award",JSON.stringify({'did':did,state:'all'}));
-							window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/add.html";
+                            TD_Request('us','rnamegx',{
+                                uid:userInfo.openid
+                            },function(code,data){
+                                console.log(data)
+                                localStorage.setItem('dr','{"did":"'+did+'","state":"all"}')
+                                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/add.html'
+                            },function(code,data){
+                                console.log(data)   
+                               alert('您还未实名认证，请认证后在进行完善')
+                               window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/auth.html'
+                            });
 						}
 					);
                 }
