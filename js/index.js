@@ -66,6 +66,7 @@ $(function(){
              FinishLoading();
             //请求成功的处理
             if(code == 0) {
+                console.log(data)
                 // 首页公屏
                 // console.log(data)
                 var buyinfo = data.buyinfo;
