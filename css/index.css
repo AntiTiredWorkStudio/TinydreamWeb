@@ -433,6 +433,7 @@ body{
     position: absolute;
     top: 0;
     left: 9;
+    z-index: 999;
 }
 .mask .bg{
     width: 6.59rem;
@@ -486,6 +487,7 @@ body{
     background-color: rgba(0,0,0,.5);
     display: none;
     top: 0;
+    z-index: 999;
 }
 .packmask .bg{
     position: absolute;

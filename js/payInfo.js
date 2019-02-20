@@ -175,14 +175,9 @@ if (!ExistStorage("buy")) {
                                 lid.push(obj.lid)
                             }
                             if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                                alert(JSON.stringify(lid))
+                                alert(lid.join('、'))
                             }
-                            $.each(lid, function (index, item) {
-                                if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                                    alert(item);
-                                }
-                                $('.num').html(item + "、").css("color", "#00d094");
-                            })
+                            $('.num').html(lid.join('、')).css("color", "#00d094");
                             console.log(data)
                             localStorage.clear('buy');
                         }, function (code, data) {
