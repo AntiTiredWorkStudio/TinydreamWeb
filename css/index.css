@@ -387,6 +387,7 @@ body{
     border-top-left-radius: 0.34rem;
     border-bottom-left-radius: 0.34rem;
     transform: translate(0,0);
+    z-index: 999;
 }
 .icon_notice.hide{
     transform: translate(1.10rem,0);
