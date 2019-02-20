@@ -140,7 +140,8 @@ $(function(){
                 if(!data.award.result){
                     $('.mask').hide();
                 }else{
-					console.log(data.award);
+                    console.log(data.award);
+                    console.log(data)
                     $('.mask').fadeIn();
 					$('#awardHint').html(
 						"恭喜您成为梦想互助"+data.award.pid+"期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!"
