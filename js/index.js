@@ -23,6 +23,7 @@ $(function(){
            $('.banner').click(function(){
                 if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
                     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/record.html"
+                    window.location.href = "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg2NTA0NDA0MA==#wechat_redirect"
                 }else{
                     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
                 }
