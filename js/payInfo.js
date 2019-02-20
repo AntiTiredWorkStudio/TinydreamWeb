@@ -174,9 +174,9 @@ if (!ExistStorage("buy")) {
                                 var obj = number[key];
                                 lid.push(obj.lid)
                             }
-                            if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                                alert(lid.join('、'))
-                            }
+                            // if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
+                            //     alert(lid.join('、'))
+                            // }
                             $('.num').html(lid.join('、')).css("color", "#00d094");
                             console.log(data)
                             localStorage.clear('buy');
