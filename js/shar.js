@@ -1,3 +1,3 @@
 $(function(){
-    console.log(body.height());
+    console.log($('body').height());
 })
