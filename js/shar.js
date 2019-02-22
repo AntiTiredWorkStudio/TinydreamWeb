@@ -1,6 +1,6 @@
 $(function(){
     console.log($('body').height());
-    localStorage.getItem('img');
+    var img = localStorage.getItem('img');
     $('.share').css({
         background:'url('+img+') no-repeat',
     });
