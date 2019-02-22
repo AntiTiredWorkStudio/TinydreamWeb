@@ -26,7 +26,7 @@ $(function(){
         image.src = canvas.toDataURL("image/png");
         image.width = $('.share').width();  
         image.height = $('.share').height();  
-        image.appendTo('.share');
+        $(image).appendTo('.share');
         $('#canvas').remove(); 
     }  
 })
