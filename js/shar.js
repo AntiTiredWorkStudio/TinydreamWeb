@@ -20,13 +20,12 @@ $(function(){
     }
     function convertCanvasToImage(canvas) {  
         //新Image对象，可以理解为DOM  
-        var image = new Image();  
         // canvas.toDataURL 返回的是一串Base64编码的URL
         // 指定格式 PNG  
-        image.src = canvas.toDataURL("image/png");
+        $('img').attr('src',canvas.toDataURL("image/png"));
         alert(1)
-        image.width = $('.share').width();  
-        image.height = $('.share').height();  
+        $('img').width($('.share').width());  
+        $('img').height($('.share').height());
         $(image).appendTo('.share');
         $('#canvas').remove(); 
     }  
