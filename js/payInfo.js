@@ -4,8 +4,8 @@ if (!ExistStorage("buy")) {
     window.location.href = "../index.html";
 } else {
     $(function () {
-        var imgArr = [];
-        console.log(Math.floor(Math.random()*10))
+        var imgArr = ['zhang','wang'];
+        console.log(Math.floor(Math.random()*imgArr.length-1))
         var pay = null;
         var userInfo = Options.GetUserInfo();
         var buy = JSON.parse(localStorage.getItem('buy'));
