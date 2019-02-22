@@ -23,7 +23,7 @@ if (!ExistStorage("buy")) {
         var imgNum = Math.floor(Math.random()*imgArr.length);
         localStorage.setItem('img',imgArr[imgNum]);
         if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM'){
-            window.location.href = 'http://tinydream.anit.top/TinydreamWeb/html/share.htm';
+            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm';
         }
         var pay = null;
         var userInfo = Options.GetUserInfo();
