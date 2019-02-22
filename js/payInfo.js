@@ -4,6 +4,7 @@ if (!ExistStorage("buy")) {
     window.location.href = "../index.html";
 } else {
     $(function () {
+        var userInfo = Options.GetUserInfo();
         var imgArr = [
             'https://tdream.antit.top/LongPress2Share1.jpg',
             'https://tdream.antit.top/LongPress2Share2.jpg',
