@@ -5,7 +5,7 @@ if (!ExistStorage("buy")) {
 } else {
     $(function () {
         var imgArr = ['zhang','wang'];
-        console.log(Math.floor(Math.random()*imgArr.length+1))
+        console.log(Math.floor(Math.random()-1*imgArr.length))
         var pay = null;
         var userInfo = Options.GetUserInfo();
         var buy = JSON.parse(localStorage.getItem('buy'));
