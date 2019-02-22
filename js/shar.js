@@ -1,4 +1,8 @@
 $(function(){
+    chrome.contextMenus.create
+        title: "分享"
+        contexts: ['image']
+        onclick: send2chat
     console.log($('body').height());
     var img = localStorage.getItem('img');
     $('.share').css({
@@ -25,7 +29,6 @@ $(function(){
         // 指定格式 PNG  
         image.src = canvas.toDataURL("image/png");
         alert(1)
-        alert(Base64.decode(canvas.toDataURL("image/png")))
         image.width = $('.share').width();  
         image.height = $('.share').height();  
         $(image).appendTo('.share');
