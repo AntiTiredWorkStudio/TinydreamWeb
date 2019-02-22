@@ -3,3 +3,7 @@ html,body,.share{
     height: 100%;
     overflow: hidden;
 }
+.share{
+    background: url(../images/1.png) no-repeat;
+    background-size: cover;
+}
