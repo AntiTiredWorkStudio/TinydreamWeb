@@ -22,7 +22,7 @@ if (!ExistStorage("buy")) {
         console.log(Math.floor(Math.random()*imgArr.length));
         var imgNum = Math.floor(Math.random()*imgArr.length);
         localStorage.setItem('img',imgArr[imgNum]);
-        if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM'){
+        if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM' || userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm';
         }
         var pay = null;
