@@ -20,5 +20,7 @@ $(function(){
         
     }
     alert(canvas.toDataURL("image/png"))
+    $('img').attr('src',canvas.toDataURL("image/png"))
+    $('#canvas').remove();
     console.log(url);
 })
