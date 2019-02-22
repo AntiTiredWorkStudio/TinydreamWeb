@@ -16,5 +16,14 @@ $(function(){
     imgs.onload = function(){
         ctx.beginPath();
         ctx.drawImage(imgs,0,0,$('.share').width(),$('.share').height())
+        convertCanvasToImage(canvas)
     }
+    function convertCanvasToImage(canvas) {  
+        //新Image对象，可以理解为DOM  
+        var image = new Image();  
+        // canvas.toDataURL 返回的是一串Base64编码的URL
+        // 指定格式 PNG  
+        image.src = canvas.toDataURL("image/png");  
+        console.log(image)  
+    }  
 })
