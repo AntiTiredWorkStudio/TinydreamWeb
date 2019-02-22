@@ -17,8 +17,8 @@ $(function(){
     imgs.onload = function(){
         ctx.beginPath();
         ctx.drawImage(imgs,0,0,$('.share').width(),$('.share').height())
-        alert(canvas.toDataURL("image/png"))
         
     }
+    alert(canvas.toDataURL("image/png"))
     console.log(url);
 })
