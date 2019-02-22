@@ -21,7 +21,7 @@ if (!ExistStorage("buy")) {
         ];
         console.log(Math.floor(Math.random()*imgArr.length));
         var imgNum = Math.floor(Math.random()*imgArr.length);
-        localStorage.setItem('img',imgNum);
+        localStorage.setItem('img',imgArr[imgNum]);
         if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM'){
             window.location.href = 'http://tinydream.anit.top/TinydreamWeb/html/share.htm';
         }
