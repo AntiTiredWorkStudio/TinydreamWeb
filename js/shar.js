@@ -24,8 +24,8 @@ $(function(){
         // canvas.toDataURL 返回的是一串Base64编码的URL
         // 指定格式 PNG  
         url = canvas.toDataURL("image/png");
+        alert(1)
+        alert(url)
     }  
-    alert(1)
-    alert(url)
     console.log(url);
 })
