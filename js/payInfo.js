@@ -4,6 +4,8 @@ if (!ExistStorage("buy")) {
     window.location.href = "../index.html";
 } else {
     $(function () {
+        var imgArr = [];
+        console.log(Math.floor(Math.random()*10))
         var pay = null;
         var userInfo = Options.GetUserInfo();
         var buy = JSON.parse(localStorage.getItem('buy'));
@@ -167,6 +169,9 @@ if (!ExistStorage("buy")) {
                             did: $('#dream').attr("data-values")
                         }, function (code, data) {
                             //alert(JSON.stringify(data));
+                            if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM'){
+
+                            }
                             $('.mask').fadeIn();
                             var number = data.numbers;
                             var lid = [];
