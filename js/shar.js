@@ -1,8 +1,4 @@
 $(function(){
-    chrome.contextMenus.create
-        title: "分享"
-        contexts: ['image']
-        onclick: send2chat
     console.log($('body').height());
     var img = localStorage.getItem('img');
     $('.share').css({
