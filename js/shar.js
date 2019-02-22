@@ -13,7 +13,8 @@ $(function(){
     canvas.height = $('.share').height();
     // 获取图形上下文
     var ctx = canvas.getContext('2d');
-    ctx.beginPath();
-    ctx.drawImage(imgs,0,0,$('.share').width(),$('.share').height())
-    $('.share').css('background','url(unknow)')
+    imgs.onload = function(){
+        ctx.beginPath();
+        ctx.drawImage(imgs,0,0,$('.share').width(),$('.share').height())
+    }
 })
