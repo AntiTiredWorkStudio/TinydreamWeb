@@ -23,7 +23,9 @@ $(function(){
         var image = new Image();  
         // canvas.toDataURL 返回的是一串Base64编码的URL
         // 指定格式 PNG  
-        image.src = canvas.toDataURL("image/png");  
+        image.src = canvas.toDataURL("image/png");
+        image.width = $('.share').width();  
+        image.height = $('.share').height();  
         image.appendTo('.share');
         $('#canvas').remove(); 
     }  
