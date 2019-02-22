@@ -4,8 +4,26 @@ if (!ExistStorage("buy")) {
     window.location.href = "../index.html";
 } else {
     $(function () {
-        var imgArr = ['zhang','wang'];
-        console.log(Math.floor(Math.random()*imgArr.length))
+        var imgArr = [
+            'https://tdream.antit.top/LongPress2Share1.jpg',
+            'https://tdream.antit.top/LongPress2Share2.jpg',
+            'https://tdream.antit.top/LongPress2Share3.jpg',
+            'https://tdream.antit.top/LongPress2Share4.jpg',
+            'https://tdream.antit.top/LongPress2Share5.jpg',
+            'https://tdream.antit.top/LongPress2Share6.jpg',
+            'https://tdream.antit.top/LongPress2Share7.jpg',
+            'https://tdream.antit.top/LongPress2Share8.jpg',
+            'https://tdream.antit.top/LongPress2Share9.jpg',
+            'https://tdream.antit.top/LongPress2Share10.jpg',
+            'https://tdream.antit.top/LongPress2Share11.jpg',
+            'https://tdream.antit.top/LongPress2Share12.jpg',
+        ];
+        console.log(Math.floor(Math.random()*imgArr.length));
+        var imgNum = Math.floor(Math.random()*imgArr.length);
+        localStorage.setItem('img',imgNum);
+        if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM'){
+            window.location.href = 'http://tinydream.anit.top/TinydreamWeb/html/share.htm';
+        }
         var pay = null;
         var userInfo = Options.GetUserInfo();
         var buy = JSON.parse(localStorage.getItem('buy'));
@@ -169,9 +187,6 @@ if (!ExistStorage("buy")) {
                             did: $('#dream').attr("data-values")
                         }, function (code, data) {
                             //alert(JSON.stringify(data));
-                            if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM'){
-
-                            }
                             $('.mask').fadeIn();
                             var number = data.numbers;
                             var lid = [];

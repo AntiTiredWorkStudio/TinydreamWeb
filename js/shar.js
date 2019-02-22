@@ -1,7 +1,7 @@
 $(function(){
     console.log($('body').height());
+    localStorage.getItem('img');
     $('.share').css({
-        background:'url(../images/1.png) no-repeat',
-        'background-size':'cover'
+        background:'url('+img+') no-repeat',
     });
 })

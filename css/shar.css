@@ -4,6 +4,6 @@ html,body,.share{
     overflow: hidden;
 }
 .share{
-    background: url(../images/1.png) no-repeat;
+    /* background: url(../images/1.png) no-repeat; */
     background-size: cover;
 }
