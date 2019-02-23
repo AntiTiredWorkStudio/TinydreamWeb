@@ -50,10 +50,11 @@ $(function () {
                 ctx.drawImage(img,x,y,width,height);
                 canvas = document.getElementById('canvas');
                 canvas2image(canvas).then(function(res){
-                    console.log(res)
+                    alert(res)
                     $('.share').html(res)
+                    alert('success')
                 })
-                alert('success')
+               
             }
             
         }
