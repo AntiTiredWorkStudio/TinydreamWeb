@@ -1,14 +1,14 @@
 $(function () {
     var url = localStorage.getItem('img');
     var userInfo = Options.GetUserInfo();
-    $('.share').css({
-        background:'url('+url+') no-repeat',
-        'background-size':'cover'
-    })
-    $('.headicon').css({
-        'background':'url('+userInfo.headimgurl+') no-repeat',
-        'background-size':'1rem 1rem'
-    })
+    $('.bg').attr('src',url).css({
+        width:$('.share').width(),
+        height:$('.share').height(),
+        position:"absolute",
+        top:0,
+        left:0
+    });
+    $('.headicon').attr('src',userInfo.headimgurl)
     if(userInfo.nickname.length > 6){
         $('.nickname .name').html(userInfo.nickname.substring(0,7));
     }else{
