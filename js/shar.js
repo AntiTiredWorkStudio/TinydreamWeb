@@ -19,8 +19,10 @@ $(function () {
     canvas.width = $('.share').width();
     canvas.height = $('.share').height();
     var ctx = canvas.getContext('2d');
+    var bg = new Image();
+    bg.src = url;
     window.onload = function(){
-        ctx.drawImage($('.bg'),0,0,$('.share').width(),$('.share').height())
+        ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height())
         alert(1)
     }
     // html转为图片
