@@ -13,7 +13,11 @@ $(function () {
     var userInfo = Options.GetUserInfo();
     var l = canvas2image(canvas);
     alert(l);
-    $(l).appendTo('.share');
+    $('.share').html('<img class="bgi" src='+l+' />');
+    $('.bgi').css({
+        width:$('.share').width(),
+        height:$('.share').height()
+    })
     var bg = new Image();
     bg.src = url;
     window.onload = function(){
@@ -51,7 +55,7 @@ $(function () {
     //    imgs.src = canvas.toDataURL('image/png');
     //    imgs.width = $('.share').width();
     //     imgs.height = $('.share').height();
-    var url1 = canvas.toDataURL('image/png')
+    var url1 = canvas.toDataURL('image/png');
         return url1;
     }
     $('.bg').attr('src',url).css({
