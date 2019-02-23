@@ -34,6 +34,7 @@ $(function () {
         var qr = new Image();
         qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
         bg.onload =  function(){
+            bg.setAttribute('crossOrigin','anonymous')
             ctx.globalCompositeOperation = 'xor'
              ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
              canvas.toDataURL('image/png');
@@ -41,10 +42,12 @@ $(function () {
         }
         head.onload =  function(){
             // ctx.globalCompositeOperation = 'destination-over'
+            bg.setAttribute('crossOrigin','anonymous')
             ctx.globalCompositeOperation = 'xor'
              ctx.drawImage(head,15,40,50,50);
         }
         qr.onload =  function(){
+            bg.setAttribute('crossOrigin','anonymous')
             ctx.globalCompositeOperation = 'destination-over';
              ctx.drawImage(qr,x1,y2,60,60);
         }
