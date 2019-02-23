@@ -14,6 +14,7 @@ $(function () {
     var l = canvas2image(canvas).then(function(res){
         alert(res);
         $('.share').html('<img class="bgi" src='+res+' />');
+        console.log(res)
     });
     console.log(l)
     
