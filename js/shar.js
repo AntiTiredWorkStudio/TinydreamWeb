@@ -1,4 +1,5 @@
 $(function () {
+    var img = [];
     var url = localStorage.getItem('img');
     var canvas = document.getElementById('canvas');
     canvas.width = $('.share').width();
@@ -16,8 +17,7 @@ $(function () {
     var imgArr = [
         url,userInfo.headimgurl,'http://tdream.antit.top/LongPress2ShareQR.jpg'
     ];
-    var img = new Image();
-    img.setAttribute('crossOrigin','anonymous');
+    
     // var l = canvas2image(canvas).then(function(res){
     //     alert(res);
     //     // $('.share').html('<img class="bgi" src='+res+' />');
@@ -32,10 +32,10 @@ $(function () {
     // })
     alert(1);
     for(var i = 0;i<imgArr.length;i++){
-        img.src = imgArr[i];
+        img[i] = new Image();
+        img[i].src = imgArr[i];
         console.log(i)
-        img.onload = function(){
-            console.log(i)
+        img[i].onload = function(){
             ctx.globalCompositeOperation = 'source-over'
             if(i == 0){
                 console.log(img)
@@ -46,6 +46,9 @@ $(function () {
             }else if(i == 2){
                 console.log(img)
                 ctx.drawImage(qr,x1,y2,60,60);
+                canvas2image(canvas).then(res){
+                    console.log(res)
+                }
             }
         }
     }
