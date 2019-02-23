@@ -43,7 +43,15 @@ $(function () {
         ctx.font = '19px 微软雅黑'
         ctx.fillText(dream+'(已成功参与互助)',75,88);
         ctx.font = '28px 微软雅黑';
-        ctx.fillText('小梦想互助',-25,-85);
+        var x1 = canvas.width - 75;
+        var x2 = canvas.width - 141;
+        var x3 = canvas.width - 155;
+        var y = canvas.height - 25;
+        var y1 = canvas.height - 44;
+        ctx.fillText('扫码关注',x2,y1);
+        ctx.fillText('小梦想互助',x3,y);
+        ctx.drawImage(qr,x1,y,60,60);
+        ctx.store();
         alert(1)
         // $('#canvas').remove()
     }
