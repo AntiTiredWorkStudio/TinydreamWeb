@@ -43,7 +43,7 @@ $(function () {
         ctx.drawImage(qr,x1,y2,60,60);
     }
     $(window).load(function(){
-        ctx.globalCompositeOperation = 'destination-over'
+        ctx.globalCompositeOperation = 'source-over'
         ctx.fillStyle = '#fff';
         ctx.font = '15px 微软雅黑';
         if(userInfo.nickname.length > 6){
