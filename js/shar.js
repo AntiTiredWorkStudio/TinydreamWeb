@@ -25,7 +25,7 @@ $(function () {
     head.src = userInfo.headimgurl;
     var qr = new Image();
     qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
-    window.onload = function(){
+    $(window).load(function(){
         ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height())
         // ctx.globalCompositeOperation = 'source-over'
         // // ctx.drawImage(head,0,0,50,50);
@@ -59,7 +59,7 @@ $(function () {
         alert('success')
         // alert(1)
         
-    }
+    })
     // html转为图片
 //   setTimeout(function(){
 //         html2canvas(document.getElementById('share')).then(function(canvas){
