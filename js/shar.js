@@ -31,7 +31,7 @@ $(function () {
     //     width:$('.share').width(),
     //     height:$('.share').height()
     // })
-    alert(1);
+    // alert(1);
     var total = img.length;
     for(var i = 0;i<imgArr.length;i++){
         img[i] = new Image();
