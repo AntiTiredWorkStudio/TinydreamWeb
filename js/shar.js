@@ -9,11 +9,8 @@ $(function () {
     
     var ctx = canvas.getContext('2d');
     var x1 = canvas.width - 75;
-    var x2 = canvas.width - 141;
-    var x3 = canvas.width - 155;
     var y = canvas.height - 25;
     var y2 = canvas.height - 85;
-    var y1 = canvas.height - 44;
     var userInfo = Options.GetUserInfo();
     var imgArr = [
         url,userInfo.headimgurl,'http://tdream.antit.top/LongPress2ShareQR.jpg'
@@ -57,6 +54,9 @@ $(function () {
                 }else{
                     var name = userInfo.nickname;
                 }
+                var x2 = canvas.width - 141;
+                var x3 = canvas.width - 155;
+                var y1 = canvas.height - 44;
                 ctx.fillText(name + ' #2019小梦想#',75,56);
                 var dream = '云南鲜花饼店...';
                 ctx.font = '19px 微软雅黑'
