@@ -9,6 +9,7 @@ $(function () {
         'background':'url('+userInfo.headimgurl+') no-repeat',
         'background-size':'1rem 1rem'
     })
+
     $('.nickname .name').html(userInfo.nickname);
-    console.log(userInfo.nickname.slice(1))
+    console.log(userInfo.nickname.substr(6))
 })
