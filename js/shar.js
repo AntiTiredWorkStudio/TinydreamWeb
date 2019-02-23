@@ -38,7 +38,9 @@ $(function () {
         img[i] = new Image();
         img[i].src = imgArr[i];
         img[i].onload = function(){
-            alert(i)
+            if(i == 0){
+                alert(i)
+            }
         }
         //     num++;
         //     if(total+1 == num){
