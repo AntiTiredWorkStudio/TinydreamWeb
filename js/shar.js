@@ -13,7 +13,8 @@ $(function () {
     var userInfo = Options.GetUserInfo();
     var l = canvas2image(canvas).then(function(res){
         alert(res);
-        $('.share').html('<img class="bgi" src='+res+' />');
+        // $('.share').html('<img class="bgi" src='+res+' />');
+        $('.share').html(res)
         console.log(res)
     });
     console.log(l)
