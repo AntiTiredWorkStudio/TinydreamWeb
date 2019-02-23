@@ -17,10 +17,10 @@ $(function(){
     async function draw(){
         imgs.onload = async function(){
             ctx.beginPath();
-            ctx.drawImage(imgs,0,0,$('.share').width(),$('.share').height()) 
+            await ctx.drawImage(imgs,0,0,$('.share').width(),$('.share').height()) 
         }
         alert(canvas.toDataURL("image/png"))
-        await $('img').attr('src',canvas.toDataURL("image/png"))
+        $('img').attr('src',canvas.toDataURL("image/png"))
         $('#canvas').remove();
     }
     draw();
