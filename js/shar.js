@@ -15,7 +15,10 @@ $(function () {
         $('.nickname .name').html(userInfo.nickname);
     }
     // html转为图片
-    html2canvas(document.getElementById('share'),function(canvas) {
-        console.log(canvas)
-    });
+    html2canvas(document.getElementById('share'),{
+        onrendered:function(canvas){
+            console.log(canvas)
+        }
+    })
+
 })
