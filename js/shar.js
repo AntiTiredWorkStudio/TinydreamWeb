@@ -11,20 +11,16 @@ $(function () {
     var y2 = canvas.height - 85;
     var y1 = canvas.height - 44;
     var userInfo = Options.GetUserInfo();
-    
-    window.onload = function(){
-        // var l = canvas2image(canvas);
-        new Promise(canvas2image).then(function(res){
-            alert(res);
-        })
-        alert(l);
-        $('.share').html('<img class="bgi" src='+l+' />');
-        $('.bgi').css({
-            width:$('.share').width(),
-            height:$('.share').height()
-        })
-        alert(1);
-    }
+    new Promise(canvas2image(canvas)).then(function(res){
+        alert(res);
+    })
+    alert(l);
+    $('.share').html('<img class="bgi" src='+l+' />');
+    $('.bgi').css({
+        width:$('.share').width(),
+        height:$('.share').height()
+    })
+    alert(1);
     function canvas2image(canvas){
         var bg = new Image();
         bg.src = url;
