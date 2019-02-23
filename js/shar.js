@@ -69,7 +69,7 @@ $(function () {
             //         console.log(res)
             //     })
             // }
-        }
+        // }
     }
     async function canvas2image(canvas){
         // var num = 0;
