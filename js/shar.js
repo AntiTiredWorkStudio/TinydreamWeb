@@ -33,8 +33,8 @@ $(function () {
         head.src = userInfo.headimgurl;
         var qr = new Image();
         qr.src = 'http://tdream.antit.top/LongPress2ShareQR.jpg';
+        bg.setAttribute('crossOrigin','anonymous')
         bg.onload =  function(){
-            bg.setAttribute('crossOrigin','anonymous')
             ctx.globalCompositeOperation = 'xor'
              ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
              canvas.toDataURL('image/png');
