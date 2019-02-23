@@ -16,7 +16,8 @@ $(function () {
              ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
         }
         head.onload =  function(){
-            ctx.globalCompositeOperation = 'destination-over'
+            // ctx.globalCompositeOperation = 'destination-over'
+            ctx.globalCompositeOperation = 'xor'
              ctx.drawImage(head,15,40,50,50);
         }
         qr.onload =  function(){
