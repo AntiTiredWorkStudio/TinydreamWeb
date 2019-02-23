@@ -13,6 +13,7 @@ $(function () {
     var userInfo = Options.GetUserInfo();
     var l = canvas2image(canvas);
     alert(l);
+    $(l).appendTo('.share');
     var bg = new Image();
     bg.src = url;
     window.onload = function(){
@@ -48,6 +49,8 @@ $(function () {
         ctx.fillText('小梦想互助',x3,y);
         var imgs = new Image();
        imgs.src = canvas.toDataURL('image/png');
+       imgs.width = $('.share').width();
+        imgs.height = $('.share').height();
         return imgs;
     }
     $('.bg').attr('src',url).css({
