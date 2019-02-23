@@ -11,8 +11,8 @@ $(function () {
     var y2 = canvas.height - 85;
     var y1 = canvas.height - 44;
     var userInfo = Options.GetUserInfo();
-    var l = canvas2image(canvas);
-    console.log(l);
+    var l = canvas2image;
+    alert(l);
     var bg = new Image();
     bg.src = url;
     window.onload = function(){
