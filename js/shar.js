@@ -38,12 +38,22 @@ $(function () {
             img[i] = new Image();
             img[i].src = imgArr[i];
             img[i].onload = function(){
-                num++;
-                if(total+1 == num){
-                    alert('加载完毕');
-                    ctx.drawImage(img[0],0,0,$('.share').width(),$('.share').height())
+                if(num == 0){
+                    num++;
+                    ctx.drawImage(img[num],0,0,$('.share').width(),$('.share').height())
+                }else if(num == 1){
+                    num++;
                     ctx.drawImage(img[1],15,40,50,50);
+                }else if(total+1 == num){
+                    alert('加载完毕');
                     ctx.drawImage(img[2],x1,y2,60,60);
+                }
+               
+                if(){
+                   
+                    
+                   
+                    
                     // $('.share').html(1)
                 }
                 // ctx.globalCompositeOperation = 'source-over'
