@@ -32,10 +32,15 @@ $(function () {
     var qr = new Image();
     qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
     bg.onload = function(){
-        ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
-        ctx.globalCompositeOperation = 'source-over';
+        ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height())
+    }
+    head.onload = function(){
+        ctx.globalCompositeOperation = 'source-over'
         ctx.drawImage(head,15,40,50,50);
-        ctx.drawImage(qr,x1,y2,60,60);   
+    }
+    qr.onload = function(){
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.drawImage(qr,x1,y2,60,60);
     }
     $(window).load(function(){
         ctx.globalCompositeOperation = 'source-over'
@@ -53,7 +58,6 @@ $(function () {
         ctx.font = '14px 微软雅黑';
         ctx.fillText('扫码关注',x2,y1);
         ctx.fillText('小梦想互助',x3,y);
-        var url = canvas.toDataURL('image/png');
         alert(1)
         
         alert(url);
