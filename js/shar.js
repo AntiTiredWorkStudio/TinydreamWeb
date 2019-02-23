@@ -34,7 +34,7 @@ $(function () {
     // alert(1);
     var total = img.length;
     for(let i = 0;i<imgArr.length;i++){
-       
+        console.log(i)
         img[i] = new Image();
         img[i].src = imgArr[i];
         img[i].onload = function(){
