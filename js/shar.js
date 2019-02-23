@@ -14,12 +14,15 @@ $(function(){
     canvas.height = $('.share').height();
     // 获取图形上下文
     var ctx = canvas.getContext('2d');
-    imgs.onload = async function(){
-        ctx.beginPath();
-        ctx.drawImage(imgs,0,0,$('.share').width(),$('.share').height()) 
+    async function draw(){
+        imgs.onload = async function(){
+            ctx.beginPath();
+            ctx.drawImage(imgs,0,0,$('.share').width(),$('.share').height()) 
+        }
+        alert(canvas.toDataURL("image/png"))
         await $('img').attr('src',canvas.toDataURL("image/png"))
         $('#canvas').remove();
     }
-    alert(canvas.toDataURL("image/png"))
+    draw();
     console.log(url);
 })
