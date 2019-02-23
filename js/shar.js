@@ -38,6 +38,7 @@ $(function () {
         var img = new Image();
         img.src = src[index];
         img.onload = function(){
+            console.log(img.src)
             if(index != 2){
                 ctx.drawImage(img,x,y,width,height)
                 next(imgArr,index++,15,40,50,50) 
