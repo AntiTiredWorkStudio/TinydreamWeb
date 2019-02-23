@@ -11,17 +11,14 @@ $(function () {
     var y2 = canvas.height - 85;
     var y1 = canvas.height - 44;
     var userInfo = Options.GetUserInfo();
-    new Promise(canvas2image(canvas)).then(function(res){
-        alert(res);
-    })
-    alert(l);
+    var l = canvas2image(canvas);
     $('.share').html('<img class="bgi" src='+l+' />');
     $('.bgi').css({
         width:$('.share').width(),
         height:$('.share').height()
     })
     alert(1);
-    function canvas2image(canvas){
+    async function canvas2image(canvas){
         var bg = new Image();
         bg.src = url;
         var head = new Image();
@@ -58,7 +55,7 @@ $(function () {
     //    imgs.src = canvas.toDataURL('image/png');
     //    imgs.width = $('.share').width();
     //     imgs.height = $('.share').height();
-    var url1 = canvas.toDataURL('image/png');
+    var url1 = await canvas.toDataURL('image/png');
         return url1;
     }
     $('.bg').attr('src',url).css({
