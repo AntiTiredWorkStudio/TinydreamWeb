@@ -23,7 +23,7 @@ if (!ExistStorage("buy")) {
         var imgNum = Math.floor(Math.random()*imgArr.length);
         localStorage.setItem('img',imgArr[imgNum]);
         if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM' || userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-            // window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm';
+            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm';
         }
         var pay = null;
         var userInfo = Options.GetUserInfo();
@@ -189,7 +189,7 @@ if (!ExistStorage("buy")) {
                         }, function (code, data) {
                             //alert(JSON.stringify(data));
                             $('.mask').fadeIn();
-                            localStorage.setItem('dr_title',)
+                            localStorage.setItem('dr_did',$('#dream').attr('data-values'));
                             var number = data.numbers;
                             var lid = [];
                             for (key in number) {
