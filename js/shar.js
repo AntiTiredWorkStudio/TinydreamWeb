@@ -63,7 +63,8 @@ $(function () {
         alert(url);
         document.getElementById('share').innerHTML = '<img class="img" src="'+url+'" />';
         $('.img').width($('.share').width())
-        $('.bg').remove($('.share').height());
+        $('.img').height($('.share').width())
+        $('.bg').remove();
     })
     // html转为图片
 //   setTimeout(function(){
