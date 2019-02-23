@@ -23,6 +23,7 @@ $(function () {
             width:$('.share').width(),
             height:$('.share').height()
         })
+        alert(1);
     }
     function canvas2image(canvas){
         var head = new Image();
