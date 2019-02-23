@@ -26,15 +26,8 @@ $(function () {
     window.onload = function(){
         ctx.save()
         ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height())
-        ctx.beginPath();
-        ctx.moveTo(10,40);
-        ctx.lineTo(60,40);
-        ctx.lineTo(60,90);
-        ctx.lineTo(90,10);
-        ctx.closePath();
-        ctx.clip();
         ctx.globalCompositeOperation = 'source-over'
-        ctx.drawImage(head,0,0,50,50);
+        // ctx.drawImage(head,0,0,50,50);
         ctx.drawImage(head,10,40,50,50);
         alert(1)
     }
