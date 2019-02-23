@@ -32,8 +32,8 @@ $(function () {
     var qr = new Image();
     qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
     bg.onload = function(){
-        ctx.globalCompositeOperation = 'source-over';
         ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
+        ctx.globalCompositeOperation = 'source-over';
         ctx.drawImage(head,15,40,50,50);
         ctx.drawImage(qr,x1,y2,60,60);   
     }
