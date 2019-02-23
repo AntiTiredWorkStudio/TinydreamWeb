@@ -14,6 +14,8 @@ img{
 .share .header{
     padding-top: 0.8rem;
     overflow: hidden;
+    position: relative;
+    z-index: 6;
 }
 .share .header .headicon{
     width: 1rem;
@@ -42,6 +44,8 @@ img{
 }
 .footer div{
     float: left;
+    position: relative;
+    z-index: 6;
 }
 .footer div.text{
     font-size: 0.28rem;
@@ -66,4 +70,5 @@ img{
     left: 0.3rem;
     color: #fff;
     font-size: 0.28rem;
+    z-index: 6;
 }
