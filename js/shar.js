@@ -21,8 +21,11 @@ $(function () {
     var ctx = canvas.getContext('2d');
     var bg = new Image();
     bg.src = url;
+    var head = new Image();
+    head.src = userInfo.headimgurl;
     window.onload = function(){
         ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height())
+        ctx.drawImage(head,10,40,50,50);
         alert(1)
     }
     // html转为图片
