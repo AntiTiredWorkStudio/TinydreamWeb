@@ -46,6 +46,12 @@ html,body,.share{
     font-size: 0.28rem;
     height: 1.2rem;
     color: #fff;
+    position: relative;
+}
+.footer div.txt{
+    position: absolute;
+    bottom: 0;
+    text-align: right;
 }
 .footer div.qr{
     width: 1.2rem;
