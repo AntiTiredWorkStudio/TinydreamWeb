@@ -48,10 +48,14 @@ $(function () {
         var x3 = canvas.width - 155;
         var y = canvas.height - 25;
         var y1 = canvas.height - 44;
+        ctx.font = '14px 微软雅黑';
         ctx.fillText('扫码关注',x2,y1);
         ctx.fillText('小梦想互助',x3,y);
         ctx.drawImage(qr,x1,y,60,60);
         ctx.store();
+        var url = canvas.toDataURL('image/png');
+        $('.share').html('<img src="'+url+'" />');
+        $('#canvas').remove()
         alert(1)
         // $('#canvas').remove()
     }
