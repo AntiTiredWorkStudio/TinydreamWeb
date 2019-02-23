@@ -41,6 +41,7 @@ $(function () {
         ctx.font = '19px'
         ctx.fillText(dream+'(已成功参与互助)',70,73);
         alert(1)
+        $('#canvas').remove()
     }
     // html转为图片
 //   setTimeout(function(){
