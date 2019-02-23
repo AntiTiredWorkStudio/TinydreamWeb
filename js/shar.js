@@ -53,7 +53,7 @@ $(function () {
         // ctx.fillText('小梦想互助',x3,y);
         // ctx.drawImage(qr,x1,y2,60,60);
         var url = canvas.toDataURL('image/png');
-        $('.share').html('<img src="'+url+'" />');
+        document.getElementById('share').innerHTML = '<img src="'+url+'" />';
         // $('#canvas').remove()
         alert('success')
         // alert(1)
