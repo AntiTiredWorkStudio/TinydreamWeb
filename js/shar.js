@@ -10,5 +10,5 @@ $(function () {
         'background-size':'1rem 1rem'
     })
     $('.nickname .name').html(userInfo.nickname);
-    console.log(userInfo.nickname.slice(6))
+    console.log(userInfo.nickname.slice(1))
 })
