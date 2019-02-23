@@ -32,7 +32,7 @@ $(function () {
         var head = new Image();
         head.src = userInfo.headimgurl;
         var qr = new Image();
-        qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
+        qr.src = 'http://tdream.antit.top/LongPress2ShareQR.jpg';
         bg.onload =  function(){
             bg.setAttribute('crossOrigin','anonymous')
             ctx.globalCompositeOperation = 'xor'
