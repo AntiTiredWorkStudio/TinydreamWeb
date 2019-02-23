@@ -49,7 +49,7 @@ $(function () {
             var name = userInfo.nickname;
         }
         await ctx.fillText(name + ' #2019小梦想#',75,56);
-        await var dream = '云南鲜花饼店...';
+        var dream = '云南鲜花饼店...';
         await ctx.font = '19px 微软雅黑'
         await ctx.fillText(dream+'(已成功参与互助)',75,88);
         await ctx.font = '14px 微软雅黑';
