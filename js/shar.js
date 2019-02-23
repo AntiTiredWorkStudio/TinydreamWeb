@@ -41,12 +41,6 @@ $(function () {
             }
         }
     }
-    head.onload = function(){
-        
-    }
-    qr.onload = function(){
-        
-    }
     $(window).load(function(){
         ctx.globalCompositeOperation = 'source-over'
         ctx.fillStyle = '#fff';
