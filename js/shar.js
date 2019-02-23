@@ -31,16 +31,16 @@ $(function () {
         head.src = userInfo.headimgurl;
         var qr = new Image();
         qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
-        bg.onload =  function(){
-             ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
+        bg.onload =async  function(){
+           await  ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
         }
-        head.onload =  function(){
+        head.onload = async function(){
             ctx.globalCompositeOperation = 'destination-over'
-             ctx.drawImage(head,15,40,50,50);
+            await ctx.drawImage(head,15,40,50,50);
         }
-        qr.onload =  function(){
+        qr.onload = async function(){
             ctx.globalCompositeOperation = 'destination-over';
-            ctx.drawImage(qr,x1,y2,60,60);
+            await ctx.drawImage(qr,x1,y2,60,60);
         }
         ctx.globalCompositeOperation = 'source-over'
         ctx.fillStyle = '#fff';
