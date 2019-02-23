@@ -44,7 +44,7 @@ $(function () {
                 ctx.drawImage(img[i],0,0,$('.share').width(),$('.share').height())
                 
             }else if(i == 1){
-                num++;
+                // num++;
                 ctx.drawImage(img[i],15,40,50,50);
             }else if(total+1 == num){
                 alert('加载完毕');
