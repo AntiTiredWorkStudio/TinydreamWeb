@@ -14,6 +14,15 @@ $(function () {
     }else{
         $('.nickname .name').html(userInfo.nickname);
     }
+
+    var canvas = document.getElementById('canvas');
+    canvas.width = $('.share').width();
+    canvas.height = $('.share').height();
+    var ctx = canvas.getContext('2d');
+    window.onload = function(){
+        ctx.drawImage($('.bg'),0,0,$('.share').width(),$('.share').height())
+        alert(1)
+    }
     // html转为图片
 //   setTimeout(function(){
 //         html2canvas(document.getElementById('share')).then(function(canvas){
