@@ -41,9 +41,9 @@ $(function () {
                 num++;
                 if(total == num){
                     alert('加载完毕');
-                    ctx.drawImage(img[0],0,0,$('.share').width(),$('.share').height())
-                    ctx.drawImage(img[1],15,40,50,50);
-                    ctx.drawImage(img[2],x1,y2,60,60);
+                    // ctx.drawImage(img[0],0,0,$('.share').width(),$('.share').height())
+                    // ctx.drawImage(img[1],15,40,50,50);
+                    // ctx.drawImage(img[2],x1,y2,60,60);
                     $('.share').html(1)
                 }
                 // ctx.globalCompositeOperation = 'source-over'
