@@ -12,6 +12,7 @@ $(function () {
         var qr = new Image();
         qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
         bg.onload =  function(){
+            ctx.globalCompositeOperation = 'xor'
              ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
         }
         head.onload =  function(){
