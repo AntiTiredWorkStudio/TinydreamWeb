@@ -29,16 +29,16 @@ $(function () {
         head.src = userInfo.headimgurl;
         var qr = new Image();
         qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
-        bg.onload = async function(){
-            await ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
+        bg.onload =  function(){
+             ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
         }
-        head.onload = async function(){
+        head.onload =  function(){
             ctx.globalCompositeOperation = 'destination-over'
-            await ctx.drawImage(head,15,40,50,50);
+             ctx.drawImage(head,15,40,50,50);
         }
-        qr.onload = async function(){
+        qr.onload =  function(){
             ctx.globalCompositeOperation = 'destination-over';
-            await ctx.drawImage(qr,x1,y2,60,60);
+            ctx.drawImage(qr,x1,y2,60,60);
         }
         ctx.globalCompositeOperation = 'source-over'
         ctx.fillStyle = '#fff';
@@ -59,9 +59,9 @@ $(function () {
     //    imgs.src = canvas.toDataURL('image/png');
     //    imgs.width = $('.share').width();
     //     imgs.height = $('.share').height();
-    var imgs =new Image();
-    imgs.src = canvas.toDataURL('image/png');
-    var url1
+        var imgs =new Image();
+        imgs.src = canvas.toDataURL('image/png');
+        var url1
         return url1;
     }
     $('.bg').attr('src',url).css({
