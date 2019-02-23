@@ -4,7 +4,7 @@ $(function () {
     canvas.width = $('.share').width();
     canvas.height = $('.share').height();
     var ctx = canvas.getContext('2d');
-    ctx.globalCompositeOperation = 'source-over'
+    ctx.globalCompositeOperation = 'xor'
     var x1 = canvas.width - 75;
     var x2 = canvas.width - 141;
     var x3 = canvas.width - 155;
