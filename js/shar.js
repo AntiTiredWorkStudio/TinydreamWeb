@@ -17,7 +17,8 @@ $(function () {
     // html转为图片
     html2canvas(document.getElementById('share'),{
         onrendered:function(canvas){
-            console.log(canvas)
+            var url = canvas.toDataURL('image/png');
+            $('#share').html('<img src='+url+' />');
         }
     })
 
