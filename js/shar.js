@@ -34,33 +34,37 @@ $(function () {
     // alert(1);
     var total = img.length;
     for(let i = 0;i<imgArr.length;i++){
-        img[i] = new Image();
-        img[i].src = imgArr[i];
-        console.log(i)
-        img[i].onload = function(){
-            num++;
-            if(total == num){
-                alert('加载完毕');
-                ctx.drawImage(img[0],0,0,$('.share').width(),$('.share').height())
-                ctx.drawImage(img[1],15,40,50,50);
-                ctx.drawImage(img[2],x1,y2,60,60);
-                $('.share').html(1)
+        (function(i){
+            img[i] = new Image();
+            img[i].src = imgArr[i];
+            img[i].onload = function(){
+                num++;
+                if(total == num){
+                    alert('加载完毕');
+                    ctx.drawImage(img[0],0,0,$('.share').width(),$('.share').height())
+                    ctx.drawImage(img[1],15,40,50,50);
+                    ctx.drawImage(img[2],x1,y2,60,60);
+                    $('.share').html(1)
+                }
+                // ctx.globalCompositeOperation = 'source-over'
+                // if(i == 0){
+                //     console.log(img)
+                //     ctx.drawImage(img,0,0,$('.share').width(),$('.share').height())
+                // }else if(i == 1){
+                //     console.log(img)
+                //     ctx.drawImage(img,15,40,50,50)
+                // }else if(i == 2){
+                //     console.log(img)
+                //     ctx.drawImage(qr,x1,y2,60,60);
+                //     canvas2image(canvas).then(function(res){
+                //         console.log(res)
+                //     })
+                // }
             }
-            // ctx.globalCompositeOperation = 'source-over'
-            // if(i == 0){
-            //     console.log(img)
-            //     ctx.drawImage(img,0,0,$('.share').width(),$('.share').height())
-            // }else if(i == 1){
-            //     console.log(img)
-            //     ctx.drawImage(img,15,40,50,50)
-            // }else if(i == 2){
-            //     console.log(img)
-            //     ctx.drawImage(qr,x1,y2,60,60);
-            //     canvas2image(canvas).then(function(res){
-            //         console.log(res)
-            //     })
-            // }
-        }
+        })(i)
+        
+        console.log(i)
+        
     }
     async function canvas2image(canvas){
         // var num = 0;
