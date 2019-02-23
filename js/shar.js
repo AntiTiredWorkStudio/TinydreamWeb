@@ -26,35 +26,35 @@ $(function () {
     var qr = new Image();
     qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
     window.onload = function(){
-        ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height())
-        ctx.globalCompositeOperation = 'source-over'
-        // ctx.drawImage(head,0,0,50,50);
-        ctx.drawImage(head,15,40,50,50);
-        ctx.fillStyle = '#fff';
-        ctx.font = '15px 微软雅黑';
-        if(userInfo.nickname.length > 6){
-            var name = userInfo.nickname.substring(0,7)+'...';
-        }else{
-            var name = userInfo.nickname;
-        }
-        ctx.fillText(name + ' #2019小梦想#',75,56);
-        var dream = '云南鲜花饼店...';
-        ctx.font = '19px 微软雅黑'
-        ctx.fillText(dream+'(已成功参与互助)',75,88);
-        ctx.font = '28px 微软雅黑';
-        var x1 = canvas.width - 75;
-        var x2 = canvas.width - 141;
-        var x3 = canvas.width - 155;
-        var y = canvas.height - 25;
-        var y2 = canvas.height - 85;
-        var y1 = canvas.height - 44;
-        ctx.font = '14px 微软雅黑';
-        ctx.fillText('扫码关注',x2,y1);
-        ctx.fillText('小梦想互助',x3,y);
-        ctx.drawImage(qr,x1,y2,60,60);
-        var url = canvas.toDataURL('image/png');
-        $('.share').html('<img src="'+url+'" />');
-        $('#canvas').remove()
+        // ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height())
+        // ctx.globalCompositeOperation = 'source-over'
+        // // ctx.drawImage(head,0,0,50,50);
+        // ctx.drawImage(head,15,40,50,50);
+        // ctx.fillStyle = '#fff';
+        // ctx.font = '15px 微软雅黑';
+        // if(userInfo.nickname.length > 6){
+        //     var name = userInfo.nickname.substring(0,7)+'...';
+        // }else{
+        //     var name = userInfo.nickname;
+        // }
+        // ctx.fillText(name + ' #2019小梦想#',75,56);
+        // var dream = '云南鲜花饼店...';
+        // ctx.font = '19px 微软雅黑'
+        // ctx.fillText(dream+'(已成功参与互助)',75,88);
+        // ctx.font = '28px 微软雅黑';
+        // var x1 = canvas.width - 75;
+        // var x2 = canvas.width - 141;
+        // var x3 = canvas.width - 155;
+        // var y = canvas.height - 25;
+        // var y2 = canvas.height - 85;
+        // var y1 = canvas.height - 44;
+        // ctx.font = '14px 微软雅黑';
+        // ctx.fillText('扫码关注',x2,y1);
+        // ctx.fillText('小梦想互助',x3,y);
+        // ctx.drawImage(qr,x1,y2,60,60);
+        // var url = canvas.toDataURL('image/png');
+        // $('.share').html('<img src="'+url+'" />');
+        // $('#canvas').remove()
         alert('success')
         // alert(1)
         // $('#canvas').remove()
