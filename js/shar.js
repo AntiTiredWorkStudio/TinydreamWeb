@@ -42,6 +42,7 @@ $(function () {
         ctx.drawImage(qr,x1,y2,60,60);
     }
     $(window).load(function(){
+        ctx.globalCompositeOperation = 'source-over'
         ctx.fillStyle = '#fff';
         ctx.font = '15px 微软雅黑';
         if(userInfo.nickname.length > 6){
@@ -58,6 +59,7 @@ $(function () {
         ctx.fillText('小梦想互助',x3,y);
         alert(1)
         var url = canvas.toDataURL('image/png');
+        alert(url);
         document.getElementById('share').innerHTML = '<img src="'+url+'" />';
         $('.bg').remove();
     })
