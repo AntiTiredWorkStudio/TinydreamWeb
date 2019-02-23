@@ -33,7 +33,7 @@ $(function () {
     // })
     // alert(1);
     var total = img.length;
-    for(var i = 0;i<imgArr.length;i++){
+    for(let i = 0;i<imgArr.length;i++){
         img[i] = new Image();
         img[i].src = imgArr[i];
         console.log(i)
