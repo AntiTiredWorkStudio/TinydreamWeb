@@ -40,9 +40,9 @@ $(function () {
             ctx.globalCompositeOperation = 'destination-over';
             await ctx.drawImage(qr,x1,y2,60,60);
         }
-        await ctx.globalCompositeOperation = 'source-over'
-        await ctx.fillStyle = '#fff';
-        await ctx.font = '15px 微软雅黑';
+        ctx.globalCompositeOperation = 'source-over'
+        ctx.fillStyle = '#fff';
+        ctx.font = '15px 微软雅黑';
         if(userInfo.nickname.length > 6){
             var name = userInfo.nickname.substring(0,7)+'...';
         }else{
@@ -50,17 +50,18 @@ $(function () {
         }
         await ctx.fillText(name + ' #2019小梦想#',75,56);
         var dream = '云南鲜花饼店...';
-        await ctx.font = '19px 微软雅黑'
-        await ctx.fillText(dream+'(已成功参与互助)',75,88);
-        await ctx.font = '14px 微软雅黑';
-        await ctx.fillText('扫码关注',x2,y1);
-        await ctx.fillText('小梦想互助',x3,y);
+        ctx.font = '19px 微软雅黑'
+        ctx.fillText(dream+'(已成功参与互助)',75,88);
+        ctx.font = '14px 微软雅黑';
+        ctx.fillText('扫码关注',x2,y1);
+        ctx.fillText('小梦想互助',x3,y);
         // var imgs = new Image();
     //    imgs.src = canvas.toDataURL('image/png');
     //    imgs.width = $('.share').width();
     //     imgs.height = $('.share').height();
-    var url1 = await canvas.toDataURL('image/png');
-        return url1;
+    var imgs =new Image();
+    imgs.src = canvas.toDataURL('image/png');
+        return imgs;
     }
     $('.bg').attr('src',url).css({
         width:$('.share').width(),
