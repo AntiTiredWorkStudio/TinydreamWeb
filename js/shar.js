@@ -61,8 +61,8 @@ $(function () {
                 ctx.font = '19px 微软雅黑'
                 ctx.fillText(dream+'(已成功参与互助)',75,88);
                 ctx.font = '14px 微软雅黑';
-                ctx.fillText('扫码关注',x2,y1);
-                ctx.fillText('小梦想互助',x3,y);
+                ctx.fillText('扫码关注',$('.share').width() - 141,$('.share').height() - 44);
+                ctx.fillText('小梦想互助',$('.share').width() - 155,$('.share').height() - 25);
                
             }
             
