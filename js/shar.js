@@ -38,15 +38,17 @@ $(function () {
             img[i] = new Image();
             img[i].src = imgArr[i];
             img[i].onload = function(){
-                if(num == 0){
+                num++;
+                console.log(i)
+                if(i == 0){
+                    ctx.drawImage(img[i],0,0,$('.share').width(),$('.share').height())
+                    
+                }else if(i == 1){
                     num++;
-                    ctx.drawImage(img[num],0,0,$('.share').width(),$('.share').height())
-                }else if(num == 1){
-                    num++;
-                    ctx.drawImage(img[1],15,40,50,50);
+                    ctx.drawImage(img[i],15,40,50,50);
                 }else if(total+1 == num){
                     alert('加载完毕');
-                    ctx.drawImage(img[2],x1,y2,60,60);
+                    ctx.drawImage(img[num],x1,y2,60,60);
                 }
                 // ctx.globalCompositeOperation = 'source-over'
                 // if(i == 0){
