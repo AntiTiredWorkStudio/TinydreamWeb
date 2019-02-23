@@ -43,10 +43,13 @@ html,body,.share{
 .footer div.text{
     font-size: 0.28rem;
     margin-right: 0.2rem;
+    font-size: 0.28rem;
+    color: #fff;
 }
 .footer div.qr{
     width: 1.2rem;
     height: 1.2rem;
      background: url(https://tdream.antit.top/LongPress2ShareQR.jpg) repeat;
      background-size: 1.2rem 1.2rem;
+     vertical-align: bottom;
 }
