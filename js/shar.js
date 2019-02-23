@@ -29,6 +29,15 @@ $(function () {
         ctx.globalCompositeOperation = 'source-over'
         // ctx.drawImage(head,0,0,50,50);
         ctx.drawImage(head,10,40,50,50);
+        ctx.font = '#fff 15px';
+        if(userInfo.nickname.length > 6){
+            var name = userInfo.nickname.substring(0,7);
+        }else{
+            var name = userInfo.nickname;
+        }
+        ctx.fillText(name + ' #2019小梦想#',70,48);
+        var dream = '云南鲜花饼店...';
+        ctx.fillText(dream+'(已成功参与互助)',70,73);
         alert(1)
     }
     // html转为图片
