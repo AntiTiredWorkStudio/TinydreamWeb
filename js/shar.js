@@ -36,10 +36,13 @@ $(function () {
         img.onload = function(){
             ctx.globalCompositeOperation = 'source-over'
             if(i == 0){
+                console.log(img)
                 ctx.drawImage(img,0,0,$('.share').width(),$('.share').height())
             }else if(i == 1){
+                console.log(img)
                 ctx.drawImage(img,15,40,50,50)
             }else if(i == 2){
+                console.log(img)
                 ctx.drawImage(qr,x1,y2,60,60);
             }
         }
