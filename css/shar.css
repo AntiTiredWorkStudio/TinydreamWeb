@@ -32,3 +32,21 @@ html,body,.share{
     font-size: 0.38rem;
     color: #fff;
 }
+.footer{
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.3rem;
+}
+.footer div{
+    float: left;
+}
+.footer div.text{
+    font-size: 0.28rem;
+    margin-right: 0.2rem;
+}
+.footer div.qr{
+    width: 1.2rem;
+    height: 1.2rem;
+     background: url(https://tdream.antit.top/LongPress2ShareQR.jpg) repeat;
+     background-size: 1.2rem 1.2rem;
+}
