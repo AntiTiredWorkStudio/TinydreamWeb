@@ -26,7 +26,6 @@ $(function () {
     var qr = new Image();
     qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
     window.onload = function(){
-        ctx.save()
         ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height())
         ctx.globalCompositeOperation = 'source-over'
         // ctx.drawImage(head,0,0,50,50);
@@ -52,7 +51,6 @@ $(function () {
         ctx.fillText('扫码关注',x2,y1);
         ctx.fillText('小梦想互助',x3,y);
         ctx.drawImage(qr,x1,y,60,60);
-        ctx.store();
         var url = canvas.toDataURL('image/png');
         $('.share').html('<img src="'+url+'" />');
         $('#canvas').remove()
