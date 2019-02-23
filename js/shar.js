@@ -64,11 +64,12 @@ $(function () {
        
         $('.bg').remove();
     })
-        var imgurl = canvas.toDataURL('image/png');
-        alert(2)
-        document.getElementById('share').innerHTML = '<img class="img" src="'+imgurl+'" />';
-        $('.img').width($('.share').width())
-        $('.img').height($('.share').height())
+    $('#canvas').remove()
+    var imgurl = canvas.toDataURL('image/png');
+    alert(2)
+    document.getElementById('share').innerHTML = '<img class="img" src="'+imgurl+'" />';
+    $('.img').width($('.share').width())
+    $('.img').height($('.share').height())
     // html转为图片
 //   setTimeout(function(){
 //         html2canvas(document.getElementById('share')).then(function(canvas){
