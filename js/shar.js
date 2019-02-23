@@ -62,7 +62,7 @@ $(function () {
         var imgs =new Image();
         imgs.src = canvas.toDataURL('image/png');
         var url1 = canvas.toDataURL('image/png')
-        return imgs;
+        return url1;
     }
     $('.bg').attr('src',url).css({
         width:$('.share').width(),
