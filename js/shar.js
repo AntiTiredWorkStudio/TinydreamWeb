@@ -35,13 +35,13 @@ $(function () {
         qr.src = 'http://tdream.antit.top/LongPress2ShareQR.jpg';
         bg.setAttribute('crossOrigin','anonymous')
         bg.onload =  function(){
-            ctx.globalCompositeOperation = 'xor'
+            // ctx.globalCompositeOperation = 'xor'
              ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
              canvas.toDataURL('image/png');
              $('.share').html('<img src='+canvas.toDataURL('image/png')+'>')
         }
         head.onload =  function(){
-            // ctx.globalCompositeOperation = 'destination-over'
+            ctx.globalCompositeOperation = 'source-over'
             bg.setAttribute('crossOrigin','anonymous')
             ctx.globalCompositeOperation = 'xor'
              ctx.drawImage(head,15,40,50,50);
@@ -49,7 +49,7 @@ $(function () {
         }
         qr.onload =  function(){
             bg.setAttribute('crossOrigin','anonymous')
-            ctx.globalCompositeOperation = 'destination-over';
+            ctx.globalCompositeOperation = 'source-over';
              ctx.drawImage(qr,x1,y2,60,60);
         }
         ctx.globalCompositeOperation = 'source-over'
