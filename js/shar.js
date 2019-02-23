@@ -61,8 +61,9 @@ $(function () {
         alert(1)
         
         alert(url);
-        document.getElementById('share').innerHTML = '<img src="'+url+'" />';
-        $('.bg').remove();
+        document.getElementById('share').innerHTML = '<img class="img" src="'+url+'" />';
+        $('.img').width($('.share').width())
+        $('.bg').remove($('.share').height());
     })
     // html转为图片
 //   setTimeout(function(){
