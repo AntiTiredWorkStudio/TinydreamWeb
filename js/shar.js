@@ -15,7 +15,7 @@ $(function () {
         $('.nickname .name').html(userInfo.nickname);
     }
     // html转为图片
-    window.onload = function(){
+  setTimeout(function(){
         html2canvas(document.getElementById('share')).then(function(canvas){
             var url = canvas.toDataURL('image/png');
             $('#share').html('<img src='+url+' />');
@@ -23,6 +23,6 @@ $(function () {
             $('img').height($('.share').height())
             alert(url)
         })
-    }
+    },1000)
 
 })
