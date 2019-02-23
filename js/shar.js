@@ -38,7 +38,7 @@ $(function () {
             ctx.globalCompositeOperation = 'xor'
              ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
              canvas.toDataURL('image/png');
-            //  $('.share').html('<img src='+canvas.toDataURL('image/png')+'>')
+             $('.share').html('<img src='+canvas.toDataURL('image/png')+'>')
         }
         head.onload =  function(){
             // ctx.globalCompositeOperation = 'destination-over'
