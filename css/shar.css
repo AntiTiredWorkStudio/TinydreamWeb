@@ -57,3 +57,10 @@ html,body,.share{
      background-size: 1.2rem 1.2rem;
      vertical-align: bottom;
 }
+.tip {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.3rem;
+    color: #fff;
+    font-size: 0.28rem;
+}
