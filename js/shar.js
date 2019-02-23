@@ -39,7 +39,7 @@ $(function () {
         ctx.fillText(name + ' #2019小梦想#',70,56);
         var dream = '云南鲜花饼店...';
         ctx.font = '19px 微软雅黑'
-        ctx.fillText(dream+'(已成功参与互助)',70,73);
+        ctx.fillText(dream+'(已成功参与互助)',70,81);
         alert(1)
         // $('#canvas').remove()
     }
