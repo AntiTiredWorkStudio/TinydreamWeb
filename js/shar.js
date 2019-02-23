@@ -23,6 +23,6 @@ $(function () {
             $('img').height($('.share').height())
             alert(url)
         })
-    },1000)
+    },10000)
 
 })
