@@ -18,6 +18,7 @@ $(function () {
     var imgArr = [
         url,userInfo.headimgurl,'http://tdream.antit.top/LongPress2ShareQR.jpg'
     ];
+    next(imgArr,0,0,0,$('.share').width(),$('.share').height()); 
     
     // var l = canvas2image(canvas).then(function(res){
     //     alert(res);
@@ -32,24 +33,42 @@ $(function () {
     //     height:$('.share').height()
     // })
     // alert(1);
-    var total = img.length;
-    for(let i = 0;i<imgArr.length;i++){
-        console.log(i)
-        img[i] = new Image();
-        img[i].src = imgArr[i];
-        img[i].onload = function(){
-            if(i == 0){
-                alert(i)
-                ctx.drawImage(img[i],0,0,$('.share').width(),$('.share').height())
-            }else if(i == 1){
-                alert(i);
-                ctx.drawImage(img[i],15,40,50,50);
-            }else if(i == 2){
-                alert(i)
-                ctx.drawImage(img[num],x1,y2,60,60);
-                alert('全部绘制完成')
+    // var total = img.length;
+    function next(src,index,x,y,width,height){
+        var img = new Image();
+        img.src = src[index];
+        img.onload = function(){
+            if(index != 2){
+                ctx.drawImage(img,x,y,width,height)
+                next(imgArr,index++,15,40,50,50) 
+            }else{
+                x = x1;
+                y = y2;
+                width = 60;
+                height = 60;
+                ctx.drawImage(img,x,y,width,height);
+                alert('success')
             }
+            
         }
+    }
+    // for(let i = 0;i<imgArr.length;i++){
+    //     console.log(i)
+    //     img[i] = new Image();
+    //     img[i].src = imgArr[i];
+    //     img[i].onload = function(){
+    //         if(i == 0){
+    //             alert(i)
+    //             ctx.drawImage(img[i],0,0,$('.share').width(),$('.share').height())
+    //         }else if(i == 1){
+    //             alert(i);
+    //             ctx.drawImage(img[i],15,40,50,50);
+    //         }else if(i == 2){
+    //             alert(i)
+    //             ctx.drawImage(img[num],x1,y2,60,60);
+    //             alert('全部绘制完成')
+    //         }
+    //     }
         //     num++;
         //     if(total+1 == num){
         //         alert('success')
@@ -80,7 +99,7 @@ $(function () {
             //     })
             // }
         // }
-    }
+    // }
     async function canvas2image(canvas){
         // var num = 0;
         // for (var i = 0; i<)
