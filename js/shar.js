@@ -51,6 +51,7 @@ $(function () {
                 canvas = document.getElementById('canvas');
                 canvas2image(canvas).then(function(res){
                     console.log(res)
+                    $('.share').html(res)
                 })
                 alert('success')
             }
