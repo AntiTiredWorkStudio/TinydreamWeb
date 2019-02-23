@@ -4,29 +4,7 @@ $(function () {
     canvas.width = $('.share').width();
     canvas.height = $('.share').height();
     $('body').css('background','red')
-    window.onload = function(){
-        var bg = new Image();
-        bg.src = url;
-        var head = new Image();
-        head.src = userInfo.headimgurl;
-        var qr = new Image();
-        qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
-        bg.onload =  function(){
-            ctx.globalCompositeOperation = 'xor'
-             ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
-             canvas.toDataURL('image/png');
-             $('.share').html('<img src='+canvas.toDataURL('image/png')+'>')
-        }
-        head.onload =  function(){
-            // ctx.globalCompositeOperation = 'destination-over'
-            ctx.globalCompositeOperation = 'xor'
-             ctx.drawImage(head,15,40,50,50);
-        }
-        qr.onload =  function(){
-            ctx.globalCompositeOperation = 'destination-over';
-             ctx.drawImage(qr,x1,y2,60,60);
-        }
-    }
+    
     var ctx = canvas.getContext('2d');
     var x1 = canvas.width - 75;
     var x2 = canvas.width - 141;
@@ -49,6 +27,27 @@ $(function () {
     })
     alert(1);
     async function canvas2image(canvas){
+        var bg = new Image();
+        bg.src = url;
+        var head = new Image();
+        head.src = userInfo.headimgurl;
+        var qr = new Image();
+        qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
+        bg.onload =  function(){
+            ctx.globalCompositeOperation = 'xor'
+             ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
+             canvas.toDataURL('image/png');
+            //  $('.share').html('<img src='+canvas.toDataURL('image/png')+'>')
+        }
+        head.onload =  function(){
+            // ctx.globalCompositeOperation = 'destination-over'
+            ctx.globalCompositeOperation = 'xor'
+             ctx.drawImage(head,15,40,50,50);
+        }
+        qr.onload =  function(){
+            ctx.globalCompositeOperation = 'destination-over';
+             ctx.drawImage(qr,x1,y2,60,60);
+        }
         ctx.globalCompositeOperation = 'source-over'
         ctx.fillStyle = '#fff';
         ctx.font = '15px 微软雅黑';
