@@ -9,7 +9,13 @@ $(function () {
         'background':'url('+userInfo.headimgurl+') no-repeat',
         'background-size':'1rem 1rem'
     })
-
-    $('.nickname .name').html(userInfo.nickname);
-    console.log(userInfo.nickname.substring(0,6))
+    if(userInfo.nickname.length > 6){
+        $('.nickname .name').html(userInfo.nickname.substring(0,7));
+    }else{
+        $('.nickname .name').html(userInfo.nickname);
+    }
+    // html转为图片
+    html2canvas('.share').then(function(canvas) {
+        console.log(canvas)
+    });
 })
