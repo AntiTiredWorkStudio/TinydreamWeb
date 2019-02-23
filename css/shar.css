@@ -10,26 +10,24 @@ html,body,.share{
 .share .header{
     width: 6.9rem;
     margin: 0 auto;
-    padding-top: 0.8rem;
+    padding-top: 1rem;
     overflow: hidden;
 }
 .share .header .headicon{
     width: 0.8rem;
     height: 0.8rem;
     margin-right:0.2rem; 
-    float: left;
+    display: inline-block;
 }
 .share .header .text{
-    float: right;
+    display: inline-block
 }
 .share .header p.nickname{
     color: #fff;
     font-size: 0.3rem;
     margin-bottom: 0.2rem;
-    display: inline-block;
 }
 .share .header p.dream{
     font-size: 0.38rem;
     color: #fff;
-    display: inline-block;
 }
