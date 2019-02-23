@@ -1,19 +1,19 @@
 $(function () {
     var url = localStorage.getItem('img');
     var userInfo = Options.GetUserInfo();
-    $('.bg').attr('src',url).css({
-        width:$('.share').width(),
-        height:$('.share').height(),
-        position:"absolute",
-        top:0,
-        left:0
-    });
-    $('.headicon').attr('src',userInfo.headimgurl)
-    if(userInfo.nickname.length > 6){
-        $('.nickname .name').html(userInfo.nickname.substring(0,7)+'...');
-    }else{
-        $('.nickname .name').html(userInfo.nickname);
-    }
+    // $('.bg').attr('src',url).css({
+    //     width:$('.share').width(),
+    //     height:$('.share').height(),
+    //     position:"absolute",
+    //     top:0,
+    //     left:0
+    // });
+    // $('.headicon').attr('src',userInfo.headimgurl)
+    // if(userInfo.nickname.length > 6){
+    //     $('.nickname .name').html(userInfo.nickname.substring(0,7)+'...');
+    // }else{
+    //     $('.nickname .name').html(userInfo.nickname);
+    // }
 
     var canvas = document.getElementById('canvas');
     canvas.width = $('.share').width();
@@ -50,11 +50,11 @@ $(function () {
         ctx.font = '14px 微软雅黑';
         ctx.fillText('扫码关注',x2,y1);
         ctx.fillText('小梦想互助',x3,y);
-        ctx.drawImage(qr,x1,y,60,60);
+        ctx.drawImage(qr,x1,y+60,60,60);
         var url = canvas.toDataURL('image/png');
         $('.share').html('<img src="'+url+'" />');
         $('#canvas').remove()
-        alert(1)
+        // alert(1)
         // $('#canvas').remove()
     }
     // html转为图片
