@@ -49,11 +49,7 @@ $(function () {
                 height = 60;
                 ctx.drawImage(img,x,y,width,height);
                 canvas = document.getElementById('canvas');
-                canvas2image(canvas).then(function(res){
-                    alert(res)
-                    $('.share').html(res)
-                    alert('success')
-                })
+                canvas2image();
                
             }
             
@@ -107,7 +103,7 @@ $(function () {
             // }
         // }
     // }
-    async function canvas2image(canvas){
+    function canvas2image(){
         ctx.globalCompositeOperation = 'source-over'
         ctx.fillStyle = '#fff';
         ctx.font = '15px 微软雅黑';
@@ -127,10 +123,10 @@ $(function () {
     //    imgs.src = canvas.toDataURL('image/png');
     //    imgs.width = $('.share').width();
     //     imgs.height = $('.share').height();
-        var imgs =new Image();
+        // var imgs =new Image();
         // imgs.src = canvas.toDataURL('image/jpg',1);
         // var url1 = canvas.toDataURL('image/jpg',1)
-        return imgs;
+        // return canvas;
     }
     $('.bg').attr('src',url).css({
         width:$('.share').width(),
