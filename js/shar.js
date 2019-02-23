@@ -15,10 +15,14 @@ $(function () {
         $('.nickname .name').html(userInfo.nickname);
     }
     // html转为图片
-    html2canvas(document.getElementById('share')).then(function(canvas){
-        var url = canvas.toDataURL('image/png');
-        $('#share').html('<img src='+url+' />');
-        alert(url)
-    })
+    window.onload = function(){
+        html2canvas(document.getElementById('share')).then(function(canvas){
+            var url = canvas.toDataURL('image/png');
+            $('#share').html('<img src='+url+' />');
+            $('img').width($('.share').width());
+            $('img').height($('.share').height())
+            alert(url)
+        })
+    }
 
 })
