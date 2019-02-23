@@ -33,6 +33,7 @@ $(function () {
     alert(1);
     for(var i = 0;i<imgArr.length;i++){
         img.src = imgArr[i];
+        console.log(i)
         img.onload = function(){
             ctx.globalCompositeOperation = 'source-over'
             if(i == 0){
