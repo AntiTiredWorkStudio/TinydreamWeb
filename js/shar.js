@@ -30,7 +30,7 @@ $(function () {
         // ctx.drawImage(head,0,0,50,50);
         ctx.drawImage(head,10,40,50,50);
         ctx.fillStyle = '#fff';
-        ctx.font = '15px';
+        ctx.font = '30px';
         if(userInfo.nickname.length > 6){
             var name = userInfo.nickname.substring(0,7)+'...';
         }else{
@@ -38,10 +38,10 @@ $(function () {
         }
         ctx.fillText(name + ' #2019小梦想#',70,48);
         var dream = '云南鲜花饼店...';
-        ctx.font = '19px'
+        ctx.font = '38px'
         ctx.fillText(dream+'(已成功参与互助)',70,73);
         alert(1)
-        $('#canvas').remove()
+        // $('#canvas').remove()
     }
     // html转为图片
 //   setTimeout(function(){
