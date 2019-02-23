@@ -26,7 +26,7 @@ $(function () {
     var qr = new Image();
     qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
     window.onload = function(){
-        ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height())
+        // ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height())
         // ctx.globalCompositeOperation = 'source-over'
         // // ctx.drawImage(head,0,0,50,50);
         // ctx.drawImage(head,15,40,50,50);
@@ -54,10 +54,11 @@ $(function () {
         // ctx.drawImage(qr,x1,y2,60,60);
         var url = canvas.toDataURL('image/png');
         document.getElementById('share').innerHTML = '<img src="'+url+'" />';
+        $('.bg').remove()
         // $('#canvas').remove()
         alert('success')
         // alert(1)
-        $('#canvas').remove()
+        
     }
     // html转为图片
 //   setTimeout(function(){
