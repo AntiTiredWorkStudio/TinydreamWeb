@@ -32,7 +32,7 @@ $(function () {
     //     height:$('.share').height()
     // })
     // alert(1);
-    var total = img.length;
+    var total = img.length-1;
     for(let i = 0;i<imgArr.length;i++){
         (function(i){
             img[i] = new Image();
