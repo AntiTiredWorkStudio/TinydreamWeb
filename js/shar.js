@@ -3,6 +3,7 @@ $(function () {
     var canvas = document.getElementById('canvas');
     canvas.width = $('.share').width();
     canvas.height = $('.share').height();
+    $('body').css('background','red')
     var ctx = canvas.getContext('2d');
     var x1 = canvas.width - 75;
     var x2 = canvas.width - 141;
