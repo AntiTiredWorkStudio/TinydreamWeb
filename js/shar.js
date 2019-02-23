@@ -49,7 +49,9 @@ $(function () {
                 height = 60;
                 ctx.drawImage(img,x,y,width,height);
                 canvas = document.getElementById('canvas');
-                canvas2image(canvas)
+                canvas2image(canvas).then(function(res){
+                    console.log(res)
+                })
                 alert('success')
             }
             
