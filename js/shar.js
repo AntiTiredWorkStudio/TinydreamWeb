@@ -140,10 +140,9 @@ $(function () {
     }else{
         $('.nickname .name').html(userInfo.nickname);
     }
-    $('#canvas').click(function(){
-        // var imgurl = canvas.toDataURL('image/jpeg',1);
-        // $('.share').html('<img src="'+imgurl+'">');
-        alert(1)
-    })
+    canvas.onclick = function(){
+        var url = this.toDataURL('image/png');
+        alert(url)
+    }
 
 })
