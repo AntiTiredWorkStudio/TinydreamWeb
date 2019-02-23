@@ -12,6 +12,7 @@ $(function () {
     var y1 = canvas.height - 44;
     var userInfo = Options.GetUserInfo();
     var l = canvas2image(canvas);
+    console.log(l)
     $('.share').html('<img class="bgi" src='+l+' />');
     $('.bgi').css({
         width:$('.share').width(),
