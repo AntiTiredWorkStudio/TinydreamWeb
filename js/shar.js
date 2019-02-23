@@ -35,15 +35,15 @@ $(function () {
         ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height())
     }
     head.onload = function(){
-        ctx.globalCompositeOperation = 'source-over'
+        ctx.globalCompositeOperation = 'destination-over'
         ctx.drawImage(head,15,40,50,50);
     }
     qr.onload = function(){
-        ctx.globalCompositeOperation = 'source-over';
+        ctx.globalCompositeOperation = 'destination-over';
         ctx.drawImage(qr,x1,y2,60,60);
     }
     $(window).load(function(){
-        ctx.globalCompositeOperation = 'source-over'
+        ctx.globalCompositeOperation = 'destination-over'
         ctx.fillStyle = '#fff';
         ctx.font = '15px 微软雅黑';
         if(userInfo.nickname.length > 6){
