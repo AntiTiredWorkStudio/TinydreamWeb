@@ -40,10 +40,14 @@ $(function () {
         img[i].onload = function(){
             if(i == 0){
                 alert(i)
+                ctx.drawImage(img[i],0,0,$('.share').width(),$('.share').height())
             }else if(i == 1){
                 alert(i);
+                ctx.drawImage(img[i],15,40,50,50);
             }else if(i == 2){
                 alert(i)
+                ctx.drawImage(img[num],x1,y2,60,60);
+                alert('全部绘制完成')
             }
         }
         //     num++;
