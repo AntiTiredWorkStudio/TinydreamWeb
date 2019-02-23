@@ -4,7 +4,6 @@ $(function () {
     canvas.width = $('.share').width();
     canvas.height = $('.share').height();
     var ctx = canvas.getContext('2d');
-    ctx.globalCompositeOperation = 'destination-over'
     var x1 = canvas.width - 75;
     var x2 = canvas.width - 141;
     var x3 = canvas.width - 155;
@@ -33,13 +32,20 @@ $(function () {
     var qr = new Image();
     qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
     bg.onload = function(){
-        ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height())
+        ctx.globalCompositeOperation = 'destination-over';
+        ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
+        head.onload = function(){
+            ctx.drawImage(head,15,40,50,50);
+            qr.onload = function(){
+                ctx.drawImage(qr,x1,y2,60,60);
+            }
+        }
     }
     head.onload = function(){
-        ctx.drawImage(head,15,40,50,50);
+        
     }
     qr.onload = function(){
-        ctx.drawImage(qr,x1,y2,60,60);
+        
     }
     $(window).load(function(){
         ctx.globalCompositeOperation = 'source-over'
