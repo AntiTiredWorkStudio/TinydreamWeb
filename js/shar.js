@@ -32,14 +32,14 @@ $(function () {
     //     height:$('.share').height()
     // })
     // alert(1);
-    var total = img.length-1;
+    var total = img.length;
     for(let i = 0;i<imgArr.length;i++){
         (function(i){
             img[i] = new Image();
             img[i].src = imgArr[i];
             img[i].onload = function(){
                 num++;
-                if(total == num){
+                if(total+1 == num){
                     alert('加载完毕');
                     // ctx.drawImage(img[0],0,0,$('.share').width(),$('.share').height())
                     // ctx.drawImage(img[1],15,40,50,50);
