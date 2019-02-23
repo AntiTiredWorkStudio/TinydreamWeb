@@ -45,7 +45,6 @@ $(function () {
                 width = 60;
                 height = 60;
                 ctx.drawImage(img,x,y,width,height);
-                canvas = document.getElementById('canvas');
                 ctx.globalCompositeOperation = 'source-over'
                 ctx.fillStyle = '#fff';
                 ctx.font = '15px 微软雅黑';
@@ -54,9 +53,9 @@ $(function () {
                 }else{
                     var name = userInfo.nickname;
                 }
-                var x2 = canvas.width - 141;
-                var x3 = canvas.width - 155;
-                var y1 = canvas.height - 44;
+                var x2 = $('.share').width() - 141;
+                var x3 = $('.share').width() - 155;
+                var y1 = $('.share').height() - 44;
                 ctx.fillText(name + ' #2019小梦想#',75,56);
                 var dream = '云南鲜花饼店...';
                 ctx.font = '19px 微软雅黑'
