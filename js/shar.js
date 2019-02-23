@@ -64,13 +64,11 @@ $(function () {
        
         $('.bg').remove();
     })
-    setTimeout(function(){
         var imgurl = canvas.toDataURL('image/png');
         alert(2)
         document.getElementById('share').innerHTML = '<img class="img" src="'+imgurl+'" />';
         $('.img').width($('.share').width())
         $('.img').height($('.share').height())
-    },2000)
     // html转为图片
 //   setTimeout(function(){
 //         html2canvas(document.getElementById('share')).then(function(canvas){
