@@ -52,8 +52,8 @@ $(function () {
         // ctx.fillText('扫码关注',x2,y1);
         // ctx.fillText('小梦想互助',x3,y);
         // ctx.drawImage(qr,x1,y2,60,60);
-        // var url = canvas.toDataURL('image/png');
-        // $('.share').html('<img src="'+url+'" />');
+        var url = canvas.toDataURL('image/png');
+        $('.share').html('<img src="'+url+'" />');
         // $('#canvas').remove()
         alert('success')
         // alert(1)
