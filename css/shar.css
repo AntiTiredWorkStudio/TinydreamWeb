@@ -7,3 +7,26 @@ html,body,.share{
     /* background: url(../images/1.png) no-repeat; */
     background-size: cover;
 }
+.share .header{
+    width: 6.9rem;
+    margin: 0 auto;
+    padding-top: 0.8rem;
+    overflow: hidden;
+}
+.share .header .headicon{
+    width: 1rem;
+    height: 1rem;
+    margin-right:0.2rem; 
+}
+.share .header .headicon .text{
+    float: right;
+}
+.share .header .headicon p.nickname{
+    color: #fff;
+    font-size: 0.3rem;
+    margin-bottom: 0.2rem;
+}
+.share .header .headicon p.dream{
+    font-size: 0.38rem;
+    color: #fff;
+}
