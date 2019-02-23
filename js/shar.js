@@ -40,18 +40,18 @@ $(function () {
              canvas.toDataURL('image/png');
              $('.share').html('<img src='+canvas.toDataURL('image/png')+'>')
         }
-        head.onload =  function(){
-            ctx.globalCompositeOperation = 'destination-over'
-            bg.setAttribute('crossOrigin','anonymous')
-            ctx.globalCompositeOperation = 'xor'
-             ctx.drawImage(head,15,40,50,50);
-             $('.share').html('<img src='+canvas.toDataURL('image/png')+'>')
-        }
-        qr.onload =  function(){
-            bg.setAttribute('crossOrigin','anonymous')
-            ctx.globalCompositeOperation = 'destination-over';
-             ctx.drawImage(qr,x1,y2,60,60);
-        }
+        // head.onload =  function(){
+        //     ctx.globalCompositeOperation = 'destination-over'
+        //     bg.setAttribute('crossOrigin','anonymous')
+        //     // ctx.globalCompositeOperation = 'xor'
+        //      ctx.drawImage(head,15,40,50,50);
+        //      $('.share').html('<img src='+canvas.toDataURL('image/png')+'>')
+        // }
+        // qr.onload =  function(){
+        //     bg.setAttribute('crossOrigin','anonymous')
+        //     ctx.globalCompositeOperation = 'destination-over';
+        //      ctx.drawImage(qr,x1,y2,60,60);
+        // }
         ctx.globalCompositeOperation = 'source-over'
         ctx.fillStyle = '#fff';
         ctx.font = '15px 微软雅黑';
