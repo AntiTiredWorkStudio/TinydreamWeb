@@ -29,32 +29,32 @@ $(function () {
         head.src = userInfo.headimgurl;
         var qr = new Image();
         qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
-        bg.onload = function(){
-            ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
+        bg.onload = async function(){
+            await ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
         }
-        head.onload = function(){
+        head.onload = async function(){
             ctx.globalCompositeOperation = 'destination-over'
-            ctx.drawImage(head,15,40,50,50);
+            await ctx.drawImage(head,15,40,50,50);
         }
-        qr.onload = function(){
+        qr.onload = async function(){
             ctx.globalCompositeOperation = 'destination-over';
-            ctx.drawImage(qr,x1,y2,60,60);
+            await ctx.drawImage(qr,x1,y2,60,60);
         }
-        ctx.globalCompositeOperation = 'source-over'
-        ctx.fillStyle = '#fff';
-        ctx.font = '15px 微软雅黑';
+        await ctx.globalCompositeOperation = 'source-over'
+        await ctx.fillStyle = '#fff';
+        await ctx.font = '15px 微软雅黑';
         if(userInfo.nickname.length > 6){
             var name = userInfo.nickname.substring(0,7)+'...';
         }else{
             var name = userInfo.nickname;
         }
-        ctx.fillText(name + ' #2019小梦想#',75,56);
-        var dream = '云南鲜花饼店...';
-        ctx.font = '19px 微软雅黑'
-        ctx.fillText(dream+'(已成功参与互助)',75,88);
-        ctx.font = '14px 微软雅黑';
-        ctx.fillText('扫码关注',x2,y1);
-        ctx.fillText('小梦想互助',x3,y);
+        await ctx.fillText(name + ' #2019小梦想#',75,56);
+        await var dream = '云南鲜花饼店...';
+        await ctx.font = '19px 微软雅黑'
+        await ctx.fillText(dream+'(已成功参与互助)',75,88);
+        await ctx.font = '14px 微软雅黑';
+        await ctx.fillText('扫码关注',x2,y1);
+        await ctx.fillText('小梦想互助',x3,y);
         // var imgs = new Image();
     //    imgs.src = canvas.toDataURL('image/png');
     //    imgs.width = $('.share').width();
