@@ -14,8 +14,8 @@ html,body,.share{
     overflow: hidden;
 }
 .share .header .headicon{
-    width: 1rem;
-    height: 1rem;
+    width: 0.8rem;
+    height: 0.8rem;
     margin-right:0.2rem; 
     float: left;
 }

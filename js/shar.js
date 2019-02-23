@@ -7,7 +7,7 @@ $(function () {
     })
     $('.headicon').css({
         'background':'url('+userInfo.headimgurl+') no-repeat',
-        'background-size':'1rem 1rem'
+        'background-size':'0.8rem 0.8rem'
     })
     $('.nickname .name').html(userInfo.nickname);
 })
