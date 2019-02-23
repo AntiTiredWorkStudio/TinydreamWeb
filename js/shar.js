@@ -41,7 +41,7 @@ $(function () {
              $('.share').html('<img src='+canvas.toDataURL('image/png')+'>')
         }
         head.onload =  function(){
-            ctx.globalCompositeOperation = 'source-over'
+            ctx.globalCompositeOperation = 'destination-over'
             bg.setAttribute('crossOrigin','anonymous')
             ctx.globalCompositeOperation = 'xor'
              ctx.drawImage(head,15,40,50,50);
@@ -49,7 +49,7 @@ $(function () {
         }
         qr.onload =  function(){
             bg.setAttribute('crossOrigin','anonymous')
-            ctx.globalCompositeOperation = 'source-over';
+            ctx.globalCompositeOperation = 'destination-over';
              ctx.drawImage(qr,x1,y2,60,60);
         }
         ctx.globalCompositeOperation = 'source-over'
