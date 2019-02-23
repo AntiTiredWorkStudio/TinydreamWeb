@@ -23,6 +23,8 @@ $(function () {
     bg.src = url;
     var head = new Image();
     head.src = userInfo.headimgurl;
+    var qr = new Image();
+    qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
     window.onload = function(){
         ctx.save()
         ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height())
@@ -40,6 +42,8 @@ $(function () {
         var dream = '云南鲜花饼店...';
         ctx.font = '19px 微软雅黑'
         ctx.fillText(dream+'(已成功参与互助)',75,88);
+        ctx.font = '28px 微软雅黑';
+        ctx.fillText('小梦想互助',-25,-85);
         alert(1)
         // $('#canvas').remove()
     }
