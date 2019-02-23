@@ -2,6 +2,7 @@ html,body,.share{
     width: 100%;
     height: 100%;
     overflow: hidden;
+    line-height: 1;
 }
 .share{
     /* background: url(../images/1.png) no-repeat; */
@@ -10,12 +11,12 @@ html,body,.share{
 .share .header{
     width: 6.9rem;
     margin: 0 auto;
-    padding-top: 1rem;
+    padding-top: 0.8rem;
     overflow: hidden;
 }
 .share .header .headicon{
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 1rem;
+    height: 1rem;
     margin-right:0.2rem; 
     display: inline-block;
 }
