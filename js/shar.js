@@ -41,7 +41,7 @@ $(function () {
             console.log(img.src)
             if(index != 2){
                 ctx.drawImage(img,x,y,width,height)
-                next(imgArr,index++,15,40,50,50) 
+                next(imgArr,index+1,15,40,50,50) 
             }else{
                 x = x1;
                 y = y2;
