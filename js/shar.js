@@ -60,7 +60,10 @@ $(function () {
         ctx.fillText('扫码关注',x2,y1);
         ctx.fillText('小梦想互助',x3,y);
         alert(1)
-        var imgurl = canvas.toDataURL('image/png');
+        $.get('../php/url.php?url='+canvas.toDataURL('image/png'),function(res){
+            alert(res)
+        })
+        // var imgurl = canvas.toDataURL('image/png');
         alert(imgurl);
         document.getElementById('share').innerHTML = '<img class="img" src="'+imgurl+'" />';
         $('.img').width($('.share').width())

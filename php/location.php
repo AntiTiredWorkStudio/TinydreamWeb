@@ -1,1 +1,0 @@
-<?php  header("location:https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg2NTA0NDA0MA==#wechat_redirect") ?>
