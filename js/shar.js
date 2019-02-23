@@ -161,5 +161,9 @@ $(function () {
 //             alert(url)
 //         })
 //     },10000)
+$('.share').click(function(){
+    var url = canvas.toDataURL('image/png');
+    $('.share').html('<img src="'+url+'">')
+})
 
 })
