@@ -61,8 +61,8 @@ $(function () {
     //     imgs.height = $('.share').height();
         var imgs =new Image();
         imgs.src = canvas.toDataURL('image/png');
-        var url1
-        return url1;
+        var url1 = canvas.toDataURL('image/png')
+        return imgs;
     }
     $('.bg').attr('src',url).css({
         width:$('.share').width(),
