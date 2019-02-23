@@ -43,6 +43,7 @@ $(function () {
         ctx.drawImage(qr,x1,y2,60,60);
     }
     $(window).load(function(){
+        ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
         ctx.globalCompositeOperation = 'source-over'
         ctx.fillStyle = '#fff';
         ctx.font = '15px 微软雅黑';
