@@ -46,9 +46,9 @@ $(function () {
             }else if(i == 2){
                 console.log(img)
                 ctx.drawImage(qr,x1,y2,60,60);
-                canvas2image(canvas).then(res){
+                canvas2image(canvas).then(function(res){
                     console.log(res)
-                }
+                })
             }
         }
     }
