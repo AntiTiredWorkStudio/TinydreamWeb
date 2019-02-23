@@ -47,11 +47,12 @@ $(function () {
         ctx.font = '14px 微软雅黑';
         ctx.fillText('扫码关注',x2,y1);
         ctx.fillText('小梦想互助',x3,y);
-        var imgs = new Image();
-       imgs.src = canvas.toDataURL('image/png');
-       imgs.width = $('.share').width();
-        imgs.height = $('.share').height();
-        return imgs;
+        // var imgs = new Image();
+    //    imgs.src = canvas.toDataURL('image/png');
+    //    imgs.width = $('.share').width();
+    //     imgs.height = $('.share').height();
+    var url1 = canvas.toDataURL('image/png')
+        return url1;
     }
     $('.bg').attr('src',url).css({
         width:$('.share').width(),
