@@ -15,14 +15,14 @@ $(function () {
         $('.nickname .name').html(userInfo.nickname);
     }
     // html转为图片
-  setTimeout(function(){
-        html2canvas(document.getElementById('share')).then(function(canvas){
-            var url = canvas.toDataURL('image/png');
-            $('#share').html('<img src='+url+' />');
-            $('img').width($('.share').width());
-            $('img').height($('.share').height())
-            alert(url)
-        })
-    },10000)
+//   setTimeout(function(){
+//         html2canvas(document.getElementById('share')).then(function(canvas){
+//             var url = canvas.toDataURL('image/png');
+//             $('#share').html('<img src='+url+' />');
+//             $('img').width($('.share').width());
+//             $('img').height($('.share').height())
+//             alert(url)
+//         })
+//     },10000)
 
 })
