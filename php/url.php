@@ -1,3 +1,3 @@
 <?php  
-    echo $_GET['url'];
+    echo base64_decode($_GET['url']);
 ?>
