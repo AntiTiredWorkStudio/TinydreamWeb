@@ -28,7 +28,7 @@ $(function () {
         ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height())
         ctx.globalCompositeOperation = 'source-over'
         // ctx.drawImage(head,0,0,50,50);
-        ctx.drawImage(head,10,40,50,50);
+        ctx.drawImage(head,15,40,50,50);
         ctx.fillStyle = '#fff';
         ctx.font = '15px 微软雅黑';
         if(userInfo.nickname.length > 6){
@@ -36,10 +36,10 @@ $(function () {
         }else{
             var name = userInfo.nickname;
         }
-        ctx.fillText(name + ' #2019小梦想#',70,56);
+        ctx.fillText(name + ' #2019小梦想#',75,56);
         var dream = '云南鲜花饼店...';
         ctx.font = '19px 微软雅黑'
-        ctx.fillText(dream+'(已成功参与互助)',70,81);
+        ctx.fillText(dream+'(已成功参与互助)',75,90);
         alert(1)
         // $('#canvas').remove()
     }
