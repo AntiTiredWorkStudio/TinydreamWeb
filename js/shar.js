@@ -40,6 +40,10 @@ $(function () {
         img[i].onload = function(){
             if(i == 0){
                 alert(i)
+            }else if(i == 1){
+                alert(i);
+            }else if(i == 2){
+                alert(i)
             }
         }
         //     num++;
