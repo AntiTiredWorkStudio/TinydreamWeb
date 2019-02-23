@@ -39,6 +39,9 @@ $(function () {
         img[i].src = imgArr[i];
         img[i].onload = function(){
             num++;
+            if(total+1 == num){
+                alert('success')
+            }
             console.log(i)
             if(i == 0){
                 ctx.drawImage(img[i],0,0,$('.share').width(),$('.share').height())
