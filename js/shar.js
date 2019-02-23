@@ -12,10 +12,7 @@ $(function () {
     var y1 = canvas.height - 44;
     var userInfo = Options.GetUserInfo();
     
-    var bg = new Image();
-    bg.src = url;
     window.onload = function(){
-        ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
         var l = canvas2image(canvas);
         alert(l);
         $('.share').html('<img class="bgi" src='+l+' />');
@@ -26,10 +23,15 @@ $(function () {
         alert(1);
     }
     function canvas2image(canvas){
+        var bg = new Image();
+        bg.src = url;
         var head = new Image();
         head.src = userInfo.headimgurl;
         var qr = new Image();
         qr.src = 'https://tdream.antit.top/LongPress2ShareQR.jpg';
+        bg.onload = function(){
+            ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
+        }
         head.onload = function(){
             ctx.globalCompositeOperation = 'destination-over'
             ctx.drawImage(head,15,40,50,50);
