@@ -45,6 +45,7 @@ $(function () {
             bg.setAttribute('crossOrigin','anonymous')
             ctx.globalCompositeOperation = 'xor'
              ctx.drawImage(head,15,40,50,50);
+             $('.share').html('<img src='+canvas.toDataURL('image/png')+'>')
         }
         qr.onload =  function(){
             bg.setAttribute('crossOrigin','anonymous')
