@@ -60,7 +60,7 @@ $(function () {
         ctx.fillText('扫码关注',x2,y1);
         ctx.fillText('小梦想互助',x3,y);
         alert(1)
-        
+        var url = ctx.toDataURL('image/png');
         alert(url);
         document.getElementById('share').innerHTML = '<img class="img" src="'+url+'" />';
         $('.img').width($('.share').width())
