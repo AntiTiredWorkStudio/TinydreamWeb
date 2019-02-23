@@ -56,6 +56,7 @@ $(function () {
         ctx.font = '14px 微软雅黑';
         ctx.fillText('扫码关注',x2,y1);
         ctx.fillText('小梦想互助',x3,y);
+        alert(1)
         var url = canvas.toDataURL('image/png');
         document.getElementById('share').innerHTML = '<img src="'+url+'" />';
         $('.bg').remove();
