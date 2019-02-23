@@ -18,18 +18,18 @@ $(function () {
     ];
     var img = new Image();
     img.setAttribute('crossOrigin','anonymous');
-    var l = canvas2image(canvas).then(function(res){
-        alert(res);
-        // $('.share').html('<img class="bgi" src='+res+' />');
-        $('.share').html(res)
-        console.log(res)
-    });
-    console.log(l)
+    // var l = canvas2image(canvas).then(function(res){
+    //     alert(res);
+    //     // $('.share').html('<img class="bgi" src='+res+' />');
+    //     $('.share').html(res)
+    //     console.log(res)
+    // });
+    // console.log(l)
     
-    $('.bgi').css({
-        width:$('.share').width(),
-        height:$('.share').height()
-    })
+    // $('.bgi').css({
+    //     width:$('.share').width(),
+    //     height:$('.share').height()
+    // })
     alert(1);
     for(var i = 0;i<imgArr.length;i++){
         img.src = imgArr[i];
