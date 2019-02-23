@@ -11,9 +11,12 @@ $(function () {
     var y2 = canvas.height - 85;
     var y1 = canvas.height - 44;
     var userInfo = Options.GetUserInfo();
-    var l = canvas2image(canvas);
+    var l = canvas2image(canvas).then(function(res){
+        alert(res);
+        $('.share').html('<img class="bgi" src='+l+' />');
+    });
     console.log(l)
-    $('.share').html('<img class="bgi" src='+l+' />');
+    
     $('.bgi').css({
         width:$('.share').width(),
         height:$('.share').height()
