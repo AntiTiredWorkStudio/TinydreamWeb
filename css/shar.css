@@ -26,8 +26,10 @@ html,body,.share{
     color: #fff;
     font-size: 0.3rem;
     margin-bottom: 0.2rem;
+    display: inline-block;
 }
 .share .header p.dream{
     font-size: 0.38rem;
     color: #fff;
+    display: inline-block;
 }
