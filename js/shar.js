@@ -55,6 +55,7 @@ $(function () {
         var url = canvas.toDataURL('image/png');
         $('.share').html('<img src="'+url+'" />');
         $('#canvas').remove()
+        alert('success')
         // alert(1)
         // $('#canvas').remove()
     }
