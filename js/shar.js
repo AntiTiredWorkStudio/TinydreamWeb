@@ -60,16 +60,16 @@ $(function () {
         ctx.fillText('扫码关注',x2,y1);
         ctx.fillText('小梦想互助',x3,y);
         alert(1)
-        $.post('../php/url.php',{url:1},function(res){
-            alert(res)
-        })
         // var imgurl = canvas.toDataURL('image/png');
-        alert(imgurl);
+       
+        $('.bg').remove();
+    })
+    setTimeout(function(){
+        var imgurl = canvas.toDataURL('image/png');
         document.getElementById('share').innerHTML = '<img class="img" src="'+imgurl+'" />';
         $('.img').width($('.share').width())
         $('.img').height($('.share').height())
-        $('.bg').remove();
-    })
+    },2000)
     // html转为图片
 //   setTimeout(function(){
 //         html2canvas(document.getElementById('share')).then(function(canvas){
