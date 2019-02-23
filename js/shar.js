@@ -1,19 +1,19 @@
 $(function () {
     var url = localStorage.getItem('img');
     var userInfo = Options.GetUserInfo();
-    // $('.bg').attr('src',url).css({
-    //     width:$('.share').width(),
-    //     height:$('.share').height(),
-    //     position:"absolute",
-    //     top:0,
-    //     left:0
-    // });
-    // $('.headicon').attr('src',userInfo.headimgurl)
-    // if(userInfo.nickname.length > 6){
-    //     $('.nickname .name').html(userInfo.nickname.substring(0,7)+'...');
-    // }else{
-    //     $('.nickname .name').html(userInfo.nickname);
-    // }
+    $('.bg').attr('src',url).css({
+        width:$('.share').width(),
+        height:$('.share').height(),
+        position:"absolute",
+        top:0,
+        left:0
+    });
+    $('.headicon').attr('src',userInfo.headimgurl)
+    if(userInfo.nickname.length > 6){
+        $('.nickname .name').html(userInfo.nickname.substring(0,7)+'...');
+    }else{
+        $('.nickname .name').html(userInfo.nickname);
+    }
 
     var canvas = document.getElementById('canvas');
     canvas.width = $('.share').width();
