@@ -48,7 +48,7 @@ $(function () {
         }else{
             var name = userInfo.nickname;
         }
-        await ctx.fillText(name + ' #2019小梦想#',75,56);
+        ctx.fillText(name + ' #2019小梦想#',75,56);
         var dream = '云南鲜花饼店...';
         ctx.font = '19px 微软雅黑'
         ctx.fillText(dream+'(已成功参与互助)',75,88);
@@ -61,7 +61,8 @@ $(function () {
     //     imgs.height = $('.share').height();
     var imgs =new Image();
     imgs.src = canvas.toDataURL('image/png');
-        return imgs;
+    var url1
+        return url1;
     }
     $('.bg').attr('src',url).css({
         width:$('.share').width(),
