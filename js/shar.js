@@ -35,6 +35,7 @@ $(function () {
         img.src = imgArr[i];
         console.log(i)
         img.onload = function(){
+            console.log(i)
             ctx.globalCompositeOperation = 'source-over'
             if(i == 0){
                 console.log(img)
