@@ -48,14 +48,6 @@ $(function () {
                     alert('加载完毕');
                     ctx.drawImage(img[2],x1,y2,60,60);
                 }
-               
-                if(){
-                   
-                    
-                   
-                    
-                    // $('.share').html(1)
-                }
                 // ctx.globalCompositeOperation = 'source-over'
                 // if(i == 0){
                 //     console.log(img)
