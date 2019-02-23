@@ -11,5 +11,5 @@ $(function () {
     })
 
     $('.nickname .name').html(userInfo.nickname);
-    console.log(userInfo.nickname.split(6))
+    console.log(userInfo.nickname.substring(0,6))
 })
