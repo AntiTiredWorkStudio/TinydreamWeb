@@ -13,6 +13,11 @@ $(function () {
     var y2 = canvas.height - 85;
     var y1 = canvas.height - 44;
     var userInfo = Options.GetUserInfo();
+    var imgArr = [
+        url,userInfo.headimgurl,'http://tdream.antit.top/LongPress2ShareQR.jpg'
+    ];
+    var img = new Image();
+    img.setAttribute('crossOrigin','anonymous');
     var l = canvas2image(canvas).then(function(res){
         alert(res);
         // $('.share').html('<img class="bgi" src='+res+' />');
@@ -26,27 +31,50 @@ $(function () {
         height:$('.share').height()
     })
     alert(1);
+    for(var i = 0;i<imgArr.length;i++){
+        img.src = imgArr[i];
+        img.onload = function(){
+            ctx.globalCompositeOperation = 'source-over'
+            if(i == 0){
+                ctx.drawImage(img,0,0,$('.share').width(),$('.share').height())
+            }else if(i == 1){
+                ctx.drawImage(img,15,40,50,50)
+            }else if(i == 2){
+                ctx.drawImage(qr,x1,y2,60,60);
+            }
+        }
+    }
     async function canvas2image(canvas){
-        var bg = new Image();
-        bg.src = url;
-        var head = new Image();
-        head.src = userInfo.headimgurl;
-        var qr = new Image();
-        qr.src = 'http://tdream.antit.top/LongPress2ShareQR.jpg';
-        bg.setAttribute('crossOrigin','anonymous')
-        bg.onload =  function(){
-            // ctx.globalCompositeOperation = 'xor'
-             ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
-             canvas.toDataURL('image/png');
-             $('.share').html('<img src='+canvas.toDataURL('image/png')+'>')
+        // var num = 0;
+        // for (var i = 0; i<)
+        // img.src = imgArr[num];
+        img.onload = function(){
+            // if(num == 0){
+            //     ctx.drawImage(img,0,0,$('.share').width(),$('.share').height());
+            //     num++;
+            // }
         }
-        head.onload =  function(){
-            ctx.globalCompositeOperation = 'destination-over'
-            bg.setAttribute('crossOrigin','anonymous')
-            // ctx.globalCompositeOperation = 'xor'
-             ctx.drawImage(head,15,40,50,50);
-             $('.share').html('<img src='+canvas.toDataURL('image/png')+'>')
-        }
+
+        // var bg = new Image();
+        // bg.src = url;
+        // var head = new Image();
+        // head.src = userInfo.headimgurl;
+        // var qr = new Image();
+        // qr.src = 'http://tdream.antit.top/LongPress2ShareQR.jpg';
+        // bg.setAttribute('crossOrigin','anonymous')
+        // bg.onload =  function(){
+        //     // ctx.globalCompositeOperation = 'xor'
+        //      ctx.drawImage(bg,0,0,$('.share').width(),$('.share').height());
+        //      canvas.toDataURL('image/png');
+        //      $('.share').html('<img src='+canvas.toDataURL('image/png')+'>')
+        // }
+        // head.onload =  function(){
+        //     ctx.globalCompositeOperation = 'destination-over'
+        //     bg.setAttribute('crossOrigin','anonymous')
+        //     // ctx.globalCompositeOperation = 'xor'
+        //      ctx.drawImage(head,15,40,50,50);
+        //      $('.share').html('<img src='+canvas.toDataURL('image/png')+'>')
+        // }
         // qr.onload =  function(){
         //     bg.setAttribute('crossOrigin','anonymous')
         //     ctx.globalCompositeOperation = 'destination-over';
