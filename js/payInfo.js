@@ -189,6 +189,7 @@ if (!ExistStorage("buy")) {
                         }, function (code, data) {
                             //alert(JSON.stringify(data));
                             $('.mask').fadeIn();
+                            localStorage.setItem('dr_did',$('#dream').attr('data-values'));
                             var number = data.numbers;
                             var lid = [];
                             for (key in number) {

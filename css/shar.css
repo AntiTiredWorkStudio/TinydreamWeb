@@ -2,8 +2,75 @@ html,body,.share{
     width: 100%;
     height: 100%;
     overflow: hidden;
+    line-height: 1;
+}
+img{
+    border: none;
 }
 .share{
     /* background: url(../images/1.png) no-repeat; */
     background-size: cover;
+}
+.share .header{
+    padding-top: 0.8rem;
+    width: 6.9rem;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 6;
+}
+.share .header .headicon{
+    width: 1rem;
+    height: 1rem;
+    margin-right:0.2rem; 
+    /* margin-left: 0.2rem; */
+    display: inline-block;
+    vertical-align: bottom;
+}
+.share .header .text{
+    display: inline-block
+}
+.share .header p.nickname{
+    color: #fff;
+    font-size: 0.3rem;
+    margin-bottom: 0.2rem;
+}
+.share .header p.dream{
+    font-size: 0.38rem;
+    color: #fff;
+}
+.footer{
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.3rem;
+}
+.footer div{
+    float: left;
+    position: relative;
+    z-index: 6;
+}
+.footer div.text{
+    font-size: 0.28rem;
+    margin-right: 0.2rem;
+    font-size: 0.28rem;
+    height: 1.2rem;
+    color: #fff;
+    position: relative;
+    top: 0.54rem;
+    text-align: right;
+}
+.footer img.qr{
+    width: 1.2rem;
+    height: 1.2rem;
+     /* background: url(https://tdream.antit.top/LongPress2ShareQR.jpg) repeat; */
+     background-size: 1.2rem 1.2rem;
+     vertical-align: bottom;
+}
+.tip {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.3rem;
+    color: #fff;
+    font-size: 0.28rem;
+    z-index: 6;
 }
