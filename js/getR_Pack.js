@@ -1,7 +1,7 @@
 $(function(){
     var rid = $_GET.rid;
     TD_Request('rp','grp',{rid:rid},function(code,data){
-        console.log(data.userinfo)
+        console.log(data)
         var userInfo = data.userinfo;
         $('.headicon').css({
             background:'url('+userInfo.headicon+') no-repeat',
