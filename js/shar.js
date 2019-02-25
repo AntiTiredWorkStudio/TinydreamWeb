@@ -21,7 +21,7 @@ $(function () {
     var imgArr = [
         url,userInfo.headimgurl,'http://tdream.antit.top/LongPress2ShareQR.jpg'
     ];
-    next(imgArr,0,0,0,$('.share').width(),$('.share').height(),canvas); 
+    next(imgArr,0,0,0,$('.share').width(),$('.share').height()); 
     
     // var l = canvas2image(canvas).then(function(res){
     //     alert(res);
@@ -37,7 +37,7 @@ $(function () {
     // })
     // alert(1);
     // var total = img.length;
-    function next(src,index,x,y,width,height,canvas){
+    function next(src,index,x,y,width,height){
         ctx.scale(2,2)
         var img = new Image();
 		img.setAttribute('crossOrigin', 'anonymous');
