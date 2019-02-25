@@ -34,9 +34,9 @@ $(function(){
         })
     })
     // 输入份数
-    $('#rcount').input(function(){
+    $('#rcount').bind('input',function(){
         $('#bill').html(parseInt($(this).val()) * 5)
-    })
+    },false)
     // 红包支付
     $('.pay').click(function(){
         if($('#content').val() == ''){
