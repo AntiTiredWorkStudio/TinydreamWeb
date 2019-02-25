@@ -13,7 +13,7 @@ $(function(){
                 console.log(item);
                 pid.push(item.pid)
             })
-            weui.packer(pid,{
+            weui.picker(pid,{
                 className: 'custom-classname',
                 container: 'body',
                 defaultValue: [pid[0]],
