@@ -55,17 +55,18 @@ $(function(){
         }else if($('#rcount').val() == 0){
             alert('红包个数至少为一个');
             return;
+        }else{
+            TD_Request('rp','crp',{
+                pid:$('#input-pid').val(),
+                rcount:$('#rcount').val(),
+                content:content,
+                bill:$('#bill').html(),
+                uid:userInfo.openid,   
+            },function(code,data){
+                console.log(code,data)
+            },function(code,data){
+                console.log(code,data)
+            })
         }
-        TD_Request('rp','crp',{
-            pid:$('#input-pid').val(),
-            rcount:$('#rcount').val(),
-            content:content,
-            bill:$('#bill').html(),
-            uid:userInfo.openid,   
-        },function(code,data){
-            console.log(code,data)
-        },function(code,data){
-            console.log(code,data)
-        })
     })
 })
