@@ -72,10 +72,10 @@ $(function () {
                 ctx.fillText('小梦想互助',$('.share').width() - 155,$('.share').height() - 25);
                 alert(2)
                 var canvas = document.getElementById('canvas')
-                var url = canvas.toDataURL('image/png');
+                var url1 = canvas.toDataURL('image/png');
                 alert(1)
                 var tImage = new Image();
-                tImage.src = url;
+                tImage.src = url1;
                 $('.share').html(tImage);
             }
             
