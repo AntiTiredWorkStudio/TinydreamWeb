@@ -19,14 +19,14 @@
             <div>
                 <p class="title">小梦想互助期号</p>
                 <p class="right select_pid">
-                    <input type="text" disabled value="20190206" style="color:#333">
+                    <input type="text" disabled placeholder="选择期号" style="color:#333" id='input-pid'>
                     <span>期</span>
                 </p>
             </div>
             <div>
                 <p class="title">梦想红包个数</p>
                 <p class="right">
-                    <input type="number" value="1" placeholder="填写个数">
+                    <input type="number" id="rcount" placeholder="填写个数">
                     <span>个</span>
                 </p>
             </div>
@@ -40,11 +40,11 @@
             <!-- <p style="margin-bottom:0.2rem" class="tip">当前为<span style="color:#f25542">普通红包</span></p> -->
             <p class="tip">注：每个人只可以领取1个红包，红包里面有1个抓阄编号，抓阄成为幸运者可以获得大额梦想金！</p>
             <div style="margin-top:0.6rem;height:1.28rem;line-height:1.28rem;margin-bottom:1.2rem">
-                <input type="text" placeholder="祝梦想成真！" style="width:6.3rem;outline:0;padding:0 0.3rem;font-size:0.34rem;color:#999">
+                <input id="content" type="text" placeholder="祝梦想成真！" style="width:6.3rem;outline:0;padding:0 0.3rem;font-size:0.34rem;color:#999">
             </div>
             <div class="money">
                 <span>￥</span>
-                <strong style="font-style:normal">40.00</strong>
+                <strong style="font-style:normal" id="bill">0</strong>
             </div>
             <button class="pay">微信支付</button>
             <i>* 未领取的红包，在互助期结束后24小时内自动退款。</i>

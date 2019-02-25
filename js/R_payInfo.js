@@ -21,13 +21,36 @@ $(function(){
                 },
                 onConfirm: function (result) {
                     console.log(result);
-                    // $("#input_bankType").attr("placeholder",result[0].label);
-                    // page.bank = result[0].label;
+                    $("#input-pid").attr("value",result[0].label);
                 },
                 id:'singleLinePicker'
             })
+            
         },function(code,data){
             console.log(data)
+        })
+    })
+    // 输入份数
+    $('#rcount').input(function(){
+        $('#bill').html(parseInt($(this).val) * 5)
+    })
+    // 红包支付
+    $('.pay').click(function(){
+        if($('#content').val() == ''){
+            var content = '祝梦想成真！'
+        }else{
+            var content = $('#content').val()
+        }
+        TD_Request('rp','crp',{
+            uid:userInfo.openid,
+            pid:$('#input-pid').val(),
+            content:content,
+            bill:$('#bill').html(),
+            rcount:$('#rcount').val()
+        },function(code,data){
+            console.log(code,data)
+        },function(code,data){
+            console.log(code,data)
         })
     })
 })
