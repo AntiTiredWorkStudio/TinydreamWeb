@@ -34,7 +34,7 @@ $(function(){
         })
     })
     // 输入份数
-    $('#rcount').bind('input',function(){
+    $('#rcount').on('input',function(){
         $('#bill').html(parseInt($(this).val()) * 5)
     },false)
     // 红包支付
