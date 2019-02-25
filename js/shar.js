@@ -71,6 +71,7 @@ $(function () {
                 ctx.fillText('扫码关注',$('.share').width() - 141,$('.share').height() - 44);
                 ctx.fillText('小梦想互助',$('.share').width() - 155,$('.share').height() - 25);
                 alert(2)
+                var canvas = document.getElementById('canvas')
                 var url = canvas.toDataURL('image/png');
                 alert(1)
                 var tImage = new Image();
