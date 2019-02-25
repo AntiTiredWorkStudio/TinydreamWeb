@@ -1,6 +1,8 @@
 $(function(){
     var rinfo = JSON.parse(localStorage.getItem('rinfo'));
     var userInfo = Options.GetUserInfo();
+    $('.title').html(rinfo.nickname+'的梦想红包');
+    $('.msg').html(rinfo.content);
     TD_Request('rp','orp',{uid:userInfo.openid,rid:rinfo.rid},function(code,data){
         $('.get_num').html('已领取编号');
         var lid;
