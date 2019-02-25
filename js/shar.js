@@ -5,14 +5,14 @@ $(function () {
 	//var url = 'https://tdream.antit.top/LongPress2Share10.jpg';//测试用
 	
     var canvas = document.getElementById('canvas');
-    canvas.width = $('.share').width();
-    canvas.height = $('.share').height();
+    canvas.width = $('.share').width() * 2;
+    canvas.height = $('.share').height() * 2;
     $('body').css('background','red')
     
     var ctx = canvas.getContext('2d');
-    var x1 = canvas.width - 75;
-    var y = canvas.height - 25;
-    var y2 = canvas.height - 85;
+    var x1 = $('.share').width() - 75;
+    var y = $('.share').height() - 25;
+    var y2 = $('.share').height() - 85;
     var userInfo = Options.GetUserInfo();
 	/*var userInfo = {
 		headimgurl:'https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaELEgjjRsUFibrHsbpUicsCBkoU3eDTVuIJfkX2ibWpK2YT7ZsVsiaKobhD9bgOTkUl6IeYoo3xVPY2wRA/132',
@@ -38,6 +38,7 @@ $(function () {
     // alert(1);
     // var total = img.length;
     function next(src,index,x,y,width,height,canvas){
+        ctx.scale(2,2)
         var img = new Image();
 		img.setAttribute('crossOrigin', 'anonymous');
         img.src = src[index];
@@ -60,9 +61,6 @@ $(function () {
                 }else{
                     var name = userInfo.nickname;
                 }
-                var x2 = $('.share').width() - 141;
-                var x3 = $('.share').width() - 155;
-                var y1 = $('.share').height() - 44;
                 ctx.fillText(name + ' #2019小梦想#',75,56);
                 var dream = '云南鲜花饼店...';
                 ctx.font = '19px 微软雅黑'
@@ -70,10 +68,11 @@ $(function () {
                 ctx.font = '14px 微软雅黑';
                 ctx.fillText('扫码关注',$('.share').width() - 141,$('.share').height() - 44);
                 ctx.fillText('小梦想互助',$('.share').width() - 155,$('.share').height() - 25);
-                alert(2)
-                var canvas = document.getElementById('canvas')
+                // alert(2)
+                var canvas = document.getElementById('canvas');
+                
                 var url1 = canvas.toDataURL('image/png');
-                alert(1)
+                // alert(1)
                 var tImage = new Image();
                 tImage.src = url1;
                 $('.share').html(tImage);
