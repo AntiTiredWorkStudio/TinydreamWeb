@@ -46,12 +46,22 @@ $(function(){
         }else{
             var content = $('#content').val()
         }
+        if($('#input-pid').val() == ''){
+            alert('请选择期号');
+            return;
+        }else if ($('#rcount').val() == ''){
+            alert('请输入红包个数');
+            return;
+        }else if($('#rcount').val() == 0){
+            alert('红包个数至少为一个');
+            return;
+        }
         TD_Request('rp','crp',{
-            uid:userInfo.openid,
             pid:$('#input-pid').val(),
+            rcount:$('#rcount').val(),
             content:content,
             bill:$('#bill').html(),
-            rcount:$('#rcount').val()
+            uid:userInfo.openid,   
         },function(code,data){
             console.log(code,data)
         },function(code,data){
