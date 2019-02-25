@@ -75,13 +75,12 @@ $(function(){
                     alert(res.err_msg)
                     if(res.err_msg == "get_brand_wcpay_request:ok" ){
                         TD_Request('rp','cprs',function(code,data){
-                            if(code == 0){
-                                TD_Request('rp','grp',function(code,data){
-                                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+data.redpack.rid;
-                                },function(code,data){
-                                    console.log(data)
-                                })
-                            }
+                            alert(code)
+                            TD_Request('rp','grp',function(code,data){
+                                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+data.redpack.rid;
+                            },function(code,data){
+                                console.log(data.context)
+                            })
                         },function(code,data){
                             console.log(data.context)
                         })
