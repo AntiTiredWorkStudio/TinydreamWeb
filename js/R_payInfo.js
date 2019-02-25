@@ -72,6 +72,7 @@ $(function(){
                     "signType":data.order.signType,         //微信签名方式：     
                     "paySign":data.order.paySign //微信签名
                 },function(res){
+                    alert(res.err_msg)
                     if(res.err_msg == "get_brand_wcpay_request:ok" ){
                         TD_Request('rp','cprs',function(code,data){
                             if(code == 0){
