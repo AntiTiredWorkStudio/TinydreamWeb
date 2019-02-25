@@ -1,5 +1,5 @@
 $(function(){
-    var rid = $_GET().rid;
+    var rid = $_GET.rid;
     TD_Request('rp','grp',{rid:rid},function(code,data){
         var userInfo = data.userinfo;
         $('.headicon').css({
