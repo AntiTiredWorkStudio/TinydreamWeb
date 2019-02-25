@@ -3,10 +3,10 @@ $(function () {
     var num = 0;
     var url = localStorage.getItem('img');
 	//var url = 'https://tdream.antit.top/LongPress2Share10.jpg';//测试用
-	console.log($('.share').width())
+	
     var canvas = document.getElementById('canvas');
-    canvas.width = $('.share').width() * 2;
-    canvas.height = $('.share').height() * 2;
+    canvas.width = $('.share').width();
+    canvas.height = $('.share').height();
     $('body').css('background','red')
     
     var ctx = canvas.getContext('2d');
@@ -21,7 +21,7 @@ $(function () {
     var imgArr = [
         url,userInfo.headimgurl,'http://tdream.antit.top/LongPress2ShareQR.jpg'
     ];
-    next(imgArr,0,0,0,$('.share').width(),$('.share').height()); 
+    next(imgArr,0,0,0,$('.share').width(),$('.share').height(),canvas); 
     
     // var l = canvas2image(canvas).then(function(res){
     //     alert(res);
@@ -37,8 +37,7 @@ $(function () {
     // })
     // alert(1);
     // var total = img.length;
-    function next(src,index,x,y,width,height){
-        ctx.scale(2,2)
+    function next(src,index,x,y,width,height,canvas){
         var img = new Image();
 		img.setAttribute('crossOrigin', 'anonymous');
         img.src = src[index];
@@ -66,7 +65,7 @@ $(function () {
                 ctx.font = '19px 微软雅黑'
                 ctx.fillText(dream+'(已成功参与互助)',75,88);
                 ctx.font = '14px 微软雅黑';
-                ctx.fillText('扫码查看',$('.share').width() - 141,$('.share').height() - 44);
+                ctx.fillText('扫码关注',$('.share').width() - 141,$('.share').height() - 44);
                 ctx.fillText('小梦想互助',$('.share').width() - 155,$('.share').height() - 25);
                 // alert(2)
                 var canvas = document.getElementById('canvas');
@@ -75,9 +74,6 @@ $(function () {
                 // alert(1)
                 var tImage = new Image();
                 tImage.src = url1;
-                $('#canvas').remove();
-                tImage.width = $('.share').width() / 2;
-                tImage.height = $('.share').height() / 2;
                 $('.share').html(tImage);
             }
             
