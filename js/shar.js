@@ -12,7 +12,7 @@ $(function () {
     var ctx = canvas.getContext('2d');
     var x1 = $('.share').width() - 75;
     var y = $('.share').height() - 25;
-    var y2 = $('.share').height() - 85;
+    var y2 = $('.share').width() - 85;
     var userInfo = Options.GetUserInfo();
 	/*var userInfo = {
 		headimgurl:'https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaELEgjjRsUFibrHsbpUicsCBkoU3eDTVuIJfkX2ibWpK2YT7ZsVsiaKobhD9bgOTkUl6IeYoo3xVPY2wRA/132',
@@ -37,7 +37,7 @@ $(function () {
     // })
     // alert(1);
     // var total = img.length;
-    function next(src,index,x,y,width,height,canvas){
+    function next(src,index,x,y,width,height){
         var img = new Image();
 		img.setAttribute('crossOrigin', 'anonymous');
         img.src = src[index];
