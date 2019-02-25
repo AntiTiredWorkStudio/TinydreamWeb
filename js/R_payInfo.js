@@ -34,7 +34,7 @@ $(function(){
         })
     })
     // 输入份数
-    $('#rcount').on('input change',function(){
+    $('#rcount').on('input propertychange',function(){
         console.log($(this).val() * 5)
         $('#bill').html($(this).val() * 5)
     },false)
