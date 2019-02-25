@@ -491,8 +491,8 @@ body{
 }
 .packmask .bg{
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 20%;
+    /* transform: translateY(-50%); */
     height: 7.47rem;
     width: 100%;
     background: url(https://tdream.antit.top/image/Red_Open.jpg) no-repeat;
