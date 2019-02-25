@@ -60,7 +60,7 @@ $(function(){
                 pid:$('#input-pid').val(),
                 rcount:$('#rcount').val(),
                 content:content,
-                bill:$('#bill').html(),
+                bill:$('#bill').html() * 100,
                 uid:userInfo.openid,   
             },function(code,data){
                 console.log(code,data)
