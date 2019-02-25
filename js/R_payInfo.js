@@ -71,11 +71,11 @@ $(function(){
                     "package":data.order.package,     
                     "signType":data.order.signType,         //微信签名方式：     
                     "paySign":data.order.paySign //微信签名
-                },function(res){
+                 },function(res){
                     alert(res.err_msg)
                     if(res.err_msg == "get_brand_wcpay_request:ok"){
-                        alert(data.redpack.rid)
-                        TD_Request('rp','cprs',{uid:userInfo.openid,rid:data.redpack.rid},function(code,data){
+                        // alert(data.redpack.rid)
+                        TD_Request('rp','cprs',{uid:userInfo.openid,rid:data.rid},function(code,data){
                             alert(code)
                             TD_Request('rp','grp',{rid:data.redpack.rid},function(code,data){
                                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+data.redpack.rid;
