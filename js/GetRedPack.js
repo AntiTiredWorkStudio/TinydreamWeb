@@ -3,10 +3,15 @@ $(function(){
     var userInfo = Options.GetUserInfo();
     $('.title').html(rinfo.nickname+'的梦想红包');
     $('.msg').html(rinfo.content);
+    $('.headicon').css({
+        background:'url('+rinfo.headicon+') no-repeat',
+        'background-size':'0.88rem 0.88rem'
+    })
     TD_Request('rp','orp',{uid:userInfo.openid,rid:rinfo.rid},function(code,data){
         $('.get_num').html('已领取编号');
         var lid;
         $.each(data.nums,function(index,item){
+            console.log(item);
             lid = item.lid;
         })
         $('.number').html(lid);
