@@ -1,6 +1,7 @@
 $(function(){
     var rid = $_GET.rid;
     TD_Request('rp','grp',{rid:rid},function(code,data){
+        console.log(data.userinfo)
         var userInfo = data.userinfo;
         $('.headicon').css({
             background:'url('+userInfo.headicon+') no-repeat',
@@ -12,5 +13,7 @@ $(function(){
             localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:userInfo.headicon,nickname:userinfo.nickname}));
             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/GetRedPack.html'
         })
+    },function(code,data){
+        console.log(data)
     })
 })
