@@ -70,7 +70,10 @@ $(function () {
                 ctx.font = '14px 微软雅黑';
                 ctx.fillText('扫码关注',$('.share').width() - 141,$('.share').height() - 44);
                 ctx.fillText('小梦想互助',$('.share').width() - 155,$('.share').height() - 25);
-               
+                var url = canvas.toDataURL('image/png');
+                var tImage = new Image();
+                tImage.src = url;
+                $('.share').html(tImage);
             }
             
         }
@@ -148,17 +151,6 @@ $(function () {
     }else{
         $('.nickname .name').html(userInfo.nickname);
     }
-	
-	canvas.addEventListener("mousedown",function(e){
-            console.log("当前坐标为：",e);
-			var url = canvas.toDataURL('image/png');
-			
-			var tImage = new Image();
-			tImage.src = url;
-			
-			console.log(tImage);
-			$('body').html(tImage);
-        },false);
 		
 
 })
