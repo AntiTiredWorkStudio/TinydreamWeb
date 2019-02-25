@@ -13,6 +13,9 @@ $(function(){
                 console.log(item);
                 pid.push(item.pid)
             })
+            if(pid == 1){
+                $("#input-pid").attr("value",pid[0]);
+            }
             weui.picker(pid,{
                 className: 'custom-classname',
                 container: 'body',
@@ -32,7 +35,7 @@ $(function(){
     })
     // 输入份数
     $('#rcount').input(function(){
-        $('#bill').html(parseInt($(this).val) * 5)
+        $('#bill').html(parseInt($(this).val()) * 5)
     })
     // 红包支付
     $('.pay').click(function(){
