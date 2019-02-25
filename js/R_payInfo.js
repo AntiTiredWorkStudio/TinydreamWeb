@@ -74,6 +74,7 @@ $(function(){
                 },function(res){
                     alert(res.err_msg)
                     if(res.err_msg == "get_brand_wcpay_request:ok" ){
+                        alert(data.redpack.rid)
                         TD_Request('rp','cprs',{uid:userInfo.openid,rid:data.redpack.rid},function(code,data){
                             alert(code)
                             TD_Request('rp','grp',{rid:data.redpack.rid},function(code,data){
