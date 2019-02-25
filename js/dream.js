@@ -151,7 +151,11 @@ $(function(){
                 }else if(dream.hasOwnProperty('editdream')){
                     update();
                     var mainpool = JSON.parse(localStorage.getItem('mainpool'));
-					RemoveStorage('mainpool');
+                    RemoveStorage('mainpool');
+                    if($_GET.dream != '' || $_GET.dream != null || typeof $_GET.dream != 'undefined'){
+                        $_GET.dream = !$_GET.dream;
+                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/GetRedPack.html";
+                    }
                     if(mainpool == '' || mainpool == undefined){
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";
                     }else{

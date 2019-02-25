@@ -79,13 +79,8 @@ $(function(){
 						//alert("success");
 						try{
 							TD_Request('rp','cprs',{uid:userInfo.openid,rid:redPackageID},function(code,data){
-								//alert(code)
-								TD_Request('rp','grp',{rid:redPackageID},function(code,data){
-									window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+redPackageID;
-								},function(code,data){
-									alert(data.context)
-									console.log(data.context)
-								})
+                                //alert(code)
+                                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+redPackageID;
 							},function(code,data){
 								alert(code,data.context)
 							});
