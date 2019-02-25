@@ -3,7 +3,7 @@ $(function () {
     var num = 0;
     var url = localStorage.getItem('img');
 	//var url = 'https://tdream.antit.top/LongPress2Share10.jpg';//测试用
-	console.log(tImage.width = $('.share').width())
+	console.log($('.share').width())
     var canvas = document.getElementById('canvas');
     canvas.width = $('.share').width() * 2;
     canvas.height = $('.share').height() * 2;
