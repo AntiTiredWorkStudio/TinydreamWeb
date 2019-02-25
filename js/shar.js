@@ -2,6 +2,8 @@ $(function () {
     var img = [];
     var num = 0;
     var url = localStorage.getItem('img');
+	//var url = 'https://tdream.antit.top/LongPress2Share10.jpg';//测试用
+	
     var canvas = document.getElementById('canvas');
     canvas.width = $('.share').width();
     canvas.height = $('.share').height();
@@ -12,6 +14,10 @@ $(function () {
     var y = canvas.height - 25;
     var y2 = canvas.height - 85;
     var userInfo = Options.GetUserInfo();
+	/*var userInfo = {
+		headimgurl:'https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaELEgjjRsUFibrHsbpUicsCBkoU3eDTVuIJfkX2ibWpK2YT7ZsVsiaKobhD9bgOTkUl6IeYoo3xVPY2wRA/132',
+		nickname:"Michael Kong"
+	};//测试用*/
     var imgArr = [
         url,userInfo.headimgurl,'http://tdream.antit.top/LongPress2ShareQR.jpg'
     ];
@@ -33,6 +39,7 @@ $(function () {
     // var total = img.length;
     function next(src,index,x,y,width,height,canvas){
         var img = new Image();
+		img.setAttribute('crossOrigin', 'anonymous');
         img.src = src[index];
         img.onload = function(){
             console.log(img.src)
@@ -68,6 +75,7 @@ $(function () {
             
         }
     }
+	//alert(canvas.toDataURL);
     // for(let i = 0;i<imgArr.length;i++){
     //     console.log(i)
     //     img[i] = new Image();
@@ -140,9 +148,17 @@ $(function () {
     }else{
         $('.nickname .name').html(userInfo.nickname);
     }
-    canvas.onclick = function(){
-        var url = this.toDataURL('image/png');
-        alert(url)
-    }
+	
+	canvas.addEventListener("mousedown",function(e){
+            console.log("当前坐标为：",e);
+			var url = canvas.toDataURL('image/png');
+			
+			var tImage = new Image();
+			tImage.src = url;
+			
+			console.log(tImage);
+			$('body').html(tImage);
+        },false);
+		
 
 })
