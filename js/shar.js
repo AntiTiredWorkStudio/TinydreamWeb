@@ -75,6 +75,7 @@ $(function () {
                 // alert(1)
                 var tImage = new Image();
                 tImage.src = url1;
+                $('#canvas').remove();
                 tImage.width = $('.share').width();
                 tImage.height = $('.share').height();
                 $('.share').html(tImage);
