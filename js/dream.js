@@ -154,7 +154,7 @@ $(function(){
                     RemoveStorage('mainpool');
                     if($_GET.dream != '' || $_GET.dream != null || typeof $_GET.dream != 'undefined'){
                         $_GET.dream = !$_GET.dream;
-                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/GetRedPack.html";
+                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html";
                     }
                     if(mainpool == '' || mainpool == undefined){
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";

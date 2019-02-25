@@ -108,7 +108,7 @@ $(function(){
                     // 获取梦想池信息
                     if(p == false){
                         p == true;
-                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/GetRedPack.html";
+                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html";
                     }
                     var mainpool = JSON.parse(localStorage.getItem('mainpool'));
                     if(mainpool == '' || mainpool == undefined){

@@ -11,7 +11,7 @@ $(function(){
         $('.msg').html(data.redpack.content);
         $('button').click(function(){
             localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:userInfo.headicon,nickname:userInfo.nickname,content:data.redpack.content}));
-            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/GetRedPack.html'
+            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html'
         })
     },function(code,data){
         console.log(data)
