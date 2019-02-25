@@ -2,7 +2,7 @@ $(function(){
     var rid = $_GET.rid;
     TD_Request('rp','grp',{rid:rid},function(code,data){
         console.log(data)
-        var userInfo = data.userinfo;
+        var userInfo = data.sender;
         $('.headicon').css({
             background:'url('+userInfo.headicon+') no-repeat',
             'background-size':'0.88rem 0.88rem'
