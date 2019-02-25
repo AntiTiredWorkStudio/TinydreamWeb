@@ -8,6 +8,7 @@ $(function(){
         'background-size':'0.88rem 0.88rem'
     })
     TD_Request('rp','orp',{uid:userInfo.openid,rid:rinfo.rid},function(code,data){
+        console.log(data);
         $('.get_num').html('已领取编号');
         var lid;
         $.each(data.nums,function(index,item){
