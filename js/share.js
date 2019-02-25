@@ -1,5 +1,10 @@
-webApp.JSAPI.init({
-    title:'小梦想互助',
-    desc:Options.GetUserInfo().nickname+"给你发了一个梦想红包",
-    link:'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+$_GET().rid
-})
+try{
+	WebApp.JSAPI.Init({
+		title:'梦想红包',
+		desc:Options.GetUserInfo().nickname+"给你发了一个梦想红包",
+		link:'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+$_GET.rid,
+		imgUrl:"http://tdream.antit.top/image/titleLogo.png"
+	});
+}catch(err){
+	alert(err);
+}
