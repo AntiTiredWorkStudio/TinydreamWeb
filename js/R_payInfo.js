@@ -98,7 +98,22 @@ $(function(){
                 })
                 
             },function(code,data){
-                
+                if(code == 11){
+                    alert('您尚未绑定手机，绑定手机后即可发送梦想红包');
+                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html'
+                }else if(code == 5){
+                    alert('该期梦想池已结束');
+                    return;
+                }else if(code == 67){
+                    alert('单次红包不能超过200个');
+                    return;
+                }else if(code == 69){
+                    alert('您所支付的红包数量超出该期梦想池上限')
+                    return;
+                }else if(code == 68){
+                    alert('系统订单错误，请稍后重试');
+                    return;
+                }
             })
         }
     })
