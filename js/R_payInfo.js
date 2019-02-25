@@ -36,8 +36,8 @@ $(function(){
     // 输入份数
     $('.right input').on('input',function(){
         console.log(1)
-        console.log($(this).val() * 5)
-        $('#bill').html($(this).val() * 5)
+        console.log($(this).val() * 1)
+        $('#bill').html($(this).val() * 1 / 100)
     })
     // 红包支付
     $('.pay').click(function(){
@@ -64,8 +64,32 @@ $(function(){
                 uid:userInfo.openid,   
             },function(code,data){
                 console.log(code,data)
+                WeixinJSBridge.invoke('getBrandWCPayRequest', {
+                    "appId":data.order.appId,     //公众号名称，由商户传入     
+                    "timeStamp":data.order.timeStamp,         //时间戳，自1970年以来的秒数     
+                    "nonceStr":data.order.nonceStr, //随机串     
+                    "package":data.order.package,     
+                    "signType":data.order.signType,         //微信签名方式：     
+                    "paySign":data.order.paySign //微信签名
+                },function(res){
+                    if(res.err_msg == "get_brand_wcpay_request:ok" ){
+                        TD_Request('rp','cprs',function(code,data){
+                            if(code == 0){
+                                TD_Request('rp','grp',function(code,data){
+                                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+data.redpack.rid;
+                                },function(code,data){
+                                    console.log(data)
+                                })
+                            }
+                        },function(code,data){
+                            console.log(data.context)
+                        })
+                    } 
+                })
+                
             },function(code,data){
-                console.log(code,data)
+                console.log(code,data);
+                console.log(data.context)
             })
         }
     })
