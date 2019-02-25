@@ -1,4 +1,5 @@
 $(function(){
+	alert('red pack');
     // 获取用户信息
     var userInfo = Options.GetUserInfo();
     // 获取奖池
@@ -63,6 +64,7 @@ $(function(){
                 bill:$('#bill').html() * 100,
                 uid:userInfo.openid,   
             },function(code,data){
+				var redPackageID = data.rid;
                 console.log(code,data)
                 WeixinJSBridge.invoke('getBrandWCPayRequest', {
                     "appId":data.order.appId,     //公众号名称，由商户传入     
@@ -72,21 +74,27 @@ $(function(){
                     "signType":data.order.signType,         //微信签名方式：     
                     "paySign":data.order.paySign //微信签名
                 },function(res){
-                    alert(res.err_msg)
+                    //alert(JSON.stringify(res));
                     if(res.err_msg == "get_brand_wcpay_request:ok"){
-                        alert(data.redpack.rid)
-                        TD_Request('rp','cprs',{uid:userInfo.openid,rid:data.redpack.rid},function(code,data){
-                            alert(code)
-                            TD_Request('rp','grp',{rid:data.redpack.rid},function(code,data){
-                                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+data.redpack.rid;
-                            },function(code,data){
-                                alert(data.context)
-                                console.log(data.context)
-                            })
-                        },function(code,data){
-                            alert(code,data.context)
-                        })
-                    } 
+						//alert("success");
+						try{
+							TD_Request('rp','cprs',{uid:userInfo.openid,rid:redPackageID},function(code,data){
+								//alert(code)
+								TD_Request('rp','grp',{rid:redPackageID},function(code,data){
+									window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+redPackageID;
+								},function(code,data){
+									alert(data.context)
+									console.log(data.context)
+								})
+							},function(code,data){
+								alert(code,data.context)
+							});
+						}catch(err){
+							alert(err);
+						}
+					}else{
+						alert("failed");
+					}
                 })
                 
             },function(code,data){
