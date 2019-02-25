@@ -74,15 +74,16 @@ $(function(){
                 },function(res){
                     alert(res.err_msg)
                     if(res.err_msg == "get_brand_wcpay_request:ok" ){
-                        TD_Request('rp','cprs',function(code,data){
+                        TD_Request('rp','cprs',{uid:userInfo.openid,rid:data.redpack.rid},function(code,data){
                             alert(code)
-                            TD_Request('rp','grp',{uid:userInfo.openid,rid:data.redpack.rid},function(code,data){
+                            TD_Request('rp','grp',{rid:data.redpack.rid},function(code,data){
                                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+data.redpack.rid;
                             },function(code,data){
+                                alert(data.context)
                                 console.log(data.context)
                             })
                         },function(code,data){
-                            alert(data.context)
+                            alert(code,data.context)
                         })
                     } 
                 })
