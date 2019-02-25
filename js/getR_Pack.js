@@ -10,7 +10,7 @@ $(function(){
         $('.title').html(userInfo.nickname+'的梦想红包');
         $('.msg').html(data.redpack.content);
         $('button').click(function(){
-            localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:userInfo.headicon,nickname:userinfo.nickname,content:data.redpack.content}));
+            localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:userInfo.headicon,nickname:userInfo.nickname,content:data.redpack.content}));
             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/GetRedPack.html'
         })
     },function(code,data){
