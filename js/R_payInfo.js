@@ -37,7 +37,7 @@ $(function(){
     $('.right input').on('input',function(){
         console.log(1)
         console.log($(this).val() * 1)
-        $('#bill').html($(this).val() * 500 / 100)
+        $('#bill').html($(this).val() * 1 / 100)
     })
     // 红包支付
     $('.pay').click(function(){
@@ -76,13 +76,13 @@ $(function(){
                     if(res.err_msg == "get_brand_wcpay_request:ok" ){
                         TD_Request('rp','cprs',function(code,data){
                             alert(code)
-                            TD_Request('rp','grp',function(code,data){
+                            TD_Request('rp','grp',{rid:data.redpack.rid},function(code,data){
                                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+data.redpack.rid;
                             },function(code,data){
                                 console.log(data.context)
                             })
                         },function(code,data){
-                            console.log(data.context)
+                            alert(data.context)
                         })
                     } 
                 })
