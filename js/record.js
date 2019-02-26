@@ -13,7 +13,7 @@ $(function(){
                 console.log(data)
                 $('.count').html(data.packs.length);
                 $.each(data.packs,function(index,item){
-                    var gtime = item.gtime.toLocaleDateString();
+                    var gtime = parseInt(item.gtime).toLocaleDateString();
                     user()
                     function user () {
                         TD_Request('us','selfinfo',{uid:item.uid},function(code,data){
