@@ -14,7 +14,7 @@ $(function(){
                 $('.count').html(data.packs.length);
                 $.each(data.packs,function(index,item){
                     console.log(item)
-                    var gtime = parseInt(item.gtime).toLocaleDateString();
+                    var gtime = date('Y.m.d',item.gtime);
                     user()
                     function user () {
                         TD_Request('us','selfinfo',{uid:item.uid},function(code,data){
