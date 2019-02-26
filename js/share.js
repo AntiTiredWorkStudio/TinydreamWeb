@@ -1,4 +1,5 @@
 try{
+	console.log(Options.GetUserInfo())
 	WebApp.JSAPI.Init({
 		title:Options.GetUserInfo().nickname+"给你发了一个梦想红包,领取可夺大额梦想金！",
 		desc:"小梦想互助——让每个小梦想 都有机会实现",
