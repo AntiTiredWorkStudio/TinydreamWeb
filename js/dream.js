@@ -155,7 +155,7 @@ $(function(){
                     if($_GET.dream == false){
                         $_GET.dream = !$_GET.dream;
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html";
-                    }
+                    }else
                     if(mainpool == '' || mainpool == undefined){
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";
                     }else{

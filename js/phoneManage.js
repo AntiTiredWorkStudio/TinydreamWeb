@@ -2,10 +2,7 @@ WebApp.JSAPI.Init();
 $(function(){
     // 获取用户信息
     var p;
-
-    if($_GET.phone!='' || $_GET.phone!=null || typeof $_GET.phone != 'undefined'){
-        p = false;
-    }else if($_GET.phone == false){
+    if($_GET.phone == false){
         p = false;
     }
     var userInfo = Options.GetUserInfo()
@@ -106,12 +103,12 @@ $(function(){
             },function(code,data){
                 if(code == 0){
                     $('.tip').html('绑定成功').show().delay(1000).hide(1000);
+                    var mainpool = JSON.parse(localStorage.getItem('mainpool'));
                     // 获取梦想池信息
                     if(p == false){
                         p == true;
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html";
-                    }
-                    var mainpool = JSON.parse(localStorage.getItem('mainpool'));
+                    }else
                     if(mainpool == '' || mainpool == undefined){
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";
                     }else{
