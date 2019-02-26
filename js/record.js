@@ -37,7 +37,7 @@ $(function(){
 
     })
     $('.r_right').click(function(){  
-        get('give',0);
+        get('give','gurps',0);
         $('.tip').html(userInfo.nickname+'发出的梦想红包共')
     })
 })
