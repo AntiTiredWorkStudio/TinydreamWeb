@@ -1,5 +1,5 @@
 $(function(){
-	alert('red pack');
+	//alert('red pack');
     // 获取用户信息
     var userInfo = Options.GetUserInfo();
     // 获取奖池
