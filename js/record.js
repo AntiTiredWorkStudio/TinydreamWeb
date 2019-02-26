@@ -12,6 +12,7 @@ $(function(){
     */
     function get(redpack,rp,num){
         TD_Request('rp',rp,{
+            uid:userInfo.openid,
             seek:num,
             count:5,
         },function(code,data){
