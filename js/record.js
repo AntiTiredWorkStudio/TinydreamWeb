@@ -4,16 +4,37 @@ $(function(){
     var userInfo = Options.GetUserInfo();
     get('get',0);
     function get (redpack,num) {
-        if(redpack == 'get'){
-            TD_Request('rp','gurpr',{
+        function record(rp){
+            TD_Request('rp',rp,{
                 uid:userInfo.openid,
                 seek:num,
                 count:5
             },function(code,data){
                 console.log(data)
+                $('.count').html(data.packs.length);
+                $.each(data.packs,function(index,item){
+                    var gtime = item.gtime.toLocaleDateString();
+                    user()
+                    function user () {
+                        TD_Request('us','selfinfo',{uid:item.uid},function(code,data){
+                            var nickname = data.selfinfo.nickname;
+                            $('.content').html('<div class="info"><div class="left"><p class="username">'+nickname+'</p><p class="time">'+gtime+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p></div></div>')
+                            if(redpack != 'get'){
+                                $('.f_count').html('');
+                            }
+                        },function(code,data){
+                            console.log(data);
+                        })
+                    }
+                })
             },function(code,data){
                 console.log(data)
             })
+        }
+        if(redpack == 'get'){
+            record('gurpr')  
+        }else if(redpack == 'give'){
+            record('gurps')
         }
     }
     console.log(Options.GetUserInfo())
