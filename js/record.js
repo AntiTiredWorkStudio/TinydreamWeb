@@ -12,7 +12,36 @@ $(function(){
             },function(code,data){
                 console.log(data)
                 $('.count').html(data.packs.length);
+                var totalHeight = 0;
+                var scrollHeight = $(window).scrollTop();
+                $(window).scroll(function(){
+                    totalHeight = parseFloat($(window).height())+parseFloat(scrollHeight);
+                    if(($(document).height()-50) <= totalHeight && num != data.packs.length){
+                       if(redpack == 'get'){
+                           record('get',num+5)
+                       }else{
+                            record('give',num+5)
+                       }
+                    }
+                })
                 $.each(data.packs,function(index,item){
+                    if(data.packs.length == 0){
+                        if(redpack == 'get'){
+                            $('.content').html('您还没有收到过红包').css({
+                                'text-align':'center',
+                                'font-size':'0.28rem',
+                                'color':'#999'
+                            })
+                            $('.tip_txt').html('');
+                        }else{
+                            $('.content').html('您还没有发出过红包').css({
+                                'text-align':'center',
+                                'font-size':'0.28rem',
+                                'color':'#999'
+                            })
+                        }
+                        
+                    }
                     var date = new Date(parseInt(item.gtime) * 1000);
                     var y = date.getFullYear();
                     var m = date.getMonth() + 1;
@@ -58,12 +87,11 @@ $(function(){
     // 收到红包
     $('.r_left').click(function(){  
         $('.tip').html(userInfo.nickname+'收到的梦想红包共')
-        $('.count').html('15')
-        $('.tip_txt').html('');
-        $('.info .right coun').html('2个');
-        $('.info .right .f_count').html('');
+        record('get',0)
+
     })
     $('.r_right').click(function(){  
+        record('give',0);
         $('.tip').html(userInfo.nickname+'发出的梦想红包共')
         $('.count').html('15')
         $('.tip_txt').html('发出红包总数<span style="color:#f25542">75</span>元').css('font-size','0.3rem');
