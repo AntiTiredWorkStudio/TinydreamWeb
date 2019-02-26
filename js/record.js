@@ -18,9 +18,9 @@ $(function(){
                     totalHeight = parseFloat($(window).height())+parseFloat(scrollHeight);
                     if(($(document).height()-50) <= totalHeight && num != data.packs.length){
                        if(redpack == 'get'){
-                           record('get',num+5)
+                           get('get',num+5)
                        }else{
-                            record('give',num+5)
+                            get('give',num+5)
                        }
                     }
                 })
@@ -87,11 +87,11 @@ $(function(){
     // 收到红包
     $('.r_left').click(function(){  
         $('.tip').html(userInfo.nickname+'收到的梦想红包共')
-        record('get',0)
+        get('get',0)
 
     })
     $('.r_right').click(function(){  
-        record('give',0);
+        get('give',0);
         $('.tip').html(userInfo.nickname+'发出的梦想红包共')
         $('.count').html('15')
         $('.tip_txt').html('发出红包总数<span style="color:#f25542">75</span>元').css('font-size','0.3rem');
