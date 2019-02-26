@@ -76,12 +76,12 @@ $(function(){
     $('.r_left').click(function(){  
         $('.tip').html(userInfo.nickname+'收到的梦想红包共');
         $('.content').empty();
-        redpack('get','gurpr',num)
+        redpack('get','gurpr',number)
 
     })
     $('.r_right').click(function(){  
         $('.content').empty();
-        redpack('give','gurps',num);
+        redpack('give','gurps',number);
         $('.tip').html(userInfo.nickname+'发出的梦想红包共')
     })
 })
