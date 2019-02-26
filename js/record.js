@@ -44,7 +44,6 @@ $(function(){
                     }
                 },function(code,data){
                     console.log(data)
-                    
                 })
             })
         },function(code,data){
@@ -62,11 +61,13 @@ $(function(){
     })
     // 收到红包
     $('.r_left').click(function(){  
-        $('.tip').html(userInfo.nickname+'收到的梦想红包共')
+        $('.tip').html(userInfo.nickname+'收到的梦想红包共');
+        $('.content').empty();
         redpack('get','gurpr',0)
 
     })
     $('.r_right').click(function(){  
+        $('.content').empty();
         redpack('give','gurps',0);
         $('.tip').html(userInfo.nickname+'发出的梦想红包共')
     })
