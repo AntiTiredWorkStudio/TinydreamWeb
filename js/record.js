@@ -77,7 +77,7 @@ $(function(){
                         TD_Request('us','selfinfo',{uid:item.uid},function(code,data){
                             var nickname = data.selfinfo.nickname;
                             $('.content').html('<div class="info"><div class="left"><p class="username">'+nickname+'</p><p class="time">'+gtime+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p></div></div>')
-                            if(redpack != 'get'){
+                            if(redpack != 'give'){
                                 $('.f_count').html('');
                             }
                         },function(code,data){
