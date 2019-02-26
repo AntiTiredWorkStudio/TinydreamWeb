@@ -14,7 +14,11 @@ $(function(){
                 $('.count').html(data.packs.length);
                 $.each(data.packs,function(index,item){
                     console.log(item)
-                    var gtime = date('Y.m.d',item.gtime);
+                    var date = new Date(item.gtime);
+                    var y = date.getFullYear();
+                    var m = date.getMonth();
+                    var d = date.getDate();
+                    var gtime = y+'.'+m+'.'+d;
                     user()
                     function user () {
                         TD_Request('us','selfinfo',{uid:item.uid},function(code,data){
