@@ -14,6 +14,7 @@ $(function(){
                 $('.count').html(data.packs.length);
                 var totalHeight = 0;
                 var scrollHeight = $(window).scrollTop();
+                
                 $(window).scroll(function(){
                     totalHeight = parseFloat($(window).height())+parseFloat(scrollHeight);
                     if(($(document).height()-50) <= totalHeight && num != data.packs.length){
@@ -32,7 +33,6 @@ $(function(){
                                 'font-size':'0.28rem',
                                 'color':'#999'
                             })
-                            $('.tip_txt').html('');
                         }else{
                             $('.content').html('您还没有发出过红包').css({
                                 'text-align':'center',
@@ -42,17 +42,36 @@ $(function(){
                         }
                         
                     }
-                    var date = new Date(parseInt(item.gtime) * 1000);
-                    var y = date.getFullYear();
-                    var m = date.getMonth() + 1;
-                    if(m < 10){
-                        m = '0'+m;
+                    if(redpack == 'get'){
+                        var date = new Date(parseInt(item.gtime) * 1000);
+                        var y = date.getFullYear();
+                        var m = date.getMonth() + 1;
+                        if(m < 10){
+                            m = '0'+m;
+                        }
+                        var d = date.getDate();
+                        if(d < 10){
+                            d = '0'+d;
+                        }
+                        var gtime = y+'.'+m+'.'+d;
+                    }else if(redpack == 'give'){
+                        var date = new Date(parseInt(item.ctime) * 1000);
+                        var y = date.getFullYear();
+                        var m = date.getMonth() + 1;
+                        if(m < 10){
+                            m = '0'+m;
+                        }
+                        var d = date.getDate();
+                        if(d < 10){
+                            d = '0'+d;
+                        }
+                        var gtime = y+'.'+m+'.'+d;
+                        $('.info .right .coun').html(item.rcount+'个');
+                        $('.info .right .f_count').html(item.gcount+'/'+item.rcount);
+                        if(item.state == 'FINISHED'){
+                            $('.info .right .f_count').html('已过期 '+item.gcount+'/'+item.rcount);
+                        }
                     }
-                    var d = date.getDate();
-                    if(d < 10){
-                        d = '0'+d;
-                    }
-                    var gtime = y+'.'+m+'.'+d;
                     user()
                     function user () {
                         TD_Request('us','selfinfo',{uid:item.uid},function(code,data){
@@ -66,6 +85,7 @@ $(function(){
                         })
                     }
                 })
+                $('.tip_txt').html('发出红包总数<span style="color:#f25542">'+data.packs.length * 5+'</span>元').css('font-size','0.3rem');
             },function(code,data){
                 console.log(data)
             })
@@ -86,6 +106,7 @@ $(function(){
     })
     // 收到红包
     $('.r_left').click(function(){  
+        $('.tip_txt').html('');
         $('.tip').html(userInfo.nickname+'收到的梦想红包共')
         get('get',0)
 
@@ -93,9 +114,5 @@ $(function(){
     $('.r_right').click(function(){  
         get('give',0);
         $('.tip').html(userInfo.nickname+'发出的梦想红包共')
-        $('.count').html('15')
-        $('.tip_txt').html('发出红包总数<span style="color:#f25542">75</span>元').css('font-size','0.3rem');
-        $('.info .right .coun').html('3个');
-        $('.info .right .f_count').html('3/3');
     })
 })
