@@ -1,10 +1,6 @@
 WebApp.JSAPI.Init();
 $(function(){
     // 获取用户信息
-    var p;
-    if($_GET.phone == false){
-        p = false;
-    }
     var userInfo = Options.GetUserInfo()
     TD_Request("va", "pbind", {
         uid:userInfo.openid,
@@ -105,12 +101,8 @@ $(function(){
                     $('.tip').html('绑定成功').show().delay(1000).hide(1000);
                     var mainpool = JSON.parse(localStorage.getItem('mainpool'));
                     // 获取梦想池信息
-                    console.log(p)
-                    return;
-                    if(p == false){
-                        p == true;
-                        console.log(p)
-                        return;
+                    if($_GET.phone == false){
+                        $_GET.phone = !$_GET.phone;
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html";
                     }else if(mainpool == '' || mainpool == undefined){
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";
