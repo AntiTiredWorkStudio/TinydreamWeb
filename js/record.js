@@ -68,8 +68,9 @@ $(function(){
                         var gtime = y+'.'+m+'.'+d;
                         $('.tip_txt').html('发出红包总数<span style="color:#f25542">'+data.packs.length * 5+'</span>元').css('font-size','0.3rem');
                     }
-                    
-                    $('.content').html('<div class="info"><div class="left"><p class="username">'+user()+'</p><p class="time">'+gtime+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p><p class="f_count"></p></div></div>')
+                    var nick = user();
+                    console.log(nick)
+                    $('.content').html('<div class="info"><div class="left"><p class="username">'+nick+'</p><p class="time">'+gtime+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p><p class="f_count"></p></div></div>')
                     if(redpack != 'give'){
                         $('.f_count').html('');
                     }else{
