@@ -1,8 +1,23 @@
 $(function(){
     // 红包记录逻辑简单处理
     // 类型切换
-    console.log(Options.GetUserInfo())
     var userInfo = Options.GetUserInfo();
+    get('get',0);
+    function get (redpack,num) {
+        if(redpack == 'get'){
+            TD_Request('rp','gurpr',{
+                uid:userInfo.opneid,
+                seek:num,
+                count:5
+            },function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data)
+            })
+        }
+    }
+    console.log(Options.GetUserInfo())
+    
     // 用户头像
     $('.headicon').css('background','url('+userInfo.headimgurl+') no-repeat')
     $('.tip').html(userInfo.nickname+'收到的梦想红包共')
