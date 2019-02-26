@@ -13,6 +13,7 @@ $(function(){
                 console.log(data)
                 $('.count').html(data.packs.length);
                 $.each(data.packs,function(index,item){
+                    console.log(item)
                     var gtime = parseInt(item.gtime).toLocaleDateString();
                     user()
                     function user () {
