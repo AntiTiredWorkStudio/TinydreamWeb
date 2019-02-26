@@ -23,6 +23,14 @@ $(function(){
             }
             $.each(data.packs,function(index,item){
                 console.log(item);
+                TD_Request('us','selfinfo',{uid:item.uid},function(code,data){
+                    console.log(data.selfinfo.nickname)
+                },function(code,data){
+                    console.log(data);
+                })
+                if(state == 'get'){
+
+                }
             })
         },function(code,data){
             console.log(data)
