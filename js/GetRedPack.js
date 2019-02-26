@@ -43,6 +43,8 @@ $(function(){
         }else if(code == 18){
             alert('您当日购买次数已达上限,无法领取该红包');
             return;
-        }
+        }else{
+            alert(JSON.stringify(data));
+		}
     })
 })
