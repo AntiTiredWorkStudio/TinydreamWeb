@@ -101,10 +101,9 @@ $(function(){
                     $('.tip').html('绑定成功').show().delay(1000).hide(1000);
                     var mainpool = JSON.parse(localStorage.getItem('mainpool'));
                     // 获取梦想池信息
-                    console.log($_GET.phone);
-                    return;
                     if($_GET.phone == 'false'){
-                        $_GET.phone = !$_GET.phone;
+                        var flag = $_GET.phone;
+                        flag = 'true';
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html";
                     }else if(mainpool == '' || mainpool == undefined){
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";
