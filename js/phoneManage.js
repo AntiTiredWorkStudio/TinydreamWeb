@@ -105,8 +105,12 @@ $(function(){
                     $('.tip').html('绑定成功').show().delay(1000).hide(1000);
                     var mainpool = JSON.parse(localStorage.getItem('mainpool'));
                     // 获取梦想池信息
+                    console.log(p)
+                    return;
                     if(p == false){
                         p == true;
+                        console.log(p)
+                        return;
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html";
                     }else if(mainpool == '' || mainpool == undefined){
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";
