@@ -66,27 +66,28 @@ $(function(){
                             d = '0'+d;
                         }
                         var gtime = y+'.'+m+'.'+d;
+                        $('.tip_txt').html('发出红包总数<span style="color:#f25542">'+data.packs.length * 5+'</span>元').css('font-size','0.3rem');
                     }
                     user()
+                    $('.content').html('<div class="info"><div class="left"><p class="username">'+nickname+'</p><p class="time">'+gtime+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p><p class="f_count"></p></div></div>')
+                    if(redpack != 'give'){
+                        $('.f_count').html('');
+                    }else{
+                        $('.info .right .coun').html(item.rcount+'个');
+                        $('.info .right .f_count').html(item.gcount+'/'+item.rcount);
+                        if(item.state == 'FINISHED'){
+                            $('.info .right .f_count').html('已过期 '+item.gcount+'/'+item.rcount);
+                        }
+                    }
                     function user () {
                         TD_Request('us','selfinfo',{uid:item.uid},function(code,data){
                             var nickname = data.selfinfo.nickname;
-                            $('.content').html('<div class="info"><div class="left"><p class="username">'+nickname+'</p><p class="time">'+gtime+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p><p class="f_count"></p></div></div>')
-                            if(redpack != 'give'){
-                                $('.f_count').html('');
-                            }else{
-                                $('.info .right .coun').html(item.rcount+'个');
-                                $('.info .right .f_count').html(item.gcount+'/'+item.rcount);
-                                if(item.state == 'FINISHED'){
-                                    $('.info .right .f_count').html('已过期 '+item.gcount+'/'+item.rcount);
-                                }
-                            }
+                            
                         },function(code,data){
                             console.log(data);
                         })
                     }
                 })
-                $('.tip_txt').html('发出红包总数<span style="color:#f25542">'+data.packs.length * 5+'</span>元').css('font-size','0.3rem');
             },function(code,data){
                 console.log(data)
             })
