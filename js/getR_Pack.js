@@ -1,23 +1,17 @@
-var rid = $_GET.rid;
-TD_Request('rp','grp',{rid:rid},function(code,data){
-    console.log(data)
-    var nickname = data.sender.nickname;
-    WebApp.JSAPI.Init({
-        title:nickname+"给你发了一个梦想红包,领取可夺大额梦想金！",
-        desc:"小梦想互助——让每个小梦想 都有机会实现",
-        link:'http://tinydream.antit.top/TinydreamWeb/html/getR_Pack.html?rid='+rid,
-        imgUrl:"https://tdream.antit.top/image/Red_Open.jpg"
-    });
-},function(code,data){
-    console.log(data)
-})
+
 $(function(){
 	WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){
 			var rid = $_GET.rid;
 			TD_Request('rp','grp',{rid:rid},function(code,data){
 				console.log(data)
-				var userInfo = data.sender;
+                var userInfo = data.sender;
+                WebApp.JSAPI.Init({
+                    title:nickname+"给你发了一个梦想红包,领取可夺大额梦想金！",
+                    desc:"小梦想互助——让每个小梦想 都有机会实现",
+                    link:'http://tinydream.antit.top/TinydreamWeb/html/getR_Pack.html?rid='+rid,
+                    imgUrl:"https://tdream.antit.top/image/Red_Open.jpg"
+                });
 				$('.headicon').css({
 					background:'url('+userInfo.headicon+') no-repeat',
 					'background-size':'0.88rem 0.88rem'
