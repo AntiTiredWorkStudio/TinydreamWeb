@@ -7,7 +7,7 @@ $(function(){
         background:'url('+rinfo.headicon+') no-repeat',
         'background-size':'0.88rem 0.88rem'
     })
-    TD_Request('rp','orp',{rid:rinfo.rid,uid:userInfo.openid},function(code,data){
+    TD_Request('rp','orp',{uid:userInfo.openid,rid:rinfo.rid},function(code,data){
         console.log(data);
         $('.get_num').html('已领取编号');
         var lid;
@@ -43,8 +43,9 @@ $(function(){
         }else if(code == 18){
             alert('您当日购买次数已达上限,无法领取该红包');
             return;
-        }else{
-            alert(JSON.stringify(data));
-		}
+        }else if(code== 5){
+            alert(data.context);
+            return;
+        }
     })
 })
