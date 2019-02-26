@@ -1,6 +1,11 @@
 try {
+	if(localStorage.getItem('msg') == 'ok'){
+		localStorage.removeItem('msg');
+	}else{
+		window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/getR_Pack.html'
+	}
 	var nickname = Options.GetUserInfo().nickname;
-	
+	var rid = $_GET.rid;
 	WebApp.JSAPI.Init({
 		title:nickname+"给你发了一个梦想红包,领取可夺大额梦想金！",
 		desc:"小梦想互助——让每个小梦想 都有机会实现",

@@ -81,6 +81,7 @@ $(function(){
 						try{
 							TD_Request('rp','cprs',{uid:userInfo.openid,rid:redPackageID},function(code,data){
                                 //alert(code)
+                                localStorage.setItem('msg','ok')
                                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+redPackageID;
 							},function(code,data){
 								alert(code,data.context)
