@@ -25,12 +25,27 @@ $(function(){
                 console.log(item);
                 TD_Request('us','selfinfo',{uid:item.uid},function(code,data){
                     console.log(data.selfinfo.nickname)
+                    if(state == 'get'){
+                        var date = new Date(item.gtime);
+                    }else{
+                        var date = new Date(item.ctime);
+                    }
+                    var y = date.getFullYear();
+                    var m = date.getMonth() + 1;
+                    var d = date.getDate();
+                    var time = y+'.'+m+'.'+d;
+                    if(state == 'get'){
+                        $('<div class="info"><div class="left"><p class="username">'+data.selfinfo.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p></div></div>').appendTo('.content')
+                    }else{
+                        $('<div class="info"><div class="left"><p class="username">'+data.selfinfo.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.rcount+'个</p><p class="f_count">'+item.gcount+'/'+item.rcount+'</p></div></div>').appendTo('.content')
+                        if(item.state == 'FINISHED'){
+                            $('<div class="info"><div class="left"><p class="username">'+data.selfinfo.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.rcount+'个</p><p class="f_count">已过期'+item.gcount+'/'+item.rcount+'</p></div></div>').appendTo('.content') 
+                        }
+                    }
                 },function(code,data){
-                    console.log(data);
+                    console.log(data)
+                    
                 })
-                if(state == 'get'){
-
-                }
             })
         },function(code,data){
             console.log(data)
