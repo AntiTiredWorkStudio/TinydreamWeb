@@ -1,6 +1,20 @@
 $(function(){
     var rinfo = JSON.parse(localStorage.getItem('rinfo'));
     var userInfo = Options.GetUserInfo();
+    // 获取梦想池信息
+    function mainPool(pid){
+        TD_Request('dp','pinfo',{
+            pid:pid
+        },function(code,data){
+            var obj = DreamPoolAnalysis(data.pool)
+            localStorage.setItem('poolInfo',JSON.stringify(obj))
+            if(obj.state == 'RUNNING'){
+                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/helpInfo.html";
+            }else{
+                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/end.html";
+            }    
+        })
+    }
     $('.title').html(rinfo.nickname+'的梦想红包');
     $('.msg').html(rinfo.content);
     $('.headicon').css({
@@ -23,8 +37,11 @@ $(function(){
     },function(code,data){
         console.log(data)
         if(code == 72){
-            $('.get_num').html('已领取编号');
-            $('.number').html(data.reco.lid); 
+            $('.get_num').html('已领取编号：<span class="number">'+data.reco.lid+'</span>');
+            $('.tip').html('该编号自动参与小梦想互助平台'+data.pid+'期的幸运者抓阄，幸运者可以领取'+data.totalBill/100+'元梦想互助金去启动梦想')
+            $('button').html('查看详情').click(function(){
+                mainPool(data.pid);
+            })
         }
         // if(code == 11){
         //     $('.get_num').html('待取编号');
