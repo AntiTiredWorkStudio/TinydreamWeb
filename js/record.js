@@ -17,10 +17,13 @@ $(function(){
             console.log(data)
             $('.count').html(data.stats.countPack)
             if(state == 'get'){
-                $('.tip_txt').html('收到红包金额<span style="color:#f25542">'+data.stats.totalBill * 100+'</span>元').css('font-size','0.3rem');
+                $('.tip_txt').html('收到红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
             }else{
-                $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill * 100+'</span>元').css('font-size','0.3rem');
+                $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
             }
+            $.each(data.packs,function(index,item){
+                console.log(item);
+            })
         },function(code,data){
             console.log(data)
         })
