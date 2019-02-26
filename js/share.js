@@ -8,10 +8,10 @@ try {
 		imgUrl:"https://tdream.antit.top/image/Red_Open.jpg"
 	});
 	WebApp.JSAPI.onShareTimeLine = function(res){
-		console.log(res);
+		alert(res);
 	}
 	WebApp.JSAPI.onShareFriend = function(res){
-		console.log(res);
+		alert(res);
 	}
 } catch (error) {
 	alert(error)
