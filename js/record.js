@@ -14,7 +14,9 @@ $(function(){
                 $('.count').html(data.packs.length);
                 $.each(data.packs,function(index,item){
                     console.log(item)
-                    var date = new Date(parseInt(item.gtime));
+                    var date = new Date(parseInt(item.gtime) * 1000);
+                    console.log(date,item.gtime);
+                    
                     var y = date.getFullYear();
                     var m = date.getMonth();
                     var d = date.getDate();
