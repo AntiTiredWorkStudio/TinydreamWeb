@@ -2,19 +2,33 @@ $(function(){
     // 红包记录逻辑简单处理
     // 类型切换
     var userInfo = Options.GetUserInfo();
-    redpack('get','gurpr',0)
+    var number = 0;
+    redpack('get','gurpr',number)
     /**
      * 参数state 红包请求状态
      * 参数actions 请求动作
      * 参数num 游标
      */
     function redpack(state,actions,num){
+        $('.loading').click(function(){
+            number + 10
+            if(state == 'get'){
+                redpack('get','gurpr',nummber)
+            }else{
+                redpack('give','gurps',nummber)
+            }
+        })
         TD_Request('rp',actions,{
             uid:userInfo.openid,
             seek:num,
-            count:5
+            count:10
         },function(code,data){
             console.log(data)
+            if(data.packs.length<10 || data.packs.length == 0){
+                $('.loading').hide();
+            }else{
+                $('.loading').show();
+            }
             $('.count').html(data.stats.countPack)
             if(state == 'get'){
                 $('.tip_txt').html('收到红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
@@ -52,7 +66,6 @@ $(function(){
     }
     
     console.log(Options.GetUserInfo())
-    
     // 用户头像
     $('.headicon').css('background','url('+userInfo.headimgurl+') no-repeat')
     $('.tip').html(userInfo.nickname+'收到的梦想红包共')
@@ -63,12 +76,12 @@ $(function(){
     $('.r_left').click(function(){  
         $('.tip').html(userInfo.nickname+'收到的梦想红包共');
         $('.content').empty();
-        redpack('get','gurpr',0)
+        redpack('get','gurpr',num)
 
     })
     $('.r_right').click(function(){  
         $('.content').empty();
-        redpack('give','gurps',0);
+        redpack('give','gurps',num);
         $('.tip').html(userInfo.nickname+'发出的梦想红包共')
     })
 })
