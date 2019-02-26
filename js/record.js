@@ -13,13 +13,16 @@ $(function(){
                 console.log(data)
                 $('.count').html(data.packs.length);
                 $.each(data.packs,function(index,item){
-                    console.log(item)
                     var date = new Date(parseInt(item.gtime) * 1000);
-                    console.log(date,item.gtime);
-                    
                     var y = date.getFullYear();
-                    var m = date.getMonth();
+                    var m = date.getMonth() + 1;
+                    if(m < 10){
+                        m = '0'+m;
+                    }
                     var d = date.getDate();
+                    if(d < 10){
+                        d = '0'+d;
+                    }
                     var gtime = y+'.'+m+'.'+d;
                     user()
                     function user () {
