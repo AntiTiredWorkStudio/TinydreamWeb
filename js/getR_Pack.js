@@ -18,7 +18,7 @@ $(function(){
 				})
 			},function(code,data){
 				console.log(data)
-				window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
+				// window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
 			})
 		}
 	);
