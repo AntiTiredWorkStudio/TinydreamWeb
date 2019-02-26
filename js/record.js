@@ -6,7 +6,7 @@ $(function(){
     function get (redpack,num) {
         if(redpack == 'get'){
             TD_Request('rp','gurpr',{
-                uid:userInfo.opneid,
+                uid:userInfo.openid,
                 seek:num,
                 count:5
             },function(code,data){
