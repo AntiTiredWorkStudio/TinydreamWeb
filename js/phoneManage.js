@@ -2,7 +2,10 @@ WebApp.JSAPI.Init();
 $(function(){
     // 获取用户信息
     var p;
+
     if($_GET.phone!='' || $_GET.phone!=null || typeof $_GET.phone != 'undefined'){
+        p = false;
+    }else if($_GET.phone == false){
         p = false;
     }
     var userInfo = Options.GetUserInfo()
@@ -103,8 +106,6 @@ $(function(){
             },function(code,data){
                 if(code == 0){
                     $('.tip').html('绑定成功').show().delay(1000).hide(1000);
-                    p = true;
-                    window.location.his
                     // 获取梦想池信息
                     if(p == false){
                         p == true;
