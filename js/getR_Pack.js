@@ -1,3 +1,4 @@
+WebApp.JSAPI.Init();
 $(function(){
 	WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){

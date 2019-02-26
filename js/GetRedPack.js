@@ -22,6 +22,10 @@ $(function(){
         // })
     },function(code,data){
         console.log(data)
+        if(code == 72){
+            $('.get_num').html('已领取编号');
+            $('.number').html(data.reco.lid); 
+        }
         // if(code == 11){
         //     $('.get_num').html('待取编号');
         //     $('.number').html('1个');

@@ -1,3 +1,4 @@
+WebApp.JSAPI.Init();
 $(function(){
 	//alert('red pack');
     // 获取用户信息

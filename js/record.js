@@ -1,3 +1,4 @@
+WebApp.JSAPI.Init();
 $(function(){
     // 红包记录逻辑简单处理
     // 类型切换
