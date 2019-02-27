@@ -15,11 +15,8 @@ body{
     position: relative;
     z-index: 20;
     box-shadow: 0.02rem 0rem 0.02rem 0.02rem #f1f1f1,-0.02rem 0rem 0.05rem 0.02rem #f1f1f1,0rem 0.02rem 0.05rem 0.02rem #f1f1f1,0 -0.02rem 0.05rem 0.02rem #f1f1f1;
-}
-.user .header img{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
+    background: url('http://tdream.antit.top/image/titleLogo.png') no-repeat;
+    background-size: 1.74rem 1.74rem;
 }
 /* 用户信息--样式处理 */
 .user .user_info{
