@@ -22,6 +22,7 @@ $(function(){
                 pagination: {
                   el: '.swiper-pagination',
                 },
+                autoplay: 2000,
               });
               $('.footer ul li.last a').attr('href','javascript:;').click(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/user.html?type=test'

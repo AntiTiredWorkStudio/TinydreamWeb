@@ -26,6 +26,7 @@ body{
     height: 1.86rem;
     background: url(http://tdream.antit.top/image/banner.png) no-repeat;
     background-size: 6.8rem 1.86rem;
+    border-radius: 0.1rem;
     /* float: left; */
 }
 .banner2{
