@@ -22,7 +22,7 @@ $(function(){
             }else if(state == 'give'){
                 redpack('give','gurps',num)
             }
-        })
+        },false);
         TD_Request('rp',actions,{
             uid:userInfo.openid,
             seek:num,
