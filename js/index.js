@@ -16,13 +16,30 @@ $(function(){
            $('.right').click(function(){
                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/notice.html"
            })
-           //    梦想红包
-           $('.packmask button').click(function(){
-               window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html'
-           })
            //    测试
+           if($_GET.type == 'test'){
+            var swiper = new Swiper('.swiper-container', {
+                pagination: {
+                  el: '.swiper-pagination',
+                },
+              });
+              $('.footer ul li.last').click(function(){
+                  window.location.href = 'http://tinydream.antit.top/TinydreamWeb/user.html?type=test'; 
+              })
+           }else{
+            $('.banner2').hide();
+            $('.banner1').show();
+            $('.home .swiper-container').css({
+                width: '6.8rem',
+                height: '1.86rem',
+                margin: "0.2rem auto"
+            })
+           }
            $('.banner1').click(function(){
                 window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
+            })
+            $('.banner2').click(function(){
+                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html"
             })
             // if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4'){
             //     $('.banner2').show();
@@ -36,13 +53,6 @@ $(function(){
             //         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html'
             //     }
             // })
-            if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4'){
-                var swiper = new Swiper('.swiper-container', {
-                    pagination: {
-                      el: '.swiper-pagination',
-                    },
-                  });
-            }
         //    清除mainpool
            if(localStorage.getItem('mainpool')){
                localStorage.clear('mainpool')
