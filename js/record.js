@@ -12,17 +12,18 @@ $(function(){
      * 参数num 游标
      */
     function redpack(state,actions,num){
+        if(state == 'get'){
+            $('.loading').click(function(){
+                var number = num+10;
+                redpack('get','gurpr',number);
+            })
+        }else if(state == 'give'){
+            $('.loading').click(function(){
+                var number = num+10;
+                redpack('give','gurps',number);
+            })
+        }
         console.log(state,actions,num)
-        $('.loading').click(function(){
-            console.log(state,actions,num)
-            num + 10
-            console.log(state,actions,num)
-            if(state == 'get'){
-                redpack('get','gurpr',num)
-            }else if(state == 'give'){
-                redpack('give','gurps',num)
-            }
-        },false);
         TD_Request('rp',actions,{
             uid:userInfo.openid,
             seek:num,
