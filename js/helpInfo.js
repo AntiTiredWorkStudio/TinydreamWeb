@@ -100,6 +100,7 @@ $(function(){
         $('.user_number').empty().hide();
         $('.tabList').show();
         $('.tabList').empty();
+        getord(num);
         self(); 
     })
     $('.btns.click').click(function(){
