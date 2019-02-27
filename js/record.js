@@ -57,7 +57,14 @@ $(function(){
         },function(code,data){
             console.log(data)
         })
-        $('.loading')[0].addEventListener('click',function(){alert(state);},false);
+        $('.loading')[0].addEventListener('click',function(){
+            num = num+10;
+            if(state == 'give'){
+                redpack('give','gurps',num);
+            }else{
+                redpack('get','gurpr',num);
+            };
+        },false);
     }
     
     console.log(Options.GetUserInfo())
