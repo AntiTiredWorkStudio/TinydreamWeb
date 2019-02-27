@@ -12,11 +12,11 @@ $(function(){
      * 参数num 游标
      */
     function redpack(state,actions,num){
-        console.log(state)
+        console.log(state,actions,num)
         $('.loading').click(function(){
-            console.log(state)
+            console.log(state,actions,num)
             num + 10
-            console.log(state)
+            console.log(state,actions,num)
             if(state == 'get'){
                 redpack('get','gurpr',num)
             }else if(state == 'give'){
