@@ -95,6 +95,7 @@ $(function(){
         $('.tabList').empty().hide();
         $('.user_number').empty();
         getord(num);
+        self();
     })
     $('.left').click(function(){
         $('.user_number').empty().hide();
