@@ -57,7 +57,7 @@ $(function(){
         },function(code,data){
             console.log(data)
         })
-        $('.loading').addEventListener('click',function(){alert(state);},false);
+        $('.loading')[0].addEventListener('click',function(){alert(state);},false);
     }
     
     console.log(Options.GetUserInfo())
