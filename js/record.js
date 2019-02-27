@@ -14,6 +14,7 @@ $(function(){
     function redpack(state,actions,num){
         $('.loading').click(function(){
             num + 10
+            console.log(state)
             if(state == 'get'){
                 redpack('get','gurpr',num)
             }else{
