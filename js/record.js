@@ -57,9 +57,7 @@ $(function(){
         },function(code,data){
             console.log(data)
         })
-        $('.loading').click(function(){
-            console.log(state);
-        })
+        $('.loading').addEventListener('click',function(){alert(state);},false);
     }
     
     console.log(Options.GetUserInfo())
