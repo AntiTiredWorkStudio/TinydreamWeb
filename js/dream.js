@@ -128,6 +128,11 @@ $(function(){
         $('.close').fadeOut();
     })
     // 发布梦想
+    if($_GET.dream == 'false'){
+        $('.close').fadeIn()
+    }else{
+        $('.close').hide()
+    }
     $('.submit').click(function(){
         if($('.title').val() == ""){
             alert('梦想标题不能为空');
