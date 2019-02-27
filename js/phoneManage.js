@@ -99,9 +99,13 @@ $(function(){
             },function(code,data){
                 if(code == 0){
                     $('.tip').html('绑定成功').show().delay(1000).hide(1000);
-                    // 获取梦想池信息
                     var mainpool = JSON.parse(localStorage.getItem('mainpool'));
-                    if(mainpool == '' || mainpool == undefined){
+                    // 获取梦想池信息
+                    if($_GET.phone == 'false'){
+                        var flag = $_GET.phone;
+                        flag = 'true';
+                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html";
+                    }else if(mainpool == '' || mainpool == undefined){
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";
                     }else{
                         console.log(mainpool)

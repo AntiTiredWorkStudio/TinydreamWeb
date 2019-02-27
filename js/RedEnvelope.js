@@ -1,3 +1,4 @@
+WebApp.JSAPI.Init();
 $(function(){
     // 红包记录处理
     $('.record span').click(function(){
