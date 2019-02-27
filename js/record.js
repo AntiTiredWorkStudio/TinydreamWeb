@@ -34,9 +34,9 @@ $(function(){
                 TD_Request('us','selfinfo',{uid:item.uid},function(code,data){
                     console.log(data.selfinfo.nickname)
                     if(state == 'get'){
-                        var date = new Date(item.gtime * 1000);
+                        var date = new Date(parseInt(item.gtime) * 1000);
                     }else{
-                        var date = new Date(item.ctime * 1000);
+                        var date = new Date(parseInt(item.ctime) * 1000);
                     }
                     var y = date.getFullYear();
                     var m = date.getMonth() + 1;
