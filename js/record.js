@@ -41,13 +41,17 @@ $(function(){
                     var y = date.getFullYear();
                     var m = date.getMonth() + 1;
                     var d = date.getDate();
-                    var time = y+'.'+m+'.'+d;
+                    var h = data.getHours();
+                    var M = date.getMinutes();
+                    var s = date.getSeconds();
+                    var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
                     if(state == 'get'){
                         $('<div class="info"><div class="left"><p class="username">'+data.selfinfo.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p></div></div>').appendTo('.content')
                     }else{
+                        console.log(item)
                         $('<div class="info"><div class="left"><p class="username">'+data.selfinfo.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.rcount+'个</p><p class="f_count">'+item.gcount+'/'+item.rcount+'</p></div></div>').appendTo('.content')
-                        if(item.state == 'FINISHED'){
-                            $('<div class="info"><div class="left"><p class="username">'+data.selfinfo.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.rcount+'个</p><p class="f_count">已过期'+item.gcount+'/'+item.rcount+'</p></div></div>').appendTo('.content') 
+                        if(item.state == 'FINISHED' && item.gcount != 0){
+                            $('<div class="info"><div class="left"><p class="username">'+data.selfinfo.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.rcount+'个</p><p class="f_count">已过期'+item.gcount+'/'+item.rcount+'</p></div></div>').css('text-align','right').appendTo('.content') 
                         }
                     }
                 },function(code,data){
