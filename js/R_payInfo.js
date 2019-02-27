@@ -46,6 +46,14 @@ $(function(){
         }else{
             var content = $('#content').val()
         }
+        if($('#input-pid').val() == ''){
+            alert('请选择期数');
+            return;
+        }
+        if($('#rcount').val() == ''){
+            alert('请输入红包个数');
+            return;
+        }
         TD_Request('rp','crp',{
             uid:userInfo.openid,
             pid:$('#input-pid').val(),

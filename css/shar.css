@@ -10,7 +10,7 @@ img{
 .share{
     /* background: url(../images/1.png) no-repeat; */
     background-size: cover;
-    zoom: 0.5;
+    /* zoom: 0.5; */
 }
 .share .header{
     padding-top: 0.8rem;
@@ -75,3 +75,4 @@ img{
     font-size: 0.28rem;
     z-index: 6;
 }
+/*  */
