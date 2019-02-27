@@ -14,6 +14,7 @@ $(function(){
     function redpack(state,actions,num){
         console.log(state,actions,num)
         $('.loading').click(function(e){
+            e.stopPropagation();
             console.log(state,actions,num)
             num + 10
             console.log(state,actions,num)
@@ -22,7 +23,7 @@ $(function(){
             }else if(state == 'give'){
                 redpack('give','gurps',num)
             }
-            e.stopPropagation();
+            
         })
         TD_Request('rp',actions,{
             uid:userInfo.openid,
