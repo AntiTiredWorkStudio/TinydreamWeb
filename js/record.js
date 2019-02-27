@@ -25,7 +25,7 @@ $(function(){
             }
             $('.count').html(data.stats.countPack)
             if(state == 'get'){
-                $('.tip_txt').html('收到红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
+                $('.tip_txt').html('收到编号<span style="color:#f25542">'+data.stats.totalBill+'</span>元').css('font-size','0.3rem');
             }else{
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
             }
@@ -61,7 +61,7 @@ $(function(){
             num = num+10;
             if(state == 'give'){
                 redpack('give','gurps',num);
-            }else{
+            }else if(state == 'get'){
                 redpack('get','gurpr',num);
             };
         },false);
@@ -75,15 +75,15 @@ $(function(){
         $(this).addClass('active').siblings().removeClass('active')
     })
     // 收到红包
-    $('.r_left').click(function(){  
+    $('.r_left')[0].addEventListener('click',function(){  
         $('.tip').html(userInfo.nickname+'收到的梦想红包共');
         $('.content').empty();
         redpack('get','gurpr',number)
 
-    })
-    $('.r_right').click(function(){  
+    },false)
+    $('.r_right')[0].addEventListener('click',function(){  
         $('.content').empty();
         redpack('give','gurps',number);
         $('.tip').html(userInfo.nickname+'发出的梦想红包共')
-    })
+    },false)
 })
