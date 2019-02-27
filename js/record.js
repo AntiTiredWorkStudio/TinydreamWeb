@@ -55,6 +55,7 @@ $(function(){
                     }else if(s < 10){
                        var s = '0'+s;
                     }
+                    console.log(h)
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
                     if(state == 'get'){
                         $('<div class="info"><div class="left"><p class="username">'+data.selfinfo.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p></div></div>').appendTo('.content')
