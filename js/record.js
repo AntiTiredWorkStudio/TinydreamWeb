@@ -59,6 +59,8 @@ $(function(){
         })
         $('.loading')[0].addEventListener('click',function(){
             num = num+10;
+            alert(state);
+            return;
             if(state == 'give'){
                 redpack('give','gurps',num);
             }else if(state == 'get'){
