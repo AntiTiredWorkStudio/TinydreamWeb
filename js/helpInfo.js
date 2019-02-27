@@ -89,15 +89,16 @@ $(function(){
     $('.tab div').click(function(){
         $(this).addClass('active').siblings().removeClass('active')
     })
-    var num = 0;
+    var num;
+    num = 0;
     $('.right').click(function(){
         $('.user_number').show();
         $('.tabList').empty().hide();
         $('.user_number').empty();
         getord(num);
-        self();
     })
     $('.left').click(function(){
+        num = 0;
         $('.user_number').empty().hide();
         $('.tabList').show();
         $('.tabList').empty();
@@ -178,7 +179,7 @@ $(function(){
 					console.log(data)
 				})
 			},
-			function(code,data){}
+			// function(code,data){}
 		)
 		/*
 		return;		
