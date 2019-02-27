@@ -24,23 +24,25 @@ $(function(){
            $('.banner1').click(function(){
                 window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
             })
-            if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4'){
-                $('.banner2').show();
-                $('.banner1').hide()
-            }else{
-                $('.banner1').show()
-                $('.banner2').hide()
-            }
-            $('.banner2').click(function(){
-                if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4'){
-                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html'
-                }
-            })
-            // if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-            //     $('.packmask').show()
+            // if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4'){
+            //     $('.banner2').show();
+            //     $('.banner1').hide()
             // }else{
-            //     $('.packmask').hide()
+            //     $('.banner1').show()
+            //     $('.banner2').hide()
             // }
+            // $('.banner2').click(function(){
+            //     if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4'){
+            //         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html'
+            //     }
+            // })
+            if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4'){
+                var swiper = new Swiper('.swiper-container', {
+                    pagination: {
+                      el: '.swiper-pagination',
+                    },
+                  });
+            }
         //    清除mainpool
            if(localStorage.getItem('mainpool')){
                localStorage.clear('mainpool')
