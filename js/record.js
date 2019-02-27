@@ -45,15 +45,15 @@ $(function(){
                     var M = date.getMinutes();
                     var s = date.getSeconds();
                     if(m<10){
-                        m = '0'+m;
+                       var m = '0'+m;
                     }else if(d < 10){
-                        d = '0'+d;
+                       var d = '0'+d;
                     }else if(h < 10){
-                        h = '0'+h;
+                        var h = '0'+h;
                     }else if(M < 10){
-                        M = '0'+M;
+                        var M = '0'+M;
                     }else if(s < 10){
-                        s = '0'+s;
+                       var s = '0'+s;
                     }
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
                     if(state == 'get'){
