@@ -17,7 +17,7 @@ body{
 .home .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
     bottom: 0;
 }
-.swiper-pagination-bullet-active{
+.home .swiper-pagination-bullet-active{
     background: #999;
 }
 .banner{
