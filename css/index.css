@@ -8,8 +8,17 @@ body{
 /* banner */
 .home .swiper-container{
     width: 6.8rem;
-    height: 1.91rem;
-    margin: 0.2rem auto;
+    height: 2.3rem;
+    margin: 0.2rem auto 0;
+}
+.home .swiper-wrapper{
+    height:1.86rem;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+    bottom: 0;
+}
+.swiper-pagination-bullet-active{
+    background: #999;
 }
 .banner{
     width: 6.8rem;
