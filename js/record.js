@@ -48,13 +48,17 @@ $(function(){
                     s = date.getSeconds();
                     if(m<10){
                         m = '0'+m;
-                    }else if(d < 10){
+                    }
+                    if(d < 10){
                         d = '0'+d;
-                    }else if(h < 10){
+                    }
+                    if(h < 10){
                         h = '0'+h;
-                    }else if(M < 10){
+                    }
+                    if(M < 10){
                         M = '0'+M;
-                    }else if(s < 10){
+                    }
+                    if(s < 10){
                         s = '0'+s;
                     }
                     console.log(h)
