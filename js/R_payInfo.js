@@ -91,7 +91,7 @@ $(function(){
 							alert(err);
 						}
 					}else{
-						alert("failed");
+						alert("支付取消");
 					}
                 })
                 
