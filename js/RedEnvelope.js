@@ -2,7 +2,7 @@ WebApp.JSAPI.Init();
 $(function(){
     // 红包记录处理
     $('.record span').click(function(){
-        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/R_record.html'
+        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/record.html'
     })
     // 普通红包处理
     $('.ordinary').click(function(){
