@@ -57,16 +57,6 @@ $(function(){
         },function(code,data){
             console.log(data)
         })
-        $('.loading')[0].addEventListener('click',function(){
-            num = num+10;
-            alert(state);
-            return;
-            if(state == 'give'){
-                redpack('give','gurps',num);
-            }else if(state == 'get'){
-                redpack('get','gurpr',num);
-            };
-        },false);
     }
     
     console.log(Options.GetUserInfo())
@@ -77,15 +67,29 @@ $(function(){
         $(this).addClass('active').siblings().removeClass('active')
     })
     // 收到红包
+    var state;
     $('.r_left')[0].addEventListener('click',function(){  
         $('.tip').html(userInfo.nickname+'收到的梦想红包共');
         $('.content').empty();
-        redpack('get','gurpr',number)
+        redpack('get','gurpr',number);
+        state = 'get'
 
     },false)
     $('.r_right')[0].addEventListener('click',function(){  
         $('.content').empty();
         redpack('give','gurps',number);
         $('.tip').html(userInfo.nickname+'发出的梦想红包共')
+        state = 'give'
     },false)
+
+    $('.loading')[0].addEventListener('click',function(){
+
+        number = number+10;
+        alert(state);
+        if(state == 'give'){
+            redpack('give','gurps',number);
+        }else if(state == 'get'){
+            redpack('get','gurpr',number);
+        };
+    },false);
 })
