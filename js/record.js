@@ -12,7 +12,9 @@ $(function(){
      * 参数num 游标
      */
     function redpack(state,actions,num){
+        console.log(state)
         $('.loading').click(function(){
+            console.log(state)
             num + 10
             console.log(state)
             if(state == 'get'){
