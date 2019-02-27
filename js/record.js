@@ -17,7 +17,7 @@ $(function(){
             console.log(state)
             if(state == 'get'){
                 redpack('get','gurpr',num)
-            }else{
+            }else if(state == 'give'){
                 redpack('give','gurps',num)
             }
         })
