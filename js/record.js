@@ -44,6 +44,17 @@ $(function(){
                     var h = date.getHours();
                     var M = date.getMinutes();
                     var s = date.getSeconds();
+                    if(m<10){
+                        m = '0'+m;
+                    }else if(d < 10){
+                        d = '0'+d;
+                    }else if(h < 10){
+                        h = '0'+h;
+                    }else if(M < 10){
+                        M = '0'+M;
+                    }else if(s < 10){
+                        s = '0'+s;
+                    }
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
                     if(state == 'get'){
                         $('<div class="info"><div class="left"><p class="username">'+data.selfinfo.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p></div></div>').appendTo('.content')
