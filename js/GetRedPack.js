@@ -57,7 +57,7 @@ $(function(){
             alert('您当日购买次数已达上限,无法领取该红包');
             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
         }else if(code== 5){
-            alert(data.context);
+            alert('您来完了，该红包已被领完');
             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
         }  
     })
