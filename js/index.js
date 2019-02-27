@@ -22,7 +22,12 @@ $(function(){
                 pagination: {
                   el: '.swiper-pagination',
                 },
-                autoplay: 2000,
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false,
+                },
               });
               $('.footer ul li.last a').attr('href','javascript:;').click(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/user.html?type=test'
