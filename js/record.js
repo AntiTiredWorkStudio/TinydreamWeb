@@ -38,22 +38,24 @@ $(function(){
                     }else{
                         var date = new Date(parseInt(item.ctime) * 1000);
                     }
-                    var y = date.getFullYear();
-                    var m = date.getMonth() + 1;
-                    var d = date.getDate();
-                    var h = date.getHours();
-                    var M = date.getMinutes();
-                    var s = date.getSeconds();
+                    // 获取时间
+                    var y,m,d,h,M,s
+                    y = date.getFullYear();
+                    m = date.getMonth() + 1;
+                    d = date.getDate();
+                    h = date.getHours();
+                    M = date.getMinutes();
+                    s = date.getSeconds();
                     if(m<10){
-                       var m = '0'+m;
+                        m = '0'+m;
                     }else if(d < 10){
-                       var d = '0'+d;
+                        d = '0'+d;
                     }else if(h < 10){
-                        var h = '0'+h;
+                        h = '0'+h;
                     }else if(M < 10){
-                        var M = '0'+M;
+                        M = '0'+M;
                     }else if(s < 10){
-                       var s = '0'+s;
+                        s = '0'+s;
                     }
                     console.log(h)
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
