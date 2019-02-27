@@ -12,19 +12,6 @@ $(function(){
      * 参数num 游标
      */
     function redpack(state,actions,num){
-        console.log(state,actions,num)
-        $('.loading').click(function(e){
-            e.stopPropagation();
-            console.log(state,actions,num)
-            num + 10
-            console.log(state,actions,num)
-            if(state == 'get'){
-                redpack('get','gurpr',num)
-            }else if(state == 'give'){
-                redpack('give','gurps',num)
-            }
-            
-        })
         TD_Request('rp',actions,{
             uid:userInfo.openid,
             seek:num,
@@ -69,6 +56,9 @@ $(function(){
             })
         },function(code,data){
             console.log(data)
+        })
+        $('.loading').click(function(){
+            console.log(state);
         })
     }
     
