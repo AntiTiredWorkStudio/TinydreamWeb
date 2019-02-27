@@ -54,11 +54,11 @@ $(function(){
         }else if ($('#rcount').val() == ''){
             alert('请输入红包个数');
             return;
-        }else if($('#rcount').val() == 0 || $('#rcount').val() == ''){
+        }else if($('#rcount').val() == 0){
             alert('红包个数至少为一个');
             return;
         }else{
-            alert(1)
+            // alert(1)
             TD_Request('rp','crp',{
                 pid:$('#input-pid').val(),
                 rcount:$('#rcount').val(),
