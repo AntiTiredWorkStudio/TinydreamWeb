@@ -3,7 +3,8 @@ $(function(){
     // 红包记录逻辑简单处理
     // 类型切换
     var userInfo = Options.GetUserInfo();
-    var number = 0;
+    var number;
+    number = 0;
     redpack('get','gurpr',number)
     /**
      * 参数state 红包请求状态
@@ -12,11 +13,11 @@ $(function(){
      */
     function redpack(state,actions,num){
         $('.loading').click(function(){
-            number + 10
+            num + 10
             if(state == 'get'){
-                redpack('get','gurpr',nummber)
+                redpack('get','gurpr',num)
             }else{
-                redpack('give','gurps',nummber)
+                redpack('give','gurps',num)
             }
         })
         TD_Request('rp',actions,{
