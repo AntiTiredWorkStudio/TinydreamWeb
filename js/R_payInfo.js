@@ -54,10 +54,11 @@ $(function(){
         }else if ($('#rcount').val() == ''){
             alert('请输入红包个数');
             return;
-        }else if($('#rcount').val() == 0){
+        }else if($('#rcount').val() == 0 || $('#rcount').val() == ''){
             alert('红包个数至少为一个');
             return;
         }else{
+            alert(1)
             TD_Request('rp','crp',{
                 pid:$('#input-pid').val(),
                 rcount:$('#rcount').val(),
@@ -95,6 +96,7 @@ $(function(){
                 })
                 
             },function(code,data){
+                console.log(data)
                 if(code == 11){
                     alert('您尚未绑定手机，绑定手机后即可发送梦想红包');
                     window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html'
