@@ -1,12 +1,5 @@
 WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){
-			if($_GET.rid == localStorage.getItem('rid')){
-				TD_Request('rp','grp',{rid:rid},function(code,data){
-					var userInfo = data.sender;
-					localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:userInfo.headicon,nickname:userInfo.nickname,content:data.redpack.content}));
-					window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html'
-				})
-			}else{
 			var rid = $_GET.rid;
 			TD_Request('rp','grp',{rid:rid},function(code,data){
 				console.log(data)
@@ -33,5 +26,4 @@ WebApp.Init('wxc5216d15dd321ac5',//appid
 				window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
 			})
 		}
-	}
 	);
