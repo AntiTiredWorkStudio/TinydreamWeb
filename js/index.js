@@ -23,9 +23,9 @@ $(function(){
                   el: '.swiper-pagination',
                 },
               });
-              $('.footer ul li.last').click(function(){
-                  window.location.href = 'http://tinydream.antit.top/TinydreamWeb/user.html?type=test'; 
-              })
+              $('.footer ul li.last a').attr('href','javascript:;').click(function(){
+                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/user.html?type=test'
+            })
            }else{
             $('.banner2').hide();
             $('.banner1').show();

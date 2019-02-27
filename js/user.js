@@ -4,7 +4,7 @@ $(function(){
         $('.block.bottom.psa').hide();
     }else{
         $('.block.bottom.psa').show();
-        $('.footer ul li.first').click(function(){
+        $('.footer ul li.first a').attr('href','javascript:;').click(function(){
             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?type=test'
         })
     }
