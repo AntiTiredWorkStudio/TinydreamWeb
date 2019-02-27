@@ -48,6 +48,7 @@ $(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html?phone=false'
             })
         }else if(code == 71){
+            $('.get_num').html('待取编号:1个');
             $('.r_tip').html('该编号自动参与小梦想互助平台--期的幸运者抓阄，幸运者可以领取--元梦想互助金去启动梦想')
             $('button').html('添加梦想').click(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/dream.html?dream=false'
