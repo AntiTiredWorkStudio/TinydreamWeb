@@ -41,7 +41,7 @@ $(function(){
                     var y = date.getFullYear();
                     var m = date.getMonth() + 1;
                     var d = date.getDate();
-                    var h = data.getHours();
+                    var h = date.getHours();
                     var M = date.getMinutes();
                     var s = date.getSeconds();
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
