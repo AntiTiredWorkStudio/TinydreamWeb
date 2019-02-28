@@ -37,6 +37,7 @@ $(function(){
         //     mainPool(data.pid);
         // })
         $('button').hide();
+        $('.mtip').hide();
         $('.hide').show();
     },function(code,data){
         console.log(data)
@@ -46,6 +47,7 @@ $(function(){
             // $('button').html('查看详情').click(function(){
             //     mainPool(data.pid);
             // })
+            $('.mtip').hide();
             $('button').hide();
             $('.hide').show();  
         }else if(code == 11){
@@ -54,6 +56,7 @@ $(function(){
             $('button').show().html('绑定手机').click(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html?phone=false'
             })
+            $('.mtip').show();
             $('.hide').hide();
         }else if(code == 71){
             $('.get_num').html('待取编号:1个');
@@ -61,6 +64,7 @@ $(function(){
             $('button').show().html('添加梦想').click(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/dream.html?dream=false'
             })
+            $('.mtip').show();
             $('.hide').hide();
         }else if(code == 18){
             alert('您当日购买次数已达上限,无法领取该红包');
