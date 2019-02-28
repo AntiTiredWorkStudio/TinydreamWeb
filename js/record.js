@@ -18,6 +18,12 @@ $(function(){
             count:10
         },function(code,data){
             console.log(data)
+            data.packs.gtime.sort(function(a,b){
+                return b-a;
+            })
+            data.packs.ctime.sort(function(a,b){
+                return b-a;
+            })
             if(data.packs.length<10 || data.packs.length == 0){
                 $('.loading').hide();
             }else{
@@ -83,6 +89,9 @@ $(function(){
     
     console.log(Options.GetUserInfo())
     // 用户头像
+    if(userInfo.headimgurl == ''){
+        userInfo.headimgurl = 'http://tdream.antit.top/image/titleLogo.png'
+    }
     $('.headicon').css('background','url('+userInfo.headimgurl+') no-repeat')
     $('.tip').html(userInfo.nickname+'收到的梦想红包共')
     $('.top ul li').click(function(){
