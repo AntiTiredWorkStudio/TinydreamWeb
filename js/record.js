@@ -30,12 +30,8 @@ $(function(){
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
             }
             $.each(data.packs,function(index,item){
-                item.gtime.sort(function(a,b){
-                    return a-b;
-                })
-                item.ctime.sort(function(a,b){
-                    return a-b;
-                })
+                item.sort(by('gtime'))
+                item.sort(by('ctime'))
                 console.log(item);
                 TD_Request('us','selfinfo',{uid:item.uid},function(code,data){
                     console.log(data.selfinfo.nickname)
