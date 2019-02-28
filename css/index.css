@@ -521,7 +521,7 @@ body{
 }
 .packmask .bg{
     position: absolute;
-    top: 20%;
+    top: 10%;
     /* transform: translateY(-50%); */
     height: 7.47rem;
     width: 100%;
