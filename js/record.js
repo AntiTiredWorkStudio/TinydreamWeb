@@ -25,7 +25,7 @@ $(function(){
             }
             $('.count').html(data.stats.countPack)
             if(state == 'get'){
-                $('.tip_txt').html('收到编号<span style="color:#f25542">'+data.stats.totalBill+'</span>个').css('font-size','0.3rem');
+                $('.tip_txt').html('收到编号<span style="color:#f25542">'+data.stats.countPack+'</span>个').css('font-size','0.3rem');
             }else{
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
             }
