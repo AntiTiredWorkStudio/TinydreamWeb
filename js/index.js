@@ -18,15 +18,8 @@ $(function(){
            })
            //    测试
            if($_GET.type == 'test'){
-            var swiper = new Swiper('.swiper-container', {
-                pagination: {
-                  el: '.swiper-pagination',
-                },
-                autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: false,
-                },
-              });
+            $('#banner').swipeslider();
+            
               $('.footer ul li.last a').attr('href','javascript:;').click(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/user.html?type=test'
             })
