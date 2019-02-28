@@ -6,13 +6,14 @@ body{
     background-color: #fff;
 }
 /* banner */
-.home .swiper-container{
+.home .swipslider{
     width: 6.8rem;
-    height: 2.3rem;
-    margin: 0.2rem auto 0;
+    height: 1.86rem;
+    margin: 0.2rem auto;
 }
-.home .swiper-wrapper{
-    height:1.86rem;
+.home .sw-slides{
+    height:100%;
+    width: 100%;
 }
 .home .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
     bottom: 0;
