@@ -6,7 +6,13 @@ body{
     background-color: #fff;
 }
 /* banner */
-.home .swipslider{
+.home .top{
+    width: 6.8rem;
+    height:2.3rem;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.home #banner{
     width: 6.8rem!important;
     height: 1.86rem!important;
     margin: 0.2rem auto!important;
