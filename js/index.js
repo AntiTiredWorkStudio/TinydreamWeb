@@ -100,7 +100,7 @@ $(function(){
                         buyinfo.push(info)
                         $('.tip').hide();
                         if(info.headicon == '' ){
-                            info.headicon = 'http://tdream.antit.top/image/titleLogo.png'
+                            info.headicon = 'https://tdream.antit.top/image/miniLogo.jpg'
                         }
                         $('.logo').css('background-image','url('+info.headicon+')');
                         $('.username').html(info.nickname);

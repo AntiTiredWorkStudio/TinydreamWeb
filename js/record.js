@@ -99,7 +99,7 @@ $(function(){
     console.log(Options.GetUserInfo())
     // 用户头像
     if(userInfo.headimgurl == ''){
-        userInfo.headimgurl = 'http://tdream.antit.top/image/titleLogo.png'
+        userInfo.headimgurl = 'https://tdream.antit.top/image/miniLogo.jpg'
     }
     $('.headicon').css('background','url('+userInfo.headimgurl+') no-repeat')
     $('.tip').html(userInfo.nickname+'收到的梦想红包共')

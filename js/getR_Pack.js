@@ -11,7 +11,7 @@ WebApp.Init('wxc5216d15dd321ac5',//appid
                     imgUrl:"https://tdream.antit.top/image/Red_Open.jpg"
 				});
 				if(userInfo.headicon == ''){
-					userInfo.headicon = 'http://tdream.antit.top/image/titleLogo.png'
+					userInfo.headicon = 'https://tdream.antit.top/image/miniLogo.jpg'
 				}
 				$('.headicon').css({
 					background:'url('+userInfo.headicon+') no-repeat',

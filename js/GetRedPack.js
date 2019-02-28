@@ -18,7 +18,7 @@ $(function(){
     $('.title').html(rinfo.nickname+'的梦想红包');
     $('.msg').html(rinfo.content);
     if(rinfo.headicon == ''){
-        rinfo.headicon = 'http://tdream.antit.top/image/titleLogo.png'
+        rinfo.headicon = 'https://tdream.antit.top/image/miniLogo.jpg'
     }
     $('.headicon').css({
         background:'url('+rinfo.headicon+') no-repeat',
