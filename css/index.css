@@ -9,14 +9,26 @@ body{
 .home .top{
     width: 6.8rem;
     height:2.3rem;
-    margin: 0 auto;
+    margin: 0.2rem auto 0;
     overflow: hidden;
+}
+.home #banner .sw-bullet{
+    bottom: -20%;
+}
+.home #banner .sw-bullet li{
+    width: 8px;
+    height:8px;
+    background: #ccc;
+}
+.home #banner .sw-bullet li.active{
+    background: #999;
 }
 .home #banner{
     width: 6.8rem!important;
     height: 1.86rem!important;
     margin: 0.2rem auto!important;
     padding: 0!important;
+    overflow: visible!important;
 }
 .home .sw-slides{
     height:100%;
