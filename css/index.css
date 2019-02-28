@@ -8,20 +8,20 @@ body{
 /* banner */
 .home .top{
     width: 6.8rem;
-    height:2.3rem;
+    height:2.06rem;
     margin: 0.2rem auto 0;
     overflow: hidden;
 }
 .home #banner .sw-bullet{
-    bottom: -20%;
+    bottom: -4%;
 }
 .home #banner .sw-bullet li{
-    width: 8px;
-    height:8px;
+    width: 5px;
+    height:5px;
     background: #ccc;
 }
 .home #banner .sw-bullet li.active{
-    background: #999;
+    background: #fff;
 }
 .home #banner{
     width: 6.8rem!important;
