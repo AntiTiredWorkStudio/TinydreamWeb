@@ -19,7 +19,7 @@ $(function(){
            //    测试
            if($_GET.type == 'test'){
             $('#banner').swipeslider();
-            
+
               $('.footer ul li.last a').attr('href','javascript:;').click(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/user.html?type=test'
             })
@@ -99,6 +99,9 @@ $(function(){
                         info = buyinfo.shift();
                         buyinfo.push(info)
                         $('.tip').hide();
+                        if(info.headicon == '' ){
+                            info.headicon = 'http://tdream.antit.top/image/titleLogo.png'
+                        }
                         $('.logo').css('background-image','url('+info.headicon+')');
                         $('.username').html(info.nickname);
                         var date = parseInt(new Date().getTime() / 1000);
@@ -106,7 +109,7 @@ $(function(){
                         info.time = time;
                         $('.male_tip').html(info.time+"前参与了"+info.dcount+"份小梦想").fadeIn()
                     },4000)
-                    console.log(info)
+                    // console.log(info)
                    
                     // var templateStr = $('#template').html();
                     // var complid = _.template(templateStr);

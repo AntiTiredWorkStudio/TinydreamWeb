@@ -13,6 +13,9 @@ $(function(){
         uid:userInfo.openid
     },function(code,data){
         if(code == 0){
+            if(data.selfinfo.headicon == ''){
+                data.selfinfo.headicon = 'http://tdream.antit.top/image/titleLogo.png'
+            }
             $('.header').css({'background':'url('+data.selfinfo.headicon+') no-repeat','background-size':'1.74rem 1.74rem'});
             $('.nickName').html(data.selfinfo.nickname);
             $('.left .num').html(data.selfinfo.totalJoin);

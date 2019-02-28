@@ -9,7 +9,10 @@ WebApp.Init('wxc5216d15dd321ac5',//appid
                     desc:"小梦想互助——让每个小梦想 都有机会实现",
                     link:'http://tinydream.antit.top/TinydreamWeb/html/getR_Pack.html?rid='+rid,
                     imgUrl:"https://tdream.antit.top/image/Red_Open.jpg"
-                });
+				});
+				if(userInfo.headicon == ''){
+					userInfo.headicon = 'http://tdream.antit.top/image/titleLogo.png'
+				}
 				$('.headicon').css({
 					background:'url('+userInfo.headicon+') no-repeat',
 					'background-size':'0.88rem 0.88rem'
