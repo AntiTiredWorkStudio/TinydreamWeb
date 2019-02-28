@@ -6,6 +6,16 @@ $(function(){
     var number;
     number = 0;
     redpack('get','gurpr',number)
+    // 排序方法
+
+    function compare(property){
+        return function(a,b){
+            var value1 = a[property];
+            var value2 = b[property];
+            return value1 - value2;
+        }
+    }
+
     /**
      * 参数state 红包请求状态
      * 参数actions 请求动作
@@ -30,14 +40,14 @@ $(function(){
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
             }
             $.each(data.packs,function(index,item){
-                item.sort(by('gtime'))
-                item.sort(by('ctime'))
                 console.log(item);
                 TD_Request('us','selfinfo',{uid:item.uid},function(code,data){
                     console.log(data.selfinfo.nickname)
                     if(state == 'get'){
+                        item.sort(compare('gtime'))
                         var date = new Date(parseInt(item.gtime) * 1000);
                     }else{
+                        item.sort(compare('ctime'))
                         var date = new Date(parseInt(item.ctime) * 1000);
                     }
                     // 获取时间
