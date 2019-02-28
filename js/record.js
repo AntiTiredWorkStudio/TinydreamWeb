@@ -39,15 +39,18 @@ $(function(){
             }else{
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
             }
+            if(state == 'get'){
+                data.packs.sort(compare('gtime'))
+            }else{
+                data.packs.sort(compare('ctime'))
+            }
             $.each(data.packs,function(index,item){
                 console.log(item);
                 TD_Request('us','selfinfo',{uid:item.uid},function(code,data){
                     console.log(data.selfinfo.nickname)
                     if(state == 'get'){
-                        item.sort(compare('gtime'))
                         var date = new Date(parseInt(item.gtime) * 1000);
                     }else{
-                        item.sort(compare('ctime'))
                         var date = new Date(parseInt(item.ctime) * 1000);
                     }
                     // 获取时间
