@@ -91,7 +91,13 @@ $(function(){
                 if($('.rstate').html() == '已过期' || $(this).attr('data-cstate') == 'done'){
                     var rid = $(this).attr('data-rid');
                     TD_Request('rp','grp',{rid:rid},function(code,data){
-                        localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:userInfo.headimgurl,nickname:userInfo.nickname,content:data.redpack.content}));
+                        var rinfo = data.redpack 
+                        TD_Request('us','selfinfo',{
+                            uid:data.redpack.uid
+                        },function(code,data){
+                            localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:data.selfinfo.headicon,nickname:data.selfinfo.nickname,content:rinfo.content}));
+                        })
+                        
                         console.log(userInfo.headicon);
                         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html?type=get'
                     },function(code,data){
