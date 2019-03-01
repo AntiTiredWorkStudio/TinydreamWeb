@@ -36,7 +36,7 @@ $(function(){
             }else{
                 $('.loading').show();
             }
-            // $('.count').html(data.stats.countPack)
+            $('.count').html(data.stats.countPack)
             // arr.push(data.packs);
             if(state == 'get'){
                 // 收到红包
@@ -83,7 +83,7 @@ $(function(){
             }else if(state == 'give'){
                 // $('.content').empty();
                 // 发出红包
-                arr[0].sort(compare("ctime"))
+                data.packs.sort(compare("ctime"))
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
                 _.each(data.packs,function(item){
                     // 发出时间
