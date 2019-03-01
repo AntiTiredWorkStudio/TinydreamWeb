@@ -15,6 +15,9 @@ try {
 			link:'http://tinydream.antit.top/TinydreamWeb/html/getR_Pack.html?rid='+rid,
 			imgUrl:"https://tdream.antit.top/image/Red_Open.jpg"
 		});
+		WebApp.JSAPI.OnShareFriend = function(res){
+			alert(JSON.stringify(res))
+		}
 		
 	},function(code,data){
 		console.log(data)
