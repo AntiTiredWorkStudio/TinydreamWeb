@@ -2,11 +2,14 @@ WebApp.JSAPI.Init();
 $(function(){
     var rinfo = JSON.parse(localStorage.getItem('rinfo'));
     var userInfo = Options.GetUserInfo();
+    var num;
+    num = 0;
     if($_GET.type == 'get'){
         $('.r_tip').css('text-align','center');
     }else{
         $('.r_tip').css('text-align','center');
     }
+    redpack(num)
     // 获取梦想池信息
     // function mainPool(pid){
     //     TD_Request('dp','pinfo',{
@@ -32,42 +35,55 @@ $(function(){
     })
     var templateStr = $('#template').html();
     var compiled = _.template(templateStr);
-    TD_Request('rp','grpr',{
-        rid:rinfo.rid,
-        seek:0,
-        count:10
-    },function(code,data){
-        console.log(data)
-        $('.num_count').html('共'+data.redpack.rcount+'个，已被领取'+data.redpack.gcount+"个")
-        _.each(data.reco,function(item){
-            var date = new Date(parseInt(item.gtime) * 1000);
-            var h = date.getHours();
-            var m = date.getMinutes();
-            var s = date.getSeconds();
-            if(item.nickname.length>5){
-                item.username = item.nickname.substring(0,8) + '...';
+    function redpack(num){
+        TD_Request('rp','grpr',{
+            rid:rinfo.rid,
+            seek:num,
+            count:10
+        },function(code,data){
+            console.log(data)
+            $('.num_count').html('共'+data.redpack.rcount+'个，已被领取'+data.redpack.gcount+"个")
+            if(data.reco.length < 10 || data.reco.length == 0){
+                $('#btn').hide();
             }else{
-                item.username = item.nickname;
+                $('#btn').show();
             }
-            if(h<10){
-                h = '0'+h;
-            } 
-            if(m<10){
-                m = '0'+m;
-            }
-            if(s<10){
-                s = '0'+s;
-            }
-            if(item.headicon == ''){
-                item.headicon = 'https://tdream.antit.top/image/miniLogo.jpg'
-            }
-            item.time = h+':'+m+':'+s;
-            var str = compiled(item);
-            var $dom = $(str);
-            $dom.appendTo('ul');
+            _.each(data.reco,function(item){
+                var date = new Date(parseInt(item.gtime) * 1000);
+                var h = date.getHours();
+                var m = date.getMinutes();
+                var s = date.getSeconds();
+                if(item.nickname.length>8){
+                    item.username = item.nickname.substring(0,8) + '...';
+                }else{
+                    item.username = item.nickname;
+                }
+                if(h<10){
+                    h = '0'+h;
+                } 
+                if(m<10){
+                    m = '0'+m;
+                }
+                if(s<10){
+                    s = '0'+s;
+                }
+                if(item.headicon == ''){
+                    item.headicon = 'https://tdream.antit.top/image/miniLogo.jpg'
+                }
+                item.time = h+':'+m+':'+s;
+                var str = compiled(item);
+                var $dom = $(str);
+                $dom.appendTo('ul');
+            })
+        },function(code,data){
+            console.log(data)
         })
-    },function(code,data){
-        console.log(data)
+    }
+    // 加载跟多
+
+    $('#btn').click(function(){
+        num = num+10;
+        redpack(num);
     })
     TD_Request('rp','orp',{uid:userInfo.openid,rid:rinfo.rid},function(code,data){
         console.log(data);
