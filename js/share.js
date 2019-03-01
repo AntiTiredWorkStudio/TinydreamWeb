@@ -8,7 +8,7 @@ try {
 	TD_Request('rp','grp',{rid:rid},function(code,data){
 		console.log(data)
 		var nickname = data.sender.nickname;
-		$('title').html(nickname+"给你发了一个梦想红包,领取可夺大额梦想金！");
+		$('title').html("红包待发送");
 		WebApp.JSAPI.InitShare({
 			title:nickname+"给你发了一个梦想红包,领取可夺大额梦想金！",
 			desc:"小梦想互助——让每个小梦想 都有机会实现",
