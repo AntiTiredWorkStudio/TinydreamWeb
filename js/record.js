@@ -99,6 +99,7 @@ $(function(){
                         console.log(data)
                     })
                 }else if($(this).attr('data-state') == 'RUNNING' && $(this).attr('data-cstate') == 'share'){
+                    var rid = $(this).attr('data-rid');
                     localStorage.setItem('msg','ok');
                     window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+rid;
                 }
