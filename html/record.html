@@ -31,14 +31,14 @@
             
         </div>
         <script type="text/template" id="template">
-            <div class="info">
+            <div class="info" data-rid='<%=rid%>' data-state='<%=state%>' data-cstate='<%=cstate%>'>
                     <div class="left">
                         <p class="username"><%=nickname%></p>
                         <p class="time"><%=time%></p>
                     </div>
                     <div class="right" style="text-align:right">
                         <p class="coun"><%=rcount%>个</p>
-                        <p class="f_count"><%=rstate%><%= coun %></p>
+                        <p class="f_count"><span class='rstate'><%=rstate%></span><%= coun %></p>
                     </div>
                 </div>
         </script>
