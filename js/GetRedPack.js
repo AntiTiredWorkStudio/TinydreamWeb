@@ -25,12 +25,19 @@ $(function(){
         background:'url('+rinfo.headicon+') no-repeat',
         'background-size':'0.88rem 0.88rem'
     })
+    var templateStr = $('#template').html();
+    var compiled = _.template(templateStr);
     TD_Request('rp','grpr',{
         rid:rinfo.rid,
         seek:0,
         count:10
     },function(code,data){
         console.log(data)
+        _.eahc(data.reco,function(item){
+            var str = compiled(item);
+            var $dom = $(str);
+            $dom.appendTo('ul');
+        })
     },function(code,data){
         console.log(data)
     })
@@ -85,7 +92,7 @@ $(function(){
             $('.hide').hide();
         }else if(code == 18){
             $('.mtip').hide();
-            $('.r_tip').html('您当日购买次数已达上限,无法领取该红包');
+            $('.r_tip').html('您当日购买次数已达上限,无法领取该红包').css('text-align','center');
             $('.get_num').hide();
             $('button').show().html('返回首页').click(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
