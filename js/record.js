@@ -111,9 +111,10 @@ $(function(){
                         var user = data.selfinfo;
                         console.log(user.nickname)
                         $('<div class="info"><div class="left"><p class="username">'+user.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.rcount+'个</p><p class="f_count">'+item.gcount+'/'+item.rcount+'</p></div></div>').appendTo('.content')
-                        // if(item.pstate == 'FINISHED' && item.gcount < item.rcount){
-                        //     $('<div class="info"><div class="left"><p class="username" style="text-align:left">'+item.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun" style="text-align:right">'+item.rcount+'个</p><p class="f_count" style="text-align:right">已过期'+item.gcount+'/'+item.rcount+'</p></div></div>').css('text-align','right').appendTo('.content') 
-                        // }
+                        if(item.pstate == 'FINISHED' && item.gcount < item.rcount){
+                            $('.right .coun').html(item.rcount+'个').css('text-align','right');
+                            $('.right .f_count').html('已过期'+item.gcount+'/'+item.rcount).css('text-align','right')
+                        }
                     })
                 })
             }
