@@ -2,7 +2,7 @@ WebApp.JSAPI.Init();
 $(function(){
     // 红包记录逻辑简单处理
     // 类型切换
-    var arr = [];
+    // var arr = [];
     var userInfo = Options.GetUserInfo();
     var number;
     var r_state;
@@ -36,15 +36,15 @@ $(function(){
             }else{
                 $('.loading').show();
             }
-            $('.count').html(data.stats.countPack)
+            // $('.count').html(data.stats.countPack)
             arr.push(data.packs);
             if(state == 'get'){
                 // 收到红包
                 // 数组降序排序
-                arr[0].sort(compare("gtime"));
+                data.packs.sort(compare("gtime"));
                 $('.tip_txt').html('收到编号<span style="color:#f25542">'+data.stats.countPack+'</span>个').css('font-size','0.3rem');
-                console.log(arr)
-                _.each(arr[0],function(item){
+                // console.log(arr)
+                _.each(data.packs,function(item){
                     // 收到时间
                     item.rstate = '';
                     item.gcount = '';
@@ -85,9 +85,9 @@ $(function(){
                 // 发出红包
                 arr[0].sort(compare("ctime"))
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
-                _.each(arr[0],function(item){
+                _.each(data.packs,function(item){
                     // 发出时间
-                    console.log(item);
+                    // console.log(item);
                     var date = new Date(parseInt(item.ctime) * 1000)
                     var y,m,d,h,M,s
                     y = date.getFullYear();
@@ -113,7 +113,7 @@ $(function(){
                     }
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
                     item.time = time;
-                    console.log(time)
+                    // console.log(time)
                     TD_Request('us','selfinfo',{
                         uid:item.uid
                     },function(code,data){
@@ -230,14 +230,14 @@ $(function(){
     // // 收到红包
     $('.r_left')[0].addEventListener('click',function(){  
         number = 0;
-        arr = [];
+        // arr = [];
         $('.tip').html(userInfo.nickname+'收到的梦想红包共');
         $('.content').empty();
         redpack('get','gurpr',number);
         r_state = 'get'
     },false)
     $('.r_right')[0].addEventListener('click',function(){  
-        arr = [];
+        // arr = [];
         $('.content').empty();
         number = 0;
         redpack('give','gurps',number);
