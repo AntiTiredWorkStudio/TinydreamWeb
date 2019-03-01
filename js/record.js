@@ -125,7 +125,7 @@ $(function(){
                         } else {
                             item.rstate = ''
                         }
-                        item.coun = itme.gcount + '/' + item.rcount;
+                        item.coun = item.gcount + '/' + item.rcount;
                         var str = compiled(item);
                         var $dom = $(str);
                         $dom.appendTo('.content')
