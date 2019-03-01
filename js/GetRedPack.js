@@ -43,7 +43,7 @@ $(function(){
         },function(code,data){
             console.log(data)
             $('.num_count').html('共'+data.redpack.rcount+'个，已被领取'+data.redpack.gcount+"个")
-            if(data.reco.length < 1 || data.reco.length == 0){
+            if(data.reco.length < 10 || data.reco.length == 0){
                 $('#btn').hide();
             }else{
                 $('#btn').show();
@@ -82,7 +82,7 @@ $(function(){
     // 加载跟多
 
     $('#btn').click(function(){
-        num = num+1;
+        num = num+10;
         redpack(num);
     })
     TD_Request('rp','orp',{uid:userInfo.openid,rid:rinfo.rid},function(code,data){
