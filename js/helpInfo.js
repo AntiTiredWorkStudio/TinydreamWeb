@@ -119,7 +119,7 @@ $(function(){
         },function(code,data){
             // console.log(data)
             $('.btns').hide();
-			$('.tips').html('我是有底线的~~').hide();
+			$('.tips,.click').hide();
             if(data.lottey.length == 0){
                 $('.tip').html('您尚未参与互助').show();
             }else{
