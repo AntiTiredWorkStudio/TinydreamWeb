@@ -45,34 +45,7 @@ $(function(){
                 $('.tip_txt').html('收到编号<span style="color:#f25542">'+data.stats.countPack+'</span>个').css('font-size','0.3rem');
                 // console.log(arr)
                 _.each(data.packs,function(item){
-                    // 收到时间
-                    item.rstate = '';
-                    item.gcount = '';
-                    item.rcount = item.pcount;
-                    var date = new Date(parseInt(item.gtime) * 1000)
-                    var y,m,d,h,M,s
-                    y = date.getFullYear();
-                    m = date.getMonth() + 1;
-                    d = date.getDate();
-                    h = date.getHours();
-                    M = date.getMinutes();
-                    s = date.getSeconds();
-                    if(m<10){
-                        m = '0'+m;
-                    }
-                    if(d < 10){
-                        d = '0'+d;
-                    }
-                    if(h < 10){
-                        h = '0'+h;
-                    }
-                    if(M < 10){
-                        M = '0'+M;
-                    }
-                    if(s < 10){
-                        s = '0'+s;
-                    }
-                    var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
+                    var time = GetLocalTime(item.gtime);
                     item.coun = '';
                     item.time = time;
                     console.log(item)
@@ -88,30 +61,8 @@ $(function(){
                 _.each(data.packs,function(item){
                     // 发出时间
                     // console.log(item);
-                    var date = new Date(parseInt(item.ctime) * 1000)
-                    var y,m,d,h,M,s
-                    y = date.getFullYear();
-                    m = date.getMonth() + 1;
-                    d = date.getDate();
-                    h = date.getHours();
-                    M = date.getMinutes();
-                    s = date.getSeconds();
-                    if(m<10){
-                        m = '0'+m;
-                    }
-                    if(d < 10){
-                        d = '0'+d;
-                    }
-                    if(h < 10){
-                        h = '0'+h;
-                    }
-                    if(M < 10){
-                        M = '0'+M;
-                    }
-                    if(s < 10){
-                        s = '0'+s;
-                    }
-                    var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
+                    
+                    var time = GetLocalTime(item.ctime)
                     item.time = time;
                     // console.log(time)
                     TD_Request('us','selfinfo',{
