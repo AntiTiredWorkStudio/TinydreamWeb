@@ -2,6 +2,7 @@ WebApp.JSAPI.Init();
 $(function(){
     // 红包记录逻辑简单处理
     // 类型切换
+    var arr = [];
     var userInfo = Options.GetUserInfo();
     var number;
     var r_state;
@@ -30,7 +31,6 @@ $(function(){
             count:10
         },function(code,data){
             console.log(data)
-            var arr = [];
             if(data.packs.length<10 || data.packs.length == 0){
                 $('.loading').hide();
             }else{
@@ -41,7 +41,7 @@ $(function(){
             if(state == 'get'){
                 // 收到红包
                 // 数组降序排序
-                arr[0].sort(compare("gtime"))
+                arr[0].sort(compare("gtime"));
                 $('.tip_txt').html('收到编号<span style="color:#f25542">'+data.stats.countPack+'</span>个').css('font-size','0.3rem');
                 console.log(arr)
                 _.each(arr[0],function(item){
@@ -230,12 +230,14 @@ $(function(){
     // // 收到红包
     $('.r_left')[0].addEventListener('click',function(){  
         number = 0;
+        arr = [];
         $('.tip').html(userInfo.nickname+'收到的梦想红包共');
         $('.content').empty();
         redpack('get','gurpr',number);
         r_state = 'get'
     },false)
     $('.r_right')[0].addEventListener('click',function(){  
+        arr = [];
         $('.content').empty();
         number = 0;
         redpack('give','gurps',number);
