@@ -1,4 +1,4 @@
-WebApp.JSAPI.init();
+WebApp.JSAPI.Init();
 $(function(){
     var rinfo = JSON.parse(localStorage.getItem('rinfo'));
     var userInfo = Options.GetUserInfo();
