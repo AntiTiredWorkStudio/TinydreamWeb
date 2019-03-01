@@ -44,6 +44,7 @@ $(function(){
                 _.each(data.packs,function(item){
                     // 收到时间
                     item.rstate = '';
+                    item.gcount = '';
                     item.rcount = item.pcount;
                     var date = new Date(parseInt(item.gtime) * 1000)
                     var y,m,d,h,M,s
