@@ -79,7 +79,7 @@ $(function(){
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
                 $.each(data.packs,function(index,item){
                     // 发出时间
-                    console.log(item);
+                    // console.log(item);
                     var date = new Date(parseInt(item.ctime) * 1000)
                     var y,m,d,h,M,s
                     y = date.getFullYear();
@@ -104,15 +104,16 @@ $(function(){
                         s = '0'+s;
                     }
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
+                    console.log(time)
                     TD_Request('us','selfinfo',{
                         uid:item.uid
                     },function(code,data){
                         var user = data.selfinfo;
                         console.log(user.nickname)
                         $('<div class="info"><div class="left"><p class="username">'+user.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.rcount+'个</p><p class="f_count">'+item.gcount+'/'+item.rcount+'</p></div></div>').appendTo('.content')
-                        if(item.pstate == 'FINISHED' && item.gcount < item.rcount){
-                            $('<div class="info"><div class="left"><p class="username" style="text-align:left">'+item.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun" style="text-align:right">'+item.rcount+'个</p><p class="f_count" style="text-align:right">已过期'+item.gcount+'/'+item.rcount+'</p></div></div>').css('text-align','right').appendTo('.content') 
-                        }
+                        // if(item.pstate == 'FINISHED' && item.gcount < item.rcount){
+                        //     $('<div class="info"><div class="left"><p class="username" style="text-align:left">'+item.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun" style="text-align:right">'+item.rcount+'个</p><p class="f_count" style="text-align:right">已过期'+item.gcount+'/'+item.rcount+'</p></div></div>').css('text-align','right').appendTo('.content') 
+                        // }
                     })
                 })
             }
