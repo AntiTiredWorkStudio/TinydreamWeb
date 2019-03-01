@@ -97,6 +97,7 @@ $(function(){
         // $('button').html('查看详情').click(function(){
         //     mainPool(data.pid);
         // })
+        redpack(0)
         $('button').hide();
         $('.mtip').hide();
         $('.hide').show();
@@ -110,11 +111,12 @@ $(function(){
         }
         console.log(data)
         if(code == 72){
-            $('.get_num').html('已领取编号：<span class="number">'+data.reco.lid+'</span>');
+            $('.get_num').html('已领取过该编号：<span class="number">'+data.reco.lid+'</span>');
             $('.r_tip').html('该编号自动参与小梦想互助平台'+data.pid+'期的幸运者抓阄，幸运者可以领取'+data.totalBill/100+'元梦想互助金去启动梦想')
             // $('button').html('查看详情').click(function(){
             //     mainPool(data.pid);
             // })
+            // redpack(0);
             $('.mtip').hide();
             $('button').hide();
             $('.hide').show();  
