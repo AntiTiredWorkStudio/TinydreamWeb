@@ -41,7 +41,7 @@ $(function(){
             if(state == 'get'){
                 // 收到红包
                 // 数组降序排序
-                arr.sort(compare("gtime"))
+                arr[0].sort(compare("gtime"))
                 $('.tip_txt').html('收到编号<span style="color:#f25542">'+data.stats.countPack+'</span>个').css('font-size','0.3rem');
                 console.log(arr)
                 _.each(arr[0],function(item){
@@ -83,7 +83,7 @@ $(function(){
             }else if(state == 'give'){
                 // $('.content').empty();
                 // 发出红包
-                data.packs.sort(compare("ctime"))
+                arr[0].sort(compare("ctime"))
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
                 _.each(arr[0],function(item){
                     // 发出时间
