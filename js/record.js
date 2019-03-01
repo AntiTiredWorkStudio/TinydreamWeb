@@ -26,7 +26,7 @@ $(function(){
     }
     // 红包记录数据
     function redpack(state,actions,num){
-        $('.content').empty();
+        // $('.content').empty();
         TD_Request('rp',actions,{
             uid:userInfo.openid,
             seek:num,
@@ -73,7 +73,7 @@ $(function(){
                     $('<div class="info"><div class="left"><p class="username">'+item.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p></div></div>').appendTo('.content')
                 })
             }else if(state == 'give'){
-                $('.content').empty();
+                // $('.content').empty();
                 // 发出红包
                 data.packs.sort(compare("ctime"))
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
