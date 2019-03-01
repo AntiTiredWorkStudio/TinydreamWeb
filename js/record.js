@@ -30,18 +30,20 @@ $(function(){
             count:10
         },function(code,data){
             console.log(data)
+            var arr = [];
             if(data.packs.length<10 || data.packs.length == 0){
                 $('.loading').hide();
             }else{
                 $('.loading').show();
             }
             $('.count').html(data.stats.countPack)
+            arr.push(data.packs);
             if(state == 'get'){
                 // 收到红包
                 // 数组降序排序
-                data.packs.sort(compare("gtime"))
+                arr.sort(compare("gtime"))
                 $('.tip_txt').html('收到编号<span style="color:#f25542">'+data.stats.countPack+'</span>个').css('font-size','0.3rem');
-                _.each(data.packs,function(item){
+                _.each(arr,function(item){
                     // 收到时间
                     item.rstate = '';
                     item.gcount = '';
@@ -80,7 +82,7 @@ $(function(){
                 // 发出红包
                 data.packs.sort(compare("ctime"))
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
-                _.each(data.packs,function(item){
+                _.each(arr,function(item){
                     // 发出时间
                     console.log(item);
                     var date = new Date(parseInt(item.ctime) * 1000)
