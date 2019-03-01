@@ -123,6 +123,8 @@ $(function(){
             if(data.lottey.length == 0){
                 $('.tip').html('您尚未参与互助').show();
             }else{
+                $('.tips,.click').hide();
+                $('.tips,.click').hide();
                 $.each(data.lottey,function(index,item){
                     $("<div class='number'>"+item.lid+"</div>").appendTo('.tabList')
                 })
