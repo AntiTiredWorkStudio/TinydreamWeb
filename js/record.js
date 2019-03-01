@@ -76,7 +76,7 @@ $(function(){
                         item.rstate = ''
                     }
                     item.coun = item.gcount + '/' + item.rcount;
-                    if(item.gcount < item.rcount){
+                    if(item.gcount < item.rcount && item.state == 'RUNNING'){
                         item.cstate = 'share'
                     }else{
                         item.cstate = 'done'
