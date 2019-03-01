@@ -4,7 +4,6 @@ WebApp.Init('wxc5216d15dd321ac5',//appid
 			var rid = $_GET.rid;
 			TD_Request('rp','grp',{rid:rid},function(code,data){
 				console.log(data)
-				$.hideLoading();
                 var userInfo = data.sender;
                 WebApp.JSAPI.InitShare({
                     title:userInfo.nickname+"给你发了一个梦想红包,领取可夺大额梦想金！",
@@ -21,6 +20,7 @@ WebApp.Init('wxc5216d15dd321ac5',//appid
 				});
 				$('.title').html(userInfo.nickname+'的梦想红包');
 				$('.msg').html(data.redpack.content);
+				$.hideLoading();
 				$('button').click(function(){
 					localStorage.setItem('rid',rid);
 					localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:userInfo.headicon,nickname:userInfo.nickname,content:data.redpack.content}));
