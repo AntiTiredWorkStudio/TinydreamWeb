@@ -8,6 +8,9 @@ $(function(){
     r_state = 'get'
     number = 0;
     redpack('get','gurpr',number)
+    // 模板字符串
+    var templateStr = $('#template').html();
+    var compiled = _.template(templateStr);
     // 排序方法
 
     function compare(property){
@@ -17,13 +20,7 @@ $(function(){
             return value2 - value1;
         }
     }
-    // 时间转化
-    function time(date){
-        
-        console.log(h)
-       
-        return time;
-    }
+
     // 红包记录数据
     function redpack(state,actions,num){
         // $('.content').empty();
@@ -44,7 +41,7 @@ $(function(){
                 // 数组降序排序
                 data.packs.sort(compare("gtime"))
                 $('.tip_txt').html('收到编号<span style="color:#f25542">'+data.stats.countPack+'</span>个').css('font-size','0.3rem');
-                $.each(data.packs,function(index,item){
+                _.each(data.packs,function(item){
                     // 收到时间
                     var date = new Date(parseInt(item.gtime) * 1000)
                     var y,m,d,h,M,s
@@ -70,14 +67,17 @@ $(function(){
                         s = '0'+s;
                     }
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
-                    $('<div class="info"><div class="left"><p class="username">'+item.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p></div></div>').appendTo('.content')
+                    item.time = time;
+                    var str = compiled(item);
+                    var $dom = $(str);
+                    $dom.appendTo('.content')
                 })
             }else if(state == 'give'){
                 // $('.content').empty();
                 // 发出红包
                 data.packs.sort(compare("ctime"))
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
-                $.each(data.packs,function(index,item){
+                _.each(data.packs,function(item){
                     // 发出时间
                     // console.log(item);
                     var date = new Date(parseInt(item.ctime) * 1000)
@@ -104,17 +104,22 @@ $(function(){
                         s = '0'+s;
                     }
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
+                    item.time = time;
                     console.log(time)
                     TD_Request('us','selfinfo',{
                         uid:item.uid
                     },function(code,data){
                         var user = data.selfinfo;
                         console.log(user.nickname)
-                        $('<div class="info"><div class="left"><p class="username">'+user.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.rcount+'个</p><p class="f_count">'+item.gcount+'/'+item.rcount+'</p></div></div>').appendTo('.content')
-                        // if(item.pstate == 'FINISHED' && item.gcount < item.rcount){
-                        //     $('<div class="info"><div class="left"><p class="username">'+user.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.rcount+'个</p><p class="f_count">已过期'+item.gcount+'/'+item.rcount+'</p></div></div>').css('text-align','center').appendTo('.content')
-                        // }else{
-                        // }
+                        item.nickname = user.nickname;
+                        if(item.pstate == 'FINISHED' && item.gcount < item.rcount){
+                            item.rstate = '已过期'
+                        } else {
+                            item.rstate = ''
+                        }
+                        var str = compiled(item);
+                        var $dom = $(str);
+                        $dom.appendTo('.content')
                     })
                 })
             }

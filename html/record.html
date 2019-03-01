@@ -28,12 +28,25 @@
             </div>
         </div>
         <div class="content">
-           
+            
         </div>
-        <div class="loading" style="text-align:center;color:#f25542;height:0.5rem;line-height:0.5rem;">加载更多</div>
+        <script type="text/template" id="template">
+            <div class="info">
+                    <div class="left">
+                        <p class="username"><%=nickname%></p>
+                        <p class="time"><%=time%></p>
+                    </div>
+                    <div class="right">
+                        <p class="coun"><%=rcount%>个</p>
+                        <p class="f_count"><%=rstate%><%=gcount%>/<%=rcount></p>
+                    </div>
+                </div>
+        </script>
+        <div class="loading" style="text-align:center;color:#f25542;height:1rem;line-height:1rem;">加载更多</div>
     </div>
     <script src="../lib/jquery-1.12.3.min.js"></script>
     <script src="../lib/rem.js"></script>
+    <script src="../lib/underscore-min.js"></script>
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script src="../js/record.js"></script>
