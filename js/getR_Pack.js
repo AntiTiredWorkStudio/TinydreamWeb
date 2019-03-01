@@ -1,6 +1,6 @@
-$.showLoading("数据加载中");
 WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){
+			$.showLoading("数据加载中");
 			var rid = $_GET.rid;
 			TD_Request('rp','grp',{rid:rid},function(code,data){
 				console.log(data)
