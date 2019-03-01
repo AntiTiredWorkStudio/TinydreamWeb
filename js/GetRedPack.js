@@ -33,7 +33,7 @@ $(function(){
         count:10
     },function(code,data){
         console.log(data)
-        _.eahc(data.reco,function(item){
+        _.each(data.reco,function(item){
             item.time = GetLocalTime(item.gtime);
             var str = compiled(item);
             var $dom = $(str);
