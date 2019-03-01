@@ -46,6 +46,7 @@ $(function(){
                 // console.log(arr)
                 _.each(data.packs,function(item){
                     var time = GetLocalTime(item.gtime);
+                    item.rcount = item.pcount;
                     item.coun = '';
                     item.time = time;
                     console.log(item)
