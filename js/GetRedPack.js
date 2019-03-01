@@ -39,11 +39,11 @@ $(function(){
         TD_Request('rp','grpr',{
             rid:rinfo.rid,
             seek:num,
-            count:10
+            count:1
         },function(code,data){
             console.log(data)
             $('.num_count').html('共'+data.redpack.rcount+'个，已被领取'+data.redpack.gcount+"个")
-            if(data.reco.length < 10 || data.reco.length == 0){
+            if(data.reco.length < 1 || data.reco.length == 0){
                 $('#btn').hide();
             }else{
                 $('#btn').show();
