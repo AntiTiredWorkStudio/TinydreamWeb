@@ -44,7 +44,6 @@ $(function(){
                 $.each(data.packs,function(index,item){
                     // 收到时间
                     var date = new Date(parseInt(item.gtime) * 1000)
-                    var date = new Date(parseInt(item.ctime) * 1000)
                     var y,m,d,h,M,s
                     y = date.getFullYear();
                     m = date.getMonth() + 1;
