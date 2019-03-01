@@ -27,6 +27,15 @@ $(function(){
     })
     TD_Request('rp','orp',{uid:userInfo.openid,rid:rinfo.rid},function(code,data){
         console.log(data);
+        TD_Request('rp','grpr',{
+            rid:rinfo.rid,
+            seek:0,
+            count:10
+        },function(code,data){
+            console.log(data)
+        },function(code,data){
+            console.log(data)
+        })
         var lid;
         $.each(data.nums,function(index,item){
             // console.log(item);
@@ -43,8 +52,10 @@ $(function(){
     },function(code,data){
         if($_GET.type == 'get'){
             $('.header').css('margin-bottom','0.6rem');
+            $('.mtip').css('text-align','center')
         }else{
             $('.header').css('margin-bottom','1.2rem');
+            $('.mtip').css('text-align','center')
         }
         console.log(data)
         if(code == 72){
