@@ -50,6 +50,7 @@ $(function(){
             seek:num,
             count:10
         },function(code,data){
+            console.log(data)
             if(data.packs.length<10 || data.packs.length == 0){
                 $('.loading').hide();
             }else{
@@ -74,7 +75,7 @@ $(function(){
                     var date = new Date(parseInt(item.ctime) * 1000)
                     $('<div class="info"><div class="left"><p class="username">'+item.nickname+'</p><p class="time">'+time(date)+'</p></div><div class="right"><p class="coun">'+item.rcount+'个</p><p class="f_count">'+item.gcount+'/'+item.rcount+'</p></div></div>').appendTo('.content')
                     if(item.pstate == 'FINISHED' && item.gcount < item.rcount){
-                        $('<div class="info"><div class="left"><p class="username" style="text-align:left">'+data.selfinfo.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun" style="text-align:right">'+item.rcount+'个</p><p class="f_count" style="text-align:right">已过期'+item.gcount+'/'+item.rcount+'</p></div></div>').css('text-align','right').appendTo('.content') 
+                        $('<div class="info"><div class="left"><p class="username" style="text-align:left">'+item.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun" style="text-align:right">'+item.rcount+'个</p><p class="f_count" style="text-align:right">已过期'+item.gcount+'/'+item.rcount+'</p></div></div>').css('text-align','right').appendTo('.content') 
                     }
                 })
             }
