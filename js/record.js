@@ -93,7 +93,7 @@ $(function(){
                     TD_Request('rp','grp',{rid:rid},function(code,data){
                         localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:userInfo.headimgurl,nickname:userInfo.nickname,content:data.redpack.content}));
                         console.log(userInfo.headicon);
-                        // window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html'
+                        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html'
                     },function(code,data){
                         // window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
                         console.log(data)
