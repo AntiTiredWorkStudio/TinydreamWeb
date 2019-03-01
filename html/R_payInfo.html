@@ -26,7 +26,7 @@
             <div>
                 <p class="title">梦想红包个数</p>
                 <p class="right">
-                    <input type="number" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="填写个数" id="rcount" style="color:#333">
+                    <input type="number" placeholder="填写个数" id="rcount" style="color:#333" oninput = "value=value.replace(/[^\d]/g,'')">
                     <span>个</span>
                 </p>
             </div>
