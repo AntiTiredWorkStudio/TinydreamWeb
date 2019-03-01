@@ -2,6 +2,11 @@ WebApp.JSAPI.Init();
 $(function(){
     var rinfo = JSON.parse(localStorage.getItem('rinfo'));
     var userInfo = Options.GetUserInfo();
+    if($_GET.type == 'get'){
+        $('.mtip').css('text-align','center');
+    }else{
+        $('.mtip').css('text-align','center');
+    }
     // 获取梦想池信息
     // function mainPool(pid){
     //     TD_Request('dp','pinfo',{
