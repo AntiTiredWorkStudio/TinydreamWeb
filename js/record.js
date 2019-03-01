@@ -73,6 +73,7 @@ $(function(){
                     }
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
                     item.time = time;
+                    console.log(item)
                     var str = compiled(item);
                     var $dom = $(str);
                     $dom.appendTo('.content')
