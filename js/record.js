@@ -105,6 +105,7 @@ $(function(){
                     }
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
                     item.time = time;
+                    item.rcount = item.pcount;
                     console.log(time)
                     TD_Request('us','selfinfo',{
                         uid:item.uid
