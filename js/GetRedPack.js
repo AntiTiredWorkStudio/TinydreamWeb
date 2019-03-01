@@ -33,6 +33,7 @@ $(function(){
         count:10
     },function(code,data){
         console.log(data)
+        $('.num_count').html('共'+data.redpack.rcount+'个，已被领取'+data.redpack.gcount+"个")
         _.each(data.reco,function(item){
             var date = new Date(parseInt(item.gtime) * 1000);
             var h = date.getHours();
