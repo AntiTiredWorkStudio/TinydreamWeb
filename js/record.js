@@ -31,7 +31,7 @@ $(function(){
             count:10
         },function(code,data){
             console.log(data)
-            if(data.packs.length<10 || data.packs.length == 0 data.packs.length == 10){
+            if(data.packs.length<10 || data.packs.length == 0 || data.packs.length == 10){
                 $('.loading').hide();
             }else{
                 $('.loading').show();
