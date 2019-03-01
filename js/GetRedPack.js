@@ -34,6 +34,7 @@ $(function(){
     },function(code,data){
         console.log(data)
         _.eahc(data.reco,function(item){
+            item.time = GetLocalTime(item.gtime);
             var str = compiled(item);
             var $dom = $(str);
             $dom.appendTo('ul');
