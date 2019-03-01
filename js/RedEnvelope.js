@@ -9,7 +9,7 @@ $(function(){
         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html'
     })
     // 红包规则处理
-    $('.rules span').click(function(){
+    $('.rules').click(function(){
         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/R_rules.html'
     })
     // 手气红包处理
