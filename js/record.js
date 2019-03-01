@@ -78,6 +78,8 @@ $(function(){
                     item.coun = item.gcount + '/' + item.rcount;
                     if(item.gcount < item.rcount){
                         item.cstate = 'share'
+                    }else{
+                        item.cstate = ''
                     }
                     var str = compiled(item);
                     var $dom = $(str);
