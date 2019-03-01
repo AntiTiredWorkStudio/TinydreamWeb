@@ -46,7 +46,7 @@ $(function(){
     // 红包记录数据
     function redpack(state,actions,num){
         TD_Request('rp',actions,{
-            uid:userInfo.uid,
+            uid:userInfo.openid,
             seek:num,
             count:10
         },function(code,data){
