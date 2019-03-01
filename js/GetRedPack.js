@@ -41,6 +41,11 @@ $(function(){
         $('.mtip').hide();
         $('.hide').show();
     },function(code,data){
+        if($_GET.type == 'get'){
+            $('.header').css('margin-bottom','0.6rem');
+        }else{
+            $('.header').css('margin-bottom','1.2rem');
+        }
         console.log(data)
         if(code == 72){
             $('.get_num').html('已领取编号：<span class="number">'+data.reco.lid+'</span>');
