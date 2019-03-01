@@ -62,7 +62,7 @@ $(function(){
                 _.each(data.packs,function(item){
                     // 发出时间
                     // console.log(item);
-                    
+                    item.rstate = '';
                     var time = GetLocalTime(item.ctime)
                     item.time = time;
                     // console.log(time)
