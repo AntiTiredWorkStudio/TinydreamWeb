@@ -3,9 +3,9 @@ $(function(){
     var rinfo = JSON.parse(localStorage.getItem('rinfo'));
     var userInfo = Options.GetUserInfo();
     if($_GET.type == 'get'){
-        $('.mtip').css('text-align','center');
+        $('.r_tip').css('text-align','center');
     }else{
-        $('.mtip').css('text-align','center');
+        $('.r_tip').css('text-align','center');
     }
     // 获取梦想池信息
     // function mainPool(pid){
@@ -52,6 +52,9 @@ $(function(){
             }
             if(s<10){
                 s = '0'+s;
+            }
+            if(item.headicon == ''){
+                item.headicon = 'https://tdream.antit.top/image/miniLogo.jpg'
             }
             item.time = h+':'+m+':'+s;
             var str = compiled(item);
