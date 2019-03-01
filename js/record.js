@@ -48,6 +48,7 @@ $(function(){
                     var time = GetLocalTime(item.gtime);
                     item.rcount = item.pcount;
                     item.coun = '';
+                    item.rstate = '';
                     item.time = time;
                     console.log(item)
                     var str = compiled(item);
@@ -62,7 +63,7 @@ $(function(){
                 _.each(data.packs,function(item){
                     // 发出时间
                     // console.log(item);
-                    item.rstate = '';
+                    // item.rstate = '';
                     var time = GetLocalTime(item.ctime)
                     item.time = time;
                     // console.log(time)
