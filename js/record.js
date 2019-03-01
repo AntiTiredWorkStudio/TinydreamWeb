@@ -4,6 +4,8 @@ $(function(){
     // 类型切换
     var userInfo = Options.GetUserInfo();
     var number;
+    var r_state;
+    r_state = 'get'
     number = 0;
     redpack('get','gurpr',number)
     // 排序方法
@@ -207,7 +209,6 @@ $(function(){
         $(this).addClass('active').siblings().removeClass('active')
     })
     // // 收到红包
-    var r_state;
     $('.r_left')[0].addEventListener('click',function(){  
         number = 0;
         $('.tip').html(userInfo.nickname+'收到的梦想红包共');
