@@ -79,7 +79,8 @@ $(function(){
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
                 _.each(data.packs,function(item){
                     // 发出时间
-                    // console.log(item);
+                    item.rcount = item.pcount;
+                    console.log(item);
                     var date = new Date(parseInt(item.ctime) * 1000)
                     var y,m,d,h,M,s
                     y = date.getFullYear();
@@ -105,7 +106,6 @@ $(function(){
                     }
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
                     item.time = time;
-                    item.rcount = item.pcount;
                     console.log(time)
                     TD_Request('us','selfinfo',{
                         uid:item.uid
