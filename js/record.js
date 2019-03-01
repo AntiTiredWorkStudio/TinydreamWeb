@@ -43,6 +43,7 @@ $(function(){
                 $('.tip_txt').html('收到编号<span style="color:#f25542">'+data.stats.countPack+'</span>个').css('font-size','0.3rem');
                 _.each(data.packs,function(item){
                     // 收到时间
+                    item.rstate = '';
                     item.rcount = item.pcount;
                     var date = new Date(parseInt(item.gtime) * 1000)
                     var y,m,d,h,M,s
