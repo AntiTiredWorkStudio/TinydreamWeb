@@ -30,7 +30,7 @@ $(function(){
             var nid = $(this).attr('data-nid'); 
             TD_Request("no","nr",{nid:nid},function(code,data){
                 console.log(data)
-                if(obj.type == 'buy'){
+                if(obj.type == 'buy' || obj.type == 'redpack'){
                     TD_Request("dp","pinfo",{
                         pid:obj.pid
                     },function(code,data){
