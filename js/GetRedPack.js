@@ -82,7 +82,7 @@ $(function(){
     // 加载跟多
 
     $('#btn').click(function(){
-        num = num+10;
+        num = num+1;
         redpack(num);
     })
     TD_Request('rp','orp',{uid:userInfo.openid,rid:rinfo.rid},function(code,data){
