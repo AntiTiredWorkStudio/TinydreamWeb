@@ -67,18 +67,21 @@ $(function(){
             $('.mtip').show();
             $('.hide').hide();
         }else if(code == 18){
+            $('.mtip').hide();
             $('.r_tip').html('您当日购买次数已达上限,无法领取该红包');
             $('.get_num').hide();
             $('button').show().html('返回首页').click(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
             })
         }else if(code== 5){
+            $('.mtip').hide();
             $('.r_tip').html('红包已过期');
             $('.get_num').hide();
             $('button').show().html('返回首页').click(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
             })
         }else if(code == 74){
+            $('.mtip').hide();
             $('.get_num').hide();
             $('.r_tip').html('您来晚了，红包已被领完').css('text-align','center');
             $('button').show().html('返回首页').click(function(){
