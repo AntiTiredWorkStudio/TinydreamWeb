@@ -44,6 +44,9 @@ $(function(){
             var h = date.getHours();
             var m = date.getMinutes();
             var s = date.getSeconds();
+            if(item.nickname.length>5){
+                item.username = item.nickname.substring(0,5) + '...';
+            }
             if(h<10){
                 h = '0'+h;
             } 

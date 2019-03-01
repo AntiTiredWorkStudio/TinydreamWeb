@@ -38,7 +38,7 @@
                 border-bottom: 1px solid #e6e6e6;
                 font-size: 0.3rem;
                 padding: 0.3rem 0;
-                max-height: 0.88rem;
+                /* max-height: 0.88rem; */
                 overflow: hidden;
             }
             .content ul li div{
@@ -66,6 +66,9 @@
             .content ul li .headuser .gtime{
                 color: #999;
             }
+            .content ul li .headuser .info{
+                float: left;
+            }
             .lid{
                 float: right;
             }
@@ -80,8 +83,10 @@
             <li>
                 <div class="headuser">
                     <div class="usericon" style='background:url(<%=headicon%>) no-repeat;background-size:0.88rem 0.88rem;'></div>
-                    <div class="username"><%= nickname %></div>
-                    <div class="gtime" style='display:block'><%= time %></div>
+                    <div class="info">
+                        <div class="username"><%= username %></div>
+                        <div class="gtime" style='display:block'><%= time %></div>
+                    </div>
                 </div>
                 <div class="lid"><%= lid %></div>
             </li>
