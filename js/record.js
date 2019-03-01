@@ -43,6 +43,7 @@ $(function(){
                 // 数组降序排序
                 arr.sort(compare("gtime"))
                 $('.tip_txt').html('收到编号<span style="color:#f25542">'+data.stats.countPack+'</span>个').css('font-size','0.3rem');
+                console.log(arr)
                 _.each(arr,function(item){
                     // 收到时间
                     item.rstate = '';
