@@ -43,6 +43,7 @@ $(function(){
                 $('.tip_txt').html('收到编号<span style="color:#f25542">'+data.stats.countPack+'</span>个').css('font-size','0.3rem');
                 _.each(data.packs,function(item){
                     // 收到时间
+                    item.rcount = item.pcount;
                     var date = new Date(parseInt(item.gtime) * 1000)
                     var y,m,d,h,M,s
                     y = date.getFullYear();
@@ -79,7 +80,6 @@ $(function(){
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
                 _.each(data.packs,function(item){
                     // 发出时间
-                    item.rcount = item.pcount;
                     console.log(item);
                     var date = new Date(parseInt(item.ctime) * 1000)
                     var y,m,d,h,M,s
