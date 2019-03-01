@@ -47,6 +47,8 @@ $(function(){
                 _.each(data.packs,function(item){
                     var time = GetLocalTime(item.gtime);
                     item.rcount = item.pcount;
+                    item.cstate = '';
+                    item.state = '';
                     item.coun = '';
                     item.rstate = '';
                     item.time = time;
@@ -67,21 +69,33 @@ $(function(){
                     var time = GetLocalTime(item.ctime)
                     item.time = time;
                     // console.log(time)
-                    TD_Request('us','selfinfo',{
-                        uid:item.uid
-                    },function(code,data){
-                        var user = data.selfinfo;
-                        console.log(user.nickname)
-                        item.nickname = user.nickname;
-                        if(item.pstate == 'FINISHED' && item.gcount < item.rcount){
-                            item.rstate = '已过期'
-                        } else {
-                            item.rstate = ''
+                    item.nickname = userInfo.nickname;
+                    if(item.pstate == 'FINISHED' && item.gcount < item.rcount){
+                        item.rstate = '已过期'
+                    } else {
+                        item.rstate = ''
+                    }
+                    item.coun = item.gcount + '/' + item.rcount;
+                    if(item.gcount < item.rcount){
+                        item.cstate = 'share'
+                    }
+                    var str = compiled(item);
+                    var $dom = $(str);
+                    $dom.appendTo('.content')
+                    $('.info').click(function(){
+                        if($('.rstate').html() == '已过期' || $(this).attr('data-state') == 'FINISHED' || $('.rstate').html() == '' || $(this).attr('data-state') ==''){
+                            var rid = $(this).attr('data-rid');
+                            TD_Request('rp','grp',{rid:rid},function(code,data){
+                                localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:userInfo.headicon,nickname:userInfo.nickname,content:data.redpack.content}));
+                                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html'
+                            },function(code,data){
+                                // window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
+                                console.log(data)
+                            })
+                        }else if($(this).attr('data-state') == 'RUNNING' && $(this).attr('data-cstate') == 'share'){
+                            localStorage.setItem('msg','ok');
+                            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+rid;
                         }
-                        item.coun = item.gcount + '/' + item.rcount;
-                        var str = compiled(item);
-                        var $dom = $(str);
-                        $dom.appendTo('.content')
                     })
                 })
             }
@@ -175,7 +189,7 @@ $(function(){
     if(userInfo.headimgurl == ''){
         userInfo.headimgurl = 'https://tdream.antit.top/image/miniLogo.jpg'
     }
-    $('.headicon').css('background','url('+userInfo.headimgurl+') no-repeat')
+    $('.headicon').css({'background':'url('+userInfo.headimgurl+') no-repeat','background-size':'1.6rem 1.6rem;'})
     $('.tip').html(userInfo.nickname+'收到的梦想红包共')
     $('.top ul li').click(function(){
         $(this).addClass('active').siblings().removeClass('active')
