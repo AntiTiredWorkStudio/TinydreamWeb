@@ -17,30 +17,9 @@ $(function(){
     }
     // 时间转化
     function time(date){
-        var y,m,d,h,M,s
-        y = date.getFullYear();
-        m = date.getMonth() + 1;
-        d = date.getDate();
-        h = date.getHours();
-        M = date.getMinutes();
-        s = date.getSeconds();
-        if(m<10){
-            m = '0'+m;
-        }
-        if(d < 10){
-            d = '0'+d;
-        }
-        if(h < 10){
-            h = '0'+h;
-        }
-        if(M < 10){
-            M = '0'+M;
-        }
-        if(s < 10){
-            s = '0'+s;
-        }
+        
         console.log(h)
-        var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
+       
         return time;
     }
     // 红包记录数据
@@ -56,15 +35,39 @@ $(function(){
             }else{
                 $('.loading').show();
             }
+            $('.count').html(data.stats.countPack)
             if(state == 'get'){
                 // 收到红包
                 // 数组降序排序
-                $('.count').html(data.stats.countPack)
                 data.packs.sort(compare("gtime"))
                 $('.tip_txt').html('收到编号<span style="color:#f25542">'+data.stats.countPack+'</span>个').css('font-size','0.3rem');
                 $.each(data.packs,function(index,item){
                     // 收到时间
                     var date = new Date(parseInt(item.gtime) * 1000)
+                    var date = new Date(parseInt(item.ctime) * 1000)
+                    var y,m,d,h,M,s
+                    y = date.getFullYear();
+                    m = date.getMonth() + 1;
+                    d = date.getDate();
+                    h = date.getHours();
+                    M = date.getMinutes();
+                    s = date.getSeconds();
+                    if(m<10){
+                        m = '0'+m;
+                    }
+                    if(d < 10){
+                        d = '0'+d;
+                    }
+                    if(h < 10){
+                        h = '0'+h;
+                    }
+                    if(M < 10){
+                        M = '0'+M;
+                    }
+                    if(s < 10){
+                        s = '0'+s;
+                    }
+                    var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
                     $('<div class="info"><div class="left"><p class="username">'+item.nickname+'</p><p class="time">'+time(date)+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p></div></div>').appendTo('.content')
                 })
             }else if(state == 'give'){
@@ -75,9 +78,30 @@ $(function(){
                     // 发出时间
                     console.log(item);
                     var date = new Date(parseInt(item.ctime) * 1000)
-                    // var time = time(date)
-                    // console.log(time)
-                    $('<div class="info"><div class="left"><p class="username">'+userInfo.nickname+'</p><p class="time">'+time(date)+'</p></div><div class="right"><p class="coun">'+item.rcount+'个</p><p class="f_count">'+item.gcount+'/'+item.rcount+'</p></div></div>').appendTo('.content')
+                    var y,m,d,h,M,s
+                    y = date.getFullYear();
+                    m = date.getMonth() + 1;
+                    d = date.getDate();
+                    h = date.getHours();
+                    M = date.getMinutes();
+                    s = date.getSeconds();
+                    if(m<10){
+                        m = '0'+m;
+                    }
+                    if(d < 10){
+                        d = '0'+d;
+                    }
+                    if(h < 10){
+                        h = '0'+h;
+                    }
+                    if(M < 10){
+                        M = '0'+M;
+                    }
+                    if(s < 10){
+                        s = '0'+s;
+                    }
+                    var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
+                    $('<div class="info"><div class="left"><p class="username">'+userInfo.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.rcount+'个</p><p class="f_count">'+item.gcount+'/'+item.rcount+'</p></div></div>').appendTo('.content')
                     if(item.pstate == 'FINISHED' && item.gcount < item.rcount){
                         $('<div class="info"><div class="left"><p class="username" style="text-align:left">'+item.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun" style="text-align:right">'+item.rcount+'个</p><p class="f_count" style="text-align:right">已过期'+item.gcount+'/'+item.rcount+'</p></div></div>').css('text-align','right').appendTo('.content') 
                     }
