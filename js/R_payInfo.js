@@ -112,6 +112,9 @@ $(function(){
                 }else if(code == 68){
                     alert('系统订单错误，请稍后重试');
                     return;
+                }else if(code == 70){
+                    alert('红包创建错误');
+                    return;
                 }
             })
         }
