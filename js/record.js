@@ -73,6 +73,7 @@ $(function(){
                         s = '0'+s;
                     }
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
+                    item.coun = '';
                     item.time = time;
                     console.log(item)
                     var str = compiled(item);
@@ -124,6 +125,7 @@ $(function(){
                         } else {
                             item.rstate = ''
                         }
+                        item.coun = itme.gcount + '/' + item.rcount;
                         var str = compiled(item);
                         var $dom = $(str);
                         $dom.appendTo('.content')
