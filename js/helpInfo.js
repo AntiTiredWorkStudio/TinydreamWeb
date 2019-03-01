@@ -118,6 +118,8 @@ $(function(){
             pid:poolInfo.pid
         },function(code,data){
             // console.log(data)
+            $('.btns').hide();
+			$('.tips').html('我是有底线的~~').hide();
             if(data.lottey.length == 0){
                 $('.tip').html('您尚未参与互助').show();
             }else{
@@ -147,7 +149,14 @@ $(function(){
 					max:10
 				},function(code,data){
 					// console.log(data)
-					// console.log(number+10);
+                    // console.log(number+10);
+                    if(data.orders.length==0){
+                        $('.btns').hide();
+						$('.tips').html('我是有底线的~~').show();
+                    }else{
+                        $('.btns').show();
+						$('.tips').html('我是有底线的~~').hide();
+                    } 
 					$.each(data.orders,function(index,item){
 						$('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" oid='+item.oid+'>查看编号</div><div class="title">'+item.dtitle+'</div></div>').appendTo('.user_number');
 					})
@@ -167,14 +176,14 @@ $(function(){
 							console.log(data)
 						})
 					})
-					if(number+10 >= orderCount){
-						$('.btns').hide();
-						$('.tips').html('我是有底线的~~').show();
-						return;
-					}else{
-						$('.btns').html('点击加载更多').show();
-						$('.tips').html('我是有底线的~~').hide()
-					}
+					// if(number+10 >= orderCount){
+					// 	$('.btns').hide();
+					// 	$('.tips').html('我是有底线的~~').show();
+					// 	return;
+					// }else{
+					// 	$('.btns').html('点击加载更多').show();
+					// 	$('.tips').html('我是有底线的~~').hide()
+					// }
 				},function(code,data){
 					console.log(data)
 				})
