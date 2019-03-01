@@ -34,7 +34,20 @@ $(function(){
     },function(code,data){
         console.log(data)
         _.each(data.reco,function(item){
-            item.time = GetLocalTime(item.gtime);
+            var date = new Date(parseInt(item.gtime) * 1000);
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            if(h<10){
+                h = '0'+h;
+            } 
+            if(m<10){
+                m = '0'+m;
+            }
+            if(s<10){
+                s = '0'+s;
+            }
+            item.time = h+':'+m+':'+s;
             var str = compiled(item);
             var $dom = $(str);
             $dom.appendTo('ul');
