@@ -37,7 +37,7 @@ $(function(){
                 $('.loading').show();
             }
             // $('.count').html(data.stats.countPack)
-            arr.push(data.packs);
+            // arr.push(data.packs);
             if(state == 'get'){
                 // 收到红包
                 // 数组降序排序
