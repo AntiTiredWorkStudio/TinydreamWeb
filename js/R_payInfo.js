@@ -99,7 +99,7 @@ $(function(){
                 console.log(data)
                 if(code == 11){
                     alert('您尚未绑定手机，绑定手机后即可发送梦想红包');
-                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html'
+                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html?type=pay'
                 }else if(code == 5){
                     alert('该期梦想池已结束');
                     return;

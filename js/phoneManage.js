@@ -105,6 +105,8 @@ $(function(){
                         var flag = $_GET.phone;
                         flag = 'true';
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html";
+                    }else if($_GET.type == 'pay'){
+                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html";
                     }else if(mainpool == '' || mainpool == undefined){
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";
                     }else{
