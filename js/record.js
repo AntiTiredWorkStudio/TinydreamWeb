@@ -47,7 +47,7 @@ $(function(){
                 _.each(data.packs,function(item){
                     var time = GetLocalTime(item.gtime);
                     item.rcount = item.pcount;
-                    item.cstate = '';
+                    item.cstate = 'done';
                     item.state = '';
                     item.coun = '';
                     item.rstate = '';
@@ -79,30 +79,30 @@ $(function(){
                     if(item.gcount < item.rcount){
                         item.cstate = 'share'
                     }else{
-                        item.cstate = ''
+                        item.cstate = 'done'
                     }
                     var str = compiled(item);
                     var $dom = $(str);
                     $dom.appendTo('.content')
                 })
             }
-            // $('.info').click(function(){
-            //     console.log(1)
-            //     if($('.rstate').html() == '已过期' || $(this).attr('data-cstate') == ''){
-            //         var rid = $(this).attr('data-rid');
-            //         TD_Request('rp','grp',{rid:rid},function(code,data){
-            //             localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:userInfo.headimgurl,nickname:userInfo.nickname,content:data.redpack.content}));
-            //             console.log(userInfo.headicon);
-            //             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html?type=get'
-            //         },function(code,data){
-            //             // window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
-            //             console.log(data)
-            //         })
-            //     }else if($(this).attr('data-state') == 'RUNNING' && $(this).attr('data-cstate') == 'share'){
-            //         localStorage.setItem('msg','ok');
-            //         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+rid;
-            //     }
-            // })
+            $('.info').click(function(){
+                console.log(1)
+                if($('.rstate').html() == '已过期' || $(this).attr('data-cstate') == 'done'){
+                    var rid = $(this).attr('data-rid');
+                    TD_Request('rp','grp',{rid:rid},function(code,data){
+                        localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:userInfo.headimgurl,nickname:userInfo.nickname,content:data.redpack.content}));
+                        console.log(userInfo.headicon);
+                        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html?type=get'
+                    },function(code,data){
+                        // window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
+                        console.log(data)
+                    })
+                }else if($(this).attr('data-state') == 'RUNNING' && $(this).attr('data-cstate') == 'share'){
+                    localStorage.setItem('msg','ok');
+                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+rid;
+                }
+            })
         },function(code,data){
             console.log(data);
         })
