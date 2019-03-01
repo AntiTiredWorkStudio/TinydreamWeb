@@ -205,6 +205,7 @@ $(function(){
     // // 收到红包
     var r_state;
     $('.r_left')[0].addEventListener('click',function(){  
+        number = 0;
         $('.tip').html(userInfo.nickname+'收到的梦想红包共');
         $('.content').empty();
         redpack('get','gurpr',number);
@@ -212,6 +213,7 @@ $(function(){
     },false)
     $('.r_right')[0].addEventListener('click',function(){  
         $('.content').empty();
+        number = 0;
         redpack('give','gurps',number);
         $('.tip').html(userInfo.nickname+'发出的梦想红包共')
         r_state = 'give'
