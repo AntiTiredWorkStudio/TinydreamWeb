@@ -68,7 +68,7 @@ $(function(){
                         s = '0'+s;
                     }
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
-                    $('<div class="info"><div class="left"><p class="username">'+item.nickname+'</p><p class="time">'+time(date)+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p></div></div>').appendTo('.content')
+                    $('<div class="info"><div class="left"><p class="username">'+item.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.pcount+'个</p></div></div>').appendTo('.content')
                 })
             }else if(state == 'give'){
                 // 发出红包
