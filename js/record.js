@@ -190,10 +190,10 @@ $(function(){
 
     $('.loading')[0].addEventListener('click',function(){
         number = number+10;
-        if(state == 'give'){
+        if(r_state == 'give'){
             console.log('give')
             redpack('give','gurps',number);
-        }else if(state == 'get'){
+        }else if(r_state == 'get'){
             console.log('get')
             redpack('get','gurpr',number);
         };
