@@ -28,7 +28,7 @@ $(function(){
         TD_Request('rp',actions,{
             uid:userInfo.openid,
             seek:num,
-            count:10
+            count:1
         },function(code,data){
             console.log(data)
             if(data.packs.length<10 || data.packs.length == 0){
