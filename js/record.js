@@ -100,10 +100,15 @@ $(function(){
                         s = '0'+s;
                     }
                     var time = y+'.'+m+'.'+d+' '+h+':'+M+':'+s;
-                    $('<div class="info"><div class="left"><p class="username">'+userInfo.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.rcount+'个</p><p class="f_count">'+item.gcount+'/'+item.rcount+'</p></div></div>').appendTo('.content')
-                    if(item.pstate == 'FINISHED' && item.gcount < item.rcount){
-                        $('<div class="info"><div class="left"><p class="username" style="text-align:left">'+item.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun" style="text-align:right">'+item.rcount+'个</p><p class="f_count" style="text-align:right">已过期'+item.gcount+'/'+item.rcount+'</p></div></div>').css('text-align','right').appendTo('.content') 
-                    }
+                    TD_Request('us','selfinfo',{
+                        uid:item.uid
+                    },function(code,data){
+                        var user = data.selfinfo.nickname;
+                        $('<div class="info"><div class="left"><p class="username">'+user.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun">'+item.rcount+'个</p><p class="f_count">'+item.gcount+'/'+item.rcount+'</p></div></div>').appendTo('.content')
+                        if(item.pstate == 'FINISHED' && item.gcount < item.rcount){
+                            $('<div class="info"><div class="left"><p class="username" style="text-align:left">'+item.nickname+'</p><p class="time">'+time+'</p></div><div class="right"><p class="coun" style="text-align:right">'+item.rcount+'个</p><p class="f_count" style="text-align:right">已过期'+item.gcount+'/'+item.rcount+'</p></div></div>').css('text-align','right').appendTo('.content') 
+                        }
+                    })
                 })
             }
         },function(code,data){
@@ -223,7 +228,8 @@ $(function(){
         if(r_state == 'give'){
             console.log('give')
             redpack('give','gurps',number);
-        }else if(r_state == 'get'){
+        }
+        if(r_state == 'get'){
             console.log('get')
             redpack('get','gurpr',number);
         };
