@@ -85,10 +85,11 @@ $(function(){
                                 localStorage.setItem('msg','ok')
                                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+redPackageID;
 							},function(code,data){
-								alert(code,data.context)
+                                alert(code,data.context);
+                                alert(JSON.stringify(data))
 							});
 						}catch(err){
-							alert(err);
+							alert(JSON.stringify(err));
 						}
 					}else{
 						alert("支付取消");
