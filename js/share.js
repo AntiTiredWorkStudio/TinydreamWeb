@@ -18,6 +18,9 @@ try {
 		WebApp.JSAPI.OnShareFriend = function(res){
 			window.location.href = 'http://tinydream.antit.top/TinydreamWeb.index.html'
 		}
+		WebApp.JSAPI.OnShareTimeLine = function(res){
+			window.location.href = 'http://tinydream.antit.top/TinydreamWeb.index.html'
+		}
 		
 	},function(code,data){
 		console.log(data)
