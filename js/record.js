@@ -83,6 +83,7 @@ $(function(){
                     var $dom = $(str);
                     $dom.appendTo('.content')
                     $('.info').click(function(){
+                        console.log(1)
                         if($('.rstate').html() == '已过期' || $(this).attr('data-state') == 'FINISHED' || $('.rstate').html() == '' || $(this).attr('data-state') ==''){
                             var rid = $(this).attr('data-rid');
                             TD_Request('rp','grp',{rid:rid},function(code,data){
