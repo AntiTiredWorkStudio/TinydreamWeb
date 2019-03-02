@@ -87,7 +87,7 @@ $(function(){
         })
     }
     // 加载跟多
-
+    alert(123)
     $('#btn').click(function(){
         num = num+10;
         redpack(num);
