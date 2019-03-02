@@ -1,7 +1,7 @@
 WebApp.JSAPI.Init();
 $(function(){
     var rinfo = JSON.parse(localStorage.getItem('rinfo'));
-    if(rinfo == '' || typeof rinfo == 'undefined' rinfo == null){
+    if(rinfo == '' || typeof rinfo == 'undefined' || rinfo == null){
         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/RedEnvelope.html';
     }
     var userInfo = Options.GetUserInfo();
@@ -80,6 +80,10 @@ $(function(){
             })
         },function(code,data){
             console.log(data)
+            if(code==70){
+                alert('红包不存在');
+                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/RedEnvelope.html'
+            }
         })
     }
     // 加载跟多
