@@ -91,7 +91,7 @@ $(function(){
                         _.each(data.dreams,function(item){
                             if(item.state == "SUCCESS" || item.state == "DOING" || item.state == "VERIFY"){
 								console.log(item);
-                                $("<div class='luckyDream' data-lucky='"+JSON.stringify(item)+"' data-dream='"+item.id+"'><div class='dream_logo'>"+item.pool.tbill / 100+"</div><div class='dream_right'><div class='dream_msg'><span>"+item.title+"</span>"+((item.state == "SUCCESS")?"<div class='icon_success'></div>":"")+"</div> <div class='tip'><span class='tip_text'>"+item.pool.ptitle+"</span></div></div></div>").appendTo('.dream_list')
+                                $("<div class='luckyDream' data-lucky='"+JSON.stringify(item)+"' data-dream='"+item.id+"'><div class='dream_logo'>"+item.pool.cbill / 100+"</div><div class='dream_right'><div class='dream_msg'><span>"+item.title+"</span>"+((item.state == "SUCCESS")?"<div class='icon_success'></div>":"")+"</div> <div class='tip'><span class='tip_text'>"+item.pool.ptitle+"</span></div></div></div>").appendTo('.dream_list')
                             }
                         })
                         $('.luckyDream').click(function(){

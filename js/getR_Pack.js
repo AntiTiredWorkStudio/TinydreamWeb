@@ -6,7 +6,9 @@ WebApp.Init('wxc5216d15dd321ac5',//appid
 			var rid = $_GET.rid;
 			TD_Request('rp','grp',{rid:rid},function(code,data){
 				console.log(data)
-                var userInfo = data.sender;
+				var userInfo = data.sender;
+				var pid = data.redpack.pid;
+				var ptbill = data.redpack.ptbill / 100;
                 WebApp.JSAPI.InitShare({
                     title:userInfo.nickname+"给你发了一个梦想红包,领取可夺大额梦想金！",
                     desc:"小梦想互助——让每个小梦想 都有机会实现",
@@ -25,7 +27,7 @@ WebApp.Init('wxc5216d15dd321ac5',//appid
 				$.hideLoading();
 				$('button').click(function(){
 					localStorage.setItem('rid',rid);
-					localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:userInfo.headicon,nickname:userInfo.nickname,content:data.redpack.content}));
+					localStorage.setItem('rinfo',JSON.stringify({pid:pid,ptbill:ptbill,rid:rid,headicon:userInfo.headicon,nickname:userInfo.nickname,content:data.redpack.content}));
 					window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html'
 				})
 			},function(code,data){

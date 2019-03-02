@@ -14,13 +14,13 @@ $(function(){
     var compiled = _.template(templateStr);
     // 排序方法
 
-    function compare(property){
-        return function(a,b){
-            var value1 = a[property];
-            var value2 = b[property];
-            return value2 - value1;
-        }
-    }
+    // function compare(property){
+    //     return function(a,b){
+    //         var value1 = a[property];
+    //         var value2 = b[property];
+    //         return value2 - value1;
+    //     }
+    // }
 
     // 红包记录数据
     function redpack(state,actions,num){
@@ -95,7 +95,7 @@ $(function(){
                         TD_Request('us','selfinfo',{
                             uid:data.redpack.uid
                         },function(code,data){
-                            localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:data.selfinfo.headicon,nickname:data.selfinfo.nickname,content:rinfo.content}));
+                            localStorage.setItem('rinfo',JSON.stringify({pid:rinfo.pid,ptbill:rinfo.ptbill / 100,rid:rid,headicon:data.selfinfo.headicon,nickname:data.selfinfo.nickname,content:rinfo.content}));
                             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html?type=get'
                         })
                         console.log(userInfo.headicon);

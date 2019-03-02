@@ -36,6 +36,7 @@ $(function(){
         background:'url('+rinfo.headicon+') no-repeat',
         'background-size':'0.88rem 0.88rem'
     })
+    $('.r_tip').html('该编号自动参与小梦想互助平台'+rinfo.pid+'期的幸运者抓阄，幸运者可以领取'+rinfo.ptbill+'元梦想互助金去启动梦想');
     var templateStr = $('#template').html();
     var compiled = _.template(templateStr);
     function redpack(num){
@@ -100,7 +101,7 @@ $(function(){
             lid = item.lid;
         })
         $('.get_num').html('已领取编号：<span class="number">'+lid+'</span>');
-        $('.r_tip').html('该编号自动参与小梦想互助平台'+data.pid+'期的幸运者抓阄，幸运者可以领取'+data.totalBill/100+'元梦想互助金去启动梦想')
+
         // $('button').html('查看详情').click(function(){
         //     mainPool(data.pid);
         // })
@@ -119,7 +120,7 @@ $(function(){
         console.log(data)
         if(code == 72){
             $('.get_num').html('已领取过该编号：<span class="number">'+data.reco.lid+'</span>');
-            $('.r_tip').html('该编号自动参与小梦想互助平台'+data.pid+'期的幸运者抓阄，幸运者可以领取'+data.totalBill/100+'元梦想互助金去启动梦想')
+            // $('.r_tip').html('该编号自动参与小梦想互助平台'+data.pid+'期的幸运者抓阄，幸运者可以领取'+data.totalBill/100+'元梦想互助金去启动梦想')
             // $('button').html('查看详情').click(function(){
             //     mainPool(data.pid);
             // })
@@ -129,7 +130,7 @@ $(function(){
             $('.hide').show();  
         }else if(code == 11){
             $('.get_num').html('待取编号:1个');
-            $('.r_tip').html('该编号自动参与小梦想互助平台--期的幸运者抓阄，幸运者可以领取--元梦想互助金去启动梦想')
+            // $('.r_tip').html('该编号自动参与小梦想互助平台--期的幸运者抓阄，幸运者可以领取--元梦想互助金去启动梦想')
             $('button').show().html('绑定手机').click(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html?phone=false'
             })
