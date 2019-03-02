@@ -24,7 +24,7 @@ WebApp.Init('wxc5216d15dd321ac5',//appid
 				});
 				$('.title').html(userInfo.nickname+'的梦想红包');
 				$('.msg').html(data.redpack.content);
-				// $.hideLoading();
+				$.hideLoading();
 				$('button').click(function(){
 					localStorage.setItem('rid',rid);
 					localStorage.setItem('rinfo',JSON.stringify({pid:pid,ptbill:ptbill,rid:rid,headicon:userInfo.headicon,nickname:userInfo.nickname,content:data.redpack.content}));
