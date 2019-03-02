@@ -31,11 +31,6 @@ $(function(){
                     console.log(result);
                     $("#input-pid").attr("value",result[0].label);
                     $('#input-pid').attr('data-ubill',result[0].value)
-                    if(typeof $("#right input").val() != 'undefined' || $("#right input").val()!=null || $("#right input").val()!=''){
-                        $('#bill').html($('#right input').val() * $('#input-pid').attr('data-ubill'))
-                        console.log($('#right input').val() * $('#input-pid').attr('data-ubill'))
-                        console.log($("#right input").val())
-                    }
                 },
                 id:'singleLinePicker'
             })
@@ -44,7 +39,7 @@ $(function(){
         })
     })
     // 输入份数
-    $('#right input').on('input',function(){
+    $('.right input').on('input',function(){
         console.log(1)
         // console.log($(this).val() * 1)
         if($('#input-pid').val() != ''){
