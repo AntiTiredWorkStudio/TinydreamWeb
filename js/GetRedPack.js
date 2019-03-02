@@ -46,7 +46,7 @@ $(function(){
             count:10
         },function(code,data){
             console.log(data)
-            $('.num_count').html('共'+data.redpack.rcount+'个，已被领取'+data.redpack.gcount+"个")
+            $('.num_count').html('共'+data.redpack.rcount+'个，已被领取'+data.redpack.gcount+"个");
             if(data.reco.length < 10 || data.reco.length == 0){
                 $('#btn').hide();
             }else{
@@ -101,11 +101,15 @@ $(function(){
             lid = item.lid;
         })
         $('.get_num').html('已领取编号：<span class="number">'+lid+'</span>');
+        
 
         // $('button').html('查看详情').click(function(){
         //     mainPool(data.pid);
         // })
         redpack(0)
+        $('.fpack,.fpack span').click(function(){
+            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html?time='+new Date().getTime();
+        }).show()
         $('button').hide();
         $('.mtip').hide();
         $('.hide').show();
@@ -126,6 +130,9 @@ $(function(){
             //     mainPool(data.pid);
             // })
             // redpack(0);
+            $('.fpack,.fpack span').click(function(){
+                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html?time='+new Date().getTime();
+            }).show()
             $('.mtip').hide();
             $('button').hide();
             $('.hide').show();  
@@ -149,6 +156,9 @@ $(function(){
             $('.mtip').hide();
             $('.r_tip').html('您当日购买次数已达上限,无法领取该红包').css('text-align','center');
             $('.get_num').hide();
+            $('.fpack,.fpack span').click(function(){
+                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html?time='+new Date().getTime();
+            }).show()
             $('button').show().html('返回首页').click(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
             })
@@ -156,6 +166,9 @@ $(function(){
             $('.mtip').hide();
             $('.r_tip').html('红包已过期');
             $('.get_num').hide();
+            $('.fpack,.fpack span').click(function(){
+                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html?time='+new Date().getTime();
+            }).show()
             $('button').show().html('返回首页').click(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
             })
@@ -163,6 +176,9 @@ $(function(){
             $('.mtip').hide();
             $('.get_num').hide();
             $('.r_tip').html('您来晚了，红包已被领完').css('text-align','center');
+            $('.fpack,.fpack span').click(function(){
+                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html?time='+new Date().getTime();
+            }).show()
             $('button').show().html('返回首页').click(function(){
                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
             })
