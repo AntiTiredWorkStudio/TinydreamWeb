@@ -40,6 +40,7 @@ $(function(){
         console.log(1)
         console.log($(this).val() * 1)
         $('#bill').html($(this).val() * 500 / 100)
+        alert($('#bill').html())
     })
     // 红包支付
     $('.pay').click(function(){
