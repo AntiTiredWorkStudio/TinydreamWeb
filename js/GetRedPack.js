@@ -1,7 +1,7 @@
 WebApp.JSAPI.Init();
 $(function(){
     var rinfo = JSON.parse(localStorage.getItem('rinfo'));
-    if(rinfo == '' || typeof rinfo == 'undefined'){
+    if(rinfo == '' || typeof rinfo == 'undefined' rinfo == null){
         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/RedEnvelope.html';
     }
     var userInfo = Options.GetUserInfo();
