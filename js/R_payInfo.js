@@ -19,17 +19,18 @@ $(function(){
             })
             console.log(pid)
             if(pid.length == 1){
-                $("#input-pid").attr("value",pid[0]);
+                $("#input-pid").attr("value",pid[0].pid);
             }
-            weui.picker(pid,{
+            weui.picker(pid.pid,{
                 className: 'custom-classname',
                 container: 'body',
-                defaultValue: [pid[0]],
+                defaultValue: [pid[0].pid],
                 onChange: function (result) {
                 },
                 onConfirm: function (result) {
                     console.log(result);
-                    $("#input-pid").attr("value",result[0].label);
+                    $("#input-pid").attr("value",result[0].pid);
+                    $('#input-pid').attr('data-ubill',result[0].ubill)
                 },
                 id:'singleLinePicker'
             })
@@ -42,7 +43,7 @@ $(function(){
     $('.right input').on('input',function(){
         console.log(1)
         console.log($(this).val() * 1)
-        $('#bill').html($(this).val() * 500 / 100)
+        $('#bill').html($(this).val() * $('#input-pid').attr('data-ubill'))
         alert($('#bill').html())
     })
     // 红包支付
