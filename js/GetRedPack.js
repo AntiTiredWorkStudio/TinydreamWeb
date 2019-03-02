@@ -118,6 +118,7 @@ $(function(){
             $('.mtip').css('text-align','center')
         }
         console.log(data)
+        alert(code);
         if(code == 72){
             $('.get_num').html('已领取过该编号：<span class="number">'+data.reco.lid+'</span>');
             // $('.r_tip').html('该编号自动参与小梦想互助平台'+data.pid+'期的幸运者抓阄，幸运者可以领取'+data.totalBill/100+'元梦想互助金去启动梦想')
