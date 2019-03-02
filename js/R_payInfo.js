@@ -31,24 +31,25 @@ $(function(){
                     console.log(result);
                     $("#input-pid").attr("value",result[0].label);
                     $('#input-pid').attr('data-ubill',result[0].value)
+                    if($("#right input").val() != ''){
+                        $('#bill').html($('#right input').val() * $('#input-pid').attr('data-ubill'))
+                    }
                 },
                 id:'singleLinePicker'
             })
-            
         },function(code,data){
             console.log(data)
         })
     })
     // 输入份数
-    if($('#input-pid').val() != ''){
-        $('#bill').html($(this).val() * $('#input-pid').attr('data-ubill'))
-    }
-    // .on('input',function(){
-    //     console.log(1)
-    //     // console.log($(this).val() * 1)
-    //     $('#bill').html($(this).val() * $('#input-pid').attr('data-ubill'))
-    //     // alert($('#bill').html())
-    // })
+    $('#right input').on('input',function(){'#'
+        console.log(1)
+        // console.log($(this).val() * 1)
+        if($('#input-pid').val() != ''){
+            $('#bill').html($(this).val() * $('#input-pid').attr('data-ubill'))
+        }
+        // alert($('#bill').html())
+    })
     // 红包支付
     $('.pay').click(function(){
         if($('#content').val() == ''){
