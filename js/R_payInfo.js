@@ -21,7 +21,7 @@ $(function(){
             if(pid.length == 1){
                 $("#input-pid").attr("value",pid[0].pid);
             }
-            weui.picker(pid.pid,{
+            weui.picker(pid,{
                 className: 'custom-classname',
                 container: 'body',
                 defaultValue: [pid[0].pid],
