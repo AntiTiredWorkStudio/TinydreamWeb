@@ -3,6 +3,7 @@ $(function(){
 	//alert('red pack');
     // 获取用户信息
     var userInfo = Options.GetUserInfo();
+    var price;
     // 获取奖池
     $('.select_pid').click(function(){
         TD_Request('ds','plistr',{
@@ -10,12 +11,14 @@ $(function(){
             count:100
         },function(code,data){
             console.log(data)
-            var pid = [];
+            var pid = []; 
+            // var price = [];
             $.each(data.Pools,function(index,item){
                 console.log(item);
-                pid.push(item.pid)
+                pid.push({pid:item.pid,ubill:item.ubill / 100})
             })
-            if(pid == 1){
+            console.log(pid)
+            if(pid.length == 1){
                 $("#input-pid").attr("value",pid[0]);
             }
             weui.picker(pid,{
