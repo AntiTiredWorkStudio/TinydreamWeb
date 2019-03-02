@@ -1,13 +1,13 @@
 WebApp.JSAPI.Init();
 $(function(){
-    if($_GET.type != 'test'){
-        $('.block.bottom.psa').hide();
-    }else{
+    // if($_GET.type != 'test'){
+    //     $('.block.bottom.psa').hide();
+    // }else{
         $('.block.bottom.psa').show();
         $('.footer ul li.first a').attr('href','javascript:;').click(function(){
             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?type=test'
         })
-    }
+    // }
     var userInfo = Options.GetUserInfo();
     TD_Request("us","selfinfo",{
         uid:userInfo.openid
