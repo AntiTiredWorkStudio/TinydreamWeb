@@ -34,6 +34,7 @@ $(function(){
                     if($("#right input").val() != ''){
                         $('#bill').html($('#right input').val() * $('#input-pid').attr('data-ubill'))
                         console.log($('#right input').val() * $('#input-pid').attr('data-ubill'))
+                        console.log($("#right input").val())
                     }
                 },
                 id:'singleLinePicker'
