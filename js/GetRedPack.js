@@ -39,7 +39,7 @@ $(function(){
         TD_Request('rp','grpr',{
             rid:rinfo.rid,
             seek:num,
-            count:1
+            count:10
         },function(code,data){
             console.log(data)
             $('.num_count').html('共'+data.redpack.rcount+'个，已被领取'+data.redpack.gcount+"个")
