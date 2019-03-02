@@ -200,7 +200,10 @@ $(function(){
     if(userInfo.headimgurl == ''){
         userInfo.headimgurl = 'https://tdream.antit.top/image/miniLogo.jpg'
     }
-    $('.headicon').css({'background':'url('+userInfo.headimgurl+') no-repeat','background-size':'1.6rem 1.6rem;'})
+    $('.headicon').css({
+        'background':'url('+userInfo.headimgurl+') no-repeat',
+        'background-size':'1.6rem 1.6rem';
+    })
     $('.tip').html(userInfo.nickname+'收到的梦想红包共')
     $('.top ul li').click(function(){
         $(this).addClass('active').siblings().removeClass('active')
