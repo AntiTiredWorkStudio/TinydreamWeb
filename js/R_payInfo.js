@@ -31,6 +31,7 @@ $(function(){
                     console.log(result);
                     $("#input-pid").attr("value",result[0].label);
                     $('#input-pid').attr('data-ubill',result[0].value);
+                    console.log($('.right input').val())
                     if($('.right input').val() != ''){
                         $('#bill').html($('.right input').val() * $('#input-pid').attr('data-ubill'));
                     }
