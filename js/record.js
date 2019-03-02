@@ -96,10 +96,10 @@ $(function(){
                             uid:data.redpack.uid
                         },function(code,data){
                             localStorage.setItem('rinfo',JSON.stringify({rid:rid,headicon:data.selfinfo.headicon,nickname:data.selfinfo.nickname,content:rinfo.content}));
+                            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html?type=get'
                         })
-                        
                         console.log(userInfo.headicon);
-                        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html?type=get'
+                        
                     },function(code,data){
                         // window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
                         console.log(data)
