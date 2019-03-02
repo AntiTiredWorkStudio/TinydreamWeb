@@ -40,12 +40,15 @@ $(function(){
         })
     })
     // 输入份数
-    $('.right input').on('input',function(){
-        console.log(1)
-        // console.log($(this).val() * 1)
+    if($('#input-pid').val() != ''){
         $('#bill').html($(this).val() * $('#input-pid').attr('data-ubill'))
-        // alert($('#bill').html())
-    })
+    }
+    // .on('input',function(){
+    //     console.log(1)
+    //     // console.log($(this).val() * 1)
+    //     $('#bill').html($(this).val() * $('#input-pid').attr('data-ubill'))
+    //     // alert($('#bill').html())
+    // })
     // 红包支付
     $('.pay').click(function(){
         if($('#content').val() == ''){
