@@ -15,7 +15,7 @@ $(function(){
             // var price = [];
             $.each(data.Pools,function(index,item){
                 console.log(item);
-                pid.push({pid:item.pid,ubill:item.ubill / 100})
+                pid.push({label:item.pid,value:item.ubill / 100})
             })
             console.log(pid)
             if(pid.length == 1){
@@ -24,13 +24,13 @@ $(function(){
             weui.picker(pid,{
                 className: 'custom-classname',
                 container: 'body',
-                defaultValue: [pid[0].pid],
+                defaultValue: [pid[0].label],
                 onChange: function (result) {
                 },
                 onConfirm: function (result) {
                     console.log(result);
-                    $("#input-pid").attr("value",result[0].pid);
-                    $('#input-pid').attr('data-ubill',result[0].ubill)
+                    $("#input-pid").attr("value",result[0].label);
+                    $('#input-pid').attr('data-ubill',result[0].value)
                 },
                 id:'singleLinePicker'
             })
