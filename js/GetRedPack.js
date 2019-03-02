@@ -83,7 +83,7 @@ $(function(){
             console.log(data)
             if(code==70){
                 alert('红包不存在');
-                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/RedEnvelope.html'
+                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/RedEnvelope.html?time='+new Date().getTime()
             }
         })
     }
@@ -133,7 +133,7 @@ $(function(){
             $('.get_num').html('待取编号:1个');
             // $('.r_tip').html('该编号自动参与小梦想互助平台--期的幸运者抓阄，幸运者可以领取--元梦想互助金去启动梦想')
             $('button').show().html('绑定手机').click(function(){
-                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html?phone=false'
+                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html?phone=false&?time='+new Date().getTime()
             })
             $('.mtip').show();
             $('.hide').hide();
@@ -141,7 +141,7 @@ $(function(){
             $('.get_num').html('待取编号:1个');
             $('.r_tip').html('该编号自动参与小梦想互助平台--期的幸运者抓阄，幸运者可以领取--元梦想互助金去启动梦想')
             $('button').show().html('添加梦想').click(function(){
-                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/dream.html?dream=false'
+                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/dream.html?dream=false&?time='+new Date().getTime()
             })
             $('.mtip').show();
             $('.hide').hide();
@@ -150,21 +150,21 @@ $(function(){
             $('.r_tip').html('您当日购买次数已达上限,无法领取该红包').css('text-align','center');
             $('.get_num').hide();
             $('button').show().html('返回首页').click(function(){
-                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
+                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
             })
         }else if(code== 5){
             $('.mtip').hide();
             $('.r_tip').html('红包已过期');
             $('.get_num').hide();
             $('button').show().html('返回首页').click(function(){
-                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
+                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
             })
         }else if(code == 74){
             $('.mtip').hide();
             $('.get_num').hide();
             $('.r_tip').html('您来晚了，红包已被领完').css('text-align','center');
             $('button').show().html('返回首页').click(function(){
-                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
+                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
             })
         }  
     })

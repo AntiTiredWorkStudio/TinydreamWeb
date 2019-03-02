@@ -28,11 +28,11 @@ WebApp.Init('wxc5216d15dd321ac5',//appid
 				$('button').click(function(){
 					localStorage.setItem('rid',rid);
 					localStorage.setItem('rinfo',JSON.stringify({pid:pid,ptbill:ptbill,rid:rid,headicon:userInfo.headicon,nickname:userInfo.nickname,content:data.redpack.content}));
-					window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html'
+					window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html?time='+new Date().getTime();
 				})
 			},function(code,data){
 				console.log(data)
-				window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
+				window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
 			})
 		}
 	);

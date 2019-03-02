@@ -12,14 +12,14 @@ try {
 		WebApp.JSAPI.InitShare({
 			title:nickname+"给你发了一个梦想红包,领取可夺大额梦想金！",
 			desc:"小梦想互助——让每个小梦想 都有机会实现",
-			link:'http://tinydream.antit.top/TinydreamWeb/html/getR_Pack.html?rid='+rid,
+			link:'http://tinydream.antit.top/TinydreamWeb/html/getR_Pack.html?rid='+rid+'&?time='+new Date().getTime(),
 			imgUrl:"https://tdream.antit.top/image/Red_Open.jpg"
 		});
 		WebApp.JSAPI.OnShareFriend = function(res){
-			window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
+			window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
 		}
 		WebApp.JSAPI.OnShareTimeLine = function(res){
-			window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
+			window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
 		}
 		
 	},function(code,data){

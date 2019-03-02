@@ -14,7 +14,7 @@ $(function(){
           $('#test').html(JSON.stringify(Options.GetUserInfo()));
            // 系统通知
            $('.right').click(function(){
-               window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/notice.html"
+               window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/notice.html?time="+new Date().getTime()
            })
         //    $('#banner').swipeslider();
 
@@ -34,10 +34,10 @@ $(function(){
             })
         //    }
            $('.banner1').click(function(){
-                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html"
+                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html?time="+new Date().getTime()
             })
             $('.banner2').click(function(){
-                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html"
+                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html?time="+new Date().getTime()
             })
             // if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4'){
             //     $('.banner2').show();
@@ -174,11 +174,11 @@ $(function(){
                             },function(code,data){
                                 console.log(data)
                                 localStorage.setItem('dr','{"did":"'+did+'","state":"all"}')
-                                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/add.html'
+                                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/add.html?time='+new Date().getTime()
                             },function(code,data){
                                 console.log(data)   
                                alert('您还未实名认证，请认证后在进行完善')
-                               window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/auth.html'
+                               window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/auth.html?time='+new Date().getTime()
                             });
 						}
 					);
@@ -199,14 +199,14 @@ $(function(){
                                 // console.log(data.actions.editdream)
                                 // return;
                                 localStorage.setItem('buy',JSON.stringify(data.actions));
-                                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
+                                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?time="+new Date().getTime();
                             }else{
                                 if(confirm("您还没有添加梦想，添加梦想后才能参与互助")){
                                     localStorage.setItem('buy',JSON.stringify(data.actions));
 									localStorage.setItem('mainpool',JSON.stringify(mainpool));
-                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
+                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html?time="+new Date().getTime()
                                 }else{
-                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html"
+                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html?time="+new Date().getTime()
                                 }
                             }
                         }
@@ -214,7 +214,7 @@ $(function(){
                         if(code == 11 || !data.result){
                             alert("您尚"+data.context+",绑定手机后才能继续参与互助");
                             localStorage.setItem('mainpool',JSON.stringify(mainpool));
-                            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html";
+                            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html?time="+new Date().getTime();
                         }else if(code == 18){
                             alert("您当日购买次数已达上限");
                             return;
@@ -289,7 +289,7 @@ $(function(){
     // 互助页面跳转
     $('.help').click(function(e){
         e.stopPropagation();
-        window.location.href="html/dreamHelp.html"
+        window.location.href="html/dreamHelp.html?time="+new Date().getTime()
     })
     //客服
     $('.icon_notice .left').click(function(){

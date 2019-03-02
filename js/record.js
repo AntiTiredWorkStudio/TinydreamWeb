@@ -96,7 +96,7 @@ $(function(){
                             uid:data.redpack.uid
                         },function(code,data){
                             localStorage.setItem('rinfo',JSON.stringify({pid:rinfo.pid,ptbill:rinfo.ptbill / 100,rid:rid,headicon:data.selfinfo.headicon,nickname:data.selfinfo.nickname,content:rinfo.content}));
-                            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html?type=get'
+                            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html?type=get&?time='+new Date().getTime()
                         })
                         console.log(userInfo.headicon);
                         
@@ -107,7 +107,7 @@ $(function(){
                 }else if($(this).attr('data-state') == 'RUNNING' && $(this).attr('data-cstate') == 'share'){
                     var rid = $(this).attr('data-rid');
                     localStorage.setItem('msg','ok');
-                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+rid;
+                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+rid+'&?time='+new Date().getTime();
                 }
             })
         },function(code,data){
