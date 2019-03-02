@@ -16,7 +16,7 @@ $(function(){
            $('.right').click(function(){
                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/notice.html?time="+new Date().getTime()
            })
-        //    $('#banner').swipeslider();
+           $('#banner').swipeslider();
 
             //   $('.footer ul li.last a').attr('href','javascript:;').click(function(){
             //     window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/user.html?type=test'
@@ -25,13 +25,13 @@ $(function(){
         //    if($_GET.type == 'test'){
             
         //    }else{
-            $('.banner2').hide();
+            // $('.banner2').hide();
             // $('.banner1').show();
-            $('.home .swiper-container').css({
-                width: '6.8rem',
-                height: '1.86rem',
-                margin: "0.2rem auto"
-            })
+            // $('.home .swiper-container').css({
+            //     width: '6.8rem',
+            //     height: '1.86rem',
+            //     margin: "0.2rem auto"
+            // })
         //    }
            $('.banner1').click(function(){
                 window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html?time="+new Date().getTime()
