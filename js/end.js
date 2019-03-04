@@ -92,7 +92,12 @@ $(function(){
 					// console.log(data)
 					// console.log(number+10);
 					$.each(data.orders,function(index,item){
-						$('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" oid='+item.oid+'>查看编号</div><div class="title"><xmp>'+item.dtitle+'</xmp></div></div>').appendTo('.user_number');
+                        if(item.dtitle.length>7){
+                            item.dtit = item.dtitle.substring(0,8)+'...';
+                        }else{
+                            item.dtit = item.dtitle;
+                        }
+						$('<div class="user"><div class="phone">'+item.tele+'</div><div class="num">'+item.dcount+' 份</div><div class="look" style="color:#00d094" oid='+item.oid+'>查看编号</div><div class="title"><xmp>'+item.dtit+'</xmp></div></div>').appendTo('.user_number');
 					})
 					var str = ''//编号
 					$('.look').click(function(){
