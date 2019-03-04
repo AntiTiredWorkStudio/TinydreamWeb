@@ -98,7 +98,7 @@ $(function () {
                 ctx.fillText('小梦想互助',$('.share').width() * ratio - 155 * ratio,$('.share').height() * ratio - 25 * ratio);
                 // alert(2)
                 var canvas = document.getElementById('canvas');
-                
+                $('.share').css('zoom','0.5')
                 var url1 = canvas.toDataURL('image/png');
                 // alert(1)
                 var tImage = new Image();
