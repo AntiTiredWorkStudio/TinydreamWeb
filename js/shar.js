@@ -103,9 +103,9 @@ $(function () {
                 // alert(1)
                 var tImage = new Image();
                 tImage.src = url1;
-                // tImage.width = $('body').width();
-                // tImage.height = $('body').height();
-                // $(window).html(tImage);
+                tImage.width = $('body').width();
+                tImage.height = $('body').height();
+                $('.share').html(tImage);
             }
             
         }
