@@ -14,7 +14,7 @@ $(function () {
     var ctx = canvas.getContext('2d');
     // 获取像素比
     // var devicePixelRatio = window.devicePixelRatio || 1; 
-
+    // 像素比
     var backingStore = ctx.backingStorePixelRatio ||
         ctx.webkitBackingStorePixelRatio ||
         ctx.mozBackingStorePixelRatio ||
@@ -23,6 +23,8 @@ $(function () {
         ctx.backingStorePixelRatio || 1;
     var ratio = (window.devicePixelRatio || 1) / backingStore;
     console.log(ratio)
+    canvas.width = $(window).width() * ratio;
+    canvas.height = $(window).height() * ratio;
 
     // canvas.width = $('.share').width();
     // canvas.height = $('.share').height();
