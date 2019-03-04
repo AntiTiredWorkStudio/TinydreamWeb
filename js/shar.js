@@ -9,11 +9,27 @@ $(function () {
     //     width:$(window).width(),
     //     height:$(window).height()
     // })
-    canvas.width = $('.share').width() * 2;
-    canvas.height = $('.share').height() * 2;
     $('body').css('background','red')
     
     var ctx = canvas.getContext('2d');
+    // 获取像素比
+    var devicePixelRatio = window.devicePixelRatio || 1; 
+
+    var backingStoreRatio = context.webkitBackingStorePixelRatio || 
+    context.mozBackingStorePixelRatio || 
+    context.msBackingStorePixelRatio || 
+    context.oBackingStorePixelRatio || 
+    context.backingStorePixelRatio || 1;
+    // canvas的实际渲染倍率 
+    var ratio = devicePixelRatio / backingStoreRatio
+
+    canvas.width = $('.share').width();
+    canvas.height = $('.share').height();
+
+    canvas.width = canvas.width * ratio;
+    canvas.height = canvas.height * ratio;
+
+    console.log(canvas.width,width.height);
     var x1 = $('.share').width() - 75;
     var y = $('.share').height() - 25;
     var y2 = $('.share').height() - 85;
