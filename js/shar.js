@@ -5,31 +5,32 @@ $(function () {
 	//var url = 'https://tdream.antit.top/LongPress2Share10.jpg';//测试用
 	
     var canvas = document.getElementById('canvas');
-    $(canvas).css({
-        width:$(window).width(),
-        height:$(window).height()
-    })
+    // $(canvas).css({
+    //     width:$(window).width(),
+    //     height:$(window).height()
+    // })
     $('body').css('background','red')
     
     var ctx = canvas.getContext('2d');
     // 获取像素比
-    var devicePixelRatio = window.devicePixelRatio || 1; 
+    // var devicePixelRatio = window.devicePixelRatio || 1; 
 
-    var backingStoreRatio = ctx.webkitBackingStorePixelRatio || 
-    ctx.mozBackingStorePixelRatio || 
-    ctx.msBackingStorePixelRatio || 
-    ctx.oBackingStorePixelRatio || 
-    ctx.backingStorePixelRatio || 1;
-    // canvas的实际渲染倍率 
-    var ratio = devicePixelRatio / backingStoreRatio
+    var backingStore = ctx.backingStorePixelRatio ||
+        ctx.webkitBackingStorePixelRatio ||
+        ctx.mozBackingStorePixelRatio ||
+        ctx.msBackingStorePixelRatio ||
+        ctx.oBackingStorePixelRatio ||
+        ctx.backingStorePixelRatio || 1;
+    var ratio = (window.devicePixelRatio || 1) / backingStore;
+    console.log(ratio)
 
-    canvas.width = $('.share').width();
-    canvas.height = $('.share').height();
+    // canvas.width = $('.share').width();
+    // canvas.height = $('.share').height();
 
-    canvas.width = canvas.width * ratio;
-    canvas.height = canvas.height * ratio;
+    // canvas.width = canvas.width * ratio;
+    // canvas.height = canvas.height * ratio;
 
-    console.log(canvas.width,canvas.height);
+    // console.log(canvas.width,width.height);
     var x1 = $('.share').width() - 75;
     var y = $('.share').height() - 25;
     var y2 = $('.share').height() - 85;
@@ -66,14 +67,14 @@ $(function () {
             if(index != 2){
                 // ctx.scale(2,2)
                 ctx.drawImage(img,x,y,width,height)
-                next(imgArr,index+1,15 * ratio,40 * ratio,50 * ratio,50 * ratio) 
+                next(imgArr,index+1,15,40,50,50) 
             }else{
                 // ctx.scale(2,2)
                 x = x1;
                 y = y2;
                 width = 60;
                 height = 60;
-                ctx.drawImage(img,x * ratio,y * ratio,width * ratio,height * ratio);
+                ctx.drawImage(img,x,y,width,height);
                 ctx.globalCompositeOperation = 'source-over'
                 ctx.fillStyle = '#fff';
                 ctx.font = '15px 微软雅黑';
@@ -82,13 +83,13 @@ $(function () {
                 }else{
                     var name = userInfo.nickname;
                 }
-                ctx.fillText(name + ' #2019小梦想#',75 * ratio,56 * ratio);
+                ctx.fillText(name + ' #2019小梦想#',75,56);
                 var dream = '云南鲜花饼店...';
                 ctx.font = '19px 微软雅黑'
-                ctx.fillText(dream+'(已成功参与互助)',75 * ratio,88 * ratio);
+                ctx.fillText(dream+'(已成功参与互助)',75,88);
                 ctx.font = '14px 微软雅黑';
-                ctx.fillText('扫码关注',($('.share').width() - 141) * ratio,($('.share').height() - 44) * ratio);
-                ctx.fillText('小梦想互助',($('.share').width() - 155) * ratio,($('.share').height() - 25) * ratio);
+                ctx.fillText('扫码关注',$('.share').width() - 141,$('.share').height() - 44);
+                ctx.fillText('小梦想互助',$('.share').width() - 155,$('.share').height() - 25);
                 // alert(2)
                 var canvas = document.getElementById('canvas');
                 
