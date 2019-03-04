@@ -29,7 +29,7 @@ $(function () {
     canvas.width = canvas.width * ratio;
     canvas.height = canvas.height * ratio;
 
-    console.log(canvas.width,width.height);
+    console.log(canvas.width,canvas.height);
     var x1 = $('.share').width() - 75;
     var y = $('.share').height() - 25;
     var y2 = $('.share').height() - 85;
