@@ -5,8 +5,8 @@ $(function () {
 	//var url = 'https://tdream.antit.top/LongPress2Share10.jpg';//测试用
 	
     var canvas = document.getElementById('canvas');
-    canvas.width = $('.share').width();
-    canvas.height = $('.share').height();
+    canvas.width = $('.share').width() * 2;
+    canvas.height = $('.share').height() * 2;
     $('body').css('background','red')
     
     var ctx = canvas.getContext('2d');
