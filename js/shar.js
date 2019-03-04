@@ -23,7 +23,7 @@ $(function () {
         ctx.backingStorePixelRatio || 1;
     var ratio = (window.devicePixelRatio || 1) / backingStore;
     console.log(ratio)
-    console.log(window.width)
+    console.log($(window).width())
     canvas.width = $(window).width() * ratio;
     canvas.height = $(window).height() * ratio;
 
