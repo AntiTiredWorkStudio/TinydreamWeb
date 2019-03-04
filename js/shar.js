@@ -12,7 +12,7 @@ $(function () {
     var ctx = canvas.getContext('2d');
     var x1 = $('.share').width() - 75;
     var y = $('.share').height() - 25;
-    var y2 = $('.share').width() - 85;
+    var y2 = $('.share').height() - 85;
     var userInfo = Options.GetUserInfo();
 	/*var userInfo = {
 		headimgurl:'https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaELEgjjRsUFibrHsbpUicsCBkoU3eDTVuIJfkX2ibWpK2YT7ZsVsiaKobhD9bgOTkUl6IeYoo3xVPY2wRA/132',
@@ -51,7 +51,7 @@ $(function () {
                 y = y2;
                 width = 60;
                 height = 60;
-                ctx.drawImage(img,$('.share').width() - 75,$('.share').width() - 85,60,60);
+                ctx.drawImage(img,x,y,width,height);
                 ctx.globalCompositeOperation = 'source-over'
                 ctx.fillStyle = '#fff';
                 ctx.font = '15px 微软雅黑';
