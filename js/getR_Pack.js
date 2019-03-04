@@ -10,7 +10,7 @@ WebApp.Init('wxc5216d15dd321ac5',//appid
 			},function(code,data){
 				// console.log(data)
 				var rid = $_GET.rid;
-				alert(data.context);
+				// alert(data.context);
 				TD_Request('rp','grp',{rid:rid},function(code,data){
 					console.log(data)
 					var userInfo = data.sender;
