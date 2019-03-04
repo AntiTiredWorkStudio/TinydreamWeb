@@ -5,10 +5,10 @@ $(function () {
 	//var url = 'https://tdream.antit.top/LongPress2Share10.jpg';//测试用
 	
     var canvas = document.getElementById('canvas');
-    $(canvas).css({
-        width:$(window).width(),
-        height:$(window).height()
-    })
+    // $(canvas).css({
+    //     width:$(window).width(),
+    //     height:$(window).height()
+    // })
     canvas.width = $('.share').width() * 2;
     canvas.height = $('.share').height() * 2;
     $('body').css('background','red')
