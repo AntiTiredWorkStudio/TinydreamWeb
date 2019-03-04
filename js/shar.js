@@ -24,8 +24,8 @@ $(function () {
     var ratio = (window.devicePixelRatio || 1) / backingStore;
     console.log(ratio)
     // console.log($(window).width())
-    canvas.width = $('.share').width() * ratio;
-    canvas.height = $('.share').height() * ratio;
+    canvas.width = $(window).width() * ratio;
+    canvas.height = $(window).height() * ratio;
 
     // canvas.width = $('.share').width();
     // canvas.height = $('.share').height();
