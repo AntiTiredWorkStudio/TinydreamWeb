@@ -80,7 +80,7 @@ $(function () {
                 // alert(1)
                 var tImage = new Image();
                 tImage.src = url1;
-                $('.share').html(tImage);
+                // $('.share').html(tImage);
             }
             
         }
