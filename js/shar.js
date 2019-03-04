@@ -15,11 +15,11 @@ $(function () {
     // 获取像素比
     var devicePixelRatio = window.devicePixelRatio || 1; 
 
-    var backingStoreRatio = context.webkitBackingStorePixelRatio || 
-    context.mozBackingStorePixelRatio || 
-    context.msBackingStorePixelRatio || 
-    context.oBackingStorePixelRatio || 
-    context.backingStorePixelRatio || 1;
+    var backingStoreRatio = ctx.webkitBackingStorePixelRatio || 
+    ctx.mozBackingStorePixelRatio || 
+    ctx.msBackingStorePixelRatio || 
+    ctx.oBackingStorePixelRatio || 
+    ctx.backingStorePixelRatio || 1;
     // canvas的实际渲染倍率 
     var ratio = devicePixelRatio / backingStoreRatio
 
