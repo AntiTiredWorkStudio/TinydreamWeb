@@ -80,7 +80,8 @@ $(function () {
                 ctx.drawImage(img,x,y,width,height);
                 ctx.globalCompositeOperation = 'source-over'
                 ctx.fillStyle = '#fff';
-                ctx.font = '15px 微软雅黑';
+                var font = 15 * ratio;
+                ctx.font = font + 'px 微软雅黑';
                 if(userInfo.nickname.length > 6){
                     var name = userInfo.nickname.substring(0,7)+'...';
                 }else{
@@ -88,9 +89,11 @@ $(function () {
                 }
                 ctx.fillText(name + ' #2019小梦想#',75 * ratio,56 * ratio);
                 var dream = '云南鲜花饼店...';
-                ctx.font = '19px 微软雅黑'
+                var font = 19 * ratio;
+                ctx.font = font + 'px 微软雅黑'
                 ctx.fillText(dream+'(已成功参与互助)',75 * ratio,88 * ratio);
-                ctx.font = '14px 微软雅黑';
+                var font = 14 * ratio;
+                ctx.font = font + 'px 微软雅黑';
                 ctx.fillText('扫码关注',$('.share').width() * ratio - 141 * ratio,$('.share').height() * ratio - 44 * ratio);
                 ctx.fillText('小梦想互助',$('.share').width() * ratio - 155 * ratio,$('.share').height() * ratio - 25 * ratio);
                 // alert(2)
