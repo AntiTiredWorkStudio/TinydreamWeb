@@ -34,9 +34,9 @@ $(function () {
     // canvas.height = canvas.height * ratio;
 
     // console.log(canvas.width,width.height);
-    var x1 = $('.share').width() * ratio - 75 * ratio;
-    var y = $('.share').height() * ratio - 25 * ratio;
-    var y2 = $('.share').height() * ratio - 85 * ratio;
+    var x1 = $(window).width() * ratio - 75 * ratio;
+    var y = $(window).height() * ratio - 25 * ratio;
+    var y2 = $(window).height() * ratio - 85 * ratio;
     var userInfo = Options.GetUserInfo();
 	/*var userInfo = {
 		headimgurl:'https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaELEgjjRsUFibrHsbpUicsCBkoU3eDTVuIJfkX2ibWpK2YT7ZsVsiaKobhD9bgOTkUl6IeYoo3xVPY2wRA/132',
@@ -45,19 +45,19 @@ $(function () {
     var imgArr = [
         url,userInfo.headimgurl,'http://tdream.antit.top/LongPress2ShareQR.jpg'
     ];
-    next(imgArr,0,0,0,$('.share').width() * ratio,$('.share').height() * ratio,canvas); 
+    next(imgArr,0,0,0,$(window).width() * ratio,$(window).height() * ratio,canvas); 
     
     // var l = canvas2image(canvas).then(function(res){
     //     alert(res);
-    //     // $('.share').html('<img class="bgi" src='+res+' />');
-    //     $('.share').html(res)
+    //     // $(window).html('<img class="bgi" src='+res+' />');
+    //     $(window).html(res)
     //     console.log(res)
     // });
     // console.log(l)
     
     // $('.bgi').css({
-    //     width:$('.share').width(),
-    //     height:$('.share').height()
+    //     width:$(window).width(),
+    //     height:$(window).height()
     // })
     // alert(1);
     // var total = img.length;
@@ -94,8 +94,8 @@ $(function () {
                 ctx.fillText(dream+'(已成功参与互助)',75 * ratio,88 * ratio);
                 var font = 14 * ratio;
                 ctx.font = font + 'px 微软雅黑';
-                ctx.fillText('扫码关注',$('.share').width() * ratio - 141 * ratio,$('.share').height() * ratio - 44 * ratio);
-                ctx.fillText('小梦想互助',$('.share').width() * ratio - 155 * ratio,$('.share').height() * ratio - 25 * ratio);
+                ctx.fillText('扫码关注',$(window).width() * ratio - 141 * ratio,$(window).height() * ratio - 44 * ratio);
+                ctx.fillText('小梦想互助',$(window).width() * ratio - 155 * ratio,$(window).height() * ratio - 25 * ratio);
                 // alert(2)
                 var canvas = document.getElementById('canvas');
                 $('.share').css({'zoom':'0.5','width':$(window).width(),height:$(window).height()})
@@ -105,7 +105,7 @@ $(function () {
                 tImage.src = url1;
                 // tImage.width = $('body').width();
                 // tImage.height = $('body').height();
-                // $('.share').html(tImage);
+                // $(window).html(tImage);
             }
             
         }
