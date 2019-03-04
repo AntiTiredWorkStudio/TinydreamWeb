@@ -42,16 +42,17 @@ $(function () {
     // alert(1);
     // var total = img.length;
     function next(src,index,x,y,width,height){
-        ctx.scale(1,1)
         var img = new Image();
 		img.setAttribute('crossOrigin', 'anonymous');
         img.src = src[index];
         img.onload = function(){
             console.log(img.src)
             if(index != 2){
+                ctx.scale(1,1)
                 ctx.drawImage(img,x,y,width,height)
                 next(imgArr,index+1,15,40,50,50) 
             }else{
+                ctx.scale(1,1)
                 x = x1;
                 y = y2;
                 width = 60;
