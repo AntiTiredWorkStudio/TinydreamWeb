@@ -1,3 +1,4 @@
+
 WebApp.JSAPI.Init();
 $(function(){
     var userInfo = Options.GetUserInfo();
@@ -6,7 +7,7 @@ $(function(){
     console.log(poolInfo);
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext("2d");
-
+	
     // 动态填入数据
     $('.dream_title').html(poolInfo.ptitle);
     $('.help_money').html(poolInfo.realBill + poolInfo.realUnit)
@@ -103,15 +104,15 @@ $(function(){
         $('.tabList').show();
         $('.tabList').empty();
         getord(num);
-        self(); 
+        self_tab(); 
     })
     $('.btns.click').click(function(){
         num = num+10;
         getord(num)
     })
     // // 获取编号
-    self();
-    function self(){
+    self_tab();
+    function self_tab(){
         $('.tabList').empty();
         TD_Request('ds','pdetial',{
             uid:userInfo.openid,
@@ -195,7 +196,7 @@ $(function(){
 					console.log(data)
 				})
 			},
-			// function(code,data){}
+			 function(code,data){}
 		)
 		/*
 		return;		
@@ -281,4 +282,4 @@ $(function(){
         ctx.stroke()
     }
     // WebApp.JSAPI.Init()
-})
+});
