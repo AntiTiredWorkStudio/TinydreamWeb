@@ -51,7 +51,7 @@ $(function () {
                 y = y2;
                 width = 60;
                 height = 60;
-                ctx.drawImage(img,x,y,width,height);
+                ctx.drawImage(img,$('.share').width() - 75,$('.share').width() - 85,width,height);
                 ctx.globalCompositeOperation = 'source-over'
                 ctx.fillStyle = '#fff';
                 ctx.font = '15px 微软雅黑';
