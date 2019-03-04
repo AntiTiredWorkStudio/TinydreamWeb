@@ -42,7 +42,7 @@ $(function () {
     // alert(1);
     // var total = img.length;
     function next(src,index,x,y,width,height){
-        // ctx.scale(2,2)
+        ctx.scale(2,2)
         var img = new Image();
 		img.setAttribute('crossOrigin', 'anonymous');
         img.src = src[index];
