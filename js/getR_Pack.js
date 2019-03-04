@@ -3,7 +3,15 @@ Loading();
 WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){
 			// $.showLoading("数据加载中");
-			console.log(data)
+			TD_Request('us','enterpack',{
+				uid:data.openid,
+				nickname:data.nickname,
+				headicon:data.headimgurl
+			},function(code,data){
+				console.log(data)
+			},function(code,data){
+				alert(data.context);
+			})
 			var rid = $_GET.rid;
 			TD_Request('rp','grp',{rid:rid},function(code,data){
 				console.log(data)
