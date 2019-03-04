@@ -12,9 +12,6 @@ img{
     background-size: cover;
     zoom: 0.5;
 }
-img{
-    zoom: 0.5;
-}
 .share .header{
     padding-top: 0.8rem;
     width: 6.9rem;
