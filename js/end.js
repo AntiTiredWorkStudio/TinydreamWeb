@@ -93,7 +93,7 @@ $(function(){
 					// console.log(number+10);
 					$.each(data.orders,function(index,item){
                         if(item.dtitle.length>7){
-                            item.dtit = item.dtitle.substring(0,8)+'...';
+                            item.dtit = item.dtitle.substring(0,7)+'...';
                         }else{
                             item.dtit = item.dtitle;
                         }
