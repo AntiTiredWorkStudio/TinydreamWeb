@@ -3,6 +3,7 @@ Loading();
 WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){
 			// $.showLoading("数据加载中");
+			console.log(data)
 			var rid = $_GET.rid;
 			TD_Request('rp','grp',{rid:rid},function(code,data){
 				console.log(data)
