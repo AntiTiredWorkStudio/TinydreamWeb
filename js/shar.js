@@ -83,7 +83,7 @@ $(function () {
                     img.src = src[index];
                     img.onload = function(){
                         console.log(img.src)
-                        alert('index1:'+index)
+                        // alert('index1:'+index)
                         if(index == 0){
                             // alert('index2:'+index)
                             // // ctx.scale(2,2)
@@ -132,7 +132,7 @@ $(function () {
                             var canvas = document.getElementById('canvas');
                             $('.share').css({'zoom':'0.5','width':$(window).width(),height:$(window).height()})
                             var url1 = canvas.toDataURL('image/png');
-                            alert('imgUrl:'+url1)
+                            // alert('imgUrl:'+url1)
                             // alert(1)
                             var tImage = new Image();
                             tImage.src = url1;
