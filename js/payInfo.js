@@ -21,7 +21,6 @@ if (!ExistStorage("buy")) {
         ];
         console.log(Math.floor(Math.random()*imgArr.length));
         var imgNum = Math.floor(Math.random()*imgArr.length);
-        localStorage.setItem('img',imgArr[imgNum]);
         var pay = null;
         var userInfo = Options.GetUserInfo();
         var buy = JSON.parse(localStorage.getItem('buy'));
@@ -185,38 +184,45 @@ if (!ExistStorage("buy")) {
                             did: $('#dream').attr("data-values")
                         }, function (code, data) {
                             //alert(JSON.stringify(data));
-                            $('.mask').fadeIn();
-                            localStorage.setItem('dr_did',$('#dream').attr('data-values'));
-                            var number = data.numbers;
-                            var lid = [];
-                            for (key in number) {
-                                var obj = number[key];
-                                lid.push(obj.lid)
-                            }
+                            // $('.mask').fadeIn();
+                            // localStorage.setItem('dr_did',$('#dream').attr('data-values'));
+                            // var number = data.numbers;
+                            // var lid = [];
+                            // for (key in number) {
+                            //     var obj = number[key];
+                            //     lid.push(obj.lid)
+                            // }
                             // if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
                             //     alert(lid.join('、'))
                             // }
-                            $('.num').html(lid.join('、')).css("color", "#00d094");
-                            console.log(data)
+                            // $('.num').html(lid.join('、')).css("color", "#00d094");
+                            // console.log(data)
+                            localStorage.setItem('img',imgArr[imgNum]);
+                            localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
                             // 关闭弹窗
                             localStorage.clear('buy');
+                            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm?time='+new Date().getTime();
                         }, function (code, data) {
                             if(code == 75){
-                                $('.mask').fadeIn();
-                                localStorage.setItem('dr_did',$('#dream').attr('data-values'));
-                                var number = data.numbers;
-                                var lid = [];
-                                for (key in number) {
-                                    var obj = number[key];
-                                    lid.push(obj.lid)
-                                }
-                                // if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                                //     alert(lid.join('、'))
-                                // }
-                                $('.num').html(lid.join('、')).css("color", "#00d094");
-                                console.log(data)
-                                // 关闭弹窗
+                                localStorage.setItem('img',imgArr[imgNum]);
+                                localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
                                 localStorage.clear('buy');
+                                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm?time='+new Date().getTime();
+                                // $('.mask').fadeIn();
+                                // localStorage.setItem('dr_did',$('#dream').attr('data-values'));
+                                // var number = data.numbers;
+                                // var lid = [];
+                                // for (key in number) {
+                                //     var obj = number[key];
+                                //     lid.push(obj.lid)
+                                // }
+                                // // if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
+                                // //     alert(lid.join('、'))
+                                // // }
+                                // $('.num').html(lid.join('、')).css("color", "#00d094");
+                                // console.log(data)
+                                // // 关闭弹窗
+                                // localStorage.clear('buy');
                             }else{
                                 alert('支付失败');
                             }
@@ -289,10 +295,6 @@ if (!ExistStorage("buy")) {
                     title: "选择梦想",
                     items: arr,
                     onClose: function () {
-                        if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4' || userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                            localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
-                            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm';
-                        }
                         if (typeof $('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev()
                             .children('p').html() == 'undefined') {
                             $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent(
