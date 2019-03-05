@@ -219,5 +219,8 @@ $(function () {
             console.log(data)
         })
     })
+    WebApp.JSAPI.OnShareFriend = function(res){
+        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
+    }
 }
 })

@@ -15,9 +15,6 @@ try {
 			link:'http://tinydream.antit.top/TinydreamWeb/html/getR_Pack.html?rid='+rid+'&?time='+new Date().getTime(),
 			imgUrl:"https://tdream.antit.top/image/Red_Open.jpg"
 		});
-		WebApp.JSAPI.OnShareFriend = function(res){
-			window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
-		}
 		WebApp.JSAPI.OnShareTimeLine = function(res){
 			window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
 		}

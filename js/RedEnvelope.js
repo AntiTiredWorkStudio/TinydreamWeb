@@ -1,5 +1,14 @@
 WebApp.JSAPI.Init();
 $(function(){
+    TD_Request('us','enterpack',{
+        uid:data.openid,
+        nickname:data.nickname,
+        headicon:data.headimgurl
+    },function(code,data){
+
+    },function(code,data){
+        console.log(data)
+    })
     // 红包记录处理
     $('.record span').click(function(){
         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/record.html?time='+new Date().getTime()
