@@ -232,7 +232,7 @@ if (!ExistStorage("buy")) {
             }
 
             $('.wxPay').click(function () {
-                if(userInfo.openid == '"oSORf5kkXvHNxhIx8lQVe3DFRFvw"'){
+                if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
                     localStorage.setItem('img',imgArr[imgNum]);
                     localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
                     // 关闭弹窗
