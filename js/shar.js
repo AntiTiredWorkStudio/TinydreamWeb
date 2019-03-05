@@ -18,6 +18,7 @@ $(function () {
                 did:did
             },function(code,data){
                 // console.log(data)
+                FinishLoading();
                 var canvas = document.getElementById('canvas');
                 $(canvas).css({
                     width:$(window).width(),
