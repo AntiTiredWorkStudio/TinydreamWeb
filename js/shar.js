@@ -10,7 +10,7 @@ $(function () {
         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime();
     }else{
         var userInfo = Options.GetUserInfo();
-        $.post('../php/url.php',{headimgurl:headimgurl},function(data){
+        $.post('../php/url.php',{headimgurl:userInfo.headimgurl},function(data){
             console.log(data)
             console.log(data);
             TD_Request('dr','gdream',{
@@ -56,7 +56,7 @@ $(function () {
                     nickname:"Michael Kong"
                 };//测试用*/
                 var imgArr = [
-                    url,userInfo.headimgurl,'http://tdream.antit.top/LongPress2ShareQR.jpg'
+                    url,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg'
                 ];
                 next(imgArr,0,0,0,$(window).width() * ratio,$(window).height() * ratio,canvas); 
         
