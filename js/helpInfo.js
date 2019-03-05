@@ -93,17 +93,16 @@ $(function(){
     var num;
     num = 0;
     $('.right').click(function(){
+        num == 0;
         $('.user_number').show();
         $('.tabList').empty().hide();
         $('.user_number').empty();
         getord(num);
     })
     $('.left').click(function(){
-        num = 0;
         $('.user_number').empty().hide();
         $('.tabList').show();
         $('.tabList').empty();
-        getord(num);
         self_tab(); 
     })
     $('.btns.click').click(function(){

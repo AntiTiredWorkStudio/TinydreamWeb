@@ -89,6 +89,14 @@ $(function(){
 					min:number,
 					max:10
 				},function(code,data){
+                    if(data.orders.length > 10 || data.orders.length == 0){
+                        $('.btns').hide();
+                        $('.tips').html('我是有底线的~~').show();
+                        return;
+                    }else{
+                        $('.btns').html('点击加载更多').show();
+						$('.tips').html('我是有底线的~~').hide()
+                    }
 					// console.log(data)
 					// console.log(number+10);
 					$.each(data.orders,function(index,item){
@@ -115,14 +123,6 @@ $(function(){
 							console.log(data)
 						})
 					})
-					if(number+10 >= orderCount){
-						$('.btns').hide();
-						$('.tips').html('我是有底线的~~').show();
-						return;
-					}else{
-						$('.btns').html('点击加载更多').show();
-						$('.tips').html('我是有底线的~~').hide()
-					}
 				},function(code,data){
 					console.log(data)
 				})

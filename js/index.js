@@ -199,7 +199,12 @@ $(function(){
                                 // console.log(data.actions.editdream)
                                 // return;
                                 localStorage.setItem('buy',JSON.stringify(data.actions));
-                                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?time="+new Date().getTime();
+                                if($_GET.type=='test'){
+                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?type=test&time="+new Date().getTime();
+                                }else{
+                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?time="+new Date().getTime();
+                                }
+                               
                             }else{
                                 if(confirm("您还没有添加梦想，添加梦想后才能参与互助")){
                                     localStorage.setItem('buy',JSON.stringify(data.actions));
