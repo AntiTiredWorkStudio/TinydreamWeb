@@ -22,9 +22,6 @@ if (!ExistStorage("buy")) {
         console.log(Math.floor(Math.random()*imgArr.length));
         var imgNum = Math.floor(Math.random()*imgArr.length);
         localStorage.setItem('img',imgArr[imgNum]);
-        if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4' || userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm';
-        }
         var pay = null;
         var userInfo = Options.GetUserInfo();
         var buy = JSON.parse(localStorage.getItem('buy'));
@@ -274,6 +271,11 @@ if (!ExistStorage("buy")) {
                     title: "选择梦想",
                     items: arr,
                     onClose: function () {
+                        if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4' || userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
+                            localStorage.setItem('dream',$('.weui_cell_ft input:radio[name="weui-select"]:checked').parent(
+                                '.weui_cell_ft').prev().children('p').html());
+                            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm';
+                        }
                         if (typeof $('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev()
                             .children('p').html() == 'undefined') {
                             $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent(
