@@ -192,21 +192,21 @@ if (!ExistStorage("buy")) {
                             }else{
 
                             
-                            // alert(JSON.stringify(data));
-                            $('.mask').fadeIn();
-                            localStorage.setItem('dr_did',$('#dream').attr('data-values'));
-                            var number = data.numbers;
-                            var lid = [];
-                            for (key in number) {
-                                var obj = number[key];
-                                lid.push(obj.lid)
+                                // alert(JSON.stringify(data));
+                                $('.mask').fadeIn();
+                                localStorage.setItem('dr_did',$('#dream').attr('data-values'));
+                                var number = data.numbers;
+                                var lid = [];
+                                for (key in number) {
+                                    var obj = number[key];
+                                    lid.push(obj.lid)
+                                }
+                                if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
+                                    alert(lid.join('、'))
+                                }
+                                $('.num').html(lid.join('、')).css("color", "#00d094");
+                                console.log(data)
                             }
-                            if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                                alert(lid.join('、'))
-                            }
-                            $('.num').html(lid.join('、')).css("color", "#00d094");
-                            console.log(data)
-                        }
                         }, function (code, data) {
                             if(code == 75){
                                 // localStorage.setItem('img',imgArr[imgNum]);
@@ -312,11 +312,11 @@ if (!ExistStorage("buy")) {
                             $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent(
                                 '.weui_cell_ft').prev().children('p').html())
                         } else {
-                            if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4' || userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                                localStorage.setItem('dream',$('.weui_cell_ft input:radio[name="weui-select"]:checked').parent(
-                                    '.weui_cell_ft').prev().children('p').html());
-                                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm';
-                            }
+                            // if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4' || userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
+                            //     localStorage.setItem('dream',$('.weui_cell_ft input:radio[name="weui-select"]:checked').parent(
+                            //         '.weui_cell_ft').prev().children('p').html());
+                            //     window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm';
+                            // }
                             if ($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev()
                                 .children('p').html().length > 4) {
                                 $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent(
