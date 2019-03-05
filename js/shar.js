@@ -83,26 +83,21 @@ $(function () {
                     img.src = src[index];
                     img.onload = function(){
                         console.log(img.src)
-                        // alert('index1:'+index)
-                        if(index == 0){
-                            // alert('index2:'+index)
-                            // // ctx.scale(2,2)
+                        alert('index1:'+index)
+                        if(index != 2){
+                            alert('index2:'+index)
+                            // ctx.scale(2,2)
                             ctx.drawImage(img,x,y,width,height)
-                            index = 1;
-                            // alert(index)
-                            next(imgArr,1,15 * ratio,40 * ratio,50 * ratio,50 * ratio) 
-                            // alert('F:'+JSON.stringify(r))
-                        }else if(index == 1){
-                            index = 2;
-                            // alert(index);
-                            // alert('index==2')
+                            next(imgArr,index+1,15 * ratio,40 * ratio,50 * ratio,50 * ratio) 
+                            // alert('F:'+JSON.stringify(next())
+                        }else{
+                            alert('index==2')
                             // alert('index3:'+index)
                             // ctx.scale(2,2)
                             x = x1;
                             y = y2;
                             width = 60 * ratio;
                             height = 60 * ratio;
-                            next(imgArr,2,x,y,width,height)
                             ctx.drawImage(img,x,y,width,height);
                             
                             ctx.globalCompositeOperation = 'source-over'
