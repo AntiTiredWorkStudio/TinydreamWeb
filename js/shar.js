@@ -16,7 +16,7 @@ $(function () {
             width:$(window).width(),
             height:$(window).height()
         })
-        $('body').css('background','red')
+        // $('body').css('background','red')
 
         var ctx = canvas.getContext('2d');
         // 获取像素比
