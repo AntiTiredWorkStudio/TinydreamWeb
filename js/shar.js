@@ -5,6 +5,9 @@ $(function () {
     localStorage.removeItem('img');
     var did = JSON.parse(localStorage.getItem('info')).did;
     var pid = JSON.parse(localStorage.getItem('info')).pid;
+    if(typeof url == 'undefined' || url == '' || url == null || typeof localStorage.getItem('info') == 'undefined' || localStorage.getItem('info') == null){
+        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime();
+    }else{
     var userInfo = Options.GetUserInfo();
     TD_Request('dr','gdream',{
         uid:userInfo.openid,
@@ -216,4 +219,5 @@ $(function () {
             console.log(data)
         })
     })
+}
 })
