@@ -3,6 +3,8 @@ $(function () {
     var num = 0;
     var url = localStorage.getItem('img');
     localStorage.removeItem('img');
+    var did = localStorage('did');
+    localStorage.removeItem('did');
 	//var url = 'https://tdream.antit.top/LongPress2Share10.jpg';//测试用
 	
     var canvas = document.getElementById('canvas');
@@ -66,50 +68,61 @@ $(function () {
         var img = new Image();
 		img.setAttribute('crossOrigin', 'anonymous');
         img.src = src[index];
-        img.onload = function(){
-            console.log(img.src)
-            if(index != 2){
-                // ctx.scale(2,2)
-                ctx.drawImage(img,x,y,width,height)
-                next(imgArr,index+1,15 * ratio,40 * ratio,50 * ratio,50 * ratio) 
-            }else{
-                // ctx.scale(2,2)
-                x = x1;
-                y = y2;
-                width = 60 * ratio;
-                height = 60 * ratio;
-                ctx.drawImage(img,x,y,width,height);
-                ctx.globalCompositeOperation = 'source-over'
-                ctx.fillStyle = '#fff';
-                var font = 15 * ratio;
-                ctx.font = font + 'px 微软雅黑';
-                if(userInfo.nickname.length > 6){
-                    var name = userInfo.nickname.substring(0,7)+'...';
+        TD_Request('dr','gdream',{
+            uid:userInfo.openid,
+            did:did
+        },function(code,data){
+            img.onload = function(){
+                console.log(img.src)
+                if(index != 2){
+                    // ctx.scale(2,2)
+                    ctx.drawImage(img,x,y,width,height)
+                    next(imgArr,index+1,15 * ratio,40 * ratio,50 * ratio,50 * ratio) 
                 }else{
-                    var name = userInfo.nickname;
+                    // ctx.scale(2,2)
+                    x = x1;
+                    y = y2;
+                    width = 60 * ratio;
+                    height = 60 * ratio;
+                    ctx.drawImage(img,x,y,width,height);
+                    ctx.globalCompositeOperation = 'source-over'
+                    ctx.fillStyle = '#fff';
+                    var font = 15 * ratio;
+                    ctx.font = font + 'px 微软雅黑';
+                    if(userInfo.nickname.length > 7){
+                        var name = userInfo.nickname.substring(0,8)+'...';
+                    }else{
+                        var name = userInfo.nickname;
+                    }
+                    ctx.fillText(name + ' #2019小梦想#',75 * ratio,56 * ratio);
+                    if(data.dream.tittle.length > 6){
+                        var dream = data.dream.title.substring(0,6)+'...'
+                    }else{
+                        var dream = data.dream.title;
+                    }
+                    var font = 19 * ratio;
+                    ctx.font = font + 'px 微软雅黑'
+                    ctx.fillText(dream+'(已成功参与互助)',75 * ratio,88 * ratio);
+                    var font = 14 * ratio;
+                    ctx.font = font + 'px 微软雅黑';
+                    ctx.fillText('扫码关注',$(window).width() * ratio - 141 * ratio,$(window).height() * ratio - 44 * ratio);
+                    ctx.fillText('小梦想互助',$(window).width() * ratio - 155 * ratio,$(window).height() * ratio - 25 * ratio);
+                    // alert(2)
+                    var canvas = document.getElementById('canvas');
+                    $('.share').css({'zoom':'0.5','width':$(window).width(),height:$(window).height()})
+                    var url1 = canvas.toDataURL('image/png');
+                    // alert(1)
+                    var tImage = new Image();
+                    tImage.src = url1;
+                    tImage.width = $('body').width();
+                    tImage.height = $('body').height();
+                    $('.share').html(tImage);
                 }
-                ctx.fillText(name + ' #2019小梦想#',75 * ratio,56 * ratio);
-                var dream = '云南鲜花饼店...';
-                var font = 19 * ratio;
-                ctx.font = font + 'px 微软雅黑'
-                ctx.fillText(dream+'(已成功参与互助)',75 * ratio,88 * ratio);
-                var font = 14 * ratio;
-                ctx.font = font + 'px 微软雅黑';
-                ctx.fillText('扫码关注',$(window).width() * ratio - 141 * ratio,$(window).height() * ratio - 44 * ratio);
-                ctx.fillText('小梦想互助',$(window).width() * ratio - 155 * ratio,$(window).height() * ratio - 25 * ratio);
-                // alert(2)
-                var canvas = document.getElementById('canvas');
-                $('.share').css({'zoom':'0.5','width':$(window).width(),height:$(window).height()})
-                var url1 = canvas.toDataURL('image/png');
-                // alert(1)
-                var tImage = new Image();
-                tImage.src = url1;
-                tImage.width = $('body').width();
-                tImage.height = $('body').height();
-                $('.share').html(tImage);
+                
             }
-            
-        }
+        },function(code,data){
+            console.log(data)
+        })
     }
 	//alert(canvas.toDataURL);
     // for(let i = 0;i<imgArr.length;i++){
