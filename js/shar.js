@@ -5,6 +5,7 @@ $(function () {
     localStorage.removeItem('img');
     var did = localStorage.getItem('did');
     localStorage.removeItem('did');
+    var userInfo = Options.GetUserInfo();
     TD_Request('dr','gdream',{
         uid:userInfo.openid,
         did:did
@@ -43,7 +44,6 @@ $(function () {
         var x1 = $(window).width() * ratio - 75 * ratio;
         var y = $(window).height() * ratio - 25 * ratio;
         var y2 = $(window).height() * ratio - 85 * ratio;
-        var userInfo = Options.GetUserInfo();
 	    /*var userInfo = {
 	    	headimgurl:'https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaELEgjjRsUFibrHsbpUicsCBkoU3eDTVuIJfkX2ibWpK2YT7ZsVsiaKobhD9bgOTkUl6IeYoo3xVPY2wRA/132',
 	    	nickname:"Michael Kong"
