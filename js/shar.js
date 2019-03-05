@@ -99,7 +99,6 @@ $(function () {
                     }else{
                         var dream = data.dream.title;
                     }
-                    var dream = '云南鲜花饼店...';
                     var font = 19 * ratio;
                     ctx.font = font + 'px 微软雅黑'
                     ctx.fillText(dream+'(已成功参与互助)',75 * ratio,88 * ratio);
