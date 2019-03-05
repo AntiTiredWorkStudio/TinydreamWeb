@@ -89,8 +89,9 @@ $(function () {
                             // ctx.scale(2,2)
                             ctx.drawImage(img,x,y,width,height)
                             next(imgArr,index+1,15 * ratio,40 * ratio,50 * ratio,50 * ratio) 
+                            alert('F:'+JSON.stringify(next(imgArr,index+1,15 * ratio,40 * ratio,50 * ratio,50 * ratio)))
                         }else{
-                            alert('index3:'+index)
+                            // alert('index3:'+index)
                             // ctx.scale(2,2)
                             x = x1;
                             y = y2;
