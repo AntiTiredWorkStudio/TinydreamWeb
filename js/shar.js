@@ -88,8 +88,8 @@ $(function () {
                             alert('index2:'+index)
                             // ctx.scale(2,2)
                             ctx.drawImage(img,x,y,width,height)
-                            next(imgArr,index+1,15 * ratio,40 * ratio,50 * ratio,50 * ratio) 
-                            alert('F:'+JSON.stringify(next())
+                            var r = next(imgArr,index+1,15 * ratio,40 * ratio,50 * ratio,50 * ratio) 
+                            alert('F:'+JSON.stringify(r)
                         }else{
                             alert('index==2')
                             // alert('index3:'+index)
