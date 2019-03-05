@@ -201,7 +201,25 @@ if (!ExistStorage("buy")) {
                             // 关闭弹窗
                             localStorage.clear('buy');
                         }, function (code, data) {
-                            alert(JSON.stringify(data))
+                            if(code == 75){
+                                $('.mask').fadeIn();
+                                localStorage.setItem('dr_did',$('#dream').attr('data-values'));
+                                var number = data.numbers;
+                                var lid = [];
+                                for (key in number) {
+                                    var obj = number[key];
+                                    lid.push(obj.lid)
+                                }
+                                // if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
+                                //     alert(lid.join('、'))
+                                // }
+                                $('.num').html(lid.join('、')).css("color", "#00d094");
+                                console.log(data)
+                                // 关闭弹窗
+                                localStorage.clear('buy');
+                            }else{
+                                alert('支付失败');
+                            }
                         })
                     }
                 });
