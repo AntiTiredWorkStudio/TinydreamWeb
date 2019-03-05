@@ -1,4 +1,5 @@
 $(function () {
+    Loading();
     var img = [];
     var num = 0;
     var url = localStorage.getItem('img');
@@ -110,6 +111,7 @@ $(function () {
                     ctx.fillText('扫码关注',$(window).width() * ratio - 141 * ratio,$(window).height() * ratio - 44 * ratio);
                     ctx.fillText('小梦想互助',$(window).width() * ratio - 155 * ratio,$(window).height() * ratio - 25 * ratio);
                     // alert(2)
+                    FinishLoading();
                     var canvas = document.getElementById('canvas');
                     $('.share').css({'zoom':'0.5','width':$(window).width(),height:$(window).height()})
                     var url1 = canvas.toDataURL('image/png');
