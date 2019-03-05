@@ -147,8 +147,8 @@ $(function () {
 								// alert(1)
 								var tImage = new Image();
 								tImage.src = url1;
-								tImage.width = $('body').width();
-								tImage.height = $('body').height();
+								tImage.width = $(window).width();
+								tImage.height = $(window).height();
 								$('.share').html(tImage);
 							}
         
