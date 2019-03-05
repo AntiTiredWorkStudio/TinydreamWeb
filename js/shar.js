@@ -12,7 +12,7 @@ $(function () {
         var userInfo = Options.GetUserInfo();
         $.post('../php/url.php',{headimgurl:userInfo.headimgurl},function(data){
             console.log(data)
-            // var headicon = data;
+            var headicon = data;
             TD_Request('dr','gdream',{
                 uid:userInfo.openid,
                 did:did
@@ -204,8 +204,6 @@ $(function () {
             },function(code,data){
                 console.log(data)
             })
-        },function(data){
-            console.log(data);
         })    
     
     
