@@ -236,7 +236,7 @@ if (!ExistStorage("buy")) {
                     localStorage.setItem('img',imgArr[imgNum]);
                     localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
                     // 关闭弹窗
-                    localStorage.clear('buy');
+                    localStorage.removeItem('buy');
                     window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm?time='+new Date().getTime();
                 }
                 if ($('#dream strong').html() == '') {
