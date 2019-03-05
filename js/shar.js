@@ -3,7 +3,7 @@ $(function () {
     var num = 0;
     var url = localStorage.getItem('img');
     localStorage.removeItem('img');
-    var did = localStorage('did');
+    var did = localStorage.getItem('did');
     localStorage.removeItem('did');
 	//var url = 'https://tdream.antit.top/LongPress2Share10.jpg';//测试用
 	
