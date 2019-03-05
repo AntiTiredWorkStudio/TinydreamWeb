@@ -83,19 +83,21 @@ $(function () {
                     img.src = src[index];
                     img.onload = function(){
                         console.log(img.src)
-                        alert(index)
+                        alert('index1:'+index)
                         if(index != 2){
-                            alert(index)
+                            alert('index2:'+index)
                             // ctx.scale(2,2)
                             ctx.drawImage(img,x,y,width,height)
                             next(imgArr,index+1,15 * ratio,40 * ratio,50 * ratio,50 * ratio) 
                         }else{
+                            alert('index3:'+index)
                             // ctx.scale(2,2)
                             x = x1;
                             y = y2;
                             width = 60 * ratio;
                             height = 60 * ratio;
                             ctx.drawImage(img,x,y,width,height);
+                            
                             ctx.globalCompositeOperation = 'source-over'
                             ctx.fillStyle = '#fff';
                             var font = 15 * ratio;
