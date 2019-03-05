@@ -4,6 +4,7 @@ $(function () {
     var num = 0;
     var url = localStorage.getItem('img');
     localStorage.removeItem('img');
+    alert('url:'+url);
     var did = JSON.parse(localStorage.getItem('info')).did;
     var pid = JSON.parse(localStorage.getItem('info')).pid;
     if(typeof url == 'undefined' || url == '' || url == null || typeof localStorage.getItem('info') == 'undefined' || localStorage.getItem('info') == null){
@@ -19,6 +20,7 @@ $(function () {
             },function(code,data){
                 // console.log(data)
                 FinishLoading();
+                Loading();
                 var canvas = document.getElementById('canvas');
                 $(canvas).css({
                     width:$(window).width(),
@@ -41,7 +43,7 @@ $(function () {
                 // console.log($(window).width())
                 canvas.width = $(window).width() * ratio;
                 canvas.height = $(window).height() * ratio;
-        
+                alert('ratio:'+ratio)
                 // canvas.width = $('.share').width();
                 // canvas.height = $('.share').height();
         
@@ -60,7 +62,7 @@ $(function () {
                     url,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg'
                 ];
                 next(imgArr,0,0,0,$(window).width() * ratio,$(window).height() * ratio,canvas); 
-        
+                alert('imgArr:'+JSON.stringify(imgArr))
                 // var l = canvas2image(canvas).then(function(res){
                 //     alert(res);
                 //     // $(window).html('<img class="bgi" src='+res+' />');
@@ -81,6 +83,7 @@ $(function () {
                     img.src = src[index];
                     img.onload = function(){
                         console.log(img.src)
+                        alert(index)
                         if(index != 2){
                             // ctx.scale(2,2)
                             ctx.drawImage(img,x,y,width,height)
@@ -119,6 +122,7 @@ $(function () {
                             var canvas = document.getElementById('canvas');
                             $('.share').css({'zoom':'0.5','width':$(window).width(),height:$(window).height()})
                             var url1 = canvas.toDataURL('image/png');
+                            alert('imgUrl:'+url1)
                             // alert(1)
                             var tImage = new Image();
                             tImage.src = url1;
