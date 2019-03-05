@@ -290,7 +290,7 @@ if (!ExistStorage("buy")) {
                     items: arr,
                     onClose: function () {
                         if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4' || userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                            localStorage.setItem('did',$('#dream').attr('data-values'));
+                            localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
                             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm';
                         }
                         if (typeof $('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev()
@@ -369,6 +369,8 @@ if (!ExistStorage("buy")) {
                 }else{
                     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/end.html";
                 }    
+            },function(code,data){
+                console.log(data);
             })
         })
 

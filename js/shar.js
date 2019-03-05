@@ -3,8 +3,8 @@ $(function () {
     var num = 0;
     var url = localStorage.getItem('img');
     localStorage.removeItem('img');
-    var did = localStorage.getItem('did');
-    localStorage.removeItem('did');
+    var did = JSON.parse(localStorage.getItem('info')).did;
+    var pid = JSON.parse(localStorage.getItem('info')).pid;
     var userInfo = Options.GetUserInfo();
     TD_Request('dr','gdream',{
         uid:userInfo.openid,
@@ -197,7 +197,23 @@ $(function () {
         console.log(data)
     })
     //var url = 'https://tdream.antit.top/LongPress2Share10.jpg';//测试用
-    $('.btn').click(function(){
-        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime();
+    $('.btn').click(function () {
+        TD_Request('dp','pinfo',{
+            pid:pid
+        },function(code,data){
+            var obj = DreamPoolAnalysis(data.pool)
+            console.log(obj)
+            localStorage.setItem('poolInfo',JSON.stringify(obj))
+            // if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM') {
+            //     return;
+            // }
+            if(obj.state == 'RUNNING'){
+                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/helpInfo.html?time"+new Date().getTime();
+            }else{
+                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/end.html?time"+new Date().getTime();
+            }    
+        },function(code,data){
+            console.log(data)
+        })
     })
 })
