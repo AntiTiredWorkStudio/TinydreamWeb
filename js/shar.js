@@ -100,7 +100,7 @@ $(function () {
                             y = y2;
                             width = 60 * ratio;
                             height = 60 * ratio;
-                            next(imgArr,index,15 * ratio,40 * ratio,50 * ratio,50 * ratio)
+                            next(imgArr,index,x,y,width,height)
                             ctx.drawImage(img,x,y,width,height);
                             
                             ctx.globalCompositeOperation = 'source-over'
