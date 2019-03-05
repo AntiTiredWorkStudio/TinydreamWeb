@@ -18,7 +18,10 @@
     curl_close($curl);
     //把URL格式的图片转成base64_encode格式的！
     if ($code == 200) {    
-        $imgBase64Code = "data:image/jpeg;base64," . base64_encode($datas);
+        //$imgBase64Code = "data:image/jpeg;base64," . base64_encode($datas);
+		$name = time().rand(10000,99999).".jpg";
+		file_put_contents($name,$datas);
+		$imgBase64Code = "http://tinydream.antit.top/TinydreamWeb/php/".$name;
         echo $imgBase64Code;
     }
 ?>
