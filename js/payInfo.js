@@ -200,13 +200,13 @@ if (!ExistStorage("buy")) {
                             localStorage.setItem('img',imgArr[imgNum]);
                             localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
                             // 关闭弹窗
-                            localStorage.clear('buy');
+                            localStorage.removeItem('buy');
                             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm?time='+new Date().getTime();
                         }, function (code, data) {
                             if(code == 75){
                                 localStorage.setItem('img',imgArr[imgNum]);
                                 localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
-                                localStorage.clear('buy');
+                                localStorage.removeItem('buy');
                                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm?time='+new Date().getTime();
                                 // $('.mask').fadeIn();
                                 // localStorage.setItem('dr_did',$('#dream').attr('data-values'));
@@ -232,13 +232,13 @@ if (!ExistStorage("buy")) {
             }
 
             $('.wxPay').click(function () {
-                if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                    localStorage.setItem('img',imgArr[imgNum]);
-                    localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
-                    // 关闭弹窗
-                    localStorage.removeItem('buy');
-                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm?time='+new Date().getTime();
-                }
+                // if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
+                //     localStorage.setItem('img',imgArr[imgNum]);
+                //     localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
+                //     // 关闭弹窗
+                //     localStorage.removeItem('buy');
+                //     window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm?time='+new Date().getTime();
+                // }
                 if ($('#dream strong').html() == '') {
                     alert('请选择梦想后进行支付！');
                     return;
