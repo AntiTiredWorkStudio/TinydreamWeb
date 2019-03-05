@@ -85,6 +85,7 @@ $(function () {
                         console.log(img.src)
                         alert(index)
                         if(index != 2){
+                            alert(index)
                             // ctx.scale(2,2)
                             ctx.drawImage(img,x,y,width,height)
                             next(imgArr,index+1,15 * ratio,40 * ratio,50 * ratio,50 * ratio) 
