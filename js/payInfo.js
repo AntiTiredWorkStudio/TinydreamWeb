@@ -229,6 +229,7 @@ if (!ExistStorage("buy")) {
                                 // 关闭弹窗
                                 localStorage.clear('buy');
                             }else{
+                                alert(code);
                                 alert('支付失败');
                             }
                         })
