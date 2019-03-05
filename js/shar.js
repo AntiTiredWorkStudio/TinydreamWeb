@@ -196,5 +196,8 @@ $(function () {
     },function(code,data){
         console.log(data)
     })
-	//var url = 'https://tdream.antit.top/LongPress2Share10.jpg';//测试用
+    //var url = 'https://tdream.antit.top/LongPress2Share10.jpg';//测试用
+    $('.btn').click(function(){
+        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime();
+    })
 })
