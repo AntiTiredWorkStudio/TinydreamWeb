@@ -10,7 +10,7 @@ $(function () {
         uid:userInfo.openid,
         did:did
     },function(code,data){
-        console.log(data)
+        // console.log(data)
         var canvas = document.getElementById('canvas');
         $(canvas).css({
             width:$(window).width(),
@@ -88,12 +88,17 @@ $(function () {
                     ctx.fillStyle = '#fff';
                     var font = 15 * ratio;
                     ctx.font = font + 'px 微软雅黑';
-                    if(userInfo.nickname.length > 6){
+                    if(userInfo.nickname.length > 7){
                         var name = userInfo.nickname.substring(0,7)+'...';
                     }else{
                         var name = userInfo.nickname;
                     }
                     ctx.fillText(name + ' #2019小梦想#',75 * ratio,56 * ratio);
+                    if(data.dream.title.length > 6){
+                        var dream = data.dream.title.substring(0,6)+"...";
+                    }else{
+                        var dream = data.dream.title;
+                    }
                     var dream = '云南鲜花饼店...';
                     var font = 19 * ratio;
                     ctx.font = font + 'px 微软雅黑'
