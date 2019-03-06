@@ -1,27 +1,38 @@
 $(function () {
+    alert('Loading:');
     Loading();
     var img = [];
     var num = 0;
     var url = localStorage.getItem('img');
     localStorage.removeItem('img');
-    //alert('url:'+url);
-    var did = JSON.parse(localStorage.getItem('info')).did;
+    alert('Loading:01');
+    var tdid = JSON.parse(localStorage.getItem('info')).did;
     var pid = JSON.parse(localStorage.getItem('info')).pid;
+    alert('Loading:02');
+	
+	var condition = typeof url == 'undefined' || url == '' || url == null || typeof localStorage.getItem('info') == 'undefined' || localStorage.getItem('info') == null;
+	
+	
+    alert('Loading:'+JSON.stringify(Options));
+	
     if(typeof url == 'undefined' || url == '' || url == null || typeof localStorage.getItem('info') == 'undefined' || localStorage.getItem('info') == null){
         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime();
     }else{
-        alert($(window))
         var userInfo = Options.GetUserInfo();
         $.post('../php/url.php',{headimgurl:userInfo.headimgurl},function(data){
+			alert('Loading url.php:'+JSON.stringify(data));
             console.log(data)
             var headicon = data;
+			alert('Loading openid:'+userInfo.openid);
+			alert('Loading dream:'+tdid);
             TD_Request('dr','gdream',{
                 uid:userInfo.openid,
-                did:did
+                did:tdid
             },function(code,data){
                 // console.log(data)
                 FinishLoading();
                 Loading();
+				alert('Loading gdream:'+JSON.stringify(data));
                 var canvas = document.getElementById('canvas');
                 $(canvas).css({
                     width:$(window).width(),
@@ -155,66 +166,6 @@ $(function () {
         
                     }
                 }
-                //alert(canvas.toDataURL);
-                // for(let i = 0;i<imgArr.length;i++){
-                //     console.log(i)
-                //     img[i] = new Image();
-                //     img[i].src = imgArr[i];
-                //     img[i].onload = function(){
-                //         if(i == 0){
-                //             alert(i)
-                //             ctx.drawImage(img[i],0,0,$('.share').width(),$('.share').height())
-                //         }else if(i == 1){
-                //             alert(i);
-                //             ctx.drawImage(img[i],15,40,50,50);
-                //         }else if(i == 2){
-                //             alert(i)
-                //             ctx.drawImage(img[num],x1,y2,60,60);
-                //             alert('全部绘制完成')
-                //         }
-                //     }
-                    //     num++;
-                    //     if(total+1 == num){
-                    //         alert('success')
-                    //     }
-                    //     console.log(i)
-                    //     if(i == 0){
-                    //         ctx.drawImage(img[i],0,0,$('.share').width(),$('.share').height())
-        
-                    //     }else if(i == 1){
-                    //         // num++;
-                    //         ctx.drawImage(img[i],15,40,50,50);
-                    //     }else if(total+1 == num){
-                    //         alert('加载完毕');
-                    //         ctx.drawImage(img[num],x1,y2,60,60);
-                    //     }
-                        // ctx.globalCompositeOperation = 'source-over'
-                        // if(i == 0){
-                        //     console.log(img)
-                        //     ctx.drawImage(img,0,0,$('.share').width(),$('.share').height())
-                        // }else if(i == 1){
-                        //     console.log(img)
-                        //     ctx.drawImage(img,15,40,50,50)
-                        // }else if(i == 2){
-                        //     console.log(img)
-                        //     ctx.drawImage(qr,x1,y2,60,60);
-                        //     canvas2image(canvas).then(function(res){
-                        //         console.log(res)
-                        //     })
-                        // }
-                    // }
-                // }
-                // function canvas2image(){
-        
-                //     // var imgs = new Image();
-                // //    imgs.src = canvas.toDataURL('image/png');
-                // //    imgs.width = $('.share').width();
-                // //     imgs.height = $('.share').height();
-                //     // var imgs =new Image();
-                //     // imgs.src = canvas.toDataURL('image/jpg',1);
-                //     // var url1 = canvas.toDataURL('image/jpg',1)
-                //     // return canvas;
-                // }
                 $('.bg').attr('src',url).css({
                     width:$('.share').width(),
                     height:$('.share').height(),
@@ -230,6 +181,7 @@ $(function () {
                 }
             },function(code,data){
                 console.log(data)
+				alert('Loading :'+JSON.stringify(data));
             })
         })    
     
@@ -258,4 +210,6 @@ $(function () {
         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
     }
 }
+
+    alert('Loading:final');
 })
