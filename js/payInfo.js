@@ -238,7 +238,7 @@ if (!ExistStorage("buy")) {
             }
 
             $('.wxPay').click(function () {
-                if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4' || userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM'){
+                if($_GET.type=='get'){
                     localStorage.setItem('img',imgArr[imgNum]);
                     localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
                     // 关闭弹窗
