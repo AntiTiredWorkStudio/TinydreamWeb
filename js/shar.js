@@ -165,7 +165,7 @@ $(function () {
                                 $('img').css('width','100%');
                                 setTimeout(function(){
                                     FinishLoading();
-                                },3000)
+                                },1000)
                                 // Loading();
                                 // alert('window-width:'+$(window).width())
                                 // alert('window-height:'+$(window).height())
