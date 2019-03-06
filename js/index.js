@@ -200,7 +200,7 @@ $(function(){
                                 // return;
                                 localStorage.setItem('buy',JSON.stringify(data.actions));
                                 if($_GET.type=='get'){
-                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?type=test&time="+new Date().getTime();
+                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?type=get&time="+new Date().getTime();
                                 }else{
                                     window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?time="+new Date().getTime();
                                 }
