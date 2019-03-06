@@ -106,6 +106,7 @@ $(function(){
         // $('button').html('查看详情').click(function(){
         //     mainPool(data.pid);
         // })
+        $('.content ul').empty();
         redpack(0)
         $('.fpack,.fpack span').click(function(){
             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html?time='+new Date().getTime();
