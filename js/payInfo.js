@@ -206,7 +206,7 @@ if (!ExistStorage("buy")) {
                                 // }
                                 // $('.num').html(lid.join('、')).css("color", "#00d094");
                                 // console.log(data)
-                                ocalStorage.setItem('img',imgArr[imgNum]);
+                                localStorage.setItem('img',imgArr[imgNum]);
                                 localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
                                 // 关闭弹窗
                                 localStorage.removeItem('buy');
@@ -233,7 +233,7 @@ if (!ExistStorage("buy")) {
                                 // console.log(data)
                                 // // 关闭弹窗
                                 // localStorage.clear('buy');
-                                ocalStorage.setItem('img',imgArr[imgNum]);
+                                localStorage.setItem('img',imgArr[imgNum]);
                                 localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
                                 // 关闭弹窗
                                 localStorage.removeItem('buy');
