@@ -288,14 +288,20 @@ if (!ExistStorage("buy")) {
         }, function (code, data) {
             if (code == 0) {
                 var arr = [];
+                var dreamArr = [];
+                // if(data.dreams.state == 'SUBMIT' || data.dreams.state == 'FAILED'){
+                //     dreamArr.push(data.dreams)
+                // }
                 $.each(data.dreams, function (index, item) {
-                    console.log(item);
-                    console.log(item.title);
+                    if(item.state == 'SUBMIT' || item.state == 'FAILED'){
+                        dreamArr.push(item)
+                    }
+                })
+                $.each(dreamArr,function(index,item){
                     arr.push({
                         title: item.title,
                         value: item.did
                     });
-                    console.log(arr)
                 })
                 console.log(arr[arr.length - 1])
                 if (arr[arr.length - 1].title.length > 4) {
