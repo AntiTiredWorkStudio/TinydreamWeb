@@ -153,7 +153,7 @@ $(function () {
 								// alert(2)
 								FinishLoading();
 								var canvas = document.getElementById('canvas');
-								$('.share').css({'zoom':'0.5','width':$(window).width(),height:$(window).height()})
+								$('.share').css({'zoom':'1','width':$(window).width(),height:$(window).height()})
 								var url1 = canvas.toDataURL('image/png');
 								// alert('imgUrl:'+url1)
 								// alert(1)
