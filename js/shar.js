@@ -151,7 +151,6 @@ $(function () {
 								ctx.fillText('扫码关注',$(window).width() * ratio - 141 * ratio,$(window).height() * ratio - 44 * ratio);
 								ctx.fillText('小梦想互助',$(window).width() * ratio - 155 * ratio,$(window).height() * ratio - 25 * ratio);
 								// alert(2)
-								FinishLoading();
 								var canvas = document.getElementById('canvas');
 								$('.share').css({'zoom':'1','width':$(window).width(),height:$(window).height()})
 								var url1 = canvas.toDataURL('image/png');
@@ -164,6 +163,7 @@ $(function () {
                                 // tImage.style.height = $(window).height()
                                 $('.share').html(tImage);
                                 $('img').css('width','100%');
+                                FinishLoading();
                                 // alert('window-width:'+$(window).width())
                                 // alert('window-height:'+$(window).height())
                                 // alert('body-width:'+$('body').width())
