@@ -55,7 +55,7 @@ $(function () {
                 // console.log($(window).width())
                 canvas.width = $(window).width() * ratio;
                 canvas.height = $(window).height() * ratio;
-                alert('ratio:'+ratio)
+                // alert('ratio:'+ratio)
                 // canvas.width = $('.share').width();
                 // canvas.height = $('.share').height();
         
@@ -74,7 +74,7 @@ $(function () {
                     url,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg'
                 ];
                 next(imgArr,0,0,0,$(window).width() * ratio,$(window).height() * ratio,canvas); 
-                alert('imgArr:'+JSON.stringify(imgArr))
+                // alert('imgArr:'+JSON.stringify(imgArr))
                 // var l = canvas2image(canvas).then(function(res){
                 //     alert(res);
                 //     // $(window).html('<img class="bgi" src='+res+' />');
@@ -162,14 +162,14 @@ $(function () {
 								tImage.width = $(window).width();
 								tImage.height = $(window).height();
                                 $('.share').html(tImage);
-                                alert('window-width:'+$(window).width())
-                                alert('window-height:'+$(window).height())
-                                alert('body-width:'+$('body').width())
-                                alert('body-height:'+$('body').height())
-                                alert('share-width:'+$('.share').width())
-                                alert('share-width:'+$('.share').height())
-                                alert('img-width:'+$('img').width())
-                                alert('img-width:'+$('img').height())
+                                // alert('window-width:'+$(window).width())
+                                // alert('window-height:'+$(window).height())
+                                // alert('body-width:'+$('body').width())
+                                // alert('body-height:'+$('body').height())
+                                // alert('share-width:'+$('.share').width())
+                                // alert('share-width:'+$('.share').height())
+                                // alert('img-width:'+$('img').width())
+                                // alert('img-width:'+$('img').height())
 							}
         
                     }
