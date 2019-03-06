@@ -163,7 +163,9 @@ $(function () {
                                 // tImage.style.height = $(window).height()
                                 $('.share').html(tImage);
                                 $('img').css('width','100%');
-                                FinishLoading();
+                                setTimeout(function(){
+                                    FinishLoading();
+                                },3000)
                                 // Loading();
                                 // alert('window-width:'+$(window).width())
                                 // alert('window-height:'+$(window).height())
