@@ -164,7 +164,7 @@ $(function () {
                                 $('.share').html(tImage);
                                 $('img').css('width','100%');
                                 FinishLoading();
-                                Loading();
+                                // Loading();
                                 // alert('window-width:'+$(window).width())
                                 // alert('window-height:'+$(window).height())
                                 // alert('body-width:'+$('body').width())
