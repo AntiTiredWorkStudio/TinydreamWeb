@@ -10,6 +10,7 @@ $(function () {
     if(typeof url == 'undefined' || url == '' || url == null || typeof localStorage.getItem('info') == 'undefined' || localStorage.getItem('info') == null){
         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime();
     }else{
+        alert($(window))
         var userInfo = Options.GetUserInfo();
         $.post('../php/url.php',{headimgurl:userInfo.headimgurl},function(data){
             console.log(data)
