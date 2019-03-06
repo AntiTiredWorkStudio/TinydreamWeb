@@ -64,7 +64,7 @@ $(function(){
                 $('.tip_txt').html('发出红包金额<span style="color:#f25542">'+data.stats.totalBill / 100+'</span>元').css('font-size','0.3rem');
                 _.each(data.packs,function(item){
                     // 发出时间
-                    // console.log(item);
+                    console.log(item);
                     // item.rstate = '';
                     var time = GetLocalTime(item.ctime)
                     item.time = time;
