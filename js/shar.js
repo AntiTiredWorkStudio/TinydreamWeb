@@ -161,7 +161,15 @@ $(function () {
 								tImage.src = url1;
 								tImage.width = $(window).width();
 								tImage.height = $(window).height();
-								$('.share').html(tImage);
+                                $('.share').html(tImage);
+                                alert('window-width:'+$(window).width())
+                                alert('window-height:'+$(window).height())
+                                alert('body-width:'+$('body').width())
+                                alert('body-height:'+$('body').height())
+                                alert('share-width:'+$('.share').width())
+                                alert('share-width:'+$('.share').height())
+                                alert('img-width:'+$('img').width())
+                                alert('img-width:'+$('img').height())
 							}
         
                     }
