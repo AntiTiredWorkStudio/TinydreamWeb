@@ -1,30 +1,30 @@
 $(function () {
-    alert('Loading:');
+    //alert('Loading:');
     Loading();
     var img = [];
     var num = 0;
     var url = localStorage.getItem('img');
     localStorage.removeItem('img');
-    alert('Loading:01');
+   // alert('Loading:01');
     var tdid = JSON.parse(localStorage.getItem('info')).did;
     var pid = JSON.parse(localStorage.getItem('info')).pid;
-    alert('Loading:02');
+    //alert('Loading:02');
 	
 	var condition = typeof url == 'undefined' || url == '' || url == null || typeof localStorage.getItem('info') == 'undefined' || localStorage.getItem('info') == null;
 	
 	
-    alert('Loading:'+JSON.stringify(Options));
+    //alert('Loading:'+JSON.stringify(Options));
 	
     if(typeof url == 'undefined' || url == '' || url == null || typeof localStorage.getItem('info') == 'undefined' || localStorage.getItem('info') == null){
         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime();
     }else{
         var userInfo = Options.GetUserInfo();
         $.post('../php/url.php',{headimgurl:userInfo.headimgurl},function(data){
-			alert('Loading url.php:'+JSON.stringify(data));
+			//alert('Loading url.php:'+JSON.stringify(data));
             console.log(data)
             var headicon = data;
-			alert('Loading openid:'+userInfo.openid);
-			alert('Loading dream:'+tdid);
+			//alert('Loading openid:'+userInfo.openid);
+			//alert('Loading dream:'+tdid);
             TD_Request('dr','gdream',{
                 uid:userInfo.openid,
                 did:tdid
@@ -32,7 +32,7 @@ $(function () {
                 // console.log(data)
                 FinishLoading();
                 Loading();
-				alert('Loading gdream:'+JSON.stringify(data));
+				//alert('Loading gdream:'+JSON.stringify(data));
                 var canvas = document.getElementById('canvas');
                 $(canvas).css({
                     width:$(window).width(),
