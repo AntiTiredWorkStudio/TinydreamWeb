@@ -30,8 +30,8 @@ $(function () {
                 did:tdid
             },function(code,data){
                 // console.log(data)
-                FinishLoading();
-                Loading();
+                // FinishLoading();
+                // Loading();
 				//alert('Loading gdream:'+JSON.stringify(data));
                 var canvas = document.getElementById('canvas');
                 $(canvas).css({
@@ -190,7 +190,7 @@ $(function () {
                 }else{
                     $('.nickname .name').html(userInfo.nickname);
                 }
-                FinishLoading();
+                // FinishLoading();
             },function(code,data){
                 console.log(data)
 				alert('Loading :'+JSON.stringify(data));
