@@ -159,8 +159,8 @@ $(function () {
 								// alert(1)
 								var tImage = new Image();
 								tImage.src = url1;
-								tImage.width = $(window).width();
-								tImage.height = $(window).height();
+								tImage.width = $(window).width() * ratio;
+								tImage.height = $(window).height() * ratio;
                                 $('.share').html(tImage);
                                 // alert('window-width:'+$(window).width())
                                 // alert('window-height:'+$(window).height())
