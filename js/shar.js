@@ -163,7 +163,6 @@ $(function () {
                                 // tImage.style.height = $(window).height()
                                 $('.share').html(tImage);
                                 $('img').css('width','100%');
-                                FinishLoading();
                                 // alert('window-width:'+$(window).width())
                                 // alert('window-height:'+$(window).height())
                                 // alert('body-width:'+$('body').width())
@@ -189,6 +188,7 @@ $(function () {
                 }else{
                     $('.nickname .name').html(userInfo.nickname);
                 }
+                FinishLoading();
             },function(code,data){
                 console.log(data)
 				alert('Loading :'+JSON.stringify(data));
