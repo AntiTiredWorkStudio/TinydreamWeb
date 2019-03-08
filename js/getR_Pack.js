@@ -30,7 +30,7 @@ WebApp.Init('wxc5216d15dd321ac5',//appid
 						'background-size':'0.88rem 0.88rem'
 					});
 					$('.title').html(userInfo.nickname+'的梦想红包');
-					$('.msg').html(data.redpack.content);
+					$('.msg').html('<xmp>'+data.redpack.content+'</xmp>');
 					FinishLoading()
 					$('button').click(function(){
 						localStorage.setItem('rid',rid);
