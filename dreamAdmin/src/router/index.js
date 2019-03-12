@@ -1,66 +1,70 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '@/components/Login'
-import Time from '@/components/Time'
-import Release from '@/components/Release'
-import Tongji from '@/components/Tongji'
+import Index from '@/components/Index'
+import DreamPool from '@/components/DreamPool'
+import Shenhe from '@/components/Shenhe'
+import Access from '@/components/Access'
 import Ord from '@/components/Ord'
 import Photo from '@/components/Photo'
-import Refund from '@/components/Refund'
+import R_tuikuan from '@/components/R_tuikuan'
+import Statis from '@/components/Statis'
 import Redpack from '@/components/Redpack'
-import Audit from '@/components/Audit'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
 export default new Router({
-  // linkActiveClass:'active',
   routes: [
     {
-      path:'/',
-      name:'local_time',
-      component: Time
+      path: '/index/:title/:state',
+      name: 'Index',
+      component: Index
     },
     {
-      path: '/login',
-      name: 'Login',
-      component: Login
+      path:'/dreamPool/:title',
+      name:'dreamPool',
+      component: DreamPool
     },
     {
-      path: '/release',
-      name: 'release',
-      component: Release
+      path:'/shenhe/:title',
+      name:'shenhe',
+      component: Shenhe
     },
     {
-      path:'/tongji',
-      name:'tongji',
-      component: Tongji
+        path:'/access/:title',
+        name:'access',
+        component: Access
     },
     {
-      path:'/ord',
+      path:'/ord/:title',
       name:'ord',
       component: Ord
     },
     {
-      path:'/photo',
-      name:'photo',
-      component: Photo
+        path:'/photo/:title',
+        name:'photo',
+        component: Photo
     },
     {
-      path:'/refund',
-      name:'refund',
-      component: Refund
+      path:'/rpack/:title',
+      name:'tuikuan',
+      component: R_tuikuan
     },
     {
-      path:'/redpack',
+      path:'/statis/:title',
+      name:'statis',
+      component: Statis,
+    },
+    {
+      path:'/redpack/:title',
       name:'redpack',
       component: Redpack
     },
     {
-      path:'/audit',
-      name:'audit',
-      component: Audit
+      path:'/:title',
+      name:'login',
+      component: Login
     }
   ],
-  mode: 'history',
-  linkActiveClass: "active",
+  mode:'history'
 })

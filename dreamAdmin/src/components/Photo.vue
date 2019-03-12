@@ -1,86 +1,71 @@
 <template>
-  <div class="photo">
-    <h3>中奖未上传活动照片项</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>期号</th>
-          <th>活动照片</th>
-          <th>中奖编号</th>
-          <th>图片选择</th>
-          <th>上传</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>梦想互助20190209期</td>
-          <td style="color:#3287B2">点击查看</td>
-          <td>20190209-10000098</td>
-          <td><input type="file"></td>
-          <td><button>上传</button></td>
-        </tr>
-        <tr>
-          <td>梦想互助20190209期</td>
-          <td style="color:#3287B2">点击查看</td>
-          <td>20190209-10000098</td>
-          <td><input type="file"></td>
-          <td><button>上传</button></td>
-        </tr>
-        <tr>
-          <td>梦想互助20190209期</td>
-          <td style="color:#3287B2">点击查看</td>
-          <td>20190209-10000098</td>
-          <td><input type="file"></td>
-          <td><button>上传</button></td>
-        </tr>
-        <tr>
-          <td>梦想互助20190209期</td>
-          <td style="color:#3287B2">点击查看</td>
-          <td>20190209-10000098</td>
-          <td><input type="file"></td>
-          <td><button>上传</button></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="photo">
+        <van-button class="btn" type='primary' plain>
+            <p>
+                <span class="title">20190303</span>
+                <span class="look">点击查看</span>
+            </p>
+            <p>
+                <span class="nickname">Michael Kong</span>
+            </p>
+            <p>
+                中奖编号:<span class="lid">20190303-10000098</span>
+            </p>
+            <p style="text-align:center">
+                <van-uploader :after-read="onRead">
+                    <van-button type='primary' plain class="upload">选择文件</van-button>
+                </van-uploader>
+                <van-button type='primary' plain class="upload" style="margin-left:2vw" @click="upload">上传</van-button>
+            </p>
+        </van-button>
+    </div>
 </template>
 
 <script>
 export default {
-  name:'photo',
+    name:'photo',
+    data () {
+        return {
+            file:''
+        }
+    },
+    methods: {
+        onRead(file,content){
+            console.log(file,content)
+            this.file = file
+        },
+        upload(){
+            console.log(this.file)
+            // 上传逻辑
+        }
+    },
 }
 </script>
 
-<style lang="less" scoped>
-  .photo{
-    width: 100%;
-    height: 100%;
-    overflow: scroll;
-    h3{
-      text-align: center;
-      font-size: 24px;
-      padding-top: 5%;
+<style scoped lang="less">
+    .photo{
+        width: 100%;
+        .btn{
+            width: 96vw;
+            margin: 0 auto;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-top: 2vw;
+            height: 30vw;
+            text-align: left;
+            
+            p{
+                line-height: 1.5;
+                .look{
+                    float:right;
+                    text-decoration: underline;
+                    color: #0099ff;
+                }
+                .upload{
+                    height: 10vw;
+                }
+            }
+        }
     }
-    table{
-      margin-top: 5%;
-      width: 100%;
-      border-spacing: 0;
-      thead,tr,th,td{
-        font-size: 12px;
-        text-align: center;
-        border: 1px solid #efefef;
-        padding-top: 3%;
-        padding-bottom: 3%;
-      }
-      input{
-        width: 90%;
-        outline: 0;
-      }
-      button{
-        border: none;
-        background-color: #3ca512;
-        color: #fff;
-      }
-    }
-  }
 </style>

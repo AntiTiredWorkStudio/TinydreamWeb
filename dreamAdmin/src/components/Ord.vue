@@ -1,202 +1,153 @@
 <template>
-  <div class="ord">
-    <div class="warp">
-      <h3>筛选条件</h3>
-      <div>
-        查询手机号:
-        <input type="number" v-model="phoneNum">
-      </div>
-      <div>
-        开始日期
-        <input type="date" v-model="dateStart">
-      </div>
-      <div>
-        结束日期:
-        <input type="date" v-model="dateEnd">
-      </div>
-      <button @click="select">查 询</button>
+    <div class="ord">
+        <div class="main">
+            <van-row type="flex" align='center' justify='center'>
+                <van-field type='number' left-icon="phone-o"  label="手机号" placeholder="请输入手机号"/>
+            </van-row>
+             <van-row type="flex" align='center' justify='center'>
+                <van-field type='text' label="开始时间" v-model="start_date" :style="{display:starState}" left-icon='clock-o' @click="check('start')" placeholder="请输入开始时间"/>
+            </van-row>
+             <van-row type="flex" align='center' justify='center'>
+                <van-field type='text' :style="{display:endState}" label="结束时间" left-icon='clock-o' v-model="end_date" @click="check('end')" placeholder="请输入结束时间"/>
+            </van-row>
+            <van-row type="flex" align='center' justify='center'>
+              <van-datetime-picker @confirm="confirm" @change="change" v-model="currentDate" :style="{display:endpicker}" style="width:100%" type="date" :min-date="minDate"/>
+            </van-row>
+            <van-row type="flex" align='center' justify='center'>
+                <van-button type="primary">查询</van-button>
+            </van-row>
+        </div>
+        <van-row type="flex" align='center' justify='center'>
+            <table>
+                <thead>
+                    <tr>
+                        <th>订单号</th>
+                        <th>互助期号</th>
+                        <th>互助金额</th>
+                        <th>创建时间</th>
+                        <th>支付时间</th>
+                        <th>昵称</th>
+                        <th>手机号</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(ord,index) in ords" :key="index">
+                        <td>{{ord.ord_num}}</td>
+                        <td>{{ord.join_num}}</td>
+                        <td>{{ord.join_bill}}</td>
+                        <td>{{ord.ctime}}</td>
+                        <td>{{ord.ptime}}</td>
+                        <td style="color:#8bc0e4;">{{ord.nickname}}</td>
+                        <td>{{ord.phoneNum}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </van-row>
     </div>
-    <div class="warp" style="height:50%;overflow:scroll">
-      <h2 style="padding-top:5%;text-align:center">订单列表&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">互助总金额1225.2元</span></h2>
-      <table>
-        <thead>
-          <tr>
-            <th>订单号</th>
-            <th>梦想互助期号</th>
-            <th>互助金额(元)</th>
-            <th>创建时间</th>
-            <th>支付时间</th>
-            <th>昵称</th>
-            <th>手机号</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>103497146905</td>
-            <td>20190303</td>
-            <td>25</td>
-            <td>2019-03-08 16:23:39</td>
-            <td>2019-03-08 16:24:08</td>
-            <td>小明哥</td>
-            <td>15091996280</td>
-          </tr>
-          <tr>
-            <td>103497146905</td>
-            <td>20190303</td>
-            <td>25</td>
-            <td>2019-03-08 16:23:39</td>
-            <td>2019-03-08 16:24:08</td>
-            <td>小明哥</td>
-            <td>15091996280</td>
-          </tr>
-          <tr>
-            <td>103497146905</td>
-            <td>20190303</td>
-            <td>25</td>
-            <td>2019-03-08 16:23:39</td>
-            <td>2019-03-08 16:24:08</td>
-            <td>小明哥</td>
-            <td>15091996280</td>
-          </tr>
-          <tr>
-            <td>103497146905</td>
-            <td>20190303</td>
-            <td>25</td>
-            <td>2019-03-08 16:23:39</td>
-            <td>2019-03-08 16:24:08</td>
-            <td>小明哥</td>
-            <td>15091996280</td>
-          </tr>
-          <tr>
-            <td>103497146905</td>
-            <td>20190303</td>
-            <td>25</td>
-            <td>2019-03-08 16:23:39</td>
-            <td>2019-03-08 16:24:08</td>
-            <td>小明哥</td>
-            <td>15091996280</td>
-          </tr>
-          <tr>
-            <td>103497146905</td>
-            <td>20190303</td>
-            <td>25</td>
-            <td>2019-03-08 16:23:39</td>
-            <td>2019-03-08 16:24:08</td>
-            <td>小明哥</td>
-            <td>15091996280</td>
-          </tr>
-          <tr>
-            <td>103497146905</td>
-            <td>20190303</td>
-            <td>25</td>
-            <td>2019-03-08 16:23:39</td>
-            <td>2019-03-08 16:24:08</td>
-            <td>小明哥</td>
-            <td>15091996280</td>
-          </tr>
-          <tr>
-            <td>103497146905</td>
-            <td>20190303</td>
-            <td>25</td>
-            <td>2019-03-08 16:23:39</td>
-            <td>2019-03-08 16:24:08</td>
-            <td>小明哥</td>
-            <td>15091996280</td>
-          </tr>
-          <tr>
-            <td>103497146905</td>
-            <td>20190303</td>
-            <td>25</td>
-            <td>2019-03-08 16:23:39</td>
-            <td>2019-03-08 16:24:08</td>
-            <td>小明哥</td>
-            <td>15091996280</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
 </template>
 
 <script>
 export default {
-  name:'ord',
-  data () {
-    return {
-      phoneNum:'',//查询手机号
-      dateStart:'',//开始日期
-      dateEnd:'',//结束日期
-    }
-  },
-  methods:{
-    select(){
-      // 查询逻辑
-    }
-  }
+    name:'ord',
+    data(){
+        return {
+            ords:[
+                {
+                    ord_num:'10455\n52773\n84',
+                    join_num:20190303,
+                    join_bill:5,
+                    ctime:'23:00:00',
+                    ptime:'23:01:02',
+                    nickname:'Michael Kong',
+                    phoneNum:'1388888\n8888'
+                },
+                {
+                    ord_num:'10455\n52773\n84',
+                    join_num:20190303,
+                    join_bill:5,
+                    ctime:'23:00:00',
+                    ptime:'23:01:02',
+                    nickname:'Michael Kong',
+                    phoneNum:'1388888\n8888'
+                },
+                {
+                    ord_num:'10455\n52773\n84',
+                    join_num:20190303,
+                    join_bill:5,
+                    ctime:'23:00:00',
+                    ptime:'23:01:02',
+                    nickname:'Michael Kong',
+                    phoneNum:'1388888\n8888'
+                }
+            ],
+            'phone':'',
+            'start_date':'',
+            'end_date':'',
+            starState:'-webkit-inline-box',
+            endState:'-webkit-inline-box',
+            currentDate:new Date(),
+            minDate:new Date(1970, 1, 1),
+            endpicker:'none'
+        }
+    },
+    methods: {
+      check(msg){
+        console.log(msg)
+        if(msg == 'start'){
+          if(this.starState == '-webkit-inline-box'){
+            this.starState = 'none'
+            this.endpicker = 'block'
+          }
+        }else if(msg == 'end'){
+          if(this.endState == '-webkit-inline-box'){
+            this.endState = 'none';
+            this.endpicker = 'block'
+          }
+        }
+      },
+      change(picker){
+        console.log(picker.getValues())
+      },
+      confirm(picker){
+         var y = picker.getFullYear();
+         var m = picker.getMonth() + 1 < 10 ? '0'+ (picker.getMonth()+1) : picker.getMonth() + 1;
+         var d = picker.getDate() < 10 ? '0' + (picker.getDate()) : picker.getDate();
+         console.log(y,m,d);
+         if(this.starState == 'none'){
+           this.start_date = y+m+d;
+           this.endpicker = 'none';
+           this.starState = '-webkit-inline-box';
+         }else if(this.endState == 'none'){
+           this.end_date = y+m+d;
+           this.endpicker = 'none';
+           this.endState = '-webkit-inline-box';
+         }
+      }
+    },
 }
 </script>
 
-<style lang="less" scoped>
-  .ord{
-    width:100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: #f3f5f8;
-    .warp{
-      width: 95%;
-      height: 40%;
-      background-color: #fff;
-      border-radius: 10px;
-      margin: 5% auto;
-      h3{
-        text-align: center;
-        padding-top: 5%;
-      }
-      div{
-        padding-top: 20px;
-        position: relative;
-        font-size: 24px;
-        line-height: 1;
-        text-align: center;
-        overflow: hidden;
-        input{
-          float: right;
-          margin-right: 2%;
-          width: 50%;
-          height: 30px;
-          vertical-align: middle;
-          border: 1px solid #efefef;
-          padding-left: 2%;
-          padding-right: 2%;
-          outline: 0;
-        }
-      }
-      button{
-        border:none;
-        width: 98%;
-        height: 44px;
-        line-height: 44px;
-        border-radius: 10px;
-        margin-top: 5%;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #00a0f0;
-        text-align: center;
-        color: #fff;
-      }
-      table{
+<style scoped lang="less">
+    .ord{
         width: 100%;
-        border:none;
-        border-spacing:0;
-        padding-top: 3%;
-        th,tr,td{
-          border-collapse: collapse;
-          border:1px solid #efefef;
-          text-align: center;
-          font-size: 12px;
+        // background: #fff;
+        table{
+           width: 90vw;
+           margin: 20vw auto;
+           border:1px solid #eee;
+           border-spacing: 0;
+           border-collapse: collapse;
+           th,tr,td{
+               font-size: 3vw;
+               border: 1px solid #eee;
+               padding: 1vw;
+           }
         }
-      }
+        .main{
+            width: 98vw;
+            margin: 0 auto;
+            border-top: 1px solid #eee;
+            padding-bottom: 2vw;
+        }
     }
-  }
 </style>
