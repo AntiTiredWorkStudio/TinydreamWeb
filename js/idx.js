@@ -20,6 +20,8 @@ $(function(){
 '<p class="tip_msg">每个人支付少量互助金，从中随机产生1名幸运者获得累计互助金启动梦想！</p>'
 '</div>'
         $('<div class="title pool_title" id="title"></div>'+str).appendTo('#help')
+    }else{
+        $('#help').hide()
     }
 })
 
