@@ -1,5 +1,7 @@
 $(function(){
     if($_GET.type == 'user'){
+        var canvas = document.getElementById('top');
+        var ctx = canvas.getContext("2d");
         $('#help').show()
         $('#title').html('梦想互助20190303期')
         $('.ub_mNum').html('￥200000')
@@ -7,8 +9,6 @@ $(function(){
         $('.ub_price').html('5元/份')
         ready();
         drawCircle(ctx,20)
-        var canvas = document.getElementById('top');
-        var ctx = canvas.getContext("2d");
         function ready(){
             var canvas = document.getElementById('bom');
             var cxt_arc = canvas.getContext("2d");
@@ -20,6 +20,7 @@ $(function(){
             cxt_arc.stroke();
         }
         function drawCircle(ctx,prop){
+            console.log(ctx)
             if(prop == 0){
                 ctx.clearRect(0,0,190,190);
             }else{
