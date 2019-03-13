@@ -66,3 +66,23 @@
     float: right;
     text-align: right;
 }
+.home .YB_help .YB_join{
+    width: 6rem;
+    margin: 0 auto;
+    margin-top: 0.34rem;
+    height: 0.78rem;
+    border-radius: 0.39rem;
+    background: #00d094;
+    color: #fff;
+    font-size: 0.42rem;
+    margin-bottom: 0.1rem;
+    border: none;
+    left: 50%;
+    margin-left: 0.4rem;
+}
+.home .YB_help .tip_msg{
+    text-align: center;
+    font-size: 0.19rem;
+    color: #999;
+    padding: 0 0 0.2rem 0;
+}
