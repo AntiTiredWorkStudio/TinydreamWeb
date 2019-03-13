@@ -6,3 +6,28 @@
     box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 54, 208, .1),-0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1),0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1),0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1);
     margin-top: 0.2rem;
 }
+.home .YB_help .YB_title{
+    font-size: 0.32rem;
+    margin-left:0.30rem;
+    padding-top: 0.30rem;
+}
+.home .YB_help .progress{
+    width: 3.80rem;
+    height: 3.80rem;
+    margin: 0.50rem auto 0;
+    position: relative;
+}
+.home .YB_help .progress canvas{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: none;
+    transform: translate(-50%,-50%);
+}
+.home .YB_help .progress .YB_pool{
+    font-size: 0.28rem;
+    position: absolute;
+    top: 1.05rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
