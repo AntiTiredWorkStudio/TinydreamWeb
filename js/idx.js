@@ -4,7 +4,7 @@ $(function(){
         var ctx = canvas.getContext("2d");
         $('#help').show()
         $('#title').html('梦想互助20190303期')
-        $('.ub_mNum').html('￥200000')
+        $('.ub_mNum.money_number').html('￥200000')
         $('.ub_number').html('200000元')
         $('.ub_price').html('5元/份')
         ready();
