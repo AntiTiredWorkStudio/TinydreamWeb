@@ -8,7 +8,7 @@ $(function(){
         $('.ub_number').html('200000元')
         $('.ub_price').html('5元/份')
         ready();
-        drawCircle(ctx,20)
+        drawCircle(ctx,0.5)
         function ready(){
             var canvas = document.getElementById('bom');
             var cxt_arc = canvas.getContext("2d");
