@@ -43,3 +43,26 @@
     color:#999;
     text-align: center;
 }
+.home .YB_help .YB_billInfo{
+    width: 6rem;
+    margin: 0 auto;
+    margin-top: 0.4rem;
+    overflow: hidden;
+}
+.home .help .YB_billInfo .left{
+    float: left;
+    text-align: center;
+}
+.home .help .YB_billInfo .number{
+    font-size: 0.38rem;
+    color: #ffc057;
+    margin-bottom: 0.1rem;
+}
+.home .help .YB_billInfo .text{
+    font-size: 0.24rem;
+    color: #999;
+}
+.home .help .YB_billInfo .right{
+    float: right;
+    text-align: right;
+}
