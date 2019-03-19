@@ -4,10 +4,8 @@
     margin: 0 auto;
     border-radius: 0.10rem;
     box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 54, 208, .1),-0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1),0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1),0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1);
-    padding: 0.3rem 0;
-    top: -0.3rem;
-    /* margin-top: 0.2rem; */
-    background-color: #fff;
+    margin-top: 0.2rem;
+    /* background-color: #fff; */
 }
 .home .YB_help .YB_title{
     font-size: 0.32rem;
