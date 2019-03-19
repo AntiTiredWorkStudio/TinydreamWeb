@@ -1,4 +1,5 @@
 $(function(){
+    var userInfo = Options.GetUserInfo();
     if(PERMISSION_USER(userInfo.openid)){
         var cvn = document.getElementById('YB_top');
         var ctx = cvn.getContext("2d");
