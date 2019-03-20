@@ -126,6 +126,7 @@ if (!ExistStorage("buy")) {
                 $('.help_money').css('top','1rem');
                 $('.present_money').css('bottom','1.5rem')
                 $('#dream').html(buy.buy.dream.title)
+                $('#dream').attr('data-values',buy.buy.dream.tid);
                 $('.dream_tip').html('本期项目');
             }
             function Timeout(){
