@@ -29,6 +29,7 @@ $(function () {
                 uid:userInfo.openid,
                 did:tdid
             },function(code,data){
+                console.log(data);
                 // console.log(data)
                 // FinishLoading();
                 // Loading();
