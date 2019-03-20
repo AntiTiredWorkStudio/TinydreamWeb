@@ -195,7 +195,7 @@ if (!ExistStorage("buy")) {
                     "signType": pay.signType, //微信签名方式：     
                     "paySign": pay.paySign //微信签名 
                 }, function (res) {
-                    alert(JSON.stringify(res))
+                    // alert(JSON.stringify(res))
                     if (res.err_msg == "get_brand_wcpay_request:ok") {
                         // var actions = JSON.parse(window.localStorage.getItem('actions'));
 
@@ -298,13 +298,13 @@ if (!ExistStorage("buy")) {
                         uid: userInfo.openid
                     }, function (code, data) {
                         console.log(data);
-                        alert(JSON.stringify(data))
+                        // alert(JSON.stringify(data))
                         if (code == 0) {
                             pay = data;
                             wxpay(fee)
                         }
                     }, function (code, data) {
-                        alert(JSON.stringify(data))
+                        // alert(JSON.stringify(data))
                         console.log(data)
                     });
                 // } else {
