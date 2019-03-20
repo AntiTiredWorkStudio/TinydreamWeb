@@ -1,10 +1,12 @@
 WebApp.JSAPI.Init();
+Options.TestServer = true;
 if (!ExistStorage("buy")) {
     $("body").html("");
     window.location.href = "../index.html";
 } else {
     $(function () {
-        var userInfo = Options.GetUserInfo();
+        // var userInfo = Options.GetUserInfo();
+        // var userInfo = localStorage.getItem('UserInfo');
         var imgArr = [
             'https://tdream.antit.top/LongPress2Share01.jpg',
             'https://tdream.antit.top/LongPress2Share02.jpg',
@@ -29,6 +31,7 @@ if (!ExistStorage("buy")) {
         TD_Request("ds", "ord", {
             action: localStorage.getItem('buy')
         }, function (code, data) {
+            console.log(data);
             RemoveStorage('buy');
             localStorage.setItem('actions', JSON.stringify(data.actions));
             actions = data.actions
@@ -108,30 +111,42 @@ if (!ExistStorage("buy")) {
                 $('.price i').html(pool.ubill / 100 + "元/份");
             }
             // 倒计时
-            setInterval(function () {
-                var ptime = parseInt(pool.ptime);
-                var daurtion = parseInt(pool.duration);
-                var time = parseInt(new Date().getTime() / 1000);
-                var timeout = parseInt((ptime + daurtion) - time);
-                if (timeout >= 0) {
-                    var h = Math.floor(timeout / 60 / 60);
-                    if (h < 10) {
-                        h = "0" + h;
+            if($_GET.state != 'trade'){
+                Timeout()
+                selectDream()
+            }else{
+                $('.timeout').html('')
+                $('.help_money').css('top','1rem');
+                $('.present_money').css('bottom','1.5rem')
+                $('#dream').html(buy.buy.dream.title)
+                $('.dream_tip').html('本期项目');
+            }
+            function Timeout(){
+                setInterval(function () {
+                    var ptime = parseInt(pool.ptime);
+                    var daurtion = parseInt(pool.duration);
+                    var time = parseInt(new Date().getTime() / 1000);
+                    var timeout = parseInt((ptime + daurtion) - time);
+                    if (timeout >= 0) {
+                        var h = Math.floor(timeout / 60 / 60);
+                        if (h < 10) {
+                            h = "0" + h;
+                        }
+                        var m = Math.floor(timeout / 60 % 60);
+                        if (m < 10) {
+                            m = "0" + m;
+                        }
+                        var s = Math.floor(timeout % 60);
+                        if (s < 10) {
+                            s = "0" + s;
+                        }
+                        if (h == 0 && m == 0 && s == 0) {
+                            window.location.reload();
+                        }
                     }
-                    var m = Math.floor(timeout / 60 % 60);
-                    if (m < 10) {
-                        m = "0" + m;
-                    }
-                    var s = Math.floor(timeout % 60);
-                    if (s < 10) {
-                        s = "0" + s;
-                    }
-                    if (h == 0 && m == 0 && s == 0) {
-                        window.location.reload();
-                    }
-                }
-                $('.timeout_ui').html(h + ":" + m + ":" + s);
-            }, 1000)
+                    $('.timeout_ui').html(h + ":" + m + ":" + s);
+                }, 1000)
+            }
             // 统一下单
 
             function wxpay(fee) {
@@ -172,6 +187,7 @@ if (!ExistStorage("buy")) {
                     "signType": pay.signType, //微信签名方式：     
                     "paySign": pay.paySign //微信签名 
                 }, function (res) {
+                    alert(JSON.stringify(res))
                     if (res.err_msg == "get_brand_wcpay_request:ok") {
                         // var actions = JSON.parse(window.localStorage.getItem('actions'));
 
@@ -274,11 +290,13 @@ if (!ExistStorage("buy")) {
                         uid: userInfo.openid
                     }, function (code, data) {
                         console.log(data);
+                        alert(JSON.stringify(data))
                         if (code == 0) {
                             pay = data;
                             wxpay(fee)
                         }
                     }, function (code, data) {
+                        alert(JSON.stringify(data))
                         console.log(data)
                     });
                 // } else {
@@ -293,65 +311,67 @@ if (!ExistStorage("buy")) {
             }
         })
         // 选择梦想
-        TD_Request('dr', 'dlist', {
-            uid: userInfo.openid
-        }, function (code, data) {
-            if (code == 0) {
-                var arr = [];
-                var dreamArr = [];
-                // if(data.dreams.state == 'SUBMIT' || data.dreams.state == 'FAILED'){
-                //     dreamArr.push(data.dreams)
-                // }
-                $.each(data.dreams, function (index, item) {
-                    if(item.state == 'SUBMIT' || item.state == 'FAILED'){
-                        dreamArr.push(item)
+        function selectDream(){
+            TD_Request('dr', 'dlist', {
+                uid: userInfo.openid
+            }, function (code, data) {
+                if (code == 0) {
+                    var arr = [];
+                    var dreamArr = [];
+                    // if(data.dreams.state == 'SUBMIT' || data.dreams.state == 'FAILED'){
+                    //     dreamArr.push(data.dreams)
+                    // }
+                    $.each(data.dreams, function (index, item) {
+                        if(item.state == 'SUBMIT' || item.state == 'FAILED'){
+                            dreamArr.push(item)
+                        }
+                    })
+                    $.each(dreamArr,function(index,item){
+                        arr.push({
+                            title: item.title,
+                            value: item.did
+                        });
+                    })
+                    console.log(arr[arr.length - 1])
+                    if (arr[arr.length - 1].title.length > 4) {
+                        $('.dream strong').html(arr[arr.length - 1].title.substr(0, 4).concat('...'));
+                    } else {
+                        $('.dream strong').html(arr[arr.length - 1].title);
                     }
-                })
-                $.each(dreamArr,function(index,item){
-                    arr.push({
-                        title: item.title,
-                        value: item.did
-                    });
-                })
-                console.log(arr[arr.length - 1])
-                if (arr[arr.length - 1].title.length > 4) {
-                    $('.dream strong').html(arr[arr.length - 1].title.substr(0, 4).concat('...'));
-                } else {
-                    $('.dream strong').html(arr[arr.length - 1].title);
-                }
-                $('.dream').attr('data-values', arr[arr.length - 1].value);
-                $('.dream').select({
-                    title: "选择梦想",
-                    items: arr,
-                    onClose: function () {
-                        if (typeof $('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev()
-                            .children('p').html() == 'undefined') {
-                            $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent(
-                                '.weui_cell_ft').prev().children('p').html())
-                        } else {
-                            // if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4' || userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
-                            //     localStorage.setItem('dream',$('.weui_cell_ft input:radio[name="weui-select"]:checked').parent(
-                            //         '.weui_cell_ft').prev().children('p').html());
-                            //     window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm';
-                            // }
-                            if ($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev()
-                                .children('p').html().length > 4) {
-                                $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent(
-                                    '.weui_cell_ft').prev().children('p').html().substr(0, 4).concat('...'))
-                            } else {
+                    $('.dream').attr('data-values', arr[arr.length - 1].value);
+                    $('.dream').select({
+                        title: "选择梦想",
+                        items: arr,
+                        onClose: function () {
+                            if (typeof $('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev()
+                                .children('p').html() == 'undefined') {
                                 $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent(
                                     '.weui_cell_ft').prev().children('p').html())
+                            } else {
+                                // if(userInfo.openid == 'oSORf5hkHfOy3Yo4FQIPdbHKQljM' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4' || userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw'){
+                                //     localStorage.setItem('dream',$('.weui_cell_ft input:radio[name="weui-select"]:checked').parent(
+                                //         '.weui_cell_ft').prev().children('p').html());
+                                //     window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm';
+                                // }
+                                if ($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev()
+                                    .children('p').html().length > 4) {
+                                    $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent(
+                                        '.weui_cell_ft').prev().children('p').html().substr(0, 4).concat('...'))
+                                } else {
+                                    $('.dream strong').html($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent(
+                                        '.weui_cell_ft').prev().children('p').html())
+                                }
                             }
+    
+                            console.log($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev()
+                                .children('p').html())
                         }
-
-                        console.log($('.weui_cell_ft input:radio[name="weui-select"]:checked').parent('.weui_cell_ft').prev()
-                            .children('p').html())
-                    }
-                });
-            }
-        }, function (code, data) {
-            console.log(data)
-        })
+                    });
+                }
+            }, function (code, data) {
+                console.log(data)
+            })
+        }
         ready();
         var canvas = document.getElementById('canvas');
         var ctx = canvas.getContext("2d");

@@ -1,11 +1,10 @@
 .home .YB_help{
-    width: 6.20rem;
+    width: 6.8rem;
     min-height: 1.50rem;
     margin: 0 auto;
-    border-radius: 0.10rem;
-    box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 54, 208, .1),-0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1),0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1),0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1);
-    margin-top: 0.2rem;
+    /* margin-top: 0.2rem; */
     /* background-color: #fff; */
+    padding: 0 !important;
 }
 .home .YB_help .YB_title{
     font-size: 0.32rem;
@@ -68,6 +67,8 @@
     text-align: right;
 }
 .home .YB_help .YB_join{
+    position: relative;
+    transform: translateX(-50%);
     width: 6rem;
     margin: 0 auto;
     margin-top: 0.34rem;
@@ -79,11 +80,50 @@
     margin-bottom: 0.1rem;
     border: none;
     left: 50%;
-    margin-left: 0.1rem;
 }
 .home .YB_help .tip_msg{
     text-align: center;
     font-size: 0.19rem;
     color: #999;
     padding: 0 0 0.2rem 0;
+}
+/* tab */
+.m-tab{
+    width: 6.8rem;
+    margin: 0 auto;
+    border-radius: 0.1rem;
+    box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 54, 208, .1), -0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1), 0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1), 0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1)
+}
+.m-tab .tab-nav:after{
+    width: 0 !important;
+}
+.m-tab .tab-nav-item.tab-active {
+    color:#00d094;
+}
+.m-tab .tab-nav-item.tab-active:before{
+    width: 10%;
+    margin-left: -5%;
+    background-color: #00d094;
+}
+.m-tab .YB_help .bg{
+    width: 100%;
+    height: 3.86rem;
+    padding-top: 3.16rem;
+    background: url(https://tdream.antit.top/image/trade_ybshj.jpg) no-repeat;
+    background-size: 6.8rem 3.86rem;
+}
+.m-tab .YB_help .bg .YB_title{
+    width: 100%;
+    margin: 0;
+    text-indent: 1em;
+    line-height: 0.7rem;
+    height: 0.7rem;
+    padding-top: 0;
+    background-color: rgba(255,255,255,.5);
+}
+.m-tab .YB_help .progress-bar svg{
+    border-radius: 0.15rem;
+}
+.m-tab .YB_help .YB_info{
+    line-height: 0.7rem;
 }

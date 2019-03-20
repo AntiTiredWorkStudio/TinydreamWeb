@@ -104,8 +104,9 @@ body{
     width: 6.80rem;
     min-height: 1.50rem;
     margin: 0 auto;
-    border-radius: 0.10rem;
-    box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 54, 208, .1),-0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1),0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1),0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1);
+    padding: 0 !important;
+    /* border-radius: 0.10rem; */
+    /* box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 54, 208, .1),-0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1),0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1),0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1); */
 }
 .home .help .title{
     font-size: 0.32rem;
@@ -191,8 +192,9 @@ body{
     font-size: 0.42rem;
     margin-bottom: 0.1rem;
     border: none;
+    position: relative;
     left: 50%;
-    margin-left: 0.4rem;
+    transform: translateX(-50%);
 }
 .home .help .tip_msg{
     text-align: center;

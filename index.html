@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/weui.css">
     <link rel="stylesheet" href="css/swipeslider.css">
     <link rel="stylesheet" href="css/ub.css">
+    <link rel="stylesheet" href="css/ydui.css">
 </head>
 <body>
     <div class="home">
@@ -31,57 +32,67 @@
             </div>
           </div>
         </div>
-        <div class="help">
-          <div class="title pool_title"></div>
-          <div class="progress">
-            <canvas class="top_canvas" id="canvas" width="190" height="190"></canvas>
-            <canvas style="z-index:-5" width="190" height="190" class="bottom" id="bottom"></canvas>
-            <div class="dreamInfo">
-              <div class="time">
-                <i class="icon_clock"></i>
-                <span class="timeout"></span>
+        <div class="m-tab" data-ydui-tab>
+          <div class="tab-nav">
+            <p class="tab-nav-item tab-active">梦想互助</p>
+            <p class="tab-nav-item">指定梦想互助</p>
+          </div>
+          <div class="tab-panel">
+            <div class="help tab-panel-item tab-active">
+              <div class="title pool_title"></div>
+              <div class="progress">
+                <canvas class="top_canvas" id="canvas" width="190" height="190"></canvas>
+                <canvas style="z-index:-5" width="190" height="190" class="bottom" id="bottom"></canvas>
+                <div class="dreamInfo">
+                  <div class="time">
+                    <i class="icon_clock"></i>
+                    <span class="timeout"></span>
+                  </div>
+                  <div class="money_number"></div>
+                  <p class="tip_mes">目前累计互助金</p>
+                </div>
               </div>
-              <div class="money_number"></div>
-              <p class="tip_mes">目前累计互助金</p>
+              <div class="targetAndprice">
+                <div class="left">
+                  <div class="number help_number"></div>
+                  <div class="text">互助目标</div>
+                </div>
+                <div class="right">
+                  <div class="number price_number"></div>
+                  <div class="text">价格</div>
+                </div>
+              </div>
+              <button class="join">参与互助</button>
+              <p class="tip_msg">每个人支付少量互助金，从中随机产生1名幸运者获得累计互助金启动梦想！</p>
+            </div>
+            <div class="YB_help tab-panel-item">
+              <div class="bg">
+                  <div class="YB_title" style="display:inline-block"><span>生意互助20190303期</span><a class="btn_link" href="javascript:;" style="margin-right:0.3rem;float:right;color:#00d094;">生意详情>></a></div>
+              </div>
+              <div class="YB_billInfo YB_info">
+                  <div class="left">
+                    <div class="text YB_txt">互助目标</div>
+                  </div>
+                  <div class="right">
+                    <div class="bill">20000元</div>
+                  </div>
+              </div>
+              <div style="height: 0.3rem;width: 5.6rem;margin:0 auto" class="progress-bar" data-ydui-progressbar="{type: 'line', strokeWidth: 3,  trailColor: '#ffc054'}"></div>
+              <div class="YB_billInfo">
+                <div class="left">
+                  <div class="bill tbill" style="margin:0">200000元</div>
+                  <div class="text">互助目标</div>
+                </div>
+                <div class="right">
+                  <div class="bill ubill" style="margin:0">5元/份</div>
+                  <div class="text">价格</div>
+                </div>
+              </div>
+              <button class="YB_join">参与互助</button>
+              <p class="tip_msg">每个人支付少量互助金，从中随机产生1名幸运者成为指定项目的免费获得者</p>
             </div>
           </div>
-          <div class="targetAndprice">
-            <div class="left">
-              <div class="number help_number"></div>
-              <div class="text">互助目标</div>
-            </div>
-            <div class="right">
-              <div class="number price_number"></div>
-              <div class="text">价格</div>
-            </div>
-          </div>
-          <button class="join">参与互助</button>
-          <p class="tip_msg">每个人支付少量互助金，从中随机产生1名幸运者获得累计互助金启动梦想！</p>
         </div>
-        <!-- <div class="YB_help">
-          <div class="YB_title" style="display:inline-block">生意互助20190303期</div>
-          <div class="YB_info" style="color:#00d094;text-decoration:underline;float: right;margin-right: 0.3rem;padding-top: 0.3rem;;">友宝售货机加盟</div>
-          <div class="progress">
-            <canvas class="top_canvas" id="YB_top" width="190" height="190"></canvas>
-            <canvas style="z-index:-5" width="190" height="190" class="bottom" id="YB_bottom"></canvas>
-            <div class="YB_pool">
-              <div class="YB_tbill">￥200000</div>
-              <p class="tip_mes">目前累计互助金</p>
-            </div>
-          </div>
-          <div class="YB_billInfo">
-            <div class="left">
-              <div class="bill">200000元</div>
-              <div class="text">互助目标</div>
-            </div>
-            <div class="right">
-              <div class="bill">5元/份</div>
-              <div class="text">价格</div>
-            </div>
-          </div>
-          <button class="YB_join">参与互助</button>
-          <p class="tip_msg">每个人支付少量互助金，从中随机产生1名幸运者成为指定项目的免费获得者</p>
-        </div> -->
         <div class="lucky">
           <a href="html/luckyer.html">往期幸运者</a>
         </div>
@@ -190,6 +201,7 @@
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script src="https://tinydream.antit.top/?ts=udebug&uconfig=http://tinydream.antit.top/TinydreamUConfig/uconf.js"></script>
+    <script src="js/ydui.js"></script>
     <script src="js/index.js"></script>
     <script src="js/idx.js"></script>
 </body>
