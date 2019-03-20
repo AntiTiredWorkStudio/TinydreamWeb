@@ -8,7 +8,7 @@ $(function(){
      function fun(result,data){//result:请求状态,data 请求结果
         //alert(result);
         // console.log(result,data);
-        Options.TestServer = true;
+        // Options.TestServer = true;
         // Options = {
         //     Auth: null,
         //     AccessToken: null,

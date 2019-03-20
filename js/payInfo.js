@@ -1,5 +1,5 @@
 WebApp.JSAPI.Init();
-Options.TestServer = true;
+// Options.TestServer = true;
 if (!ExistStorage("buy")) {
     $("body").html("");
     window.location.href = "../index.html";
