@@ -1,6 +1,7 @@
 WebApp.JSAPI.Init();
 
 // Options.TestServer = true;
+var userInfo = Options.GetUserInfo();
 if(PERMISSION_USER(userInfo.openid)){
     // console.log("is test user");
     Options.TestServer = true;
@@ -31,7 +32,6 @@ if (!ExistStorage("buy")) {
         console.log(Math.floor(Math.random()*imgArr.length));
         var imgNum = Math.floor(Math.random()*imgArr.length);
         var pay = null;
-        var userInfo = Options.GetUserInfo();
         var buy = JSON.parse(localStorage.getItem('buy'));
         var actions;
         var pool;
