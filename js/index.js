@@ -249,7 +249,7 @@ $(function(){
                         if(code == 0 || data.result == true){
                             console.log(data)
                             localStorage.setItem('buy',JSON.stringify(data.actions));
-                            alert(1)
+                            // alert(1)
                             window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?state=trade&time="+new Date().getTime();
                         }
                     },function(code,data){
