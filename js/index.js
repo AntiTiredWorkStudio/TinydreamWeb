@@ -27,8 +27,8 @@ $(function(){
         //         headimgurl:"http://thirdwx.qlogo.cn/mmopen/vi_32/xO4y8dNCtic6O4iccJmKHGN0IQY0ImY8zwRSqOVYhRYPp5rPMNCrvIQ15oOrOOwCq6vyBCGJ1gDa3J51sUvo7eDw/132",
         //         nickname:"暮色👑 微凉城",
         // }
-        localStorage.setItem('UserInfo',JSON.stringify(userInfo))
-        console.log(userInfo);
+        // localStorage.setItem('UserInfo',JSON.stringify(userInfo))
+        // console.log(userInfo);
         
        // alert(userInfo.openid);
        var did;//幸运梦想编号
@@ -158,7 +158,6 @@ $(function(){
                     "line-height":"1.5rem",
                     "color":"#CCC",
                 });
-                return;
              }
              if(mainpool.length == 0 || mainpool == ''){
                  $('.help').html("暂无更多梦想池").css({
@@ -168,9 +167,9 @@ $(function(){
                      "line-height":"1.5rem",
                      "color":"#CCC",
                  });
-                 return;
              }
              // 标题
+
              $('.pool_title').html(mainpool.ptitle);
              // 目标互助金
              $('.help_number').html(mainpool.tbill / 100 + '元');
