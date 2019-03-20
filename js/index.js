@@ -7,7 +7,14 @@ $(function(){
      WebApp.Init('wxc5216d15dd321ac5',//appid
      function fun(result,data){//result:请求状态,data 请求结果
         //alert(result);
+        var userInfo = Options.GetUserInfo();
         // console.log(result,data);
+        if(PERMISSION_USER(userInfo.openid)){
+            // console.log("is test user");
+            Options.TestServer = true;
+        }else{
+            Options.TestServer = false;
+        }
         // Options.TestServer = true;
         // Options = {
         //     Auth: null,
@@ -21,7 +28,7 @@ $(function(){
         //         return this.UserInfo != null ? JSON.parse(this.UserInfo) : null;
         //     }
         // }
-        var userInfo = Options.GetUserInfo();
+        
         // var userInfo = {
         //     openid:"oSORf5kkXvHNxhIx8lQVe3DFRFvw",//"on8W94tv5jTTiItf1uJCBdLJPyic",
         //         headimgurl:"http://thirdwx.qlogo.cn/mmopen/vi_32/xO4y8dNCtic6O4iccJmKHGN0IQY0ImY8zwRSqOVYhRYPp5rPMNCrvIQ15oOrOOwCq6vyBCGJ1gDa3J51sUvo7eDw/132",
