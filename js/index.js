@@ -22,11 +22,11 @@ $(function(){
         //     }
         // }
         var userInfo = Options.GetUserInfo();
-        var userInfo = {
-            openid:"oSORf5kkXvHNxhIx8lQVe3DFRFvw",//"on8W94tv5jTTiItf1uJCBdLJPyic",
-                headimgurl:"http://thirdwx.qlogo.cn/mmopen/vi_32/xO4y8dNCtic6O4iccJmKHGN0IQY0ImY8zwRSqOVYhRYPp5rPMNCrvIQ15oOrOOwCq6vyBCGJ1gDa3J51sUvo7eDw/132",
-                nickname:"暮色👑 微凉城",
-        }
+        // var userInfo = {
+        //     openid:"oSORf5kkXvHNxhIx8lQVe3DFRFvw",//"on8W94tv5jTTiItf1uJCBdLJPyic",
+        //         headimgurl:"http://thirdwx.qlogo.cn/mmopen/vi_32/xO4y8dNCtic6O4iccJmKHGN0IQY0ImY8zwRSqOVYhRYPp5rPMNCrvIQ15oOrOOwCq6vyBCGJ1gDa3J51sUvo7eDw/132",
+        //         nickname:"暮色👑 微凉城",
+        // }
         localStorage.setItem('UserInfo',JSON.stringify(userInfo))
         console.log(userInfo);
         
@@ -150,7 +150,7 @@ $(function(){
              var mainpool = data.mainpool;
              var maintrade = DreamPoolAnalysis(data.maintrade);
              console.log(maintrade)
-             if(maintrade.length == 0){
+             if(maintrade.length == 0 || maintrade == ''){
                 $('.YB_help').html("暂无更多梦想池").css({
                     "text-align":"center",
                     "height":"1.5rem",
