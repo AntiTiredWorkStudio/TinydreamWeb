@@ -52,37 +52,72 @@ $(function(){
         } 
         $('.state').html('互助中');
         $('.join_help').html('参与互助').css({background:'#00d094',color:'#fff'}).removeAttr('disabled')
+
+        function buy(state,pid){
+            if(state == 'trade'){
+                TD_Request("ds","buy",{
+                    uid:userInfo.uid,
+                    pid:pid
+                },function(code,data){
+                    // console.log(data);
+                    if(code == 0 || data.result == true){
+                        console.log(data)
+                        localStorage.setItem('buy',JSON.stringify(data.actions));
+                        // alert(1)
+                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?state=trade&time="+new Date().getTime();
+                    }
+                },function(code,data){
+                    if(code == 11 || !data.result){
+                        alert("您尚"+data.context+",绑定手机后才能继续参与互助");
+                        localStorage.setItem('mainpool',JSON.stringify(mainpool));
+                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html?time="+new Date().getTime();
+                    }else if(code == 18){
+                        alert("您当日购买次数已达上限");
+                        return;
+                    }
+                })
+            }else{
+                TD_Request("ds","buy",{
+                    uid:userInfo.uid,
+                    pid:pid
+                },function(code,data){
+                    // console.log(data);
+                    if(code == 0 || data.result == true){
+                        if(!data.actions.hasOwnProperty('editdream')){
+                            localStorage.setItem('buy',JSON.stringify(data.actions));
+                            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?time="+new Date().getTime();
+                        }else{
+                            if(confirm("您还没有添加梦想，添加梦想后才能参与互助")){
+                                localStorage.setItem('buy',JSON.stringify(data.actions));
+                                localStorage.setItem('mainpool',JSON.stringify(mainpool));
+                                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html?time="+new Date().getTime()
+                            }else{
+                                window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html?time="+new Date().getTime()
+                            }
+                        }
+                    }
+                },function(code,data){
+                    if(code == 11 || !data.result){
+                        alert("您尚"+data.context+",绑定手机后才能继续参与互助");
+                        localStorage.setItem('mainpool',JSON.stringify(mainpool));
+                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html?time="+new Date().getTime();
+                    }else if(code == 18){
+                        alert("您当日购买次数已达上限");
+                        return;
+                    }
+                })
+            }
+         }
+
         $('.join_help').click(function(e){
             e.stopPropagation();
+            if(poolInfo.ptype == 'TRADE'){
+                buy('trade',poolInfo.pid)
+            }else{
+                buy('dream',poolInfo.pid)
+            }
             // console.log(data)
-            TD_Request("ds","buy",{
-                uid:userInfo.openid,
-                pid:poolInfo.pid
-            },function(code,data){
-                // console.log(data);
-                if(code == 0 || data.result == true){
-                    // console.log(data)
-                    if(data.actions.hasOwnProperty('editdream')){
-                        if(confirm("您还没有添加梦想，添加梦想后才能参与互助")){
-                            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html?time="+new Date().getTime()
-                        }else{
-                            window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html?time="+new Date().getTime()
-                        }
-                    }else{
-                        localStorage.setItem('buy',JSON.stringify(data.actions));
-                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?time="+new Date().getTime();
-                    }
-                }
-            },function(code,data){
-                if(code == 11 || !data.result){
-                    alert("您尚"+data.context+",绑定手机后才能继续参与互助");
-                    localStorage.setItem('mainpool',JSON.stringify({pid:poolInfo.pid}));
-                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html?time="+new Date().getTime();
-                }else if(code == 18){
-                    alert("您当日购买次数已达上限");
-                    return;
-                }
-            })
+           
         })
     }else if(poolInfo.state != "RUNNING"){
         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/end.html?time='+new Date().getTime()

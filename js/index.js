@@ -213,7 +213,6 @@ $(function(){
 
              if(maintrade.length != 0){
                 if(maintrade.realBill == maintrade.rtbillValue){
-                    
                     window.location.reload();
                 }
              }
