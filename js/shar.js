@@ -7,7 +7,7 @@ $(function () {
     }else{
         Options.TestServer = false;
     }
-    alert(1)
+    // alert(1)
     Loading();
     var img = [];
     var num = 0;
