@@ -328,7 +328,7 @@ $(function(){
                      s = "0"+s;
                  }
                  if(h == 0 && m==0 && s==0){
-                    //  window.location.reload();
+                     window.location.reload();
                  }  
              }
              $('.timeout').html(h+":"+m+":"+s);
