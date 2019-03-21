@@ -22,6 +22,7 @@ $(function(){
         }else{
             $('.timeout').html('')
             $('.help_money').css('top','1rem');
+            $('.present_money').css('bottom','1.5rem')
         }
        function timeout(){
             var timer = setInterval(function(){
