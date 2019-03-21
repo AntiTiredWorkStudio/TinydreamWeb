@@ -201,12 +201,12 @@ $(function(){
 
 
              console.log(mainpool)
-             if(mainpool.ubill == mainpool.tbill){
-                    console.log(mainpool)
-                //  window.location.reload();
-             }
              var prop = (mainpool.cbill / 100) / (mainpool.tbill / 100);
              if(mainpool.length != 0){
+                if(mainpool.ubill == mainpool.tbill){
+                    console.log(mainpool)
+                    window.location.reload();
+                }
                 ready();
                 drawCircle(ctx,prop);
              }
