@@ -1,5 +1,11 @@
 $(function () {
     //alert('Loading:');
+    if(PERMISSION_USER(userInfo.openid)){
+        // console.log("is test user");
+        Options.TestServer = true;
+    }else{
+        Options.TestServer = false;
+    }
     Loading();
     var img = [];
     var num = 0;
