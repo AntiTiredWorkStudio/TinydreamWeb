@@ -210,6 +210,13 @@ $(function(){
                 ready();
                 drawCircle(ctx,prop);
              }
+
+             if(maintrade.length != 0){
+                if(maintrade.realBill == maintrade.rtbillValue){
+                    
+                    window.location.reload();
+                }
+             }
              // 遮罩层
              if(!data.award.result){
                  $('.mask').hide();
