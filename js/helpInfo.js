@@ -56,7 +56,7 @@ $(function(){
         function buy(state,pid){
             if(state == 'trade'){
                 TD_Request("ds","buy",{
-                    uid:userInfo.uid,
+                    uid:userInfo.openid,
                     pid:pid
                 },function(code,data){
                     // console.log(data);
@@ -78,7 +78,7 @@ $(function(){
                 })
             }else{
                 TD_Request("ds","buy",{
-                    uid:userInfo.uid,
+                    uid:userInfo.openid,
                     pid:pid
                 },function(code,data){
                     // console.log(data);
