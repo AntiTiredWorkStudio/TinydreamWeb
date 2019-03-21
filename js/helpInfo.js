@@ -17,30 +17,38 @@ $(function(){
     ready();
     drawCircle(ctx,prop);
     if(poolInfo.state == "RUNNING" && poolInfo.award == "NO") {
-        var timer = setInterval(function(){
-            var ptime = parseInt(poolInfo.ptime);
-            var daurtion = parseInt(poolInfo.duration);
-            var time = parseInt(new Date().getTime() / 1000);
-            var timeout = parseInt((ptime + daurtion) - time);
-            if(timeout>=0){
-                var h = Math.floor(timeout/60/60);
-                if(h<10){
-                    h = "0"+h;
+        if(poolInfo.ptype != 'TRADE'){
+            timeout()
+        }else{
+            $('.timeout').html('')
+            $('.help_money').css('top','1rem');
+        }
+       function timeout(){
+            var timer = setInterval(function(){
+                var ptime = parseInt(poolInfo.ptime);
+                var daurtion = parseInt(poolInfo.duration);
+                var time = parseInt(new Date().getTime() / 1000);
+                var timeout = parseInt((ptime + daurtion) - time);
+                if(timeout>=0){
+                    var h = Math.floor(timeout/60/60);
+                    if(h<10){
+                        h = "0"+h;
+                    }
+                    var m = Math.floor(timeout/60%60);
+                    if(m<10){
+                        m = "0"+m;
+                    }
+                    var s = Math.floor(timeout%60);    
+                    if(s<10){
+                        s = "0"+s;
+                    }
+                    if(h == 0 && m==0 && s==0){
+                        window.location.reload();
+                    }  
                 }
-                var m = Math.floor(timeout/60%60);
-                if(m<10){
-                    m = "0"+m;
-                }
-                var s = Math.floor(timeout%60);    
-                if(s<10){
-                    s = "0"+s;
-                }
-                if(h == 0 && m==0 && s==0){
-                    window.location.reload();
-                }  
-            }
-            $('.timeout_ui').html(h+":"+m+":"+s);
-        },1000)
+                $('.timeout_ui').html(h+":"+m+":"+s);
+            },1000)
+        } 
         $('.state').html('互助中');
         $('.join_help').html('参与互助').css({background:'#00d094',color:'#fff'}).removeAttr('disabled')
         $('.join_help').click(function(e){
