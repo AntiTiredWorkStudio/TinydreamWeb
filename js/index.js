@@ -202,12 +202,14 @@ $(function(){
 
              console.log(mainpool)
              if(mainpool.ubill == mainpool.tbill){
-                    
+                    console.log(mainpool)
                 //  window.location.reload();
              }
              var prop = (mainpool.cbill / 100) / (mainpool.tbill / 100);
-             ready();
-             drawCircle(ctx,prop);
+             if(mainpool.length != 0){
+                ready();
+                drawCircle(ctx,prop);
+             }
              // 遮罩层
              if(!data.award.result){
                  $('.mask').hide();
