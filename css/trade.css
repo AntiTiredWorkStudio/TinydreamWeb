@@ -15,12 +15,16 @@
      width: 95%;
      margin: 0 auto;
  }
+ .warp .content .info{
+     margin: 0.2rem 0 0;
+ }
  .warp .content .infotxt{
      width: 100%;
      font-size: 0.24rem;
  }
  .warp .content .infotxt .title{
      font-size: 0.32rem;
+     font-weight: bolder;
  }
  .warp .content .infotxt .f_title{
      font-size: 0.24rem;
