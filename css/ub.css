@@ -127,3 +127,6 @@
 .m-tab .YB_help .YB_info{
     line-height: 0.7rem;
 }
+.m-tab .tab-nav-item {
+    font-size: 0.32rem;
+}
