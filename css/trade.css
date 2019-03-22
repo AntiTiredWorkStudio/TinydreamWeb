@@ -1,6 +1,8 @@
 .warp{
-    width: 100%;
+    width: 95%;
+    margin: 0 auto;
     background-color: #fff;
+    border: 1px solid #b2b2b2;
 }
 .warp .banner{
     width: 90%;
