@@ -11,3 +11,22 @@
     background: url(../img/WechatIMG77.jpeg) no-repeat;
     background-size: 100% 4.95rem;
 }
+ .warp .content {
+     width: 95%;
+     margin: 0 auto;
+ }
+ .warp .content .infotxt{
+     width: 100%;
+     font-size: 0.24rem;
+ }
+ .warp .content .infotxt .title{
+     font-size: 0.32rem;
+ }
+ .warp .content .infotxt .f_title{
+     font-size: 0.28rem
+ }
+ .warp .content .infotxt .ctx{
+     width: 100%;
+     text-indent: 2em;
+     color: #b2b2b2;
+ }
