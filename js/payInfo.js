@@ -272,11 +272,13 @@ if (!ExistStorage("buy")) {
             }
 
             $('.wxPay').click(function () {
-                localStorage.setItem('img',imgArr[imgNum]);
-                                localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
-                                // 关闭弹窗
-                                localStorage.removeItem('buy');
-                                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm?time='+new Date().getTime();
+                // if(PERMISSION_USER(userInfo.openid)){
+                //     localStorage.setItem('img',imgArr[imgNum]);
+                //     localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
+                //     // 关闭弹窗
+                //     localStorage.removeItem('buy');
+                //     window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm?time='+new Date().getTime();
+                // }
                 // if($_GET.type=='get'){
                 //     localStorage.setItem('img',imgArr[imgNum]);
                 //     localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));

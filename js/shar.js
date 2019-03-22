@@ -1,5 +1,13 @@
 $(function () {
     //alert('Loading:');
+    var userInfo = Options.GetUserInfo();
+    if(PERMISSION_USER(userInfo.openid)){
+        // console.log("is test user");
+        Options.TestServer = true;
+    }else{
+        Options.TestServer = false;
+    }
+    // alert(1)
     Loading();
     var img = [];
     var num = 0;
@@ -18,7 +26,6 @@ $(function () {
     if(typeof url == 'undefined' || url == '' || url == null || typeof localStorage.getItem('info') == 'undefined' || localStorage.getItem('info') == null){
         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime();
     }else{
-        var userInfo = Options.GetUserInfo();
         $.post('../php/url.php',{headimgurl:userInfo.headimgurl},function(data){
 			//alert('Loading url.php:'+JSON.stringify(data));
             console.log(data)

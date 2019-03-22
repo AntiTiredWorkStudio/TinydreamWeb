@@ -201,12 +201,21 @@ $(function(){
 
 
              console.log(mainpool)
-             if(mainpool.ubill == mainpool.tbill){
-                 window.location.reload();
-             }
              var prop = (mainpool.cbill / 100) / (mainpool.tbill / 100);
-             ready();
-             drawCircle(ctx,prop);
+             if(mainpool.length != 0){
+                if(mainpool.ubill == mainpool.tbill){
+                    console.log(mainpool)
+                    window.location.reload();
+                }
+                ready();
+                drawCircle(ctx,prop);
+             }
+
+             if(maintrade.length != 0){
+                if(maintrade.realBill == maintrade.rtbillValue){
+                    window.location.reload();
+                }
+             }
              // 遮罩层
              if(!data.award.result){
                  $('.mask').hide();
