@@ -23,10 +23,17 @@
      font-size: 0.32rem;
  }
  .warp .content .infotxt .f_title{
-     font-size: 0.28rem
+     font-size: 0.24rem;
+     margin-top: 0.1rem;
+     margin-bottom: 0.1rem;
  }
  .warp .content .infotxt .ctx{
      width: 100%;
      text-indent: 2em;
      color: #b2b2b2;
+     margin-bottom: 0.1rem;
+ }
+ .warp .content .infotxt img{
+     width: 100%;
+     height: auto;
  }
