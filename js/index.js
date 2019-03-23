@@ -196,7 +196,7 @@ $(function(){
              $('.YB_help').click(function(e){
                 e.stopPropagation();
                 console.log(maintrade.trade)
-                window.location.href = maintrade.trade.url;
+                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/trade.html?id="+maintrade.trade.url;
             })
 
 
