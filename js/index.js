@@ -12,6 +12,9 @@ $(function(){
         if(PERMISSION_USER(userInfo.openid)){
             // console.log("is test user");
             Options.TestServer = true;
+            $('.tab-nav-item').eq(1).click(function(){
+                $('.lucky a').hide()
+              })
         }else{
             Options.TestServer = false;
         }
