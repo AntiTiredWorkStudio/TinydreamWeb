@@ -37,7 +37,7 @@
             <div class='dream_title'>生意详情</div>
             
             <div class='dream_title'>分红比例</div>
-            <div id="main" style="width: 6rem;height:4rem;"></div>
+            <div id="main" style="width: 6rem;height:4rem;margin: 0 auto;"></div>
         </div>
     </div>
     <script src="../lib/jquery-1.12.3.min.js"></script>
@@ -47,9 +47,9 @@
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script src="../js/trade_luckInfo.js"></script>
     <script>
-        $('.dream_title').click(function(){
+        $('.dream_title.trade_info').click(function(){
             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/trade.html?id=youbao';
-        }).css('text-decoration','underline')
+        }).css({'text-decoration':'underline',margin:'0.2rem 0 0'})
 
         echarts.init(document.getElementById('main')).setOption({
             series: {
@@ -60,15 +60,17 @@
                         position:'inner', //标签的位置
                         textStyle : {
                             fontWeight : 300 ,
-                            fontSize : 16    //文字的字体大小
+                            fontSize : 16,    //文字的字体大小
                         },
+                        textAlign:'center',
                         formatter:'{d}%'
                     }
                 },
                 data: [
-                    {name: 'A', value: 1212},
+                    {value:50,name:'自己',itemStyle:{normal:{color:'#FE0000'}}},
+                    {value:50,name:'幸运者',itemStyle:{normal:{color:'#00d094'}}},
+                    {value:50,name:'其他互助者',itemStyle:{normal:{color:'#f2f2f2'}}},
                     {name: 'B', value: 2323},
-                    {name: 'C', value: 1919}
                 ],
             }
         });
