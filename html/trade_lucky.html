@@ -52,6 +52,15 @@
         }).css({'text-decoration':'underline',margin:'0.2rem 0 0'})
 
         echarts.init(document.getElementById('main')).setOption({
+            legend:{
+                    itemWdith:'0.24rem',
+                    itemHeight:'0.18rem',
+                    textStyle:{
+                        color:"#666"
+                    },
+                    itemGap:5,
+                    data:['自己','幸运者','其他幸运者']
+                },
             series: {
                 type: 'pie',
                 label:{            //饼图图形上的文本标签
@@ -71,15 +80,6 @@
                     {value:50,name:'幸运者',itemStyle:{normal:{color:'#00d094'}}},
                     {value:50,name:'其他互助者',itemStyle:{normal:{color:'#f2f2f2'}}},
                 ],
-                legend:{
-                    itemWdith:'0.24rem',
-                    itemHeight:'0.18rem',
-                    textStyle:{
-                        color:"#666"
-                    },
-                    itemGap:5,
-                    data:['自己','幸运者','其他幸运者']
-                }
             }
         });
     </script>
