@@ -32,22 +32,36 @@
             <text>28/女/湖北武汉</text>
         </div>
         <div class='dream_info'>
-            <div class='dream_title'>梦 想</div>
-            <div class='textarea'>开一家餐厅</div>
-            <div class='dream_title'>梦想详情</div>
-            <div class='textarea'>
-                怀着给别人一个机会也是给自己一个机会参与了小梦想互助，能
-    成为幸运者非常激动，一种为梦想奋斗的使命油然而生！
-            </div>
-            <div class='dream_title'>相关照片</div>
-            <img src='http://tdream.antit.top/image/pasion.png'>
-            <img src='http://tdream.antit.top/image/pasion.png'>
+            <div class='dream_title'>生意标题</div>
+            <div class='textarea'>友宝售货机</div>
+            <div class='dream_title'>生意详情</div>
+            
+            <div class='dream_title'>分红比例</div>
+            <div id="main" style="width: 6rem;height:4rem;"></div>
         </div>
     </div>
     <script src="../lib/jquery-1.12.3.min.js"></script>
     <script src="../lib/rem.js"></script>
+    <script src="https://echarts.baidu.com/dist/echarts.js"></script>
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script src="../js/trade_luckInfo.js"></script>
+    <script>
+        $('.dream_title').click(function(){
+            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/trade.html?id=youbao';
+        }).css('text-decoration','underline')
+
+        echarts.init(document.getElementById('main')).setOption({
+            series: {
+                type: 'pie',
+                data: [
+                    {name: 'A', value: 1212},
+                    {name: 'B', value: 2323},
+                    {name: 'C', value: 1919}
+                ],
+                formatter:'{d}%'
+            }
+        });
+    </script>
 </body>
 </html>
