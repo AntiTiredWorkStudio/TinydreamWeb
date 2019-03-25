@@ -53,13 +53,16 @@
 
         echarts.init(document.getElementById('main')).setOption({
             legend:{
+                    orient:"vertical",
+                    x:'center',
+                    y:'bottom',
                     itemWdith:24,
                     itemHeight:18,
                     textStyle:{
                         color:"#666"
                     },
                     itemGap:30,
-                    data:['自己','幸运者','其他幸运者']
+                    data:['自己','幸运者','其他互助者']
                 },
             series: {
                 type: 'pie',
