@@ -7,91 +7,47 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-    <title>往期幸运者</title>
+    <title>幸运者详细信息</title>
     <link rel="stylesheet" href="../css/public.css">
-    <link rel="stylesheet" href="../css/luckyer.css">
+    <link rel="stylesheet" href="../css/luckyInfo.css">
 </head>
 <body>
-    <!--往期幸运者-->
+    <!--幸运者详情页-->
 <!-- 
-    lucky_list：幸运者列表
-    left:幸运者列表左边部分（用户头像）
-    left:幸运者列表中间部分（用户信息）
-    dream_name:幸运者中奖的期数
-    user_info：用户简介
+    header:用户头像
+    user_name:名字
+    title:标题（第几期幸运者）
+    info:用户信息
+    dream_info:梦想详情
+    textarea：梦想信息（文本内容）
  -->
-    <div class='lucky'>
-        <div id ='vlist' class='lucky_list'>
-            <div class='lucky_main'>
-                <div class='left'>
-                    <img src='http://tdream.antit.top/image/avatar.png'>
-                </div>
-                <div class='middle'>
-                    <div class='dream_name'>小梦想互助2018XXXX期幸运者</div>
-                    <div class='user_info'>
-                        <div class='user_name'>昵称：王XX</div>
-                        <div class='user_sex'>姓 别：女</div>
-                        <div class='user_age'>年 龄：28</div>
-                    </div>
-                </div>
-                <div class='right'>
-                    <div class='text_box'>
-                        <div>查</div>
-                        <div>看</div>
-                        <div>详</div>
-                        <div>情</div>
-                    </div>
-                </div>
+    <div id="luckyInfo" class='lucky_user'>
+        <div class='header'>
+            <img src='http://tdream.antit.top/image/avatar.png'>
+        </div>
+        <div class='user_name'>王XX</div>
+        <div class='title'>小梦想互助2018XXXX期幸运者</div>
+        <div class='info'>
+            <div class='icon_flag'></div>
+            <text>28/女/湖北武汉</text>
+        </div>
+        <div class='dream_info'>
+            <div class='dream_title'>梦 想</div>
+            <div class='textarea'>开一家餐厅</div>
+            <div class='dream_title'>梦想详情</div>
+            <div class='textarea'>
+                怀着给别人一个机会也是给自己一个机会参与了小梦想互助，能
+    成为幸运者非常激动，一种为梦想奋斗的使命油然而生！
             </div>
-            <div class='lucky_main'>
-                <div class='left'>
-                    <img src='http://tdream.antit.top/image/avatar.png'>
-                </div>
-                <div class='middle'>
-                    <div class='dream_name'>小梦想互助2018XXXX期幸运者</div>
-                    <div class='user_info'>
-                        <div class='user_name'>姓 名：王XX</div>
-                        <div class='user_sex'>姓 别：女</div>
-                        <div class='user_age'>年 龄：28</div>
-                    </div>
-                </div>
-                <div class='right'>
-                    <div class='text_box'>
-                        <div>查</div>
-                        <div>看</div>
-                        <div>详</div>
-                        <div>情</div>
-                    </div>
-                </div>
-            </div>
-            &#65279;
-            <div class='lucky_main'>
-                <div class='left'>
-                    <img src='http://tdream.antit.top/image/avatar.png'>
-                </div>
-                <div class='middle'>
-                    <div class='dream_name'>小梦想互助2018XXXX期幸运者</div>
-                    <div class='user_info'>
-                        <div class='user_name'>姓 名：王XX</div>
-                        <div class='user_sex'>姓 别：女</div>
-                        <div class='user_age'>年 龄：28</div>
-                    </div>
-                </div>
-                <div class='right'>
-                    <div class='text_box'>
-                        <div>查</div>
-                        <div>看</div>
-                        <div>详</div>
-                        <div>情</div>
-                    </div>
-                </div>
-            </div>
+            <div class='dream_title'>相关照片</div>
+            <img src='http://tdream.antit.top/image/pasion.png'>
+            <img src='http://tdream.antit.top/image/pasion.png'>
         </div>
     </div>
     <script src="../lib/jquery-1.12.3.min.js"></script>
     <script src="../lib/rem.js"></script>
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
-    <script src="../js/trade_luck.js"></script>
+    <script src="../js/trade_luckInfo.js"></script>
 </body>
 </html>
