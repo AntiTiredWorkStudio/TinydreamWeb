@@ -34,7 +34,7 @@
         <div class='dream_info'>
             <div class='dream_title'>生意标题</div>
             <div class='textarea'>友宝售货机</div>
-            <div class='dream_title'>生意详情</div>
+            <div class='dream_title trade_info'>生意详情</div>
             
             <div class='dream_title'>分红比例</div>
             <div id="main" style="width: 6.8rem;height:5.5rem;margin: 0 auto;"></div>
@@ -49,7 +49,7 @@
     <script>
         $('.dream_title.trade_info').click(function(){
             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/trade.html?id=youbao';
-        }).css({'text-decoration':'underline',margin:'0.2rem 0 0'})
+        }).css({'text-decoration':'underline',margin:'0.6rem 0 0'})
 
         echarts.init(document.getElementById('main')).setOption({
             legend:{
