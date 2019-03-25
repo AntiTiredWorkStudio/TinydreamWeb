@@ -54,12 +54,22 @@
         echarts.init(document.getElementById('main')).setOption({
             series: {
                 type: 'pie',
+                label:{            //饼图图形上的文本标签
+                    normal:{
+                        show:true,
+                        position:'inner', //标签的位置
+                        textStyle : {
+                            fontWeight : 300 ,
+                            fontSize : 16    //文字的字体大小
+                        },
+                        formatter:'{d}%'
+                    }
+                },
                 data: [
                     {name: 'A', value: 1212},
                     {name: 'B', value: 2323},
                     {name: 'C', value: 1919}
                 ],
-                formatter:'{d}%'
             }
         });
     </script>
