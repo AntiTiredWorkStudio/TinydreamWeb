@@ -348,6 +348,7 @@ $(function(){
           FinishLoading();
          // 请求失败的处理
          if(code!=0){
+             window.location.reload();
              alert("登录失败，参数错误"+data.context);
              return;
          }
