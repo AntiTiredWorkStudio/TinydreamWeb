@@ -60,7 +60,7 @@
                         position:'inner', //标签的位置
                         textStyle : {
                             fontWeight : 300 ,
-                            fontSize : 16,    //文字的字体大小
+                            fontSize : '0.16rem',    //文字的字体大小
                         },
                         textAlign:'center',
                         formatter:'{d}%'
@@ -70,8 +70,16 @@
                     {value:50,name:'自己',itemStyle:{normal:{color:'#FE0000'}}},
                     {value:50,name:'幸运者',itemStyle:{normal:{color:'#00d094'}}},
                     {value:50,name:'其他互助者',itemStyle:{normal:{color:'#f2f2f2'}}},
-                    {name: 'B', value: 2323},
                 ],
+                legend:{
+                    itemWdith:'0.24rem',
+                    itemHeight:'0.18rem',
+                    textStyle:{
+                        color:"#666"
+                    },
+                    itemGap:5,
+                    data:['自己','幸运者','其他幸运者']
+                }
             }
         });
     </script>
