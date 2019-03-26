@@ -229,7 +229,7 @@ $(function(){
              if(mainpool.length != 0){
                 if(mainpool.ubill == mainpool.tbill){
                     console.log(mainpool)
-                    // window.location.reload();
+                    window.location.reload();
                 }
                 ready();
                 drawCircle(ctx,prop);
@@ -241,7 +241,7 @@ $(function(){
                     'background-size':'6.8rem 3.86rem'
                 })
                 if(maintrade.realBill == maintrade.rtbillValue){
-                    // window.location.reload();
+                    window.location.reload();
                 }
              }
              // 遮罩层
@@ -364,7 +364,7 @@ $(function(){
                      s = "0"+s;
                  }
                  if(h == 0 && m==0 && s==0){
-                    //  window.location.reload();
+                     window.location.reload();
                  }  
              }
              $('.timeout').html(h+":"+m+":"+s);
