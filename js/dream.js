@@ -24,6 +24,9 @@ $(function(){
                         $('.add').hide()
                     }
                     _.each(data.dreams,function(item){
+                        if(item.status == 'SUBMIT' || item.status == 'FAILED' || data.dreams.length < 5){
+                            $('.add').show();
+                        }
                         if(item.state == "VERIFY"){
                             item.status ='审核中';
                          }
