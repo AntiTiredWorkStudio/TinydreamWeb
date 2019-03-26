@@ -24,7 +24,7 @@ $(function(){
                         $('.add').hide()
                     }
                     _.each(data.dreams,function(item){
-                        if(item.status == 'SUBMIT' || item.status == 'FAILED' || data.dreams.length < 5){
+                        if(item.state == 'SUBMIT' || item.state == 'FAILED' || data.dreams.length < 5){
                             $('.add').show();
                         }
                         if(item.state == "VERIFY"){
