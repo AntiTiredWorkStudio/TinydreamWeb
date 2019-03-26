@@ -13,6 +13,7 @@
 /*测试用*/
 WebApp.JSAPI.Init();
 var uid = Options.GetUserInfo().openid;
+alert(uid);
 if(PERMISSION_USER(uid)){
   Options.TestServer = true;
 }else{
