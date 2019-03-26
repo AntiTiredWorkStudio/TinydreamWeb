@@ -54,6 +54,7 @@
         echarts.init(document.getElementById('main')).setOption({
             legend:{
                     // orient:"vertical",
+                    padding:[100,0,5,0],
                     x:'center',
                     y:'bottom',
                     itemWdith:24,
@@ -63,7 +64,6 @@
                     },
                     itemGap:30,
                     data:['当前互助者','幸运者','其他互助者'],
-                    padding:[100,0,5,0]
                 },
             series: {
                 type: 'pie',
