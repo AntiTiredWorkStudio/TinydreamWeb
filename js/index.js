@@ -130,12 +130,7 @@ $(function(){
                  var date = parseInt(new Date().getTime() / 1000);
                  var time = DescriptionTime(date - info.ptime);
                  info.time = time;
-                 
-                 if( info.ptype=="TRADE"){
-                    $('.male_tip').html(info.time+"前参与了"+info.dcount+"份小生意").fadeIn()
-                 }else{
-                    $('.male_tip').html(info.time+"前参与了"+info.dcount+"份小梦想").fadeIn()
-                 }
+                 $('.male_tip').html(info.time+"前参与了"+info.dcount+ (info.ptype == "STANDARD" ? "份小梦想" : "份小生意")).fadeIn()
                  setInterval(function(){
                      info = buyinfo.shift();
                      buyinfo.push(info)
