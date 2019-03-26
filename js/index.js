@@ -130,7 +130,12 @@ $(function(){
                  var date = parseInt(new Date().getTime() / 1000);
                  var time = DescriptionTime(date - info.ptime);
                  info.time = time;
-                 $('.male_tip').html(info.time+"前参与了"+info.dcount+ info.ptype).fadeIn()
+                 if(info.ptype == 'TRADE'){
+                     info.ptype = "份小生意"
+                 }else{
+                     info.ptype = "份小梦想"
+                 }
+                 $('.male_tip').html(info.time+"前参与了"+info.dcount + info.ptype).fadeIn()
                  setInterval(function(){
                      info = buyinfo.shift();
                      buyinfo.push(info)
@@ -143,7 +148,12 @@ $(function(){
                      var date = parseInt(new Date().getTime() / 1000);
                      var time = DescriptionTime(date - info.ptime);
                      info.time = time;
-                     $('.male_tip').html(info.time+"前参与了"+info.dcount+"份小梦想").fadeIn()
+                     if(info.ptype == 'TRADE'){
+                        info.ptype = "份小生意"
+                    }else{
+                        info.ptype = "份小梦想"
+                    }
+                    $('.male_tip').html(info.time+"前参与了"+info.dcount + info.ptype).fadeIn()
                  },4000)
                  // console.log(info)
                 
