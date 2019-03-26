@@ -18,9 +18,9 @@ $(function(){
             }
             $('.header').css({'background':'url('+data.selfinfo.headicon+') no-repeat','background-size':'1.74rem 1.74rem'});
             $('.nickName').html(data.selfinfo.nickname);
-            $('.left .num').html(data.selfinfo.totalJoin);
-            $('.middle .num').html(data.selfinfo.totalReward / 100);
-            $('.right .num').html(data.selfinfo.dayBuy);
+            $('.pid').html(data.selfinfo.totalJoin);
+            $('.bill').html(data.selfinfo.totalReward / 100);
+            $('.count').html(data.selfinfo.dayBuy);
         }
     },function(code,data){
         if(code!=0){
