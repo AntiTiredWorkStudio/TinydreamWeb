@@ -241,7 +241,7 @@ $(function(){
                     'background-size':'6.8rem 3.86rem'
                 })
                 if(maintrade.realBill == maintrade.rtbillValue){
-                    window.location.reload();
+                    // window.location.reload();
                 }
              }
              // 遮罩层
