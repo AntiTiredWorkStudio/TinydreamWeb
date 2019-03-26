@@ -23,9 +23,11 @@ $(function(){
                     if(data.dreams.length >= 5){
                         $('.add').hide()
                     }
-                    _.each(data.dreams,function(item){
-                        if(item.state == 'SUBMIT' || item.state == 'FAILED' || data.dreams.length < 5){
-                            $('.add').show();
+                    var arr = [];
+                    _.each(data.dreams,function(item,index){
+
+                        if(data.dreams[index].state == 'SUBMIT' || data.dreams[index].state == 'FAILED'){
+                            arr.push(data.dreams[index]);
                         }
                         if(item.state == "VERIFY"){
                             item.status ='审核中';
