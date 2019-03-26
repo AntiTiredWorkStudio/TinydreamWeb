@@ -122,6 +122,7 @@ $(function(){
                  console.log(buyinfo)
                  var info;
                  info = buyinfo.shift();
+                 console.log(info)
                  buyinfo.push(info)
                  $('.tip').hide();
                  $('.logo').css('background-image','url('+info.headicon+')');
@@ -129,7 +130,7 @@ $(function(){
                  var date = parseInt(new Date().getTime() / 1000);
                  var time = DescriptionTime(date - info.ptime);
                  info.time = time;
-                 console.log(info.ptype)
+                 
                  if( info.ptype=="TRADE"){
                     $('.male_tip').html(info.time+"前参与了"+info.dcount+"份小生意").fadeIn()
                  }else{
