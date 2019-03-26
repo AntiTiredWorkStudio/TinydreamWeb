@@ -109,7 +109,20 @@ body{
     color: #999;
     display: block;
 }
-.home .home_content .dream_info .targetAndPrice .price {
+.home .home_content .dream_info .targetAndPrice .color{
+    font-size:0.38rem;
+    color: #00d094;
+}
+.m-grids-2:before, .m-grids-3:before, .m-grids-4:before, .m-grids-5:before{
+    border-bottom: 0 !important;
+}
+.m-grids-3 .grids-item:not(:nth-child(3n)):before{
+    border-right: 0 !important;
+}
+.grids-item:after{
+    border-bottom: 0 !important;
+}
+/* .home .home_content .dream_info .targetAndPrice .price {
     float: right;
 }
 .home .home_content .dream_info .targetAndPrice .price .price_tip{
@@ -119,7 +132,7 @@ body{
 .home .home_content .dream_info .targetAndPrice .price .price_money.count{
     margin-top: 0.05rem;
     margin-bottom: 0;
-}
+} */
 /* 参与互助--样式处理 */
 .home .home_content .dream_info .join_help::after{
     border:none;
