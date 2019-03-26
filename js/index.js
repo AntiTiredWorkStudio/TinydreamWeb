@@ -12,13 +12,13 @@ $(function(){
         if(PERMISSION_USER(userInfo.openid)){
             // console.log("is test user");
             Options.TestServer = true;
+        }else{
             $('.tab-nav-item').eq(1).click(function(){
                 $('.lucky a').hide()
             })
             $('.tab-nav-item').eq(0).click(function(){
                 $('.lucky a').show()
             })
-        }else{
             Options.TestServer = false;
         }
         // Options.TestServer = true;
