@@ -182,6 +182,9 @@ $(function(){
                     "line-height":"1.5rem",
                     "color":"#CCC",
                 });
+                $('.YB_help').click(function(){
+                    return false;
+                })
              }
              if(mainpool.length == 0 || mainpool == ''){
                  $('.help').html("暂无更多梦想池").css({
@@ -191,6 +194,9 @@ $(function(){
                      "line-height":"1.5rem",
                      "color":"#CCC",
                  });
+                 $('.help').click(function(){
+                     return false;
+                 })
              }
              // 标题
 
