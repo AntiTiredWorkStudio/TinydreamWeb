@@ -35,6 +35,7 @@ if (!ExistStorage("buy")) {
         var buy = JSON.parse(localStorage.getItem('buy'));
         var actions;
         var pool;
+        Loading();
         TD_Request("ds", "ord", {
             action: localStorage.getItem('buy')
         }, function (code, data) {
@@ -155,6 +156,7 @@ if (!ExistStorage("buy")) {
                     $('.timeout_ui').html(h + ":" + m + ":" + s);
                 }, 1000)
             }
+            FinishLoading();
             // 统一下单
 
             function wxpay(fee) {

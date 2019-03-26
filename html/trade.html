@@ -51,7 +51,8 @@
         $('#btn').click(function(){
             TD_Request("ds","buy",{
                 uid:userInfo.openid,
-                pid:pid
+                pid:pid,
+                dblink:'test'
             },function(code,data){
                 // console.log(data);
                 if(code == 0 || data.result == true){
