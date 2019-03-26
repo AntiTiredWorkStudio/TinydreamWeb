@@ -375,7 +375,7 @@ $(function(){
           FinishLoading();
          // 请求失败的处理
          if(code!=0){
-             window.location.reload();
+            //  window.location.reload();
              return;
          }
        })
