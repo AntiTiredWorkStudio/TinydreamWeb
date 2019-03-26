@@ -196,6 +196,10 @@ $(function(){
              $('.tbill').html(maintrade.rtbillValue + maintrade.rtbillUnit)
              $('.ubill').html(maintrade.rubillValue + maintrade.rubillUnit)
              $('.progress-bar').progressBar('set', maintrade.realBill / maintrade.rtbillValue);
+             $('.bg').css({
+                 background:'url('+maintrade.trade.bannerUrl+') no-repeat',
+                 'background-size':'6.8rem 3.86rem'
+             })
              $('.YB_help').click(function(e){
                 e.stopPropagation();
                 console.log(maintrade.trade)
