@@ -229,7 +229,7 @@ $(function(){
              if(mainpool.length != 0){
                 if(mainpool.ubill == mainpool.tbill){
                     console.log(mainpool)
-                    window.location.reload();
+                    // window.location.reload();
                 }
                 ready();
                 drawCircle(ctx,prop);
