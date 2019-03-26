@@ -18,7 +18,7 @@ $(function(){
     $('.dream_title').html(poolInfo.ptitle);
     $('.help_money').html(poolInfo.realBill + poolInfo.realUnit)
     $('.present_money').html(poolInfo.billHint);
-    $('.target_money').html(poolInfo.rtbillValue+poolInfo.rtbillUnit);
+    $('.tbill').html(poolInfo.rtbillValue+poolInfo.rtbillUnit);
     var prop = poolInfo.realBill / poolInfo.rtbillValue;
     ready();
     drawCircle(ctx,prop);

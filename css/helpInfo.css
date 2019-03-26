@@ -94,13 +94,13 @@ body{
 .home .home_content .dream_info .targetAndPrice .target.center{
     margin-left: 1.35rem;
 }
-.home .home_content .dream_info .targetAndPrice .target .target_money,.home .home_content .dream_info .targetAndPrice .price .price_money{
+/* .home .home_content .dream_info .targetAndPrice .target .target_money,.home .home_content .dream_info .targetAndPrice .price .price_money{
     font-size: 0.38rem;
     color: #00d094;
     margin-bottom: 0.10rem;
     display: block;
     text-align: center;
-}
+} */
 .home .home_content .dream_info .targetAndPrice .target .target_money, .home .home_content .dream_info .targetAndPrice .price .price_money.right{
 
 }
@@ -143,7 +143,7 @@ body{
     width: 6.00rem;
     margin: 0 auto 0;
     position: relative;
-    top: 0.34rem;
+    /* top: 0.34rem; */
     height: 0.78rem;
     line-height: 0.78rem;
     background-color: #00d094;
