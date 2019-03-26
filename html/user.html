@@ -10,6 +10,18 @@
     <title>个人中心</title>
     <link rel="stylesheet" href="../css/public.css">
     <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="../css/ydui.css">
+    <style>
+        .m-grids-2:before, .m-grids-3:before, .m-grids-4:before, .m-grids-5:before{
+            border-bottom: 0;
+        }
+        .m-grids-3 .grids-item:not(:nth-child(3n)):before{
+            border-right: 0;
+        }
+        .grids-item:after{
+            border-bottom: 0;
+        }
+    </style>
 </head><!-- 个人中心页面 -->
 <!-- 
     user:个人中心页面
@@ -26,22 +38,20 @@
         <div class='user_info'>
             <div class='message'>
                 <div class='nickName'></div>
-                <div class='dream_poolInfo'>
-                    <div class='left'>
-                        <div class='num'></div>
-                        <div class='tip'>参与总期数</div>
+                <div class="m-grids-3 dream_poolInfo">
+                    <div class="grids-item">
+                        <div class="grids-txt num"><span>--</span></div>
+                        <div class="grids-txt tip"><span>参与总期数</span></div>
                     </div>
-                    <div class='line'></div>
-                    <div class='middle'>
-                        <div class='num'>10</div>
-                        <div class='tip'>获得互助总金额</div>
+                    <div class="grids-item">
+                        <div class="grids-txt num"><span>--</span></div>
+                        <div class="grids-txt tip"><span>获得互助总金额</span></div>
                     </div>
-                    <div class='line'></div>
-                    <div class='right'>
-                        <div class='num'>0</div>
-                        <div class='tip'>今日参与份数</div>
+                    <div class="grids-item">
+                        <div class="grids-txt num"><span>--</span></div>
+                        <div class="grids-txt tip"><span>今日参与分数</span></div>
                     </div>
-                </div>   
+                </div>
             </div>
         </div>
         <div class='plate'>
@@ -132,6 +142,7 @@
     <script src="../lib/rem.js"></script>
 	<script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
+    <script src="../js/ydui.js"></script>
     <script src="../js/user.js"></script>
 	<script>
 		console.log(Options.GetUserInfo());
