@@ -72,6 +72,8 @@ var luckeyManager = {
 			  data.awards[award].abillUnit = billInfo.unit;
 			  data.awards[award].title = data.awards[award].title.length>8?(data.awards[award].title.substring(0,8)+"..."):data.awards[award].title;
 			  data.awards[award].useBill = (data.awards[award].ptype == "STANDARD")?"inline":"none";
+			  data.awards[award].dreamExist = (data.awards[award].ptype == "STANDARD")?"inline":"none";
+			  data.awards[award].tradeExist = (data.awards[award].ptype == "TRADE")?"inline":"none";
               current[data.awards[award].pid] = data.awards[award];
             }
             page.data.awards = current
