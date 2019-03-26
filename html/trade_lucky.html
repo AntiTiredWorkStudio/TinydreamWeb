@@ -52,9 +52,12 @@
         }).css({'text-decoration':'underline',margin:'0.3rem 0 0.3rem 0.25rem'})
 
         echarts.init(document.getElementById('main')).setOption({
+            grid:{
+                top:'25%',
+            },
             legend:{
                     // orient:"vertical",
-                    padding:[100,0,5,0],
+                    // padding:[100,0,5,0],
                     x:'center',
                     y:'bottom',
                     itemWdith:24,
