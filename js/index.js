@@ -130,7 +130,7 @@ $(function(){
                  var date = parseInt(new Date().getTime() / 1000);
                  var time = DescriptionTime(date - info.ptime);
                  info.time = time;
-                 $('.male_tip').html(info.time+"前参与了"+info.dcount+ (info.ptype == "STANDARD" ? "份小梦想" : "份小生意")).fadeIn()
+                 $('.male_tip').html(info.time+"前参与了"+info.dcount+ info.ptype)).fadeIn()
                  setInterval(function(){
                      info = buyinfo.shift();
                      buyinfo.push(info)
