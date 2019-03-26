@@ -28,6 +28,7 @@ $(function(){
 
                         if(data.dreams[index].state == 'SUBMIT' || data.dreams[index].state == 'FAILED'){
                             arr.push(data.dreams[index]);
+                            console.log(arr)
                         }
                         if(item.state == "VERIFY"){
                             item.status ='审核中';
