@@ -101,9 +101,9 @@ body{
     display: block;
     text-align: center;
 } */
-.home .home_content .dream_info .targetAndPrice .target .target_money, .home .home_content .dream_info .targetAndPrice .price .price_money.right{
+/* .home .home_content .dream_info .targetAndPrice .target .target_money, .home .home_content .dream_info .targetAndPrice .price .price_money.right{
 
-}
+} */
 .home .home_content .dream_info .targetAndPrice .target .target_tip,.home .home_content .dream_info .targetAndPrice .price .price_tip{
     font-size: 0.24rem;
     color: #999;
