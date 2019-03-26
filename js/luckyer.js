@@ -64,6 +64,7 @@ var luckeyManager = {
 			  data.awards[award].abillValue = billInfo.value;
 			  data.awards[award].abillUnit = billInfo.unit;
 			  data.awards[award].title = data.awards[award].title.length>8?(data.awards[award].title.substring(0,8)+"..."):data.awards[award].title;
+			  data.awards[award].useBill = data.awards[award].ptype == "STANDARD";
               current[data.awards[award].pid] = data.awards[award];
             }
             page.data.awards = current
