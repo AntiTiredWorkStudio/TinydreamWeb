@@ -23,7 +23,7 @@ body{
     margin-top: 0.20rem;
     border-radius: 0.10rem;
     box-shadow: 0.02rem 0rem 0.1rem 0.02rem rgba(0, 54, 208, .1),-0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1),0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1),0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1);
-    height: 7.70rem;
+    height: 8rem;
     text-align: center;
 }
 .home .home_content .dream_info .dream_title{
