@@ -63,6 +63,7 @@ var luckeyManager = {
             count:this.size
           },
           function (code, data) {
+            console.log(data)
             var current = page.data.awards;
             for (var award in data.awards) {
 			  var billInfo = BillExchange(data.awards[award].abill);

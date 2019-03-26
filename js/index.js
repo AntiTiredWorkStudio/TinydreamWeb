@@ -14,7 +14,10 @@ $(function(){
             Options.TestServer = true;
             $('.tab-nav-item').eq(1).click(function(){
                 $('.lucky a').hide()
-              })
+            })
+            $('.tab-nav-item').eq(0).click(function(){
+                $('.lucky a').show()
+            })
         }else{
             Options.TestServer = false;
         }
