@@ -26,6 +26,9 @@ $(function(){
         if(poolInfo.ptype != 'TRADE'){
             timeout()
         }else{
+            $('.help_money').css({
+                'font-size':'0.55rem'
+            })
             $('.timeout').html('')
             $('.help_money').css('top','1rem');
             $('.present_money').css('bottom','1.5rem')
