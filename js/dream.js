@@ -50,6 +50,9 @@ $(function(){
                         var $dom = $(str);
                         $dom.appendTo('.dream_list');
                     })
+                    if(data.dreams.length - arr.length < 5){
+                        $('.add').show()
+                    } 
                     // 查看小梦想详情
                     $('.view').click(function(){
 						if($(this).attr('data-state') == "DOING" || $(this).attr('data-state') == "VERIFY" || $(this).attr('data-state') == "SUCCESS"){
