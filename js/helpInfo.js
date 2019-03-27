@@ -8,6 +8,7 @@ $(function(){
     }else{
         Options.TestServer = false;
     }
+    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/css/helpInfo.css'
     // 获取奖池信息
     var poolInfo = JSON.parse(localStorage.getItem('poolInfo'));
     console.log(poolInfo);
