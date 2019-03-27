@@ -51,9 +51,11 @@ $(function(){
                         $dom.appendTo('.dream_list');
                     })
                     console.log(data.dreams.length ,arr.length)
-                    if(data.dreams.length - arr.length < 5){
+                    if(arr.length = 5){
+                        $('.add').hide()
+                    } else {
                         $('.add').show()
-                    } 
+                    }
                     // 查看小梦想详情
                     $('.view').click(function(){
 						if($(this).attr('data-state') == "DOING" || $(this).attr('data-state') == "VERIFY" || $(this).attr('data-state') == "SUCCESS"){
