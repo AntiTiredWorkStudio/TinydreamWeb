@@ -50,7 +50,7 @@ $(function(){
                         var $dom = $(str);
                         $dom.appendTo('.dream_list');
                     })
-                    console.log(arr.length)
+                    console.log(data.dreams.length ,arr.length)
                     if(data.dreams.length - arr.length < 5){
                         $('.add').show()
                     } 
