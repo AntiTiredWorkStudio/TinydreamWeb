@@ -2,6 +2,13 @@ WebApp.JSAPI.Init();
 $(function(){
     // WebApp.JSAPI.Init()
     var userInfo = Options.GetUserInfo();
+    if(PERMISSION_USER(userInfo.openid)){
+        Options.TestServer = true;
+        // $('.tab').show();
+      }else{
+        Options.TestServer = false;
+        // $(".tab").hide();
+      }
     // 获取奖池信息
     var poolInfo = JSON.parse(localStorage.getItem('poolInfo'));
     console.log(poolInfo);
