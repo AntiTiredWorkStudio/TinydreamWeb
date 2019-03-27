@@ -14,11 +14,11 @@
 WebApp.JSAPI.Init();
 var uid = Options.GetUserInfo().openid;
 // alert(uid);
-if(PERMISSION_USER(uid)){
-  Options.TestServer = true;
-}else{
-  Options.TestServer = false;
-}
+// if(PERMISSION_USER(uid)){
+//   Options.TestServer = true;
+// }else{
+//   Options.TestServer = false;
+// }
 
 var luckeyManager = {
 
