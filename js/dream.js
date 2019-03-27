@@ -57,7 +57,7 @@ $(function(){
                     console.log(arr);
 
                     
-                    if(arr.length = 5){
+                    if(data.dreams.length - arr.length > 5){
                         $('.add').hide()
                     } else {
                         $('.add').show()
