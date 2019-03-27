@@ -23,7 +23,6 @@ $(function(){
                     if(data.dreams.length >= 5){
                         $('.add').hide()
                     }
-                    var arr = [];
                     _.each(data.dreams,function(item,index){
 
                         if(data.dreams[index].state == 'SUBMIT' || data.dreams[index].state == 'FAILED'){
@@ -50,7 +49,19 @@ $(function(){
                         var $dom = $(str);
                         $dom.appendTo('.dream_list');
                     })
-                    console.log(data.dreams.length ,arr.length)
+                    var arr = [];
+                    var j = 0;
+                    var oldarr = data.dreams;
+
+                    for(let i in oldarr){
+                        if(oldarr[i].state == 'VERIFY' || oldarr[i].state == 'DOING' || oldarr[i].state == 'SUCCESS'){
+                            arr[j++] = oldarr[i];
+                        }
+                    }
+
+                    console.log(arr);
+
+                    
                     if(arr.length = 5){
                         $('.add').hide()
                     } else {
