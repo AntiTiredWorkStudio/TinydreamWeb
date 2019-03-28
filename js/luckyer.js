@@ -14,13 +14,13 @@
 WebApp.JSAPI.Init();
 var uid = Options.GetUserInfo().openid;
 // alert(uid);
-if(PERMISSION_USER(uid)){
+/*if(PERMISSION_USER(uid)){
   Options.TestServer = true;
   $('.tab').show();
 }else{
   Options.TestServer = false;
   $(".tab").hide();
-}
+}*/
 
 var luckeyManager = {
 
