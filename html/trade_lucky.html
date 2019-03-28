@@ -33,12 +33,13 @@
         </div>
         <div class='dream_info'>
             <div class='dream_title'>生意标题</div>
-            <div class='textarea'>友宝售货机</div>
+            <div class='textarea title'>--</div>
             <div class='dream_title'>生意详情</div>
             <div class="textarea">
-                <span class="trade_info">友宝售货机...</span><a class="link" href="javascript:;" style="text-decoration: underline">查看详情</a>
+                <span class="trade_info">--</span><a class="link" href="javascript:;" style="text-decoration: underline">--</a>
             </div>
-            <div class='dream_title'>分红比例</div>
+            <div class='dream_title'>收益分配</div>
+            <div class="textarea fenpei">--</div>
             <div id="main" style="width: 6rem;height:4rem;margin: 0 auto;"></div>
             <div class="lenged">
                 <p class="yellow"></p><span>幸运者</span>
@@ -90,6 +91,8 @@
                 dblink:'test'
             },function(code,data){
                 console.log(data)
+                $('.fenpei').html('<p>幸运者（即幸运者免费加盟价值'+data.precent.trade.profit+'元友宝售货机项目，平台工作人员会安排项目供应商与幸运者高效对接）；</p><p>幸运者项目收益:项目运作后，初始产生的利润额度'+data.precent.trade.profit+'元 + 之后利润的50%；互助者平分项目“项目运作利润达到'+data.precent.trade.profit+'元之后”利润的50%；</p>')
+                $('.title').html(data.precent.trade.title)
                 $('.trade_info').html(data.precent.trade.awardTitle)
                 $('.link').attr('href','http://tinydream.antit.top/TinydreamWeb/html/trade.html?id='+data.precent.trade.url)
                 echarts.init(document.getElementById('main')).setOption({
