@@ -45,6 +45,8 @@ var luckeyManager = {
      */
     Init: function () {
       var page = this
+	  $('#tab_dream').click(page.onSwitchTab);
+	  $('#tab_trade').click(page.onSwitchTab);
 	  $('#vlist').html("");
       TD_Request("aw", "cplu",{},
       function(code,data){
@@ -56,6 +58,20 @@ var luckeyManager = {
           console.log(code)
       })
     },
+	onSwitchTab:function(res){
+		console.log(res.currentTarget.id);
+		var handle = {
+			tab_dream:function(){
+				$('#tab_dream').attr("class","tab-nav-item tab-active"); 
+				$('#tab_trade').attr("class","tab-nav-item"); 
+			},
+			tab_trade:function(){
+				$('#tab_dream').attr("class","tab-nav-item"); 
+				$('#tab_trade').attr("class","tab-nav-item tab-active"); 
+			}
+		};
+		handle[res.currentTarget.id]();
+	},
     loadItem:function(){
 	  //console.log('loadItem!!!')
       var page = this

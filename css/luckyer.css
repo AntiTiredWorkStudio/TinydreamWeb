@@ -8,7 +8,7 @@ body{
 }
 .lucky .lucky_list{
     width: 6.90rem;
-    margin: 0.30rem auto 0;
+    margin: 0 auto 0;
 }
 .lucky .lucky_list .lucky_main{
     width: 100%;
