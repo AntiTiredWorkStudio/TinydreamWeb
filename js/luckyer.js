@@ -68,14 +68,14 @@ var luckeyManager = {
 			tab_dream:function(){
 				$('#tab_dream').attr("class","tab-nav-item tab-active"); 
 				$('#tab_trade').attr("class","tab-nav-item"); 
-				page.award_type = "DR";
-				page.Init(false);
+				luckeyManager.award_type = "DR";
+				luckeyManager.Init(false);
 			},
 			tab_trade:function(){
 				$('#tab_dream').attr("class","tab-nav-item"); 
 				$('#tab_trade').attr("class","tab-nav-item tab-active"); 
-				page.award_type = "TR";
-				page.Init(false);
+				luckeyManager.award_type = "TR";
+				luckeyManager.Init(false);
 			}
 		};
 		handle[res.currentTarget.id]();
