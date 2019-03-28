@@ -64,6 +64,7 @@ var luckeyManager = {
 	onSwitchTab:function(res){
 		console.log(res.currentTarget.id);
 		var page = this;
+		luckeyManager.seek = 0;
 		var handle = {
 			tab_dream:function(){
 				$('#tab_dream').attr("class","tab-nav-item tab-active"); 
