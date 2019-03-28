@@ -12,10 +12,10 @@
 }*/
 /*测试用*/
 WebApp.JSAPI.Init();
-var uid = Options.GetUserInfo().openid;
 // alert(uid);
-/*if(PERMISSION_USER(uid)){
-  Options.TestServer = true;
+Options.TestServer = PERMISSION_USER(Options.GetUserInfo().openid);
+/*if(){
+   = true;
   $('.tab').show();
 }else{
   Options.TestServer = false;
