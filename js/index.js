@@ -436,7 +436,7 @@ $(function(){
 
 
         $('.tab-nav-item').eq(1).click(function(){
-          $('.lucky a').attr('href','html/trade_lucky.html')
+          $('.lucky a').attr('href','html/luckyer.html')
         })
         $('.tab-nav-item').eq(0).click(function(){
           $('.lucky a').attr('href','html/luckyer.html')
