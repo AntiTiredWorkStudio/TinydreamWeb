@@ -25,11 +25,10 @@
         <div class='header'>
             <img src='http://tdream.antit.top/image/avatar.png'>
         </div>
-        <div class='user_name'>王XX</div>
-        <div class='title'>小梦想互助2018XXXX期幸运者</div>
+        <div class='title'>--</div>
         <div class='info'>
             <div class='icon_flag'></div>
-            <text>28/女/湖北武汉</text>
+            <text>--</text>
         </div>
         <div class='dream_info'>
             <div class='dream_title'>生意标题</div>
@@ -85,9 +84,14 @@
         var uid = Options.GetUserInfo().openid;
         var trade = localStorage.getItem('trade');
         // if(trade!=''){
+            var pid = typeof trade.pid == 'undefined' ? 20190311 : trade.pid;
+            var headicon = trade.headicon;
+            $('.header img').attr('src','http://thirdwx.qlogo.cn/mmopen/vi_32/VseOp8ojoYUkAWqtFu2FKOXlP5fib09mQwAKWkiaNODLxxa2EIPgFd1XtxqWCxeofAz80bcZgB1FWT8piawzDhLfw/132')
+            $('.title').html('小生意互助20190311期幸运者')
+            $('text').html('福彩2019031期')
             TD_Request('aw','gtai',{
                 pid:20190311,
-                uid:uid,
+                uid:pid,
                 dblink:'test'
             },function(code,data){
                 console.log(data)
