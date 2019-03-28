@@ -40,15 +40,18 @@ var luckeyManager = {
     count :0,
     seek : 0,
     size : 6,
+	award_type:"DR",
     /**
      * 生命周期函数--监听页面加载
      */
-    Init: function () {
+    Init: function (bind) {
       var page = this
-	  $('#tab_dream').click(page.onSwitchTab);
-	  $('#tab_trade').click(page.onSwitchTab);
+	  if(bind){
+		  $('#tab_dream').click(page.onSwitchTab);
+		  $('#tab_trade').click(page.onSwitchTab);
+	  }
 	  $('#vlist').html("");
-      TD_Request("aw", "cplu",{},
+      TD_Request("aw", "cplu",{awardtype:page.award_type},
       function(code,data){
         page.count = data.count
         page.loadItem()
@@ -60,14 +63,19 @@ var luckeyManager = {
     },
 	onSwitchTab:function(res){
 		console.log(res.currentTarget.id);
+		var page = this;
 		var handle = {
 			tab_dream:function(){
 				$('#tab_dream').attr("class","tab-nav-item tab-active"); 
 				$('#tab_trade').attr("class","tab-nav-item"); 
+				page.award_type = "DR";
+				page.Init(false);
 			},
 			tab_trade:function(){
 				$('#tab_dream').attr("class","tab-nav-item"); 
 				$('#tab_trade').attr("class","tab-nav-item tab-active"); 
+				page.award_type = "TR";
+				page.Init(false);
 			}
 		};
 		handle[res.currentTarget.id]();
@@ -79,7 +87,8 @@ var luckeyManager = {
         TD_Request("aw", "gplu", 
           {
             seek:this.seek,
-            count:this.size
+            count:this.size,
+			awardtype:page.award_type
           },
           function (code, data) {
             console.log(data)
@@ -138,6 +147,6 @@ var OnReachBottom = function () {
     luckeyManager.loadItem();
 }
 
-luckeyManager.Init();
+luckeyManager.Init(true);
 // WebApp.JSAPI.Init()
 
