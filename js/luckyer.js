@@ -40,15 +40,18 @@ var luckeyManager = {
     count :0,
     seek : 0,
     size : 6,
+	award_type:"DR",
     /**
      * 生命周期函数--监听页面加载
      */
-    Init: function () {
+    Init: function (bind) {
       var page = this
-	  $('#tab_dream').click(page.onSwitchTab);
-	  $('#tab_trade').click(page.onSwitchTab);
+	  if(bind){
+		  $('#tab_dream').click(page.onSwitchTab);
+		  $('#tab_trade').click(page.onSwitchTab);
+	  }
 	  $('#vlist').html("");
-      TD_Request("aw", "cplu",{},
+      TD_Request("aw", "cplu",{awardtype:page.award_type},
       function(code,data){
         page.count = data.count
         page.loadItem()
@@ -60,14 +63,20 @@ var luckeyManager = {
     },
 	onSwitchTab:function(res){
 		console.log(res.currentTarget.id);
+		var page = this;
+		luckeyManager.seek = 0;
 		var handle = {
 			tab_dream:function(){
 				$('#tab_dream').attr("class","tab-nav-item tab-active"); 
 				$('#tab_trade').attr("class","tab-nav-item"); 
+				luckeyManager.award_type = "DR";
+				luckeyManager.Init(false);
 			},
 			tab_trade:function(){
 				$('#tab_dream').attr("class","tab-nav-item"); 
 				$('#tab_trade').attr("class","tab-nav-item tab-active"); 
+				luckeyManager.award_type = "TR";
+				luckeyManager.Init(false);
 			}
 		};
 		handle[res.currentTarget.id]();
@@ -79,7 +88,8 @@ var luckeyManager = {
         TD_Request("aw", "gplu", 
           {
             seek:this.seek,
-            count:this.size
+            count:this.size,
+			awardtype:page.award_type
           },
           function (code, data) {
             console.log(data)
@@ -130,14 +140,29 @@ var onAwardViewBuild = function (awardItem) {
 }
 
 var OnViewDetials = function(res){
-    window.localStorage.setItem('dreamInfo',JSON.stringify(luckeyManager.data.awards[res.currentTarget.attributes[1].nodeValue]));
-    window.location.href = 'luckyInfo.html';
+	
+	if(luckeyManager.data.awards[res.currentTarget.attributes[1].nodeValue].ptype == "TRADE"){
+		var tinfo = luckeyManager.data.awards[res.currentTarget.attributes[1].nodeValue];
+		var tradeCache = {
+			pid:tinfo.pid,
+			expect:tinfo.expect,
+			headicon:tinfo.headicon,
+			content:tinfo.content
+		};
+		console.log(tradeCache);
+		window.localStorage.setItem('trade',JSON.stringify(tradeCache));
+		window.location.href = 'trade_lucky.html';
+		
+	}else if(luckeyManager.data.awards[res.currentTarget.attributes[1].nodeValue].ptype == "STANDARD"){
+		window.localStorage.setItem('dreamInfo',JSON.stringify(luckeyManager.data.awards[res.currentTarget.attributes[1].nodeValue]));
+		window.location.href = 'luckyInfo.html';
+	}
 }
 
 var OnReachBottom = function () {
     luckeyManager.loadItem();
 }
 
-luckeyManager.Init();
+luckeyManager.Init(true);
 // WebApp.JSAPI.Init()
 
