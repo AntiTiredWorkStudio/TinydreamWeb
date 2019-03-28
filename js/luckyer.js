@@ -143,8 +143,14 @@ var OnViewDetials = function(res){
 	
 	if(luckeyManager.data.awards[res.currentTarget.attributes[1].nodeValue].ptype == "TRADE"){
 		var tinfo = luckeyManager.data.awards[res.currentTarget.attributes[1].nodeValue];
-		console.log(tinfo);
-		window.localStorage.setItem('dreamInfo',JSON.stringify(tinfo));
+		var tradeCache = {
+			pid:tinfo.pid,
+			expect:tinfo.expect,
+			headicon:tinfo.headicon,
+			content:tinfo.content
+		};
+		console.log(tradeCache);
+		window.localStorage.setItem('trade',JSON.stringify(tradeCache));
 		window.location.href = 'trade_lucky.html';
 		
 	}else if(luckeyManager.data.awards[res.currentTarget.attributes[1].nodeValue].ptype == "STANDARD"){
