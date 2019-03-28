@@ -52,6 +52,16 @@
         $('.dream_title.trade_info').click(function(){
             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/trade.html?id=youbao';
         }).css({'text-decoration':'underline',margin:'0.3rem 0 0.3rem 0.25rem'})
+        var uid = Options.GetUserInfo().openid;
+        TD_Request('aw','gtai',{
+            pid:20190311,
+            uid:uid,
+            dblink:'test'
+        },function(code,data){
+            console.log(data)
+        },function(code,data){
+            console.log(data)
+        })
 
         echarts.init(document.getElementById('main')).setOption({
             grid:{
