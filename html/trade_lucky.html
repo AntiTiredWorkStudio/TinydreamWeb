@@ -36,7 +36,7 @@
             <div class='textarea'>友宝售货机</div>
             <div class='dream_title'>生意详情</div>
             <div class="textarea">
-                <span>友宝售货机...</span><a href="" style="text-decoration: underline">查看详情</a>
+                <span class="trade_info">友宝售货机...</span><a class="link" href="javascript:;" style="text-decoration: underline">查看详情</a>
             </div>
             <div class='dream_title'>分红比例</div>
             <div id="main" style="width: 6rem;height:4rem;margin: 0 auto;"></div>
@@ -55,6 +55,8 @@
                     display: inline-block;
                     width: 20px;
                     height:14px;
+                    margin-right: 0.1rem;
+                    vertical-align: middle;
                 }
                 .lenged span{
                     font-size: 0.24rem;
@@ -89,6 +91,8 @@
             dblink:'test'
         },function(code,data){
             console.log(data)
+            $('.trade_info').html(data.precent.trade.awardTitle)
+            $('.link').attr('href','http://tinydream.antit.top/TinydreamWeb/html/trade.html?id='+data.precent.trade.url)
             echarts.init(document.getElementById('main')).setOption({
                 grid:{
                     top:'25%',
