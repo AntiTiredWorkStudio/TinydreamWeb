@@ -83,7 +83,7 @@
     <script>
         var uid = Options.GetUserInfo().openid;
         var trade = localStorage.getItem('trade');
-        if(trade==''){
+        // if(trade!=''){
             TD_Request('aw','gtai',{
                 pid:20190311,
                 uid:uid,
@@ -120,9 +120,9 @@
             },function(code,data){
                 console.log(data)
             })
-        }else{
-            // window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
-        }
+        // }else{
+        //     window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
+        // }
         
         
     </script>
