@@ -81,47 +81,49 @@
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script src="../js/trade_luckInfo.js"></script>
     <script>
-        $('.dream_title.trade_info').click(function(){
-            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/trade.html?id=youbao';
-        }).css({'text-decoration':'underline',margin:'0.3rem 0 0.3rem 0.25rem'})
         var uid = Options.GetUserInfo().openid;
-        TD_Request('aw','gtai',{
-            pid:20190311,
-            uid:uid,
-            dblink:'test'
-        },function(code,data){
-            console.log(data)
-            $('.trade_info').html(data.precent.trade.awardTitle)
-            $('.link').attr('href','http://tinydream.antit.top/TinydreamWeb/html/trade.html?id='+data.precent.trade.url)
-            echarts.init(document.getElementById('main')).setOption({
-                grid:{
-                    top:'25%',
-                },
-                series: {
-                    type: 'pie',
-                    label:{            //饼图图形上的文本标签
-                        normal:{
-                            show:true,
-                            position:'inner', //标签的位置
-                            textStyle : {
-                                fontWeight : 300 ,
-                                fontSize : '0.16rem',    //文字的字体大小
-                            },
-                            textAlign:'center',
-                            formatter:'{d}%'
-                        }
+        var trade = localStorage.getItem('trade');
+        if(trade==''){
+            TD_Request('aw','gtai',{
+                pid:20190311,
+                uid:uid,
+                dblink:'test'
+            },function(code,data){
+                console.log(data)
+                $('.trade_info').html(data.precent.trade.awardTitle)
+                $('.link').attr('href','http://tinydream.antit.top/TinydreamWeb/html/trade.html?id='+data.precent.trade.url)
+                echarts.init(document.getElementById('main')).setOption({
+                    grid:{
+                        top:'25%',
                     },
-                    data: [
-                        {value:data.precent.own,name:'自己',itemStyle:{normal:{color:'#00d094'}}},
-                        {value:data.precent.award,name:'幸运者',itemStyle:{normal:{color:'#ffc054'}}},
-                        {value:data.precent.other,name:'其他互助者',itemStyle:{normal:{color:'#666'}}},
-                    ],
-                }
-            });
-        },function(code,data){
-            console.log(data)
-        })
-
+                    series: {
+                        type: 'pie',
+                        label:{            //饼图图形上的文本标签
+                            normal:{
+                                show:true,
+                                position:'inner', //标签的位置
+                                textStyle : {
+                                    fontWeight : 300 ,
+                                    fontSize : '0.16rem',    //文字的字体大小
+                                },
+                                textAlign:'center',
+                                formatter:'{d}%'
+                            }
+                        },
+                        data: [
+                            {value:data.precent.own,name:'自己',itemStyle:{normal:{color:'#00d094'}}},
+                            {value:data.precent.award,name:'幸运者',itemStyle:{normal:{color:'#ffc054'}}},
+                            {value:data.precent.other,name:'其他互助者',itemStyle:{normal:{color:'#666'}}},
+                        ],
+                    }
+                });
+            },function(code,data){
+                console.log(data)
+            })
+        }else{
+            // window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
+        }
+        
         
     </script>
 </body>
