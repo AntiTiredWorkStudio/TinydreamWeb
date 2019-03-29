@@ -32,7 +32,8 @@
             this.$toast.loading({
                 duration: 0, 
                 forbidClick: true,
-                loadingType: 'circular'
+                loadingType: 'circular',
+                message:'加载中...'
             })
             var that = this;
             // 此处上线用
@@ -41,7 +42,13 @@
                 console.log(that)
                 console.log(Vue)
                 that.userInfo = Options.GetUserInfo();
-               
+                that.$toast.clear();
+                that.$dialog.loading({
+                    duration: 0, 
+                    forbidClick: true,
+                    loadingType: 'circular',
+                    message:'模块加载中...'
+                })
 
                 // this.userInfo = {
                 //     headimgurl:"http://thirdwx.qlogo.cn/mmopen/vi_32/xO4y8dNCtic6O4iccJmKHGN0IQY0ImY8zwRSqOVYhRYPp5rPMNCrvIQ15oOrOOwCq6vyBCGJ1gDa3J51sUvo7eDw/132",
