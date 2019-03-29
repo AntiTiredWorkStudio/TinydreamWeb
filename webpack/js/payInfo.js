@@ -1,5 +1,5 @@
 // console.log(app.userInfo)
-var uid = app.userInfo.openid;
+var uid = Options.GetUserInfo().openid;
 var pay = new Vue({
     el:'#pay',
     data:{
