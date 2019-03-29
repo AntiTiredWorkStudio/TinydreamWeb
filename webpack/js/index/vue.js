@@ -31,6 +31,7 @@
         created(){
             // 此处上线用
             WebApp.Init('wxc5216d15dd321ac5',function(result,data){
+                console.log(this)
                 console.log(data)
                 console.log(Vue)
                 this.userInfo = Options.GetUserInfo();
