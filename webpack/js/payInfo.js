@@ -199,11 +199,13 @@ var pay = new Vue({
                 action:action,
                 did:did
             },function(code,data){
+                alert(JSON.stringify(data))
                 localStorage.setItem('info',JSON.stringify({'did':did,'pid':pid}));
                 // 关闭弹窗
                 localStorage.removeItem('buy');
                 window.location.href = '../share/share.html?time='+new Date().getTime();
             },function(code,data){
+                alert(JSON.stringify(data))
                 console.log(data)
             })
         }
