@@ -11,7 +11,7 @@ var pay = new Vue({
         pay:'',//支付金额
         text:'',//梦想池文字
         tbill:'',//互助目标
-        count:'1',//当日可购买份数,
+        count:'1',//可购买份数,
         pless:'',//可购买份数
         dreamType:'选择梦想',//可选值 制定项目
         show:false,
@@ -153,7 +153,7 @@ var pay = new Vue({
         },
         // 微信支付
         Pay(){
-            this.wxPay(this.oid,this.pay * 100,uid,this);
+            this.wxPay(this.oid,0.01 * 100,uid,this);
         },
         // 统一下单
         wxPay(oid,bill,uid,vue){
@@ -183,9 +183,30 @@ var pay = new Vue({
                   if(res.err_msg == "get_brand_wcpay_request:ok" ){
                   // 使用以上方式判断前端返回,微信团队郑重提示：
                         //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
-                        alert(JSON.stringify(res))
-                  } 
+                        self.$toast.success('支付成功');
+                        self.SUCCESS(uid,self.oid,self.pay*100,self.count,self.pay_action,self.did,self.pid);
+                  } else if(res.err_msg == "get_brand_wcpay_request:cancle"){
+                      self.$toast.fail('支付取消')
+                  }
                });
+        },
+        // 支付成功
+        SUCCESS(uid,oid,bill,pcount,action,did,pid){
+            TD_Request('ds','pay',{
+                uid:uid,
+                oid:oid,
+                bill:bill,
+                pcount:pcount,
+                action:action,
+                did:did
+            },function(code,data){
+                localStorage.setItem('info',JSON.stringify({'did':did,'pid':pid}));
+                // 关闭弹窗
+                localStorage.removeItem('buy');
+                window.location.href = '../share/share.html?time='+new Date().getTime();
+            },function(code,data){
+                console.log(data)
+            })
         }
     }
 })
