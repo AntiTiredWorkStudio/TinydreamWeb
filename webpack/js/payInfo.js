@@ -186,7 +186,7 @@ var pay = new Vue({
                         //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
                         self.$toast.success('支付成功');
                         alert(self.did)
-                        // self.SUCCESS(uid,self.oid,self.pay*100,self.count,self.pay_action,self.did,self.pid);
+                        self.SUCCESS(uid,self.oid,self.pay*100,self.count,JSON.stringify(self.pay_action),self.did,self.pid);
                   }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
                     self.$toast.fail('支付取消')
                     
