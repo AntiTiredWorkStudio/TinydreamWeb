@@ -47,7 +47,7 @@
                     duration: 0, 
                     forbidClick: true,
                     loadingType: 'circular',
-                    message:'加载梦想池信息...'
+                    message:'加载模块...'
                 })
 
                 // this.userInfo = {
