@@ -171,9 +171,9 @@
             // 准备购买梦想
             buy(state){
                 if(state == 'dream'){
-                    that.buyPay('dream',that.pid,that,that.userInfo.openid);
+                    this.buyPay('dream',this.pid,this,this.userInfo.openid);
                 }else if(state == 'trade'){
-                    that.buyPay('trade',that.tpid,that,that.userInfo.openid);
+                    this.buyPay('trade',this.tpid,this,this.userInfo.openid);
                 }
             },
             change_tab(index,title){
