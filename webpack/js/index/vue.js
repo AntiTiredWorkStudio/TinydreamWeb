@@ -34,7 +34,8 @@
             WebApp.Init('wxc5216d15dd321ac5',function(result,data){
                 console.log(data)
                 console.log(Vue)
-                that.userInfo = Options.GetUserInfo();
+                // that.userInfo = Options.GetUserInfo();
+                console.log(Options)
 
                 // this.userInfo = {
                 //     headimgurl:"http://thirdwx.qlogo.cn/mmopen/vi_32/xO4y8dNCtic6O4iccJmKHGN0IQY0ImY8zwRSqOVYhRYPp5rPMNCrvIQ15oOrOOwCq6vyBCGJ1gDa3J51sUvo7eDw/132",
