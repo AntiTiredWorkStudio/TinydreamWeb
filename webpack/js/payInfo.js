@@ -161,7 +161,7 @@ var pay = new Vue({
                 oid:oid,
                 bill:bill,
                 uid:uid,
-                dblink:'test'
+                // dblink:'test'
             },function(code,data){
                 console.log(data)
                 console.log(data)
@@ -199,7 +199,7 @@ var pay = new Vue({
                 pcount:pcount,
                 action:actions,
                 did:did,
-                dblink:'test'
+                // dblink:'test'
             },function(code,data){
                 localStorage.setItem('info',JSON.stringify({'did':did,'pid':vue.pid}));
                 localStorage.removeItem('buy');
