@@ -29,13 +29,14 @@
             actions:'',//后期支付需要
         },
         created(){
-            var that = that;
+            var that = this;
             // 此处上线用
             WebApp.Init('wxc5216d15dd321ac5',function(result,data){
                 console.log(data)
+                console.log(that)
                 console.log(Vue)
-                // that.userInfo = Options.GetUserInfo();
-                console.log(Options)
+                that.userInfo = Options.GetUserInfo();
+               
 
                 // this.userInfo = {
                 //     headimgurl:"http://thirdwx.qlogo.cn/mmopen/vi_32/xO4y8dNCtic6O4iccJmKHGN0IQY0ImY8zwRSqOVYhRYPp5rPMNCrvIQ15oOrOOwCq6vyBCGJ1gDa3J51sUvo7eDw/132",
