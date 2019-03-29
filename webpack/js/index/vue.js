@@ -33,7 +33,7 @@
                 duration: 0, 
                 forbidClick: true,
                 loadingType: 'circular',
-                message:'拉取用户信息...'
+                message:'加载用户信息...'
             })
             var that = this;
             // 此处上线用
@@ -47,7 +47,7 @@
                     duration: 0, 
                     forbidClick: true,
                     loadingType: 'circular',
-                    message:'拉取取梦想池信息...'
+                    message:'加载梦想池信息...'
                 })
 
                 // this.userInfo = {
