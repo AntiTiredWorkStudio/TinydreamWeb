@@ -1,0 +1,141 @@
+#app{
+    width: 100%;
+    .main {
+        width: 100%;
+        .banner{
+            width: 6.8rem;
+            margin: 0.2rem auto;
+            height: 2rem;
+            #swipe_banner{
+                width: 6.8rem;
+                height: 100%;
+                .swipe_banner{
+                    width: 6.8rem !important;
+                    height: 1.86rem; 
+                }
+            }
+        }
+
+
+        // 公屏
+        .screen{
+            overflow: hidden;
+            width: 6.8rem;
+            margin: 0 auto;
+            height: 0.68rem;
+            line-height: 0.68rem;
+            border-radius: 0.10rem;
+            margin-bottom: 0.20rem;
+            box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 54, 208, .1), -0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1), 0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1), 0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1);
+            background: #fff;
+            .inner_warp{
+                width: calc(100% - 0.4rem);
+                margin: 0 auto;
+                overflow: hidden;
+                height: 0.68rem;
+                line-height: 0.68rem;
+                // display: none;
+                .screen_main{
+                    width: 6.4rem !important;
+                }
+                .logo{
+                    float: left;
+                    width: 0.48rem;
+                    height: 0.48rem;
+                    border-radius: 50%;
+                    background-image: url(http://tdream.antit.top/image/titleLogo.png) no-repeat;
+                    background-repeat: no-repeat;
+                    background-size: 0.48rem 0.48rem;
+                    margin-top: 0.1rem;
+                    margin-right: 0.1rem;
+                    vertical-align: middle;
+                }
+                .nickname{
+                    font-size: 0.26rem;
+                }
+                .screen_tip{
+                    font-size: 0.26rem;
+                    text-align: right;
+                }
+            }
+        }
+
+
+        // 梦想池
+        .dreampool{
+            width: 6.8rem;
+            margin: 0 auto;
+            border-radius: 0.10rem;
+            box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 54, 208, .1), -0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1), 0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1), 0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1);
+            background-color: #fff;
+            overflow:hidden;
+            .dream{
+                min-height: 1.5rem;
+            }
+            .van-hairline--top-bottom::after{
+                border-width: 0;
+            }
+            .progress{
+                width: 3.8rem;
+                height: 3.8rem;
+                margin: 0.5rem auto;
+                text-align: center;
+                .icon{
+                    color:#00d094;
+                    font-size: 0.24rem;
+                    vertical-align: text-top;
+                }
+                .yd-progressbar-content{
+                    width: 100%;
+                    text-align: center;
+                    font-size: 0.24rem;
+                    color: #00d094;
+                }
+                .realBill{
+                    text-align: center;
+                    margin-top: 0.2rem;
+                    .realbill_num{
+                        font-size: 0.72rem;
+                        color:#ffc054;
+                    }
+                }
+            }
+            .bill_num{
+                font-size: 0.38rem;
+                color: #ffc054;
+            }
+            .bill_text{
+                font-size: 0.24rem;
+                color: #999;
+            }
+            .join{
+                width: 100%;
+                height: 0.78rem;
+                border-radius: 0.39rem;
+                background: #00d094;
+                line-height: 0.78rem;
+                color: #fff;
+                font-size: 0.42rem;
+                border: none;
+            }
+            // 生意互助
+            .trdream{
+                width: 100%;
+                .trade{
+                    width: 100%;
+                    .tr_banner{
+                        height:3.86rem;
+                        margin-bottom: 0.42rem;
+                        img{
+                            width: 100%;
+                            height: 3.86rem;
+                        }
+                    }
+                    .line_progress svg{
+                        border-radius: 0.15rem;
+                    }
+                }
+            }
+        }
+    }
+}

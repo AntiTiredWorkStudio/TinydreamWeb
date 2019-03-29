@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@1.6/lib/index.css">
+    <link rel="stylesheet" href="http://tinydream.antit.top/TinydreamWeb/css/public.css">
+    <link rel="stylesheet" href="//unpkg.com/vue-ydui/dist/ydui.rem.css">
+    <script src="//unpkg.com/vue-ydui/dist/ydui.flexible.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="../../css/payInfo/payInfo.less" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js" ></script>
+</head>
+<body>
+    <div id="pay">
+        <div class="pay">
+            <div class="main">
+                <van-col span="24">
+                    <h4 class="title">{{dreamTitle}}</h4>
+                </van-col>
+                <van-col span="24" >
+                    <yd-progressbar :progress="progress1" trail-width="5" trail-color="#ffc054" class="progress">
+                        <van-col span="24" style="text-align:center;color:#00d094;font-size:0.28rem" class="time">
+                            <van-icon name="clock-o" style="vertical-align:middle"></van-icon>
+                            <span class="timeout">{{time}}</span>
+                        </van-col>
+                        <van-col span="24" style="margin-top:0.4rem;margin-bottom: 0.1rem" class="bill">
+                            <p style="text-align:center;font-size:0.70rem;color:#ffc054;width: 100%">{{bill}}</p>
+                        </van-col>
+                        <van-col span="24" style="color:#808080;font-size: 0.24rem">
+                            <p style="text-align:center">{{text}}</p>
+                        </van-col>
+                    </yd-progressbar>
+                </van-col>
+                <van-col span="24" style="margin-top:0.4rem;">
+                    <van-row style="margin-bottom:0.56rem;line-height: 0.52rem"> 
+                        <van-col span="12" class="left">目标金额</van-col>
+                        <van-col span="12" class="right" style="color:#00d094;font-size:0.38rem">{{tbill}}</van-col>
+                    </van-row>
+                    <van-row style="margin-bottom:0.56rem;line-height: 0.52rem"> 
+                        <van-col span="12" class="left">购买份数</van-col>
+                        <van-col span="12">
+                            <van-col span="8">&nbsp;</van-col>
+                            <van-col span="16">
+                                <van-row type="flex" align="center" justify="center">
+                                    <van-col span="8">
+                                        <van-button class="add" @click="add(pless)" style="width:0.7rem;text-align: center;line-height: 0.52rem;height:0.52rem;padding: 0;font-size:0.3rem">+</van-button>
+                                    </van-col>
+                                    <van-col span="8" style="text-align:center">{{count}}</van-col>
+                                    <van-col span="8">
+                                        <van-button class="incre" @click="incre(pless)" style="font-size:0.3rem;width:0.8rem;text-align: center;line-height: 0.52rem;height:0.52rem;padding: 0;">—</van-button>
+                                    </van-col>
+                                </van-row>
+                            </van-col>
+                        </van-col>
+                    </van-row>
+                    <van-row style="margin-bottom:0.56rem;line-height: 0.52rem"> 
+                        <van-col span="12" class="left">{{dreamType}}</van-col>
+                        <van-col span="12" class="right" style="font-size:0.26rem" id="dream" @click='select'>
+                            <span @click='select'>{{dream}}</span>
+                            <van-icon name="arrow" id="arrow" style="vertical-align: middle;font-size:0.26rem" @click='select'></van-icon>
+                            <van-actionsheet
+                            v-model="show"
+                            :actions="actions"
+                            @select="onSelect"
+                            cancel-text="取消"
+                            />
+                        </van-col>
+                    </van-row>
+                </van-col>
+                <van-col span="24">
+                    <p style="text-align:center">
+                        <span style="color:#999;font-size:0.26rem">{{ubill}} 结算：</span>
+                        <span style="color:#00d094;font-size:0.36rem"> {{pay}}元</span>
+                    </p>
+                </van-col>
+                <van-col span="24">
+                    <van-button type='primary' class="pay_btn" @click="Pay">微信支付</van-button>
+                </van-col>
+            </div>
+        </div>
+    </div>
+    <script src="http://tinydream.antit.top/TinydreamWeb/lib/jquery-1.12.3.min.js"></script> <!-- jquery库文件-->
+    <script src="https://tinydream.antit.top/admin/js/lib.js"></script> <!-- 项目核心库文件-->
+    <script src="https://tinydream.antit.top/admin/js/webApp.js"></script> <!-- 项目核心库文件-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> <!-- vue.js库文件 -->
+    <script src="https://tinydream.antit.top/?ts=udebug&uconfig=http://tinydream.antit.top/TinydreamUConfig/uconf.js"></script>
+    <script src="https://unpkg.com/vuex@3.1.0/dist/vuex.js"></script> <!-- vuex 文件 -->
+    <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
+    <script src="//unpkg.com/vue-ydui/dist/ydui.rem.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script> <!-- vantUI库文件 -->
+    <script src="../../js/index/vue.js"></script> <!-- vue.js文件 -->
+    <script src="../../js/payInfo.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>手机号管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@1.6/lib/index.css">
+    <link rel="stylesheet" href="http://tinydream.antit.top/TinydreamWeb/css/public.css">
+    <link rel="stylesheet" href="//unpkg.com/vue-ydui/dist/ydui.rem.css">
+    <script src="//unpkg.com/vue-ydui/dist/ydui.flexible.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="../../css/phone/phone.less" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js" ></script>
+</head>
+<body>
+     <div id="phone">
+         <div class="main">
+             <van-col span="24" class="phoneText">{{phoneText}}</van-col>
+             <van-col span="24" class="phoneTip">{{phoneTip}}</van-col>
+             <van-row>
+                 <van-col span="24" class="phone">
+                    <van-field left-icon="http://tdream.antit.top/image/tele.png" @focus="focus" autofocus v-model="phone" placeholder="请输入手机号" class="phoneNum" />
+                </van-col>
+             </van-row>
+            <yd-sendcode reset-str="重新获取验证码" @click.native="sendCode" slot="right" v-model="codeState" storage-key="dashuaibi" type="primary" size="large" class="getCode"  run-str="在{%s}秒后重新获取验证码"></yd-sendcode>
+            <yd-keyboard v-model="codeKey" :callback="submit" ref="codeBtn" title="小梦想安全键盘" input-text="请输入验证码"></yd-keyboard>
+             <van-number-keyboard
+                    :show="showKeyboard"
+                    @input="onInput"
+                    @delete="onDelete"
+                    @blur="showKeyboard = false"
+                    class="code"
+                />
+         </div>
+     </div>
+     <script src="http://tinydream.antit.top/TinydreamWeb/lib/jquery-1.12.3.min.js"></script> <!-- jquery库文件-->
+    <script src="https://tinydream.antit.top/admin/js/lib.js"></script> <!-- 项目核心库文件-->
+    <script src="https://tinydream.antit.top/admin/js/webApp.js"></script> <!-- 项目核心库文件-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> <!-- vue.js库文件 -->
+    <script src="https://tinydream.antit.top/?ts=udebug&uconfig=http://tinydream.antit.top/TinydreamUConfig/uconf.js"></script>
+    <script src="https://unpkg.com/vuex@3.1.0/dist/vuex.js"></script> <!-- vuex 文件 -->
+    <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
+    <script src="//unpkg.com/vue-ydui/dist/ydui.rem.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script> <!-- vantUI库文件 -->
+    <script src="../../js/index/vue.js"></script> <!-- vue.js文件 -->
+</body>
+</html>

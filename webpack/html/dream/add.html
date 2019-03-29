@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ pageTitle }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@1.6/lib/index.css">
+    <link rel="stylesheet" href="http://tinydream.antit.top/TinydreamWeb/css/public.css">
+    <link rel="stylesheet" href="//unpkg.com/vue-ydui/dist/ydui.rem.css">
+    <script src="//unpkg.com/vue-ydui/dist/ydui.flexible.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="../../css/dream/add.less" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js" ></script>
+</head>
+<body>
+    <div id="add">
+        <div class="add">
+            <van-col span="24">
+                <h3 class="ptitle">梦想标题(20字以内)</h3>
+                <p class="type">梦想类型只支持：创业/投资/做生意</p>
+            </van-col>
+            <van-col span="24" class="dr_title">
+                <van-field v-model="dr_title" placeholder="请输入梦想标题"/>
+            </van-col>
+            <van-col span="24">
+                <h3 class="ptitle">梦想简介(140字以内)</h3>
+            </van-col>
+            <van-col span="24">
+                    <van-field
+                    v-model="message"
+                    type="textarea"
+                    placeholder="请输入简介"
+                    rows="10"
+                    autosize
+                    style="font-size:0.3rem"
+                    class="dream_tit"
+                  />
+            </van-col>
+            <!-- 完善梦想展示 -->
+            <van-col span="24" class="gh_content">
+                <van-col span="24">
+                    <h3 class="ptitle">上传打印盖章的</h3>
+                    <span class="gh" @click="look_gh">《<span style="text-decoration:underline">小梦想互助平台幸运者梦想互助金申请公函</span>》</span>
+                </van-col>
+                <van-col span="24">
+                    <img :src="gh" alt="" style="width:auto;height:3rem;position: relative;left:50%;transform: translateX(-50%)" @click="gh_self">
+                </van-col>
+                <van-col span="24">
+                    <van-uploader :after-read="onRead" style="width:100%" accept="image/*" multiple>
+                        <van-button type="primary" size="large" plain>{{selectText}}</van-button>
+                    </van-uploader>
+                </van-col>
+            </van-col>
+            <van-col span='24' style="margin-top:1.2rem;margin-bottom: 0.6rem">
+                <p class="tit_tle">我承诺：</p>
+                <p class="tit_content">
+                    我填写的梦想是本人真实的梦想，不存在任何虚构、隐瞒及伪造的情况，并会积极配合平台的审核和采访报道。如违背上述说明，愿意承担全部法律责任，并不能获得梦想互助金！
+                </p>
+            </van-col>
+            <van-col span="24">
+                <van-button size="large" class="submit" type="primary" @click="submit">提 交</van-button>
+            </van-col>
+            <van-col span="24" style="text-align:center;padding-bottom:1rem">
+                <van-checkbox v-model="checked" checked-color="#00d094" class="check">同意并阅读<span style="color:#00d094">《<span style="text-decoration:underline">小梦想互助平台参与协议</span>》</span></van-checkbox>
+            </van-col>
+        </div>
+    </div>
+    <script src="http://tinydream.antit.top/TinydreamWeb/lib/jquery-1.12.3.min.js"></script> <!-- jquery库文件-->
+    <script src="https://tinydream.antit.top/admin/js/lib.js"></script> <!-- 项目核心库文件-->
+    <script src="https://tinydream.antit.top/admin/js/webApp.js"></script> <!-- 项目核心库文件-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> <!-- vue.js库文件 -->
+    <script src="https://tinydream.antit.top/?ts=udebug&uconfig=http://tinydream.antit.top/TinydreamUConfig/uconf.js"></script>
+    <script src="https://unpkg.com/vuex@3.1.0/dist/vuex.js"></script> <!-- vuex 文件 -->
+    <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
+    <script src="//unpkg.com/vue-ydui/dist/ydui.rem.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script> <!-- vantUI库文件 -->
+    <script src="../../js/index/vue.js"></script> <!-- vue.js文件 -->
+</body>
+</html>

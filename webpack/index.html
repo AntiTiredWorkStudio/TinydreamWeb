@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>参与互助</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@1.6/lib/index.css">
+    <link rel="stylesheet" href="http://tinydream.antit.top/TinydreamWeb/css/public.css">
+    <link rel="stylesheet" href="//unpkg.com/vue-ydui/dist/ydui.rem.css">
+    <script src="//unpkg.com/vue-ydui/dist/ydui.flexible.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="css/index/index.less" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js" ></script>
+    <style>
+        body{
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="main">
+        <!-- banner轮播 -->
+        <div class="banner">
+            <van-swipe :autoplay="3000" indicator-color="#999" id="swipe_banner">
+                <van-swipe-item class="swipe_banner" style="background:url('http://tdream.antit.top/image/banner.png') no-repeat;background-size:6.8rem 1.86rem"></van-swipe-item>
+                <van-swipe-item class="swipe_banner" style="background:url('https://tdream.antit.top/image/Red_SendPack.jpg') no-repeat;background-size:6.8rem 1.86rem"></van-swipe-item>
+            </van-swipe>
+        </div>
+        <!-- 公屏 -->
+        <div class="screen">
+            <van-col span="24" class="main">
+                <van-swipe :autoplay="3000" :duration="0" :show-indicators="false" :vertical="true" class="inner_warp">
+                    <van-swipe-item class="screen_main" v-for="buy in buyInfo">
+                        <van-col span="12">
+                            <div class="logo" :style="{background:'url('+buy.headicon+') no-repeat','background-size':'0.48rem 0.48rem'}"></div>
+                            <span class="nickname">{{buy.nickname}}</span>
+                        </van-col>
+                        <van-col span="12" class="screen_tip">{{buy.time}}前买了{{buy.dcount}}份小梦想</van-col>
+                    </van-swipe-item>
+                </van-swipe>
+            </van-col>
+        </div> 
+        <!-- 梦想池 -->
+        <van-tabs  @change="change_tab" animated v-model="active" class="dreampool" line-width='20' title-active-color="#00d094" title-inactive-color="#333" color="#00d094" :swipeable="true">
+            <van-tab title="梦想互助" class="dream sdream">
+                <yd-progressbar :progress="progress1" trail-width="5" trail-color="#ffc054" class="progress">
+                    <van-icon class="icon" name="clock-o"></van-icon>
+                    <span class="timeout">{{time}}</span>
+                    <van-col span="24" class="realBill">
+                        <p class="realbill_num">{{realBill}}</p>
+                        <p style="font-size:0.24rem;color:#999">{{context}}</p>
+                    </van-col>
+                </yd-progressbar>
+                <van-row type="flex" style="width:6rem;margin:0 auto">
+                    <van-col span="12" >
+                        <p class="bill_num">{{tbill}}</p>
+                        <p class="bill_text">互助目标</p>
+                    </van-col>
+                    <van-col span="12" style="text-align:right">
+                        <p class="bill_num">{{ubill}}</p>
+                        <p class="bill_text">价格</p>
+                    </van-col>
+                </van-row>
+                <van-row style="width:6rem;margin:0.4rem auto 0.1rem">
+                    <van-button @click="buy('dream')" class="join" type="primary">参与互助</van-button>
+                </van-row>
+                <van-col span="24" style="color:#999;font-size:0.2rem;text-align:center">
+                    每个人支付少量互助金，从中随机产生1名幸运者获得累计互助金启动梦想!
+                </van-col>
+            </van-tab>
+            <van-tab title="小生意互助" class="dream trdream">
+                <!-- 生意互助 -->
+                <div class="trade">
+                    <van-col span="24">
+                        <div class="tr_banner"><img :src="bannerUrl" alt=""></div>
+                    </van-col>
+                    <van-col style="text-align:center;" span="24">
+                        <span style="font-size:0.24rem;color:#999">{{contxt}}</span>
+                        <span style="font-size:0.48rem;color:#ffc054">{{sbill}}</span>
+                    </van-col>
+                    <van-col span="24" style="margin-bottom:0.2rem">
+                        <yd-progressbar class="line_progress" style="width:5.6rem;height:0.3rem;margin:0 auto" type="line" :progress="progress2" trail-width="4" trail-color="#ffc054"></yd-progressbar>
+                    </van-col>
+                    <van-row style="width:5.6rem;margin:0 auto">
+                        <van-col span="12">
+                            <p style="color:#ffc054;font-size:0.38rem">{{stbill}}</p>
+                            <p style="color:#999;font-size:0.24rem">互助目标(不满不开)</p>
+                        </van-col>
+                        <van-col span="12" style="text-align:right">
+                            <p style="color:#ffc054;font-size:0.38rem">{{subill}}</p>
+                            <p style="color:#999;font-size:0.24rem">价格</p>
+                        </van-col>
+                    </van-row>
+                    <van-row style="width:6rem;margin:0.4rem auto 0.1rem">
+                        <van-button class="join" type="primary" @click="buy('trade')">参与互助</van-button>
+                    </van-row>
+                    <van-col span="24" style="color:#999;font-size:0.2rem;text-align:center">
+                        每个人支付少量互助金，从中随机产生1名幸运者成为指定项目的免费获得者
+                    </van-col>
+                </div>            
+            </van-tab>
+        </van-tabs>
+    </div>
+</div>
+<script src="http://tinydream.antit.top/TinydreamWeb/lib/jquery-1.12.3.min.js"></script> <!-- jquery库文件-->
+<script src="https://tinydream.antit.top/admin/js/lib.js"></script> <!-- 项目核心库文件-->
+<script src="https://tinydream.antit.top/admin/js/webApp.js"></script> <!-- 项目核心库文件-->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> <!-- vue.js库文件 -->
+<script src="https://tinydream.antit.top/?ts=udebug&uconfig=http://tinydream.antit.top/TinydreamUConfig/uconf.js"></script>
+<script src="https://unpkg.com/vuex@3.1.0/dist/vuex.js"></script> <!-- vuex 文件 -->
+<script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
+<script src="//unpkg.com/vue-ydui/dist/ydui.rem.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script> <!-- vantUI库文件 -->
+<script src="js/index/vue.js"></script> <!-- vue.js文件 -->
+</body>
+</html>
