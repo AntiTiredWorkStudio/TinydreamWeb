@@ -29,6 +29,11 @@
             actions:'',//后期支付需要
         },
         created(){
+            this.$toast.loading({
+                duration: 0, 
+                forbidClick: true,
+                loadingType: 'circular'
+            })
             var that = this;
             // 此处上线用
             WebApp.Init('wxc5216d15dd321ac5',function(result,data){
@@ -135,6 +140,9 @@
                         var duration = parseInt(mainpool.duration);
                         var timeStemp = ptime + duration;
                         obj.TimeOut(timeStemp,obj);
+
+                        // 加载
+                        obj.$toast.clear()
                         
                         
 
@@ -153,6 +161,7 @@
                         obj.progress2 = maintrade.realBill / maintrade.rtbillValue;
                         obj.tpid = maintrade.pid;
                         obj.contxt = maintrade.billHint;
+                    
                         
                         
 
