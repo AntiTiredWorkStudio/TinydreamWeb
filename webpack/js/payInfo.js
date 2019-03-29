@@ -153,7 +153,7 @@ var pay = new Vue({
         },
         // 微信支付
         Pay(){
-            this.wxPay(this.oid,this.pay,uid,this)
+            this.wxPay(this.oid,this.pay*100,uid,this)
         },
         // 统一下单
         wxPay(oid,bill,uid,obj){
