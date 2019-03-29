@@ -153,57 +153,16 @@ var pay = new Vue({
         },
         // 微信支付
         Pay(){
-            this.wxPay(this.oid,this.pay*100,uid,this)
+            this.wxPay(this.oid,this.pay * 100,uid);
         },
         // 统一下单
-        wxPay(oid,bill,uid,obj){
+        wxPay(oid,bill,uid){
             TD_Request('ds','wxpayweb',{
                 oid:oid,
                 bill:bill,
-                uid:uid,
-                // dblink:'test'
+                uid:uid
             },function(code,data){
                 console.log(data)
-                console.log(data)
-                obj.WXJSAPI(data.appId,data.timeStamp,data.nonceStr,data.package,data.signType,data.paySign,obj)
-                
-            },function(code,data){
-                console.log(data);
-            })
-        },
-        // 唤醒支付
-        WXJSAPI(appId,timeStamp,nonceStr,package,signType,paySign,vue){
-            console.log(appId,timeStamp,nonceStr,package,signType,paySign,vue)
-            WeixinJSBridge.invoke(
-                'getBrandWCPayRequest', 
-                {
-                    "appId":appId,     //公众号名称，由商户传入     
-                    "timeStamp":timeStamp,         //时间戳，自1970年以来的秒数     
-                    "nonceStr":nonceStr, //随机串     
-                    "package":package,     
-                    "signType":signType,         //微信签名方式：     
-                    "paySign":paySign //微信签名 
-                },function(res){
-                    alert(JSON.stringify(res))
-                if(res.err_msg == "get_brand_wcpay_request:ok" ){
-                  vue.SUCCESS(uid,vue.oid,0.01*100,vue.count,vue.pay_action,vue.did,vue);
-                } 
-            }); 
-        },
-        // 支付完成
-        SUCCESS(uid,oid,fee,pcount,actions,did,vue){
-            TD_Request('ds','pay',{
-                uid:uid,
-                oid:oid,
-                bill:fee,
-                pcount:pcount,
-                action:actions,
-                did:did,
-                // dblink:'test'
-            },function(code,data){
-                localStorage.setItem('info',JSON.stringify({'did':did,'pid':vue.pid}));
-                localStorage.removeItem('buy');
-                window.location.href = '../share/share.html?time='+new Date().getTime();
             },function(code,data){
                 console.log(data)
             })
