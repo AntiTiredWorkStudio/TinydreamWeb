@@ -165,7 +165,7 @@ var pay = new Vue({
             },function(code,data){
                 console.log(data)
                 console.log(data)
-                obj.WXJSAPI(data.appId,data.timeStamp,data.nonceStr,data.package,data.signType,data.paySign,obj)
+                obj.WXJSAPI('wx2421b1c4370ec43b',data.timeStamp,data.nonceStr,data.package,data.signType,data.paySign,obj)
                 
             },function(code,data){
                 console.log(data);
@@ -173,7 +173,7 @@ var pay = new Vue({
         },
         // 唤醒支付
         WXJSAPI(appId,timeStamp,nonceStr,package,signType,paySign,vue){
-            // console.log(appId,timeStamp,nonceStr,package,signType,paySign,vue)
+            console.log(appId,timeStamp,nonceStr,package,signType,paySign,vue)
             WeixinJSBridge.invoke(
                 'getBrandWCPayRequest', 
                 {
