@@ -30,139 +30,139 @@
         },
         created(){
             // 此处上线用
-            // WebApp.Init('wxc5216d15dd321ac5',function(result,data){
-            //     console.log(data)
-            // })
-            console.log(Vue)
+            WebApp.Init('wxc5216d15dd321ac5',function(result,data){
+                console.log(data)
+                console.log(Vue)
+                this.userInfo = Options.GetUserInfo();
 
-            this.userInfo = {
-                headimgurl:"http://thirdwx.qlogo.cn/mmopen/vi_32/xO4y8dNCtic6O4iccJmKHGN0IQY0ImY8zwRSqOVYhRYPp5rPMNCrvIQ15oOrOOwCq6vyBCGJ1gDa3J51sUvo7eDw/132",
-                nickname:"暮色👑 微凉城",
-                openid:"oSORf5kkXvHNxhIx8lQVe3DFRFvw"
-            }
+                // this.userInfo = {
+                //     headimgurl:"http://thirdwx.qlogo.cn/mmopen/vi_32/xO4y8dNCtic6O4iccJmKHGN0IQY0ImY8zwRSqOVYhRYPp5rPMNCrvIQ15oOrOOwCq6vyBCGJ1gDa3J51sUvo7eDw/132",
+                //     nickname:"暮色👑 微凉城",
+                //     openid:"oSORf5kkXvHNxhIx8lQVe3DFRFvw"
+                // }
 
-            // 自动调用准备购买的接口
-            if($_GET.dphone == 'ok'){
-                this.pid = $_GET.pid;
-                this.buy('dream')
-            }else if($_GET.tphone == 'ok'){
-                this.tpid = $_GET.pid;
-                this.buy('trade')
-            }else if($_GET.dream == 'ok'){
-                this.pid = $_GET.pid;
-                this.buy('dream')
-            }else{
+                // 自动调用准备购买的接口
+                if($_GET.dphone == 'ok'){
+                    this.pid = $_GET.pid;
+                    this.buy('dream')
+                }else if($_GET.tphone == 'ok'){
+                    this.tpid = $_GET.pid;
+                    this.buy('trade')
+                }else if($_GET.dream == 'ok'){
+                    this.pid = $_GET.pid;
+                    this.buy('dream')
+                }else{
+                    Get(this.userInfo,this);
+                }
+                
+
+
+                // 得到梦想池信息，购买信息，以及自己的个人信息
+                // Get参数解释
+                /**
+                 * userinfo:Options.GetUserInfo()
+                 * obj:vue对象
+                 */
                 Get(this.userInfo,this);
-            }
-            
+                function Get(userinfo,obj={}){
+                    console.log(userinfo.openid,userinfo.nickname,userinfo.headimgurl)
+                    TD_Request('us','enter',{
+                        uid:userinfo.openid,
+                        nickname:userinfo.nickname,
+                        headicon:userinfo.headimgurl,
+                        dblink:'test'
+                    },function(code,data){
+                        // 判断是否有生意梦想池
+                        console.log(data.mainpool.length)
+                        if(data.maintrade.length == 0){
+                            // $('.trdream').html('暂无更多小生意').css({
+                            //     "text-align":"center",
+                            //     "height":"1.5rem",
+                            //     "font-size":"0.32rem",
+                            //     "line-height":"1.5rem",
+                            //     "color":"#CCC",
+                            // })
+                        }else{
+                            obj.bannerUrl = data.maintrade.trade.bannerUrl;
+                            console.log(data.maintrade)
+                        };
+                        // 判断是否有互助梦想池
+                        if(data.mainpool.length == 0){
+                            $('.sdream').html('暂无更多梦想池').css({
+                                "text-align":"center",
+                                "height":"1.5rem",
+                                "font-size":"0.32rem",
+                                "line-height":"1.5rem",
+                                "color":"#CCC",
+                            })
+                        }
 
 
-            // 得到梦想池信息，购买信息，以及自己的个人信息
-            // Get参数解释
-            /**
-             * userinfo:Options.GetUserInfo()
-             * obj:vue对象
-             */
-            Get(this.userInfo,this);
-            function Get(userinfo,obj={}){
-                console.log(userinfo.openid,userinfo.nickname,userinfo.headimgurl)
-                TD_Request('us','enter',{
-                    uid:userinfo.openid,
-                    nickname:userinfo.nickname,
-                    headicon:userinfo.headimgurl,
-                    dblink:'test'
-                },function(code,data){
-                    // 判断是否有生意梦想池
-                    console.log(data.mainpool.length)
-                    if(data.maintrade.length == 0){
-                        // $('.trdream').html('暂无更多小生意').css({
-                        //     "text-align":"center",
-                        //     "height":"1.5rem",
-                        //     "font-size":"0.32rem",
-                        //     "line-height":"1.5rem",
-                        //     "color":"#CCC",
-                        // })
-                    }else{
-                        obj.bannerUrl = data.maintrade.trade.bannerUrl;
-                        console.log(data.maintrade)
-                    };
-                    // 判断是否有互助梦想池
-                    if(data.mainpool.length == 0){
-                        $('.sdream').html('暂无更多梦想池').css({
-                            "text-align":"center",
-                            "height":"1.5rem",
-                            "font-size":"0.32rem",
-                            "line-height":"1.5rem",
-                            "color":"#CCC",
+
+                        // 公屏的购买信息
+                        var buyinfo = data.buyinfo;
+                        $.each(buyinfo,function(index,item){
+                            // 时间转换
+                            var time = DescriptionTime((new Date() / 1000) - item.ptime);
+                            buyinfo[index].time = time;
                         })
-                    }
+                        obj.buyInfo = buyinfo;
+        
 
 
 
-                    // 公屏的购买信息
-                    var buyinfo = data.buyinfo;
-                    $.each(buyinfo,function(index,item){
-                        // 时间转换
-                        var time = DescriptionTime((new Date() / 1000) - item.ptime);
-                        buyinfo[index].time = time;
+                        //梦想池信息
+                        var mainpool = DreamPoolAnalysis(data.mainpool);
+                        var maintrade = DreamPoolAnalysis(data.maintrade);
+                        obj.mainpool = mainpool;
+                        obj.maintrade = maintrade;
+                        
+                        console.log(mainpool);
+                        
+                        // 小梦想互助部分
+                        
+                        obj.progress1 = mainpool.realBill / mainpool.rtbillValue;// 进度百分比
+                        obj.realBill = mainpool.realBill + mainpool.realUnit;//累计互助金
+                        obj.context = mainpool.billHint;
+                        obj.tbill = mainpool.rtbillValue + mainpool.rtbillUnit;//目标互助金
+                        obj.ubill = mainpool.rubillValue + mainpool.rubillUnit;//单价
+                        obj.pid = mainpool.pid;
+                        
+                        var ptime = parseInt(mainpool.ptime);
+                        var duration = parseInt(mainpool.duration);
+                        var timeStemp = ptime + duration;
+                        obj.TimeOut(timeStemp,obj);
+                        
+                        
+
+
+
+
+
+
+
+
+
+                        // 生意梦想池
+                        obj.stbill = maintrade.rtbillValue + maintrade.rtbillUnit;
+                        obj.sbill = maintrade.realBill + maintrade.realUnit;
+                        obj.subill = maintrade.rubillValue + maintrade.rubillUnit;
+                        obj.progress2 = maintrade.realBill / maintrade.rtbillValue;
+                        obj.tpid = maintrade.pid;
+                        obj.contxt = maintrade.billHint;
+                        
+                        
+
+
+
+                        
+                        // 个人信息
+                        var selfinfo = data.selfinfo;
+                    },function(code,data){
+                        console.log(data)
                     })
-                    obj.buyInfo = buyinfo;
-    
-
-
-
-                    //梦想池信息
-                    var mainpool = DreamPoolAnalysis(data.mainpool);
-                    var maintrade = DreamPoolAnalysis(data.maintrade);
-                    obj.mainpool = mainpool;
-                    obj.maintrade = maintrade;
-                    
-                    console.log(mainpool);
-                    
-                    // 小梦想互助部分
-                    
-                    obj.progress1 = mainpool.realBill / mainpool.rtbillValue;// 进度百分比
-                    obj.realBill = mainpool.realBill + mainpool.realUnit;//累计互助金
-                    obj.context = mainpool.billHint;
-                    obj.tbill = mainpool.rtbillValue + mainpool.rtbillUnit;//目标互助金
-                    obj.ubill = mainpool.rubillValue + mainpool.rubillUnit;//单价
-                    obj.pid = mainpool.pid;
-                    
-                    var ptime = parseInt(mainpool.ptime);
-                    var duration = parseInt(mainpool.duration);
-                    var timeStemp = ptime + duration;
-                    obj.TimeOut(timeStemp,obj);
-                    
-                    
-
-
-
-
-
-
-
-
-
-                    // 生意梦想池
-                    obj.stbill = maintrade.rtbillValue + maintrade.rtbillUnit;
-                    obj.sbill = maintrade.realBill + maintrade.realUnit;
-                    obj.subill = maintrade.rubillValue + maintrade.rubillUnit;
-                    obj.progress2 = maintrade.realBill / maintrade.rtbillValue;
-                    obj.tpid = maintrade.pid;
-                    obj.contxt = maintrade.billHint;
-                    
-                    
-
-
-
-                    
-                    // 个人信息
-                    var selfinfo = data.selfinfo;
-                },function(code,data){
-                    console.log(data)
-                })
-            }
-
+                }
+            })
         },
         methods:{
             // 准备购买梦想
