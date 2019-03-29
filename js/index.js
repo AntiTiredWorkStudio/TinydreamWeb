@@ -247,6 +247,7 @@ $(function(){
              // 遮罩层
              if(!data.award.result){
                  $('.mask').hide();
+                 console.log(data)
              }else{
                  console.log(data.award);
                  console.log(data)
