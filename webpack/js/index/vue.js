@@ -43,7 +43,7 @@
                 console.log(Vue)
                 that.userInfo = Options.GetUserInfo();
                 that.$toast.clear();
-                that.$dialog.loading({
+                that.$toast.loading({
                     duration: 0, 
                     forbidClick: true,
                     loadingType: 'circular',
