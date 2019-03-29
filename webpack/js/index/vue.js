@@ -33,7 +33,7 @@
                 duration: 0, 
                 forbidClick: true,
                 loadingType: 'circular',
-                message:'加载中...'
+                message:'信息加载中...'
             })
             var that = this;
             // 此处上线用
