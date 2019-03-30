@@ -46,7 +46,12 @@
 
         // 参与互助
         var userInfo = Options.GetUserInfo();
-        var pid = localStorage.getItem('pid');
+		var pid = "";
+		if(!ExistStorage("pid")){
+			$("#btn").css("display","none"));
+		}else{
+			pid = localStorage.getItem('pid');
+		}
         console.log(pid)
         $('#btn').click(function(){
             TD_Request("ds","buy",{
