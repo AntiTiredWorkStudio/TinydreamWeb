@@ -217,7 +217,7 @@ $(function(){
              $('.bill').html(maintrade.realBill + maintrade.realUnit)
              $('.tbill').html(maintrade.rtbillValue + maintrade.rtbillUnit)
              $('.ubill').html(maintrade.rubillValue + maintrade.rubillUnit)
-             $('.progress-bar').progressBar('set', maintrade.realBill / maintrade.rtbillValue);
+             $('.progress-bar').progressBar('set', maintrade.cbill / maintrade.tbill);
              $('.YB_help').click(function(e){
                 e.stopPropagation();
                 console.log(maintrade.trade)
