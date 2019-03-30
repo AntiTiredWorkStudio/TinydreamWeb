@@ -272,6 +272,11 @@ if (!ExistStorage("buy")) {
             }
 
             $('.wxPay').click(function () {
+                if(PERMISSION_USER(userInfo.openid)){
+                    // console.log("is test user");
+                    // Options.TestServer = true;
+                    alert(actions.pay.oid);
+                }
                 // if(PERMISSION_USER(userInfo.openid)){
                 //     localStorage.setItem('img',imgArr[imgNum]);
                 //     localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
@@ -298,11 +303,7 @@ if (!ExistStorage("buy")) {
                 var fee = $('.price span.fee').html();
                 console.log(fee);
                 // if (pay == null) {
-                    if(PERMISSION_USER(userInfo.openid)){
-                        // console.log("is test user");
-                        // Options.TestServer = true;
-                        alert(actions.pay.oid);
-                    }
+                    
                 //     console.log("pay is null", data.order.oid, fee * 100, userInfo.openid);
                     TD_Request("ds", "wxpayweb", {
                         oid: actions.pay.oid,
