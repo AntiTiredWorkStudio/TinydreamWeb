@@ -45,6 +45,7 @@ $(function(){
         
        // alert(userInfo.openid);
        var did;//幸运梦想编号
+       var trdid;//生意幸运者编号
        $('#test').html(JSON.stringify(Options.GetUserInfo()));
         // 系统通知
         $('.right').click(function(){
@@ -113,6 +114,7 @@ $(function(){
          if(code == 0) {
              console.log(data)
              did = data.award.did;
+             trdid = data.tradeaward.did;
              // 首页公屏
              // console.log(data)
              var buyinfo = data.buyinfo;
@@ -258,29 +260,53 @@ $(function(){
                  console.log(data.award);
                  console.log(data)
                  $('.mask').fadeIn();
-                 $('#awardHint').html(
-                     "恭喜您成为梦想互助"+data.award.pid+"期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!"
-                 );
-                 $('#btn_perfect').click(
-                     function(res){
-                         res.stopPropagation()
-                         console.log(res)
-                         $('.mask').hide();
-                         SaveStorage("award",JSON.stringify(data.award));
-                         SaveStorage("award",JSON.stringify({'did':did,state:'all'}));
-                         TD_Request('us','rnamegx',{
-                             uid:userInfo.openid
-                         },function(code,data){
-                             console.log(data)
-                             localStorage.setItem('dr','{"did":"'+did+'","state":"all"}')
-                             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/add.html?time='+new Date().getTime()
-                         },function(code,data){
-                             console.log(data)   
-                            alert('您还未实名认证，请认证后在进行完善')
+                 if(data.tradeaward.length == 0){
+                    $('#awardHint').html(
+                        "恭喜您成为梦想互助"+data.award.pid+"期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!"
+                    );
+                    $('#btn_perfect').click(
+                        function(res){
+                            res.stopPropagation()
+                            console.log(res)
+                            $('.mask').hide();
+                            SaveStorage("award",JSON.stringify(data.award));
+                            SaveStorage("award",JSON.stringify({'did':did,state:'all'}));
+                            TD_Request('us','rnamegx',{
+                                uid:userInfo.openid
+                            },function(code,data){
+                                console.log(data)
+                                localStorage.setItem('dr','{"did":"'+did+'","state":"all"}')
+                                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/add.html?time='+new Date().getTime()
+                            },function(code,data){
+                                console.log(data)   
+                                alert('您还未实名认证，请认证后在进行完善')
+                                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/auth.html?time='+new Date().getTime()
+                            });
+                        }
+                    );
+                 }else{
+                    $('#awardHint').html(
+                        "恭喜您参与的小生意互助"+data.tradeaward.pid+"期成为幸运者，幸运编号为"+data.tradeaward.lid+"，本期免费获得项目为："+data.tradeaward.trade.title+".   我们工作人员会在3个工作日内联系您安排项目对接，请您保持电话畅通。 提示：为更好地给您对接项目，请您务必在7个工作日内完成实名认证。"
+                    ).css('font-size','0.24rem');
+                    $('#btn_perfect').html('ok,我知道了').click(function(){
+                        SaveStorage("award",JSON.stringify(data.tradeaward));
+                        SaveStorage("award",JSON.stringify({'did':did,state:'all'}));
+                        localStorage.setItem('dr','{"did":"'+trdid+'","state":"all"}')
+                        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/add.html?time='+new Date().getTime()
+                    })
+                    TD_Request('us','rnamegx',{
+                        uid:userInfo.openid
+                    },function(code,data){
+                        console.log(data)
+                        localStorage.setItem('dr','{"did":"'+trdid+'","state":"all"}')
+                        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/add.html?time='+new Date().getTime()
+                    },function(code,data){
+                        console.log(data)   
+                        $('#btn_perfect').html('实名认证').click(function(){
                             window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/auth.html?time='+new Date().getTime()
-                         });
-                     }
-                 );
+                        })  
+                    });
+                 } 
              }
 
              function buy(state,pid){

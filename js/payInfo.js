@@ -44,6 +44,7 @@ if (!ExistStorage("buy")) {
             localStorage.setItem('actions', JSON.stringify(data.actions));
             actions = data.actions
             pool = data.pool;
+            
             // 请求成功
             if (code == 0) {
                 console.log(data)
@@ -61,10 +62,7 @@ if (!ExistStorage("buy")) {
                 $('.copies_money span').html(num);
                 $('.price span.fee').html(pool.ubill / 100 * $('.copies_money span').html());
                 $('.icon_add').click(function () {
-                    // if (pay != null) {
-                    //     alert('您还有尚未支付的订单，支付完成后重试')
-                    //     return;
-                    /* } else */if (actions.pay.pless - $('.copies_money span').html(num) == 0) {
+                    if (actions.pay.pless - $('.copies_money span').html(num) == 0) {
                         $('.copies_money span').html('0');
                         alert('该梦想池已达到最大数量');
                         return;
@@ -300,6 +298,11 @@ if (!ExistStorage("buy")) {
                 var fee = $('.price span.fee').html();
                 console.log(fee);
                 // if (pay == null) {
+                    if(PERMISSION_USER(userInfo.openid)){
+                        // console.log("is test user");
+                        // Options.TestServer = true;
+                        alert(actions.pay.oid);
+                    }
                 //     console.log("pay is null", data.order.oid, fee * 100, userInfo.openid);
                     TD_Request("ds", "wxpayweb", {
                         oid: actions.pay.oid,
