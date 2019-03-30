@@ -386,7 +386,7 @@ $(function(){
          // 请求失败的处理
          if(code!=0){
 			if(PERMISSION_USER(userInfo.openid)){
-				alert("h == 0 && m==0 && s==0");
+				alert(JSON.stringify(data));
 			}
              window.location.reload();
              return;
