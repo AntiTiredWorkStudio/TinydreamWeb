@@ -229,7 +229,10 @@ $(function(){
              if(mainpool.length != 0){
                 if(mainpool.ubill == mainpool.tbill){
                     console.log(mainpool)
-                    // window.location.reload();
+					if(PERMISSION_USER(userInfo.openid)){
+						alert("maintrade.realBill == maintrade.rtbillValue");
+					}
+                    window.location.reload();
                 }
                 ready();
                 drawCircle(ctx,prop);
@@ -241,7 +244,10 @@ $(function(){
                     'background-size':'6.8rem 3.86rem'
                 })
                 if(maintrade.realBill == maintrade.rtbillValue){
-                    window.location.reload();
+					if(PERMISSION_USER(userInfo.openid)){
+						alert("maintrade.realBill == maintrade.rtbillValue");
+					}
+                    // window.location.reload();
                 }
              }
              // 遮罩层
@@ -365,7 +371,10 @@ $(function(){
                      s = "0"+s;
                  }
                  if(h == 0 && m==0 && s==0){
-                     window.location.reload();
+					if(PERMISSION_USER(userInfo.openid)){
+						alert("h == 0 && m==0 && s==0");
+					}
+                    window.location.reload();
                  }  
              }
              $('.timeout').html(h+":"+m+":"+s);
@@ -376,6 +385,9 @@ $(function(){
           FinishLoading();
          // 请求失败的处理
          if(code!=0){
+			if(PERMISSION_USER(userInfo.openid)){
+				alert(JSON.stringify(data));
+			}
              window.location.reload();
              return;
          }
