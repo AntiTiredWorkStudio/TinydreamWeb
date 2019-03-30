@@ -272,6 +272,7 @@ if (!ExistStorage("buy")) {
             }
 
             $('.wxPay').click(function () {
+                console.log(userInfo.openid)
                 if(PERMISSION_USER(userInfo.openid)){
                     // console.log("is test user");
                     // Options.TestServer = true;
