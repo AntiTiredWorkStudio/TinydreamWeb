@@ -247,7 +247,7 @@ $(function(){
 					if(PERMISSION_USER(userInfo.openid)){
 						alert("maintrade.realBill == maintrade.rtbillValue");
 					}
-                    // window.location.reload();
+                    window.location.reload();
                 }
              }
              // 遮罩层
