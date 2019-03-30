@@ -100,6 +100,7 @@ $(function(){
             TD_Request("dr","dlist",{
                 uid:userInfo.openid
             },function(code,data){
+                console.log(data)
                 if(code == 0){
                     if(data.dreams.length == 0){
                         $('.empty').show();
