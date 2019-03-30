@@ -245,7 +245,7 @@ $(function(){
                     background:'url('+maintrade.trade.bannerUrl+') no-repeat',
                     'background-size':'6.8rem 3.86rem'
                 })
-                if(maintrade.realBill == maintrade.rtbillValue){
+                if(maintrade.ubill == maintrade.tbill){
 					if(PERMISSION_USER(userInfo.openid)){
 						alert("maintrade.realBill == maintrade.rtbillValue");
 					}
