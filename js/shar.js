@@ -1,6 +1,6 @@
+WebApp.JSAPI.Init();
 $(function () {
     //alert('Loading:');
-    WebApp.JSAPI.Init();
     var userInfo = Options.GetUserInfo();
     if(PERMISSION_USER(userInfo.openid)){
         // console.log("is test user");
