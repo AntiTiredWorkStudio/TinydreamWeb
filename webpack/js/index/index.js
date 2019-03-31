@@ -48,13 +48,14 @@ var app = new Vue({
         },
         // 公屏信息展示;
         Screen(buyinfo){
+            var that = this;
             setInterval(function(){
                 console.log(buyinfo)
                 let buyInfo = null;
                 buyInfo = buyinfo.shift();
                 console.log(buyInfo)
                 buyinfo.push(buyInfo);
-                this.buyinfo = this.BUYINFO(buyInfo);
+                that.buyinfo = that.BUYINFO(buyInfo);
             },4000)
         },
         // 购买信息格式转化
