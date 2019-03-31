@@ -49,12 +49,14 @@ var app = new Vue({
         },
         // 公屏信息展示;
         Screen(buyinfo){
-            console.log(buyinfo)
-            let buyInfo = null;
-            buyInfo = buyinfo.shift();
-            console.log(buyInfo)
-            buyinfo.push(buyInfo);
-            this.buyinfo = this.BUYINFO(buyInfo);
+            setInterval(function(){
+                console.log(buyinfo)
+                let buyInfo = null;
+                buyInfo = buyinfo.shift();
+                console.log(buyInfo)
+                buyinfo.push(buyInfo);
+                this.buyinfo = this.BUYINFO(buyInfo);
+            },4000)
         },
         // 购买信息格式转化
         BUYINFO(buyinfo){
@@ -67,17 +69,11 @@ var app = new Vue({
                 time:time,
                 dcount:buyinfo.dcount,
                 headStyle:{
-                    'background':'url('+buyinfo.headicon+') no-repeat',
+                    'background':'url('+buyinfo.headicon+') no-repeat center center',
                     'background-size':'0.48rem 0.48rem'
                 }
             };
             return buyInfo;
         },
-        // 循环展示数据
-        LOOP(self,data){
-            setInterval(function(){
-                self.Screen(data)
-            },4000)
-        }
     }
 })
