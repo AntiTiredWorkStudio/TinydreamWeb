@@ -26,9 +26,21 @@
             </div>
             <!-- 公屏 -->
             <div class="screen">
-                <van-row type="flex" class="screen_main" align="center" justify="center">
-                    暂无人购买
-                </van-row>
+                <div class="screen_main">
+                    <van-swipe :autoplay="2000" :duration="0" :vertical="true" :show-indicators="false" class="swipe" indicator-color="#999">
+                        <van-swipe-item>
+                            <van-row>
+                                <van-col span="12">
+                                    <div class="logo"></div>
+                                    <span>暮色微凉城</span>
+                                </van-col>
+                                <van-col span="12">
+                                    <span>2小时前买了一份小梦想</span>
+                                </van-col>
+                            </van-row>
+                        </van-swipe-item>
+                    </van-swipe>
+                </div>
             </div>
         </div>
     </diV>

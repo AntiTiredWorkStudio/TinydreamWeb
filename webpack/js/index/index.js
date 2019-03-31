@@ -15,10 +15,10 @@ var app = new Vue({
                 if(PERMISSION_USER(self.userInfo.openid)){
                     Options.TestServer = true;
                 }
-                $('.screen_main').html('暂无人购买').css({
-                    color:'#999',
-                    'font-size':'0.24rem'
-                })
+                // $('.screen_main').html('暂无人购买').css({
+                //     color:'#999',
+                //     'font-size':'0.24rem'
+                // })
             });
         }
     }
