@@ -50,6 +50,7 @@ var app = new Vue({
         Screen(){
             let buyInfo = null;
             buyInfo = this.buyinfo.shift();
+            console.log(this.buyinfo)
             console.log(buyInfo)
         }
     }
