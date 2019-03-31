@@ -49,7 +49,7 @@ var app = new Vue({
         // 公屏信息展示;
         Screen(){
             let buyInfo = null;
-            buyInfo = this.buyinfo.unshift();
+            buyInfo = this.buyinfo.shift();
             console.log(buyInfo)
         }
     }
