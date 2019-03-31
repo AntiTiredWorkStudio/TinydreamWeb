@@ -14,9 +14,11 @@ var app = new Vue({
                 console.log(self.userInfo);
                 if(PERMISSION_USER(self.userInfo.openid)){
                     Options.TestServer = true;
-                }else{
-                    Options.TestServer = false;
                 }
+                $('.screen_main').html('暂无人购买').css({
+                    color:'#999',
+                    'font-size':'0.24rem'
+                })
             });
         }
     }
