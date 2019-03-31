@@ -1,6 +1,7 @@
 console.log(WebApp);
 WebApp.JSAPI.Init();
 $(function(){
+    var userInfo = Options.GetUserInfo();
     if(PERMISSION_USER(userInfo.openid)){
         // console.log("is test user");
         Options.TestServer = true;
@@ -14,7 +15,6 @@ $(function(){
     // 获取梦想添加信息
     var dream = JSON.parse(localStorage.getItem('buy'))
     // 获取梦想列标
-    var userInfo = Options.GetUserInfo();
 	$('.dream_list').empty();
     update();
     function update(){
