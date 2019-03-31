@@ -52,7 +52,8 @@ var app = new Vue({
         Screen(buyinfo){
             console.log(buyinfo)
             let buyInfo = null;
-            // buyInfo = buyinfo.shift();
+            buyInfo = buyinfo.shift();
+            console.log(buyInfo)
             this.buyInfo = this.BUYINFO(buyInfo);
             buyinfo.push(buyInfo);
         },
