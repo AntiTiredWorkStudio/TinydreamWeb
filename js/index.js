@@ -310,7 +310,7 @@ $(function(){
              }
 
             //  小生意互助中奖
-            if(data.tradeaward.length != 0){
+            if(data.tradeaward.length != 0 || data.award.result){
                 $('.mask').fadeIn();
                 $('#awardHint').html(
                     "恭喜您参与的小生意互助"+data.tradeaward.pid+"期成为幸运者，幸运编号为"+data.tradeaward.lid+"，本期免费获得项目为："+data.tradeaward.trade.title+".   我们工作人员会在3个工作日内联系您安排项目对接，请您保持电话畅通。 提示：为更好地给您对接项目，请您务必在7个工作日内完成实名认证。"
@@ -333,6 +333,8 @@ $(function(){
                         window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/auth.html?time='+new Date().getTime()
                     })  
                 });
+            }else{
+                $('.mask').hide()
             }
 
              function buy(state,pid){
