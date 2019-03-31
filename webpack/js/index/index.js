@@ -63,7 +63,8 @@ var app = new Vue({
                 headicon:buyinfo.headicon,
                 nickname:buyinfo.nickname,
                 ptype:buyinfo.ptype,
-                time:time
+                time:time,
+                dcount:buyinfo.dcount
             };
             return buyInfo;
         }
