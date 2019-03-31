@@ -65,7 +65,11 @@ var app = new Vue({
                 nickname:buyinfo.nickname,
                 ptype:buyinfo.ptype,
                 time:time,
-                dcount:buyinfo.dcount
+                dcount:buyinfo.dcount,
+                headStyle:{
+                    'background':'url('+buyInfo.headicon+') no-repeat',
+                    'background-size':'0.48rem 0.48rem'
+                }
             };
             return buyInfo;
         },
