@@ -40,7 +40,6 @@ var app = new Vue({
                 }else{
                     // 公屏信息展示
                     self.Screen(data.buyinfo);
-                    self.LOOP(self,data.buyinfo);
                     
                 }
             },function(code,data){
