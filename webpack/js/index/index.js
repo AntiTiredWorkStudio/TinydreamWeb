@@ -73,6 +73,7 @@ var app = new Vue({
                     'background-size':'0.48rem 0.48rem'
                 }
             };
+            console.log(buyInfo)
             return buyInfo;
         },
     }
