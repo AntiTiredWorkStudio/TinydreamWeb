@@ -53,8 +53,8 @@ var app = new Vue({
             let buyInfo = null;
             buyInfo = buyinfo.shift();
             console.log(buyInfo)
-            this.buyInfo = this.BUYINFO(buyInfo);
             buyinfo.push(buyInfo);
+            this.buyinfo = this.BUYINFO(buyInfo);
         },
         // 购买信息格式转化
         BUYINFO(buyinfo){
@@ -67,7 +67,7 @@ var app = new Vue({
                 time:time,
                 dcount:buyinfo.dcount,
                 headStyle:{
-                    'background':'url('+buyInfo.headicon+') no-repeat',
+                    'background':'url('+buyinfo.headicon+') no-repeat',
                     'background-size':'0.48rem 0.48rem'
                 }
             };
