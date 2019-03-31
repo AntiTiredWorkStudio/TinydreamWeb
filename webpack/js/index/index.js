@@ -15,11 +15,25 @@ var app = new Vue({
                 if(PERMISSION_USER(self.userInfo.openid)){
                     Options.TestServer = true;
                 }
+                // 注册个人信息
+                self.Register(self.userInfo.openid,self.userInfo.nickname,self.userInfo.headimgurl)
                 // $('.screen_main').html('暂无人购买').css({
                 //     color:'#999',
                 //     'font-size':'0.24rem'
                 // })
             });
+        },
+        // 注册信息
+        Register(uid,nickname,headicon){
+            TD_Request('us','enter',{
+                uid:uid,
+                nickname:nickname,
+                headicon:headicon
+            },function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data);
+            })
         }
     }
 })
