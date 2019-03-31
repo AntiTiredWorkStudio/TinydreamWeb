@@ -50,8 +50,9 @@ var app = new Vue({
         },
         // 公屏信息展示;
         Screen(buyinfo){
+            console.log(buyinfo)
             let buyInfo = null;
-            buyInfo = buyinfo.shift();
+            // buyInfo = buyinfo.shift();
             this.buyInfo = this.BUYINFO(buyInfo);
             buyinfo.push(buyInfo);
         },
