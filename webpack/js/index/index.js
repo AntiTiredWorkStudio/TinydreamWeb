@@ -40,9 +40,8 @@ var app = new Vue({
                 }else{
                     // 公屏信息展示
                     self.Screen(data.buyinfo);
-                    setInterval(function(){
-                        self.Screen(data.buyInfo)
-                    },4000)
+                    self.LOOP(self);
+                    
                 }
             },function(code,data){
                 console.log(data);
@@ -69,6 +68,12 @@ var app = new Vue({
                 dcount:buyinfo.dcount
             };
             return buyInfo;
+        },
+        // 循环展示数据
+        LOOP(self){
+            setInterval(function(){
+                self.Screen(data.buyInfo)
+            },4000)
         }
     }
 })
