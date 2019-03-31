@@ -309,6 +309,32 @@ $(function(){
                  } 
              }
 
+            //  小生意互助中奖
+            if(data.tradeaward.length != 0){
+                $('.mask').fadeIn();
+                $('#awardHint').html(
+                    "恭喜您参与的小生意互助"+data.tradeaward.pid+"期成为幸运者，幸运编号为"+data.tradeaward.lid+"，本期免费获得项目为："+data.tradeaward.trade.title+".   我们工作人员会在3个工作日内联系您安排项目对接，请您保持电话畅通。 提示：为更好地给您对接项目，请您务必在7个工作日内完成实名认证。"
+                ).css('font-size','0.24rem');
+                $('#btn_perfect').html('ok,我知道了').click(function(){
+                    SaveStorage("award",JSON.stringify(data.tradeaward));
+                    SaveStorage("award",JSON.stringify({'did':did,state:'all'}));
+                    localStorage.setItem('dr','{"did":"'+trdid+'","state":"all"}')
+                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/add.html?time='+new Date().getTime()
+                })
+                TD_Request('us','rnamegx',{
+                    uid:userInfo.openid
+                },function(code,data){
+                    console.log(data)
+                    localStorage.setItem('dr','{"did":"'+trdid+'","state":"all"}')
+                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/add.html?time='+new Date().getTime()
+                },function(code,data){
+                    console.log(data)   
+                    $('#btn_perfect').html('实名认证').click(function(){
+                        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/auth.html?time='+new Date().getTime()
+                    })  
+                });
+            }
+
              function buy(state,pid){
                 if(state == 'trade'){
                     TD_Request("ds","buy",{
