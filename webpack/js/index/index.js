@@ -38,20 +38,34 @@ var app = new Vue({
                         'text-align':'center'
                     })
                 }else{
-                    self.buyinfo = data.buyinfo;
                     // 公屏信息展示
-                    self.Screen();
+                    self.Screen(data.buyinfo);
+                    setInterval(function(){
+                        self.Screen(data.buyInfo)
+                    },4000)
                 }
             },function(code,data){
                 console.log(data);
             })
         },
         // 公屏信息展示;
-        Screen(){
+        Screen(buyinfo){
             let buyInfo = null;
-            // buyInfo = this.buyinfo.shift();
-            console.log(this.buyinfo)
-            console.log(buyInfo)
+            buyInfo = buyinfo.shift();
+            this.buyInfo = this.BUYINFO(buyInfo);
+            buyinfo.push(buyInfo);
+        },
+        // 购买信息格式转化
+        BUYINFO(buyinfo){
+            var date = parseInt(new Date().getTime() / 1000);
+            let time =  DescriptionTime(date - buyinfo.ptime);
+            var buyInfo = {
+                headicon:buyinfo.headicon,
+                nickname:buyinfo.nickname,
+                ptype:buyinfo.ptype,
+                time:time
+            };
+            return buyInfo;
         }
     }
 })
