@@ -1,5 +1,8 @@
 
 WebApp.JSAPI.Init();
+if(PERMISSION_USER(userInfo.openid)){
+	Options.TestServer = true;
+}
 $(function(){
     var userInfo = Options.GetUserInfo();
     var templateStr = $('#template').html();
