@@ -33,7 +33,8 @@
                             <span>{{buyinfo.nickname}}</span>
                         </van-col>
                         <van-col span="12">
-                            <span>{{buyinfo.time + '前买了'}}{{buyinfo.dcount + '份'}}{{buyinfo.ptype == 'TRADE' ? '小生意' : '小梦想'}}</span>
+                            {{buyinfo}}
+                            <span>{{buyinfo.time  '前买了'}}{{buyinfo.dcount + '份'}}{{buyinfo.ptype == 'TRADE' ? '小生意' : '小梦想'}}</span>
                         </van-col>
                     </van-row>
                 </div>
