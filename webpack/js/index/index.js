@@ -57,7 +57,7 @@ var app = new Vue({
             buyInfo = buyinfo.shift();
             console.log(buyInfo)
             buyinfo.push(buyInfo);
-            that.buyinfo = that.BUYINFO(buyInfo);
+            this.buyinfo = this.BUYINFO(buyInfo);
         },
         // 购买信息格式转化
         BUYINFO(buyinfo){
