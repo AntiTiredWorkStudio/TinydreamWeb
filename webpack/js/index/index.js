@@ -98,7 +98,7 @@ var app = new Vue({
                     let that = self;
                     setInterval(()=>{
                         that.SetTimeOut(ptime + daurtion);
-                    })
+                    },1000)
                     console.log(self.mainpool)
                     self.$toast.clear()
                 }
