@@ -58,7 +58,10 @@ var app = new Vue({
                     self.$toast.clear();
                 }else{
                     self.Screen(data.buyinfo);
-
+                    let that = self;
+                    setInterval(() => {
+                        that.Screen()
+                    },4000)
                 }
             },function(code,data){
                 console.log(data)
