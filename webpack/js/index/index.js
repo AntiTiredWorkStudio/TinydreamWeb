@@ -133,7 +133,7 @@ var app = new Vue({
         },
         // 倒计时
         SetTimeOut(timeStamp){
-            setInterval(()=>{
+            return setInterval(()=>{
                 var time = parseInt(new Date().getTime() / 1000);
                 var timeout = parseInt(timeStamp - time);
                 var h = Math.floor(timeout/60/60) > 10 ? Math.floor(timeout/60/60) : '0' + Math.floor(timeout/60/60);
@@ -143,7 +143,6 @@ var app = new Vue({
                     window.location.reload();
                 }
                 var t = h+':'+m+':'+s;
-                return t;
             },1000)  
         }
     }
