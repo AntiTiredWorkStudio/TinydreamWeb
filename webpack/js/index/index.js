@@ -78,6 +78,7 @@ var app = new Vue({
                         'font-size':'0.26rem',
                         'text-align':'center',
                         'line-height':'1.5rem',
+                        padding:'0'
                     })
                 }
             },function(code,data){
