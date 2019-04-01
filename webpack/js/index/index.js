@@ -95,7 +95,10 @@ var app = new Vue({
                     var ptime = parseInt(mainpool.ptime);
                     var daurtion = parseInt(mainpool.duration);
                     self.mainpool = mainpool;
-                    self.SetTimeOut(ptime + daurtion);
+                    let that = self;
+                    setInterval(()=>{
+                        that.SetTimeOut(ptime + daurtion);
+                    })
                     console.log(self.mainpool)
                     self.$toast.clear()
                 }
