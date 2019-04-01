@@ -90,13 +90,16 @@ var app = new Vue({
                     })
                     self.$toast.clear();
                 }else{
-                    self.mainpool = DreamPoolAnalysis(data.mainpool);
-                    self.progress1 = self.mainpool.cbill / self.mainpool.tbill;
+                    let mainpool = DreamPoolAnalysis(data.mainpool);
+                    self.progress1 = mainpool.cbill / mainpool.tbill;
+                    var ptime = parseInt(mainpool.ptime);
+                    var daurtion = parseInt(mainpool.duration);
+                    mainpool.time = self.SetTimeOut(ptime + daurtion);
                     console.log(self.mainpool);
                     self.$toast.clear()
                 }
                 // 判断生意梦想池是否为空
-                if(data.maintrade.length == 0){
+                if(maintrade.length == 0){
                     $('.trade').html('暂无更多小生意').css({
                         color:'#999',
                         'font-size':'0.26rem',
@@ -127,5 +130,20 @@ var app = new Vue({
             };
             this.$toast.clear();
         },
+        // 倒计时
+        SetTimeOut(timeStamp){
+            setInterval(()=>{
+                var time = parseInt(new Date().getTime() / 1000);
+                var timeout = parseInt(timeStamp - time);
+                var h = Math.floor(timeout/60/60) > 10 ? Math.floor(timeout/60/60) : '0' + Math.floor(timeout/60/60);
+                var m = Math.floor(timeout/60%60) > 10 ? Math.floor(timeout/60%60) : '0' + Math.floor(timeout/60%60);
+                var s = Math.floor(timeout%60) > 10 ? Math.floor(timeout/60%60) : '0' + Math.floor(timeout/60%60);
+                if(h == 0 && m == 0 && s == 0){
+                    window.location.reload();
+                }
+                var t = h+':'+m+':'+s;
+                return t;
+            },1000)  
+        }
     }
 })

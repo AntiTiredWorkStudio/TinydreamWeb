@@ -49,11 +49,11 @@
                             <yd-progressbar :progress="progress1" class="progress1" trail-color="#ffc054" trail-width="6" style="text-align:center">
                                 <van-col span="24" style="font-size:0.28rem;color:#00d094">
                                     <van-icon name="clock-o"></van-icon>
-                                    <span class="timeout">48:45:37</span>
+                                    <span class="timeout">{{mainpool.time}}</span>
                                 </van-col>
                                 <van-col span="24">
-                                    <p style="font-size:0.6rem;color:#ffc054;margin: 0.3rem 0 0.2rem">20万元</p>
-                                    <p style="font-size:0.24rem;color:#999">目前互助金</p>
+                                    <p style="font-size:0.6rem;color:#ffc054;margin: 0.3rem 0 0.2rem">{{mainpool.realBill + mainpool.realUnit}}</p>
+                                    <p style="font-size:0.24rem;color:#999">{{mainpool.billHint}}</p>
                                 </van-col>
                             </yd-progressbar>
                         </van-col> 
