@@ -6,6 +6,7 @@ var app = new Vue({
         active:0,//默认激活
         progress1: '0',//当前进度
         mainpool:'',//小梦想互助池
+        timeout:'',//倒计时
         maintrade:'',//小生意互助池
     
     },
@@ -99,7 +100,7 @@ var app = new Vue({
                     self.mainpool.time = self.SetTimeOut(ptime + daurtion);
                     // var that = self;
                     setInterval(()=>{
-                        self.mainpool.time = self.SetTimeOut(ptime + daurtion)
+                        self.timeout = self.SetTimeOut(ptime + daurtion)
                         console.log(self.mainpool.time)
                     },1000)
                     
