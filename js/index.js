@@ -254,6 +254,9 @@ $(function(){
              }
              // 遮罩层
              $('.mask .bg').css('background','url("")')
+             if(!data.award.result){
+                 $('.mask').hide();
+             }
              if(data.tradeaward.length == 0 || data.award.result){
                 //  console.log(data.award);
                 //  console.log(data)
