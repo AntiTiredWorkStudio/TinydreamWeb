@@ -91,10 +91,10 @@
                             <span style="font-size:0.24rem;color:#999">{{maintrade == '' ? '--' : maintrade.billHint}}</span>
                             <span style="font-size:0.48rem;color:#ffc054">{{maintrade == '' ? '--' : (maintrade.realBill + maintrade.realUnit)}}</span>
                         </van-col>
-                        <van-col span="24">
+                        <van-col span="24" style="margin-bottom:0.1rem">
                             <yd-progressbar type="line" :progress="progress2" trail-width="4" trail-color="#ffc054" class="progress2"></yd-progressbar>
                         </van-col>
-                        <van-row style="width:6rem;margin:0.2rem auto 0.25rem">
+                        <van-row style="width:6rem;margin:0 auto">
                             <van-col span="12">
                                 <p style="font-size:0.38rem;color:#ffc054">{{maintrade == '' ? '--' : (maintrade.rtbillValue + maintrade.rtbillUnit)}}</p>
                                 <p style="font-size:0.24rem;color:#999">互助目标(不满不开)</p>
