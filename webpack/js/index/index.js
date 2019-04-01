@@ -1,8 +1,9 @@
 var app = new Vue({
     el:'#app',
     data:{
-        userInfo:'',//个人信息,
+        userInfo:'',//个人信息
         buyinfo:'',//购买信息
+        active:0,
     },
     created(){
         this.GetUserInfo(this);
@@ -53,6 +54,7 @@ var app = new Vue({
                     loadingType:'circular',
                     message:'公屏加载中...'
                 })
+                // 判断购买信息是否为空
                 if(data.buyinfo.length == 0){
                     $('.screen_main').html('暂无人购买').css({
                         'color':'#999',
@@ -67,6 +69,7 @@ var app = new Vue({
                         that.Screen(data.buyinfo)
                     },4000)
                 }
+                // 判断梦想池是否为空
             },function(code,data){
                 console.log(data)
             })
@@ -88,7 +91,6 @@ var app = new Vue({
                 }
             };
             this.$toast.clear();
-            console.log(this.buyinfo);
         }
     }
 })
