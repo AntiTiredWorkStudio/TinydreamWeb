@@ -6,6 +6,10 @@ var app = new Vue({
     },
     created(){
         this.GetUserInfo(this)
+        // 开启测试服务器
+        if(PERMISSION_USER(userInfo.openid)){
+            Options.TestServer = true;
+        }
     },
     methods:{
         // 拉取信息
