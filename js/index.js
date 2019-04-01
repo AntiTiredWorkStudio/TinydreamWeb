@@ -303,7 +303,20 @@ $(function(){
                         res.stopPropagation();
                         $('.mask').hide();
                         console.log(data.tradeaward);
-                        SaveStorage("lucky",JSON.stringify(trade));
+                        var tradeInfo = {
+                            title:trade.trade.title,
+                            state:'SUCCESS',
+                            lottery:{
+                                lid:trade.lid,
+                                pid:trade.pid,
+                            },
+                            pool:{
+                                pid:trade.pid,
+                                ptitle:'生意互助'+trade.pid+'期',
+                                ptype:'TRADE'
+                            }
+                        }
+                        SaveStorage("lucky",JSON.stringify(tradeInfo));
                         TD_Request('aw','aend',{
                             pid:trade.pid,
                             url:true
