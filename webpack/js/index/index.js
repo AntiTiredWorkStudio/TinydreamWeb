@@ -9,6 +9,7 @@ var app = new Vue({
         timeout:'',//倒计时
         maintrade:'',//小生意互助池
         progress2:'',//小生意互助进度
+        tradeStyle:'',//小生意banner图
     
     },
     created(){
@@ -117,6 +118,9 @@ var app = new Vue({
                     let maintrade = DreamPoolAnalysis(data.maintrade);
                     self.progress2 = maintrade.cbill / maintrade.tbill;
                     self.maintrade = maintrade;
+                    self.tradeStyle = {
+                        background:'url('+maintrade.trade.bannerUrl+') no-repeat / 6.8rem 3.86rem'
+                    }
                 }
             },function(code,data){
                 console.log(data)

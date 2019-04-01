@@ -75,9 +75,7 @@
                         </van-col>
                     </van-tab>
                     <van-tab title="小生意互助" class="trade tab_dream">
-                        <van-col span="24" class="tradeimgUrl">
-                            <img :src="maintrade == '' ? '' : maintrade.trade.bannerUrl" alt="">
-                        </van-col>
+                        <van-col span="24" class="tradeimgUrl" :style="tradeStyle"></van-col>
                     </van-tab>
                 </van-tabs>
             </div>
