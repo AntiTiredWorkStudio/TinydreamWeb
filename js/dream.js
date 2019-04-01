@@ -124,7 +124,7 @@ $(function(){
                         $('.luckyDream').click(function(){
                             localStorage.setItem('did',$(this).index()+1)
                             localStorage.setItem('lucky',$(this).attr('data-lucky'))
-                            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/luckyDream.html?time='+new Date().getTime()
+                            window.location.href = 'luckyDream.html?time='+new Date().getTime()
                         })
                     }
                 }
