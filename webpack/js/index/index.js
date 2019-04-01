@@ -143,6 +143,7 @@ var app = new Vue({
                     window.location.reload();
                 }
                 var t = h+':'+m+':'+s;
+                return t;
             },1000)  
         }
     }
