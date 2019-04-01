@@ -60,7 +60,7 @@ var app = new Vue({
                     self.Screen(data.buyinfo);
                     let that = self;
                     setInterval(() => {
-                        that.Screen()
+                        that.Screen(data.buyinfo)
                     },4000)
                 }
             },function(code,data){
