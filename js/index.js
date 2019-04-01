@@ -303,7 +303,7 @@ $(function(){
                         res.stopPropagation();
                         $('.mask').hide();
                         console.log(data.tradeaward);
-                        SaveStorage("lucky",JSON.stringify(data.tradeaward));
+                        SaveStorage("lucky",JSON.stringify(trade));
                         TD_Request('aw','aend',{
                             pid:trade.pid,
                             url:true
