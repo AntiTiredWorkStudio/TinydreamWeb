@@ -9,7 +9,7 @@ $(function(){
         //alert(result);
         var userInfo = Options.GetUserInfo();
         // console.log(result,data);
-        if(PERMISSION_USER(userInfo.openid)){
+        if(PERMISSION_USER(userInfo.openid) && window.location.href != 'http://tinydream.antit.top/TinydreamWebTest/index.html'){
             // console.log("is test user");
             window.location.href = 'http://tinydream.antit.top/TinydreamWebTest/index.html'
         }else{
