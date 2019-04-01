@@ -93,6 +93,7 @@ var app = new Vue({
                     self.mainpool = DreamPoolAnalysis(data.mainpool);
                     self.progress1 = self.mainpool.cbill / self.mainpool.tbill;
                     console.log(self.mainpool);
+                    console.log(self.progress1)
                     self.$toast.clear()
                 }
                 // 判断生意梦想池是否为空
