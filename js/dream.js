@@ -104,7 +104,8 @@ $(function(){
         }else{
             $('.add').hide();
             TD_Request("dr","dlist",{
-                uid:userInfo.openid
+                uid:userInfo.openid,
+                trade:true
             },function(code,data){
                 console.log(data)
                 if(code == 0){
