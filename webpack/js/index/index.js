@@ -97,6 +97,10 @@ var app = new Vue({
                     var daurtion = parseInt(mainpool.duration);
                     self.mainpool = mainpool;
                     self.mainpool.time = self.SetTimeOut(ptime + daurtion);
+                    var that = self;
+                    setInterval(()=>{
+                        that.mainpool.time = that.self.SetTimeOut(ptime + daurtion)
+                    },1000)
                     console.log(self.mainpool.time)
 
 
