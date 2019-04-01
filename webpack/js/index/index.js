@@ -100,8 +100,9 @@ var app = new Vue({
                     var that = self;
                     setInterval(()=>{
                         that.mainpool.time = that.SetTimeOut(ptime + daurtion)
+                        console.log(self.mainpool.time)
                     },1000)
-                    console.log(self.mainpool.time)
+                    
 
 
                     self.$toast.clear()
