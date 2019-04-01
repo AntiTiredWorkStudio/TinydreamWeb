@@ -21,7 +21,11 @@ $(function(){
     $('.help_money').html(poolInfo.realBill + poolInfo.realUnit)
     $('.present_money').html(poolInfo.billHint);
     $('.tbill').html(poolInfo.rtbillValue+poolInfo.rtbillUnit);
-    var prop = poolInfo.realBill / poolInfo.rtbillValue;
+    var prop = poolInfo.cbill / poolInfo.tbill;
+    if(PERMISSION_USER(userInfo.openid)){
+        // console.log("is test user");
+       alert(prop)
+    }
     ready();
     drawCircle(ctx,prop);
     if(poolInfo.state == "RUNNING" && poolInfo.award == "NO") {

@@ -1,6 +1,13 @@
 console.log(WebApp);
 WebApp.JSAPI.Init();
 $(function(){
+    var userInfo = Options.GetUserInfo();
+    if(PERMISSION_USER(userInfo.openid)){
+        // console.log("is test user");
+        Options.TestServer = true;
+    }else{
+        Options.TestServer = false;
+    }
     // 获取模板字符串
     // WebApp.JSAPI.Init()
     var templateStr = $('#template').html();
@@ -8,7 +15,6 @@ $(function(){
     // 获取梦想添加信息
     var dream = JSON.parse(localStorage.getItem('buy'))
     // 获取梦想列标
-    var userInfo = Options.GetUserInfo();
 	$('.dream_list').empty();
     update();
     function update(){
@@ -100,6 +106,7 @@ $(function(){
             TD_Request("dr","dlist",{
                 uid:userInfo.openid
             },function(code,data){
+                console.log(data)
                 if(code == 0){
                     if(data.dreams.length == 0){
                         $('.empty').show();

@@ -1,3 +1,4 @@
+WebApp.JSAPI.Init();
 $(function () {
     //alert('Loading:');
     var userInfo = Options.GetUserInfo();
