@@ -108,6 +108,7 @@ $(function(){
             },function(code,data){
                 console.log(data)
                 if(code == 0){
+                    console.log(data);
                     if(data.dreams.length == 0){
                         $('.empty').show();
                         $('.dream_main').hide();
