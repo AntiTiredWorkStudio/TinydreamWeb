@@ -301,6 +301,8 @@ $(function(){
                     $('#btn_perfect').html('ok,我知道了').click(function(res){
                         res.stopPropagation();
                         $('.mask').hide();
+                        console.log(data.tradeaward);
+                        return;
                         SaveStorage("lucky",JSON.stringify(data.tradeaward));
                         window.location.href = 'html/luckyDream.html?time='+new Date().getTime()+'&type=TRADE'
                     })
