@@ -69,7 +69,7 @@ var app = new Vue({
                 time:time,
                 dcount:buyinfo.dcount,
                 headStyle:{
-                    'background':'url('+buyinfo.headicon+') no-repeat center center',
+                    'background':'url('+buyinfo.headicon+') no-repeat center center / 0.48rem 0.48rem',
                 }
             };
             return buyInfo;
