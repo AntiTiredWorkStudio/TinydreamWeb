@@ -54,7 +54,7 @@ $(function(){
        $('#test').html(JSON.stringify(Options.GetUserInfo()));
         // 系统通知
         $('.right').click(function(){
-            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/notice.html?time="+new Date().getTime()
+            window.location.href = "html/notice.html?time="+new Date().getTime()
         })
         $('#banner').swipeslider();
 
@@ -74,10 +74,10 @@ $(function(){
          // })
      //    }
         $('.banner1').click(function(){
-             window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/question.html?time="+new Date().getTime()
+             window.location.href = "html/question.html?time="+new Date().getTime()
          })
          $('.banner2').click(function(){
-             window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html?time="+new Date().getTime()
+             window.location.href = "html/R_payInfo.html?time="+new Date().getTime()
          })
          // if(userInfo.openid == 'oSORf5kkXvHNxhIx8lQVe3DFRFvw' || userInfo.openid == 'oSORf5kn6hr_H5ZSRyYSHFUzyBd4'){
          //     $('.banner2').show();
@@ -227,7 +227,7 @@ $(function(){
                 e.stopPropagation();
                 console.log(maintrade.trade)
                 localStorage.setItem('pid',maintrade.pid);
-                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/trade.html?id="+maintrade.trade.url;
+                window.location.href = "html/trade.html?id="+maintrade.trade.url;
             })
 
 
@@ -281,11 +281,11 @@ $(function(){
                         },function(code,data){
                             console.log(data)
                             localStorage.setItem('dr','{"did":"'+did+'","state":"all"}')
-                            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/add.html?time='+new Date().getTime()
+                            window.location.href = 'html/add.html?time='+new Date().getTime()
                         },function(code,data){
                             console.log(data)   
                             alert('您还未实名认证，请认证后在进行完善')
-                            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/auth.html?time='+new Date().getTime()
+                            window.location.href = 'html/auth.html?time='+new Date().getTime()
                         });
                 }); 
              }else
@@ -301,12 +301,12 @@ $(function(){
                         res.stopPropagation();
                         $('.mask').hide();
                         SaveStorage("lucky",JSON.stringify(data.tradeaward));
-                        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/luckyDream.html?time='+new Date().getTime()
+                        window.location.href = 'html/luckyDream.html?time='+new Date().getTime()
                     })
                 },function(code,data){
                     console.log(data)   
                     $('#btn_perfect').html('实名认证').click(function(){
-                        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/auth.html?time='+new Date().getTime()
+                        window.location.href = 'html/auth.html?time='+new Date().getTime()
                     })  
                 });
              }else{
@@ -347,13 +347,13 @@ $(function(){
                             console.log(data)
                             localStorage.setItem('buy',JSON.stringify(data.actions));
                             // alert(1)
-                            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?state=trade&time="+new Date().getTime();
+                            window.location.href = "html/payInfo.html?state=trade&time="+new Date().getTime();
                         }
                     },function(code,data){
                         if(code == 11 || !data.result){
                             alert("您尚"+data.context+",绑定手机后才能继续参与互助");
                             localStorage.setItem('mainpool',JSON.stringify(mainpool));
-                            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html?time="+new Date().getTime();
+                            window.location.href = "html/phoneManage.html?time="+new Date().getTime();
                         }else if(code == 18){
                             alert("您当日购买次数已达上限");
                             return;
@@ -368,14 +368,14 @@ $(function(){
                         if(code == 0 || data.result == true){
                             if(!data.actions.hasOwnProperty('editdream')){
                                 localStorage.setItem('buy',JSON.stringify(data.actions));
-                                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?time="+new Date().getTime();
+                                window.location.href = "html/payInfo.html?time="+new Date().getTime();
                             }else{
                                 if(confirm("您还没有添加梦想，添加梦想后才能参与互助")){
                                     localStorage.setItem('buy',JSON.stringify(data.actions));
                                     localStorage.setItem('mainpool',JSON.stringify(mainpool));
-                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html?time="+new Date().getTime()
+                                    window.location.href = "html/dream.html?time="+new Date().getTime()
                                 }else{
-                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html?time="+new Date().getTime()
+                                    window.location.href = "index.html?time="+new Date().getTime()
                                 }
                             }
                         }
@@ -383,7 +383,7 @@ $(function(){
                         if(code == 11 || !data.result){
                             alert("您尚"+data.context+",绑定手机后才能继续参与互助");
                             localStorage.setItem('mainpool',JSON.stringify(mainpool));
-                            window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html?time="+new Date().getTime();
+                            window.location.href = "html/phoneManage.html?time="+new Date().getTime();
                         }else if(code == 18){
                             alert("您当日购买次数已达上限");
                             return;
@@ -484,7 +484,7 @@ $(function(){
     })
     //客服
     $('.icon_notice .left').click(function(){
-        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/cach.html"
+        window.location.href = "html/cach.html"
     })
     // banner
     // $('.banner').click(function(){
