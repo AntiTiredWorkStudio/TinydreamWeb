@@ -42,14 +42,23 @@ var app = new Vue({
                 headicon:self.userInfo.headimgurl
             },function(code,data){
                 console.log(data)
+                self.$toast.clear();
+                self.$toast.loading({
+                    duration:0,
+                    forbidClick:true,
+                    loadingType:'circular',
+                    message:'公屏加载中...'
+                })
                 if(data.buyinfo.length == 0){
                     $('.screen_main').html('暂无人购买').css({
                         'color':'#999',
                         'font-size':'0.26rem',
                         'text-align':'center'
                     })
+                    self.$toast.clear();
                 }else{
                     self.Screen(data.buyinfo);
+
                 }
             },function(code,data){
                 console.log(data)
@@ -71,6 +80,7 @@ var app = new Vue({
                     'background':'url('+ buyInfo.headicon +') no-repeat center center / 0.48rem 0.48rem'
                 }
             };
+            self.$toast.clear();
             console.log(this.buyinfo);
         }
     }
