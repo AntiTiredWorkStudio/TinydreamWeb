@@ -3,6 +3,11 @@ $(function(){
     // 开启上传
     // WebApp.InitUpload();
     var userInfo = Options.GetUserInfo();
+    if(PERMISSION_USER(self.userInfo.openid)){
+        Options.TestServer = true;
+    }else{
+        Options.TestServer = false;
+    };
     // 获取did
     var did = JSON.parse(localStorage.getItem('dr')).did;
     var state = JSON.parse(localStorage.getItem('dr')).state;
