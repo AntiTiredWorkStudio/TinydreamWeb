@@ -86,7 +86,7 @@ $(function(){
 								},function(code,data){
 									$('.submit_mask').fadeIn();
 									$('.submit_mask button').click(function(){
-									$('.submit_mask').fadeOut();
+									    $('.submit_mask').fadeOut();
 										window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html?time="+new Date().getTime()
 									})
 								},function(code,data){
