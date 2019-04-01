@@ -84,7 +84,7 @@ $(function(){
 									uid:userInfo.openid,
 									did:did
 								},function(code,data){
-                                    console.log(data.tele.substr(7,11));
+                                    $('#phone').html(data.tele.substr(7,11))
 									$('.submit_mask').fadeIn();
 									$('.submit_mask button').click(function(){
 									    $('.submit_mask').fadeOut();
