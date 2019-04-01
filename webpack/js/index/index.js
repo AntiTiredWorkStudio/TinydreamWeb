@@ -59,7 +59,7 @@ var app = new Vue({
                     })
                 }else{
                     // 公屏信息展示
-                    self.Screen(data.buyinfo);
+                    // self.Screen(data.buyinfo);
                     let that = self;
                     setInterval(() => {
                         that.Screen(data.buyinfo)
