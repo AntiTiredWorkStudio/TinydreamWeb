@@ -92,14 +92,14 @@ var app = new Vue({
                 }else{
                     let mainpool = DreamPoolAnalysis(data.mainpool);
                     self.progress1 = mainpool.cbill / mainpool.tbill;
+                    
                     var ptime = parseInt(mainpool.ptime);
                     var daurtion = parseInt(mainpool.duration);
                     self.mainpool = mainpool;
-                    let that = self;
-                    setInterval(()=>{
-                        that.SetTimeOut(ptime + daurtion);
-                    },1000)
-                    console.log(self.mainpool)
+                    self.mainpool.time = self.SetTimeOut(ptime + daurtion);
+                    console.log(self.mainpool.time)
+
+
                     self.$toast.clear()
                 }
                 // 判断生意梦想池是否为空
@@ -136,19 +136,13 @@ var app = new Vue({
         },
         // 倒计时
         SetTimeOut(timeStamp){
-            let self = this;
-            setInterval(()=>{
-                var time = parseInt(new Date().getTime() / 1000);
-                var timeout = parseInt(timeStamp - time);
-                var h = Math.floor(timeout/60/60) > 10 ? Math.floor(timeout/60/60) : '0' + Math.floor(timeout/60/60);
-                var m = Math.floor(timeout/60%60) > 10 ? Math.floor(timeout/60%60) : '0' + Math.floor(timeout/60%60);
-                var s = Math.floor(timeout%60) > 10 ? Math.floor(timeout/60%60) : '0' + Math.floor(timeout/60%60);
-                if(h == 0 && m == 0 && s == 0){
-                    window.location.reload();
-                }
-                var t = h+':'+m+':'+s;
-                self.mainpool.time = t;
-            },1000)  
+            var time = parseInt(new Date().getTime() / 1000);
+            var timeout = parseInt(timeStamp - time);
+            var h = Math.floor(timeout/60/60) < 10 ? '0' + Math.floor(timeout/60/60) : Math.floor(timeout/60/60);
+            var m = Math.floor(timeout/60%60) < 10 ? '0' + Math.floor(timeout/60%60) : Math.floor(timeout/60%60);
+            var s = Math.floor(timeout%60) < 10 ? '0' + Math.floor(timeout%60) : Math.floor(timeout%60); 
+            var time = h + ":" + m + ":" + s;
+            return time;
         }
     }
 })
