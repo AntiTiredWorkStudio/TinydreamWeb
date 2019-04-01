@@ -95,7 +95,8 @@ var app = new Vue({
                     var ptime = parseInt(mainpool.ptime);
                     var daurtion = parseInt(mainpool.duration);
                     mainpool.time = self.SetTimeOut(ptime + daurtion);
-                    console.log(self.mainpool);
+                    self.mainpool = mainpool;
+                    console.log(self.mainpool)
                     self.$toast.clear()
                 }
                 // 判断生意梦想池是否为空
