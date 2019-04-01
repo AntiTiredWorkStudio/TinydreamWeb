@@ -72,6 +72,14 @@ var app = new Vue({
                     },4000)
                 }
                 // 判断梦想池是否为空
+                if(data.mainpool.length != 0){
+                    $('.dream').html('暂无更多梦想池').css({
+                        color:'#999',
+                        'font-size':'0.26rem',
+                        'text-align':'center',
+                        'line-height':'1.5rem',
+                    })
+                }
             },function(code,data){
                 console.log(data)
             })
