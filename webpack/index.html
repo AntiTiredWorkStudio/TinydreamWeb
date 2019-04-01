@@ -87,9 +87,12 @@
                                 </van-row>
                             </div>
                         </van-col>
-                        <van-col span="24" style="text-align:center">
+                        <van-col span="24" style="text-align:center;margin-bottom:0.1rem">
                             <span style="font-size:0.24rem;color:#999">{{maintrade == '' ? '--' : maintrade.billHint}}</span>
                             <span style="font-size:0.48rem;color:#ffc054">{{maintrade == '' ? '--' : (maintrade.realBill + maintrade.realUnit)}}</span>
+                        </van-col>
+                        <van-col span="24">
+                            <yd-progressbar type="line" :progress="progress2" trail-width="4" trail-color="#ffc054" class="progress2"></yd-progressbar>
                         </van-col>
                     </van-tab>
                 </van-tabs>
