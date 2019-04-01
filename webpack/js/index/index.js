@@ -5,6 +5,8 @@ var app = new Vue({
         buyinfo:'',//购买信息
         active:0,//默认激活
         progress1: '0',//当前进度
+        mainpool:'',//小梦想互助池
+        maintrade:'',//小生意互助池
     
     },
     created(){
@@ -72,6 +74,12 @@ var app = new Vue({
                     },4000)
                 }
                 // 判断梦想池是否为空
+                self.$toast.loading({
+                    duration:0,
+                    forbidClick:true,
+                    loadingType:'circular',
+                    message:'奖池加载中...'
+                })
                 if(data.mainpool.length == 0){
                     $('.dream').html('暂无更多梦想池').css({
                         color:'#999',
@@ -80,10 +88,16 @@ var app = new Vue({
                         'line-height':'1.5rem',
                         padding:'0'
                     })
+                    self.$toast.clear();
+                }else{
+                    self.mainpool = DreamPoolAnalysis(data.mainpool);
+                    self.progress1 = self.mainpool.cbill / self.mainpool.tbill;
+                    console.log(self.mainpool);
+                    self.$toast.clear()
                 }
                 // 判断生意梦想池是否为空
-                if(data.maintrade.length != 0){
-                    $('.trade').html('暂无更多梦想池').css({
+                if(data.maintrade.length == 0){
+                    $('.trade').html('暂无更多小生意').css({
                         color:'#999',
                         'font-size':'0.26rem',
                         'text-align':'center',
@@ -112,6 +126,6 @@ var app = new Vue({
                 }
             };
             this.$toast.clear();
-        }
+        },
     }
 })
