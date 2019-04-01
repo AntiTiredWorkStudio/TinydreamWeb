@@ -40,6 +40,10 @@ var app = new Vue({
                 }else{
                     // 公屏信息展示
                     self.Screen(data.buyinfo);
+                    let that = self;
+                    setInterval(() => {
+                        that.Screen(data.buyinfo)
+                    }, 4000);
                     
                 }
             },function(code,data){
@@ -48,15 +52,12 @@ var app = new Vue({
         },
         // 公屏信息展示;
         Screen(buyinfo){
-            var that = this;
-            setInterval(function(){
-                console.log(buyinfo)
-                let buyInfo = null;
-                buyInfo = buyinfo.shift();
-                console.log(buyInfo)
-                buyinfo.push(buyInfo);
-                that.buyinfo = that.BUYINFO(buyInfo);
-            },4000)
+            console.log(buyinfo)
+            let buyInfo = null;
+            buyInfo = buyinfo.shift();
+            console.log(buyInfo)
+            buyinfo.push(buyInfo);
+            that.buyinfo = that.BUYINFO(buyInfo);
         },
         // 购买信息格式转化
         BUYINFO(buyinfo){
