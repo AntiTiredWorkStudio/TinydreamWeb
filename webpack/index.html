@@ -30,10 +30,10 @@
                     <van-row>
                         <van-col span="12">
                             <div class="logo" :style="buyinfo.headStyle"></div>
-                            <span>暮色微凉城</span>
+                            <span>{{buyinfo.nickname}}</span>
                         </van-col>
                         <van-col span="12">
-                            <span>1小时前买了1份小梦想</span>
+                            <span>{{buyinfo.time + '前买了' + buyinfo.dcount + '份' + buyinfo.ptype == 'TRADE' ? '小生意' : '小梦想'}}</span>
                         </van-col>
                     </van-row>
                 </div>

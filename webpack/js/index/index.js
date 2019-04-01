@@ -80,7 +80,7 @@ var app = new Vue({
                     'background':'url('+ buyInfo.headicon +') no-repeat center center / 0.48rem 0.48rem'
                 }
             };
-            self.$toast.clear();
+            this.$toast.clear();
             console.log(this.buyinfo);
         }
     }
