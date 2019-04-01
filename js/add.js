@@ -3,7 +3,7 @@ $(function(){
     // 开启上传
     // WebApp.InitUpload();
     var userInfo = Options.GetUserInfo();
-    if(PERMISSION_USER(self.userInfo.openid)){
+    if(PERMISSION_USER(userInfo.openid)){
         Options.TestServer = true;
     }else{
         Options.TestServer = false;
