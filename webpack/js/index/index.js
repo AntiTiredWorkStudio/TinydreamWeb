@@ -94,8 +94,8 @@ var app = new Vue({
                     self.progress1 = mainpool.cbill / mainpool.tbill;
                     var ptime = parseInt(mainpool.ptime);
                     var daurtion = parseInt(mainpool.duration);
-                    mainpool.time = self.SetTimeOut(ptime + daurtion);
                     self.mainpool = mainpool;
+                    self.SetTimeOut(ptime + daurtion);
                     console.log(self.mainpool)
                     self.$toast.clear()
                 }
@@ -133,7 +133,8 @@ var app = new Vue({
         },
         // 倒计时
         SetTimeOut(timeStamp){
-            return setInterval(()=>{
+            let self = this;
+            setInterval(()=>{
                 var time = parseInt(new Date().getTime() / 1000);
                 var timeout = parseInt(timeStamp - time);
                 var h = Math.floor(timeout/60/60) > 10 ? Math.floor(timeout/60/60) : '0' + Math.floor(timeout/60/60);
@@ -143,7 +144,7 @@ var app = new Vue({
                     window.location.reload();
                 }
                 var t = h+':'+m+':'+s;
-                return t;
+                self.mainpool.time = t;
             },1000)  
         }
     }
