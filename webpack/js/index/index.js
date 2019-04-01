@@ -99,7 +99,7 @@ var app = new Vue({
                     self.mainpool.time = self.SetTimeOut(ptime + daurtion);
                     var that = self;
                     setInterval(()=>{
-                        that.mainpool.time = that.SetTimeOut(ptime + daurtion)
+                        self.mainpool.time = self.SetTimeOut(ptime + daurtion)
                         console.log(self.mainpool.time)
                     },1000)
                     
