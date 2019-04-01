@@ -4,7 +4,7 @@ var app = new Vue({
         userInfo:'',//个人信息
         buyinfo:'',//购买信息
         active:0,//默认激活
-        currentRate: 20,//当前进度
+        currentRate: 200,//当前进度
         text:'40%'
     },
     created(){
