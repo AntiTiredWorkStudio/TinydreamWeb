@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>参与互助</title>
     <link rel="stylesheet" href="http://tinydream.antit.top/TinydreamWeb/css/public.css">
+    <link rel="stylesheet" href="//unpkg.com/vue-ydui/dist/ydui.rem.css">
+    <script src="//unpkg.com/vue-ydui/dist/ydui.flexible.js"></script>
     <link rel="stylesheet" href="lib/vant.css">
     <link rel="stylesheet/less" type="text/css" href="css/index/index.less" />
     <script src="lib/less.js" ></script>
@@ -15,14 +17,14 @@
         <div class="index">
             <!-- 首页 -->
             <div class="banner">
-                <van-swipe :autoplay="2000" class="swipe" indicator-color="#999">
-                    <van-swipe-item>
+                <yd-slider autoplay="3000">
+                    <yd-slider-item>
                         <img src="http://tdream.antit.top/image/banner.png" alt="新手指引" title="新手指引">
-                    </van-swipe-item>
-                    <van-swipe-item> 
+                    </yd-slider-item>
+                    <yd-slider-item>
                         <img src="https://tdream.antit.top/image/Red_SendPack.jpg" alt="梦想红包" title="梦想红包">
-                    </van-swipe-item>
-                </van-swipe>
+                    </yd-slider-item>
+                </yd-slider>
             </div>
             <!-- 公屏 -->
             <div class="screen">
@@ -60,6 +62,7 @@
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="//unpkg.com/vue-ydui/dist/ydui.rem.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script>
     <script src="https://tinydream.antit.top/?ts=udebug&uconfig=http://tinydream.antit.top/TinydreamUConfig/uconf.js"></script>
     <script src="js/index/index.js"></script>
