@@ -70,10 +70,8 @@ var app = new Vue({
                 dcount:buyinfo.dcount,
                 headStyle:{
                     'background':'url('+buyinfo.headicon+') no-repeat center center',
-                    // 'background-size':'0.48rem 0.48rem'
                 }
             };
-            console.log(buyInfo)
             return buyInfo;
         },
     }
