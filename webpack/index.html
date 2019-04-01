@@ -44,7 +44,7 @@
             <div class="mainpool">
                 <van-tabs v-model="active" :swipeable="true" class="tab" line-width='25' line-height="1" color="#00d094" title-active-color="#00d094" title-inactive-color="#333">
                     <van-tab title="小梦想互助" class="dream tab_dream">
-                        <van-col span="24" class="title">梦想互助20190311期</van-col>
+                        <van-col span="24" class="title">{{mainpool != '' ? mainpool.ptitle : '--'}}</van-col>
                         <van-col span="24">
                             <yd-progressbar :progress="progress1" class="progress1" trail-color="#ffc054" trail-width="6" style="text-align:center">
                                 <van-col span="24" style="font-size:0.28rem;color:#00d094">
@@ -52,18 +52,18 @@
                                     <span class="timeout">{{timeout}}</span>
                                 </van-col>
                                 <van-col span="24">
-                                    <p style="font-size:0.6rem;color:#ffc054;margin: 0.3rem 0 0.2rem">{{mainpool.realBill + mainpool.realUnit}}</p>
-                                    <p style="font-size:0.24rem;color:#999">{{mainpool.billHint}}</p>
+                                    <p style="font-size:0.6rem;color:#ffc054;margin: 0.3rem 0 0.2rem">{{mainpool != '' ? (mainpool.realBill + mainpool.realUnit) : '--'}}</p>
+                                    <p style="font-size:0.24rem;color:#999">{{mainpool != '' ? mainpool.billHint : ''}}</p>
                                 </van-col>
                             </yd-progressbar>
                         </van-col> 
                         <van-row style="width:6rem;margin:0 auto 0.34rem">
                             <van-col span="12">
-                                <p style="font-size:0.38rem;color:#ffc054">{{(mainpool.rtbillValue != '' ? mainpool.rtbillValue : '--') + (mainpool.rtbillUnit == 'NaN' ? '' : mainpool.rtbillUnit)}}</p>
+                                <p style="font-size:0.38rem;color:#ffc054">{{mainpool != '' ? mainpool.rtbillValue : '--'}}{{ mainpool != '' ? mainpool.rtbillUnit : ''}}</p>
                                 <p style="color:#999;font-size:0.24rem">互助目标</p>
                             </van-col>
                             <van-col style="text-align:right" span="12">
-                                <p style="font-size:0.38rem;color:#ffc054">{{mainpool.rubillValue + mainpool.rubillUnit}}</p>
+                                <p style="font-size:0.38rem;color:#ffc054">{{mainpool != '' ? mainpool.rubillValue : '--' }}{{ mainpool != ? mainpool.rubillUnit : ''}}</p>
                                 <p style="color:#999;font-size:0.24rem">价格</p>
                             </van-col>
                         </van-row>
