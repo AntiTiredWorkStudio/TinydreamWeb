@@ -257,7 +257,7 @@ $(function(){
              if(!data.award.result){
                  $('.mask').hide();
              }
-             if(data.tradeaward.length == 0 || data.award.result){
+             if(data.award.result){
                 //  console.log(data.award);
                 //  console.log(data)
                  $('.mask').fadeIn();
