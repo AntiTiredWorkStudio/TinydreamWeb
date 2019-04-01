@@ -11,9 +11,22 @@ var app = new Vue({
     },
     methods:{
         GetUserInfo(self){
+            self.$toast.loading({
+                duration: 0,       // 持续展示 toast
+                forbidClick: true, // 禁用背景点击
+                loadingType: 'circular',
+                message: '信息拉取中...'
+            })
             WebApp.Init('wxc5216d15dd321ac5',//appid
             function(result,data){
                 self.userInfo = Options.GetUserInfo();
+                self.$toast.clear();
+                self.$toast.loading({
+                    duration:0,
+                    forbidClick:true,
+                    loadingType:'circular',
+                    message:'信息注册中...'
+                })
                 console.log(self.userInfo);
                 if(PERMISSION_USER(self.userInfo.openid)){
                     Options.TestServer = true;
@@ -30,6 +43,13 @@ var app = new Vue({
                 nickname:nickname,
                 headicon:headicon
             },function(code,data){
+                self.$toast.clear();
+                self.$toast.loading({
+                    duration:0,
+                    forbidClick:true,
+                    loadingType:'circular',
+                    message:'公屏加载中...'
+                })
                 console.log(data)
                 if(data.buyinfo.length == 0){
                     $('.screen_main').html('暂无人购买').css({
@@ -58,6 +78,7 @@ var app = new Vue({
             console.log(buyInfo)
             buyinfo.push(buyInfo);
             this.buyinfo = this.BUYINFO(buyInfo);
+            this.$toast.clear();
         },
         // 购买信息格式转化
         BUYINFO(buyinfo){
@@ -74,6 +95,7 @@ var app = new Vue({
                 }
             };
             return buyInfo;
+
         },
     }
 })
