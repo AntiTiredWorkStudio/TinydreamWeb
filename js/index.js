@@ -302,9 +302,15 @@ $(function(){
                         res.stopPropagation();
                         $('.mask').hide();
                         console.log(data.tradeaward);
-                        return;
                         SaveStorage("lucky",JSON.stringify(data.tradeaward));
-                        window.location.href = 'html/luckyDream.html?time='+new Date().getTime()+'&type=TRADE'
+                        TD_Request('aw','aend',{
+                            pid:data.tradeaward.pid,
+                            url:true
+                        },function(code,data){
+                            window.location.href = 'html/luckyDream.html?time='+new Date().getTime()+'&type=TRADE'
+                        },function(code,data){
+                            console.log(data)
+                        })
                     })
                 },function(code,data){
                     console.log(data)   
