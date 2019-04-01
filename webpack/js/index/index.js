@@ -99,7 +99,7 @@ var app = new Vue({
                     self.mainpool.time = self.SetTimeOut(ptime + daurtion);
                     var that = self;
                     setInterval(()=>{
-                        that.mainpool.time = that.self.SetTimeOut(ptime + daurtion)
+                        that.mainpool.time = that.SetTimeOut(ptime + daurtion)
                     },1000)
                     console.log(self.mainpool.time)
 
@@ -145,6 +145,9 @@ var app = new Vue({
             var h = Math.floor(timeout/60/60) < 10 ? '0' + Math.floor(timeout/60/60) : Math.floor(timeout/60/60);
             var m = Math.floor(timeout/60%60) < 10 ? '0' + Math.floor(timeout/60%60) : Math.floor(timeout/60%60);
             var s = Math.floor(timeout%60) < 10 ? '0' + Math.floor(timeout%60) : Math.floor(timeout%60); 
+            if(h == 0 && m == 0 && s == 0){
+                window.location.reload();
+            }
             var time = h + ":" + m + ":" + s;
             return time;
         }
