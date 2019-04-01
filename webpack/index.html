@@ -30,10 +30,10 @@
                     <van-row>
                         <van-col span="12">
                             <div class="logo" :style="buyinfo.headStyle"></div>
-                            <span>{{buyinfo.nickname}}</span>
+                            <span>{{typeof buyinfo.nickname == 'undefined' ? '--' : buyinfo.nickname}}</span>
                         </van-col>
                         <van-col span="12" style="text-align:right">
-                            <span>{{buyinfo.time + '前买了' + buyinfo.dcount + '份'}}{{ buyinfo.ptype == 'TRADE' ? '小生意' : '小梦想' }}</span>
+                            <span>{{(typeof buyinfo.time == 'undefined' ? '--' : buyinfo.time) + '前买了'}}{{(typeof buyinfo.dcount == 'undefined' ? '--' : buyinfo.dcount) + '份'}}{{ buyinfo.ptype == 'TRADE' ? '小生意' : '小梦想' }}</span>
                         </van-col>
                     </van-row>
                 </div>
