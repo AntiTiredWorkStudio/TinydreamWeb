@@ -99,7 +99,7 @@ var app = new Vue({
                     self.$toast.clear()
                 }
                 // 判断生意梦想池是否为空
-                if(maintrade.length == 0){
+                if(data.maintrade.length == 0){
                     $('.trade').html('暂无更多小生意').css({
                         color:'#999',
                         'font-size':'0.26rem',
