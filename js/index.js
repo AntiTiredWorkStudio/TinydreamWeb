@@ -21,7 +21,12 @@ $(function(){
             })
             Options.TestServer = false;
         }
-        // Options.TestServer = true;
+        if(PERMISSION_USER(userInfo.openid) && window.location.href == 'http://tinydream.antit.top/TinydreamWebTest/index.html'){
+            // console.log("is test user");
+            Options.TestServer = true;
+        }else{
+            Options.TestServer = false;
+        }
         // Options = {
         //     Auth: null,
         //     AccessToken: null,
