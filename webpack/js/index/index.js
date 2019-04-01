@@ -5,11 +5,7 @@ var app = new Vue({
         buyinfo:'',//购买信息
     },
     created(){
-        this.GetUserInfo(this)
-        // 开启测试服务器
-        if(PERMISSION_USER(userInfo.openid)){
-            Options.TestServer = true;
-        }
+        this.GetUserInfo(this);
     },
     methods:{
         // 拉取信息
@@ -27,6 +23,10 @@ var app = new Vue({
             function(result,data){//result:请求状态,data 请求结果
                 console.log(Options.GetUserInfo());
                 self.userInfo = Options.GetUserInfo();
+                // 开启测试服务器
+                if(PERMISSION_USER(userInfo.openid)){
+                    Options.TestServer = true;
+                };
                 self.$toast.clear();
                 self.$toast.loading({
                     duration:0,
