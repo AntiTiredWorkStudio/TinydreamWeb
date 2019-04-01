@@ -94,6 +94,16 @@
                         <van-col span="24">
                             <yd-progressbar type="line" :progress="progress2" trail-width="4" trail-color="#ffc054" class="progress2"></yd-progressbar>
                         </van-col>
+                        <van-row>
+                            <van-col span="12">
+                                <p style="font-size:0.38rem;color:#ffc054">{{maintrade == '' ? '--' : (maintrade.rtbillValue + maintrade.rtbillUnit)}}</p>
+                                <p style="font-size:0.24rem;color:#999">互助目标(不满不开)</p>
+                            </van-col>
+                            <van-col span="12" style="text-align:right">
+                                <p style="font-size:0.38rem;color:#ffc054">{{maintrade == '' ? '--' : (maintrade.rubillValue + maintrade.rubillUnit)}}</p>
+                                <p style="font-size:0.24rem;color:#999">价格</p>
+                            </van-col>
+                        </van-row>
                     </van-tab>
                 </van-tabs>
             </div>
