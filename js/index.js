@@ -11,7 +11,7 @@ $(function(){
         // console.log(result,data);
         if(PERMISSION_USER(userInfo.openid)){
             // console.log("is test user");
-            Options.TestServer = true;
+            window.location.href = 'http://tinydream.antit.top/TinydreamWebTest/index.html'
         }else{
             $('.tab-nav-item').eq(1).click(function(){
                 $('.lucky a').hide()
