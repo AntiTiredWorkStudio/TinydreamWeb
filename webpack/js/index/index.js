@@ -8,6 +8,7 @@ var app = new Vue({
         mainpool:'',//小梦想互助池
         timeout:'',//倒计时
         maintrade:'',//小生意互助池
+        progress2:'',//小生意互助进度
     
     },
     created(){
@@ -101,9 +102,6 @@ var app = new Vue({
                     setInterval(()=>{
                         self.timeout = self.SetTimeOut(ptime + daurtion)
                     },1000)
-                    
-
-
                     self.$toast.clear()
                 }
                 // 判断生意梦想池是否为空
@@ -115,6 +113,10 @@ var app = new Vue({
                         'line-height':'1.5rem',
                         padding:'0'
                     })
+                }else{
+                    let maintrade = DreamPoolAnalysis(data.maintrade);
+                    self.progress2 = maintrade.cbill / maintrade.tbill;
+                    self.maintrade = maintrade;
                 }
             },function(code,data){
                 console.log(data)
