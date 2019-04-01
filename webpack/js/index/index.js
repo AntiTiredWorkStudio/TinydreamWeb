@@ -118,7 +118,7 @@ var app = new Vue({
                     let maintrade = DreamPoolAnalysis(data.maintrade);
                     self.progress2 = maintrade.cbill / maintrade.tbill;
                     self.tradeStyle = {
-                        background:'url('+maintrade.trade.bannerUrl+') no-repeat / 6.8rem 3.86rem'
+                        background:'url('+maintrade.trade.bannerUrl+') no-repeat 0 0 / 6.8rem 3.86rem'
                     }
                     self.maintrade = maintrade;
                 }
