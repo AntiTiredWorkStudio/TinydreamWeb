@@ -33,12 +33,28 @@
                     </yd-progressbar>
                 </van-col>
                 <!-- 信息填写 -->
-                <van-row class="ord_main">
+                <van-row class="ord_main first">
                     <van-col span="12">
                         <span class="txt">目标金额</span>
                     </van-col>
                     <van-col span="12" class="tbill right">
                         {{pool == '' ? '--' : (pool.rtbillValue + pool.rtbillUnit)}}
+                    </van-col>
+                </van-row>
+                <van-row class="ord_main">
+                    <van-col span="12">
+                        <span class="txt">份数</span>
+                    </van-col>
+                    <van-col span="12" class="tbill right">
+                        
+                    </van-col>
+                </van-row>
+                <van-row class="ord_main">
+                    <van-col span="12">
+                        <span class="txt">选择梦想</span>
+                    </van-col>
+                    <van-col span="12" class="tbill right">
+                        
                     </van-col>
                 </van-row>
                 <!-- <van-row class="target first">
