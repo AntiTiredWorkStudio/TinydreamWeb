@@ -7,7 +7,9 @@ var pay = new Vue({
         progress1:'',//进度
         timeout:'',//倒计时
         did:'',//梦想 id
-
+        pay:'0',//总钱数
+        count:0,//份数
+        buy:'',//预订单信息
     },
     created(){
         if(!ExistStorage('buy')){
@@ -16,6 +18,7 @@ var pay = new Vue({
         }else{
             // 读取 buy
             var buy = JSON.parse(GetStorage('buy'))
+            this.buy = buy.buy;
             console.log(buy)
             if($_GET.type == 'DREAM'){
                 $('title').html('小梦想支付')
@@ -73,5 +76,27 @@ var pay = new Vue({
             var time = h + ":" + m + ":" + s;
             return time;
         },
+        // 加份数
+        add(){
+            if(this.count >= 5){
+                this.count = 5;
+            }else if(this.count >= this.buy.dayLim){
+                this.count = this.buy.dayLim;
+            }else{
+                this.count = this.count++;
+                this.Ord(this,GetStorage('buy'))
+            }
+            this.pay = this.pool.rubillValue * this.count;
+        },
+        // 减份数
+        incre(){
+            if(this.count <= 0){
+                this.count = 0;
+            }else{
+                this.count = this.count--;
+                this.Ord(this,GetStorage('buy'))
+            }
+            this.pay = this.pool.rubillValue * this.count;
+        }
     }
 })

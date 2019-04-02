@@ -46,12 +46,12 @@
                         <span class="txt">份数</span>
                     </van-col>
                     <van-col span="12" class="tbill right">
-                        <span style="display:inline-block;width:0.8rem;height:0.38rem;border-radius:0.1rem;border:1px solid #eee;text-align: center">＋</span>
-                        <span style="margin:0 0.2rem;color: #333">0</span>
-                        <span style="display:inline-block;width:0.8rem;height:0.38rem;border-radius:0.1rem;border:1px solid #eee;text-align: center">－</span>
+                        <span @click="add" style="display:inline-block;width:0.8rem;height:0.38rem;border-radius:0.1rem;border:1px solid #eee;text-align: center">＋</span>
+                        <span style="margin:0 0.2rem;color: #333">{{count}}</span>
+                        <span @click="incre" style="display:inline-block;width:0.8rem;height:0.38rem;border-radius:0.1rem;border:1px solid #eee;text-align: center">－</span>
                     </van-col>
                 </van-row>
-                <van-row class="ord_main">
+                <van-row class="ord_main" style="margin-bottom:1.2rem">
                     <van-col span="12">
                         <span class="txt">选择梦想</span>
                     </van-col>
@@ -60,32 +60,10 @@
                         <van-icon name="arrow"></van-icon>
                     </van-col>
                 </van-row>
-                <!-- <van-row class="target first">
-                    <van-col class="txt" span="12">
-                        目标金额
-                    </van-col>
-                    <van-col span="12" class="tbill right">
-                        {{pool == '' ? '--' : (pool.rtbillValue + pool.rtbillUnit)}}
-                    </van-col>
-                </van-row>
-                <van-row class="number ord_main">
-                    <van-col class="txt" span="12" style="margin-top:0.4rem">
-                        份数
-                    </van-col>
-                    <van-col span="12" class="right" style="margin-top:0.4rem;line-height: 0.68rem;">
-                        <span></span>
-                        <span>0</span>
-                        <span></span>
-                    </van-col>
-                </van-row>
-                <van-row class="dream ord_main">
-                    <van-col class="txt" span="12" style="margin-top:0.4rem">
-                        选择梦想
-                    </van-col>
-                    <van-col span="12" class="right" style="margin-top:0.4rem">
-                    
-                    </van-col>
-                </van-row> -->
+                <van-col span="24">
+                    <span style="font-size:0.26rem;color:#999">{{pool == '' ? '--' : (pool.rubillValue + pool.rubillUnit)}}结算：</span>
+                    <span style="color:#00d094;font-size:0.36rem">{{ pay == '' ? '--' : pay }}元</span>
+                </van-col>
             </div>
         </div>
     </div>
