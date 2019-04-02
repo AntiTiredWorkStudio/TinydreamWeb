@@ -115,7 +115,7 @@ var pay = new Vue({
                 uid:uid
             },function(code,data){
                 console.log(data)
-                $.each(data.dreams,function(item,index){
+                $.each(data.dreams,function(index,item){
                     console.log(item);
                 })
             },function(code,data){
