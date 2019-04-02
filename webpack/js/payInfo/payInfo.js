@@ -197,6 +197,7 @@ var pay = new Vue({
             },function(code,data){
                 alert(JSON.stringify(data));
             },function(code,data){
+                alert(code)
                 console.log(data)
             })
         }
