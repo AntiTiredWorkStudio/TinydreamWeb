@@ -11,6 +11,23 @@ var app = new Vue({
         progress2:'',//小生意互助进度
         tradeStyle:'',//小生意banner图
         actives:0,//默认激活
+        tabbar:[
+            {
+                title:'参与互助',
+                normal:'http://tdream.antit.top/image/nav_index_disable.png',
+                active:'http://tdream.antit.top/image/nav_index.png'
+            },
+            {
+                title:'行动打卡',
+                normal:'https://tdream.antit.top/ActiveSignInOff.png',
+                active:'https://tdream.antit.top/ActiveSignInOk.png'
+            },
+            {
+                title:'个人中心',
+                normal:'http://tdream.antit.top/image/nav_owner_disable.png',
+                active:'http://tdream.antit.top/image/nav_owner.png'
+            }
+        ]
     
     },
     created(){
