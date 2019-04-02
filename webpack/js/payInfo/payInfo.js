@@ -142,15 +142,15 @@ var pay = new Vue({
             return;
         },
         // 进行下单
-        pay(){
+        wxpay(){
             console.log(1)
-            this.$toast.loading({
-                duration:0,
-                forbidClick:true,
-                loadingType:'circular',
-                message:'正在支付...'
-            })
-            this.wxpay(this.action.pay.oid,this.pay * 100,uid);
+            // this.$toast.loading({
+            //     duration:0,
+            //     forbidClick:true,
+            //     loadingType:'circular',
+            //     message:'正在支付...'
+            // })
+            // this.wxpay(this.action.pay.oid,this.pay * 100,uid);
         },
         // 统一下单
         wxpay(oid,bill,uid){
