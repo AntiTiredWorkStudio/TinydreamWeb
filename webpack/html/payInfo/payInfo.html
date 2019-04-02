@@ -68,12 +68,11 @@
                     <van-button type="primary" size='large' round>微信支付</van-button>
                 </van-col>
                 <van-actionsheet
-                v-model="show"
-                :actions="actions"
-                cancel-text="取消"
-                @select="onSelect"
-                @cancel="onCancel"
-                title="选择梦想"
+                    v-model="show"
+                    :actions="actions"
+                    cancel-text="取消"
+                    @select="onSelect"
+                    @cancel="onCancel"
                 />
             </div>
         </div>
