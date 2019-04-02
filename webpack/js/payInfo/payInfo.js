@@ -140,6 +140,28 @@ var pay = new Vue({
         onCancel(){
             this.show = false;
             return;
+        },
+        // 进行下单
+        pay(){
+            this.$toast.loading({
+                duration:0,
+                forbidClick:true,
+                loadingType:'circular',
+                message:'正在支付...'
+            })
+            this.wxpay(this.action.pay.oid,this.pay * 100,uid);
+        },
+        // 统一下单
+        wxpay(oid,bill,uid){
+            TD_Request('ds','wxpayweb',{
+                oid:oid,
+                bill:bill,
+                uid:uid
+            },function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data);
+            })
         }
     }
 })
