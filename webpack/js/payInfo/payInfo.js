@@ -26,6 +26,7 @@ var pay = new Vue({
             if($_GET.type == 'DREAM'){
                 $('title').html('小梦想支付')
                 $('.time').show();
+                $('#dream').html(this.buy.dream.title);
                 this.dreamList(this,uid);
             }else if($_GET.type == 'TRADE'){
                 $('title').html('小生意支付');
@@ -115,9 +116,17 @@ var pay = new Vue({
                 uid:uid
             },function(code,data){
                 console.log(data)
+                var dreams = [];
                 $.each(data.dreams,function(index,item){
                     console.log(item);
+                    if(item.state == "FAILD" || item.state == "SUBMIT"){
+                        dreams.push({
+                            name:item.title,
+                            did:item.did
+                        })
+                    }
                 })
+                self.dreams = dreams;
             },function(code,data){
                 console.log(data);
             })
