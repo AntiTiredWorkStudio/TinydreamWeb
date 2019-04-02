@@ -14,8 +14,11 @@ var pay = new Vue({
         }else{
             if($_GET.type == 'DREAM'){
                 $('title').html('小梦想支付')
+                $('.time').show();
             }else if($_GET.type == 'TRADE'){
-                $('title').html('小生意支付')
+                $('title').html('小生意支付');
+                $('.time').hide();
+                $('.ubill').css('margin-top',0);
             }
 
             // 读取 buy
@@ -30,6 +33,7 @@ var pay = new Vue({
         }
     },
     methods:{
+        // 预支付订单
         Ord(self,actions){
             TD_Request('ds','ord',{
                 action:actions
@@ -38,10 +42,28 @@ var pay = new Vue({
                 // 备份 actions
                 self.actions = data.actions;
                 self.pool = DreamPoolAnalysis(data.pool);
-
+                var ptime = parseInt(self.pool.ptime);
+                var daurtion = parseInt(self.pool.duration);
+                self.timeout = self.SetTimeOut(ptime + daurtion);
+                setInterval(()=>{
+                    self.timeout = self.SetTimeOut(ptime + daurtion)
+                },1000)
             },function(code,data){
                 console.log(data);
             })
-        }
+        },
+        // 倒计时
+        SetTimeOut(timeStamp){
+            var time = parseInt(new Date().getTime() / 1000);
+            var timeout = parseInt(timeStamp - time);
+            var h = Math.floor(timeout/60/60) < 10 ? '0' + Math.floor(timeout/60/60) : Math.floor(timeout/60/60);
+            var m = Math.floor(timeout/60%60) < 10 ? '0' + Math.floor(timeout/60%60) : Math.floor(timeout/60%60);
+            var s = Math.floor(timeout%60) < 10 ? '0' + Math.floor(timeout%60) : Math.floor(timeout%60); 
+            if(h == 0 && m == 0 && s == 0){
+                window.location.reload();
+            }
+            var time = h + ":" + m + ":" + s;
+            return time;
+        },
     }
 })
