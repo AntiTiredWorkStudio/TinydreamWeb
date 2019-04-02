@@ -64,8 +64,8 @@
                     <span style="font-size:0.26rem;color:#999">{{pool == '' ? '--' : (pool.rubillValue + pool.rubillUnit)}}结算：</span>
                     <span style="color:#00d094;font-size:0.36rem">{{ pay == '' ? '--' : pay }}元</span>
                 </van-col>
-                <van-col span="24" style="padding-bottom:2rem;margin-top: 0.2rem" @click="wxpay">
-                    <van-button type="primary" @click.stop="wxpay" size='large' round>微信支付</van-button>
+                <van-col span="24" style="padding-bottom:2rem;margin-top: 0.2rem" @click="wxPay">
+                    <van-button type="primary" @click.stop="wxPay" size='large' round>微信支付</van-button>
                 </van-col>
                 <van-actionsheet
                     v-model="show"

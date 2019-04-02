@@ -142,7 +142,7 @@ var pay = new Vue({
             return;
         },
         // 进行下单
-        wxpay(){
+        wxPay(){
             console.log(1)
             // this.$toast.loading({
             //     duration:0,
