@@ -131,7 +131,10 @@ var pay = new Vue({
         },
         // 点击选择触发事件
         onSelect(item){
-            console.log(item)
+            console.log(item);
+            $('#dream').html(item.name);
+            this.did = item.did;
+            this.show = false;
         },
         // 取消选择时触发的事件
         onCancel(){
