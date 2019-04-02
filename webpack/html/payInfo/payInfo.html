@@ -36,8 +36,8 @@
                     <van-col class="txt" span="12">
                         目标金额
                     </van-col>
-                    <van-col span="12">
-                        
+                    <van-col span="12" class="tbill">
+                        {{pool == '' ? '--' : (pool.rtbillValue + pool.rtbillUnit)}}
                     </van-col>
                 </van-row>
                 <van-row class="number ord_main">
@@ -45,7 +45,15 @@
                         份数
                     </van-col>
                     <van-col span="12">
-                        
+                        <van-row>
+                            <van-col span="8">
+                                <van-icon name="add"></van-icon>
+                            </van-col>
+                            <van-col span="8">0</van-col>
+                            <van-col span="8">
+                                <van-icon name="add"></van-icon>
+                            </van-col>
+                        </van-row>
                     </van-col>
                 </van-row>
                 <van-row class="dream ord_main">
