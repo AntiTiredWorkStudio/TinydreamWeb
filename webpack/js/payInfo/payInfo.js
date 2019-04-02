@@ -37,7 +37,7 @@ var pay = new Vue({
                 console.log(data)
                 // 备份 actions
                 self.actions = data.actions;
-                self.pool = data.pool;
+                self.pool = DreamPoolAnalysis(data.pool);
 
             },function(code,data){
                 console.log(data);
