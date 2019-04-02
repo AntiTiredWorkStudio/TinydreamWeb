@@ -34,6 +34,14 @@
                 </van-col>
                 <!-- 信息填写 -->
                 <van-row class="target first">
+                    <van-col span="12" class="txt">
+                        目标金额
+                    </van-col>
+                    <van-col span="12" class="tbill right">
+                        {{pool == '' ? '--' : (pool.rtbillValue + pool.rtbillUnit)}}
+                    </van-col>
+                </van-row>
+                <!-- <van-row class="target first">
                     <van-col class="txt" span="12">
                         目标金额
                     </van-col>
@@ -58,7 +66,7 @@
                     <van-col span="12" class="right" style="margin-top:0.4rem">
                     
                     </van-col>
-                </van-row>
+                </van-row> -->
             </div>
         </div>
     </div>
