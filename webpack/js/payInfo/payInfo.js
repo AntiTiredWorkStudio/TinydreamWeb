@@ -143,6 +143,7 @@ var pay = new Vue({
         },
         // 进行下单
         pay(){
+            console.log(1)
             this.$toast.loading({
                 duration:0,
                 forbidClick:true,
