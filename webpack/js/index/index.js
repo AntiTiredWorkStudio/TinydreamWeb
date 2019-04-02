@@ -15,17 +15,20 @@ var app = new Vue({
             {
                 title:'参与互助',
                 normal:'http://tdream.antit.top/image/nav_index_disable.png',
-                active:'http://tdream.antit.top/image/nav_index.png'
+                active:'http://tdream.antit.top/image/nav_index.png',
+                url:'index.html'
             },
             {
                 title:'行动打卡',
                 normal:'https://tdream.antit.top/ActiveSignInOff.png',
-                active:'https://tdream.antit.top/ActiveSignInOk.png'
+                active:'https://tdream.antit.top/ActiveSignInOk.png',
+                url:'html/clockIn/clockIn.html'
             },
             {
                 title:'个人中心',
                 normal:'http://tdream.antit.top/image/nav_owner_disable.png',
-                active:'http://tdream.antit.top/image/nav_owner.png'
+                active:'http://tdream.antit.top/image/nav_owner.png',
+                url:'html/user/user.html'
             }
         ]
     
