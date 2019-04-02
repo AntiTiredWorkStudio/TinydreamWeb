@@ -187,7 +187,18 @@ var pay = new Vue({
         },
         // 支付成功
         success(uid,oid,bill,pcount,action,did){
-            console.log(1)
+            TD_Request('ds','pay',{
+                uid:uid,
+                oid:oid,
+                bill:bill,
+                pcount:pcount,
+                action:action,
+                pid:pid
+            },function(code,data){
+                alert(JSON.stringify(data));
+            },function(code,data){
+                console.log(data)
+            })
         }
     }
 })
