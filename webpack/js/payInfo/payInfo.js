@@ -6,12 +6,17 @@ var pay = new Vue({
         pool:'',//奖池信息
         progress1:'',//进度
         timeout:'',//倒计时
+        did:'',//梦想 id
+
     },
     created(){
         if(!ExistStorage('buy')){
             $('body').html('');
             window.location.href = '../../index.html'
         }else{
+            // 读取 buy
+            var buy = JSON.parse(GetStorage('buy'))
+            console.log(buy)
             if($_GET.type == 'DREAM'){
                 $('title').html('小梦想支付')
                 $('.time').show();
@@ -19,10 +24,8 @@ var pay = new Vue({
                 $('title').html('小生意支付');
                 $('.time').hide();
                 $('.ubill').css('margin-top',0);
+                $('.dream .txt').html('本期项目');
             }
-
-            // 读取 buy
-            var buy = JSON.parse(GetStorage('buy'))
             this.$toast.loading({
                 duration:0,
                 forbidClick:true,
