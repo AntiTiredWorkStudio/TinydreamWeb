@@ -177,6 +177,9 @@ var app = new Vue({
             }
             var time = h + ":" + m + ":" + s;
             return time;
+        },
+        dream(){
+            console.log(1)
         }
     }
 })

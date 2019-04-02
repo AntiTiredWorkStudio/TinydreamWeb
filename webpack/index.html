@@ -43,7 +43,7 @@
             <!-- 梦想池 -->
             <div class="mainpool">
                 <van-tabs v-model="active" :swipeable="true" class="tab" line-width='25' line-height="1" color="#00d094" title-active-color="#00d094" title-inactive-color="#333">
-                    <van-tab title="小梦想互助" class="dream tab_dream">
+                    <van-tab title="小梦想互助" @click="dream" class="dream tab_dream">
                         <van-col span="24" class="title">{{mainpool.ptitle}}</van-col>
                         <van-col span="24">
                             <yd-progressbar :progress="progress1" class="progress1" trail-color="#ffc054" trail-width="6" style="text-align:center">
