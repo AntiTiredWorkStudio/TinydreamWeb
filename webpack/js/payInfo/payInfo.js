@@ -4,6 +4,8 @@ var pay = new Vue({
     data:{
         actions:'',//支付信息
         pool:'',//奖池信息
+        progress1:'',//进度
+        timeout:'',//倒计时
     },
     created(){
         if(!ExistStorage('buy')){
