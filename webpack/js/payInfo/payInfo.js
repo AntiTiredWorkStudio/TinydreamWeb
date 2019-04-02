@@ -42,12 +42,15 @@ var pay = new Vue({
                 // 备份 actions
                 self.actions = data.actions;
                 self.pool = DreamPoolAnalysis(data.pool);
+                // 倒计时
                 var ptime = parseInt(self.pool.ptime);
                 var daurtion = parseInt(self.pool.duration);
                 self.timeout = self.SetTimeOut(ptime + daurtion);
                 setInterval(()=>{
                     self.timeout = self.SetTimeOut(ptime + daurtion)
                 },1000)
+                // 填写信息
+                
             },function(code,data){
                 console.log(data);
             })
