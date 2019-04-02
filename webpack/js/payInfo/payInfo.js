@@ -42,6 +42,7 @@ var pay = new Vue({
                 // 备份 actions
                 self.actions = data.actions;
                 self.pool = DreamPoolAnalysis(data.pool);
+                self.progress1 = data.pool.cbill / data.pool.tbill;
                 // 倒计时
                 var ptime = parseInt(self.pool.ptime);
                 var daurtion = parseInt(self.pool.duration);
@@ -50,7 +51,7 @@ var pay = new Vue({
                     self.timeout = self.SetTimeOut(ptime + daurtion)
                 },1000)
                 // 填写信息
-                
+
             },function(code,data){
                 console.log(data);
             })
