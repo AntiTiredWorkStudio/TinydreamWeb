@@ -150,19 +150,44 @@ var pay = new Vue({
                 loadingType:'circular',
                 message:'正在支付...'
             })
-            this.wxpay(this.action.pay.oid,this.pay * 100,uid);
+            this.wxpay(this.action.pay.oid,this.pay * 100,uid,this);
         },
         // 统一下单
-        wxpay(oid,bill,uid){
+        wxpay(oid,bill,uid,self){
             TD_Request('ds','wxpayweb',{
                 oid:oid,
                 bill:bill,
                 uid:uid
             },function(code,data){
-                console.log(data)
+                self.wechat(data.appId,data.timeStamp,data.nonceStr,data.package,data.signType,data.paySign,self)
             },function(code,data){
                 console.log(data);
             })
+        },
+        // 唤醒支付
+        wechat(appId,timeStamp,nonceStr,package,signType,paySign,self){
+            WeixinJSBridge.invoke(
+                'getBrandWCPayRequest', {
+                "appId":appId,     //公众号名称，由商户传入     
+                "timeStamp":timeStamp,         //时间戳，自1970年以来的秒数     
+                "nonceStr":nonceStr, //随机串     
+                "package":package,     
+                "signType":signType,         //微信签名方式：     
+                "paySign":paySign //微信签名 
+                },function(res){
+                    self.$toast.clear();
+                  if(res.err_msg == "get_brand_wcpay_request:ok" ){
+                  // 使用以上方式判断前端返回,微信团队郑重提示：
+                        //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+                    self.success(uid,self.action.pay.oid,self.pay * 100,self.count,JSON.stringify(self.action),self.did);
+                  }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
+                      self.$toast.fail('支付取消')
+                  }
+               });
+        },
+        // 支付成功
+        success(uid,oid,bill,pcount,action,did){
+            console.log(1)
         }
     }
 })
