@@ -78,7 +78,7 @@ var pay = new Vue({
         },
         // 加份数
         add(){
-            this.count = this.count++;
+            this.count++;
             console.log(this.count)
             this.Ord(this,GetStorage('buy'))
             this.pay = this.pool.rubillValue * this.count;
@@ -90,7 +90,7 @@ var pay = new Vue({
         },
         // 减份数
         incre(){
-            this.count = this.count--;
+            this.count--;
             console.log(this.count)
             this.pay = this.pool.rubillValue * this.count;
             this.Ord(this,GetStorage('buy'))
