@@ -10,6 +10,7 @@ var app = new Vue({
         maintrade:'',//小生意互助池
         progress2:'',//小生意互助进度
         tradeStyle:'',//小生意banner图
+        actived:'0',//默认激活
     
     },
     created(){
