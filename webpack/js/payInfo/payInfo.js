@@ -17,7 +17,24 @@ var pay = new Vue({
 
             // 读取 buy
             var buy = JSON.parse(GetStorage('buy'))
-            console.log(buy)
+            this.$toast.loading({
+                duration:0,
+                forbidClick:true,
+                loadingType:'circular',
+                message:'订单生成中...'
+            })
+            this.Ord(GetStorage('buy'));
+        }
+    },
+    methods:{
+        Ord(actions){
+            TD_Request('ds','ord',{
+                action:actions
+            },function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data);
+            })
         }
     }
 })
