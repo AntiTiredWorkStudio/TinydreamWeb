@@ -150,7 +150,7 @@ var pay = new Vue({
                 loadingType:'circular',
                 message:'正在支付...'
             })
-            this.wxpay(this.action.pay.oid,this.pay * 100,uid,this);
+            this.wxpay(this.action.pay.oid,0.01 * 100,uid,this);
         },
         // 统一下单
         wxpay(oid,bill,uid,self){
@@ -159,6 +159,7 @@ var pay = new Vue({
                 bill:bill,
                 uid:uid
             },function(code,data){
+                self.$toast.clear();
                 self.wechat(data.appId,data.timeStamp,data.nonceStr,data.package,data.signType,data.paySign,self)
             },function(code,data){
                 console.log(data);
@@ -175,7 +176,6 @@ var pay = new Vue({
                 "signType":signType,         //微信签名方式：     
                 "paySign":paySign //微信签名 
                 },function(res){
-                    self.$toast.clear();
                   if(res.err_msg == "get_brand_wcpay_request:ok" ){
                   // 使用以上方式判断前端返回,微信团队郑重提示：
                         //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
