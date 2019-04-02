@@ -81,22 +81,22 @@ var pay = new Vue({
             this.count++;
             console.log(this.count)
             this.Ord(this,GetStorage('buy'))
-            this.pay = this.pool.rubillValue * this.count;
             if(this.count >= 5){
                 this.count = 5;
             }else if(this.count >= this.buy.dayLim){
                 this.count = this.buy.dayLim;
             }
+            this.pay = this.pool.rubillValue * this.count;
         },
         // 减份数
         incre(){
             this.count--;
             console.log(this.count)
-            this.pay = this.pool.rubillValue * this.count;
             this.Ord(this,GetStorage('buy'))
             if(this.count <= 0){
                 this.count = 1;
             }
+            this.pay = this.pool.rubillValue * this.count;
         }
     }
 })
