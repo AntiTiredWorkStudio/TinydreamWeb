@@ -118,6 +118,14 @@ var pay = new Vue({
             },function(code,data){
                 console.log(data);
             })
+        },
+        // 点击选择触发事件
+        onSelect(){
+
+        },
+        // 取消选择时触发的事件
+        onCancel(){
+
         }
     }
 })
