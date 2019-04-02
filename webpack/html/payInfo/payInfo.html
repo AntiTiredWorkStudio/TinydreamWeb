@@ -56,8 +56,8 @@
                         <span class="txt">选择梦想</span>
                     </van-col>
                     <van-col span="12" class="tbill right" style="color:#333">
-                        <span id="dream">111</span>
-                        <van-icon name="arrow" class="arrow"></van-icon>
+                        <span id="dream">{{dream == '' ? "--" : dream}}</span>
+                        <van-icon name="arrow" class="arrow" @click="selectDream"></van-icon>
                     </van-col>
                 </van-row>
                 <van-col span="24" style="text-align:center">
@@ -67,6 +67,14 @@
                 <van-col span="24" style="padding-bottom:2rem;margin-top: 0.2rem">
                     <van-button type="primary" size='large' round>微信支付</van-button>
                 </van-col>
+                <van-actionsheet
+                v-model="show"
+                :actions="dreams"
+                cancel-text="取消"
+                @select="onSelect"
+                @cancel="onCancel"
+                title="选择梦想"
+                />
             </div>
         </div>
     </div>

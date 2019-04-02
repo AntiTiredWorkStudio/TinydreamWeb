@@ -10,6 +10,9 @@ var pay = new Vue({
         pay:'',//总钱数
         count:1,//份数
         buy:'',//预订单信息
+        dream:'',//选择的梦想
+        dreams:'',//梦想选择列表
+        show:false,//是否显示上拉菜单
     },
     created(){
         if(!ExistStorage('buy')){
@@ -23,6 +26,7 @@ var pay = new Vue({
             if($_GET.type == 'DREAM'){
                 $('title').html('小梦想支付')
                 $('.time').show();
+                this.dreamList(this,uid);
             }else if($_GET.type == 'TRADE'){
                 $('title').html('小生意支付');
                 $('.time').hide();
@@ -100,6 +104,20 @@ var pay = new Vue({
                 this.count = 1;
             }
             this.pay = this.pool.rubillValue * this.count;
+        },
+        // 梦想选择
+        selectDream(){
+            this.show = true;
+        },
+        // 获取梦想列表
+        dreamList(self,uid){
+            TD_Request('dr','dlist',{
+                uid:uid
+            },function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data);
+            })
         }
     }
 })
