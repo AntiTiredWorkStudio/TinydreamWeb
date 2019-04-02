@@ -57,12 +57,15 @@
                     </van-col>
                     <van-col span="12" class="tbill right" style="color:#333">
                         <span id="dream">111</span>
-                        <van-icon name="arrow"></van-icon>
+                        <van-icon name="arrow" class="arrow"></van-icon>
                     </van-col>
                 </van-row>
                 <van-col span="24" style="text-align:center">
                     <span style="font-size:0.26rem;color:#999">{{pool == '' ? '--' : (pool.rubillValue + pool.rubillUnit)}}结算：</span>
                     <span style="color:#00d094;font-size:0.36rem">{{ pay == '' ? '--' : pay }}元</span>
+                </van-col>
+                <van-col span="24">
+                    <van-button type="primary" size='large' round>微信支付</van-button>
                 </van-col>
             </div>
         </div>

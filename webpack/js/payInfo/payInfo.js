@@ -29,6 +29,8 @@ var pay = new Vue({
                 $('.ubill').css('margin-top',0);
                 $('.dream .txt').html('本期项目');
                 self.did = buy.buy.dream.tid;
+                $('.arrow').hide();
+                $('#dream').html(this.buy.dream.title);
             }
             this.$toast.loading({
                 duration:0,
