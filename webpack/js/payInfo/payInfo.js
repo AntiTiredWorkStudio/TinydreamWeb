@@ -150,7 +150,7 @@ var pay = new Vue({
                 loadingType:'circular',
                 message:'正在支付...'
             })
-            // this.wxpay(this.action.pay.oid,this.pay * 100,uid);
+            this.wxpay(this.action.pay.oid,this.pay * 100,uid);
         },
         // 统一下单
         wxpay(oid,bill,uid){
