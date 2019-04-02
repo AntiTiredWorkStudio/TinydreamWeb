@@ -11,7 +11,7 @@ var pay = new Vue({
         count:1,//份数
         buy:'',//预订单信息
         dream:'',//选择的梦想
-        dreams:'',//梦想选择列表
+        dreams:[],//梦想选择列表
         show:false,//是否显示上拉菜单
     },
     created(){
@@ -116,17 +116,15 @@ var pay = new Vue({
                 uid:uid
             },function(code,data){
                 console.log(data)
-                var dreams = [];
                 $.each(data.dreams,function(index,item){
                     console.log(item);
                     if(item.state == "FAILD" || item.state == "SUBMIT"){
-                        dreams.push({
+                        self.dreams.push({
                             name:item.title,
                             did:item.did
                         })
                     }
                 })
-                self.dreams = dreams;
                 console.log(self.dreams);
             },function(code,data){
                 console.log(data);
