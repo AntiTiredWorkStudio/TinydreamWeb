@@ -209,18 +209,46 @@ var app = new Vue({
                         SaveStorage('buy',JSON.stringify(data.actions));
                         window.location.href = 'html/payInfo/payInfo.html?time='+new Date().getTime()+'&type=DREAM'
                     }else{
+                        self.$dialog.setDefaultOptions({
+                            confirmButtonText:'添加梦想',
+                        })
                         self.$dialog.confirm({
                             title:'温馨提示',
                             message:'亲~您还没有添加梦想或者您的梦想已经实现，是否前往添加新梦想！'
                         }).then(()=>{
-                            window.location.href = 'html/payInfo/payInfo.html?time='+new Date().getTime()+'&type=dream'
+                            self.$dialog.resetDefaultOptions();
+                            window.location.href = 'html/dream/add.html?time='+new Date().getTime()+'&type=dream&pid='+self.mainpool.pid;
                         }).catch(()=>{
+                            self.$dialog.resetDefaultOptions();
                             window.location.href = 'index.html?time='+new Date().getTime();
                         })
                     }
                 }
             },function(code,data){
                 console.log(data);
+                if(code == 11){
+                    self.$dialog.setDefaultOptions({
+                        confirmButtonText:'绑定手机',
+                    })
+                    self.$dialog.alert({
+                        title:'温馨提示',
+                        message:'亲~您还没有绑定手机，绑定手机后即可参与互助!'
+                    }).then(()=>{
+                        self.$dialog.resetDefaultOptions();
+                        if(state == 'dream'){
+                            window.location.href = 'html/phoneManage/phone.html?time='+new Date().getTime()+'&type=phone&pid='+self.mainpool.pid;
+                        }else if(state == 'trade'){
+                            window.location.href = 'html/phoneManage/phone.html?time='+new Date().getTime()+'&type=phone&pid='+self.maintrade.pid;
+                        }
+                    })
+                } else if(code == 18){
+                    self.$dialog.alert({
+                        title:'温馨提示',
+                        message:'亲~您今日购买次数已达上限，请您明天再来吧!'
+                    }).then(()=>{
+                        window.location.href = 'index.html?time='+new Date().getTime();
+                    })
+                }
             })
         }
     }
