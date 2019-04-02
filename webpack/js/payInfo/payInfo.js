@@ -78,25 +78,24 @@ var pay = new Vue({
         },
         // 加份数
         add(){
+            this.count = this.count++;
+            this.Ord(this,GetStorage('buy'))
+            this.pay = this.pool.rubillValue * this.count;
             if(this.count >= 5){
                 this.count = 5;
             }else if(this.count >= this.buy.dayLim){
                 this.count = this.buy.dayLim;
-            }else{
-                this.count = this.count++;
-                this.Ord(this,GetStorage('buy'))
             }
-            this.pay = this.pool.rubillValue * this.count;
         },
         // 减份数
         incre(){
-            if(this.count <= 0){
-                this.count = 0;
-            }else{
-                this.count = this.count--;
-                this.Ord(this,GetStorage('buy'))
-            }
+            this.count = this.count--;
+            console.log(this.count)
             this.pay = this.pool.rubillValue * this.count;
+            this.Ord(this,GetStorage('buy'))
+            if(this.count <= 0){
+                this.count = 1;
+            }
         }
     }
 })
