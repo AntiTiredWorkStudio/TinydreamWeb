@@ -19,8 +19,8 @@
                 <!-- 标题 -->
                 <van-col span="24" class="title">{{pool == '' ? '--' : pool.ptitle}}</van-col>
                 <!-- 进度条 -->
-                <van-row class="progress">
-                    <yd-progressbar :progress="progress1" trail-color="#ffc054" trail-width="6" style="text-align:center">
+                <van-col span="24">
+                    <yd-progressbar :progress="progress1" class="progress" trail-color="#ffc054" trail-width="6" style="text-align:center">
                         <van-col span="24" style="font-size:0.28rem;color:#00d094">
                             <van-icon name="clock-o"></van-icon>
                             <span class="timeout">{{timeout}}</span>
@@ -30,7 +30,7 @@
                             <p style="font-size:0.24rem;color:#999">{{pool == '' ? '--' : pool.billHint}}</p>
                         </van-col>
                     </yd-progressbar>
-                </van-row>
+                </van-col>
             </div>
         </div>
     </div>
