@@ -2,7 +2,8 @@ var uid = Options.GetUserInfo().openid;
 var pay = new Vue({
     el:'#pay',
     data:{
-
+        actions:'',//支付信息
+        pool:'',//奖池信息
     },
     created(){
         if(!ExistStorage('buy')){
@@ -23,15 +24,19 @@ var pay = new Vue({
                 loadingType:'circular',
                 message:'订单生成中...'
             })
-            this.Ord(GetStorage('buy'));
+            this.Ord(this,GetStorage('buy'));
         }
     },
     methods:{
-        Ord(actions){
+        Ord(self,actions){
             TD_Request('ds','ord',{
                 action:actions
             },function(code,data){
                 console.log(data)
+                // 备份 actions
+                self.actions = data.actions;
+                self.pool = data.pool;
+
             },function(code,data){
                 console.log(data);
             })
