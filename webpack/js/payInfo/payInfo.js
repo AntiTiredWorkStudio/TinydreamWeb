@@ -119,13 +119,12 @@ var pay = new Vue({
                 $.each(data.dreams,function(index,item){
                     console.log(item);
                     if(item.state == "FAILD" || item.state == "SUBMIT"){
-                        self.dreams.push({
+                        self.actions.push({
                             name:item.title,
-                            // did:item.did
+                            did:item.did
                         })
                     }
                 })
-                console.log(self.dreams);
             },function(code,data){
                 console.log(data);
             })
