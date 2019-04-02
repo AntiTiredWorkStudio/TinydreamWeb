@@ -79,6 +79,7 @@ var pay = new Vue({
         // 加份数
         add(){
             this.count = this.count++;
+            console.log(this.count)
             this.Ord(this,GetStorage('buy'))
             this.pay = this.pool.rubillValue * this.count;
             if(this.count >= 5){
