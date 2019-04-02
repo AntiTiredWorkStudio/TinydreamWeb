@@ -7,8 +7,8 @@ var pay = new Vue({
         progress1:'',//进度
         timeout:'',//倒计时
         did:'',//梦想 id
-        pay:'0',//总钱数
-        count:0,//份数
+        pay:'',//总钱数
+        count:1,//份数
         buy:'',//预订单信息
     },
     created(){
@@ -58,6 +58,7 @@ var pay = new Vue({
                     self.timeout = self.SetTimeOut(ptime + daurtion)
                 },1000)
                 // 填写信息
+                self.pay = self.pool.rubillValue * self.count;
                 self.$toast.clear();
             },function(code,data){
                 console.log(data);
