@@ -130,12 +130,13 @@ var pay = new Vue({
             })
         },
         // 点击选择触发事件
-        onSelect(){
-
+        onSelect(item){
+            console.log(item)
         },
         // 取消选择时触发的事件
         onCancel(){
-
+            this.show = false;
+            return;
         }
     }
 })
