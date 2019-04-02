@@ -201,6 +201,7 @@ var app = new Vue({
                 pid:pid
             },function(code,data){
                 console.log(data);
+                return;
                 if(state == 'trade'){
                     SaveStorage('buy',JSON.stringify(data.actions))
                     window.location.href = 'html/payInfo/payInfo.html?time='+new Date().getTime()+'&type=TRADE'
