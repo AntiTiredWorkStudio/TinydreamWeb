@@ -200,7 +200,7 @@ var app = new Vue({
                 uid:self.userInfo.openid,
                 pid:pid
             },function(code,data){
-                console.log(data);
+                console.log(data,data.actions.hasOwnProperty('editdram'));
                 return;
                 if(state == 'trade'){
                     SaveStorage('buy',JSON.stringify(data.actions))
