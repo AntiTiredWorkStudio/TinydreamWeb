@@ -180,12 +180,30 @@ var app = new Vue({
         },
         // 跳转梦想池列表页面
         dream(){
-            console.log(1)
-            // window.location.href = 'html/dreampool/dreampool.html?time='+new Date().getTime()+'&active=0'
+            window.location.href = 'html/dreampool/dreampool.html?time='+new Date().getTime()+'&active=0'
+        },
+        // 跳转生意详情页
+        tradeInfo(){
+            window.location.href = 'html/tradeInfo/tradeInfo.html?time='+new Date().getTime()+'&id='+this.maintrade.trade.url;
         },
         // 参与互助
         join(state){
-            console.log(state);
+            if(state == 'dream'){
+                this.buy('dream',this.mainpool.pid,this);
+            }else if(state == 'trade'){
+                this.buy('trade',this.maintrade.pid,this);
+            }
+        },
+        // 准备购买梦想
+        buy(state,pid,self){
+            TD_Request('ds','buy',{
+                uid:self.userInfo.openid,
+                pid:pid
+            },function(code,data){
+                console.log(data);
+            },function(code,data){
+                console.log(data);
+            })
         }
     }
 })
