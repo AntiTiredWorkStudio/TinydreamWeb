@@ -201,18 +201,17 @@ var app = new Vue({
                 pid:pid
             },function(code,data){
                 console.log(data,data.actions.hasOwnProperty('editdream'));
-                return;
                 if(state == 'trade'){
                     SaveStorage('buy',JSON.stringify(data.actions))
                     window.location.href = 'html/payInfo/payInfo.html?time='+new Date().getTime()+'&type=TRADE'
                 }else{
-                    if(!data.actions.hasOwnProperty('editdram')){
+                    if(!data.actions.hasOwnProperty('editdream')){
                         SaveStorage('buy',JSON.stringify(data.actions));
                         window.location.href = 'html/payInfo/payInfo.html?time='+new Date().getTime()+'&type=DREAM'
                     }else{
                         self.$dialog.confirm({
                             title:'温馨提示',
-                            message:'亲~您还没有添加梦想呢，梦想是参与活动的门票哦，是否前往添加'
+                            message:'亲~您还没有添加梦想或者您的梦想已经实现，是否前往添加新梦想！'
                         }).then(()=>{
                             window.location.href = 'html/payInfo/payInfo.html?time='+new Date().getTime()+'&type=dream'
                         }).catch(()=>{
