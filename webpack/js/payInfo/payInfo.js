@@ -11,7 +11,7 @@ var pay = new Vue({
         count:1,//份数
         buy:'',//预订单信息
         dream:'',//选择的梦想
-        actions:[],//梦想选择列表
+        actions:[{name:111}],//梦想选择列表
         show:false,//是否显示上拉菜单
     },
     created(){
