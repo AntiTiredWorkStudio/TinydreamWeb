@@ -55,7 +55,7 @@ var pay = new Vue({
                     self.timeout = self.SetTimeOut(ptime + daurtion)
                 },1000)
                 // 填写信息
-
+                self.$toast.clear();
             },function(code,data){
                 console.log(data);
             })
