@@ -127,6 +127,7 @@ var pay = new Vue({
                     }
                 })
                 self.dreams = dreams;
+                console.log(self.dreams);
             },function(code,data){
                 console.log(data);
             })
