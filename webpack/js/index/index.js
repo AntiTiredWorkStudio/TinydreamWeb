@@ -201,6 +201,24 @@ var app = new Vue({
                 pid:pid
             },function(code,data){
                 console.log(data);
+                if(state == 'trade'){
+                    SaveStorage('buy',JSON.stringify(data.actions))
+                    window.location.href = 'html/payInfo/payInfo.html?time='+new Date().getTime()+'&type=TRADE'
+                }else{
+                    if(!data.actions.hasOwnProperty('editdram')){
+                        SaveStorage('buy',JSON.stringify(data.actions));
+                        window.location.href = 'html/payInfo/payInfo.html?time='+new Date().getTime()+'&type=DREAM'
+                    }else{
+                        self.$dialog.confirm({
+                            title:'温馨提示',
+                            message:'亲~您还没有添加梦想呢，梦想是参与活动的门票哦，是否前往添加'
+                        }).then(()=>{
+                            window.location.href = 'html/payInfo/payInfo.html?time='+new Date().getTime()+'&type=dream'
+                        }).catch(()=>{
+                            window.location.href = 'index.html?time='+new Date().getTime();
+                        })
+                    }
+                }
             },function(code,data){
                 console.log(data);
             })
