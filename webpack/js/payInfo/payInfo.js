@@ -121,7 +121,7 @@ var pay = new Vue({
                     if(item.state == "FAILD" || item.state == "SUBMIT"){
                         self.dreams.push({
                             name:item.title,
-                            did:item.did
+                            // did:item.did
                         })
                     }
                 })
