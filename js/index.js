@@ -390,7 +390,7 @@ $(function(){
                         }
                     })
                 }else{
-                    Location();
+                    Loading();
                     TD_Request("ds","buy",{
                         uid:data.selfinfo.uid,
                         pid:pid
