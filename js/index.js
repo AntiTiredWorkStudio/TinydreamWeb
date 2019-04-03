@@ -360,6 +360,7 @@ $(function(){
             // }
 
              function buy(state,pid,uid){
+                Loading();
                 if(PERMISSION_USER(userInfo.openid)){
                     alert(JSON.stringify({pid:pid,uid:uid}))
                 }
@@ -370,6 +371,7 @@ $(function(){
                         pid:pid
                     },function(code,data){
                         // console.log(data);
+                        FinishLoading()
                         if(code == 0 || data.result == true){
                             console.log(data)
                             localStorage.setItem('buy',JSON.stringify(data.actions));
