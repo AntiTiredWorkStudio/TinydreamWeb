@@ -16,12 +16,12 @@ var typeIdList = ['type_running','type_end','type_join'];
 
 /*测试用*/
 var uid = Options.GetUserInfo().openid;
-if(PERMISSION_USER(uid)){
-    // console.log("is test user");
-    Options.TestServer = true;
-}else{
-    Options.TestServer = false;
-}
+// if(PERMISSION_USER(uid)){
+//     // console.log("is test user");
+//     Options.TestServer = true;
+// }else{
+//     Options.TestServer = false;
+// }
 console.log(uid);
 
 var onClickTypeBtn = function(btn){
