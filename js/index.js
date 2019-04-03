@@ -359,12 +359,12 @@ $(function(){
             //     $('.mask').hide()
             // }
 
-             function buy(state,pid){
-                alert('uid:'+data.selfinfo.openid,'pid:'+pid)
+             function buy(state,pid,uid){
+                alert('uid:'+uid,'pid:'+pid)
                 if(state == 'trade'){
                     
                     TD_Request("ds","buy",{
-                        uid:data.selfinfo.uid,
+                        uid:uid,
                         pid:pid
                     },function(code,data){
                         // console.log(data);
@@ -422,12 +422,12 @@ $(function(){
              $('.join').click(function(e){
                  e.stopPropagation();
                  // console.log(data)
-                 buy('dream',mainpool.pid);
+                 buy('dream',mainpool.pid,userInfo.openid);
              })
              $('.YB_join').click(function(e){
                 e.stopPropagation();
                 // alert(1)
-                 buy('trade',maintrade.pid);
+                 buy('trade',maintrade.pid,userInfo.openid);
              })
              // 倒计时
             var timer = setInterval(function(){
