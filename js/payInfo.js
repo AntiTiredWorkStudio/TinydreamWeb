@@ -263,7 +263,7 @@ if (!ExistStorage("buy")) {
                                 localStorage.removeItem('buy');
                                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm?time='+new Date().getTime();
                             }else{
-                                alert(code);
+                                // alert(code);
                                 alert('支付失败');
                             }
                         })
