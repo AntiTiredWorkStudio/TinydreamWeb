@@ -361,9 +361,9 @@ $(function(){
 
              function buy(state,pid,uid){
                 Loading();
-                if(PERMISSION_USER(userInfo.openid)){
-                    alert(JSON.stringify({pid:pid,uid:uid}))
-                }
+                // if(PERMISSION_USER(userInfo.openid)){
+                //     alert(JSON.stringify({pid:pid,uid:uid}))
+                // }
                 if(state == 'trade'){
                     
                     TD_Request("ds","buy",{
