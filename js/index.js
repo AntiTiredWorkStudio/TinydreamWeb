@@ -379,6 +379,7 @@ $(function(){
                             window.location.href = "html/payInfo.html?state=trade&time="+new Date().getTime();
                         }
                     },function(code,data){
+                        FinishLoading()
                         if(code == 11 || !data.result){
                             alert("您尚"+data.context+",绑定手机后才能继续参与互助");
                             localStorage.setItem('mainpool',JSON.stringify(mainpool));
@@ -389,11 +390,13 @@ $(function(){
                         }
                     })
                 }else{
+                    Location();
                     TD_Request("ds","buy",{
                         uid:data.selfinfo.uid,
                         pid:pid
                     },function(code,data){
                         // console.log(data);
+                        FinishLoading()
                         if(code == 0 || data.result == true){
                             if(!data.actions.hasOwnProperty('editdream')){
                                 localStorage.setItem('buy',JSON.stringify(data.actions));
@@ -409,6 +412,7 @@ $(function(){
                             }
                         }
                     },function(code,data){
+                        FinishLoading()
                         if(code == 11 || !data.result){
                             alert("您尚"+data.context+",绑定手机后才能继续参与互助");
                             localStorage.setItem('mainpool',JSON.stringify(mainpool));
