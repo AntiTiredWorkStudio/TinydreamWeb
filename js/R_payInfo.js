@@ -8,7 +8,8 @@ $(function(){
     $('.select_pid').click(function(){
         TD_Request('ds','plistr',{
             seek:0,
-            count:100
+            count:100,
+            redpack:true
         },function(code,data){
             console.log(data)
             var pid = []; 
