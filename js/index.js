@@ -361,7 +361,7 @@ $(function(){
 
              function buy(state,pid,uid){
                 if(PERMISSION_USER(userInfo.openid)){
-                    alert(pid,uid)
+                    alert(JSON.stringify({pid:pid,uid:uid}))
                 }
                 if(state == 'trade'){
                     
