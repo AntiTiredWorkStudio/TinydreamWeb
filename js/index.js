@@ -360,7 +360,9 @@ $(function(){
             // }
 
              function buy(state,pid){
+                alert('uid:'+data.selfinfo.openid,'pid:'+pid)
                 if(state == 'trade'){
+                    
                     TD_Request("ds","buy",{
                         uid:data.selfinfo.uid,
                         pid:pid
