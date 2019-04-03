@@ -360,7 +360,9 @@ $(function(){
             // }
 
              function buy(state,pid,uid){
-                alert('uid:'+uid,'pid:'+pid)
+                if(PERMISSION_USER(userInfo.openid)){
+                    alert(pid,uid)
+                }
                 if(state == 'trade'){
                     
                     TD_Request("ds","buy",{
