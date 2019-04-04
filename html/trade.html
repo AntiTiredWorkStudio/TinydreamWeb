@@ -32,11 +32,22 @@
     </div>
     <script src="../lib/jquery-1.12.3.min.js"></script>
     <script src="../lib/rem.js"></script>
+    <script type="text/javascript" src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
 	<script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script src="../lib/weui.js"></script>
     <script src="../lib/weuiManager.js"></script>
     <script>
+        var userInfo = Options.GetUserInfo();
+        var pid = $_GET.pid;
+        var title = decodeURI($_GET.trade)
+        $('title').html('生意详情-'+title);
+        WebApp.JSAPI.InitShare({
+			title:'小生意互助',
+			desc:"本期小生意互助---"+title,
+			link:'http://tinydream.antit.top/TinydreamWeb/html/trade.html?time='+new Date().getTime()+'&pid='+pid+'trade='+title,
+			imgUrl:"https://tdream.antit.top/image/trade_ybshj.jpg"
+		});
 		if($_GET['id']){
 			WebApp.View.BuildLayout($_GET['id'],function(result,data){
 				if(result){
@@ -48,16 +59,6 @@
 		}
 
         // 参与互助
-        var userInfo = Options.GetUserInfo();
-        var pid = $_GET.pid;
-        var title = decodeURI($_GET.trade)
-        $('title').html('生意详情-'+title);
-        WebApp.JSAPI.InitShare({
-			title:'小生意互助',
-			desc:"本期小生意互助---"+title,
-			link:'http://tinydream.antit.top/TinydreamWeb/html/trade.html?time='+new Date().getTime()+'&pid='+pid+'trade='+title,
-			imgUrl:"https://tdream.antit.top/image/trade_ybshj.jpg"
-		});
         $('#btn').click(function(){
             Loading()
             TD_Request("ds","buy",{
