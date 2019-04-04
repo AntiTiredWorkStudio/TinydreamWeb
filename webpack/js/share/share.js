@@ -14,10 +14,17 @@ var share = new Vue({
         'https://tdream.antit.top/LongPress2Share09.jpg',
         'https://tdream.antit.top/LongPress2Share10.jpg',
         'https://tdream.antit.top/LongPress2Share11.jpg',
-        'https://tdream.antit.top/LongPress2Share12.jpg',]
+        'https://tdream.antit.top/LongPress2Share12.jpg',],
+        did:'DR1000000000',
+        pid:'20190401'
     },
     created(){
         Options.TestServer = true;
         console.log(Math.floor(Math.random()*this.imgArr.length))
+        // 获取 canvas
+        var canvas = document.getElementById('canvas');
+        // 获取图形上下文
+        var ctx = canvas.getContext('2d');
+        console.log($(window).width(),$(window).height())
     }
 })
