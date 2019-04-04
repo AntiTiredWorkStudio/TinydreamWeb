@@ -11,7 +11,7 @@ var app = new Vue({
         progress2:'',//小生意互助进度
         tradeStyle:'',//小生意banner图
         actives:0,//默认激活
-        show:true,//是否显示弹窗,
+        show:false,//是否显示弹窗,
         luckyMessage:'',//幸运提示
         luckBtn:'',//弹窗按钮文本
         luckDid:'',//中奖 did
@@ -297,6 +297,7 @@ var app = new Vue({
         },
         // 点击弹窗
         lucky(message){
+            this.show = false;
             console.log(message)
             if(message == 'ok,我知道了'){
                 window.location.href = 'index.html?time='+new Date().getTime();
