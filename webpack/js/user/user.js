@@ -11,7 +11,7 @@ var user = new Vue({
     created(){
         this.tabbar = common.tabbar;
         // 获取个人信息
-        this.GetSelfInfo(self)
+        this.GetSelfInfo(this)
     },
     methods:{
         // 获取个人信息
