@@ -16,7 +16,7 @@ var user = new Vue({
     },
     mounted(){
         console.log(common.ncount)
-        this.ncount = common.ncount
+        this.notice(self,uid)
         if(this.ncount == 0){
 
         }
@@ -39,6 +39,16 @@ var user = new Vue({
                 self.selfinfo = data.selfinfo;
             },function(code,data){
                 console.log(data)
+            })
+        },
+        notice(self,uid){
+            TD_Request('no','nc',{uid:uid},function(code,data){
+                if(data.ncount == 0){
+                    self.ncount = '';
+                }
+                self.ncount = data.ncount;
+            },function(code,data){
+                console.log(data);
             })
         }
     }
