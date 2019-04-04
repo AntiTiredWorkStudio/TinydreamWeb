@@ -31,6 +31,7 @@ var share = new Vue({
         var canvas = document.getElementById('canvas');
         // 获取图形上下文
         var ctx = canvas.getContext('2d');
+        console.log(ctx);
         console.log($(window).width(),$(window).height())
         // canvas展示宽高
         $(canvas).css({
