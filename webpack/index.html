@@ -188,7 +188,7 @@
             </van-badge-group>
             <!-- tabbar -->
             <van-tabbar v-model="actives" active-color="#00d094">
-                <van-tabbar-item v-for="tab in tabbar" :url="tab.url"> 
+                <van-tabbar-item v-for="tab in tabbar" :url="tab.url" :info="info"> 
                     <span>{{tab.title}}</span>
                     <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
                 </van-tabbar-item>
