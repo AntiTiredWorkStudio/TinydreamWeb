@@ -14,6 +14,7 @@ var app = new Vue({
         show:true,//是否显示弹窗,
         luckyMessage:'',//幸运提示
         luckBtn:'',//弹窗按钮文本
+        luckDid:'',//中奖 did
         tabbar:[
             {
                 title:'参与互助',
@@ -149,6 +150,7 @@ var app = new Vue({
                     self.show = true;
                     self.popState('dream',self)
                     self.luckyMessage = '恭喜您成为梦想互助'+data.award.pid+'期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!'
+                    self.luckDid = data.award.did;
                 }else if(data.tradeaward.length != 0){
                     self.show = true;
                     self.popState('trade',self)
@@ -288,17 +290,22 @@ var app = new Vue({
                 }else if(state == 'trade'){
                     self.luckBtn = 'ok,我知道了'
                 }
-                // localStorage.setItem('dr','{"did":"'+did+'","state":"all"}')
-                // window.location.href = 'html/add.html?time='+new Date().getTime()
             },function(code,data){
                 console.log(data)   
-                alert('您还未实名认证，请认证后在进行完善')
-                window.location.href = 'html/auth.html?time='+new Date().getTime()
+                self.luckBtn = '实名认证'
             });
         },
         // 点击弹窗
         lucky(message){
             console.log(message)
+            if(message == 'ok,我知道了'){
+                window.location.href = 'index.html?time='+new Date().getTime();
+            }else if(message == '完善梦想'){
+                localStorage.setItem('dr','{"did":"'+did+'","state":"all"}')
+                window.location.href = 'html/add.html?time='+new Date().getTime()
+            }else{
+                window.location.href = 'html/auth.html?time='+new Date().getTime()
+            }
         }
     }
 })
