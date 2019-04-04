@@ -2,12 +2,12 @@ WebApp.JSAPI.Init();
 
 // Options.TestServer = true;
 var userInfo = Options.GetUserInfo();
-if(PERMISSION_USER(userInfo.openid)){
-    // console.log("is test user");
-    Options.TestServer = true;
-}else{
-    Options.TestServer = false;
-}
+// if(PERMISSION_USER(userInfo.openid)){
+//     // console.log("is test user");
+//     Options.TestServer = true;
+// }else{
+//     Options.TestServer = false;
+// }
 if (!ExistStorage("buy")) {
     $("body").html("");
     window.location.href = "../index.html";
@@ -263,7 +263,7 @@ if (!ExistStorage("buy")) {
                                 localStorage.removeItem('buy');
                                 window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.htm?time='+new Date().getTime();
                             }else{
-                                alert(code);
+                                // alert(code);
                                 alert('支付失败');
                             }
                         })

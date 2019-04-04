@@ -2,12 +2,12 @@
 WebApp.JSAPI.Init();
 $(function(){
     var userInfo = Options.GetUserInfo();
-    if(PERMISSION_USER(userInfo.openid)){
-        // console.log("is test user");
-        Options.TestServer = true;
-    }else{
-        Options.TestServer = false;
-    }
+    // if(PERMISSION_USER(userInfo.openid)){
+    //     // console.log("is test user");
+    //     Options.TestServer = true;
+    // }else{
+    //     Options.TestServer = false;
+    // }
     
     // window.location.href = 'http://tinydream.antit.top/TinydreamWeb/css/helpInfo.css'
     // 获取奖池信息
@@ -69,11 +69,13 @@ $(function(){
         $('.join_help').html('参与互助').css({background:'#00d094',color:'#fff'}).removeAttr('disabled')
 
         function buy(state,pid){
+            Loading()
             if(state == 'trade'){
                 TD_Request("ds","buy",{
                     uid:userInfo.openid,
                     pid:pid
                 },function(code,data){
+                    FinishLoading()
                     // console.log(data);
                     if(code == 0 || data.result == true){
                         console.log(data)
@@ -82,6 +84,7 @@ $(function(){
                         window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?state=trade&time="+new Date().getTime();
                     }
                 },function(code,data){
+                    FinishLoading()
                     if(code == 11 || !data.result){
                         alert("您尚"+data.context+",绑定手机后才能继续参与互助");
                         localStorage.setItem('mainpool',JSON.stringify(mainpool));
@@ -92,10 +95,12 @@ $(function(){
                     }
                 })
             }else{
+                Location()
                 TD_Request("ds","buy",{
                     uid:userInfo.openid,
                     pid:pid
                 },function(code,data){
+                    FinishLoading()
                     // console.log(data);
                     if(code == 0 || data.result == true){
                         if(!data.actions.hasOwnProperty('editdream')){
@@ -112,6 +117,7 @@ $(function(){
                         }
                     }
                 },function(code,data){
+                    FinishLoading()
                     if(code == 11 || !data.result){
                         alert("您尚"+data.context+",绑定手机后才能继续参与互助");
                         localStorage.setItem('mainpool',JSON.stringify(mainpool));

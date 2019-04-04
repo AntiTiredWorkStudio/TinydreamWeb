@@ -9,24 +9,24 @@ $(function(){
         //alert(result);
         var userInfo = Options.GetUserInfo();
         // console.log(result,data);
-        if(PERMISSION_USER(userInfo.openid) && window.location.href != 'http://tinydream.antit.top/TinydreamWebTest/index.html'){
-            // console.log("is test user");
-            window.location.href = 'http://tinydream.antit.top/TinydreamWebTest/index.html'
-        }else{
-            $('.tab-nav-item').eq(1).click(function(){
-                $('.lucky a').hide()
-            })
-            $('.tab-nav-item').eq(0).click(function(){
-                $('.lucky a').show()
-            })
-            Options.TestServer = false;
-        }
-        if(PERMISSION_USER(userInfo.openid) && window.location.href == 'http://tinydream.antit.top/TinydreamWebTest/index.html'){
-            // console.log("is test user");
-            Options.TestServer = true;
-        }else{
-            Options.TestServer = false;
-        }
+        // if(PERMISSION_USER(userInfo.openid) && window.location.href != 'http://tinydream.antit.top/TinydreamWebTest/index.html'){
+        //     // console.log("is test user");
+        //     window.location.href = 'http://tinydream.antit.top/TinydreamWebTest/index.html'
+        // }else{
+        //     $('.tab-nav-item').eq(1).click(function(){
+        //         $('.lucky a').hide()
+        //     })
+        //     $('.tab-nav-item').eq(0).click(function(){
+        //         $('.lucky a').show()
+        //     })
+        //     // Options.TestServer = false;
+        // }
+        // if(PERMISSION_USER(userInfo.openid) && window.location.href == 'http://tinydream.antit.top/TinydreamWebTest/index.html'){
+        //     // console.log("is test user");
+        //     Options.TestServer = true;
+        // }else{
+        //     Options.TestServer = false;
+        // }
         // Options = {
         //     Auth: null,
         //     AccessToken: null,
@@ -359,13 +359,19 @@ $(function(){
             //     $('.mask').hide()
             // }
 
-             function buy(state,pid){
+             function buy(state,pid,uid){
+                Loading();
+                // if(PERMISSION_USER(userInfo.openid)){
+                //     alert(JSON.stringify({pid:pid,uid:uid}))
+                // }
                 if(state == 'trade'){
+                    
                     TD_Request("ds","buy",{
-                        uid:data.selfinfo.uid,
+                        uid:uid,
                         pid:pid
                     },function(code,data){
                         // console.log(data);
+                        FinishLoading()
                         if(code == 0 || data.result == true){
                             console.log(data)
                             localStorage.setItem('buy',JSON.stringify(data.actions));
@@ -373,6 +379,7 @@ $(function(){
                             window.location.href = "html/payInfo.html?state=trade&time="+new Date().getTime();
                         }
                     },function(code,data){
+                        FinishLoading()
                         if(code == 11 || !data.result){
                             alert("您尚"+data.context+",绑定手机后才能继续参与互助");
                             localStorage.setItem('mainpool',JSON.stringify(mainpool));
@@ -383,11 +390,13 @@ $(function(){
                         }
                     })
                 }else{
+                    Loading();
                     TD_Request("ds","buy",{
                         uid:data.selfinfo.uid,
                         pid:pid
                     },function(code,data){
                         // console.log(data);
+                        FinishLoading()
                         if(code == 0 || data.result == true){
                             if(!data.actions.hasOwnProperty('editdream')){
                                 localStorage.setItem('buy',JSON.stringify(data.actions));
@@ -403,6 +412,7 @@ $(function(){
                             }
                         }
                     },function(code,data){
+                        FinishLoading()
                         if(code == 11 || !data.result){
                             alert("您尚"+data.context+",绑定手机后才能继续参与互助");
                             localStorage.setItem('mainpool',JSON.stringify(mainpool));
@@ -420,12 +430,12 @@ $(function(){
              $('.join').click(function(e){
                  e.stopPropagation();
                  // console.log(data)
-                 buy('dream',mainpool.pid);
+                 buy('dream',mainpool.pid,userInfo.openid);
              })
              $('.YB_join').click(function(e){
                 e.stopPropagation();
                 // alert(1)
-                 buy('trade',maintrade.pid);
+                 buy('trade',maintrade.pid,userInfo.openid);
              })
              // 倒计时
             var timer = setInterval(function(){

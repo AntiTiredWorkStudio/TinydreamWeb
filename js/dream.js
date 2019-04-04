@@ -2,12 +2,12 @@ console.log(WebApp);
 WebApp.JSAPI.Init();
 $(function(){
     var userInfo = Options.GetUserInfo();
-    if(PERMISSION_USER(userInfo.openid)){
-        // console.log("is test user");
-        Options.TestServer = true;
-    }else{
-        Options.TestServer = false;
-    }
+    // if(PERMISSION_USER(userInfo.openid)){
+    //     // console.log("is test user");
+    //     Options.TestServer = true;
+    // }else{
+    //     Options.TestServer = false;
+    // }
     // 获取模板字符串
     // WebApp.JSAPI.Init()
     var templateStr = $('#template').html();
