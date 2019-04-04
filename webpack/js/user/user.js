@@ -30,6 +30,6 @@ var user = new Vue({
     },
     created(){
         // 获取通知数量
-        console.log(app)
+        console.log(common);
     }
 })
