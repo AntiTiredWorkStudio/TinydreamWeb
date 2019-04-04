@@ -169,6 +169,22 @@ var share = new Vue({
                 console.log(img,self.newImgArr,Options.GetUserInfo().headimgurl)
                 self.getDream(self,ctx)
             })
+        },
+        // 查看详情
+        lookInfo(){
+            TD_Request('dp','pinfo',{
+                pid:pid
+            },function(code,data){
+                var obj = DreamPoolAnalysis(data.pool)
+                localStorage.setItem('poolInfo',JSON.stringify(obj))
+                if(obj.state == 'RUNNING'){
+                    window.location.href = "../../html/helpInfo.html?time"+new Date().getTime()+'&type='+$_GET.type;
+                }else{
+                    window.location.href = "../../html/end.html?time"+new Date().getTime()+'&type='+$_GET.type;
+                }    
+            },function(code,data){
+                console.log(data)
+            })
         }
     }
 })
