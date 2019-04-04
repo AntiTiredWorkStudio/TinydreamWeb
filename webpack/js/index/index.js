@@ -53,9 +53,9 @@ var app = new Vue({
                 console.log(Options.GetUserInfo());
                 self.userInfo = Options.GetUserInfo();
                 // 开启测试服务器
-                if(PERMISSION_USER(self.userInfo.openid)){
+                // if(PERMISSION_USER(self.userInfo.openid)){
                     Options.TestServer = true;
-                };
+                // };
                 self.$toast.clear();
                 self.$toast.loading({
                     duration:0,
@@ -196,10 +196,17 @@ var app = new Vue({
         },
         // 准备购买梦想
         buy(state,pid,self){
+            self.$toast.loading({
+                duration:0,
+                forbidClick:true,
+                loadingType:'circular',
+                message:'准备订单中...'
+            })
             TD_Request('ds','buy',{
                 uid:self.userInfo.openid,
                 pid:pid
             },function(code,data){
+                self.$toast.clear();
                 console.log(data,data.actions.hasOwnProperty('editdream'));
                 if(state == 'trade'){
                     SaveStorage('buy',JSON.stringify(data.actions))
@@ -225,6 +232,7 @@ var app = new Vue({
                     }
                 }
             },function(code,data){
+                self.$toast.clear();
                 console.log(data);
                 if(code == 11){
                     self.$dialog.setDefaultOptions({
