@@ -30,7 +30,7 @@ var share = new Vue({
     created(){
         Options.TestServer = true;
         var randomNum = Math.floor(Math.random()*this.imgArr.length);
-        var img = this.imgArr[randomNum];//随机背景
+        // var img = this.imgArr[randomNum];//随机背景
         // var headicon = Options.GetUserInfo().headimgurl;//微信头像
         // this.newImgArr.push(img,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg');
         // console.log(img,this.newImgArr)
@@ -70,7 +70,7 @@ var share = new Vue({
             var img = new Image();
             img.setAttribute('crossOrigin', 'anonymous');//允许图片跨域
             img.src = src[index];
-            img.onload = function(){
+            window.onload = function(){
                 if(index != 2){
                     ctx.drawImage(img,x,y,width,height);
                     console.log(img,x,y,width,height)
