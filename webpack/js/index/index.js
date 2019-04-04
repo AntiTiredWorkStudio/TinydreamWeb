@@ -13,6 +13,7 @@ var app = new Vue({
         actives:0,//默认激活
         show:true,//是否显示弹窗,
         luckyMessage:'',//幸运提示
+        luckBtn:'',//弹窗按钮文本
         tabbar:[
             {
                 title:'参与互助',
@@ -146,11 +147,14 @@ var app = new Vue({
                 // 判断是否中奖
                 if(data.award.result){
                     self.show = true;
+                    self.popState('dream',self)
                     self.luckyMessage = '恭喜您成为梦想互助'+data.award.pid+'期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!'
                 }else if(data.tradeaward.length != 0){
                     self.show = true;
+                    self.popState('trade',self)
                     self.luckyMessage = "恭喜您参与的小生意互助"+data.tradeaward.pid+"期成为幸运者，幸运编号为"+data.tradeaward.lid+"，本期免费获得项目为："+data.tradeaward.trade.title+".   我们工作人员会在3个工作日内联系您安排项目对接，请您保持电话畅通。 提示：为更好地给您对接项目，请您务必在7个工作日内完成实名认证。"
                     $('.msg').css('font-size','0.24rem');
+
                 }else{
                     self.show = false;
                 }
@@ -273,6 +277,28 @@ var app = new Vue({
         // 查看规则
         rules(){
             window.location.href = 'html/rules/rules.html?time='+new Date().getTime();
+        },
+        // 弹窗监测状态
+        popState(state,self){
+            TD_Request('us','rnamegx',{
+                uid:uid
+            },function(code,data){
+                if(state == 'dream'){
+                    self.luckBtn = '完善梦想'
+                }else if(state == 'trade'){
+                    self.luckBtn = 'ok,我知道了'
+                }
+                // localStorage.setItem('dr','{"did":"'+did+'","state":"all"}')
+                // window.location.href = 'html/add.html?time='+new Date().getTime()
+            },function(code,data){
+                console.log(data)   
+                alert('您还未实名认证，请认证后在进行完善')
+                window.location.href = 'html/auth.html?time='+new Date().getTime()
+            });
+        },
+        // 点击弹窗
+        lucky(message){
+            console.log(message)
         }
     }
 })
