@@ -72,7 +72,9 @@ var share = new Vue({
                     console.log(img,x,y,width,height)
                     // 绘制下一张
                     self.next(self.newImgArr,index+1,15 * self.ratio,40 * self.ratio,50 * self.ratio,50 * self.ratio,ctx,self)
+
                 }else{
+                    self.$toast.clear()
                     x = self.x1;
 					y = self.y2;
 					width = 60 * self.ratio;
