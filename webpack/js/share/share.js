@@ -56,7 +56,7 @@ var share = new Vue({
         var y = $(window).height() * ratio - 25 * ratio;
         var y2 = $(window).height() * ratio - 85 * ratio;
         // 进行绘制下一张图片
-        this.next(this.newImgArr,0,0,0,$(window).width() * ratio,$(window).height() * ratio,canvas,canvas);
+        this.next(this.newImgArr,0,0,0,$(window).width() * ratio,$(window).height() * ratio,ctx);
     },
     methods:{
         // 绘制图片
