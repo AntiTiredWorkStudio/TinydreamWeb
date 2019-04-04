@@ -32,6 +32,7 @@ var share = new Vue({
         // 获取图形上下文
         var ctx = canvas.getContext('2d');
         console.log($(window).width(),$(window).height())
+        // canvas展示宽高
         $(canvas).css({
             width:$(window).width(),
             height:$(window).height()
@@ -54,6 +55,25 @@ var share = new Vue({
         var y = $(window).height() * ratio - 25 * ratio;
         var y2 = $(window).height() * ratio - 85 * ratio;
         // 进行绘制下一张图片
-        // next(this.newImgArr,0,0,0,$(window).width() * ratio,$(window).height() * ratio,canvas);
+        this.next(this.newImgArr,0,0,0,$(window).width() * ratio,$(window).height() * ratio,canvas,ctx);
+    },
+    methods:{
+        // 绘制图片
+        next(src,index,x,y,width,height,ctx){
+            try{
+                var img = new Image();
+                img.setAttribute('crossOrigin', 'anonymous');//允许图片跨域
+                img.src = src[index];
+            }catch(err){
+
+            }
+            img.onload = function(){
+                if(index != 2){
+                    ctx.drawImage(img,x,y,width,height);
+                    // 绘制下一张
+                    console.log(this);
+                }
+            }
+        }
     }
 })
