@@ -307,6 +307,9 @@ var app = new Vue({
             }else{
                 window.location.href = 'html/auth.html?time='+new Date().getTime()
             }
+        },
+        onChange(){
+            
         }
     }
 })
