@@ -48,6 +48,12 @@
                 <span></span>
                 <h3 class="title">个人中心</h3>
             </van-col>
+            <van-tabbar v-model="actives" active-color="#00d094">
+                <van-tabbar-item v-for="tab in tabbar" :url="tab.url" :info="tab.info"> 
+                    <span>{{tab.title}}</span>
+                    <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
+                </van-tabbar-item>
+            </van-tabbar>
             <!-- tabbar -->
             <van-tabbar v-model="actives" active-color="#00d094">
                 <van-tabbar-item v-for="tab in tabbar" :url="tab.url" :info="tab.info"> 
