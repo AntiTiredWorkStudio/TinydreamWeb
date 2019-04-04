@@ -38,6 +38,7 @@
     <script src="../lib/weui.js"></script>
     <script src="../lib/weuiManager.js"></script>
     <script>
+        Loading();
         var userInfo = Options.GetUserInfo();
         var pid = $_GET.pid;
         var title = decodeURI($_GET.trade);
@@ -54,8 +55,10 @@
 			WebApp.View.BuildLayout($_GET['id'],function(result,data){
 				if(result){
 					$("#container").html(data);
+                    FinishLoading();
 				}else{
 					$("#container").html(data.context);
+                    FinishLoading();
 				}
 			});
 		}
