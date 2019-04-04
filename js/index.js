@@ -226,8 +226,7 @@ $(function(){
              $('.YB_help').click(function(e){
                 e.stopPropagation();
                 console.log(maintrade.trade)
-                localStorage.setItem('pid',maintrade.pid);
-                window.location.href = "html/trade.html?id="+maintrade.trade.url;
+                window.location.href = "html/trade.html?id="+maintrade.trade.url+'&pid='+maintrade.pid+'&trade='+encodeURI(maintrade.trade.title);
             })
 
 
