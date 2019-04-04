@@ -61,6 +61,7 @@ var share = new Vue({
     methods:{
         // 绘制图片
         next(src,index,x,y,width,height,ctx){
+            console.log(ctx);
             try{
                 var img = new Image();
                 img.setAttribute('crossOrigin', 'anonymous');//允许图片跨域
