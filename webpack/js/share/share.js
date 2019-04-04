@@ -103,7 +103,7 @@ var share = new Vue({
                     var font = 19 * self.ratio;
 					ctx.font = font + 'px 微软雅黑'
 					ctx.fillText(dream+'(已成功参与互助)',75 * self.ratio,88 * self.ratio);
-					var font = 14 * ratio;
+					var font = 14 * self.ratio;
 					ctx.font = font + 'px 微软雅黑';
 					ctx.fillText('扫码关注',$(window).width() * self.ratio - 141 * self.ratio,$(window).height() * self.ratio - 44 * self.ratio);
 					ctx.fillText('追梦行动派',$(window).width() * self.ratio - 155 * self.ratio,$(window).height() * self.ratio - 25 * self.ratio);
