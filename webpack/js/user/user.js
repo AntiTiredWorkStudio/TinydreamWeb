@@ -27,5 +27,9 @@ var user = new Vue({
                 info:''
             }
         ]
+    },
+    created(){
+        // 获取通知数量
+        console.log(app)
     }
 })
