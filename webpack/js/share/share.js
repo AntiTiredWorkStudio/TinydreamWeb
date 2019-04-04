@@ -56,12 +56,12 @@ var share = new Vue({
         var y = $(window).height() * ratio - 25 * ratio;
         var y2 = $(window).height() * ratio - 85 * ratio;
         // 进行绘制下一张图片
-        this.next(this.newImgArr,0,0,0,$(window).width() * ratio,$(window).height() * ratio,canvas,ctx);
+        this.next(this.newImgArr,0,0,0,$(window).width() * ratio,$(window).height() * ratio,canvas,canvas);
     },
     methods:{
         // 绘制图片
-        next(src,index,x,y,width,height,ctx){
-            console.log(ctx);
+        next(src,index,x,y,width,height,canvas){
+            console.log(canvas);
             try{
                 var img = new Image();
                 img.setAttribute('crossOrigin', 'anonymous');//允许图片跨域
@@ -70,7 +70,7 @@ var share = new Vue({
 
             }
             img.onload = function(){
-                console.log(ctx);
+                console.log(canvas);
                 if(index != 2){
                     ctx.drawImage(img,x,y,width,height);
                     // 绘制下一张
