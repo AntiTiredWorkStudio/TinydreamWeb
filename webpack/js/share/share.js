@@ -27,7 +27,7 @@ var share = new Vue({
         year:'',
         dreamType:'',
     },
-    created(){
+    mounted(){
         Options.TestServer = true;
         var randomNum = Math.floor(Math.random()*this.imgArr.length);
         // 获取 canvas
