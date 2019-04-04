@@ -168,7 +168,7 @@ var pay = new Vue({
         },
         // 唤醒支付
         wechat(appId,timeStamp,nonceStr,package,signType,paySign,self){
-            alert(self)
+            alert(JSON.stringify(self))
             WeixinJSBridge.invoke(
                 'getBrandWCPayRequest', {
                 "appId":appId,     //公众号名称，由商户传入     
@@ -182,9 +182,9 @@ var pay = new Vue({
                   if(res.err_msg == "get_brand_wcpay_request:ok" ){
                   // 使用以上方式判断前端返回,微信团队郑重提示：
                         //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+                    self.paySuccess(uid,self.action.pay.oid,self.pay * 100,self.count,JSON.stringify(self.action),self.did,self.pool.pid);   
                     self.$toast.success('支付成功')
                     alert(self)
-                    self.paySuccess(uid,self.action.pay.oid,self.pay * 100,self.count,JSON.stringify(self.action),self.did,self.pool.pid);
                   }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
                       self.$toast.fail('支付取消')
                   }
