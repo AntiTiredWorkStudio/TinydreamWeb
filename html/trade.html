@@ -42,6 +42,7 @@
         var pid = $_GET.pid;
         var title = decodeURI($_GET.trade);
         console.log(title);
+        console.log($_GET.trade);
         $('title').html('生意详情-'+title);
         WebApp.JSAPI.InitShare({
 			title:'小生意互助',
