@@ -39,6 +39,7 @@ var common = new Vue({
                 }
                 console.log(self.ncount)
                 self.ncount = data.ncount;
+                console.log(self.ncount)
                 self.tabbar[2].info = data.ncount;
             },function(code,data){
                 console.log(data);
