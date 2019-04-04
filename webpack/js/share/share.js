@@ -17,8 +17,8 @@ var share = new Vue({
         'https://tdream.antit.top/LongPress2Share12.jpg',],
         newImgArr:[],//新图片数组
         num:0,//图片下标
-        did:'TR1000000005',
-        pid:'20190401',
+        did:'',
+        pid:'',
         x1:'',
         y:'',
         y2:'',
@@ -36,6 +36,8 @@ var share = new Vue({
     mounted(){
         Options.TestServer = true;
         this.year = new Date().getFullYear(); 
+        this.did = JSON.parse(GetStorage('info')).did;
+        this.pid = JSON.parse(GetStorage('info')).pid;
         if($_GET.type == 'DREAM'){
             $('title').html('购买成功-小梦想互助')
             this.dreamType = '小梦想'
