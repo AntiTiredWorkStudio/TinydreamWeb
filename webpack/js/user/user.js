@@ -7,7 +7,6 @@ var user = new Vue({
         tabbar:''
     },
     created(){
-        // 获取通知数量
         this.tabbar = common.tabbar;
     }
 })
