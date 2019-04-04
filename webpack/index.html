@@ -181,6 +181,11 @@
                     </div>
                 </div>
             </div>
+            <!-- 客服&消息 -->
+            <van-badge-group :active-key="activeKey" @change="onChange">
+                <van-badge title="客服" />
+                <van-badge title="消息" info="8" />
+            </van-badge-group>
             <!-- tabbar -->
             <van-tabbar v-model="actives" active-color="#00d094">
                 <van-tabbar-item v-for="tab in tabbar" :url="tab.url"> 
@@ -188,6 +193,7 @@
                     <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
                 </van-tabbar-item>
             </van-tabbar>
+            <!-- 中奖弹窗 -->
             <van-popup v-model="show" :overlay="true" style="background:rgba(0,0,0,0)" class="pop">
                 <img src="http://tdream.antit.top/image/blankcrown.png" alt="">
                 <van-col span="24" style="position:absolute;top:0">

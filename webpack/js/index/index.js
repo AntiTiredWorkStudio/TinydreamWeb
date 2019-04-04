@@ -15,6 +15,7 @@ var app = new Vue({
         luckyMessage:'',//幸运提示
         luckBtn:'',//弹窗按钮文本
         luckDid:'',//中奖 did
+        activeKey:0,
         tabbar:[
             {
                 title:'参与互助',
@@ -146,19 +147,16 @@ var app = new Vue({
                     self.maintrade = maintrade;
                 }
                 // 判断是否中奖
-                data.award.result = true;
                 if(data.award.result){
-                    
                     self.popState('dream',self)
                     $('.msg').css('font-size','0.32rem');
-                    self.luckyMessage = '恭喜您成为梦想互助20190414期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!'
+                    self.luckyMessage = '恭喜您成为梦想互助'+data.award.pid+'期幸运者,幸运编号为'+data.award.lid+',本期中奖梦想为'+data.award.title+',请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!'
                     self.luckDid = data.award.did;
                     self.show = true;
                 }else if(data.tradeaward.length != 0){
                     self.popState('trade',self)
-                    self.luckyMessage = "恭喜您参与的小生意互助"+data.tradeaward.pid+"期成为幸运者，幸运编号为"+data.tradeaward.lid+"，本期免费获得项目为："+data.tradeaward.trade.title+".   我们工作人员会在3个工作日内联系您安排项目对接，请您保持电话畅通。 提示：为更好地给您对接项目，请您务必在7个工作日内完成实名认证。"
+                    self.luckyMessage = "恭喜您参与的小生意互助"+data.tradeaward.pid+"期成为幸运者，幸运编号为"+data.tradeaward.lid+"，本期免费获得项目为："+data.tradeaward.trade.title+".   我们工作人员会在3个工作日内联系您安排项目对接，请您保持电话畅通。 为更好地给您对接项目，请您务必在7个工作日内完成实名认证。"
                     self.show = true;
-                    $('.msg').css('font-size','0.24rem');
                 }else{
                     self.show = false;
                 }
