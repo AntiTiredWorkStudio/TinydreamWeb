@@ -26,7 +26,7 @@ var share = new Vue({
         var img = this.imgArr[randomNum];//随机背景
         var headicon = Options.GetUserInfo().headimgurl;//微信头像
         this.newImgArr.push(img,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg');
-        console.log(img,newImgArr)
+        console.log(img,this.newImgArr)
         // 获取 canvas
         var canvas = document.getElementById('canvas');
         // 获取图形上下文
