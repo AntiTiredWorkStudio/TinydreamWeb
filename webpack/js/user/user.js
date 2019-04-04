@@ -16,10 +16,7 @@ var user = new Vue({
     },
     mounted(){
         console.log(common.ncount)
-        this.notice(self,uid)
-        if(this.ncount == 0){
-
-        }
+        this.notice(this,uid)
     },
     methods:{
         // 获取个人信息
