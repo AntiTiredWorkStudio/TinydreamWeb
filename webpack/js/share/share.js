@@ -31,9 +31,9 @@ var share = new Vue({
         Options.TestServer = true;
         var randomNum = Math.floor(Math.random()*this.imgArr.length);
         var img = this.imgArr[randomNum];//随机背景
-        var headicon = Options.GetUserInfo().headimgurl;//微信头像
-        this.newImgArr.push(img,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg');
-        console.log(img,this.newImgArr)
+        // var headicon = Options.GetUserInfo().headimgurl;//微信头像
+        // this.newImgArr.push(img,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg');
+        // console.log(img,this.newImgArr)
         // 获取 canvas
         var canvas = document.getElementById('canvas');
         // 获取图形上下文
@@ -62,8 +62,7 @@ var share = new Vue({
         this.x1 = $(window).width() * this.ratio - 75 * this.ratio;
         this.y = $(window).height() * this.ratio - 25 * this.ratio;
         this.y2 = $(window).height() * this.ratio - 85 * this.ratio;
-
-        this.getDream(this,ctx)
+        this.headicon(this,ctx)
     },
     methods:{
         // 绘制图片
@@ -147,6 +146,15 @@ var share = new Vue({
             },function(code,data){
                 console.log(data);
                 self.$toast.clear();
+            })
+        },
+        // 获取微信头像
+        headicon(){
+            $.post('../php/url.php',{headimgurl:Options.GetUserInfo().headimgurl},function(data){
+                console.log(data);
+                self.newImgArr.push(img,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg');
+                console.log(img,this.newImgArr)
+                self.getDream(this,ctx)
             })
         }
     }
