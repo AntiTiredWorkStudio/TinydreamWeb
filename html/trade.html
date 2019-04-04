@@ -49,13 +49,15 @@
 
         // 参与互助
         var userInfo = Options.GetUserInfo();
-		var pid = "";
-		if(!ExistStorage("pid")){
-			$("#btn").css("display","none");
-		}else{
-			pid = localStorage.getItem('pid');
-		}
-        console.log(pid)
+        var pid = $_GET.pid;
+        var title = decodeURI($_GET.trade)
+        $('title').html('生意详情-'+title);
+        WebApp.JSAPI.InitShare({
+			title:'小生意互助',
+			desc:"本期小生意互助---"+title,
+			link:'http://tinydream.antit.top/TinydreamWeb/html/trade.html?time='+new Date().getTime()+'&pid='+pid+'trade='+title,
+			imgUrl:"https://tdream.antit.top/image/trade_ybshj.jpg"
+		});
         $('#btn').click(function(){
             Loading()
             TD_Request("ds","buy",{
