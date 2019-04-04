@@ -36,7 +36,7 @@ var app = new Vue({
                 normal:'http://tdream.antit.top/image/nav_owner_disable.png',
                 active:'http://tdream.antit.top/image/nav_owner.png',
                 url:'html/user/user.html',
-                info:'33'
+                info:''
             }
         ]
     
@@ -164,7 +164,7 @@ var app = new Vue({
                     self.show = false;
                 }
                 // 获取通知数量
-                self.notice(self.userInfo.openid)
+                self.notice(self.userInfo.openid,self);
             },function(code,data){
                 console.log(data)
             })
@@ -314,9 +314,9 @@ var app = new Vue({
             }
         },
         // 获取通知数量
-        notice(uid){
+        notice(uid,self){
             TD_Request('no','nc',{uid:uid},function(code,data){
-                console.log(data)
+                self.tabbar[2].info = data.ncount;
             },function(code,data){
                 console.log(data);
             })
