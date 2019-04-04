@@ -30,9 +30,18 @@
                         <p class="font-40">{{selfinfo == '' ? '--' : selfinfo.dayBuy}}</p>
                         <p class="font-24">今日参与</p>
                     </van-col>
-                    <van-col span="6" class="middle"></van-col>
-                    <van-col span="6" class="middle"></van-col>
-                    <van-col span="6" class="middle"></van-col>
+                    <van-col span="6" class="middle">
+                        <p class="font-40">{{selfinfo == '' ? '--' : selfinfo.totalJoin}}</p>
+                        <p class="font-24">互助总数</p>
+                    </van-col>
+                    <van-col span="6" class="middle">
+                        <p class="font-40">24</p>
+                        <p class="font-24">打卡总数</p>
+                    </van-col>
+                    <van-col span="6" class="middle">
+                        <p class="font-40">12</p>
+                        <p class="font-24">连续打卡次数</p>
+                    </van-col>
                 </van-row>
             </div>
             <!-- tabbar -->
