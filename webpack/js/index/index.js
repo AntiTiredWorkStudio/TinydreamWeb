@@ -16,30 +16,7 @@ var app = new Vue({
         luckBtn:'',//弹窗按钮文本
         luckDid:'',//中奖 did
         activeKey:0,
-        tabbar:[
-            {
-                title:'参与互助',
-                normal:'http://tdream.antit.top/image/nav_index_disable.png',
-                active:'http://tdream.antit.top/image/nav_index.png',
-                url:'index.html',
-                info:''
-            },
-            {
-                title:'行动打卡',
-                normal:'https://tdream.antit.top/ActiveSignInOff.png',
-                active:'https://tdream.antit.top/ActiveSignInOk.png',
-                url:'html/clockIn/clockIn.html',
-                info:''
-            },
-            {
-                title:'个人中心',
-                normal:'http://tdream.antit.top/image/nav_owner_disable.png',
-                active:'http://tdream.antit.top/image/nav_owner.png',
-                url:'html/user/user.html',
-                info:''
-            }
-        ]
-    
+        tabbar:''
     },
     created(){
         this.GetUserInfo(this);
@@ -80,6 +57,7 @@ var app = new Vue({
                 nickname:self.userInfo.nickname,
                 headicon:self.userInfo.headimgurl
             },function(code,data){
+                self.tabbar = common.tabbar;
                 console.log(data)
                 self.$toast.clear();
                 self.$toast.loading({
