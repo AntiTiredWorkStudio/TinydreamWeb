@@ -67,17 +67,11 @@ var share = new Vue({
     methods:{
         // 绘制图片
         next(src,index,x,y,width,height,ctx,self){
-            try{
-                var img = new Image();
-                img.setAttribute('crossOrigin', 'anonymous');//允许图片跨域
-                img.src = src[index];
-            }catch(err){
-
-            }
+            var img = new Image();
+            img.setAttribute('crossOrigin', 'anonymous');//允许图片跨域
+            img.src = src[index];
             img.onload = function(){
                 if(index != 2){
-                    $('.share').html(img);
-                    console.log(img);
                     ctx.drawImage(img,x,y,width,height);
                     console.log(img,x,y,width,height)
                     return;
