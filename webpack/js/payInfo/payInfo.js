@@ -15,6 +15,7 @@ var pay = new Vue({
         show:false,//是否显示上拉菜单
     },
     created(){
+        Options.TestServer = true;
         if(!ExistStorage('buy')){
             $('body').html('');
             window.location.href = '../../index.html'

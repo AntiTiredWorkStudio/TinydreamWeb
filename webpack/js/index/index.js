@@ -53,9 +53,7 @@ var app = new Vue({
                 console.log(Options.GetUserInfo());
                 self.userInfo = Options.GetUserInfo();
                 // 开启测试服务器
-                // if(PERMISSION_USER(self.userInfo.openid)){
-                    Options.TestServer = true;
-                // };
+                Options.TestServer = true;
                 self.$toast.clear();
                 self.$toast.loading({
                     duration:0,
