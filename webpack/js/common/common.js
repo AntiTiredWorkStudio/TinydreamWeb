@@ -24,4 +24,18 @@ var common = new Vue({
             }
         ]
     },
+    created(){
+        if(typeof  Options.GetUserInfo().openid != 'undefined'){
+            this.notice(this,Options.GetUserInfo().openid)
+        }
+    },
+    methods:{
+        notice(self,uid){
+            TD_Request('no','nc',{uid:uid},function(code,data){
+                self.tabbar[2].info = data.ncount;
+            },function(code,data){
+                console.log(data);
+            })
+        }
+    }
 })
