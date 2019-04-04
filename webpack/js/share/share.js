@@ -60,8 +60,7 @@ var share = new Vue({
     },
     methods:{
         // 绘制图片
-        next(src,index,x,y,width,height,canvas){
-            console.log(canvas);
+        next(src,index,x,y,width,height,ctx){
             try{
                 var img = new Image();
                 img.setAttribute('crossOrigin', 'anonymous');//允许图片跨域
@@ -70,7 +69,6 @@ var share = new Vue({
 
             }
             img.onload = function(){
-                console.log(canvas);
                 if(index != 2){
                     ctx.drawImage(img,x,y,width,height);
                     // 绘制下一张
