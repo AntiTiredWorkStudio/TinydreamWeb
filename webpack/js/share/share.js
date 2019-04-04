@@ -68,6 +68,7 @@ var share = new Vue({
 
             }
             img.onload = function(){
+                console.log(ctx);
                 if(index != 2){
                     ctx.drawImage(img,x,y,width,height);
                     // 绘制下一张
