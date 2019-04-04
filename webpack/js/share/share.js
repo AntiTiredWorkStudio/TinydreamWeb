@@ -30,8 +30,6 @@ var share = new Vue({
     created(){if(!ExistStorage('info')){
         $('body').html('')
         window.location.href = '../../index.html?time='+new Date().getTime();
-    }else{
-        this.mounted();
     }},
     mounted(){
         Options.TestServer = true;
