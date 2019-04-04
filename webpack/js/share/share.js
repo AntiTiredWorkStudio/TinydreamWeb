@@ -27,9 +27,22 @@ var share = new Vue({
         year:'',
         dreamType:'',
     },
+    created(){if(!ExistStorage('info')){
+        $('body').html('')
+        window.location.href = '../../index.html?time='+new Date().getTime();
+    }else{
+        this.mounted();
+    }},
     mounted(){
         Options.TestServer = true;
-        var randomNum = Math.floor(Math.random()*this.imgArr.length);
+        this.year = new Date().getFullYear(); 
+        if($_GET.type == 'DREAM'){
+            $('title').html('购买成功-小梦想互助')
+            this.dreamType = '小梦想'
+        }else if($_GET.type == 'TRADE'){
+            $('title').html('购买成功-小生意互助')
+            this.dreamType = '小生意'
+        }
         // 获取 canvas
         var canvas = document.getElementById('canvas');
         // 获取图形上下文
