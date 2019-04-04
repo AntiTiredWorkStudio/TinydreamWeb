@@ -30,14 +30,16 @@ var share = new Vue({
     created(){
         Options.TestServer = true;
         var randomNum = Math.floor(Math.random()*this.imgArr.length);
-        // var img = this.imgArr[randomNum];//随机背景
-        // var headicon = Options.GetUserInfo().headimgurl;//微信头像
-        // this.newImgArr.push(img,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg');
-        // console.log(img,this.newImgArr)
         // 获取 canvas
         var canvas = document.getElementById('canvas');
         // 获取图形上下文
         var ctx = canvas.getContext('2d');
+        var img = new Image();
+        img.src = 'https://tdream.antit.top/LongPress2Share01.jpg'
+        img.onload = function(){
+            ctx.drawImage(img,0,0,750,1205)
+        } 
+        return;
         console.log(ctx);
         console.log($(window).width(),$(window).height())
         // canvas展示宽高
