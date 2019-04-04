@@ -11,7 +11,8 @@ var app = new Vue({
         progress2:'',//小生意互助进度
         tradeStyle:'',//小生意banner图
         actives:0,//默认激活
-        show:true,//是否显示弹窗
+        show:true,//是否显示弹窗,
+        luckyMessage:'"恭喜您成为梦想互助20190414期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!"',//幸运提示
         tabbar:[
             {
                 title:'参与互助',
