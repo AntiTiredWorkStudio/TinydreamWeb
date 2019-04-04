@@ -66,8 +66,10 @@ var share = new Vue({
             var img = new Image();
             img.setAttribute('crossOrigin', 'anonymous');//允许图片跨域
             img.src = src[index];
-            window.onload = function(){
+            img.onload = function(){
+                self.$toast.clear()
                 if(index != 2){
+                    self.$toast.clear()
                     ctx.drawImage(img,x,y,width,height);
                     console.log(img,x,y,width,height)
                     // 绘制下一张
