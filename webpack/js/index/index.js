@@ -258,6 +258,8 @@ var app = new Vue({
             })
         },
         // 查看规则
-        
+        rules(){
+            window.location.href = 'html/rules/rules.html?time='+new Date().getTime();
+        }
     }
 })
