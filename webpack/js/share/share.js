@@ -37,6 +37,7 @@ var share = new Vue({
         var img = new Image();
         img.src = 'https://tdream.antit.top/LongPress2Share01.jpg'
         img.onload = function(){
+            console.log(1)
             ctx.drawImage(img,0,0,750,1205)
         } 
         return;
