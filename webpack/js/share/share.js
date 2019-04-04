@@ -154,7 +154,7 @@ var share = new Vue({
                 var randomNum = Math.floor(Math.random()*self.imgArr.length);
                 var img = self.imgArr[randomNum];
                 console.log(data);
-                self.newImgArr.push(img,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg');
+                // self.newImgArr.push(img,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg');
                 console.log(img,self.newImgArr,Options.GetUserInfo().headimgurl)
                 self.getDream(self,ctx)
             })
