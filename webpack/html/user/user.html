@@ -25,6 +25,15 @@
 
                     </van-col>
                 </van-row>
+                <van-row class="info">
+                    <van-col span="6" class="middle">
+                        <p class="font-40">{{selfinfo == '' ? '--' : selfinfo.dayBuy}}</p>
+                        <p class="font-24">今日参与</p>
+                    </van-col>
+                    <van-col span="6" class="middle"></van-col>
+                    <van-col span="6" class="middle"></van-col>
+                    <van-col span="6" class="middle"></van-col>
+                </van-row>
             </div>
             <!-- tabbar -->
             <van-tabbar v-model="actives" active-color="#00d094">
