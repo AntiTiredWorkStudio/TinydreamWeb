@@ -76,6 +76,7 @@ var share = new Vue({
             }
             img.onload = function(){
                 if(index != 2){
+                    $('.share').html(img);
                     console.log(img);
                     ctx.drawImage(img,x,y,width,height);
                     console.log(img,x,y,width,height)
