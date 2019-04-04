@@ -36,7 +36,7 @@
                             <p class="desc">
                                 合约金99元，每天打卡并转发朋<br/>友圈，坚持100天返还200元
                             </p>
-                            <van-button round size="small" type="primary" class="buy">立即购买</van-button>
+                            <van-button round size="small" type="primary" class="buy" @click="buy(100)">立即购买</van-button>
                         </div>
                     </van-col>
                     <van-col span="24">
@@ -46,7 +46,7 @@
                                 合约金98元，每天打<br />卡,坚持21天返还98元
                             </p>
                             <van-col span="24" style="text-align:right">
-                                <van-button round size="small" class="buy right" type="primary">立即购买</van-button>
+                                <van-button round size="small" class="buy right" type="primary" @click="buy(21)">立即购买</van-button>
                             </van-col>
                         </div>
                     </van-col>
@@ -88,6 +88,10 @@
                     <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
                 </van-tabbar-item>
             </van-tabbar>
+            <!-- 弹出层 -->
+            <van-popup v-model="show" position="bottom" :overlay="true">
+                内容
+            </van-popup>
         </div>
     </diV>
 
