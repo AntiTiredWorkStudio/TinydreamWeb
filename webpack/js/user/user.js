@@ -6,12 +6,19 @@ var user = new Vue({
         actives:2,//默认菜单
         tabbar:'',//tabbar
         selfinfo:'',//个人信息,
-        headicon:'',//个人头像
+        headicon:'',//个人头像,
+        ncount:'',
     },
     created(){
         this.tabbar = common.tabbar;
         // 获取个人信息
         this.GetSelfInfo(this)
+    },
+    mounted(){
+        this.ncount = ncount
+        if(this.ncount == 0){
+            
+        }
     },
     methods:{
         // 获取个人信息

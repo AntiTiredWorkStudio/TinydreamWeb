@@ -22,7 +22,8 @@ var common = new Vue({
                 url:'http://tinydream.antit.top/TinydreamWeb/webpack/html/user/user.html',
                 info:''
             }
-        ]
+        ],
+        ncount:''
     },
     created(){
         if(typeof Options.GetUserInfo().openid != 'undefined' || Options.GetUserInfo().openid != null){
@@ -32,7 +33,12 @@ var common = new Vue({
     methods:{
         notice(self,uid){
             TD_Request('no','nc',{uid:uid},function(code,data){
+                if(data.ncount == 0){
+                    self.ncount = '';
+                    self.tabbar[2].info = ''
+                }
                 self.tabbar[2].info = data.ncount;
+                self.ncount = data.ncount;
             },function(code,data){
                 console.log(data);
             })
