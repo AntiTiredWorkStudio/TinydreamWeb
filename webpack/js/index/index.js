@@ -12,7 +12,7 @@ var app = new Vue({
         tradeStyle:'',//小生意banner图
         actives:0,//默认激活
         show:true,//是否显示弹窗,
-        luckyMessage:'恭喜您成为梦想互助20190414期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!',//幸运提示
+        luckyMessage:'',//幸运提示
         tabbar:[
             {
                 title:'参与互助',
@@ -142,6 +142,17 @@ var app = new Vue({
                         background:'url('+maintrade.trade.bannerUrl+') no-repeat 0 0 / 6.8rem 3.86rem'
                     }
                     self.maintrade = maintrade;
+                }
+                // 判断是否中奖
+                if(data.award.result){
+                    self.show = true;
+                    self.luckyMessage = '恭喜您成为梦想互助'+data.award.pid+'期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!'
+                }else if(data.tradeaward.length != 0){
+                    self.show = true;
+                    self.luckyMessage = "恭喜您参与的小生意互助"+data.tradeaward.pid+"期成为幸运者，幸运编号为"+data.tradeaward.lid+"，本期免费获得项目为："+data.tradeaward.trade.title+".   我们工作人员会在3个工作日内联系您安排项目对接，请您保持电话畅通。 提示：为更好地给您对接项目，请您务必在7个工作日内完成实名认证。"
+                    $('.msg').css('font-size','0.24rem');
+                }else{
+                    self.show = false;
                 }
             },function(code,data){
                 console.log(data)
