@@ -34,13 +34,6 @@ var share = new Vue({
         var canvas = document.getElementById('canvas');
         // 获取图形上下文
         var ctx = canvas.getContext('2d');
-        var img = new Image();
-        img.src = 'https://tdream.antit.top/LongPress2Share01.jpg'
-        img.onload = function(){
-            console.log(1)
-            ctx.drawImage(img,0,0,300,150)
-        } 
-        return;
         console.log(ctx);
         console.log($(window).width(),$(window).height())
         // canvas展示宽高
