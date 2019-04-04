@@ -70,7 +70,6 @@ var share = new Vue({
                 if(index != 2){
                     ctx.drawImage(img,x,y,width,height);
                     console.log(img,x,y,width,height)
-                    return;
                     // 绘制下一张
                     self.next(self.newImgArr,index+1,15 * self.ratio,40 * self.ratio,50 * self.ratio,50 * self.ratio,ctx,self)
                 }else{
