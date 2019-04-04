@@ -180,7 +180,7 @@ var pay = new Vue({
                   if(res.err_msg == "get_brand_wcpay_request:ok" ){
                   // 使用以上方式判断前端返回,微信团队郑重提示：
                         //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
-                        self.$toast.success('支付成功')
+                    self.$toast.success('支付成功')
                     self.success(uid,self.action.pay.oid,self.pay * 100,self.count,JSON.stringify(self.action),self.did,self.pool.pid);
                   }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
                       self.$toast.fail('支付取消')
@@ -203,12 +203,14 @@ var pay = new Vue({
                 action:action,
                 did:did
             },function(code,data){
+                alert(JSON.stringify(data))
                 self.$toast.clear();
                 localStorage.setItem('info',JSON.stringify({'did':did,'pid':pid}));
                 localStorage.removeItem('buy');
+                alert()
                 window.location.href = '../../html/share/share.htm?time='+new Date().getTime()+'&type='+$_GET.type;
             },function(code,data){
-                // alert(code)
+                alert(code)
                 self.$toast.clear();
                 console.log(data)
             })
