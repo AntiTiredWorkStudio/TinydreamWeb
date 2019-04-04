@@ -17,7 +17,7 @@ var share = new Vue({
         'https://tdream.antit.top/LongPress2Share12.jpg',],
         newImgArr:[],//新图片数组
         num:0,//图片下标
-        did:'DR1000000000',
+        did:'TR1000000005',
         pid:'20190401',
         x1:'',
         y:'',
