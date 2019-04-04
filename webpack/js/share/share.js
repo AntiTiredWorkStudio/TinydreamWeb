@@ -145,6 +145,7 @@ var share = new Vue({
                 })
                 self.next(self.newImgArr,0,0,0,$(window).width() * self.ratio,$(window).height() * self.ratio,ctx,self);
             },function(code,data){
+                console.log(data);
                 self.$toast.clear();
             })
         }
