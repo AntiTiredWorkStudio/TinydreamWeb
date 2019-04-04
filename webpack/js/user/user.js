@@ -15,6 +15,7 @@ var user = new Vue({
         this.GetSelfInfo(this)
     },
     mounted(){
+        console.log(common.ncount)
         this.ncount = common.ncount
         if(this.ncount == 0){
 
