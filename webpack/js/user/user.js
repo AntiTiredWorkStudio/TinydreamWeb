@@ -8,6 +8,6 @@ var user = new Vue({
     },
     created(){
         // 获取通知数量
-        console.log(common.tabbar);
+        this.tabbar = common.tabbar;
     }
 })
