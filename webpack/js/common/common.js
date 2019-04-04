@@ -36,6 +36,8 @@ var common = new Vue({
                 if(data.ncount == 0){
                     self.ncount = '';
                     self.tabbar[2].info = ''
+                }else if(data.ncount >= 99){
+                    self.ncount = '99+'
                 }
                 self.ncount = data.ncount;
                 self.tabbar[2].info = data.ncount;

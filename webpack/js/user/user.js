@@ -42,6 +42,8 @@ var user = new Vue({
             TD_Request('no','nc',{uid:uid},function(code,data){
                 if(data.ncount == 0){
                     self.ncount = '';
+                }else if(data.ncount >= 99){
+                    self.ncount = '99+'
                 }
                 self.ncount = data.ncount;
             },function(code,data){
