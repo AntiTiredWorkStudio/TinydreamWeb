@@ -146,8 +146,9 @@ var app = new Vue({
                     self.maintrade = maintrade;
                 }
                 // 判断是否中奖
+                data.award.result = true;
                 if(data.award.result){
-                    data.award.result = true;
+                    
                     self.popState('dream',self)
                     $('.msg').css('font-size','0.32rem');
                     self.luckyMessage = '恭喜您成为梦想互助20190414期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!'
