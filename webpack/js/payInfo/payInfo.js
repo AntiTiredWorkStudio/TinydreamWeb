@@ -168,7 +168,6 @@ var pay = new Vue({
         },
         // 唤醒支付
         wechat(appId,timeStamp,nonceStr,package,signType,paySign,self){
-            alert(JSON.stringify(self))
             WeixinJSBridge.invoke(
                 'getBrandWCPayRequest', {
                 "appId":appId,     //公众号名称，由商户传入     
