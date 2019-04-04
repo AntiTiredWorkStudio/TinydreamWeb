@@ -149,12 +149,12 @@ var share = new Vue({
             })
         },
         // 获取微信头像
-        headicon(){
+        headicon(self,ctx){
             $.post('../../php/url.php',{headimgurl:Options.GetUserInfo().headimgurl},function(data){
                 console.log(data);
                 self.newImgArr.push(img,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg');
-                console.log(img,this.newImgArr)
-                self.getDream(this,ctx)
+                console.log(img,self.newImgArr,Options.GetUserInfo().headimgurl)
+                self.getDream(self,ctx)
             })
         }
     }
