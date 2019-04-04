@@ -26,5 +26,18 @@ var share = new Vue({
         // 获取图形上下文
         var ctx = canvas.getContext('2d');
         console.log($(window).width(),$(window).height())
+        $(canvas).css({
+            width:$(window).width(),
+            height:$(window).height()
+        });
+        // 获取像素比
+        var backingStore = ctx.backingStorePixelRatio ||
+                    ctx.webkitBackingStorePixelRatio ||
+                    ctx.mozBackingStorePixelRatio ||
+                    ctx.msBackingStorePixelRatio ||
+                    ctx.oBackingStorePixelRatio ||
+                    ctx.backingStorePixelRatio || 1;
+        var ratio = (window.devicePixelRatio || 1) / backingStore;
+        console.log(ratio);
     }
 })
