@@ -23,8 +23,10 @@ var share = new Vue({
     created(){
         Options.TestServer = true;
         var randomNum = Math.floor(Math.random()*this.imgArr.length);
-        var img = this.imgArr[randomNum];
-        console.log(img)
+        var img = this.imgArr[randomNum];//随机背景
+        var headicon = Options.GetUserInfo().headimgurl;//微信头像
+        this.newImgArr.push(img,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg');
+        console.log(img,newImgArr)
         // 获取 canvas
         var canvas = document.getElementById('canvas');
         // 获取图形上下文
