@@ -163,6 +163,8 @@ var app = new Vue({
                 }else{
                     self.show = false;
                 }
+                // 获取通知数量
+                self.notice(self.userInfo.openid)
             },function(code,data){
                 console.log(data)
             })
@@ -310,6 +312,14 @@ var app = new Vue({
             }else{
                 window.location.href = 'html/auth.html?time='+new Date().getTime()
             }
+        },
+        // 获取通知数量
+        notice(uid){
+            TD_Request('no','nc',{uid:uid},function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data);
+            })
         },
         onChange(){
 
