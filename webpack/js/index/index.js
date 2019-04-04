@@ -11,6 +11,7 @@ var app = new Vue({
         progress2:'',//小生意互助进度
         tradeStyle:'',//小生意banner图
         actives:0,//默认激活
+        show:true,//是否显示弹窗
         tabbar:[
             {
                 title:'参与互助',
