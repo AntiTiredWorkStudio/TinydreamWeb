@@ -63,7 +63,7 @@ var share = new Vue({
         this.y = $(window).height() * this.ratio - 25 * this.ratio;
         this.y2 = $(window).height() * this.ratio - 85 * this.ratio;
 
-        this.getDream(this)
+        this.getDream(this,ctx)
     },
     methods:{
         // 绘制图片
@@ -123,7 +123,7 @@ var share = new Vue({
             }
         },
         // 获取梦想
-        getDream(self){
+        getDream(self,ctx){
             self.$toast.loading({
                 duration:0,
                 forbidClick:true,
