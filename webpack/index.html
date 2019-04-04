@@ -188,7 +188,7 @@
                     <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
                 </van-tabbar-item>
             </van-tabbar>
-            <van-popup v-model="show" :overlay="false">
+            <van-popup v-model="show" :overlay="true" style="background:rgba(0,0,0,.5)">
                 <img src="http://tdream.antit.top/image/blankcrown.png" alt="" class="pop">
             </van-popup>
         </div>
