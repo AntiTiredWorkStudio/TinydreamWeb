@@ -281,7 +281,7 @@ var app = new Vue({
         // 弹窗监测状态
         popState(state,self){
             TD_Request('us','rnamegx',{
-                uid:uid
+                uid:self.userInfo.openid
             },function(code,data){
                 if(state == 'dream'){
                     self.luckBtn = '完善梦想'
