@@ -48,18 +48,11 @@
                 <span></span>
                 <h3 class="title">个人中心</h3>
             </van-col>
-            <van-tabbar v-model="actives" active-color="#00d094" :fixed="false" class="tabbar">
-                <van-tabbar-item v-for="tab in tabbar" :url="tab.url" :info="tab.info"> 
-                    <span>{{tab.title}}</span>
-                    <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
-                </van-tabbar-item>
-            </van-tabbar>
-            <van-tabbar v-model="actives" active-color="#00d094" :fixed="false" class="tabbar">
-                <van-tabbar-item v-for="tab in tabbar" :url="tab.url" :info="tab.info"> 
-                    <span>{{tab.title}}</span>
-                    <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
-                </van-tabbar-item>
-            </van-tabbar>
+            <van-row type="flex" align="center" justify="center" class="userApp">
+                <van-col span="8"></van-col>
+                <van-col span="8" class="line"></van-col>
+                <van-col span="8"></van-col>
+            </van-row>
             <!-- tabbar -->
             <van-tabbar v-model="actives" active-color="#00d094">
                 <van-tabbar-item v-for="tab in tabbar" :url="tab.url" :info="tab.info"> 
