@@ -150,7 +150,7 @@ var share = new Vue({
         },
         // 获取微信头像
         headicon(){
-            $.post('../php/url.php',{headimgurl:Options.GetUserInfo().headimgurl},function(data){
+            $.post('../../php/url.php',{headimgurl:Options.GetUserInfo().headimgurl},function(data){
                 console.log(data);
                 self.newImgArr.push(img,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg');
                 console.log(img,this.newImgArr)
