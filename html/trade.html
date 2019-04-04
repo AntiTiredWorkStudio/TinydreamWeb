@@ -40,7 +40,8 @@
     <script>
         var userInfo = Options.GetUserInfo();
         var pid = $_GET.pid;
-        var title = decodeURI($_GET.trade)
+        var title = decodeURI($_GET.trade);
+        console.log(title);
         $('title').html('生意详情-'+title);
         WebApp.JSAPI.InitShare({
 			title:'小生意互助',
