@@ -53,6 +53,10 @@
                     <span>{{tab.title}}</span>
                     <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
                 </van-tabbar-item>
+                <van-tabbar-item v-for="tab in tabbar" :url="tab.url" :info="tab.info"> 
+                    <span>{{tab.title}}</span>
+                    <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
+                </van-tabbar-item>
             </van-tabbar>
             <!-- tabbar -->
             <van-tabbar v-model="actives" active-color="#00d094">
