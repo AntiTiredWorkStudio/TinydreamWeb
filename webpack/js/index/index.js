@@ -147,8 +147,10 @@ var app = new Vue({
                 }
                 // 判断是否中奖
                 if(data.award.result){
+                    data.award.result = true;
                     self.popState('dream',self)
-                    self.luckyMessage = '恭喜您成为梦想互助'+data.award.pid+'期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!'
+                    $('.msg').css('font-size','0.32rem');
+                    self.luckyMessage = '恭喜您成为梦想互助20190414期幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!'
                     self.luckDid = data.award.did;
                     self.show = true;
                 }else if(data.tradeaward.length != 0){
