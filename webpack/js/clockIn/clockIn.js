@@ -26,11 +26,10 @@ var clockIn = new Vue({
             }else if(state == 21){
                 // 21天合约
             }
+        },
+        // checkbox
+        conType(title,index){
+            console.log(title,index);
         }
     },
-    watch:{
-        check(data){
-            console.log(data);
-        }
-    }
 })
