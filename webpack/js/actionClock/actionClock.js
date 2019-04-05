@@ -12,5 +12,11 @@ var actionClock = new Vue({
     },
     created(){
         this.tabbar = common.tabbar;
+    },
+    methods:{
+        // 打卡
+        clock(){
+            console.log('已打卡')
+        }
     }
 })
