@@ -92,15 +92,15 @@
             <van-popup v-model="show" position="bottom" :overlay="true">
                 <div class="popup">
                     <van-col span="24" class="title_big">
-                        <van-icon name="cross"></van-icon>
-                        <span class="title">追梦行动21天合约</span>
+                        <van-icon name="cross" @click="close"></van-icon>
+                        <span class="title">追梦行动{{day == '' ? '--' : day}}天合约</span>
                     </van-col>
                     <van-col span='24' class="bill">
                         <span class="unit">￥</span>
-                        <span class="bill_num">98</span>
+                        <span class="bill_num">{{cbill == '' ? '--' : cbill}}</span>
                     </van-col>
                     <van-col span="24" class="tip">
-                        <p class="tip_txt">支付合约金98元，坚持打卡21天返还，98元。</p>
+                        <p class="tip_txt">支付合约金{{cbill == '' ? '--' : cbill}}元，坚持打卡{{day == '' ? '--' : day}}天返还，{{bill == '' ? '--' bill}}元。</p>
                     </van-col>
                     <van-col span="24" class="main_title">
                         <p class="main_tit_txt">选择行动主题(多选):</p>
@@ -125,7 +125,7 @@
                         </p>
                     </van-col>
                     <van-col span="24" class="btn">
-                        <van-button type="primary" round size="normal">立即支付</van-button>
+                        <van-button type="primary" round size="normal" @click="pay(cbill)">立即支付</van-button>
                     </van-col>
                 </div>
             </van-popup>
