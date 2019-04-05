@@ -16,10 +16,12 @@
     <diV id="actionClock" style="overflow:hidden">
         <div class="actionClock">
             <div class="warp">
+                <!-- 打卡进度 -->
                 <van-col span="24" class="clock">
                     <van-col span="24">
                         <yd-progressbar :progress="progress1" trail-width="8" trail-color="#ffc054" class="progress">{{progress1 * 100}}%</yd-progressbar>
                     </van-col>
+                    <!-- 打卡信息 -->
                     <van-col span="24" class="clockInfo">
                         <van-row>
                             <van-col span="8">
@@ -35,6 +37,9 @@
                                 <p class="txt">已打卡天数</p>
                             </van-col>
                         </van-row>
+                    </van-col>
+                    <van-col span="24" class="btn">
+                        <vam-button @click="clock" class="clock_btn" round>一键打卡</vam-button>
                     </van-col>
                 </van-col>
             </div>
