@@ -12,6 +12,48 @@ var clockIn = new Vue({
                 normal:'https://tdream.antit.top/1morningIU.png',
                 active:'https://tdream.antit.top/1morningIA.png',
                 title:'早起'
+            },
+            {
+                check:false,
+                normal:'https://tdream.antit.top/1morningIU.png',
+                active:'https://tdream.antit.top/1morningIA.png',
+                title:'看书'
+            },
+            {
+                check:false,
+                normal:'https://tdream.antit.top/1morningIU.png',
+                active:'https://tdream.antit.top/1morningIA.png',
+                title:'早睡'
+            },
+            {
+                check:false,
+                normal:'https://tdream.antit.top/1morningIU.png',
+                active:'https://tdream.antit.top/1morningIA.png',
+                title:'记单词'
+            },
+            {
+                check:false,
+                normal:'https://tdream.antit.top/1morningIU.png',
+                active:'https://tdream.antit.top/1morningIA.png',
+                title:'喝水'
+            },
+            {
+                check:false,
+                normal:'https://tdream.antit.top/1morningIU.png',
+                active:'https://tdream.antit.top/1morningIA.png',
+                title:'画画'
+            },
+            {
+                check:false,
+                normal:'https://tdream.antit.top/1morningIU.png',
+                active:'https://tdream.antit.top/1morningIA.png',
+                title:'练字'
+            },
+            {
+                check:false,
+                normal:'https://tdream.antit.top/1morningIU.png',
+                active:'https://tdream.antit.top/1morningIA.png',
+                title:'写日记'
             }
         ],//可选类型
         checkArr:[],//选择的数组
