@@ -78,6 +78,7 @@ var clockIn = new Vue({
                 this.checkArr.push(title)
             }else{
                 this.checkArr.splice(this.checkArr[index],1);
+                console.log(this.checkArr[index])
             }
             console.log(this.checkArr)
         }
