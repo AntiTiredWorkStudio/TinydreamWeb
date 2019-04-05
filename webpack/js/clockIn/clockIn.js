@@ -35,7 +35,7 @@ var clockIn = new Vue({
             if(this.contractType[index].check){
                 this.checkArr.push(title)
             }else{
-                this.checkArr.splice(this.checkArr.length-1,1);
+                this.checkArr.splice(this.checkArr[index],1);
             }
             console.log(this.checkArr)
         }
