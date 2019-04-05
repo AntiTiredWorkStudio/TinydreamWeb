@@ -37,6 +37,7 @@ var clockIn = new Vue({
             }else{
                 this.checkArr.splice(this.checkArr.length-1,1);
             }
+            console.log(this.checkArr)
         }
     },
 })
