@@ -13,7 +13,8 @@ var clockIn = new Vue({
                 active:'https://tdream.antit.top/1morningIA.png',
                 title:'早起'
             }
-        ]
+        ],//可选类型
+        checkArr:[],//选择的数组
     },
     created(){
         this.tabbar = common.tabbar;
@@ -30,6 +31,12 @@ var clockIn = new Vue({
         // checkbox
         conType(title,index){
             console.log(title,index);
+            this.contractType[index].check = !this.contractType[index].check;
+            if(this.contractType[index].check){
+                this.checkArr.push(title)
+            }else{
+                this.checkArr.splice(this.checkArr.length-1,1);
+            }
         }
     },
 })
