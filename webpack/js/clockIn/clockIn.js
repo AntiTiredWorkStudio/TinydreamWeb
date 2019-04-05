@@ -77,10 +77,18 @@ var clockIn = new Vue({
             if(this.contractType[index].check){
                 this.checkArr.splice(index,0,title)
             }else{
-                this.checkArr.splice(index,1);
+                this.removeArray(this.checkArr,title);
                 console.log(this.checkArr[index])
             }
-            console.log(this.checkArr)
+        },
+        // 数组删除方法
+        removeArray(arr, val) {
+            for(var i = 0; i < arr.length; i++) {
+                if(arr[i] == val) {
+                    arr.splice(i, 1);
+                    break;
+                }
+            }
         }
     },
 })
