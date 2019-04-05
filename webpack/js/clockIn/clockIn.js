@@ -29,7 +29,7 @@ var clockIn = new Vue({
         }
     },
     watch:{
-        contractType(data){
+        check(data){
             console.log(data);
         }
     }
