@@ -80,6 +80,7 @@ var clockIn = new Vue({
                 this.removeArray(this.checkArr,title);
                 console.log(this.checkArr[index])
             }
+            console.log(this.checkArr)
         },
         // 数组删除方法
         removeArray(arr, val) {
