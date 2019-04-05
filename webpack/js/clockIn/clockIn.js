@@ -27,5 +27,10 @@ var clockIn = new Vue({
                 // 21天合约
             }
         }
+    },
+    watch:{
+        contractType(data){
+            console.log(data);
+        }
     }
 })
