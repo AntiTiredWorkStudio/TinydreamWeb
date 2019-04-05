@@ -107,7 +107,10 @@
                     </van-col>
                     <van-col span="24" class="clock_type">
                         <ul>
-                            <li ></li>
+                            <li v-for="contract in contractType" class="contract">
+                                <van-icon :name="contract.check == true ? contract.active : contract.normal"></van-icon>
+                                <span class="cont_title">{{contract.title}}</span>
+                            </li>
                         </ul>
                     </van-col>
                 </div>

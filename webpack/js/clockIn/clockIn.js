@@ -6,6 +6,14 @@ var clockIn = new Vue({
         actives:1,
         tabbar:'',
         show:true,//是否显示弹窗
+        contractType:[
+            {
+                check:false,
+                normal:'https://tdream.antit.top/1morningIU.png',
+                active:'https://tdream.antit.top/1morningIA.png',
+                title:'早起'
+            }
+        ]
     },
     created(){
         this.tabbar = common.tabbar;
