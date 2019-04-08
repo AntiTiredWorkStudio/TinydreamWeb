@@ -6,6 +6,7 @@ var clockIn = new Vue({
         actives:1,
         tabbar:'',
         show:false,//是否显示弹窗
+        payCancel:true,//支付取消弹窗
         contractType:[
             {
                 check:false,
