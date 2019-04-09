@@ -95,7 +95,7 @@ $(function(){
                     }
                 })
             }else{
-                Location()
+                Loading()
                 TD_Request("ds","buy",{
                     uid:userInfo.openid,
                     pid:pid
