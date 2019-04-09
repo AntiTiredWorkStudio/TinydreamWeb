@@ -17,7 +17,7 @@ var clockIn = new Vue({
     created(){
         this.tabbar = common.tabbar;
         // 获取合约列表
-        this.list()
+        this.list(this)
     },
     methods:{
         // 点击购买合约
@@ -73,11 +73,10 @@ var clockIn = new Vue({
             }
         },
         // 获取合约列表
-        list(){
+        list(self){
             TD_Request('co','list',{},function(code,data){
                 console.log(data)
-                this.contractType = data.themes;
-                console.log(this.contractType)
+                self.contractType = data.themes;
             },function(code,data){
     
             })
