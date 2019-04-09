@@ -6,7 +6,7 @@ var clockIn = new Vue({
         actives:1,
         tabbar:'',
         show:false,//是否显示弹窗
-        payCancel:true,//支付取消弹窗
+        payCancel:false,//支付取消弹窗
         contractType:'',//可选类型
         checkArr:[],//选择的数组
         cbill:'',//合约金
@@ -58,6 +58,7 @@ var clockIn = new Vue({
         // 关闭弹窗
         close(){
             this.show = false;
+            this.payCancel = true;
         },
         // 支付
         pay(bill){
@@ -75,10 +76,9 @@ var clockIn = new Vue({
         // 获取合约列表
         list(self){
             TD_Request('co','list',{},function(code,data){
-                console.log(data)
                 self.contractType = data.themes;
             },function(code,data){
-    
+                alert(data.context)
             })
         }
     },
