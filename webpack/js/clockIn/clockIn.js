@@ -7,56 +7,7 @@ var clockIn = new Vue({
         tabbar:'',
         show:false,//是否显示弹窗
         payCancel:true,//支付取消弹窗
-        contractType:[
-            {
-                check:false,
-                normal:'https://tdream.antit.top/1morningIU.png',
-                active:'https://tdream.antit.top/1morningIA.png',
-                title:'早起'
-            },
-            {
-                check:false,
-                normal:'https://tdream.antit.top/1morningIU.png',
-                active:'https://tdream.antit.top/1morningIA.png',
-                title:'看书'
-            },
-            {
-                check:false,
-                normal:'https://tdream.antit.top/1morningIU.png',
-                active:'https://tdream.antit.top/1morningIA.png',
-                title:'早睡'
-            },
-            {
-                check:false,
-                normal:'https://tdream.antit.top/1morningIU.png',
-                active:'https://tdream.antit.top/1morningIA.png',
-                title:'记单词'
-            },
-            {
-                check:false,
-                normal:'https://tdream.antit.top/1morningIU.png',
-                active:'https://tdream.antit.top/1morningIA.png',
-                title:'喝水'
-            },
-            {
-                check:false,
-                normal:'https://tdream.antit.top/1morningIU.png',
-                active:'https://tdream.antit.top/1morningIA.png',
-                title:'画画'
-            },
-            {
-                check:false,
-                normal:'https://tdream.antit.top/1morningIU.png',
-                active:'https://tdream.antit.top/1morningIA.png',
-                title:'练字'
-            },
-            {
-                check:false,
-                normal:'https://tdream.antit.top/1morningIU.png',
-                active:'https://tdream.antit.top/1morningIA.png',
-                title:'写日记'
-            }
-        ],//可选类型
+        contractType:'',//可选类型
         checkArr:[],//选择的数组
         cbill:'',//合约金
         bill:'',//返现

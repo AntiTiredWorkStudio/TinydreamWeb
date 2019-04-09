@@ -109,7 +109,7 @@
                         <ul>
                             <li v-for="(contract,index) in contractType" class="contract" :class="contract.check == true ? 'active' : ''" @click="conType(contract.title,index)">
                                 <van-icon :name="contract.check == true ? contract.active : contract.normal"></van-icon>
-                                <span class="cont_title">{{contract.title}}</span>
+                                <span class="cont_title">{{contractType == '' ? '--' : contract.title}}</span>
                             </li>
                         </ul>
                     </van-col>
