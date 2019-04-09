@@ -123,7 +123,7 @@ var clockIn = new Vue({
         },
         // 获取合约列表
         list(){
-            TD_Request('co','list',function(code,data){
+            TD_Request('co','list','',function(code,data){
                 console.log(data)
             },function(code,data){
 
