@@ -66,11 +66,7 @@ var clockIn = new Vue({
     created(){
         this.tabbar = common.tabbar;
         // 获取合约列表
-        TD_Request('co','list',{},function(code,data){
-            console.log(data)
-        },function(code,data){
-
-        })
+        this.list()
     },
     methods:{
         // 点击购买合约
@@ -130,7 +126,7 @@ var clockIn = new Vue({
             TD_Request('co','list',{},function(code,data){
                 console.log(data)
             },function(code,data){
-
+    
             })
         }
     },
