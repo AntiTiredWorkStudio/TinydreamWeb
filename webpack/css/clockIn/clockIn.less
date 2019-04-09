@@ -180,6 +180,8 @@
             overflow: hidden;
             ul{
                 width: 100%;
+                height: 2.8rem;
+                overflow: auto;
                 li{
                     float: left;
                     width: 1.5rem;
@@ -214,12 +216,75 @@
             padding-bottom: 0.55rem;
         }
     }
-    .pop{
+    // 支付取消弹窗
+    .contrace{
         background: rgba(0,0,0,0);
-        .pop_alert{
+        .paycancel{
             width: 5.8rem;
             height: 6.9rem;
-            margin: 0 auto;
+            background: url(https://tdream.antit.top/image/contract.jpg) no-repeat center center / 5.8rem 6.9rem;
+            position: relative;
+            .main{
+              position: relative;  
+              top: 2.65rem;
+              width: 4.88rem;
+              margin: 0 auto;
+              .avatar{
+                  position: absolute;
+                  width: 1.38rem;
+                  height: 1.38rem;
+                  top: -0.69rem;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  border-radius: 50%;
+                  background: url(https://tdream.antit.top/image/miniLogo.jpg) no-repeat center center / 1.38rem 1.38rem;
+                  box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 54, 208, .1), -0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1), 0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1), 0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1);
+              }
+              .text{
+                  width: 100%;
+                  height: 2.4rem;
+                  background: #fff;
+                  border-radius: 0.1rem;
+                  .container{
+                      padding-top: 1.15rem;
+                      text-align: center;
+                      font-size: 0.36rem;
+                      color: #666;
+                      p{
+                          margin-bottom: 0.1rem;
+                      }
+                  }
+              }
+            }
+            .btn{
+                position: absolute;
+                bottom: 0.3rem;
+                width: 5.4rem;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 0.88rem;
+                font-size: 0.36rem;
+                div{
+                    .van-button{
+                        border:none;
+                        width: 2.6rem;
+                        height: 100%;
+                        line-height: 0.88rem;
+                        color: #4c4c4c;
+                        border-radius: 0.44rem;
+                    }
+                    .againPay{
+                        background: #00d094;
+                        color: #fff;
+                    }
+                }
+                .left{
+                    float: left;
+                }
+                .right{
+                    float: right;
+                }
+            }
         }
     }
 }

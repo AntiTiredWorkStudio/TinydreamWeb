@@ -109,7 +109,7 @@
                         <ul>
                             <li v-for="(contract,index) in contractType" class="contract" :class="contract.check == true ? 'active' : ''" @click="conType(contract.title,index)">
                                 <van-icon :name="contract.check == true ? contract.active : contract.normal"></van-icon>
-                                <span class="cont_title">{{contract.title}}</span>
+                                <span class="cont_title">{{contractType == '' ? '--' : contract.title}}</span>
                             </li>
                         </ul>
                     </van-col>
@@ -130,8 +130,29 @@
                 </div>
             </van-popup>
             <!-- 弹出层 -->
-            <van-popup v-model="show" class="pop" :overlay="true">
-                <div class="pop_alert"></div>
+            <van-popup v-model="payCancel" class="contrace">
+                <div class="paycancel">
+                    <div class="main">
+                        <div class="avatar"></div>
+                        <div class="text">
+                            <div class="container">
+                                <p>寻梦导师</p>
+                                <p>追梦行动达人</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <div class="left">
+                            <van-button round class="callMe">和她聊聊</van-button>
+                        </div>
+                        <div class="right">
+                            <van-button round class="againPay">重新支付</van-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon" style="text-align:center;font-size:0.88rem;margin-top: 0.6rem">
+                    <van-icon name="https://tdream.antit.top/DaKaOKX.png" @click="payCancel = false"></van-icon>
+                </div>
             </van-popup>
         </div>
     </diV>
