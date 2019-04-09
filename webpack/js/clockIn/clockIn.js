@@ -65,6 +65,8 @@ var clockIn = new Vue({
     },
     created(){
         this.tabbar = common.tabbar;
+        // 获取合约列表
+        this.list()
     },
     methods:{
         // 点击购买合约
@@ -118,6 +120,14 @@ var clockIn = new Vue({
             }else{
                 console.log('微信支付')
             }
+        },
+        // 获取合约列表
+        list(){
+            TD_Request('co','list',function(code,data){
+                console.log(data)
+            },function(code,data){
+
+            })
         }
     },
 })
