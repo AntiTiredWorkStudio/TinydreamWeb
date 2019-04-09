@@ -77,6 +77,7 @@ var clockIn = new Vue({
             TD_Request('co','list',{},function(code,data){
                 console.log(data)
                 this.contractType = data.themes;
+                console.log(this.contractType)
             },function(code,data){
     
             })
