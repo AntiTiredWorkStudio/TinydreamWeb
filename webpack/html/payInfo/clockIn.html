@@ -112,7 +112,7 @@
                                 <span class="cont_title">{{contractType == '' ? '--' : contract.title}}</span>
                             </li>
                             <li class="contract" style="width:100%" :class="status == 12 ? 'active' : ''">
-                                <van-icon name="status == 12 ? 'https://tdream.antit.top/5drinkingIA.png' : 'https://tdream.antit.top/5drinkingIU.png'"></van-icon>
+                                <van-icon :name="status == 12 ? 'https://tdream.antit.top/5drinkingIA.png' : 'https://tdream.antit.top/5drinkingIU.png'"></van-icon>
                                 <span class="cont_title" @click="conType(12)">其他</span>
                             </li>
                         </ul>
