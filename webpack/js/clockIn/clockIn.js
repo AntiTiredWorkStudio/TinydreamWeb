@@ -16,6 +16,7 @@ var clockIn = new Vue({
     },
     created(){
         this.tabbar = common.tabbar;
+        Options.TestServer = fasle;
         // 获取合约列表
         this.list(this)
     },
@@ -70,7 +71,7 @@ var clockIn = new Vue({
                     return;
                 })
             }else{
-                console.log('微信支付')
+                this.wxpay(this)
             }
         },
         // 获取合约列表
@@ -80,6 +81,8 @@ var clockIn = new Vue({
             },function(code,data){
                 alert(data.context)
             })
-        }
+        },
+        // 微信支付
+
     },
 })
