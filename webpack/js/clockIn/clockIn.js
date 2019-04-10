@@ -81,8 +81,8 @@ var clockIn = new Vue({
             TD_Request('co','list',{},function(code,data){
                 self.contractType = data.themes;
                 self.contracts = data.contracts;
-                $.each(self.contracts,function(item,index){
-                    console.log(item);
+                $.each(self.contracts,function(index,item){
+                    self.contracts[index].description = self.contracts[index].description.substr(0,15) + '<br />'+ self.contracts[index].description.substr(16)
                 })
             },function(code,data){
                 alert(data.context)
