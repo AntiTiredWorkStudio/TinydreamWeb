@@ -9,10 +9,12 @@ var clockIn = new Vue({
         show:false,//是否显示弹窗
         payCancel:false,//支付取消弹窗
         cid:'',//合约 id
+        desc:'',//合约描述
+        title:'',//合约标题
         contractType:'',//可选类型
         checkArr:[],//选择的数组
         cbill:'',//合约金
-        bill:'',//返现
+        // bill:'',//返现
         day:'',//合约天数
         warm:'',//注意事项
     },
@@ -24,8 +26,10 @@ var clockIn = new Vue({
     },
     methods:{
         // 点击购买合约
-        buy(title,desc,cid,price){
-            console.log(title,desc,cid,price)
+        buy(cid){
+            this.show = true;
+            // 合约信息
+            this.ContractInfo(this,cid);
         },
         // checkbox
         conType(title,index){
@@ -66,13 +70,37 @@ var clockIn = new Vue({
         },
         // 获取合约列表
         list(self){
+            self.$toast.loading({
+                duraction:0,
+                forbidClick:true,
+                loadingType:'circular',
+                message:'列表获取中...'
+            })
             TD_Request('co','list',{},function(code,data){
                 self.contractType = data.themes;
                 self.contracts = data.contracts;
+                self.$toast.clear()
             },function(code,data){
+                self.$toast.clear();
                 alert(data.context)
             })
         },
+        // 获取合约信息
+        ContractInfo(self,cid){
+            self.$toast.loading({
+                duraction:0,
+                forbidClick:true,
+                loadingType:'circular',
+                message:'获取合约信息...'
+            })
+            TD_Request('co','info',{cid:cid},function(code,data){
+                self.$toast.clear();
+                console.log(data)
+            },function(code,data){
+                self.$toast.clear();
+                alert(data.context);
+            })
+        }
         // 微信支付
 
     },

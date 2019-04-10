@@ -36,7 +36,7 @@
                             <p class="desc">
                                 {{contracts == '' ? '--' : contracts[1].description}}
                             </p>
-                            <van-button round size="small" type="primary" class="buy" @click="buy(contracts[1].title,contracts[1].description,contracts[1].cid,contracts[1].price)">立即购买</van-button>
+                            <van-button round size="small" type="primary" class="buy" @click="buy(contracts[1].cid)">立即购买</van-button>
                         </div>
                     </van-col>
                     <van-col span="24">
@@ -46,7 +46,7 @@
                                 {{contracts == '' ? '--' : contracts[0].description}}
                             </p>
                             <van-col span="24" style="text-align:right">
-                                <van-button round size="small" class="buy right" type="primary" @click="buy(contracts[0].title,contracts[0].description,contracts[0].cid,contracts[0].price)">立即购买</van-button>
+                                <van-button round size="small" class="buy right" type="primary" @click="buy(contracts[0].cid)">立即购买</van-button>
                             </van-col>
                         </div>
                     </van-col>
@@ -93,14 +93,14 @@
                 <div class="popup">
                     <van-col span="24" class="title_big">
                         <van-icon name="cross" @click="close"></van-icon>
-                        <span class="title">追梦行动{{day == '' ? '--' : day}}天合约</span>
+                        <span class="title">{{title == '' ? '--' : title}}</span>
                     </van-col>
                     <van-col span='24' class="bill">
                         <span class="unit">￥</span>
-                        <span class="bill_num">{{cbill == '' ? '--' : cbill}}</span>
+                        <span class="bill_num">{{price == '' ? '--' : price}}</span>
                     </van-col>
                     <van-col span="24" class="tip">
-                        <p class="tip_txt">支付合约金{{cbill == '' ? '--' : cbill}}元,坚持打卡{{day == '' ? '--' : day}}天,返还{{bill == '' ? '--' : bill}}元。</p>
+                        <p class="tip_txt">支付{{desc == '' ? '--' : desc}}</p>
                     </van-col>
                     <van-col span="24" class="main_title">
                         <p class="main_tit_txt">选择行动主题(多选):</p>
