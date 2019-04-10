@@ -37,11 +37,13 @@ var clockIn = new Vue({
             this.contractType[index].check = !this.contractType[index].check;
             if(this.checkArr.length == 3){
                 this.contractType[index].check = false;
+                this.checkArr.length = 3;
             }else if(this.contractType[index].check){
                 this.checkArr.push(title)
             }else{
                 this.removeArray(this.checkArr,title);
             }
+            console.log(checkArr)
         },
         // 数组删除方法
         removeArray(arr, val) {
@@ -54,7 +56,7 @@ var clockIn = new Vue({
         },
         // 关闭弹窗
         close(){
-            this.checkArr = ''
+            this.checkArr = [];
             this.show = false;
             this.payCancel = true;
         },
