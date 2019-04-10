@@ -42,6 +42,7 @@ var clockIn = new Vue({
                 this.theme = this.contractType[index].title;
             }else{
                 this.isshow = true;
+                $('#theme').focus()
             }    
         },
         // 数组删除方法
