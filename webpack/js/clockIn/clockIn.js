@@ -34,6 +34,7 @@ var clockIn = new Vue({
         },
         // checkbox
         conType(index,status,title){
+            console.log(index);
             this.status = index;
             this.theme = this.contractType[index].title;
         },
