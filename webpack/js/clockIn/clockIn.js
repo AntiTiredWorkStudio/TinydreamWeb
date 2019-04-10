@@ -37,7 +37,7 @@ var clockIn = new Vue({
         conType(index,status,title){
             if(status){
                 console.log($('li').eq(index).children().next())
-                $('li').eq(index).children().next().html('<input type="text" id="focus" style="width:0.5rem"><span>确定</span>');
+                $('li').eq(index).children().next().html('<input type="text" id="focus" style="width:0.5rem"><span style="display:inline-block;border:1px solid #fff">确定</span>');
                 $('#focus').focus();
             }
             this.status = index;
