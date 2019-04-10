@@ -12,11 +12,13 @@ var clockIn = new Vue({
         desc:'',//合约描述
         title:'',//合约标题
         contractType:'',//可选类型
-        checkArr:[],//选择的数组
+        // checkArr:[],//选择的数组
         price:'',//合约金
         // bill:'',//返现
         day:'',//合约天数
         warm:'',//注意事项
+        status:'',
+        theme:'',//所选主题
     },
     created(){
         this.tabbar = common.tabbar;
@@ -32,19 +34,12 @@ var clockIn = new Vue({
             this.ContractInfo(this,cid);
         },
         // checkbox
-        conType(title,index){
-            console.log(title,index);
-            this.contractType[index].check = !this.contractType[index].check;
-            if(this.checkArr.length == 3){
-                this.contractType[index].check = false;
-                this.checkArr.length = 3;
+        conType(index,status){
+            if(status){
+                console.log($(this))
             }
-            if(this.contractType[index].check){
-                this.checkArr.push(title)
-            }else{
-                this.removeArray(this.checkArr,title);
-            }
-            console.log(this.checkArr)
+            this.status = index;
+            this.theme = this.contractType[index].title;
         },
         // 数组删除方法
         removeArray(arr, val) {
@@ -57,7 +52,7 @@ var clockIn = new Vue({
         },
         // 关闭弹窗
         close(){
-            this.checkArr = [];
+            this.status = '';
             this.show = false;
             this.payCancel = true;
         },
@@ -71,8 +66,7 @@ var clockIn = new Vue({
                     return;
                 })
             }else{
-                let theme = this.checkArr.join(',');
-                console.log(theme);
+                var theme = this.theme;
                 // 微信支付
                 this.wxpay(this,cid,theme)
             }
