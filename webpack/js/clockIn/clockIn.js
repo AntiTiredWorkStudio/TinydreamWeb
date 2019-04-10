@@ -37,8 +37,9 @@ var clockIn = new Vue({
         conType(index,status,title){
             if(status){
                 console.log($('li').eq(index).children().next())
-                $('li').eq(index).children().next().html('<input type="text" id="focus" style="width:0.5rem"><span style="display:inline-block;border:1px solid #fff;height:0.44rem;margin-top:0.22rem;padding:0 0.1rem;">确定</span>');
+                $('li').eq(index).children().next().html('<input type="text" value="'+title+'" id="focus" style="width:0.5rem"><span @click="sour(index)" style="display:inline-block;border:1px solid #fff;height:0.44rem;margin-top:0.22rem;line-height:0.44rem;padding:0 0.02rem;">确定</span>');
                 $('#focus').focus();
+
             }
             this.status = index;
             this.theme = this.contractType[index].title;
@@ -51,6 +52,10 @@ var clockIn = new Vue({
                     break;
                 }
             }
+        },
+        // 修改其他
+        sour(index){
+            console.log(index)
         },
         // 关闭弹窗
         close(){
