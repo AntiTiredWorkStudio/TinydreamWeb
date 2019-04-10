@@ -70,6 +70,7 @@ var clockIn = new Vue({
                 })
             }else{
                 var theme = this.theme;
+                console.log(theme);
                 // 微信支付
                 this.wxpay(this,cid,theme)
             }
