@@ -35,7 +35,9 @@ var clockIn = new Vue({
         conType(title,index){
             console.log(title,index);
             this.contractType[index].check = !this.contractType[index].check;
-            if(this.contractType[index].check){
+            if(this.checkArr.length == 3){
+                this.contractType[index].check = false;
+            }else if(this.contractType[index].check){
                 this.checkArr.push(title)
             }else{
                 this.removeArray(this.checkArr,title);
@@ -52,6 +54,7 @@ var clockIn = new Vue({
         },
         // 关闭弹窗
         close(){
+            this.checkArr = ''
             this.show = false;
             this.payCancel = true;
         },
