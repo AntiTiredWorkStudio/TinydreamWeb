@@ -99,6 +99,7 @@ var clockIn = new Vue({
                 self.title = data.contract.title;
                 self.desc = data.contract.description;
                 self.price = data.contract.price / 100;
+                self.cid = data.contract.cid;
                 self.$toast.clear();
             },function(code,data){
                 self.$toast.clear();
