@@ -43,7 +43,7 @@
                         <div class="day-21">
                             <h3 class="title right">{{contracts == '' ? '--' : contracts[0].title}}</h3>
                             <p class="desc right">
-                                合约金98元，每天打<br />卡,坚持21天返还98元
+                                {{contracts == '' ? '--' : contracts[0].description}}
                             </p>
                             <van-col span="24" style="text-align:right">
                                 <van-button round size="small" class="buy right" type="primary" @click="buy(21)">立即购买</van-button>
