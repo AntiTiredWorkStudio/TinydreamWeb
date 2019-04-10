@@ -230,4 +230,11 @@ var clockIn = new Vue({
             this.status = 'undefined';
         }
     },
+    watch:{
+        value(data){
+            if(data.length >= 20){
+                this.value.length = 20;
+            }
+        }
+    }
 })
