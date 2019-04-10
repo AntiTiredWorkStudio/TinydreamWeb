@@ -215,14 +215,17 @@ var clockIn = new Vue({
         },
         // 自定义主题
         confirm(){
-            this.custom = this.value;
-            this.theme = this.value;
-        },
-        cancel(){
             if(this.value == ''){
                 this.custom = '其他';
                 this.theme = '';
+            }else{
+                this.custom = this.value;
+                this.theme = this.value;
             }
+        },
+        cancel(){
+            this.custom = '其他';
+            this.theme = '';
         }
     },
 })
