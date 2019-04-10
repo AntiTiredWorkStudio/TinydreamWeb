@@ -94,8 +94,11 @@ var clockIn = new Vue({
                 message:'获取合约信息...'
             })
             TD_Request('co','info',{cid:cid},function(code,data){
-                self.$toast.clear();
                 console.log(data)
+                self.title = data.contract.title;
+                self.desc = data.contract.description;
+                self.price = data.contract.price / 100;
+                self.$toast.clear();
             },function(code,data){
                 self.$toast.clear();
                 alert(data.context);
