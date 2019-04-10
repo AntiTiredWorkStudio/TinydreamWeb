@@ -119,7 +119,7 @@ var clockIn = new Vue({
             TD_Request('op','joi',{cid:cid,uid:uid},function(code,data){
                 console.log(data)
                 self.$toast.clear();
-                self.wxpayweb(self,pay,data.order.oid,cid,theme)
+                self.wxpayweb(self,data.pay,data.order.oid,cid,theme)
             },function(code,data){
                 self.$toast.clear();
                 console.log(data);
@@ -145,7 +145,6 @@ var clockIn = new Vue({
                   if(res.err_msg == "get_brand_wcpay_request:ok" ){
                   // 使用以上方式判断前端返回,微信团队郑重提示：
                         //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
-                        self.$toast.success('支付成功');
                         self.paySuccess(cid,oid,uid,theme)
                   } else if(res.err_msg == "get_brand_wcpay_request:cancel" ){
                         self.$toast.fail('支付取消');
@@ -161,6 +160,7 @@ var clockIn = new Vue({
                 theme:theme
             },function(code,data){
                 alert(JSON.stringify(data))
+                self.$toast.success('购买成功');
             },function(code,data){
                 alert(code)
             })
