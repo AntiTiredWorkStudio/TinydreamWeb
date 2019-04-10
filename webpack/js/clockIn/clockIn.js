@@ -218,6 +218,7 @@ var clockIn = new Vue({
             if(this.value == ''){
                 this.custom = '其他';
                 this.theme = '';
+                this.status = 'undefined';
             }else{
                 this.custom = this.value;
                 this.theme = this.value;
@@ -226,6 +227,7 @@ var clockIn = new Vue({
         cancel(){
             this.custom = '其他';
             this.theme = '';
+            this.status = 'undefined';
         }
     },
 })
