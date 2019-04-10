@@ -65,6 +65,7 @@ var clockIn = new Vue({
                     return;
                 })
             }else{
+                console.log(bill,cid)
                 this.wxpay(this,cid,bill)
             }
         },
