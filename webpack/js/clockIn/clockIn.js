@@ -56,7 +56,7 @@ var clockIn = new Vue({
             this.payCancel = true;
         },
         // 支付
-        pay(bill){
+        pay(bill,cid){
             if(this.checkArr == ''){
                 this.$dialog.alert({
                     title:'温馨提示',
@@ -65,7 +65,7 @@ var clockIn = new Vue({
                     return;
                 })
             }else{
-                this.wxpay(this)
+                this.wxpay(this,cid,bill)
             }
         },
         // 获取合约列表
@@ -91,7 +91,7 @@ var clockIn = new Vue({
                 duraction:0,
                 forbidClick:true,
                 loadingType:'circular',
-                message:'获取合约信息...'
+                message:'信息获取中...'
             })
             TD_Request('co','info',{cid:cid},function(code,data){
                 console.log(data)
@@ -103,8 +103,14 @@ var clockIn = new Vue({
                 self.$toast.clear();
                 alert(data.context);
             })
-        }
+        },
         // 微信支付
-
+        wxpay(self,bill,cid){
+            TD_Request('op','joi',{uid:uid,cid:cid},function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data);
+            })
+        }
     },
 })
