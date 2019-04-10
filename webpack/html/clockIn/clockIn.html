@@ -36,7 +36,7 @@
                             <p class="desc">
                                 {{contracts == '' ? '--' : contracts[1].description}}
                             </p>
-                            <van-button round size="small" type="primary" class="buy" @click="buy(100)">立即购买</van-button>
+                            <van-button round size="small" type="primary" class="buy" @click="buy(contracts[1].title,contracts[1].description,contracts[1].cid,contracts[1].price)">立即购买</van-button>
                         </div>
                     </van-col>
                     <van-col span="24">
@@ -46,7 +46,7 @@
                                 {{contracts == '' ? '--' : contracts[0].description}}
                             </p>
                             <van-col span="24" style="text-align:right">
-                                <van-button round size="small" class="buy right" type="primary" @click="buy(21)">立即购买</van-button>
+                                <van-button round size="small" class="buy right" type="primary" @click="buy(contracts[0].title,contracts[0].description,contracts[0].cid,contracts[0].price)">立即购买</van-button>
                             </van-col>
                         </div>
                     </van-col>

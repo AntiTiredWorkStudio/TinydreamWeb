@@ -24,20 +24,8 @@ var clockIn = new Vue({
     },
     methods:{
         // 点击购买合约
-        buy(state){
-            if(state == 100){
-                // 100天合约
-                this.day = 100;
-                this.cbill = 99;
-                this.bill = 200;
-                this.show = true;
-            }else if(state == 21){
-                // 21天合约
-                this.day = 21;
-                this.cbill = 98;
-                this.bill = 98;
-                this.show = true;
-            }
+        buy(title,desc,cid,price){
+            console.log(title,desc,cid,price)
         },
         // checkbox
         conType(title,index){
