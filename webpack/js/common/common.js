@@ -12,7 +12,7 @@ var common = new Vue({
                 title:'行动打卡',
                 normal:'https://tdream.antit.top/ActiveSignInOff.png',
                 active:'https://tdream.antit.top/ActiveSignInOk.png',
-                url:'http://tinydream.antit.top/TinydreamWeb/webpack/html/clockIn/clockIn.html',
+                url:'http://tinydream.antit.top/TinydreamWeb/webpack/html/payInfo/clockIn.html',
                 info:''
             },
             {
