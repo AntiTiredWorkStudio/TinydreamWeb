@@ -61,7 +61,7 @@ var clockIn = new Vue({
         },
         // 支付
         pay(cid){
-            if(this.checkArr == ''){
+            if(this.theme == ''){
                 this.$dialog.alert({
                     title:'温馨提示',
                     message:'亲~目标才是坚持行动的动力，选择一个行动主题作为坚持目标吧！'
@@ -217,6 +217,12 @@ var clockIn = new Vue({
         confirm(){
             this.custom = this.value;
             this.theme = this.value;
+        },
+        cancel(){
+            if(this.value == ''){
+                this.custom = '其他';
+                this.theme = '';
+            }
         }
     },
 })
