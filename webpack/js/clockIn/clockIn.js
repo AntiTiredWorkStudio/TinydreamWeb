@@ -229,6 +229,10 @@ var clockIn = new Vue({
             this.custom = '其他';
             this.theme = '';
             this.status = 'undefined';
+        },
+        // 联系客服
+        callMe(){
+            window.location.href = 'cach.html?time='+new Date().getTime()
         }
     },
     watch:{
