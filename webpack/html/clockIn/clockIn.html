@@ -32,16 +32,16 @@
                 <div class="main">
                     <van-col span="24">
                         <div class="day-100">
-                            <h3 class="title">100天行动合约</h3>
+                            <h3 class="title">{{contracts == '' ? '--' : contracts[1].title}}</h3>
                             <p class="desc">
-                                合约金99元，每天打卡并转发朋<br/>友圈，坚持100天返还200元
+                                {{contracts == '' ? '--' : contracts[1].description}}
                             </p>
                             <van-button round size="small" type="primary" class="buy" @click="buy(100)">立即购买</van-button>
                         </div>
                     </van-col>
                     <van-col span="24">
                         <div class="day-21">
-                            <h3 class="title right">21天行动合约</h3>
+                            <h3 class="title right">{{contracts == '' ? '--' : contracts[0].title}}</h3>
                             <p class="desc right">
                                 合约金98元，每天打<br />卡,坚持21天返还98元
                             </p>

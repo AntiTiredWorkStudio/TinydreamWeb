@@ -5,8 +5,10 @@ var clockIn = new Vue({
     data:{
         actives:1,
         tabbar:'',
+        contracts:'',//合约列表
         show:false,//是否显示弹窗
         payCancel:false,//支付取消弹窗
+        cid:'',//合约 id
         contractType:'',//可选类型
         checkArr:[],//选择的数组
         cbill:'',//合约金
@@ -78,6 +80,10 @@ var clockIn = new Vue({
         list(self){
             TD_Request('co','list',{},function(code,data){
                 self.contractType = data.themes;
+                self.contracts = data.contracts;
+                $.each(self.contracts,function(item,index){
+                    console.log(item);
+                })
             },function(code,data){
                 alert(data.context)
             })
