@@ -233,7 +233,7 @@ var clockIn = new Vue({
     watch:{
         value(data){
             if(data.length >= 20){
-                this.value = data.substr(0);
+                this.value = data.substr(0,20);
                 console.log(data,this.value)
             }
         }
