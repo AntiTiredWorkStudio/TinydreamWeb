@@ -34,7 +34,7 @@ var clockIn = new Vue({
             this.ContractInfo(this,cid);
         },
         // checkbox
-        conType(index,status){
+        conType(index,status,title){
             if(status){
                 console.log($('li').eq(index).children().next())
                 $('li').eq(index).children().next().html('<input type="text">');

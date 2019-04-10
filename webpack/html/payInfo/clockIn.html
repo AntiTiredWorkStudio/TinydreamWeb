@@ -107,7 +107,7 @@
                     </van-col>
                     <van-col span="24" class="clock_type">
                         <ul>
-                            <li v-for="(contract,index) in contractType" class="contract" :class="index == status ? 'active' : ''" @click="conType(index,contract.check)">
+                            <li v-for="(contract,index) in contractType" class="contract" :class="index == status ? 'active' : ''" @click="conType(index,contract.check,contract.title)">
                                 <van-icon :name="index == status ? contract.active : contract.normal"></van-icon>
                                 <span class="cont_title">{{contractType == '' ? '--' : contract.title}}</span>
                             </li>
