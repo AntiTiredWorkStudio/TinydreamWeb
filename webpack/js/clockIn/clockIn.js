@@ -215,6 +215,7 @@ var clockIn = new Vue({
         // 自定义主题
         confirm(){
             this.custom = this.value;
+            this.theme = this.value;
         }
     },
 })
