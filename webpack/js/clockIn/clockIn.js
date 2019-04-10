@@ -234,6 +234,7 @@ var clockIn = new Vue({
         value(data){
             if(data.length >= 20){
                 this.value.length = 20;
+                console.log(data)
             }
         }
     }
