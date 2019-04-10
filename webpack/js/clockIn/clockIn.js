@@ -164,6 +164,10 @@ var clockIn = new Vue({
             },function(code,data){
                 alert(code)
             })
+        },
+        againPay(){
+            this.payCancel = false;
+            this.show = true;
         }
     },
 })
