@@ -37,7 +37,7 @@ var clockIn = new Vue({
         conType(index,status,title){
             if(status){
                 console.log($('li').eq(index).children().next())
-                $('li').eq(index).children().next().html('<input type="text">');
+                $('li').eq(index).children().next().html('<input type="text">').css('width','0.9rem');
             }
             this.status = index;
             this.theme = this.contractType[index].title;
