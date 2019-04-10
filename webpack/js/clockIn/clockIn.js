@@ -1,9 +1,4 @@
 var uid = Options.GetUserInfo().openid;
-$('#sour').click(function(e){
-    console.log(1,this)
-    $(this).parent().html($('#focus').val());
-    e.stopPropagation();
-})
 var clockIn = new Vue({
     el:'#clockIn',
     data:{
@@ -43,6 +38,11 @@ var clockIn = new Vue({
                 console.log($('li').eq(index).children().next())
                 $('li').eq(index).children().next().html('<input type="text" id="focus" style="width:0.5rem"><span id="sour" style="display:inline-block;border:1px solid #fff;height:0.44rem;margin-top:0.22rem;line-height:0.44rem;padding:0 0.02rem;">确定</span>');
                 $('#focus').focus();
+                $('#sour').click(function(e){
+                    console.log(1,this)
+                    $('li').eq(index).children().next().html($('#focus').val());
+                    e.stopPropagation();
+                })
             }
             this.status = index;
             this.theme = this.contractType[index].title;
