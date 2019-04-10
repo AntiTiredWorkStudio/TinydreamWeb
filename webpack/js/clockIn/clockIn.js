@@ -105,7 +105,7 @@ var clockIn = new Vue({
             })
         },
         // 微信支付
-        wxpay(self,bill,cid){
+        wxpay(self,cid,bill){
             TD_Request('op','joi',{cid:cid,uid:uid},function(code,data){
                 console.log(data)
             },function(code,data){
