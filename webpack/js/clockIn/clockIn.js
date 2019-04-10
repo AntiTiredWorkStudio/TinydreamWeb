@@ -13,7 +13,7 @@ var clockIn = new Vue({
         title:'',//合约标题
         contractType:'',//可选类型
         checkArr:[],//选择的数组
-        cbill:'',//合约金
+        price:'',//合约金
         // bill:'',//返现
         day:'',//合约天数
         warm:'',//注意事项
