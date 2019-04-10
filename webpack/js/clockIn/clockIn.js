@@ -159,7 +159,6 @@ var clockIn = new Vue({
                 uid:uid,
                 theme:theme
             },function(code,data){
-                alert(JSON.stringify(data))
                 self.$toast.success('购买成功');
             },function(code,data){
                 alert(code)
