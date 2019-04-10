@@ -56,7 +56,7 @@ var clockIn = new Vue({
             this.payCancel = true;
         },
         // 支付
-        pay(bill,cid){
+        pay(cid){
             if(this.checkArr == ''){
                 this.$dialog.alert({
                     title:'温馨提示',
@@ -65,10 +65,10 @@ var clockIn = new Vue({
                     return;
                 })
             }else{
-                console.log(bill,cid)
                 let theme = this.checkArr.join(',');
                 console.log(theme);
-                this.wxpay(this,cid,bill)
+                // 微信支付
+                this.wxpay(this,cid,theme)
             }
         },
         // 获取合约列表
@@ -109,25 +109,24 @@ var clockIn = new Vue({
             })
         },
         // 微信支付
-        wxpay(self,cid,bill){
+        wxpay(self,cid,theme){
             self.$toast.loading({
                 duraction:0,
                 forbidClick:true,
                 loadingType:'circular',
                 message:'准备中...'
             })
-            
             TD_Request('op','joi',{cid:cid,uid:uid},function(code,data){
                 console.log(data)
                 self.$toast.clear();
-                self.wxpayweb(self,pay,data.order.oid,cid)
+                self.wxpayweb(self,pay,data.order.oid,cid,theme)
             },function(code,data){
                 self.$toast.clear();
                 console.log(data);
             })
         },
         // 唤醒支付
-        wxpayweb(self,pay,oid,cid){
+        wxpayweb(self,pay,oid,cid,theme){
             self.$toast.loading({
                 duraction:0,
                 forbidClick:true,
@@ -147,9 +146,24 @@ var clockIn = new Vue({
                   // 使用以上方式判断前端返回,微信团队郑重提示：
                         //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
                         self.$toast.success('支付成功');
-                        self.paySuccess(cid,oid,uid,)
-                  } 
+                        self.paySuccess(cid,oid,uid,theme)
+                  } else if(res.err_msg == "get_brand_wcpay_request:cancel" ){
+                        self.$toast.fail('支付取消');
+                  }
                }); 
+        },
+        // 支付成功
+        paySuccess(cid,oid,uid,theme){
+            TD_Request('op','jof',{
+                cid:cid,
+                oid:oid,
+                uid:uid,
+                theme:theme
+            },function(code,data){
+                alert(JSON.stringify(data))
+            },function(code,data){
+                alert(code)
+            })
         }
     },
 })
