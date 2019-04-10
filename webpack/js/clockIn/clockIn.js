@@ -1,5 +1,6 @@
 var uid = Options.GetUserInfo().openid;
 $('#sour').click(function(e){
+    console.log(1,this)
     $(this).parent().html($('#focus').val());
     e.stopPropagation();
 })
