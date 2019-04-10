@@ -36,7 +36,7 @@ var clockIn = new Vue({
         // checkbox
         conType(index,status){
             if(status){
-                console.log($('li').eq(index))
+                console.log($('li').eq(index).children().next())
                 $('li').eq(index)
             }
             this.status = index;
