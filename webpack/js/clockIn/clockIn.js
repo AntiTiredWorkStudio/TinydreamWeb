@@ -38,7 +38,8 @@ var clockIn = new Vue({
             if(this.checkArr.length == 3){
                 this.contractType[index].check = false;
                 this.checkArr.length = 3;
-            }else if(this.contractType[index].check){
+            }
+            if(this.contractType[index].check){
                 this.checkArr.push(title)
             }else{
                 this.removeArray(this.checkArr,title);
