@@ -37,6 +37,7 @@ var clockIn = new Vue({
         conType(index,status){
             if(status){
                 console.log($('li')[index])
+                $('<input>').appendTo($('li')[index])
             }
             this.status = index;
             this.theme = this.contractType[index].title;
