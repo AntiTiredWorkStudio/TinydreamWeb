@@ -19,7 +19,8 @@ var clockIn = new Vue({
         status:null,
         theme:'',//所选主题
         isshow:false,//是否显示自定义主题
-        value:'其他',//自定义主题
+        custom:'',//自定义主题
+        value:'',//自定义主题
     },
     created(){
         this.tabbar = common.tabbar;
@@ -206,9 +207,14 @@ var clockIn = new Vue({
                 alert(code)
             })
         },
+        // 重新支付
         againPay(){
             this.payCancel = false;
             this.show = true;
+        },
+        // 自定义主题
+        confirm(){
+            this.custom = this.value;
         }
     },
 })
