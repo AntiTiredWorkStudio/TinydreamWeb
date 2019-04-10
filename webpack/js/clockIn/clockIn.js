@@ -37,7 +37,8 @@ var clockIn = new Vue({
         conType(index,status,title){
             if(status){
                 console.log($('li').eq(index).children().next())
-                $('li').eq(index).children().next().html('<input autofocus type="text" style="width:0.9rem"><button>保存</button>');
+                $('li').eq(index).children().next().html('<input type="text" id="focus" style="width:0.9rem">');
+                $('#focus').focus();
             }
             this.status = index;
             this.theme = this.contractType[index].title;
