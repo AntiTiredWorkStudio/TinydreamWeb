@@ -122,6 +122,46 @@ var clockIn = new Vue({
                 self.wxpayweb(self,data.pay,data.order.oid,cid,theme)
             },function(code,data){
                 self.$toast.clear();
+                if(code == 81){
+                    self.$dialog.alert({
+                        title:'错误提示',
+                        message:'合约ID有误，请联系客服进行处理'
+                    }).then(()=>{
+                        // 旧 UI 跳转
+                        window.location.href = 'cach.html?time='+new Date().getTime()
+                        // 新 UI 跳转
+                        // window.location.href = '../coach/coach.html?time='+ new Date().getTime();
+                    })
+                }else if(code == 82){
+                    self.$dialog.alert({
+                        title:'温馨提示',
+                        message:'您的合约正在进行中'
+                    }).then(()=>{
+                        return;
+                    })
+                }else if(code == 11){
+                    self.$dialog.alert({
+                        title:'温馨提示',
+                        message:'绑定手机后才可以购买合约哦！'
+                    }).then(()=>{
+                        // 旧 UI 跳转
+                        window.location.href = 'phoneManage.html?time='+new Date().getTime()
+                        // 新 UI 跳转
+                        // window.location.href = '../phoneManage/phoneManage.html?time='+ new Date().getTime();
+                    })
+                }else if(code == 58){
+                    self.$dialog.confirm({
+                        title:'错误提示',
+                        message:'订单错误，如连续出现此错误，请联系客服小姐姐进行处理哦！'
+                    }).then(()=>{
+                        // 旧 UI 跳转
+                        window.location.href = 'cach.html?time='+new Date().getTime()
+                        // 新 UI 跳转
+                        // window.location.href = '../cach/cach.html?time='+ new Date().getTime();
+                    }).catch(()=>{
+                        return;
+                    })
+                }
                 console.log(data);
             })
         },
