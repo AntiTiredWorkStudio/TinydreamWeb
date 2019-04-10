@@ -17,7 +17,7 @@ var clockIn = new Vue({
         // bill:'',//返现
         day:'',//合约天数
         warm:'',//注意事项
-        status:'',
+        status:null,
         theme:'',//所选主题
     },
     created(){
