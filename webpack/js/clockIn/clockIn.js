@@ -82,7 +82,7 @@ var clockIn = new Vue({
                 self.contractType = data.themes;
                 self.contracts = data.contracts;
                 $.each(self.contracts,function(index,item){
-                    self.contracts[index].description = self.contracts[index].description.substr(0,15) + '\t' + self.contracts[index].description.substr(15)
+                    self.contracts[index].description = self.contracts[index].description.substr(0,15) + '\\n' + self.contracts[index].description.substr(15)
                 })
             },function(code,data){
                 alert(data.context)
