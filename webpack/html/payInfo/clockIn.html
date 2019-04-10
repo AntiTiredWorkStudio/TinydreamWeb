@@ -111,11 +111,18 @@
                                 <van-icon :name="index == status ? contract.active : contract.normal"></van-icon>
                                 <span class="cont_title">{{contractType == '' ? '--' : contract.title}}</span>
                             </li>
-                            <li class="contract" style="width:100%" :class="status == 12 ? 'active' : ''">
+                            <li class="contract" style="width:100%" :class="status == 12 ? 'active' : ''" @click="conType(12)">
                                 <van-icon :name="status == 12 ? 'https://tdream.antit.top/5drinkingIA.png' : 'https://tdream.antit.top/5drinkingIU.png'"></van-icon>
-                                <span class="cont_title" @click="conType(12)">其他</span>
+                                <span class="cont_title">{{status == 12 ? value : '其他'}}</span>
                             </li>
                         </ul>
+                        <van-dialog
+                        v-model="isshow"
+                        title="自定义主题"
+                        show-cancel-button
+                        >
+                            <van-field v-model="value" placeholder="请输入主题" />
+                        </van-dialog>
                     </van-col>
                     <van-col span="24" class="warm">
                         <p class="warning">注意事项:</p>

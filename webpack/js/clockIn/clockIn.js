@@ -18,6 +18,8 @@ var clockIn = new Vue({
         warm:'',//注意事项
         status:null,
         theme:'',//所选主题
+        isshow:false,//是否显示自定义主题
+        value:'其他',//自定义主题
     },
     created(){
         this.tabbar = common.tabbar;
@@ -34,9 +36,12 @@ var clockIn = new Vue({
         },
         // checkbox
         conType(index,status,title){
-            console.log(index);
             this.status = index;
-            this.theme = this.contractType[index].title;
+            if(index != 12){
+                this.theme = this.contractType[index].title;
+            }else{
+                this.isshow = true;
+            }    
         },
         // 数组删除方法
         removeArray(arr, val) {
@@ -46,10 +51,6 @@ var clockIn = new Vue({
                     break;
                 }
             }
-        },
-        // 修改其他
-        sour(index){
-            console.log(index)
         },
         // 关闭弹窗
         close(){
