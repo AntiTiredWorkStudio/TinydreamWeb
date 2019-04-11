@@ -28,8 +28,8 @@ var actionClock = new Vue({
                 console.log(data)
                 console.log(data.calendar.days);
                 self.days = data.calendar.days;
-                self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
-                console.log(self.currentMonth)
+                var currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
+                self.currentMonth = currentMonth;
             },function(code,data){
                 console.log(data);
             })
