@@ -21,7 +21,7 @@ var actionClock = new Vue({
             console.log('已打卡')
         },
         Mat(self){
-            TD_Request('op','cal',{uid:uid,seek:1},function(code,data){
+            TD_Request('op','cal',{uid:uid,seek:0},function(code,data){
                 console.log(data)
             },function(code,data){
                 console.log(data);
