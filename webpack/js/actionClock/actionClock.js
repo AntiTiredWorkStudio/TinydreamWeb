@@ -12,11 +12,20 @@ var actionClock = new Vue({
     },
     created(){
         this.tabbar = common.tabbar;
+        // 创建行动实例
+        this.Mat(self);
     },
     methods:{
         // 打卡
         clock(){
             console.log('已打卡')
+        },
+        Mat(self){
+            TD_Request('op','cal',{uid:uid},function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data);
+            })
         }
     }
 })
