@@ -54,7 +54,7 @@ var onPoolViewBuild = function (poolInfo) {
         }
 
 
-        WebApp.View.BuildsView([joinViewObject,endViewObject],"../view",
+        WebApp.View.BuildsView([joinViewObject,endViewObject],"../TinydreamWeb/view",//
             function(result,data){
                 var content = $('#pool_List').html();
                 $('#pool_List').html(content + data[snippetID] + data["pool_type_end"]);
@@ -73,7 +73,7 @@ var onPoolViewBuild = function (poolInfo) {
             viewObject = WebApp.View.AddViewData(viewObject,poolInfo[key]);
         }
 
-        WebApp.View.BuildsView([viewObject],"../view",
+        WebApp.View.BuildsView([viewObject],"../TinydreamWeb/view",
             function(result,data){
                 var content = $('#pool_List').html();
                 $('#pool_List').html(content + data[snippetID]);
