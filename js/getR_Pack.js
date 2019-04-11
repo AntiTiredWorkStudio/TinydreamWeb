@@ -19,7 +19,7 @@ WebApp.Init('wxc5216d15dd321ac5',//appid
 					WebApp.JSAPI.InitShare({
 						title:userInfo.nickname+"给你发了一个梦想红包,领取可夺大额梦想金！",
 						desc:"小梦想互助——让每个小梦想 都有机会实现",
-						link:'http://tinydream.antit.top/TinydreamWeb/html/getR_Pack.html?rid='+rid,
+						link:'../html/getR_Pack.html?rid='+rid,
 						imgUrl:"https://tdream.antit.top/image/Red_Open.jpg"
 					});
 					if(userInfo.headicon == ''){
@@ -35,11 +35,11 @@ WebApp.Init('wxc5216d15dd321ac5',//appid
 					$('button').click(function(){
 						localStorage.setItem('rid',rid);
 						localStorage.setItem('rinfo',JSON.stringify({pid:pid,ptbill:ptbill,rid:rid,headicon:userInfo.headicon,nickname:userInfo.nickname,content:data.redpack.content}));
-						window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html?time='+new Date().getTime();
+						window.location.href = '../html/GetRedPack.html?time='+new Date().getTime();
 					})
 				},function(code,data){
 					console.log(data)
-					window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
+					window.location.href = '../index.html?time='+new Date().getTime()
 				})
 			},function(code,data){
 				alert(data.context);

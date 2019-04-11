@@ -95,7 +95,7 @@ $(function(){
 							TD_Request('rp','cprs',{uid:userInfo.openid,rid:redPackageID},function(code,data){
                                 //alert(code)
                                 localStorage.setItem('msg','ok')
-                                window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/share.html?rid='+redPackageID+'&?time='+new Date().getTime();
+                                window.location.href = '../html/share.html?rid='+redPackageID+'&?time='+new Date().getTime();
 							},function(code,data){
                                 alert(code,data.context);
                                 alert(JSON.stringify(data))
@@ -112,7 +112,7 @@ $(function(){
                 console.log(data)
                 if(code == 11){
                     alert('您尚未绑定手机，绑定手机后即可发送梦想红包');
-                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html?type=pay&?time='+new Date().getTime()
+                    window.location.href = '../html/phoneManage.html?type=pay&?time='+new Date().getTime()
                 }else if(code == 5){
                     alert('该期梦想池已结束');
                     return;

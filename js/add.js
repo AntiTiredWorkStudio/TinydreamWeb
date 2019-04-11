@@ -88,11 +88,11 @@ $(function(){
 									$('.submit_mask').fadeIn();
 									$('.submit_mask button').click(function(){
 									    $('.submit_mask').fadeOut();
-										window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html?time="+new Date().getTime()
+										window.location.href = "../html/dream.html?time="+new Date().getTime()
 									})
 								},function(code,data){
 									alert(data.context);
-									window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html?time="+new Date().getTime()
+									window.location.href = "../html/dream.html?time="+new Date().getTime()
 								}
 								);
 							},function(res){
@@ -151,11 +151,11 @@ $(function(){
             },function(code,data){
                 // console.log(data);
                 alert('修改成功!');
-                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html?time="+new Date().getTime()
+                window.location.href = "../html/dream.html?time="+new Date().getTime()
             },function(code,data){
                 if(code == 44){
                     alert('无内容变更');
-                    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/dream.html?time='+new Date().getTime()
+                    window.location.href = '../html/dream.html?time='+new Date().getTime()
                 }else{
                     alert(data.context)
                 }
@@ -167,7 +167,7 @@ $(function(){
         console.log('获取失败：'+data.context)
     })
     $('.xieyi').click(function(){
-        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/xieyi.html?time="+new Date().getTime()
+        window.location.href = "../html/xieyi.html?time="+new Date().getTime()
     })
     if($("input[type='checkbox']").is(':checked')){
         $(".chec label").css({

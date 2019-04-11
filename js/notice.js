@@ -40,15 +40,15 @@ $(function(){
                         console.log(data)
                         var info =  DreamPoolAnalysis(data.pool);
                         localStorage.setItem('poolInfo',JSON.stringify(info))
-                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/helpInfo.html?time="+new Date().getTime()
+                        window.location.href = "../html/helpInfo.html?time="+new Date().getTime()
                     },function(code,data){
                         console.log(data)
                     })
                 }else if(obj.type=='lucky'){
                     localStorage.setItem('award',JSON.stringify({'result':true}))
-                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html?time="+new Date().getTime()
+                    window.location.href = "../html/dream.html?time="+new Date().getTime()
                 }else if(obj.type == 'auth'){
-                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/auth.html?time="+new Date().getTime()
+                    window.location.href = "../html/auth.html?time="+new Date().getTime()
                 }else{
                     alert($('.font').html())
                 }

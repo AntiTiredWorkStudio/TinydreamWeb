@@ -104,11 +104,11 @@ $(function(){
                     if($_GET.phone == 'false'){
                         var flag = $_GET.phone;
                         flag = 'true';
-                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html";
+                        window.location.href = "../html/GetRedPack.html";
                     }else if($_GET.type == 'pay'){
-                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/R_payInfo.html";
+                        window.location.href = "../html/R_payInfo.html";
                     }else if(mainpool == '' || mainpool == undefined){
-                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html";
+                        window.location.href = "../index.html";
                     }else{
                         console.log(mainpool)
                         TD_Request("ds","buy",{
@@ -122,13 +122,13 @@ $(function(){
                                     // return;
                                     if(confirm("您还没有添加梦想，添加梦想后才能参与互助")){                                   
                                         localStorage.setItem('buy',JSON.stringify(data.actions));
-                                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/dream.html"
+                                        window.location.href = "../html/dream.html"
                                     }else{
-                                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html"
+                                        window.location.href = "../index.html"
                                     }
                                 }else{
                                     localStorage.setItem('buy',JSON.stringify(data.actions));
-                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html";
+                                    window.location.href = "../html/payInfo.html";
                                 }
                             }
                         },function(code,data){

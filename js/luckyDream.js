@@ -19,17 +19,17 @@ $(function(){
             },function(code,data){
                 console.log(data)
                 localStorage.setItem('dr','{"did":"'+lucky.did+'","state":"all"}')
-			    window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/add.html?time='+new Date().getTime()
+			    window.location.href = '../html/add.html?time='+new Date().getTime()
             },function(code,data){
                 console.log(data)   
                alert('您还未实名认证，请认证后在进行完善')
-               window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/auth.html?time='+new Date().getTime()
+               window.location.href = '../html/auth.html?time='+new Date().getTime()
             })
 			
 		})
 	}
     $('.look').click(function(){
         localStorage.setItem('dr','{"did":"'+lucky.did+'","state":"all"}');
-        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/html/award.html?time='+new Date().getTime();
+        window.location.href = '../html/award.html?time='+new Date().getTime();
     })
 })

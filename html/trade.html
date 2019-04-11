@@ -48,7 +48,7 @@
         WebApp.JSAPI.InitShare({
 			title:'小生意互助',
 			desc:"本期小生意互助---"+title,
-			link:'http://tinydream.antit.top/TinydreamWeb/html/trade.html?id='+$_GET.id+'&time='+new Date().getTime()+'&pid='+pid+'&trade='+encodeURI(title),
+			link:'../html/trade.html?id='+$_GET.id+'&time='+new Date().getTime()+'&pid='+pid+'&trade='+encodeURI(title),
 			imgUrl:"https://tdream.antit.top/image/trade_ybshj.jpg"
 		});
 		if($_GET['id']){
@@ -76,14 +76,14 @@
                     console.log(data)
                     localStorage.setItem('buy',JSON.stringify(data.actions));
                     // alert(1)
-                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?state=trade&time="+new Date().getTime();
+                    window.location.href = "../html/payInfo.html?state=trade&time="+new Date().getTime();
                 }
             },function(code,data){
                 FinishLoading()
                 if(code == 11 || !data.result){
                     alert("您尚"+data.context+",绑定手机后才能继续参与互助");
                     localStorage.setItem('mainpool',JSON.stringify(mainpool));
-                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/phoneManage.html?time="+new Date().getTime();
+                    window.location.href = "../html/phoneManage.html?time="+new Date().getTime();
                 }else if(code == 18){
                     alert("您当日购买次数已达上限");
                     return;

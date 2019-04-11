@@ -104,7 +104,7 @@
                 $('.fenpei').html('<p>幸运者收益：项目运作后，初始产生的利润额度'+data.precent.trade.profit / 100+'元 + 之后利润的50%</p><p>互助者收益：互助者平分项目“项目运作利润达到'+ data.precent.trade.profit / 100 +'元之后”利润的50%</p>')
                 $('.trad_title').html(data.precent.trade.title)
                 $('.trade_info').html(data.precent.trade.awardTitle)
-                $('.link').attr('href','http://tinydream.antit.top/TinydreamWeb/html/trade.html?id='+data.precent.trade.url).html('查看详情').css('color','#00d094')
+                $('.link').attr('href','../html/trade.html?id='+data.precent.trade.url).html('查看详情').css('color','#00d094')
                 echarts.init(document.getElementById('main')).setOption({
                     grid:{
                         top:'25%',
@@ -136,7 +136,7 @@
                 console.log(data)
             })
         }else{
-            window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html'
+            window.location.href = '../index.html'
         }
         
         

@@ -1,7 +1,7 @@
 WebApp.JSAPI.Init({
 			title:"新手指引-小梦想互助！",
 			desc:"互助小额零钱，夺大额梦想金。",
-			link:"http://tinydream.antit.top/TinydreamWeb/html/question.html",
+			link:"../html/question.html",
 			imgUrl:"http://tdream.antit.top/image/titleLogo.png"
 		});
 $(function(){

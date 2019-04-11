@@ -140,7 +140,7 @@ $(function(){
 
     $('.look_info').click(function(){
 		SaveStorage("pid",poolInfo.pid);
-        window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/calc.html"
+        window.location.href = "../html/calc.html"
     })
     // WebApp.JSAPI.Init()
 })

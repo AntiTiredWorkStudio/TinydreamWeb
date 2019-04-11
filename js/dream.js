@@ -76,7 +76,7 @@ $(function(){
 						}else{
 							var dr = {did:$(this).attr('data-id'),state:''}
 							localStorage.setItem('dr',JSON.stringify(dr))
-							window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/add.html?time="+new Date().getTime()
+							window.location.href = "../html/add.html?time="+new Date().getTime()
 						}
                     })
                     
@@ -181,7 +181,7 @@ $(function(){
                 if($_GET.dream == 'false'){
                     var flag = $_GET.dream;
                     flag = 'true';
-                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/GetRedPack.html?time="+new Date().getTime();
+                    window.location.href = "../html/GetRedPack.html?time="+new Date().getTime();
                 }else if(typeof dream == 'undefined' || dream == '' || dream == null){
                     window.location.reload()
                 }else if(dream.hasOwnProperty('editdream')){
@@ -189,7 +189,7 @@ $(function(){
                     var mainpool = JSON.parse(localStorage.getItem('mainpool'));
                     RemoveStorage('mainpool');
                     if(mainpool == '' || mainpool == undefined){
-                        window.location.href = "http://tinydream.antit.top/TinydreamWeb/index.html?time="+new Date().getTime();
+                        window.location.href = "../index.html?time="+new Date().getTime();
                     }else{
                         console.log(mainpool)
                         TD_Request("ds","buy",{
@@ -201,7 +201,7 @@ $(function(){
                                 if(!data.actions.hasOwnProperty('editdream')){
                                     console.log(data.actions)
                                     localStorage.setItem('buy',JSON.stringify(data.actions));
-                                    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/payInfo.html?time="+new Date().getTime();
+                                    window.location.href = "../html/payInfo.html?time="+new Date().getTime();
                                 }
                             }
                         },function(code,data){
@@ -242,7 +242,7 @@ $(function(){
         // console.log($("input[type='checkbox']").is(':checked'))
    })
    $('.xieyi').click(function(){
-    window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/xieyi.html?time="+new Date().getTime()
+    window.location.href = "../html/xieyi.html?time="+new Date().getTime()
 })
     // WebApp.JSAPI.Init()
 })

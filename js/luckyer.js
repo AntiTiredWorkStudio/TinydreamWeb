@@ -128,7 +128,7 @@ var onAwardViewBuild = function (awardItem) {
         for(var key in awardItem){
             awardViewObject = WebApp.View.AddViewData(awardViewObject,awardItem[key]);
         }
-        WebApp.View.BuildsView([awardViewObject],"http://tinydream.antit.top/TinydreamWeb/view",
+        WebApp.View.BuildsView([awardViewObject],"../view",
             function(result,data){
                 var content = $('#vlist').html();
                 $('#vlist').html(content + data[snippetID]);

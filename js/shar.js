@@ -20,7 +20,7 @@ $(function () {
     //alert('Loading:'+JSON.stringify(Options));
 	
     if(typeof url == 'undefined' || url == '' || url == null || typeof localStorage.getItem('info') == 'undefined' || localStorage.getItem('info') == null){
-        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime();
+        window.location.href = '../index.html?time='+new Date().getTime();
     }else{
         $.post('../php/url.php',{headimgurl:userInfo.headimgurl},function(data){
 			//alert('Loading url.php:'+JSON.stringify(data));
@@ -216,16 +216,16 @@ $(function () {
             //     return;
             // }
             if(obj.state == 'RUNNING'){
-                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/helpInfo.html?time"+new Date().getTime();
+                window.location.href = "../html/helpInfo.html?time"+new Date().getTime();
             }else{
-                window.location.href = "http://tinydream.antit.top/TinydreamWeb/html/end.html?time"+new Date().getTime();
+                window.location.href = "../html/end.html?time"+new Date().getTime();
             }    
         },function(code,data){
             console.log(data)
         })
     })
     WebApp.JSAPI.OnShareFriend = function(res){
-        window.location.href = 'http://tinydream.antit.top/TinydreamWeb/index.html?time='+new Date().getTime()
+        window.location.href = '../index.html?time='+new Date().getTime()
     }
 }
 
