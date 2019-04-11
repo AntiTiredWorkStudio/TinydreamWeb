@@ -16,7 +16,7 @@ var actionClock = new Vue({
     created(){
         this.tabbar = common.tabbar;
         // 创建行动实例
-        this.Mat(self);
+        this.Mat(this);
     },
     methods:{
         // 打卡
@@ -28,8 +28,7 @@ var actionClock = new Vue({
                 console.log(data)
                 console.log(data.calendar.days);
                 self.days = data.calendar.days;
-                var currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
-                self.currentMonth = currentMonth;
+                self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
             },function(code,data){
                 console.log(data);
             })
