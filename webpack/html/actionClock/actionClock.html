@@ -45,15 +45,24 @@
                 <van-col span="24" class="date">
                     <div class="warper">
                         <van-row class="date" style="width:5.88rem;margin:0 auto 0.7rem;padding: 0.38rem">
-                            <van-col span="8" style="text-align:left">
+                            <van-col span="8" style="text-align:left;color:#999">
                                 <van-icon name="arrow-left"></van-icon>
                             </van-col>
                             <van-col span="8" style="text-align:center">
                                 <p style="font-size:0.36rem">{{currentMonth == '' ? '--' : currentMonth}}</p>
                             </van-col>
-                            <van-col span="8" style="text-align:right">
+                            <van-col span="8" style="text-align:right;color:#999">
                                 <van-icon name="arrow"></van-icon>
                             </van-col>
+                        </van-row>
+                        <van-row class="week wid">
+                            <van-col span="3">{{week[0]}}</van-col>
+                            <van-col span="3">{{week[1]}}</van-col>
+                            <van-col span="3">{{week[2]}}</van-col>
+                            <van-col span="3">{{week[3]}}</van-col>
+                            <van-col span="3">{{week[4]}}</van-col>
+                            <van-col span="3">{{week[5]}}</van-col>
+                            <van-col span="3">{{week[6]}}</van-col>
                         </van-row>
                     </div>
                 </van-col>
