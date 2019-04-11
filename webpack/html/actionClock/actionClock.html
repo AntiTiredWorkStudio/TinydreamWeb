@@ -63,9 +63,10 @@
                             <van-col span="3" class="font-26">{{week[4]}}</van-col>
                             <van-col span="3" class="font-26">{{week[5]}}</van-col>
                             <van-col span="3" class="font-26">{{week[6]}}</van-col>
+                            <van-col span="3" class="font-26" style="color:#333" v-for="(day,index) in days">{{day.Day}}</van-col>
                         </van-row>
                         <van-row class="week wid" >
-                            <van-col span="3" class="font-26" style="color:#333" v-for="(day,index) in days">{{day.Day}}</van-col>
+                            
                         </van-row>
                     </div>
                 </van-col>
