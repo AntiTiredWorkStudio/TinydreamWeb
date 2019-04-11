@@ -43,7 +43,7 @@ var onLuckyInfoViewBuild = function (dreamInfo) {
     //for(var key in dreamInfo){
     //}
     console.log("luckyInfoViewObject",luckyInfoViewObject);
-    WebApp.View.BuildsView([luckyInfoViewObject],"../view",
+    WebApp.View.BuildsView([luckyInfoViewObject],"../TinydreamWeb/view",
         function(result,data){
             $('#luckyInfo').html(data[snippetID]);
         }
