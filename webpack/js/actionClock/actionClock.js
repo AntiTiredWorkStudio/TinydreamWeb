@@ -23,6 +23,7 @@ var actionClock = new Vue({
         Mat(self){
             TD_Request('op','cal',{uid:uid,seek:0},function(code,data){
                 console.log(data)
+                console.log(data.calendar)
             },function(code,data){
                 console.log(data);
             })
