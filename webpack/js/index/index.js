@@ -36,6 +36,7 @@ var app = new Vue({
             WebApp.Init('wxc5216d15dd321ac5',//appid
             function(result,data){//result:请求状态,data 请求结果
                 console.log(Options.GetUserInfo());
+                self.tabbar = common.tabbar;
                 self.userInfo = Options.GetUserInfo();
                 // 开启测试服务器
                 Options.TestServer = true;
@@ -57,7 +58,6 @@ var app = new Vue({
                 nickname:self.userInfo.nickname,
                 headicon:self.userInfo.headimgurl
             },function(code,data){
-                self.tabbar = common.tabbar;
                 console.log(data)
                 self.$toast.clear();
                 self.$toast.loading({
