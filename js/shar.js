@@ -75,7 +75,7 @@ $(function () {
                     nickname:"Michael Kong"
                 };//测试用*/
                 var imgArr = [
-                    url,headicon,'http://tdream.antit.top/LongPress2ShareQR.jpg'
+                    url,headicon,'http://tinydream.ivkcld.cn/LongPress2ShareQR.jpg'
                 ];
                 next(imgArr,0,0,0,$(window).width() * ratio,$(window).height() * ratio,canvas); 
                 // alert('imgArr:'+JSON.stringify(imgArr))
