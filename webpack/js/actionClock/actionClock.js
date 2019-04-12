@@ -35,7 +35,7 @@ var actionClock = new Vue({
             TD_Request('op','cal',{uid:uid,seek:0},function(code,data){
                 console.log(data)
                 console.log(data.calendar.days);
-                self.day_1 = data.calendar.days.filter(v=>v.weekDay == '星期一');
+                self.day_1 = data.calendar.days.filter(v=>v.weekDay == '一');
                 console.log(self.day_1)
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
             },function(code,data){
