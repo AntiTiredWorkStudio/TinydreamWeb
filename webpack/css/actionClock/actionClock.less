@@ -56,33 +56,26 @@
                 height: 8.42rem;
                 margin: 0 auto;
                 background: url(https://tdream.antit.top/YPBJ.png) no-repeat center center / 6.8rem 8.42rem;
-                table{
+                .weekDate{
                     width: 6.1rem;
                     margin: 0 auto;
                     text-align: center;
-                    thead{
+                    overflow: hidden;
+                    dl{
                         width: 100%;
                         font-size: 0.26rem;
                         color: #999;
-                        tr{
-                            td{
-                                margin-left: 0.76rem;
-                            }
-                            td:nth-child(7){
-                                margin-left: 0;
+                        float: left;
+                        margin-left: 0.76rem;
+                        text-align: center;
+                        dt{
+                            dd{
+                                margin-top: 0.7rem;
                             }
                         }
                     }
-                    tbody{
-                        width:100%;
-                        tr{
-                            margin-top: 0.7rem;
-                            text-align: center;
-                            color: #333;
-                            td{
-                                border-radius: 50%; 
-                            }
-                        }
+                    dl:nth-child(7){
+                        margin-left: 0;
                     }
                 }
             }
