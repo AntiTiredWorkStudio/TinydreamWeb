@@ -12,7 +12,7 @@ try {
 		WebApp.JSAPI.InitShare({
 			title:nickname+"给你发了一个梦想红包,领取可夺大额梦想金！",
 			desc:"小梦想互助——让每个小梦想 都有机会实现",
-			link:'http://tinydream.ivkcld.cn/html/getR_Pack.html?rid='+rid+'&?time='+new Date().getTime(),
+			link:'http://tinydream.ivkcld.cn/TinydreamWeb/html/getR_Pack.html?rid='+rid+'&?time='+new Date().getTime(),
 			imgUrl:"https://tdream.antit.top/image/Red_Open.jpg"
 		});
 		WebApp.JSAPI.OnShareTimeLine = function(res){
