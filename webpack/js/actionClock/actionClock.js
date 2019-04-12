@@ -15,6 +15,7 @@ var actionClock = new Vue({
     },
     created(){
         this.tabbar = common.tabbar;
+        common.notice(this,uid);
         // 创建行动实例
         this.Mat(this);
     },

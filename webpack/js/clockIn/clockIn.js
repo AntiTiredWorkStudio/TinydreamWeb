@@ -24,6 +24,7 @@ var clockIn = new Vue({
     },
     created(){
         this.tabbar = common.tabbar;
+        common.notice(this,uid);
         Options.TestServer = false;
         // 获取合约列表
         this.list(this)

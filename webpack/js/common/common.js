@@ -25,11 +25,6 @@ var common = new Vue({
         ],
         ncount:''
     },
-    // created(){
-    //     if(typeof Options.GetUserInfo().openid != 'undefined' || Options.GetUserInfo().openid != null){
-    //         this.notice(this,Options.GetUserInfo().openid)
-    //     }
-    // },
     methods:{
         notice(self,uid){
             console.log(uid)
