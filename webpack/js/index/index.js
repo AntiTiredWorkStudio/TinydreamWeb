@@ -37,6 +37,7 @@ var app = new Vue({
             function(result,data){//result:请求状态,data 请求结果
                 console.log(Options.GetUserInfo());
                 self.tabbar = common.tabbar;
+                common.notice(Options.GetUserInfo().openid);
                 self.userInfo = Options.GetUserInfo();
                 // 开启测试服务器
                 Options.TestServer = true;
