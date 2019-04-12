@@ -55,40 +55,19 @@
                                 <van-icon name="arrow"></van-icon>
                             </van-col>
                         </van-row>
-                        <div class="weekDate">
-                            <dl>
-                                <dt class="week">{{week[0]}}</dt>
-                                <dd>&nbsp;</dd>
-                                <dd>&nbsp;</dd>
-                                <dd v-for="day in day_7">{{day.Day}}</dd>
-                            </dl>
-                            <dl>
-                                <dt class="week">{{week[1]}}</dt>
-                                <dd>&nbsp;</dd>
-                                <dd>&nbsp;</dd>
-                                <dd v-for="day in day_1">{{day.Day}}</dd>
-                            </dl>
-                            <dl>
-                                <dt class="week">{{week[2]}}</dt>
-                                <dd v-for="day in day_2">{{day.Day}}</dd>
-                            </dl>
-                            <dl>
-                                <dt class="week">{{week[3]}}</dt>
-                                <dd v-for="day in day_3">{{day.Day}}</dd>
-                            </dl>
-                            <dl>
-                                <dt class="week">{{week[4]}}</dt>
-                                <dd v-for="day in day_4">{{day.Day}}</dd>
-                            </dl>
-                            <dl>
-                                <dt class="week">{{week[5]}}</dt>
-                                <dd v-for="day in day_5">{{day.Day}}</dd>
-                            </dl>
-                            <dl>
-                                <dt class="week">{{week[6]}}</dt>
-                                <dd v-for="day in day_6">{{day.Day}}</dd>
-                            </dl>
-                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>{{week[0]}}</td>
+                                    <td>{{week[1]}}</td>
+                                    <td>{{week[2]}}</td>
+                                    <td>{{week[3]}}</td>
+                                    <td>{{week[4]}}</td>
+                                    <td>{{week[5]}}</td>
+                                    <td>{{week[6]}}</td>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
                 </van-col>
             </div>
