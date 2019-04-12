@@ -276,6 +276,11 @@ if (!ExistStorage("buy")) {
                 if(PERMISSION_USER(userInfo.openid)){
                     // console.log("is test user");
                     // Options.TestServer = true;
+                    localStorage.setItem('img',imgArr[imgNum]);
+                                localStorage.setItem('info',JSON.stringify({'did':$('#dream').attr('data-values'),'pid':pool.pid}));
+                                // 关闭弹窗
+                                localStorage.removeItem('buy');
+                                window.location.href = '../html/share.htm?time='+new Date().getTime();
                     alert(actions.pay.oid);
                 }
                 // if(PERMISSION_USER(userInfo.openid)){
