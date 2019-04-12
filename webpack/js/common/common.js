@@ -32,6 +32,7 @@ var common = new Vue({
     // },
     methods:{
         notice(self,uid){
+            console.log(uid)
             TD_Request('no','nc',{uid:uid},function(code,data){
                 if(data.ncount == 0){
                     self.ncount = '';
