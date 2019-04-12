@@ -23,6 +23,16 @@
                         <van-field id="phoneNum" v-model="phone" placeholder="请输入手机号" left-icon="http://tdream.antit.top/image/tele.png"/>
                     </div>
                 </van-col>
+                <yd-sendcode
+                    v-model="start2"
+                    @click.native="start2 = true"
+                    second="15"
+                    init-str="获取短信验证码"
+                    run-str="在{%s}秒后重新获取"
+                    reset-str="重新获取"
+                    size="large"
+                    type="primary"
+            ></yd-sendcode>
             </div>
         </div>
     </diV>
