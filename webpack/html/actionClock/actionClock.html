@@ -55,22 +55,19 @@
                                 <van-icon name="arrow"></van-icon>
                             </van-col>
                         </van-row>
-                        <van-row class="week wid">
-                            <van-col span="3" class="font-26">
-                                <van-col span="3">{{week[0]}}</van-col>
-                                <van-col span="3" class="font-26" style="color:#333;margin-top:0.7rem" v-for="(day,index) in day_1">{{day.Day == ''}}</van-col>
-                            </van-col>
-                            <van-col span="3" class="font-26">{{week[1]}}</van-col>
-                            <van-col span="3" class="font-26">{{week[2]}}</van-col>
-                            <van-col span="3" class="font-26">{{week[3]}}</van-col>
-                            <van-col span="3" class="font-26">{{week[4]}}</van-col>
-                            <van-col span="3" class="font-26">{{week[5]}}</van-col>
-                            <van-col span="3" class="font-26">{{week[6]}}</van-col>
-                            <van-col span="3" class="font-26" style="color:#333;margin-top:0.7rem" v-for="(day,index) in days">{{day.Day}}</van-col>
-                        </van-row>
-                        <van-row class="week wid" >
-                            
-                        </van-row>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>{{week[0]}}</td>
+                                    <td>{{week[1]}}</td>
+                                    <td>{{week[2]}}</td>
+                                    <td>{{week[3]}}</td>
+                                    <td>{{week[4]}}</td>
+                                    <td>{{week[5]}}</td>
+                                    <td>{{week[6]}}</td>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
                 </van-col>
             </div>
