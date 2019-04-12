@@ -21,7 +21,7 @@
         //$imgBase64Code = "data:image/jpeg;base64," . base64_encode($datas);
 		$name = time().rand(10000,99999).".jpg";
 		file_put_contents($name,$datas);
-		$imgBase64Code = "http://tinydream.antit.top/TinydreamWeb/php/".$name;
+		$imgBase64Code = "http://tinydream.ivkcld.cn/TinydreamWeb/php/".$name;
         echo $imgBase64Code;
     }
 ?>
