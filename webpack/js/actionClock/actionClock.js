@@ -36,6 +36,11 @@ var actionClock = new Vue({
                 console.log(data)
                 console.log(data.calendar.days);
                 self.day_1 = data.calendar.days.filter(k=>k.weekDay == '一');
+                self.day_2 = data.calendar.days.filter(k=>k.weekDay == '二');
+                self.day_3 = data.calendar.days.filter(k=>k.weekDay == '三');
+                self.day_4 = data.calendar.days.filter(k=>k.weekDay == '四');
+                self.day_5 = data.calendar.days.filter(k=>k.weekDay == '五');
+                self.day_6 = data.calendar.days.filter(k=>k.weekDay == '六');
                 self.day_7 = data.calendar.days.filter(k=>k.weekDay == '日');
                 console.log(self.day_1,self.day_7)
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
