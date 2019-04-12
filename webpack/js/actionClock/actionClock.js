@@ -34,10 +34,20 @@ var actionClock = new Vue({
         Mat(self){
             TD_Request('op','cal',{uid:uid,seek:0},function(code,data){
                 console.log(data)
+                // 创建打卡记录
+                self.Clock(self,data.calendar.opid);
                 console.log(data.calendar.days);
                 var arr = [];
                 
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
+            },function(code,data){
+                console.log(data);
+            })
+        },
+        // 打卡
+        Clock(self,opid){
+            TD_Request('op','mat',{opid:opid,uid:uid},function(code,data){
+                console.log(data);
             },function(code,data){
                 console.log(data);
             })
