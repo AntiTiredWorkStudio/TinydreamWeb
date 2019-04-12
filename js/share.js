@@ -3,7 +3,7 @@ try {
 	if(localStorage.getItem('msg') == 'ok'){
 		localStorage.removeItem('msg');
 	}else{
-		window.location.href = '../html/getR_Pack.html?rid='+rid;
+		// window.location.href = '../html/getR_Pack.html?rid='+rid;
 	}
 	TD_Request('rp','grp',{rid:rid},function(code,data){
 		console.log(data)
