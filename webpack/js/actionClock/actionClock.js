@@ -74,7 +74,7 @@ var actionClock = new Vue({
             console.log(totalDay,firstDay);
             $.each(days,function(index,item){
                 console.log(item)
-                $('<li>'+item.Day+'</li>').appendTo('.day')
+                $('<li>'+item.Day+'</li>').appendTo('.weekDate .day')
             })
         }
     }
