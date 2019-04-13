@@ -56,13 +56,25 @@ var actionClock = new Vue({
             var str = "";
             var totalDay = days.length;//天数
             var firstDay = days[0].weekDay;
-            console.log(new Date('1553961600').getDay())
-            return;
-            console.log(totalDay,firstDay);
-            for (let i = 0; i < firstDay; i++) {
-                
-                
+            if(firstDay == '日'){
+                firstDay = 0;
+            }else if(firstDay == '一'){
+                firstDay = 1;
+            }else if(firstDay == '二'){
+                firstDay = 2;
+            }else if(firstDay == '三'){
+                firstDay = 3;
+            }else if(firstDay == '四'){
+                firstDay = 4;
+            }else if(firstDay == '五'){
+                firstDay = 5;
+            }else if(firstDay == '六'){
+                firstDay = 6;
             }
+            console.log(totalDay,firstDay);
+            $.each(days,function(index,item){
+                console.log(item)
+            })
         }
     }
 })
