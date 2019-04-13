@@ -52,10 +52,10 @@ var actionClock = new Vue({
             })
         },
         // 生成日历
-        refreshDate(totalDay){
+        refreshDate(days){
             var str = "";
-            var totalDay = totalDay.length;//天数
-            var firstDay = totalDay[0].weekDay;
+            var totalDay = days.length;//天数
+            var firstDay = days[0].weekDay;
             console.log(totalDay,firstDay);
         }
     }
