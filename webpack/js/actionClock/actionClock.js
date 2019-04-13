@@ -37,10 +37,8 @@ var actionClock = new Vue({
                 // 创建打卡记录
                 self.Clock(self,data.calendar.opid);
                 console.log(data.calendar.days);
-                self.day_1 = data.calendar.days.filter(k=>k.weekDay == '一');
-                console.log(self.day_1);
-                
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
+                self.refreshDate(data.calendar.days)
             },function(code,data){
                 console.log(data);
             })
@@ -52,6 +50,13 @@ var actionClock = new Vue({
             },function(code,data){
                 console.log(data);
             })
+        },
+        // 生成日历
+        refreshDate(totalDay){
+            var str = "";
+            var totalDay = totalDay.length;//天数
+            var firstDay = totalDay[0].weekDay;
+            console.log(totalDay,firstDay);
         }
     }
 })
