@@ -32,7 +32,7 @@ var actionClock = new Vue({
             console.log('已打卡')
         },
         Mat(self){
-            TD_Request('op','cal',{uid:uid,seek:0},function(code,data){
+            TD_Request('op','cal',{uid:uid,seek:0,full:'month'},function(code,data){
                 console.log(data)
                 // 创建打卡记录
                 self.Clock(self,data.calendar.opid);

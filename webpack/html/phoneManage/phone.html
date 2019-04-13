@@ -25,13 +25,14 @@
                 </van-col>
                 <yd-sendcode
                     v-model="sendState"
-                    @click.native="sendState = true"
+                    @click.native="sendCode"
                     second="60"
                     init-str="获取短信验证码"
-                    run-str="在{%s}秒后重新获取"
+                    run-str="{%s}秒后重新获取"
                     reset-str="重新获取"
                     size="large"
                     type="primary"
+                    storage-key="send"
             ></yd-sendcode>
             </div>
         </div>
