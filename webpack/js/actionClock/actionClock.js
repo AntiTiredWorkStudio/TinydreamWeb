@@ -56,7 +56,13 @@ var actionClock = new Vue({
             var str = "";
             var totalDay = days.length;//天数
             var firstDay = days[0].weekDay;
+            console.log(new Date().getDay())
+            return;
             console.log(totalDay,firstDay);
+            for (let i = 0; i < firstDay; i++) {
+                
+                
+            }
         }
     }
 })
