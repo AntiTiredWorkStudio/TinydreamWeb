@@ -74,7 +74,13 @@ var actionClock = new Vue({
             console.log(totalDay,firstDay);
             $.each(days,function(index,item){
                 if(item.hasOwnProperty('id')){
-                    $('<li class="enable"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                    if(item.state == 'NONE'){
+                        $('<li class="enable"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                    }else if(item.state == "NOTRELAY"){
+                        $('<li class="enable"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                    }else if(item.state == "NOTRELAY"){
+                        
+                    }
                 }else{
                     $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                 }
