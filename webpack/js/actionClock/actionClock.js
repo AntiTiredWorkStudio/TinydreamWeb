@@ -37,7 +37,8 @@ var actionClock = new Vue({
                 // 创建打卡记录
                 self.Clock(self,data.calendar.opid);
                 console.log(data.calendar.days);
-                var arr = [];
+                self.day_1 = data.calendar.days.filter(k=>k.weekDay == '一')；
+                console.log(self.day_1);
                 
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
             },function(code,data){
