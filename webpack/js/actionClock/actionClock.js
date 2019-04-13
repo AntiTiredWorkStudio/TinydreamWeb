@@ -56,9 +56,7 @@ var actionClock = new Vue({
             var str = "";
             var totalDay = days.length;//天数
             var firstDay = days[0].weekDay;
-            if(firstDay == '日'){
-                firstDay = 0;
-            }else if(firstDay == '一'){
+            if(firstDay == '一'){
                 firstDay = 1;
             }else if(firstDay == '二'){
                 firstDay = 2;
@@ -70,9 +68,15 @@ var actionClock = new Vue({
                 firstDay = 5;
             }else if(firstDay == '六'){
                 firstDay = 6;
+            }else if(firstDay == '日'){
+                firstDay = 0;
+            }
+            for (let i = 0; i < firstDay; i++) {
+                $('<li>&nbsp</li>').appendTo('.weekDate .day');
             }
             console.log(totalDay,firstDay);
             $.each(days,function(index,item){
+
                 if(item.hasOwnProperty('id')){
                     if(item.state == 'NONE'){
                         $('<li class="enable"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
