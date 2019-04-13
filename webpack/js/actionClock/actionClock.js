@@ -75,6 +75,7 @@ var actionClock = new Vue({
             $.each(days,function(index,item){
                 console.log(item)
                 $('<li><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                console.log(item.hasOwnProperty('id'))
                 if(item.hasOwnProperty('id')){
                     $('.weekDate .day li').attr('class','enable')
                 }else{
