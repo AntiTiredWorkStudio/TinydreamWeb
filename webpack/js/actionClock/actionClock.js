@@ -47,7 +47,7 @@ var actionClock = new Vue({
                 self.opid = data.calendar.opid;
                 console.log(data.calendar.days);
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
-                self.refreshDate(data.calendar.days)
+                self.refreshDate(data.calendar.days,self)
             },function(code,data){
                 console.log(data);
             })
@@ -63,7 +63,7 @@ var actionClock = new Vue({
             })
         },
         // 生成日历
-        refreshDate(days){
+        refreshDate(days,self){
             var str = "";
             var totalDay = days.length;//天数
             var firstDay = days[0].weekDay;
@@ -101,8 +101,7 @@ var actionClock = new Vue({
                     $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                 }
             })
-            $('li').click(function(){
-                console.log(self)
+            $('li.enable').click(function(){
                 self.card(self,$(this).attr('id'));
             })
         },
