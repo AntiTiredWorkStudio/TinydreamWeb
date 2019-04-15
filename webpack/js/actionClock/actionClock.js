@@ -230,8 +230,9 @@ var actionClock = new Vue({
                 $('.icon-right').show();
             }else{
                 $('.icon-left').show();
-                this.seek++;
+                this.seek--;
             }
+            this.Mat(this)
         },
         right(){
             if(this.seek == this.countMonth){
@@ -239,8 +240,9 @@ var actionClock = new Vue({
                 $('.icon-left').show();
             }else{
                 $('.icon-right').show();
-                this.seek--;
+                this.seek++;
             }
+            this.Mat(this)
         }
     }
 })
