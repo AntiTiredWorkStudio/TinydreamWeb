@@ -43,7 +43,8 @@
                     <van-icon class="icon" name="https://tdream.antit.top/image/leftarrow.png"></van-icon>
                 </van-col>
             </div>
-            <div class="bottom">
+            <div class="bottom" v-for="headicon in headicons">
+                {{headicon}}
                 <van-icon :name="headicon.headicon" v-for="headicon in headicons" class="icon"></van-icon>
             </div>
         </div>
