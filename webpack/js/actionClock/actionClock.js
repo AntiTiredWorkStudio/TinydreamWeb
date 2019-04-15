@@ -67,7 +67,7 @@ var actionClock = new Vue({
                 self.btnTxt = '已打卡';
                 self.disabled = true;
                 console.log(data);
-                self.clockInfo(self,self.attendance.opid);
+                self.clockInfo(self,opid);
                 self.isshow = true;
             },function(code,data){
                 console.log(data);
