@@ -148,7 +148,7 @@ var actionClock = new Vue({
                 self.$toast.clear();
                 self.dialog.alert({
                     title:'温馨提示',
-                    message:JSON.stringify(data.context)
+                    message:data.context
                 })
             })
         }
