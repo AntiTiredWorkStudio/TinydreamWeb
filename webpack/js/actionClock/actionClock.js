@@ -16,7 +16,6 @@ var actionClock = new Vue({
         isshow:false,//弹窗
         headicon:'',//用户头像
         colckinfo:'',//打卡信息
-        theme:'',//行动主题
     },
     created(){
         Options.TestServer = true;
@@ -57,7 +56,7 @@ var actionClock = new Vue({
         Clock(self,opid){
             TD_Request('op','mat',{opid:opid,uid:uid},function(code,data){
                 console.log(data);
-                self.clockInfo(self,self.attendance);
+                self.clockInfo(self,self.attendance.opid);
                 self.isshow = true;
             },function(code,data){
                 console.log(data);
@@ -88,20 +87,22 @@ var actionClock = new Vue({
             }
             console.log(totalDay,firstDay);
             $.each(days,function(index,item){
-
                 if(item.hasOwnProperty('id')){
                     if(item.state == 'NONE'){
-                        $('<li class="enable"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        $('<li class="enable" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "NOTRELAY"){
-                        $('<li class="enable"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        $('<li class="enable" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "RELAY"){
-                        $('<li class="enable"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == 'SUPPLY'){
-                        $('<li class="enable"><span class="normal green">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        $('<li class="enable" id="'+item.date+'"><span class="normal green">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }
                 }else{
                     $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                 }
+            })
+            $('li').click(function(){
+                console.log($(this));
             })
         },
         // 打卡信息
@@ -124,6 +125,14 @@ var actionClock = new Vue({
         close(){
             this.isshow = false;
             this.clockInfo(this,this.opid);
+        },
+        // 补卡
+        card(){
+            TD_Request('op','pat',{uid:uid,date:date},function(code,data){
+                console.log(data)
+            },function(code,data){
+
+            })
         }
     }
 })
