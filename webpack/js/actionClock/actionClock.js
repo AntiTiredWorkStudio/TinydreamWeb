@@ -154,9 +154,9 @@ var actionClock = new Vue({
                     imgUrl:"http://tdream.antit.top/image/titleLogo.png"
                 });
                 WebApp.JSAPI.OnShareTimeLine = function(res){
-                    if(res.errMsg == 'onMenuShareAppMessage:ok'){
+                    if(res.errMsg == 'onMenuShareTimeline:ok'){
                         self.share(self,opid,date);
-                    }else if(res.errMsg == 'onMenuShareAppMessage:cancel'){
+                    }else if(res.errMsg == 'onMenuShareTimeline:cancel'){
                         self.$toast.fail('您取消了分享')
                     }
                 }
