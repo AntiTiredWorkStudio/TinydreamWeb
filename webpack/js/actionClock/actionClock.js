@@ -46,6 +46,15 @@ var actionClock = new Vue({
             TD_Request('op','cal',{uid:uid,seek: self.seek,full:'month'},function(code,data){
                 console.log(data)
                 self.$toast.clear();
+                if(data.calendar.monthIndex.length == 1){
+                    $('.icon-left,.icon-right').hide();
+                }
+                if(self.seek == 0){
+                    $('.icon-left').hide();
+                }
+                if(data.calendar.monthIndex.length - 1 == self.seek){
+                    $('.icon-right').hide();
+                }
                 // 打卡信息
                 self.clockInfo(self,data.calendar.opid);
                 self.countMonth = data.calendar.monthIndex.length - 1;
@@ -69,16 +78,6 @@ var actionClock = new Vue({
                 self.btnTxt = '已打卡';
                 self.isdisabled = true;
                 console.log(data);
-                console.log(data.calendar.monthIndex)
-                if(data.calendar.monthIndex.length == 1){
-                    $('.icon-left,.icon-right').hide();
-                }
-                if(self.seek == 0){
-                    $('.icon-left').hide();
-                }
-                if(data.calendar.monthIndex.length - 1 == self.seek){
-                    $('.icon-right').hide();
-                }
                 self.clockInfo(self,opid,data.attendance.date);
                 self.isshow = true;
             },function(code,data){
@@ -118,11 +117,12 @@ var actionClock = new Vue({
                         $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "NOTRELAY"){
                         $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                        self.btnTxt = '已打卡，点击右上角...分享'
+                        self.btnTxt = '分享'
                         self.isdisabled = true;
                     }else if(item.state == "RELAY"){
                         $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                        self.btnTxt = "已打卡"
+                        self.btnTxt = "已打卡";
+                        self.isdisabled = true;
                     }else if(item.state == 'SUPPLY'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal green">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }
@@ -216,10 +216,10 @@ var actionClock = new Vue({
             if(typeof date != 'undefined'){
                 console.log(date)
                 TD_Request('op','rep',{opid:opid,date:date,uid:uid},function(code,data){
-                    self.$toast.success('分享成功')
+                    self.$dialog.success('分享成功')
                     self.clockInfo(self,opid,date)
                 },function(code,data){
-                    self.$toast.fail('分享失败')
+                    self.$dialog.fail('分享失败')
                 })
             }else{
                 window.location.href = 'actionClock.html?time='+new Date().getTime();
