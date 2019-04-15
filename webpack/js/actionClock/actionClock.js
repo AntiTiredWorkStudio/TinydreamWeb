@@ -29,7 +29,7 @@ var actionClock = new Vue({
             TD_Request('op','cal',{uid:uid,seek:0,full:'month'},function(code,data){
                 console.log(data)
                 // 创建打卡记录
-                self.opid = ata.calendar.opid;
+                self.opid = data.calendar.opid;
                 console.log(data.calendar.days);
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
                 self.refreshDate(data.calendar.days)
