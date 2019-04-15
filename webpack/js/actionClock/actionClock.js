@@ -145,34 +145,10 @@ var actionClock = new Vue({
                 console.log(data)
                 self.$toast.clear();
             },function(code,data){
-                if(code == 87){
-                    self.$dialog.alert({
-                        title:'温馨提示',
-                        message:'亲~您当前的合约已经完成了哦'
-                    })
-                }else if(code == 88){
-                    self.$dialog.alert({
-                        title:'温馨提示',
-                        message:'亲~现在已经不在补卡的合理时间内啦！'
-                    })
-                }else if(code == 89){
-                    self.$dialog.alert({
-                        title:'温馨提示',
-                        message:'亲~您已经没有补卡次数了，快去增加次数吧！'
-                    })
-                }else if(code == 90){
-                    self.$dialog.alert({
-                        title:'温馨提示',
-                        message:'亲~当前日期不需要补卡！'
-                    })
-                }else if(code == 91){
-                    self.$dialog.alert({
-                        title:'错误提示',
-                        message:'当前补卡记录添加错误，请联系客服进行处理！'
-                    }).then(() => {
-                        console.log('联系客服')
-                    })
-                }
+                self.dialog.alert({
+                    title:'温馨提示',
+                    message:JSON.stringify(data)
+                })
             })
         }
     }
