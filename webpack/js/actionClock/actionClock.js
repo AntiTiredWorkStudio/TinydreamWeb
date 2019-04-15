@@ -69,6 +69,7 @@ var actionClock = new Vue({
                 self.btnTxt = '已打卡';
                 self.isdisabled = true;
                 console.log(data);
+                console.log(data.calendar.monthIndex)
                 if(data.calendar.monthIndex.length == 1){
                     $('.icon-left,.icon-right').hide();
                 }
