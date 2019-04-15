@@ -146,10 +146,32 @@ var actionClock = new Vue({
                 self.$toast.clear();
             },function(code,data){
                 self.$toast.clear();
-                self.$dialog.alert({
-                    title:'温馨提示',
-                    message:data.context
-                })
+                if(code == 87){
+                    self.$dialog.alert({
+                        title:'温馨提示',
+                        message:data.context
+                    })
+                }else if(code == 88){
+                    self.$dialog.alert({
+                        title:'温馨提示',
+                        message:data.context
+                    })
+                }else if(code == 89){
+                    self.$dialog.alert({
+                        title:'温馨提示',
+                        message:data.context
+                    })
+                }else if(code == 90){
+                    self.$dialog.alert({
+                        title:'温馨提示',
+                        message:data.context
+                    })
+                }else if(code == 91){
+                    self.$dialog.alert({
+                        title:'温馨提示',
+                        message:data.context
+                    })
+                }
             })
         }
     }
