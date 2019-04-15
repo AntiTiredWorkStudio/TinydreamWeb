@@ -114,10 +114,9 @@ var actionClock = new Vue({
                     $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                 }
             })
-            $('li.enable.leakage').click(function(){
+            $('li.enable').click(function(){
                 self.card(self,$(this).attr('id'));
             })
-            console.log($('li.leakage').attr('data-stamp') > lastattend)
         },
         // 打卡信息
         clockInfo(self,opid){
