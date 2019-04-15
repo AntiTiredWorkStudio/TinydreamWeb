@@ -118,6 +118,11 @@ var actionClock = new Vue({
             },function(code,data){
                 console.log(data)
             })
+        },
+        // 关闭弹窗
+        close(){
+            this.isshow = false;
+            this.clockInfo(this,this.opid);
         }
     }
 })
