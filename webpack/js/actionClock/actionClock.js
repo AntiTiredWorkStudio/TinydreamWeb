@@ -51,7 +51,12 @@ var actionClock = new Vue({
                 self.refreshDate(data.calendar.days,self)
             },function(code,data){
                 self.$toast.clear();
-                alert(JSON.stringify(data));
+                self.$dialog.alert({
+                    title:'温馨提示',
+                    message:data.context
+                }).then(()=>{
+                    window.location.href = '../../index.html?time='+new Date().getTime();
+                });
             })
         },
         // 打卡
