@@ -154,16 +154,16 @@ var actionClock = new Vue({
                     imgUrl:"http://tdream.antit.top/image/titleLogo.png"
                 });
                 WebApp.JSAPI.OnShareTimeLine = function(res){
-                    if(res.errMsg == 'onMenuShareTimeline:ok'){
+                    if(errMsg == 'onMenuShareTimeline:ok'){
                         self.share(self,opid,date);
-                    }else if(res.errMsg == 'onMenuShareTimeline:cancel'){
+                    }else if(errMsg == 'onMenuShareTimeline:cancel'){
                         self.$toast.fail('您取消了分享')
                     }
                 }
                 WebApp.JSAPI.OnShareFriend = function(res){
-                    if(res.errMsg == 'onMenuShareAppMessage:ok'){
+                    if(errMsg == 'onMenuShareAppMessage:ok'){
                         self.share(self,opid,date);
-                    }else if(res.errMsg == 'onMenuShareAppMessage:cancel'){
+                    }else if(errMsg == 'onMenuShareAppMessage:cancel'){
                         self.$toast.fail('您取消了分享')
                     }
                 }
