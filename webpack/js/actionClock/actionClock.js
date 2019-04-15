@@ -16,6 +16,7 @@ var actionClock = new Vue({
         isshow:false,//弹窗
         headicon:'',//用户头像
         colckinfo:'',//打卡信息
+        seek:0,//日历翻页
     },
     created(){
         Options.TestServer = true;
@@ -39,7 +40,7 @@ var actionClock = new Vue({
                 loadingType:'circular',
                 message:'日历创建中...'
             })
-            TD_Request('op','cal',{uid:uid,seek:0,full:'month'},function(code,data){
+            TD_Request('op','cal',{uid:uid,seek: self.seek,full:'month'},function(code,data){
                 console.log(data)
                 self.$toast.clear();
                 // 打卡信息
@@ -49,7 +50,8 @@ var actionClock = new Vue({
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
                 self.refreshDate(data.calendar.days,self)
             },function(code,data){
-                console.log(data);
+                self.$toast.clear();
+                alert(JSON.stringify(data));
             })
         },
         // 打卡
