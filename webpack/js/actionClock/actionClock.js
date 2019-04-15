@@ -197,6 +197,13 @@ var actionClock = new Vue({
             },function(code,data){
                 console.log(data);
             })
+        },
+        // 打卡日历
+        left(){
+            
+        },
+        right(){
+            
         }
     }
 })
