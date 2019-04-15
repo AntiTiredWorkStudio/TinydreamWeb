@@ -155,7 +155,6 @@ var actionClock = new Vue({
                 });
                 WebApp.JSAPI.OnShareTimeLine = function(res){
                     if(res.errMsg == 'onMenuShareAppMessage:ok'){
-                        console.log(res);
                         self.share(self,opid,date);
                     }else if(res.errMsg == 'onMenuShareAppMessage:cancel'){
                         self.$toast.fail('您取消了分享')
