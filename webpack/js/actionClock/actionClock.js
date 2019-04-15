@@ -48,6 +48,7 @@ var actionClock = new Vue({
                 self.$toast.clear();
                 // 打卡信息
                 self.clockInfo(self,data.calendar.opid);
+                self.countMonth = data.calendar.monthIndex.length - 1;
                 self.opid = data.calendar.opid;
                 console.log(data.calendar.days);
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
@@ -68,7 +69,6 @@ var actionClock = new Vue({
                 self.btnTxt = '已打卡';
                 self.isdisabled = true;
                 console.log(data);
-                self.countMonth = data.calendar.monthIndex.length - 1;
                 if(data.calendar.monthIndex.length == 1){
                     $('.icon-left,.icon-right').hide();
                 }
