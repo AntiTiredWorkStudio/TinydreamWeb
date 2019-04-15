@@ -196,13 +196,17 @@ var actionClock = new Vue({
         },
         // 分享
         share(opid,date){
-            console.log(date)
-            TD_Request('op','rep',{opid:opid,date:date,uid:uid},function(code,data){
-                self.$toast.success('分享成功')
-                self.clockInfo(self,opid,date)
-            },function(code,data){
-                self.$toast.fail('分享失败')
-            })
+            if(date != 'undefined'){
+                console.log(date)
+                TD_Request('op','rep',{opid:opid,date:date,uid:uid},function(code,data){
+                    self.$toast.success('分享成功')
+                    self.clockInfo(self,opid,date)
+                },function(code,data){
+                    self.$toast.fail('分享失败')
+                })
+            }else{
+                window.location.href = 'actionClock.html?time='+new Date().getTime();
+            }
         },
         // 打卡日历
         left(){
