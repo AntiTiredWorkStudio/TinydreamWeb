@@ -154,10 +154,11 @@ var actionClock = new Vue({
                     imgUrl:"http://tdream.antit.top/image/titleLogo.png"
                 });
                 WebApp.JSAPI.OnShareTimeLine = function(res){
-                    self.share(opid,date);
+                    console.log(res);
+                    self.share(self,opid,date);
                 }
                 WebApp.JSAPI.OnShareFriend = function(res){
-                    self.share(opid,date);
+                    self.share(self,opid,date);
                 }
                 self.colckinfo = data.info;
             },function(code,data){
@@ -211,15 +212,15 @@ var actionClock = new Vue({
             })
         },
         // 分享
-        share(opid,date){
+        share(self,opid,date){
             console.log(date);
             if(typeof date != 'undefined'){
                 console.log(date)
                 TD_Request('op','rep',{opid:opid,date:date,uid:uid},function(code,data){
-                    self.$dialog.success('分享成功')
+                    self.$toast.success('分享成功')
                     self.clockInfo(self,opid,date)
                 },function(code,data){
-                    self.$dialog.fail('分享失败')
+                    self.$toast.fail('分享失败')
                 })
             }else{
                 window.location.href = 'actionClock.html?time='+new Date().getTime();
