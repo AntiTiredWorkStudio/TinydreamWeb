@@ -15,6 +15,7 @@ var actionClock = new Vue({
         disabled:false,//行动打卡按钮状态
         isshow:true,//弹窗
         headicon:'',//用户头像
+        colckinfo:'',//打卡信息
     },
     created(){
         this.tabbar = common.tabbar;
@@ -97,6 +98,7 @@ var actionClock = new Vue({
         clockInfo(self,opid){
             TD_Request('op','oif',{opid:opid},function(code,data){
                 console.log(data)
+                self.colckinfo = data.info;
             },function(code,data){
                 console.log(data)
             })

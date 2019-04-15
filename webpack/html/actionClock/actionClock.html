@@ -19,21 +19,21 @@
                 <!-- 打卡进度 -->
                 <van-col span="24" class="clock">
                     <van-col span="24">
-                        <yd-progressbar :progress="progress1" trail-width="8" trail-color="#ffc054" class="progress">{{progress1 * 100}}%</yd-progressbar>
+                        <yd-progressbar :progress="colckinfo.precentage" trail-width="8" trail-color="#ffc054" class="progress">{{progress1 * 100}}%</yd-progressbar>
                     </van-col>
                     <!-- 打卡信息 -->
                     <van-col span="24" class="clockInfo">
                         <van-row>
                             <van-col span="8">
-                                <p class="title day">{{day == '' ? '--' : day}}</p>
+                                <p class="title day">{{colckinfo == '' ? '--' : colckinfo.desday}}</p>
                                 <p class="txt">距离目标天数</p>
                             </van-col>
                             <van-col span="8">
-                                <p class="title continday">{{continday == '' ? '--' : continday}}</p>
+                                <p class="title continday">{{colckinfo == '' ? '--' : conday}}</p>
                                 <p class="txt">连续打卡天数</p>
                             </van-col>
                             <van-col span="8">
-                                <p class="title clockday">{{clockday == '' ? '--' : clockday}}</p>
+                                <p class="title clockday">{{colckinfo == '' ? '--' : colckinfo.alrday}}</p>
                                 <p class="txt">已打卡天数</p>
                             </van-col>
                         </van-row>
