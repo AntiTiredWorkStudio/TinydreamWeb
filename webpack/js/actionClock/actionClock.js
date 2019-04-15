@@ -121,6 +121,7 @@ var actionClock = new Vue({
         },
         // 打卡信息
         clockInfo(self,opid,date){
+            console.log(date)
             self.$toast.loading({
                 duration:0,
                 forbidClick:true,
