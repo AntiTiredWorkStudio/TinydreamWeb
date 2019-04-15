@@ -16,6 +16,7 @@ var actionClock = new Vue({
         isshow:false,//弹窗
         headicon:'',//用户头像
         colckinfo:'',//打卡信息
+        theme:'',//行动主题
     },
     created(){
         Options.TestServer = true;
