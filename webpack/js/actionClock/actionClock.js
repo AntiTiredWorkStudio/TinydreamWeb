@@ -19,6 +19,7 @@ var actionClock = new Vue({
         colckinfo:'',//打卡信息
         seek:0,//日历翻页
         date:'',//当前打卡、补卡日期
+        countMonth:'',//月份总数
     },
     created(){
         Options.TestServer = true;
@@ -67,6 +68,16 @@ var actionClock = new Vue({
                 self.btnTxt = '已打卡';
                 self.disabled = true;
                 console.log(data);
+                self.countMonth = data.calendar.monthIndex.length - 1;
+                if(data.calendar.monthIndex.length == 1){
+                    $('.icon-left,.icon-right').hide();
+                }
+                if(self.seek == 0){
+                    $('.icon-left').hide();
+                }
+                if(data.calendar.monthIndex.length - 1 == self.seek){
+                    $('.icon-right').hide();
+                }
                 self.clockInfo(self,opid,data.attendance.date);
                 self.isshow = true;
             },function(code,data){
@@ -105,8 +116,11 @@ var actionClock = new Vue({
                         $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "NOTRELAY"){
                         $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        self.btnTxt = '已打卡，点击右上角...分享'
+                        self.disabled = true;
                     }else if(item.state == "RELAY"){
                         $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        self.btnTxt = "已打卡"
                     }else if(item.state == 'SUPPLY'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal green">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }
@@ -211,10 +225,22 @@ var actionClock = new Vue({
         },
         // 打卡日历
         left(){
-            
+            if(this.seek == 0){
+                $('.icon-left').hide();
+                $('.icon-right').show();
+            }else{
+                $('.icon-left').show();
+                this.seek++;
+            }
         },
         right(){
-
+            if(this.seek == this.countMonth){
+                $('.icon-right').hide();
+                $('.icon-left').show();
+            }else{
+                $('.icon-right').show();
+                this.seek--;
+            }
         }
     }
 })
