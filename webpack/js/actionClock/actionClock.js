@@ -151,6 +151,7 @@ var actionClock = new Vue({
                     imgUrl:"http://tdream.antit.top/image/titleLogo.png"
                 });
                 WebApp.JSAPI.OnShareTimeLine = function(res){
+                    console.log(res)
                     if(errMsg == 'onMenuShareTimeline:ok'){
                         self.share(self,opid,date);
                     }else if(errMsg == 'onMenuShareTimeline:cancel'){
