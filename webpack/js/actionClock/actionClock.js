@@ -104,7 +104,7 @@ var actionClock = new Vue({
                     }else if(item.state == 'NONE'){
                         $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "NOTRELAY"){
-                        $('<li class="enable" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "RELAY"){
                         $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == 'SUPPLY'){
@@ -117,6 +117,7 @@ var actionClock = new Vue({
             $('li.enable.leakage').click(function(){
                 self.card(self,$(this).attr('id'));
             })
+            self.clockInfo(self,opid,$('li.share').attr('id'));
         },
         // 打卡信息
         clockInfo(self,opid,date){
