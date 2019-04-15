@@ -159,8 +159,6 @@ var actionClock = new Vue({
                     self.$dialog.alert({
                         title:'温馨提示',
                         message:'亲~您已经没有补卡次数了，快去增加次数吧！'
-                    }).then(() => {
-                        console.log('增加次数')
                     })
                 }else if(code == 90){
                     self.$dialog.alert({
