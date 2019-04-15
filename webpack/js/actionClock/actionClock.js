@@ -67,7 +67,7 @@ var actionClock = new Vue({
                 self.btnTxt = '已打卡';
                 self.disabled = true;
                 console.log(data);
-                self.clockInfo(self,opid);
+                self.clockInfo(self,opid,data.attendance.date);
                 self.isshow = true;
             },function(code,data){
                 console.log(data);
@@ -119,7 +119,7 @@ var actionClock = new Vue({
             })
         },
         // 打卡信息
-        clockInfo(self,opid){
+        clockInfo(self,opid,date){
             self.$toast.loading({
                 duration:0,
                 forbidClick:true,
@@ -136,10 +136,10 @@ var actionClock = new Vue({
                     imgUrl:"http://tdream.antit.top/image/titleLogo.png"
                 });
                 WebApp.JSAPI.OnShareTimeLine = function(res){
-                    self.share(opid,);
+                    self.share(opid,date);
                 }
                 WebApp.JSAPI.OnShareFriend = function(res){
-                    self.share();
+                    self.share(opid,date);
                 }
                 self.colckinfo = data.info;
             },function(code,data){
