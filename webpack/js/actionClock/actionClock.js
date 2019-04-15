@@ -29,10 +29,12 @@ var actionClock = new Vue({
         clock(){
             this.Clock(this,this.opid);
         },
+        // 创建日历
         Mat(self){
             TD_Request('op','cal',{uid:uid,seek:0,full:'month'},function(code,data){
                 console.log(data)
-                // 创建打卡记录
+                // 打卡信息
+                self.clockInfo(self,data.calendar.opid);
                 self.opid = data.calendar.opid;
                 console.log(data.calendar.days);
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
@@ -89,6 +91,14 @@ var actionClock = new Vue({
                 }else{
                     $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                 }
+            })
+        },
+        // 打卡信息
+        clockInfo(self,opid){
+            TD_Request('op','oif',{opid:opid},function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data)
             })
         }
     }
