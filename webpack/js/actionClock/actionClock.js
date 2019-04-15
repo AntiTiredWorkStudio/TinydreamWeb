@@ -116,7 +116,7 @@ var actionClock = new Vue({
                 self.card(self,$(this).attr('id'));
             })
             if($('li.leakage').attr('data-stamp') > lastattend){
-                $('li.leakage').attr('class','normal');
+                console.log($(this))
             }
         },
         // 打卡信息
