@@ -226,24 +226,24 @@ var actionClock = new Vue({
         },
         // 打卡日历
         left(){
-            if(this.seek == 0){
-                $('.icon-left').hide();
-                $('.icon-right').show();
-            }else{
-                $('.icon-left').show();
-                this.seek = this.seek--;
-            }
-            this.Mat(this)
+            console.log(this.seek)
+            // if(this.seek == 0){
+            //     $('.icon-left').hide();
+            //     $('.icon-right').show();
+            // }else{
+            //     $('.icon-left').show();
+            //     this.seek = this.seek--;
+            // }
+            // this.Mat(this)
         },
         right(){
+            console.log(this.seek)
             if(this.seek == this.countMonth){
-                $('.icon-right').hide();
-                $('.icon-left').show();
+               
             }else{
-                $('.icon-right').show();
-                this.seek = this.seek++;
+                
             }
-            this.Mat(this)
+            
         }
     }
 })
