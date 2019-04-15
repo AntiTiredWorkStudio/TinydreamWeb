@@ -237,7 +237,7 @@ var actionClock = new Vue({
             // this.Mat(this)
         },
         right(){
-            console.log(this.seek)
+            console.log(this.seek,this.countMonth)
             if(this.seek == this.countMonth){
                
             }else{
