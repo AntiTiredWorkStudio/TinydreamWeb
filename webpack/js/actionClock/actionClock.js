@@ -232,7 +232,7 @@ var actionClock = new Vue({
                 $('.icon-left').hide();
             }else{
                 $('.icon-left').show();
-                this.seek = this.seek--;
+                this.seek--;
             }
             this.Mat(this)
         },
