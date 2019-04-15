@@ -102,7 +102,9 @@ var actionClock = new Vue({
                 }
             })
             $('li.enable').click(function(){
+                console.log(self)
                 self.card(self,$(this).attr('id'));
+
             })
         },
         // 打卡信息
