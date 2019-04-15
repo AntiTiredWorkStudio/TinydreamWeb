@@ -115,6 +115,7 @@ var actionClock = new Vue({
             $('li.enable').click(function(){
                 self.card(self,$(this).attr('id'));
             })
+            console.log($(li.leakage))
             if($('li.leakage').attr('data-stamp') > lastattend){
                 console.log($(this))
             }
