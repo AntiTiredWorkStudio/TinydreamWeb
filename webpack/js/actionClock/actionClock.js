@@ -50,7 +50,7 @@ var actionClock = new Vue({
                 self.opid = data.calendar.opid;
                 console.log(data.calendar.days);
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
-                self.refreshDate(data.calendar.days,self)
+                self.refreshDate(data.calendar.days,self,data.lastattend);
             },function(code,data){
                 self.$toast.clear();
                 self.$dialog.alert({
@@ -74,7 +74,7 @@ var actionClock = new Vue({
             })
         },
         // 生成日历
-        refreshDate(days,self){
+        refreshDate(days,self,lastattend){
             var str = "";
             var totalDay = days.length;//天数
             var firstDay = days[0].weekDay;
@@ -100,7 +100,7 @@ var actionClock = new Vue({
             $.each(days,function(index,item){
                 if(item.hasOwnProperty('id')){
                     if(item.state == 'NONE'){
-                        if(item.dateStamp > data.lastattend){
+                        if(item.dateStamp > lastattend){
                             $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                         }
                         $('<li class="enable" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
