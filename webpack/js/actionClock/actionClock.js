@@ -49,9 +49,6 @@ var actionClock = new Vue({
                 if(data.calendar.monthIndex.length == 1){
                     $('.icon-left,.icon-right').hide();
                 }
-                if(self.seek == 0){
-                    $('.icon-left').hide();
-                }
                 if(data.calendar.monthIndex.length - 1 == self.seek){
                     $('.icon-right').hide();
                 }
@@ -238,7 +235,7 @@ var actionClock = new Vue({
             console.log(this.seek)
             $('.icon-right').show();
             if(this.seek == 0){
-                $('.icon-left').hide();
+                self.seek == 0;
             }else{
                 $('.icon-left').show();
                 this.seek--;
