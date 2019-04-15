@@ -18,6 +18,7 @@ var actionClock = new Vue({
         colckinfo:'',//打卡信息
     },
     created(){
+        Options.TestServer = true;
         this.tabbar = common.tabbar;
         common.notice(this,uid);
         // 创建日历
