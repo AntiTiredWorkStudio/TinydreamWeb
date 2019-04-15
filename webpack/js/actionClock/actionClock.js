@@ -86,7 +86,7 @@ var actionClock = new Vue({
         },
         // 生成日历
         refreshDate(days,self,lastattend){
-            $('.day').html('');
+            $('.weekDate .day').html('');
             var str = "";
             var totalDay = days.length;//天数
             var firstDay = days[0].weekDay;
@@ -227,23 +227,25 @@ var actionClock = new Vue({
         // 打卡日历
         left(){
             console.log(this.seek)
-            // if(this.seek == 0){
-            //     $('.icon-left').hide();
-            //     $('.icon-right').show();
-            // }else{
-            //     $('.icon-left').show();
-            //     this.seek = this.seek--;
-            // }
-            // this.Mat(this)
+            $('.icon-right').show();
+            if(this.seek == 0){
+                $('.icon-left').hide();
+            }else{
+                $('.icon-left').show();
+                this.seek = this.seek--;
+            }
+            this.Mat(this)
         },
         right(){
             console.log(this.seek,this.countMonth)
+            $('.icon-left').show();
             if(this.seek == this.countMonth){
-               
+               $('.icon-right').hide();
             }else{
-                
+                $('.icon-right').show();
+                this.seek++;
             }
-            
+            this.Mat(this);
         }
     }
 })
