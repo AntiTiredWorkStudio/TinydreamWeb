@@ -196,6 +196,7 @@ var actionClock = new Vue({
         },
         // 分享
         share(opid,date){
+            console.log(date)
             TD_Request('op','rep',{opid:opid,date:date,uid:uid},function(code,data){
                 console.log(data);
             },function(code,data){
