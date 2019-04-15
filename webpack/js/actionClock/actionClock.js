@@ -100,6 +100,9 @@ var actionClock = new Vue({
             $.each(days,function(index,item){
                 if(item.hasOwnProperty('id')){
                     if(item.state == 'NONE'){
+                        if(item.dateStamp > data.lastattend){
+                            $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }
                         $('<li class="enable" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "NOTRELAY"){
                         $('<li class="enable" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
@@ -203,7 +206,7 @@ var actionClock = new Vue({
             
         },
         right(){
-            
+
         }
     }
 })
