@@ -107,6 +107,8 @@ var actionClock = new Vue({
                         $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == 'SUPPLY'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal green">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                    }else if(item.dateStamp > lastattend && item.state == 'NONE'){
+                        $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }
                 }else{
                     $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
@@ -116,9 +118,6 @@ var actionClock = new Vue({
                 self.card(self,$(this).attr('id'));
             })
             console.log($('li.leakage').attr('data-stamp') > lastattend)
-            if($('li.leakage').attr('data-stamp') > lastattend){
-                console.log($(this))
-            }
         },
         // 打卡信息
         clockInfo(self,opid){
