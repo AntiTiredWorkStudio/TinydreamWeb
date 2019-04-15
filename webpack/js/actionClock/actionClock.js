@@ -22,7 +22,7 @@ var actionClock = new Vue({
         // 创建日历
         this.Mat(this);
         // 用户头像
-        this.headicon = Options.GetUserInfo().headicon;
+        this.headicon = Options.GetUserInfo().headimgurl;
     },
     methods:{
         // 打卡
