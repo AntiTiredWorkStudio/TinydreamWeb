@@ -39,20 +39,20 @@
                         </van-row>
                     </van-col>
                     <van-col span="24" class="btn">
-                        <van-button @click="clock" class="clock_btn" round>一键打卡</van-button>
+                        <van-button @click="clock" class="clock_btn" round>{{btnTxt}}</van-button>
                     </van-col>
                 </van-col>
                 <van-col span="24" class="date">
                     <div class="warper">
                         <van-row class="date" style="width:5.88rem;margin:0 auto;padding: 0.38rem 0 0.5rem 0">
                             <van-col span="8" style="text-align:left;color:#999">
-                                <van-icon name="arrow-left"></van-icon>
+                                <van-icon name="arrow-left" @click="left"></van-icon>
                             </van-col>
                             <van-col span="8" style="text-align:center">
                                 <p style="font-size:0.36rem">{{currentMonth == '' ? '--' : currentMonth}}</p>
                             </van-col>
                             <van-col span="8" style="text-align:right;color:#999">
-                                <van-icon name="arrow"></van-icon>
+                                <van-icon name="arrow" @click="right"></van-icon>
                             </van-col>
                         </van-row>
                         <div class="weekDate">

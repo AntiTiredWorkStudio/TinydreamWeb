@@ -13,10 +13,12 @@ var actionClock = new Vue({
         opid:'',//行动 id
         currentMonth:'',//当前月份,
         disabled:false,//行动打卡按钮状态
+        btnTxt:'立即打卡',
         isshow:false,//弹窗
         headicon:'',//用户头像
         colckinfo:'',//打卡信息
         seek:0,//日历翻页
+        date:'',//当前打卡、补卡日期
     },
     created(){
         Options.TestServer = true;
@@ -62,6 +64,8 @@ var actionClock = new Vue({
         // 打卡
         Clock(self,opid){
             TD_Request('op','mat',{opid:opid,uid:uid},function(code,data){
+                self.btnTxt = '已打卡';
+                self.disabled = true;
                 console.log(data);
                 self.clockInfo(self,self.attendance.opid);
                 self.isshow = true;
@@ -123,6 +127,18 @@ var actionClock = new Vue({
             TD_Request('op','oif',{opid:opid},function(code,data){
                 console.log(data)
                 self.$toast.clear();
+                WebApp.JSAPI.InitShare({
+                    title:data.info.nickname+"已加入追梦行动派为"+data.info.theme+'坚持行动'+data.info.alrday+'天',
+                    desc:"有梦就行动，坚持返现金！",
+                    link:'http://tinydream.ivkcld.cn/TinydreamWeb/index.html?opid='+opid,
+                    imgUrl:"http://tdream.antit.top/image/titleLogo.png"
+                });
+                WebApp.JSAPI.OnShareTimeLine = function(res){
+                    self.share(opid,);
+                }
+                WebApp.JSAPI.OnShareFriend = function(res){
+                    self.share();
+                }
                 self.colckinfo = data.info;
             },function(code,data){
                 console.log(data)
@@ -172,6 +188,14 @@ var actionClock = new Vue({
                         message:data.context
                     })
                 }
+            })
+        },
+        // 分享
+        share(opid,date){
+            TD_Request('op','rep',{opid:opid,date:date,uid:uid},function(code,data){
+                console.log(data);
+            },function(code,data){
+                console.log(data);
             })
         }
     }
