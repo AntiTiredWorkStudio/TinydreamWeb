@@ -154,11 +154,19 @@ var actionClock = new Vue({
                     imgUrl:"http://tdream.antit.top/image/titleLogo.png"
                 });
                 WebApp.JSAPI.OnShareTimeLine = function(res){
-                    console.log(res);
-                    self.share(self,opid,date);
+                    if(res.errMsg == 'onMenuShareAppMessage:ok'){
+                        console.log(res);
+                        self.share(self,opid,date);
+                    }else if(res.errMsg == 'onMenuShareAppMessage:cancel'){
+                        self.$toast.fail('您取消了分享')
+                    }
                 }
                 WebApp.JSAPI.OnShareFriend = function(res){
-                    self.share(self,opid,date);
+                    if(res.errMsg == 'onMenuShareAppMessage:ok'){
+                        self.share(self,opid,date);
+                    }else if(res.errMsg == 'onMenuShareAppMessage:cancel'){
+                        self.$toast.fail('您取消了分享')
+                    }
                 }
                 self.colckinfo = data.info;
             },function(code,data){
