@@ -117,7 +117,7 @@ var actionClock = new Vue({
             $('li.enable.leakage').click(function(){
                 self.card(self,$(this).attr('id'));
             })
-            self.clockInfo(self,opid,$('li.share').attr('id'));
+            self.clockInfo(self,self.opid,$('li.share').attr('id'));
         },
         // 打卡信息
         clockInfo(self,opid,date){
