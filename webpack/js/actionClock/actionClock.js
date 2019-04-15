@@ -100,9 +100,9 @@ var actionClock = new Vue({
             $.each(days,function(index,item){
                 if(item.hasOwnProperty('id')){
                     if(item.dateStamp >= lastattend && item.state == 'NONE'){
-                        $('<li class="enable leakage" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == 'NONE'){
-                        $('<li class="enable" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "NOTRELAY"){
                         $('<li class="enable" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "RELAY"){
@@ -114,7 +114,7 @@ var actionClock = new Vue({
                     $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                 }
             })
-            $('li.enable').click(function(){
+            $('li.enable.leakage').click(function(){
                 self.card(self,$(this).attr('id'));
             })
         },
