@@ -98,13 +98,12 @@ var actionClock = new Vue({
                         $('<li class="enable" id="'+item.date+'"><span class="normal green">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }
                 }else{
-                    $('<li class="disabled" style="width:100%><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                    $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                 }
             })
-            $('li.enable').click(function(){
+            $('li').click(function(){
                 console.log(self)
                 self.card(self,$(this).attr('id'));
-
             })
         },
         // 打卡信息
