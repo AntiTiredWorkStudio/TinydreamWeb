@@ -33,8 +33,15 @@ var actionClock = new Vue({
         },
         // 创建日历
         Mat(self){
+            self.$toast.loading({
+                duration:0,
+                forbidClick:true,
+                loadingType:'circular',
+                message:'日历创建中...'
+            })
             TD_Request('op','cal',{uid:uid,seek:0,full:'month'},function(code,data){
                 console.log(data)
+                self.$toast.clear();
                 // 打卡信息
                 self.clockInfo(self,data.calendar.opid);
                 self.opid = data.calendar.opid;
@@ -49,7 +56,8 @@ var actionClock = new Vue({
         Clock(self,opid){
             TD_Request('op','mat',{opid:opid,uid:uid},function(code,data){
                 console.log(data);
-                
+                self.clockInfo(self,self.attendance);
+                self.isshow = true;
             },function(code,data){
                 console.log(data);
             })
@@ -97,8 +105,15 @@ var actionClock = new Vue({
         },
         // 打卡信息
         clockInfo(self,opid){
+            self.$toast.loading({
+                duration:0,
+                forbidClick:true,
+                loadingType:'circular',
+                message:'信息加载中...'
+            })
             TD_Request('op','oif',{opid:opid},function(code,data){
                 console.log(data)
+                self.$toast.clear();
                 self.colckinfo = data.info;
             },function(code,data){
                 console.log(data)
