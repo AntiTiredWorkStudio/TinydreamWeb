@@ -13,13 +13,16 @@ var actionClock = new Vue({
         opid:'',//行动 id
         currentMonth:'',//当前月份,
         disabled:false,//行动打卡按钮状态
-        isshow:true
+        isshow:true,//弹窗
+        headicon:'',//用户头像
     },
     created(){
         this.tabbar = common.tabbar;
         common.notice(this,uid);
         // 创建日历
         this.Mat(this);
+        // 用户头像
+        this.headicon = Options.GetUserInfo().headicon;
     },
     methods:{
         // 打卡
