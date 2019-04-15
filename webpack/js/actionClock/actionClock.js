@@ -17,7 +17,7 @@ var actionClock = new Vue({
         isshow:false,//弹窗
         headicon:'',//用户头像
         colckinfo:'',//打卡信息
-        seek:0,//日历翻页
+        seek:-1,//日历翻页
         date:'',//当前打卡、补卡日期
         countMonth:'',//月份总数
     },
