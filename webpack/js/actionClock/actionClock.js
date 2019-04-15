@@ -153,6 +153,7 @@ var actionClock = new Vue({
                 WebApp.JSAPI.OnShareTimeLine = function(res){
                     console.log(res)
                     if(res){
+                        self.isshow = false;
                         self.share(self,opid,date);
                     }else if(res){
                         self.$toast.fail('您取消了分享')
@@ -160,6 +161,7 @@ var actionClock = new Vue({
                 }
                 WebApp.JSAPI.OnShareFriend = function(res){
                     if(res){
+                        self.isshow = false;
                         self.share(self,opid,date);
                     }else if(res){
                         self.$toast.fail('您取消了分享')
@@ -173,7 +175,7 @@ var actionClock = new Vue({
         // 关闭弹窗
         close(){
             this.isshow = false;
-            this.clockInfo(this,this.opid);
+            this.Mat(this);
         },
         // 补卡
         card(self,date){
@@ -186,6 +188,8 @@ var actionClock = new Vue({
             TD_Request('op','pat',{uid:uid,date:date},function(code,data){
                 console.log(data)
                 self.$toast.clear();
+                self.Mat(this);
+                window.location.href = '../fill/fill.html?time='+new Date().getTime();
             },function(code,data){
                 self.$toast.clear();
                 if(code == 87){
