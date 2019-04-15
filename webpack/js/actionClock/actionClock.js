@@ -12,7 +12,7 @@ var actionClock = new Vue({
         week:["日","一","二","三","四","五","六"],//周期
         opid:'',//行动 id
         currentMonth:'',//当前月份,
-        disabled:false,//行动打卡按钮状态
+        isdisabled:false,//行动打卡按钮状态
         btnTxt:'立即打卡',
         isshow:false,//弹窗
         headicon:'',//用户头像
@@ -66,7 +66,7 @@ var actionClock = new Vue({
         Clock(self,opid){
             TD_Request('op','mat',{opid:opid,uid:uid},function(code,data){
                 self.btnTxt = '已打卡';
-                self.disabled = true;
+                self.isdisabled = true;
                 console.log(data);
                 self.countMonth = data.calendar.monthIndex.length - 1;
                 if(data.calendar.monthIndex.length == 1){
@@ -86,6 +86,7 @@ var actionClock = new Vue({
         },
         // 生成日历
         refreshDate(days,self,lastattend){
+            $('.day').html('');
             var str = "";
             var totalDay = days.length;//天数
             var firstDay = days[0].weekDay;
@@ -117,7 +118,7 @@ var actionClock = new Vue({
                     }else if(item.state == "NOTRELAY"){
                         $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                         self.btnTxt = '已打卡，点击右上角...分享'
-                        self.disabled = true;
+                        self.isdisabled = true;
                     }else if(item.state == "RELAY"){
                         $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                         self.btnTxt = "已打卡"
