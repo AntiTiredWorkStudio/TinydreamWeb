@@ -101,9 +101,9 @@ var actionClock = new Vue({
                 if(item.hasOwnProperty('id')){
                     if(item.state == 'NONE'){
                         if(item.dateStamp > lastattend){
-                            $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                            $('li.leakage').attr('class','normal');
                         }
-                        $('<li class="enable" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        $('<li class="enable leakage" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "NOTRELAY"){
                         $('<li class="enable" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "RELAY"){
