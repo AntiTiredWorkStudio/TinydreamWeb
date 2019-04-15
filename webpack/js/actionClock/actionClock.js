@@ -197,7 +197,7 @@ var actionClock = new Vue({
         // 分享
         share(opid,date){
             console.log(date);
-            if(date != 'undefined'){
+            if(typeof date != 'undefined'){
                 console.log(date)
                 TD_Request('op','rep',{opid:opid,date:date,uid:uid},function(code,data){
                     self.$toast.success('分享成功')
