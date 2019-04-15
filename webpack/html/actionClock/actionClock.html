@@ -69,9 +69,27 @@
                                 
                             </ul>
                         </div>
+                        <div class="module">
+                            <div class="main">
+                                <van-col span="16" style="margin-top:0.48rem">
+                                    <p>
+                                        <span>
+                                            <van-icon name=""></van-icon>
+                                        </span>
+                                    </p>
+                                </van-col>
+                                <van-col span="8"></van-col>
+                            </div>
+                        </div>
                     </div>
                 </van-col>
             </div>
+            <!-- 打卡成功弹窗 -->
+            <van-popup v-model="isshow" class="mask">
+                <div class="clockState">
+
+                </div>
+            </van-popup>
             <!-- tabbar -->
             <van-tabbar v-model="actives" active-color="#00d094">
                 <van-tabbar-item v-for="tab in tabbar" :url="tab.url" :info="tab.info"> 

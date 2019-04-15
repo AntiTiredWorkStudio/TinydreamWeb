@@ -10,9 +10,10 @@ var actionClock = new Vue({
         continday:'50',//连续打卡天数
         clockday:'50',//已打卡天数,
         week:["日","一","二","三","四","五","六"],//周期
-        days:'',
         opid:'',//行动 id
-        currentMonth:'',//当前月份
+        currentMonth:'',//当前月份,
+        disabled:false,//行动打卡按钮状态
+        isshow:true
     },
     created(){
         this.tabbar = common.tabbar;
@@ -41,6 +42,7 @@ var actionClock = new Vue({
         Clock(self,opid){
             TD_Request('op','mat',{opid:opid,uid:uid},function(code,data){
                 console.log(data);
+                
             },function(code,data){
                 console.log(data);
             })
