@@ -98,7 +98,7 @@ var actionClock = new Vue({
                         $('<li class="enable" id="'+item.date+'"><span class="normal green">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }
                 }else{
-                    $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                    $('<button disabled><li class="disabled"><span class="normal">'+item.Day+'</span></li></button>').appendTo('.weekDate .day');
                 }
             })
             $('li').click(function(){
