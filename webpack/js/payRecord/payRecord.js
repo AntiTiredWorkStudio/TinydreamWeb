@@ -8,8 +8,8 @@ var pay = new Vue({
         finished:false,//是否加载完毕
     },
     methods:{
-        load(){
-            
+        onLoad(){
+
         }
     }
 })
