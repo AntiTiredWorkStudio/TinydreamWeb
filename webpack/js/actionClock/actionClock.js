@@ -167,7 +167,8 @@ var actionClock = new Vue({
                         self.$toast.fail('您取消了分享')
                     }
                 }
-                data.info.prec = Number(data.info.precentage) * 100;
+                data.info.prec = Number(data.info.precentage);
+                console.log(data.info.prec)
                 self.colckinfo = data.info;
             },function(code,data){
                 console.log(data)
