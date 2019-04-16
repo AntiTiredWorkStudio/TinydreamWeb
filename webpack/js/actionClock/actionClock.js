@@ -52,6 +52,7 @@ var actionClock = new Vue({
                 if(data.calendar.monthIndex.length - 1 == self.seek){
                     $('.icon-right').hide();
                 }
+                self.seek = data.calendar.currentIndex;
                 // 打卡信息
                 self.clockInfo(self,data.calendar.opid);
                 self.countMonth = data.calendar.monthIndex.length - 1;

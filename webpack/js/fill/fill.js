@@ -31,6 +31,10 @@ var fill = new Vue({
         headIcon(self){
             TD_Request('op','ihics',{uid:uid},function(code,data){
                 console.log(data)
+                self.headicons = data.headicons;
+                if(data.headicons.length == 0){
+                    $('.tip').html('当前你还没有邀请到小伙伴呢，快去邀请小伙伴们一起参加追梦行动吧！').show();
+                }
             },function(code,data){
                 console.log(data);
             })
