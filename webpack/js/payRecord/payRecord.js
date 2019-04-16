@@ -6,7 +6,7 @@ var pay = new Vue({
         active:0,//默认菜单
         loading:false,//是否处于加载列表状态
         finished:false,//是否加载完毕，
-        list:'',//消费订单
+        list:[],//消费订单
         seek:0,
         total:'',
     },
@@ -17,6 +17,13 @@ var pay = new Vue({
     methods:{
         onLoad(){
             this.spend(this,this.seek);
+            if(this.list.length >= this.total){
+                this.finished = true;
+            }else{
+                this.loading = true;
+                this.seek++;
+                this.spend(this.seek);
+            }
         },
         // 消费信息
         spend(self,seek){
@@ -36,16 +43,17 @@ var pay = new Vue({
                     var dt = new Date(time);    
                     item.time = dt.toLocaleString().replace(/\//g,'-')                
                     if(item.oid.substr(0,1) == 1 && item.did.substr(0,2) == 'DR'){
-                        data.orders[index].title = '购买小梦想互助'
+                        item.title = '购买小梦想互助'
                     }else if(item.oid.substr(0,1) == 1 && item.did.substr(0,2) == 'TR'){
-                        data.orders[index].title = '购买小生意互助'
+                        item.title = '购买小生意互助'
                     }else if(item.oid.substr(0,1) == 3){
-                        data.orders[index].title = '购买行动打卡合约'
+                        item.title = '购买行动打卡合约'
                     }else if(item.oid.substr(0,1) == 9){
-                        data.orders[index].title = '购买小梦想梦想互助--红包领取'
+                        item.title = '购买小梦想梦想互助--红包领取'
                     }
+                    self.list.push(item);
                 })
-                self.list = data.orders;
+                
             },function(code,data){
                 console.log(data);
             })
