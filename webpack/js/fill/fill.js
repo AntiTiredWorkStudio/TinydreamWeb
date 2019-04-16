@@ -8,6 +8,11 @@ var fill = new Vue({
     },
     created(){
         if($_GET.opid){
+            if($_GET.state == 'success'){
+                $('.top').css('background','url(https://tdream.antit.top/image/rightframe.png) no-repeat center center / 5.86rem 2.19rem')
+            }else{
+                $('.top').css('background','url(https://tdream.antit.top/BuKaCiShuBeiJing.png) no-repeat center center / 5.86rem 2.19rem')
+            }
             this.Info(this,$_GET.opid)
             this.headIcon(this);
         }else{

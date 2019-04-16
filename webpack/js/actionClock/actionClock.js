@@ -193,7 +193,7 @@ var actionClock = new Vue({
                 console.log(data)
                 self.$toast.clear();
                 self.Mat(self);
-                window.location.href = '../fill/fill.html?time='+new Date().getTime()+'&opid='+self.opid;
+                window.location.href = '../fill/fill.html?time='+new Date().getTime()+'&opid='+self.opid+'&state=success';
             },function(code,data){
                 self.$toast.clear();
                 if(code == 87){
@@ -207,10 +207,7 @@ var actionClock = new Vue({
                         message:data.context
                     })
                 }else if(code == 89){
-                    self.$dialog.alert({
-                        title:'温馨提示',
-                        message:data.context
-                    })
+                    window.location.href = '../fill/fill.html?time='+new Date().getTime()+'&opid='+self.opid+'&state=fail'
                 }else if(code == 90){
                     self.$dialog.alert({
                         title:'温馨提示',
