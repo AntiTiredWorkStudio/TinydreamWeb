@@ -28,7 +28,14 @@
                         </van-list>
                     </van-tab>
                     <van-tab title="收入" class="tab">
-
+                        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+                            <van-cell v-for="list in list">
+                                <h3 class="title">{{list.title}}</h3>
+                                <div class="pay right">-{{list.bill / 100}}</div>
+                                <br>
+                                <p>{{list.time}}</p>
+                            </van-cell>
+                        </van-list>
                     </van-tab>
                     <van-tab title="支出" class="tab">
 
