@@ -32,7 +32,7 @@ var pay = new Vue({
                 $.each(data.orders,function(index,item){
                     var time = parseInt(item.ptime) * 1000;
                     var dt = new Date(time);
-                    item.time = dt.getFullYear() + '-' + dt.getMonth() + 1 + '-' + dt.getDate() + ' ' + dt.getHours() < 10 ? '0'+dt.getHours() : dt.getHours() + ':' + dt.getMinutes < 10 ? '0'+dt.getMinutes() : dt.getMinutes() + ':' + dt.getSeconds() < 10 ? '0'+dt.getSeconds() : dt.getSeconds(); 
+                    item.time = dt.getFullYear() + '-' + dt.getMonth() + 1 + '-' + dt.getDate() + ' ' + dt.getHours() + ':' +dt.getMinutes() + ':' + dt.getSeconds();
                     if(item.oid.substr(0,1) == 1 && item.did.substr(0,2) == 'DR'){
                         data.orders[index].title = '购买小梦想互助'
                     }else if(item.oid.substr(0,1) == 1 && item.did.substr(0,2) == 'TR'){
