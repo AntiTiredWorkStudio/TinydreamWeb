@@ -30,9 +30,6 @@ var pay = new Vue({
             })
             TD_Request('ds','oinfo',{uid:uid,seek:seek,count:10},function(code,data){
                 console.log(data)
-                if(self.list.length>=self.total){
-                    self.finished = true;
-                }
                 self.loading = false;
                 self.total = data.total;
                 self.$toast.clear();
@@ -51,7 +48,9 @@ var pay = new Vue({
                     }
                     self.list.push(item);
                 })
-                
+                if(self.list.length>=self.total){
+                    self.finished = true;
+                } 
             },function(code,data){
                 console.log(data);
             })
