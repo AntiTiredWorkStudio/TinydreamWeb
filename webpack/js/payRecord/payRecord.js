@@ -61,6 +61,7 @@ var pay = new Vue({
         // 支出
         tabChange(index,title){
             this.seek = 0;
+            this.list = [];
             console.log(title)
             if(title == '支出'){
                 this.spend(this,this.seek)
