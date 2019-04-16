@@ -8,6 +8,7 @@ $(function(){
      function fun(result,data){//result:请求状态,data 请求结果
         //alert(result);
         var userInfo = Options.GetUserInfo();
+        Options.TestServer = false;
         // console.log(result,data);
         // if(PERMISSION_USER(userInfo.openid) && window.location.href != 'http://tinydream.antit.top/TinydreamWebTest/index.html'){
         //     // console.log("is test user");
