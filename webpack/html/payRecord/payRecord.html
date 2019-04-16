@@ -18,7 +18,7 @@
             <div class="main">
                 <van-tabs v-model="active" swipeable color="#00d094" title-active-color="#00d094">
                     <van-tab title="全部" class="tab">
-                        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+                        <van-list  :finished="finished" finished-text="没有更多了" @load="onLoad">
                             <van-cell>
                                 <h3 class="title">行动打卡返现</h3>
                                 <div class="pay right">+200</div>
