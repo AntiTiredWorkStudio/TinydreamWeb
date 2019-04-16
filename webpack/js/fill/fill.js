@@ -27,7 +27,11 @@ var fill = new Vue({
             })
         },
         headIcon(self){
-        //     TD_Request('op','ihics',{})
+            TD_Request('op','ihics',{uid:uid},function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data);
+            })
         }
     }
 })
