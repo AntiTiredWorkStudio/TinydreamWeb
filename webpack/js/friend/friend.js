@@ -18,6 +18,9 @@ var friend = new Vue({
         custom:'',//自定义主题
         value:'',//自定义主题
         payCancel:false,//支付取消弹窗
+        nickname:'',//好友昵称
+        theme:'',//好友参加的主题
+        alrday:'',//打卡天数
     },
     created(){
        if($_GET.opid){
@@ -44,6 +47,8 @@ var friend = new Vue({
                 self.nickname = data.nickname;
                 TD_Request('op','oif',{opid:opid,uid:uid},function(code,data){
                     console.log(data)
+                    self.theme = data.info.theme;
+                    self.alrday = data.info.alrday;
                 },function(code,data){
                     console.log(data);
                 })
