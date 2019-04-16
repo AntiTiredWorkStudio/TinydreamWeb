@@ -8,7 +8,7 @@ var pay = new Vue({
         finished:false,//是否加载完毕，
         list:[],//消费订单
         seek:0,
-        total:'',
+        total:0,
     },
     created(){
         // 消费信息
