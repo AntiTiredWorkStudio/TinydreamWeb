@@ -23,7 +23,6 @@ var fill = new Vue({
                 loadingType:'circular',
                 message:'信息加载中...'
             })
-            var info = [];
             TD_Request('op','uinfo',{uid:uid},function(code,data){
                 self.$toast.clear();
                 console.log(data)
