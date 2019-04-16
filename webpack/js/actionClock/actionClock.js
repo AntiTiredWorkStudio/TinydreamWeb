@@ -104,17 +104,12 @@ var actionClock = new Vue({
                 firstDay = 0;
             }
             for (let i = 0; i < firstDay; i++) {
-                $('<li></li>').appendTo('.weekDate .day');
+                $('<li>&nbsp;</li>').appendTo('.weekDate .day');
             }
             console.log(totalDay,firstDay);
             $.each(days,function(index,item){
-                if(item.hasOwnProperty('id')){ 
-                if(item.hasOwnProperty('today')){
-                    if(item.today){
-                        self.btnTxt = '已打卡';
-                        self.isdisabled = true;
-                    }
-                }else if(item.dateStamp >= lastattend && item.state == 'NONE'){
+                if(item.hasOwnProperty('id')){
+                    if(item.dateStamp >= lastattend && item.state == 'NONE'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == 'NONE'){
                         $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
