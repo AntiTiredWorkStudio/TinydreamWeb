@@ -17,6 +17,7 @@ var friend = new Vue({
         isshow:false,//是否显示自定义主题
         custom:'',//自定义主题
         value:'',//自定义主题
+        payCancel:false,//支付取消弹窗
     },
     created(){
         // 合约列表
