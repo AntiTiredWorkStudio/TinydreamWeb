@@ -187,7 +187,7 @@ var actionClock = new Vue({
                 console.log(data)
                 self.$toast.clear();
                 self.Mat(self);
-                window.location.href = '../fill/fill.html?time='+new Date().getTime();
+                window.location.href = '../fill/fill.html?time='+new Date().getTime()+'&opid='+self.opid;
             },function(code,data){
                 self.$toast.clear();
                 if(code == 87){
