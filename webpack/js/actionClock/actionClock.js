@@ -225,7 +225,7 @@ var actionClock = new Vue({
                 console.log(date)
                 TD_Request('op','rep',{opid:opid,date:date,uid:uid},function(code,data){
                     self.$toast.success('分享成功')
-                    return;
+                    // return;
                     self.Mat(self)
                 },function(code,data){
                     self.$toast.fail('分享失败')
