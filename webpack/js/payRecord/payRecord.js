@@ -30,11 +30,10 @@ var pay = new Vue({
                 self.finished = false;
                 self.$toast.clear();
                 $.each(data.orders,function(index,item){
-                    console.log(item.oid.substr(0,1))
                     console.log(new Date(item.ptime / 1000));
                     if(item.oid.substr(0,1) == 1 && item.did.substr(0,2) == 'DR'){
                         data.orders[index].title = '购买小梦想互助'
-                    }else if(data.oid.substr(0,1) == 1 && item.did.substr(0,2) == 'TR'){
+                    }else if(item.oid.substr(0,1) == 1 && item.did.substr(0,2) == 'TR'){
                         data.orders[index].title = '购买小生意互助'
                     }else if(item.oid.substr(0,1) == 3){
                         data.orders[index].title = '购买行动打卡合约'
