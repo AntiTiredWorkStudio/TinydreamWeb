@@ -27,9 +27,11 @@ var fill = new Vue({
             TD_Request('op','uinfo',{uid:uid},function(code,data){
                 self.$toast.clear();
                 console.log(data)
-                info.push(data.info);
+                info['menchance'] = data.info['menchance'];
                 TD_Request('op','oif',{opid:opid,uid:uid},function(code,data){
-                    console.log(data)
+                    console.log(data);
+                    info['misday'] = data.info['misday'];
+                    info['menday'] = data.info['menday'];
                     console.log(info);
                 },function(code,data){
                     console.log(data)
