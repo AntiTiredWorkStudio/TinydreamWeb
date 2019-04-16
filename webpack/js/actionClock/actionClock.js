@@ -106,7 +106,7 @@ var actionClock = new Vue({
             $.each(days,function(index,item){
                 if(item.hasOwnProperty('id')){
                     if(item.hasOwnProperty('today')){
-                        if(item.today){
+                        if(item.today  && item.state == 'RELAY'){
                             self.btnTxt = '已打卡';
                             self.isdisabled = true;
                         }
