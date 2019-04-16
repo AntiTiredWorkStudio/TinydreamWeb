@@ -16,7 +16,6 @@ var pay = new Vue({
     },
     methods:{
         onLoad(){
-            this.spend(this,this.seek);
             if(this.list.length >= this.total){
                 this.finished = true;
             }else{
