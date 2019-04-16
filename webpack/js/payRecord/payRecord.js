@@ -27,8 +27,21 @@ var pay = new Vue({
             })
             TD_Request('ds','oinfo',{uid:uid,seek:seek,count:10},function(code,data){
                 console.log(data)
+                self.finished = false;
                 self.$toast.clear();
-                self.list = data.orders
+                $.each(data.orders,function(index,item){
+                    console.log(new Date(item.ptime));
+                    if(item.oid.substr(0,1) == 1 && item.did.substr(0,2) == 'DR'){
+                        data.orders[index].title = '购买小梦想互助'
+                    }else if(data.oid.substr(0,1) == 1 && item.did.substr(0,2) == 'TR'){
+                        data.orders[index].title = '购买小生意互助'
+                    }else if(item.oid.substr(0,1) == 3){
+                        data.orders[index].title = '购买行动打卡合约'
+                    }else if(item.oid.substr(0,1) == 9){
+                        data.orders[index].title = '梦想红包领取'
+                    }
+                })
+                self.list = data.orders;
             },function(code,data){
                 console.log(data);
             })
