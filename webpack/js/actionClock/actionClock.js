@@ -148,7 +148,7 @@ var actionClock = new Vue({
                 console.log(data)
                 self.$toast.clear();
                 WebApp.JSAPI.InitShare({
-                    title:data.info.nickname+"已加入追梦行动派为"+data.info.theme+'坚持行动'+data.info.conday+'天',
+                    title:data.info.nickname+"已加入追梦行动派为"+data.info.theme+'坚持行动'+data.info.alrday+'天',
                     desc:"有梦就行动，坚持返现金！",
                     link:'http://tinydream.ivkcld.cn/TinydreamWeb/index.html?opid='+opid,
                     imgUrl:"http://tdream.antit.top/image/titleLogo.png"
