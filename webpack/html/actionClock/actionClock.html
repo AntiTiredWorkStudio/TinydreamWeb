@@ -19,7 +19,7 @@
                 <!-- 打卡进度 -->
                 <van-col span="24" class="clock">
                     <van-col span="24">
-                        <yd-progressbar :progress="colckinfo.precentage" trail-width="8" trail-color="#ffc054" class="progress">{{colckinfo == '' ? '--': colckinfo.precentage * 100}}%</yd-progressbar>
+                        <yd-progressbar :progress="colckinfo.precentage" trail-width="8" trail-color="#ffc054" class="progress">{{colckinfo == '' ? '--': Number(colckinfo.precentage) * 100}}%</yd-progressbar>
                     </van-col>
                     <!-- 打卡信息 -->
                     <van-col span="24" class="clockInfo">
