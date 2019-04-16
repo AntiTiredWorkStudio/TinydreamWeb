@@ -18,7 +18,7 @@
             <div class="main">
                 <van-tabs v-model="active" swipeable color="#00d094" title-active-color="#00d094">
                     <van-tab title="全部" class="tab">
-                        <van-list  :finished="finished" finished-text="没有更多了" @load="onLoad">
+                        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
                             <van-cell v-for="list in list">
                                 <h3 class="title">{{list.title}}</h3>
                                 <div class="pay right">-{{list.bill / 100}}</div>

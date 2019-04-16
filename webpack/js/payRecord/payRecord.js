@@ -4,7 +4,7 @@ var pay = new Vue({
     el:'#payrecord',
     data:{
         active:0,//默认菜单
-        loading:true,//是否处于加载列表状态
+        loading:false,//是否处于加载列表状态
         finished:false,//是否加载完毕，
         list:'',//消费订单
         seek:0,
@@ -16,9 +16,12 @@ var pay = new Vue({
     },
     methods:{
         onLoad(){
-            this.finished = true
-            if(self.seek != Math.ceil(self.total / 10)){
-                self.seek++;
+            this.loading = true
+            if(this.seek >= Math.ceil(this.total / 10)){
+                this.seek++;
+                this.spend(this,this.seek)
+            }else{
+                this.finished = true;
             }
         },
         // 消费信息
