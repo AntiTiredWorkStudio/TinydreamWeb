@@ -168,7 +168,7 @@ var actionClock = new Vue({
                     }
                 }
                 data.info.prec = Number(data.info.precentage);
-                console.log(data.info.prec)
+                console.log(data.info.prec * 100)
                 self.colckinfo = data.info;
             },function(code,data){
                 console.log(data)
