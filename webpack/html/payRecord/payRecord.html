@@ -28,6 +28,9 @@
                         </van-list>
                     </van-tab>
                     <van-tab title="收入" class="tab">
+                        
+                    </van-tab>
+                    <van-tab title="支出" class="tab">
                         <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="load">
                             <van-cell v-for="list in list">
                                 <h3 class="title">{{list.title}}</h3>
@@ -36,9 +39,6 @@
                                 <p>{{list.time}}</p>
                             </van-cell>
                         </van-list>
-                    </van-tab>
-                    <van-tab title="支出" class="tab">
-
                     </van-tab>
                 </van-tabs>
             </div>
