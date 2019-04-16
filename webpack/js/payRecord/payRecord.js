@@ -40,7 +40,7 @@ var pay = new Vue({
                     }else if(item.oid.substr(0,1) == 3){
                         data.orders[index].title = '购买行动打卡合约'
                     }else if(item.oid.substr(0,1) == 9){
-                        data.orders[index].title = '梦想红包领取'
+                        data.orders[index].title = '购买小梦想梦想互助--红包领取'
                     }
                 })
                 self.list = data.orders;
