@@ -16,7 +16,7 @@ var pay = new Vue({
     },
     methods:{
         onLoad(){
-            if(this.seek >= Math.ceil(this.total / 10) - 1){
+            if(this.seek > Math.ceil(this.total / 10) - 1){
                 this.finished = true;
             }else{
                 this.seek++;
