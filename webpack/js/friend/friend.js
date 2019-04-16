@@ -221,7 +221,13 @@ var friend = new Vue({
         // 联系客服
         callMe(){
             window.location.href = 'cach.html?time='+new Date().getTime()
-        }
+        },
+        // 关闭弹窗
+        close(){
+            this.status = '';
+            this.show = false;
+            this.payCancel = true;
+        },
     },
     watch:{
         value(data){
