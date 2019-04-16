@@ -4,9 +4,9 @@ var pay = new Vue({
     el:'#payrecord',
     data:{
         active:0,//默认菜单
-        loading:false,//是否处于加载列表状态
+        loading:true,//是否处于加载列表状态
         finished:false,//是否加载完毕，
-        listL:'',//消费订单
+        list:'',//消费订单
         seek:0
     },
     created(){
@@ -27,6 +27,8 @@ var pay = new Vue({
             })
             TD_Request('ds','oinfo',{uid:uid,seek:seek,count:10},function(code,data){
                 console.log(data)
+                self.$toast.clear();
+                self.list = data.orders
             },function(code,data){
                 console.log(data);
             })
