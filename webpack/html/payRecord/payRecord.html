@@ -16,7 +16,7 @@
     <div id="payrecord">
         <div class="record">
             <div class="main">
-                <van-tabs v-model="active" swipeable color="#00d094" title-active-color="#00d094">
+                <van-tabs v-model="active" swipeable color="#00d094" title-active-color="#00d094" @change="tabChange">
                     <van-tab title="全部" class="tab">
                         <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
                             <van-cell v-for="list in list">

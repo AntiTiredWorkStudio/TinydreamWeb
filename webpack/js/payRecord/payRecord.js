@@ -54,6 +54,10 @@ var pay = new Vue({
             },function(code,data){
                 console.log(data);
             })
+        },
+        // 支出
+        tabChange(title,index){
+            console.log(title)
         }
     }
 })
