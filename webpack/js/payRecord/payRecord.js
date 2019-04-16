@@ -1,4 +1,4 @@
-var uid = Options.GetUserInfo().uid;
+var uid = Options.GetUserInfo().openid;
 
 var pay = new Vue({
     el:'#payrecord',
