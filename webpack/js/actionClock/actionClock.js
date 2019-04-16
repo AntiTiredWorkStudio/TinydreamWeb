@@ -43,7 +43,7 @@ var actionClock = new Vue({
                 loadingType:'circular',
                 message:'日历创建中...'
             })
-            TD_Request('op','cal',{uid:uid,seek: self.seek,full:'month'},function(code,data){
+            TD_Request('op','cal',{uid:uid,seek: self.seek},function(code,data){
                 console.log(data)
                 self.$toast.clear();
                 if(data.calendar.monthIndex.length == 1){
