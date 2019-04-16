@@ -7,12 +7,16 @@ var fill = new Vue({
         info:'',//详情信息
     },
     created(){
-        this.Info(this)
-        this.headIcon(this);
+        if($_GET.opid){
+            this.Info(this)
+            this.headIcon(this,$_GET.opid);
+        }else{
+            window.location.href = '../actionClock/actionClock.html?time='+new Date().getTime();
+        }
     },
     methods:{
         // 详情信息
-        Info(self){
+        Info(self,opid){
             self.$toast.loading({
                 duration:0,
                 forbidClick:true,
@@ -24,7 +28,7 @@ var fill = new Vue({
                 self.$toast.clear();
                 console.log(data)
                 info.push(data.info);
-                TD_Request('op','oif',{uid:uid},function(code,data){
+                TD_Request('op','oif',{opid:opid,uid:uid},function(code,data){
                     console.log(data)
                     console.log(info);
                 },function(code,data){
