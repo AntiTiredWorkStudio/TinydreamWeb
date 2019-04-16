@@ -17,15 +17,15 @@
         <div class="record">
             <div class="main">
                 <van-tabs v-model="active" swipeable color="#00d094" title-active-color="#00d094">
-                    <van-tab title="全部">
+                    <van-tab title="全部" class="tab">
                         <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
                             <van-cell>111</van-cell>
                         </van-list>
                     </van-tab>
-                    <van-tab title="收入">
+                    <van-tab title="收入" class="tab">
 
                     </van-tab>
-                    <van-tab title="支出">
+                    <van-tab title="支出" class="tab">
 
                     </van-tab>
                 </van-tabs>
