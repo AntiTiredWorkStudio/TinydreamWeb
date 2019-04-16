@@ -31,7 +31,8 @@ var pay = new Vue({
                 self.$toast.clear();
                 $.each(data.orders,function(index,item){
                     var time = parseInt(item.ptime) * 1000;
-                    var dt = new Date(time);                    
+                    var dt = new Date(time);    
+                    item.time = dt.toLocaleString().replace(/\//g,'-')                
                     if(item.oid.substr(0,1) == 1 && item.did.substr(0,2) == 'DR'){
                         data.orders[index].title = '购买小梦想互助'
                     }else if(item.oid.substr(0,1) == 1 && item.did.substr(0,2) == 'TR'){
