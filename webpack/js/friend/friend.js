@@ -40,6 +40,13 @@ var friend = new Vue({
             })
             TD_Request('op','oshar',{opid:opid},function(code,data){
                 console.log(data)
+                $('.headicon').css('background','url('+data.headicon+') no-repeat center center / 1rem 1rem');
+                self.nickname = data.nickname;
+                TD_Request('op','oif',{opid:opid,uid:uid},function(code,data){
+                    console.log(data)
+                },function(code,data){
+                    console.log(data);
+                })
             },function(code,data){
                 console.log(data)
             })
