@@ -4,17 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>购买成功</title>
+    <title>收支记录</title>
     <link rel="stylesheet" href="http://tinydream.antit.top/TinydreamWeb/css/public.css">
     <link rel="stylesheet" href="//unpkg.com/vue-ydui/dist/ydui.rem.css">
     <script src="//unpkg.com/vue-ydui/dist/ydui.flexible.js"></script>
     <link rel="stylesheet" href="../../lib/vant.css">
-    <link rel="stylesheet/less" type="text/css" href="../../css/share/share.less" />
+    <link rel="stylesheet/less" type="text/css" href="../../css/payRecord/payRecord.less" />
     <script src="../../lib/less.js" ></script>
 </head>
 <body>
-    <div id="share">
-        
+    <div id="payrecord">
+        <div class="record">
+            <div class="main">
+                <van-tabs v-model="active" swipeable color="#00d094" title-active-color="#00d094">
+                    <van-tab title="全部" >
+                        
+                    </van-tab>
+                    <van-tab title="收入">
+
+                    </van-tab>
+                    <van-tab title="支出">
+
+                    </van-tab>
+                </van-tabs>
+            </div>
+        </div>
     </div>
     <script src="http://tinydream.antit.top/TinydreamWeb/lib/jquery-1.12.3.min.js"></script>
     <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
@@ -23,6 +37,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
     <script src="//unpkg.com/vue-ydui/dist/ydui.rem.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script>
-    <script src="../../js/share/share.js"></script>
+    <script src="../../js/payRecord/payRecord.js"></script>
 </body>
 </html>
