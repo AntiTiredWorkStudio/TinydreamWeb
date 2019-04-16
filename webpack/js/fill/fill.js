@@ -33,6 +33,7 @@ var fill = new Vue({
                     info['misday'] = data.info['misday'];
                     info['menday'] = data.info['menday'];
                     console.log(info);
+                    self.info = info;
                 },function(code,data){
                     console.log(data)
                 })
