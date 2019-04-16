@@ -108,8 +108,13 @@ var actionClock = new Vue({
             }
             console.log(totalDay,firstDay);
             $.each(days,function(index,item){
-                if(item.hasOwnProperty('id')){
-                    if(item.dateStamp >= lastattend && item.state == 'NONE'){
+                if(item.hasOwnProperty('id')){ 
+                if(item.hasOwnProperty('today')){
+                    if(item.today){
+                        self.btnTxt = '已打卡';
+                        self.isdisabled = true;
+                    }
+                }else if(item.dateStamp >= lastattend && item.state == 'NONE'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == 'NONE'){
                         $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
