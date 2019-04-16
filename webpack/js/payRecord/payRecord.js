@@ -35,7 +35,7 @@ var pay = new Vue({
             TD_Request('ds','oinfo',{uid:uid,seek:seek,count:10},function(code,data){
                 console.log(data)
                 self.total = data.total;
-                self.finished = false;
+                self.loading = false;
                 self.$toast.clear();
                 $.each(data.orders,function(index,item){
                     var time = parseInt(item.ptime) * 1000;
