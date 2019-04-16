@@ -7,7 +7,8 @@ var pay = new Vue({
         loading:true,//是否处于加载列表状态
         finished:false,//是否加载完毕，
         list:'',//消费订单
-        seek:0
+        seek:0,
+        total:'',
     },
     created(){
         // 消费信息
@@ -15,7 +16,10 @@ var pay = new Vue({
     },
     methods:{
         onLoad(){
-
+            this.finished = true
+            if(self.seek != Math.ceil(total / 10)){
+                self.seek++;
+            }
         },
         // 消费信息
         spend(self,seek){
@@ -27,6 +31,7 @@ var pay = new Vue({
             })
             TD_Request('ds','oinfo',{uid:uid,seek:seek,count:10},function(code,data){
                 console.log(data)
+                self.total = data.total;
                 self.finished = false;
                 self.$toast.clear();
                 $.each(data.orders,function(index,item){
