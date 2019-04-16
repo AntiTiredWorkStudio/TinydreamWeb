@@ -185,7 +185,7 @@ var actionClock = new Vue({
             TD_Request('op','pat',{uid:uid,date:date},function(code,data){
                 console.log(data)
                 self.$toast.clear();
-                self.Mat(this);
+                self.Mat(self);
                 window.location.href = '../fill/fill.html?time='+new Date().getTime();
             },function(code,data){
                 self.$toast.clear();
