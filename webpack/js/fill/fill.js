@@ -8,7 +8,7 @@ var fill = new Vue({
     },
     created(){
         this.Info(this)
-        this.headicon(this);
+        this.headIcon(this);
     },
     methods:{
         // 详情信息
@@ -26,8 +26,8 @@ var fill = new Vue({
                 console.log(data);
             })
         },
-        // headicon(self){
+        headIcon(self){
         //     TD_Request('op','ihics',{})
-        // }
+        }
     }
 })
