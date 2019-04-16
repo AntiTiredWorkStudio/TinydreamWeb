@@ -10,8 +10,8 @@ var friend = new Vue({
         this.list(this);
     },
     methods:{
-        buy(){
-
+        buy(cid){
+            console.log(cid)
         },
         // 合约列表
         list(self){
