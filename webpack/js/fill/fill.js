@@ -7,12 +7,12 @@ var fill = new Vue({
         info:'',//详情信息
     },
     created(){
-        this.info(this)
+        this.Info(this)
         this.headicon(this);
     },
     methods:{
         // 详情信息
-        info(self){
+        Info(self){
             self.$toast.loading({
                 duration:0,
                 forbidClick:true,
