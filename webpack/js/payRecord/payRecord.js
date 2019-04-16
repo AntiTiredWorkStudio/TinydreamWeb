@@ -16,7 +16,7 @@ var pay = new Vue({
     },
     methods:{
         onLoad(){
-            this.spend(this,this.seek)
+            this.spend(this,this.seek);
         },
         // 消费信息
         spend(self,seek){
@@ -28,8 +28,8 @@ var pay = new Vue({
             })
             TD_Request('ds','oinfo',{uid:uid,seek:seek,count:10},function(code,data){
                 console.log(data)
-                self.total = data.total;
                 self.loading = false;
+                self.total = data.total;
                 self.$toast.clear();
                 $.each(data.orders,function(index,item){
                     var time = parseInt(item.ptime) * 1000;
