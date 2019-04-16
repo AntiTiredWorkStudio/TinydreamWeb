@@ -41,18 +41,18 @@
                 <div class="main">
                     <van-col span="24">
                         <div class="day-100">
-                            <h3 class="title">{{contracts == '' ? '--' : contracts[1].title}}</h3>
+                            <h3 class="title">{<!--{contracts == '' ? '--' : contracts[1].title}}--></h3>
                             <p class="desc">
-                                {{contracts == '' ? '--' : contracts[1].description}}
+                                <!-- {{contracts == '' ? '--' : contracts[1].description}} -->
                             </p>
                             <van-button round size="small" type="primary" class="buy" @click="buy(contracts[1].cid)">立即购买</van-button>
                         </div>
                     </van-col>
                     <van-col span="24">
                         <div class="day-21">
-                            <h3 class="title right">{{contracts == '' ? '--' : contracts[0].title}}</h3>
+                            <h3 class="title right"><!--{{contracts == '' ? '--' : contracts[0].title}}--></h3>
                             <p class="desc right">
-                                {{contracts == '' ? '--' : contracts[0].description}}
+                                <!-- {{contracts == '' ? '--' : contracts[0].description}} -->
                             </p>
                             <van-col span="24" style="text-align:right">
                                 <van-button round size="small" class="buy right" type="primary" @click="buy(contracts[0].cid)">立即购买</van-button>
