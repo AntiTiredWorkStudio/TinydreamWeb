@@ -17,13 +17,33 @@ var friend = new Vue({
         isshow:false,//是否显示自定义主题
         custom:'',//自定义主题
         value:'',//自定义主题
-        payCancel:true,//支付取消弹窗
+        payCancel:false,//支付取消弹窗
     },
     created(){
-        // 合约列表
-        this.list(this);
+       if($_GET.opid){
+            // 合约列表
+            this.list(this);
+            // 返回信息
+            this.Info(this,$_GET.opid);
+       }else{
+           window.location.href = '../../index.html?time='+new Date().getTime();
+       }
     },
     methods:{
+        // 个人打卡信息
+        Info(self,opid){
+            self.$toast.loading({
+                duraction:0,
+                forbidClick:true,
+                loadingType:"circular",
+                message:'信息加载中...'
+            })
+            TD_Request('op','oshar',{opid:opid},function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data)
+            })
+        },
         // 点击购买合约
         buy(cid){
             this.show = true;
