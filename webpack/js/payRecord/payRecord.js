@@ -56,7 +56,9 @@ var pay = new Vue({
             })
         },
         load(){
-            this.onLoad()
+            this.loading = true;
+            this.seek++;
+            this.spend(this,this.seek);
         },
         // 支出
         tabChange(index,title){
