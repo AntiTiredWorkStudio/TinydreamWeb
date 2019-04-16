@@ -29,7 +29,6 @@ var fill = new Vue({
                 var menchance = data.info.menchance;
                 TD_Request('op','oif',{opid:opid,uid:uid},function(code,data){
                     console.log(data);
-                    console.log(info);
                     self.cardinfo = {
                         menchance:menchance,
                         misday:data.info['misday'],
