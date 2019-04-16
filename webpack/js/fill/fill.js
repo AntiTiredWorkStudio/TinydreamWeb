@@ -4,7 +4,7 @@ var fill = new Vue({
     el:'#fill',
     data:{
         headicons:'',//头像
-        info:'',//详情信息
+        cardinfo:'',//详情信息
     },
     created(){
         if($_GET.opid){
@@ -33,7 +33,7 @@ var fill = new Vue({
                     info['misday'] = data.info['misday'];
                     info['menday'] = data.info['menday'];
                     console.log(info);
-                    self.info = info;
+                    self.cardinfo = info;
                 },function(code,data){
                     console.log(data)
                 })
