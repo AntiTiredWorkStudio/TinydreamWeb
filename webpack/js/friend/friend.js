@@ -4,6 +4,7 @@ var friend = new Vue({
     el:'#friend',
     data:{
         contracts:'',//合约列表
+        show:false,//是否显示弹窗
     },
     created(){
         // 合约列表
@@ -12,6 +13,7 @@ var friend = new Vue({
     methods:{
         buy(cid){
             console.log(cid)
+            this.show = true;
         },
         // 合约列表
         list(self){
