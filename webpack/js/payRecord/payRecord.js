@@ -16,13 +16,9 @@ var pay = new Vue({
     },
     methods:{
         onLoad(){
-            if(this.list.length >= this.total){
-                this.finished = true;
-            }else{
-                this.loading = true;
-                this.seek++;
-                this.spend(this.seek);
-            }
+            this.loading = true;
+            this.seek++;
+            this.spend(this.seek);
         },
         // 消费信息
         spend(self,seek){
@@ -34,6 +30,9 @@ var pay = new Vue({
             })
             TD_Request('ds','oinfo',{uid:uid,seek:seek,count:10},function(code,data){
                 console.log(data)
+                if(self.list.length>=self.total){
+                    self.finished = true;
+                }
                 self.loading = false;
                 self.total = data.total;
                 self.$toast.clear();
