@@ -56,7 +56,7 @@ var pay = new Vue({
             })
         },
         // 支出
-        tabChange(title,index){
+        tabChange(index,title){
             console.log(title)
         }
     }
