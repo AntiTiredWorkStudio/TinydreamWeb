@@ -114,12 +114,8 @@ var actionClock = new Vue({
                         $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "NOTRELAY"){
                         $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                        self.btnTxt = '分享'
-                        self.isdisabled = true;
                     }else if(item.state == "RELAY"){
                         $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                        self.btnTxt = "已打卡";
-                        self.isdisabled = true;
                     }else if(item.state == 'SUPPLY'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal green">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }
@@ -160,6 +156,7 @@ var actionClock = new Vue({
                     }
                 }
                 WebApp.JSAPI.OnShareFriend = function(res){
+                    console.log(res);
                     if(res){
                         self.isshow = false;
                         self.share(self,opid,date);
