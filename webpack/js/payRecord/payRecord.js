@@ -19,7 +19,7 @@ var pay = new Vue({
             if(this.list.length >= this.total){
                 this.finished = true;
             }else{
-                this.loading = true;
+                this.loading = false;
                 this.seek++;
                 this.spend(this.seek);
             }
