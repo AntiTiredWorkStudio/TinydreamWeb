@@ -8,8 +8,8 @@ var fill = new Vue({
     },
     created(){
         if($_GET.opid){
-            this.Info(this)
-            this.headIcon(this,$_GET.opid);
+            this.Info(this,$_GET.opid)
+            this.headIcon(this);
         }else{
             window.location.href = '../actionClock/actionClock.html?time='+new Date().getTime();
         }
@@ -28,7 +28,7 @@ var fill = new Vue({
                 self.$toast.clear();
                 console.log(data)
                 info.push(data.info);
-                TD_Request('op','oif',{uid:uid,opid:opid},function(code,data){
+                TD_Request('op','oif',{opid:opid,uid:uid},function(code,data){
                     console.log(data)
                     console.log(info);
                 },function(code,data){
