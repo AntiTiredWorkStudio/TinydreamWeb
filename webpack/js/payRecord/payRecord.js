@@ -12,7 +12,7 @@ var pay = new Vue({
     },
     created(){
         // 消费信息
-        this.spend(this,this.seek)
+        // this.spend(this,this.seek)
     },
     methods:{
         onLoad(){
