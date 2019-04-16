@@ -16,12 +16,7 @@ var pay = new Vue({
     },
     methods:{
         onLoad(){
-            if(this.seek > Math.ceil(this.total / 10) - 1){
-                // this.finished = true;
-            }else{
-                this.seek++;
-                this.spend(this,this.seek)
-            }
+            this.spend(this,this.seek)
         },
         // 消费信息
         spend(self,seek){
