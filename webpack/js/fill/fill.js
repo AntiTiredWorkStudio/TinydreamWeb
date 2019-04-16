@@ -3,26 +3,12 @@ var uid = Options.GetUserInfo().openid;
 var fill = new Vue({
     el:'#fill',
     data:{
-        headicons:[
-            {
-                hedicon:'http://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaELNMOWpmBVxdBriaDWJbibLPK6vLTg6NsL9QYM4AlDWibl1EcE8zEibzqCvaw1YksQOuGUgnTWwWTsa0Q/132'
-            },
-            {
-                hedicon:'http://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaELNMOWpmBVxdBriaDWJbibLPK6vLTg6NsL9QYM4AlDWibl1EcE8zEibzqCvaw1YksQOuGUgnTWwWTsa0Q/132'
-            },
-            {
-                hedicon:'http://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaELNMOWpmBVxdBriaDWJbibLPK6vLTg6NsL9QYM4AlDWibl1EcE8zEibzqCvaw1YksQOuGUgnTWwWTsa0Q/132'
-            },
-            {
-                hedicon:'http://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaELNMOWpmBVxdBriaDWJbibLPK6vLTg6NsL9QYM4AlDWibl1EcE8zEibzqCvaw1YksQOuGUgnTWwWTsa0Q/132'
-            },
-            {
-                hedicon:'http://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaELNMOWpmBVxdBriaDWJbibLPK6vLTg6NsL9QYM4AlDWibl1EcE8zEibzqCvaw1YksQOuGUgnTWwWTsa0Q/132'
-            },
-        ],//头像
+        headicons:'',//头像
+        info:'',//详情信息
     },
     created(){
         this.info(this)
+        this.headicon(this);
     },
     methods:{
         // 详情信息
@@ -35,9 +21,13 @@ var fill = new Vue({
             })
             TD_Request('op','uinfo',{uid:uid},function(code,data){
                 console.log(data)
+                self.info = data.info;
             },function(code,data){
                 console.log(data);
             })
-        }
+        },
+        // headicon(self){
+        //     TD_Request('op','ihics',{})
+        // }
     }
 })
