@@ -32,7 +32,7 @@ var clockIn = new Vue({
         Options.TestServer = true;
         // 获取合约列表
         this.list(this)
-        this.orders(this)
+        this.Orders(this)
     },
     methods:{
         // 点击购买合约
@@ -248,7 +248,7 @@ var clockIn = new Vue({
             window.location.href = 'cach.html?time='+new Date().getTime()
         },
         // 订单信息
-        orders(self){
+        Orders(self){
             TD_Request('op','eomp',{uid:uid},function(code,data){
                 console.log(data)
                 self.feedback = data.feedback;
