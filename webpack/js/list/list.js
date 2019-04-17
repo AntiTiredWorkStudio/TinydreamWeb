@@ -25,13 +25,13 @@ var list = new Vue({
                 console.log(data)
                 // self.loading = false;
                 $.each(data.operations,function(index,item){
-                    // if(item.state == 'DOING'){
-                    //     $('.state').css('background','')
-                    // }else if(item.state == 'SUCCESS'){
-                    //     $('.state').css('background','url(https://tdream.antit.top/actived.png) no-repeat center center / 1.2rem 1.2rem')
-                    // }else if(item.state == 'FAIL'){
-                    //     $('.state').css('background','url(https://tdream.antit.top/unactive.png) no-repeat center center / 1.2rem 1.2rem')
-                    // }
+                    if(item.state == 'DOING'){
+                        $('#state').css('background','url(https://tdream.antit.top/active.png) no-repeat center center / 1.2rem 1.2rem')
+                    }else if(item.state == 'SUCCESS'){
+                        $('#state').css('background','url(https://tdream.antit.top/actived.png) no-repeat center center / 1.2rem 1.2rem')
+                    }else if(item.state == 'FAIL'){
+                        $('#state').css('background','url(https://tdream.antit.top/unactive.png) no-repeat center center / 1.2rem 1.2rem')
+                    }
                     if(item.cid == "CO0000000002"){
                         $('.mt-20').css('background','url(https://tdream.antit.top/hylb100.png) no-repeat center center / 6.8rem 2.7rem')
                     }else if(item.cid == "CO0000000001"){
