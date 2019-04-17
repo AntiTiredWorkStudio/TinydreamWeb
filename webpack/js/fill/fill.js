@@ -13,6 +13,7 @@ var fill = new Vue({
         cardinfo:'',//详情信息
     },
     created(){
+        Options.TestServer = true;
         if($_GET.opid){
             if($_GET.state == 'success'){
                 $('.top').css('background','url(https://tdream.antit.top/image/rightframe.png) no-repeat center center / 5.86rem 2.19rem')

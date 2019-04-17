@@ -1,3 +1,4 @@
+Options.TestServer = true;
 var common = new Vue({
     data:{
         tabbar:[

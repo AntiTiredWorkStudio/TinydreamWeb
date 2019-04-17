@@ -18,7 +18,7 @@ var actionClock = new Vue({
         countMonth:'',//月份总数
     },
     created(){
-        Options.TestServer = false;
+        Options.TestServer = true;
         alert(uid)
         this.tabbar = common.tabbar;
         common.notice(this,uid);
@@ -262,6 +262,9 @@ var actionClock = new Vue({
                 this.seek++;
             }
             this.Mat(this);
+        },
+        jl(){
+            window.location.href = '../list/list.html?time='+ new Date().getTime();
         }
     }
 })
