@@ -103,7 +103,7 @@ var pay = new Vue({
         onload(){
             this.loading = true;
             this.seek++;
-            this.spend(this,this.seek);
+            this.income(this,this.seek);
         },
         // 支出
         tabChange(index,title){
@@ -115,7 +115,7 @@ var pay = new Vue({
             }else if(title == '全部'){
                 this.spend(this,this.seek)
             }else if(title == '收入'){
-                this.spend(this,this.seek)
+                this.income(this,this.seek)
             }
         }
     }
