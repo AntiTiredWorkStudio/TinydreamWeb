@@ -95,11 +95,11 @@ var pay = new Vue({
             this.spend(this,this.seek);
         },
         // 收入
-        onload(){
-            this.loading = true;
-            this.seek++;
-            this.income(this,this.seek);
-        },
+        // onload(){
+        //     this.loading = true;
+        //     this.seek++;
+        //     this.income(this,this.seek);
+        // },
         // 支出
         tabChange(index,title){
             this.seek = 0;
