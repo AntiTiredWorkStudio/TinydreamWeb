@@ -251,8 +251,8 @@ var clockIn = new Vue({
                 console.log(data)
                 self.feedback = data.feedback;
                 var order = data.orders.shift();
-                var addOrder = data.orders.push(order)
-                console.log(addOrder);
+                data.orders.push(order)
+                console.log(data.orders);
             },function(code,data){
                 console.log(data)
                 if(code == 82){
