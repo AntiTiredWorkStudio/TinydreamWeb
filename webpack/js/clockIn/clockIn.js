@@ -46,7 +46,7 @@ var clockIn = new Vue({
             this.show = true;
             // 合约信息
             this.ContractInfo(this,cid);
-            alert(cid);
+            
         },
         // checkbox
         conType(index,status,title){
