@@ -28,6 +28,7 @@ var friend = new Vue({
             this.list(this);
             // 返回信息
             this.Info(this,$_GET.opid);
+            this.Orders(this)
        }else{
            window.location.href = '../../index.html?time='+new Date().getTime();
        }
@@ -49,12 +50,51 @@ var friend = new Vue({
                     console.log(data)
                     self.theme = data.info.theme;
                     self.alrday = data.info.alrday;
+                    WebApp.JSAPI.InitShare({
+                        title:data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天',
+                        desc:"有梦就行动，坚持返现金！",
+                        link:'http://tinydream.ivkcld.cn/TinydreamWeb/webpack/html/friend/friend.html?time='+new Date().getTime()+'&opid='+opid,
+                        imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+                    });
+                    WebApp.JSAPI.OnShareTimeLine = function(res){
+                        console.log(res)
+                        if(res){
+                            self.isshow = false;
+                            self.share(self,opid,date);
+                        }else if(res){
+                            self.$toast.fail('您取消了分享')
+                        }
+                    }
+                    WebApp.JSAPI.OnShareFriend = function(res){
+                        console.log(res);
+                        if(res){
+                            self.isshow = false;
+                            self.share(self,opid,date);
+                        }else if(res){
+                            self.$toast.fail('您取消了分享')
+                        }
+                    }
                 },function(code,data){
                     console.log(data);
                 })
             },function(code,data){
                 console.log(data)
             })
+        },
+        share(self,opid,date){
+            console.log(date);
+            if(typeof date != 'undefined'){
+                console.log(date)
+                TD_Request('op','rep',{opid:opid,date:date,uid:uid},function(code,data){
+                    self.$toast.success('分享成功')
+                    // return;
+                    self.Mat(self)
+                },function(code,data){
+                    self.$toast.fail('分享失败')
+                })
+            }else{
+                window.location.href = 'actionClock.html?time='+new Date().getTime();
+            }
         },
         // 点击购买合约
         buy(cid){
@@ -80,6 +120,17 @@ var friend = new Vue({
                     break;
                 }
             }
+        },
+        Orders(self){
+            TD_Request('op','eomp',{uid:uid},function(code,data){
+                return;
+            },function(code,data){
+                console.log(data)
+                if(code == 82){
+                    $('body').html('');
+                    window.location.href = '../actionClock/actionClock.html?time='+new Date().getTime();
+                }
+            })
         },
         pay(cid){
             if(this.theme == ''){
@@ -170,7 +221,7 @@ var friend = new Vue({
                         message:'绑定手机后才可以购买合约哦！'
                     }).then(()=>{
                         // 旧 UI 跳转
-                        window.location.href = 'phoneManage.html?time='+new Date().getTime()
+                        window.location.href = '../../../html/phoneManage.html?time='+new Date().getTime()
                         // 新 UI 跳转
                         // window.location.href = '../phoneManage/phoneManage.html?time='+ new Date().getTime();
                     })
@@ -180,7 +231,7 @@ var friend = new Vue({
                         message:'订单错误，如连续出现此错误，请联系客服小姐姐进行处理哦！'
                     }).then(()=>{
                         // 旧 UI 跳转
-                        window.location.href = 'cach.html?time='+new Date().getTime()
+                        window.location.href = '../../../html/cach.html?time='+new Date().getTime()
                         // 新 UI 跳转
                         // window.location.href = '../cach/cach.html?time='+ new Date().getTime();
                     }).catch(()=>{

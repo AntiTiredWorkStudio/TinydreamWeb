@@ -1,5 +1,12 @@
 var uid = Options.GetUserInfo().openid;
 
+WebApp.JSAPI.InitShare({
+    title:'行动打卡',
+    desc:"有梦就行动，坚持返现金！",
+    link:'http://tinydream.ivkcld.cn/TinydreamWeb/webpack/html/payInfo/clockIn.html?time='+ new Date().getTime(),
+    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+});
+
 var list = new Vue({
     el:"#list",
     data:{
