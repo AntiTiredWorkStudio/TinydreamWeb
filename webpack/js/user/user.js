@@ -54,7 +54,11 @@ var user = new Vue({
             })
         },
         cinfo(self){
-
+            TD_Request('op','uinfo',{uid:uid},function(code,data){
+                console.log(data);
+            },function(code,data){
+                console.log(data)
+            })
         },
         record(){
             window.location.href = '../payRecord/payRecord.html?time='+new Date().getTime();
