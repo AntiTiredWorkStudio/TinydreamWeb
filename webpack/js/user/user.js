@@ -9,6 +9,9 @@ var user = new Vue({
         headicon:'',//个人头像,
         ncount:'',//通知数量
         clock:'',//打卡信息
+        cAttendence:'',
+        cPerson:''
+
     },
     created(){
         this.tabbar = common.tabbar;
@@ -36,6 +39,8 @@ var user = new Vue({
                     background:'url('+data.selfinfo.headicon+') no-repeat center center / 1.32rem 1.32rem'
                 }
                 self.selfinfo = data.selfinfo;
+                self.cAttendence = data.cAttendence;
+                
             },function(code,data){
                 console.log(data)
             })

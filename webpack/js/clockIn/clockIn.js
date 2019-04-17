@@ -264,6 +264,7 @@ var clockIn = new Vue({
                 console.log(data)
                 self.feedback = data.feedback;
                 var order = data.orders.shift();
+                self
                 self.order = order;
                 data.orders.push(order);
                 self.orders = data.orders;
