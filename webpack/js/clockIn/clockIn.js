@@ -23,6 +23,7 @@ var clockIn = new Vue({
         value:'',//自定义主题
         cattention:'',//注意事项列表
         feedback:'',//用户反馈
+        order:'',//订单信息
     },
     created(){
         this.tabbar = common.tabbar;
@@ -251,6 +252,7 @@ var clockIn = new Vue({
                 console.log(data)
                 self.feedback = data.feedback;
                 var order = data.orders.shift();
+                self.order = order;
                 data.orders.push(order)
                 console.log(data.orders);
             },function(code,data){
