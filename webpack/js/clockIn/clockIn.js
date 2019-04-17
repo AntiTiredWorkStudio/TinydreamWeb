@@ -55,6 +55,7 @@ var clockIn = new Vue({
                 this.theme = this.contractType[index].title;
             }else{
                 this.isshow = true;
+                $('.banner').hide();
                 $('#theme.van-field__control').focus();
             }    
         },
@@ -247,9 +248,11 @@ var clockIn = new Vue({
             }
         },
         cancel(){
+            $('.banner').show();
             this.custom = '其他';
             this.theme = '';
-            this.status = 'undefined';
+            this.status = null;
+
         },
         // 联系客服
         callMe(){
