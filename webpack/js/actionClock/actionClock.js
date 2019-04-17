@@ -70,7 +70,7 @@ var actionClock = new Vue({
         },
         // 打卡
         Clock(self,opid){
-            alert(opid)
+            // alert(opid)
             TD_Request('op','mat',{opid:opid,uid:uid},function(code,data){
                 self.btnTxt = '已打卡';
                 self.isdisabled = true;
