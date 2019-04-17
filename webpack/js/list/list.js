@@ -11,7 +11,8 @@ var list = new Vue({
         isshow:false,
         alrday:'',
         menday:'',
-        misday:''
+        misday:'',
+        conday:''
     },
     created(){
         // this.getList(this)
