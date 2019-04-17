@@ -224,6 +224,7 @@ var clockIn = new Vue({
                 theme:theme
             },function(code,data){
                 self.$toast.success('购买成功');
+                window.location.href = '../actionClock/actionClock.html?time='+ new Date().getTime();
             },function(code,data){
                 alert(code)
             })
