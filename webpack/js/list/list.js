@@ -15,7 +15,7 @@ var list = new Vue({
             this.getList(this)
         },
         getList(self){
-            TD_Request('op','olist',{uid:uid,seek:self.seek,10},function(code,data){
+            TD_Request('op','olist',{uid:uid,seek:self.seek,count:10},function(code,data){
                 console.log(data)
             },function(code,data){
                 console.log(data)
