@@ -23,7 +23,7 @@ var list = new Vue({
         getList(self){
             TD_Request('op','olist',{uid:uid,seek:self.seek,count:10},function(code,data){
                 console.log(data)
-                // self.loading = false;
+                self.loading = false;
                 $.each(data.operations,function(index,item){
                     if(item.state == 'DOING'){
                        item.url = 'https://tdream.antit.top/active.png'
