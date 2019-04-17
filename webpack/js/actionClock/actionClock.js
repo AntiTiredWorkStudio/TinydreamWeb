@@ -19,7 +19,7 @@ var actionClock = new Vue({
     },
     created(){
         Options.TestServer = true;
-        alert(uid)
+        // alert(uid)
         this.tabbar = common.tabbar;
         common.notice(this,uid);
         // 创建日历
@@ -30,7 +30,7 @@ var actionClock = new Vue({
     methods:{
         // 打卡
         clock(){
-            alert(uid)
+            // alert(uid)
             this.Clock(this,this.opid);
         },
         // 创建日历
@@ -79,7 +79,12 @@ var actionClock = new Vue({
                 self.isshow = true;
             },function(code,data){
                 console.log(data);
-                alert(JSON.stringify(data))
+                if(code == 86){
+                    self.$dialog.alert({
+                        title:'温馨提示',
+                        message:data.context
+                    })
+                }
             })
         },
         // 生成日历
