@@ -20,7 +20,7 @@
                    <div class="right" v-for="list in list">
                        <van-icon :name="list.url" class="icon"></van-icon>
                        <div class="btn">
-                            <van-button round @click="get(list.cid,list.alrday,list.menday,list.misday)">查看打卡详情</van-button>
+                            <van-button round @click="get(list.cid,list.alrday,list.menday,list.misday,list.conday)">查看打卡详情</van-button>
                        </div>
                    </div>
                 </van-cell>
@@ -29,26 +29,28 @@
             <van-popup v-model="isshow" class="info">
                 <div class="main">
                     <div class="mt-80">
-                        <p>21<span style="font-size:0.28rem">天</span></p>
+                        <p>{{alrday}}<span style="font-size:0.28rem">天</span></p>
                         <p style="font-size:0.28rem">本合约共累计打卡</p>
                     </div>
                     <div class="mt-95">
                         <van-col span="8">
-                            <p class="txt">打卡</p>
-                            <p class="num">1</p>
+                            <p class="txt">连续打卡</p>
+                            <p class="num">{{conday}}</p>
                         </van-col>
                         <van-col span="8">
                             <p class="txt">缺卡</p>
-                            <p class="num">1</p>
+                            <p class="num">{{misday}}</p>
                         </van-col>
                         <van-col span="8">
                             <p class="txt">补卡</p>
-                            <p class="num">12</p>
+                            <p class="num">{{menday}}</p>
                         </van-col>
                     </div>
                     <p class="tip">点击右上角“...”立即分享打卡历程</p>
                 </div>
-                <van-icon name="https://tdream.antit.top/DaKaOKX.png" class="icon"></van-icon>
+                <div class="close" style="text-align:center">
+                    <van-icon name="https://tdream.antit.top/DaKaOKX.png" class="icon" @click="close"></van-icon>
+                </div>
             </van-popup>
         </div>
     </div>

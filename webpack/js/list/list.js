@@ -8,7 +8,10 @@ var list = new Vue({
         seek:0,
         count:0,
         list:[],
-        isshow:true
+        isshow:false,
+        alrday:'',
+        menday:'',
+        misday:''
     },
     created(){
         // this.getList(this)
@@ -51,14 +54,15 @@ var list = new Vue({
                 console.log(data)
             })
         },
-        get(cid,alrday,menday,misday){
-            var self = this;
-            console.log(cid,alrday,menday,misday)
-            TD_Request('op','oif',{cid:cid,uid:uid},function(code,data){
-                console.log(data)
-            },function(code,data){
-                console.log(data)
-            })
+        get(cid,alrday,menday,misday,conday){
+            this.alrday = alrday
+            this.menday = menday
+            this.misday = misday
+            this.conday = conday
+            this.isshow = true;
+        },
+        close(){
+            this.isshow = false;
         }
     }
 })
