@@ -113,9 +113,9 @@ var clockIn = new Vue({
                 self.price = data.contract.price / 100;
                 self.cid = data.contract.cid;
                 if(cid == 'CO0000000001'){
-                    self.warm = self.cattention.CO0000000001;
+                    $('#warm').html( self.cattention.CO0000000001);
                 }else if(cid == 'CO0000000002'){
-                    self.warm = self.cattention.CO0000000002;
+                    $('#warm').html( self.cattention.CO0000000002);
                 }
                 self.$toast.clear();
             },function(code,data){
