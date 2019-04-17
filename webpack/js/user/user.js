@@ -54,7 +54,10 @@ var user = new Vue({
             })
         },
         cinfo(self){
-            
+
+        },
+        record(){
+            window.location.href = '../payRecord/payRecord.html?time='+new Date().getTime();
         }
     }
 })
