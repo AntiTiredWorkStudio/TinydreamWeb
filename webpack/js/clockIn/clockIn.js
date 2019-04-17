@@ -87,6 +87,7 @@ var clockIn = new Vue({
                 message:'列表获取中...'
             })
             TD_Request('co','list',{},function(code,data){
+                console.log(data);
                 self.contractType = data.themes;
                 self.contracts = data.contracts;
                 self.$toast.clear()
