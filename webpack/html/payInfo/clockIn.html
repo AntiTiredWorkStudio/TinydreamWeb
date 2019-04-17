@@ -31,22 +31,22 @@
             <van-col span="24" class="contract">
                 <div class="main">
                     <van-col span="24">
-                        <div class="day-100" @click="buy(contracts[1].cid)">
+                        <div class="day-100" @click.stop="buy(contracts[1].cid)">
                             <h3 class="title">{{contracts == '' ? '--' : contracts[1].title}}</h3>
                             <p class="desc">
                                 {{contracts == '' ? '--' : contracts[1].description}}
                             </p>
-                            <van-button round size="small" type="primary" class="buy" @click="buy(contracts[1].cid)">立即购买</van-button>
+                            <van-button round size="small" type="primary" class="buy" @click.stop="buy(contracts[1].cid)">立即购买</van-button>
                         </div>
                     </van-col>
                     <van-col span="24">
-                        <div class="day-21" @click="buy(contracts[1].cid)">
+                        <div class="day-21" @click.stop="buy(contracts[1].cid)">
                             <h3 class="title right">{{contracts == '' ? '--' : contracts[0].title}}</h3>
                             <p class="desc right">
                                 {{contracts == '' ? '--' : contracts[0].description}}
                             </p>
                             <van-col span="24" style="text-align:right">
-                                <van-button round size="small" class="buy right" type="primary" @click="buy(contracts[0].cid)">立即购买</van-button>
+                                <van-button round size="small" class="buy right" type="primary" @click.stop="buy(contracts[0].cid)">立即购买</van-button>
                             </van-col>
                         </div>
                     </van-col>
