@@ -40,8 +40,15 @@ var user = new Vue({
                     background:'url('+data.selfinfo.headicon+') no-repeat center center / 1.32rem 1.32rem'
                 }
                 self.selfinfo = data.selfinfo;
+                if(data.total['SUM(`alrday`)'] == null){
+                    data.total['SUM(`alrday`)'] = 0;
+                }
+                if(data.total['SUM(`conday`)'] == null){
+                    data.total['SUM(`conday`)'] = 0;
+                }
                 self.cAttendence = data.total['SUM(`alrday`)'];
                 self.conday = data.total['SUM(`conday`)'];
+                
                 
             },function(code,data){
                 console.log(data)
