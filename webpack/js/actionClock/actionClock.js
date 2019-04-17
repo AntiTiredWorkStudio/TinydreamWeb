@@ -78,6 +78,7 @@ var actionClock = new Vue({
                 self.isshow = true;
             },function(code,data){
                 console.log(data);
+                alert(JSON.stringify(data))
             })
         },
         // 生成日历
