@@ -251,7 +251,7 @@ var clockIn = new Vue({
         },
         // 联系客服
         callMe(){
-            window.location.href = 'cach.html?time='+new Date().getTime()
+            window.location.href = '../../../html/cach.html?time='+new Date().getTime()
         },
         // 订单信息
         Orders(self){
