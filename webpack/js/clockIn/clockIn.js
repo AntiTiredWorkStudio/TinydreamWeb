@@ -33,7 +33,7 @@ var clockIn = new Vue({
         this.list(this)
         var self = this;
         setInterval(function(){
-            self.orders(this)
+            self.orders(self)
         },1000)
     },
     methods:{
