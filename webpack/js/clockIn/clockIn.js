@@ -55,7 +55,7 @@ var clockIn = new Vue({
                 this.theme = this.contractType[index].title;
             }else{
                 this.isshow = true;
-                $('.banner').hide();
+                $('.banner').css('background','rgba(0,0,0,.5) url(undefined)');
                 $('#theme.van-field__control').focus();
             }    
         },
@@ -248,7 +248,7 @@ var clockIn = new Vue({
             }
         },
         cancel(){
-            $('.banner').show();
+            $('.banner').css('background','url(https://tdream.antit.top/ActiveContractBanner.jpg) no-repeat center center / 7.5rem 2.3rem');
             this.custom = '其他';
             this.theme = '';
             this.status = null;
