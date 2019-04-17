@@ -7,12 +7,14 @@ var user = new Vue({
         tabbar:'',//tabbar
         selfinfo:'',//个人信息,
         headicon:'',//个人头像,
-        ncount:'',
+        ncount:'',//通知数量
+        clock:'',//打卡信息
     },
     created(){
         this.tabbar = common.tabbar;
         // 获取个人信息
         this.GetSelfInfo(this)
+        this.cinfo(this);
     },
     mounted(){
         console.log(common.ncount)
@@ -50,6 +52,9 @@ var user = new Vue({
             },function(code,data){
                 console.log(data);
             })
+        },
+        cinfo(self){
+            
         }
     }
 })
