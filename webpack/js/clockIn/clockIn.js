@@ -250,7 +250,7 @@ var clockIn = new Vue({
             TD_Request('op','eomp',{uid:uid},function(code,data){
                 console.log(data)
                 self.feedback = data.feedback;
-                var order = data.orders.shiftz();
+                var order = data.orders.shift();
                 console.log(order);
             },function(code,data){
                 console.log(data)
