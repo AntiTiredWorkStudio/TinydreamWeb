@@ -27,6 +27,9 @@ var pay = new Vue({
                 console.log(data)
                 self.loading = false;
                 self.total = data.total;
+                if(data.total == 0){
+                    self.finished = true;
+                }
                 self.$toast.clear();
                 $.each(data.orders,function(index,item){
                     var time = parseInt(item.ptime) * 1000;
@@ -63,7 +66,10 @@ var pay = new Vue({
             })
             TD_Request('ds','rinfo',{uid:uid,seek:seek,count:10},function(code,data){
                 self.loading = false;
-                self.total = data.total;
+                self.total = data.count;
+                if(data.count == 0){
+                    self.finished = true;
+                }
                 self.$toast.clear();
                 $.each(data.orders,function(index,item){
                     var time = parseInt(item.ptime) * 1000;
