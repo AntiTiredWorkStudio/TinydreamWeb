@@ -7,7 +7,8 @@ var list = new Vue({
         finished:false,
         seek:0,
         count:0,
-        list:[]
+        list:[],
+        isshow:true
     },
     created(){
         // this.getList(this)
