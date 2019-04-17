@@ -5,14 +5,20 @@ var list = new Vue({
     data:{
         loading:false,
         finished:false,
-        seek:0
+        seek:0,
+        count:0,
+        list:[]
     },
     created(){
 
     },
     methods:{
         load(){
-            this.getList(this)
+            this.getList(this);
+            if(this.count>this.seek){
+                this.seek++;
+                this.getList(this)
+            }
         },
         getList(self){
             TD_Request('op','olist',{uid:uid,seek:self.seek,count:10},function(code,data){
@@ -36,6 +42,10 @@ var list = new Vue({
                         }else if(item.state == 'FAIL'){
                             $('.state').css('background','url(https://tdream.antit.top/unactive.png) no-repeat center center / 1.2rem 1.2rem')
                         }
+                    }
+                    self.list.push(item)
+                    if(self.list.length >= self.count){
+                        self.finished = true;
                     }
                 })
             },function(code,data){
