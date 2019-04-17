@@ -10,7 +10,7 @@ var list = new Vue({
         list:[]
     },
     created(){
-
+        this.getList(this)
     },
     methods:{
         load(){
