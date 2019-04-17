@@ -29,12 +29,16 @@ var list = new Vue({
                        item.url = 'https://tdream.antit.top/active.png'
                     }else if(item.state == 'SUCCESS'){
                         item.url = 'https://tdream.antit.top/actived.png'
-                    }else if(item.state == 'FAIL'){
+                    }else if(item.state == 'FAILED'){
                         item.url = 'https://tdream.antit.top/unactive.png'
                     }
-                    if(item.cid == "CO0000000002"){
+                    if(item.cid == "CO0000000002" && item.state == 'DOING' || item.cid == "CO0000000002" && item.state == 'SUCCESS'){
+                        $('.mt-20').css('background','url(https://tdream.antit.top/image/Contract100.png) no-repeat center center / 6.8rem 2.7rem')
+                    }else if(item.cid == "CO0000000001" && item.state == 'DOING' || item.cid == "CO0000000001" && item.state == 'SUCCESS'){
+                        $('.mt-20').css('background','url(https://tdream.antit.top/image/Contract21.png) no-repeat center center / 6.8rem 2.7rem')
+                    }else if(item.cid == "CO0000000002" && item.state == 'FAILED'){
                         $('.mt-20').css('background','url(https://tdream.antit.top/hylb100.png) no-repeat center center / 6.8rem 2.7rem')
-                    }else if(item.cid == "CO0000000001"){
+                    }else if(item.cid == "CO0000000001" && item.state == 'FAILED'){
                         $('.mt-20').css('background','url(https://tdream.antit.top/hylb21.png) no-repeat center center / 6.8rem 2.7rem')
                     }
                     self.list.push(item)
