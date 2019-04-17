@@ -69,7 +69,7 @@ var clockIn = new Vue({
         },
         // 关闭弹窗
         close(){
-            this.status = '';
+            this.status = null;
             this.show = false;
             this.payCancel = true;
         },
