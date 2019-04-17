@@ -24,6 +24,7 @@ var clockIn = new Vue({
         cattention:'',//注意事项列表
         feedback:'',//用户反馈
         order:'',//订单信息
+        orders:'',//订单列表
     },
     created(){
         this.tabbar = common.tabbar;
@@ -31,10 +32,7 @@ var clockIn = new Vue({
         Options.TestServer = true;
         // 获取合约列表
         this.list(this)
-        var self = this;
-        setInterval(function(){
-            self.orders(self)
-        },1000)
+        this.orders(this)
     },
     methods:{
         // 点击购买合约
@@ -254,9 +252,12 @@ var clockIn = new Vue({
             TD_Request('op','eomp',{uid:uid},function(code,data){
                 console.log(data)
                 self.feedback = data.feedback;
-                var order = data.orders.shift();
+                
+                var order = self.orders.shift();
                 self.order = order;
-                data.orders.push(order)
+                data.orders.push(order);
+                self.orders = data.orders;
+                self.loop(self)
                 console.log(data.orders);
             },function(code,data){
                 console.log(data)
@@ -265,6 +266,13 @@ var clockIn = new Vue({
                     window.location.href = '../actionClock/actionClock.html?time='+new Date().getTime();
                 }
             })
+        },
+        loop(self){
+            setInterval(function(){
+                var order = self.orders.shift();
+                self.order = order;
+                self.orders.push(order)
+            },1000)
         }
     },
     watch:{
