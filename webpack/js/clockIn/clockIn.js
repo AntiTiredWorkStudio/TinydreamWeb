@@ -22,6 +22,7 @@ var clockIn = new Vue({
         custom:'',//自定义主题
         value:'',//自定义主题
         cattention:'',//注意事项列表
+        feedback:'',//用户反馈
     },
     created(){
         this.tabbar = common.tabbar;
@@ -248,6 +249,7 @@ var clockIn = new Vue({
         orders(self){
             TD_Request('op','eomp',{uid:uid},function(code,data){
                 console.log(data)
+                self.feedback = data.feedback;
             },function(code,data){
                 console.log(data)
                 if(code == 82){
