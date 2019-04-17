@@ -238,6 +238,7 @@ var clockIn = new Vue({
         },
         // 自定义主题
         confirm(){
+            $('.banner').css('background','url(https://tdream.antit.top/ActiveContractBanner.jpg) no-repeat center center / 7.5rem 2.3rem');
             if(this.value == ''){
                 this.custom = '其他';
                 this.theme = '';
