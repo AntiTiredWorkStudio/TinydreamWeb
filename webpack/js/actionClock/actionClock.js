@@ -121,6 +121,8 @@ var actionClock = new Vue({
                         $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "NOTRELAY"){
                         $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        self.btnTxt = '点击"..."分享';
+                        self.isdisabled = true;
                     }else if(item.state == "RELAY"){
                         $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == 'SUPPLY'){
