@@ -163,7 +163,7 @@ var clockIn = new Vue({
                         message:'绑定手机后才可以购买合约哦！'
                     }).then(()=>{
                         // 旧 UI 跳转
-                        window.location.href = 'phoneManage.html?time='+new Date().getTime()
+                        window.location.href = '../../../html/phoneManage.html?time='+new Date().getTime()
                         // 新 UI 跳转
                         // window.location.href = '../phoneManage/phoneManage.html?time='+ new Date().getTime();
                     })
@@ -173,7 +173,7 @@ var clockIn = new Vue({
                         message:'订单错误，如连续出现此错误，请联系客服小姐姐进行处理哦！'
                     }).then(()=>{
                         // 旧 UI 跳转
-                        window.location.href = 'cach.html?time='+new Date().getTime()
+                        window.location.href = '../../../html/cach.html?time='+new Date().getTime()
                         // 新 UI 跳转
                         // window.location.href = '../cach/cach.html?time='+ new Date().getTime();
                     }).catch(()=>{
