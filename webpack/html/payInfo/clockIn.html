@@ -31,7 +31,7 @@
             <van-col span="24" class="contract">
                 <div class="main">
                     <van-col span="24">
-                        <div class="day-100">
+                        <div class="day-100" @click="buy(contracts[1].cid)">
                             <h3 class="title">{{contracts == '' ? '--' : contracts[1].title}}</h3>
                             <p class="desc">
                                 {{contracts == '' ? '--' : contracts[1].description}}
@@ -40,7 +40,7 @@
                         </div>
                     </van-col>
                     <van-col span="24">
-                        <div class="day-21">
+                        <div class="day-21" @click="buy(contracts[1].cid)">
                             <h3 class="title right">{{contracts == '' ? '--' : contracts[0].title}}</h3>
                             <p class="desc right">
                                 {{contracts == '' ? '--' : contracts[0].description}}
