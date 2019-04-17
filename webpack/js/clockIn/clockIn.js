@@ -28,6 +28,7 @@ var clockIn = new Vue({
         Options.TestServer = false;
         // 获取合约列表
         this.list(this)
+        this.orders(this)
     },
     methods:{
         // 点击购买合约
@@ -234,6 +235,14 @@ var clockIn = new Vue({
         // 联系客服
         callMe(){
             window.location.href = 'cach.html?time='+new Date().getTime()
+        },
+        // 订单信息
+        orders(self){
+            TD_Request('op','eomp',{uid:uid},function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data)
+            })
         }
     },
     watch:{
