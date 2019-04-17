@@ -10,7 +10,8 @@ var user = new Vue({
         ncount:'',//通知数量
         clock:'',//打卡信息
         cAttendence:'',
-        cPerson:''
+        cPerson:'',
+        conday:'',
 
     },
     created(){
@@ -39,7 +40,8 @@ var user = new Vue({
                     background:'url('+data.selfinfo.headicon+') no-repeat center center / 1.32rem 1.32rem'
                 }
                 self.selfinfo = data.selfinfo;
-                self.cAttendence = data.cAttendence;
+                self.cAttendence = data.total.SUM(`alrday`);
+                self.conday = data.total.SUM(`conday`);
                 
             },function(code,data){
                 console.log(data)
