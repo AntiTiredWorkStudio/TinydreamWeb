@@ -250,6 +250,10 @@ var clockIn = new Vue({
                 console.log(data)
             },function(code,data){
                 console.log(data)
+                if(code == 82){
+                    $('body').html('');
+                    window.location.href = '../actionClock/actionClock.html?time='+new Date().getTime();
+                }
             })
         }
     },
