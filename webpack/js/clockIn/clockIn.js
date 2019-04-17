@@ -31,6 +31,8 @@ var clockIn = new Vue({
         feedback:'',//用户反馈
         order:'',//订单信息
         orders:'',//订单列表
+        cPerson:'',
+        cAttendence:''
     },
     created(){
         this.tabbar = common.tabbar;
@@ -264,6 +266,8 @@ var clockIn = new Vue({
                 console.log(data)
                 self.feedback = data.feedback;
                 var order = data.orders.shift();
+                self.cPerson = data.cPerson;
+                self.cAttendence = data.cAttendence;
                 self.order = order;
                 data.orders.push(order);
                 self.orders = data.orders;
