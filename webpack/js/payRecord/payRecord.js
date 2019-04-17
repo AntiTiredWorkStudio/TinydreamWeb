@@ -12,14 +12,9 @@ var pay = new Vue({
     },
     created(){
         // 消费信息
-        this.spend(this,this.seek)
+        this.income(this,this.seek)
     },
     methods:{
-        onLoad(){
-            this.loading = true;
-            this.seek++;
-            this.spend(this,this.seek);
-        },
         // 消费信息
         spend(self,seek){
             self.$toast.loading({
@@ -111,8 +106,6 @@ var pay = new Vue({
             this.list = [];
             console.log(title)
             if(title == '支出'){
-                this.spend(this,this.seek)
-            }else if(title == '全部'){
                 this.spend(this,this.seek)
             }else if(title == '收入'){
                 this.income(this,this.seek)
