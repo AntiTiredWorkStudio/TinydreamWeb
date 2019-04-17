@@ -18,7 +18,7 @@
             <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="load">
                 <van-cell class="mt-20">
                    <div class="right" v-for="list in list">
-                       <div class="state" :class="{list.state == 'SUCCESS' ? 'success' : 'fail'}"></div>
+                       <div class="state"></div>
                        <div class="btn">
                             <van-button round @click="get(list.cid,list.alrday,list.menday,list.misday)">查看打卡详情</van-button>
                        </div>
