@@ -52,7 +52,13 @@ var list = new Vue({
             })
         },
         get(cid,alrday,menday,misday){
+            var self = this;
             console.log(cid,alrday,menday,misday)
+            TD_Request('op','oif',{cid:cid,uid:uid},function(code,data){
+                console.log(data)
+            },function(code,data){
+                console.log(data)
+            })
         }
     }
 })
