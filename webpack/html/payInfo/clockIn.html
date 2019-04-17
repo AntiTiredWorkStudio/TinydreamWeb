@@ -62,7 +62,7 @@
             <van-col span="24" class="feedback">
                 <van-row class="feed_main" v-for="feed in feedback">
                     <van-col span="5">
-                        <div class="head"></div>
+                        <div class="head"><van-icon :name="feed.headicon"></van-icon></div>
                     </van-col>
                     <van-col span="19">
                         <h3 class="type">{{feed.title}}<span class="nickname">{{feed.username}}</span></h3>

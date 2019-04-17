@@ -264,9 +264,6 @@ var clockIn = new Vue({
                 console.log(data)
                 self.feedback = data.feedback;
                 var order = data.orders.shift();
-                $.each(data.feedback,function(index,item){
-                    $('.head').css('background','url('+item.headicon+') no-repeat center center / 1rem 1rem');
-                })
                 self.order = order;
                 data.orders.push(order);
                 self.orders = data.orders;
