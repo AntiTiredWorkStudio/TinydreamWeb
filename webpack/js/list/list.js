@@ -51,6 +51,9 @@ var list = new Vue({
             },function(code,data){
                 console.log(data)
             })
+        },
+        get(cid,alrday,menday,misday){
+            console.log(cid,alrday,menday,misday)
         }
     }
 })
