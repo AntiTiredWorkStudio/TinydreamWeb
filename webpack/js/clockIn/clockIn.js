@@ -31,7 +31,9 @@ var clockIn = new Vue({
         Options.TestServer = true;
         // 获取合约列表
         this.list(this)
-        this.orders(this)
+        setInterval(function(){
+            this.orders(this)
+        },1000)
     },
     methods:{
         // 点击购买合约
