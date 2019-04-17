@@ -18,7 +18,7 @@ var actionClock = new Vue({
         countMonth:'',//月份总数
     },
     created(){
-        Options.TestServer = true;
+        Options.TestServer = false;
         alert(uid)
         this.tabbar = common.tabbar;
         common.notice(this,uid);
