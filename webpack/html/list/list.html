@@ -17,7 +17,10 @@
         <div class="list">
             <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="load">
                 <van-cell class="mt-20">
-                   
+                   <div class="right">
+                       <div class="state"></div>
+                       <van-button round>查看详情</van-button>
+                   </div>
                 </van-cell>
             </van-list>
         </div>
