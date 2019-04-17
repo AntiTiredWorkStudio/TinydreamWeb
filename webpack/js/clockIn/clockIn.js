@@ -271,7 +271,7 @@ var clockIn = new Vue({
                 var order = self.orders.shift();
                 self.order = order;
                 self.orders.push(order)
-            },1000)
+            },3000)
         }
     },
     watch:{
