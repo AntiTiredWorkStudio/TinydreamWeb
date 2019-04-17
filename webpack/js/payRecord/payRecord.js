@@ -50,7 +50,9 @@ var pay = new Vue({
                 })
                 if(self.list.length>=self.total){
                     self.finished = true;
-                } 
+                } else {
+                    self.finished = false;
+                }
                 console.log(self.list.length)
             },function(code,data){
                 console.log(data);
