@@ -21,6 +21,7 @@ var clockIn = new Vue({
         isshow:false,//是否显示自定义主题
         custom:'',//自定义主题
         value:'',//自定义主题
+        cattention:'',//注意事项列表
     },
     created(){
         this.tabbar = common.tabbar;
@@ -90,6 +91,7 @@ var clockIn = new Vue({
                 console.log(data);
                 self.contractType = data.themes;
                 self.contracts = data.contracts;
+                self.cattention = data.cattention;
                 self.$toast.clear()
             },function(code,data){
                 self.$toast.clear();
@@ -110,6 +112,11 @@ var clockIn = new Vue({
                 self.desc = data.contract.description;
                 self.price = data.contract.price / 100;
                 self.cid = data.contract.cid;
+                if(cid == 'CO0000000001'){
+                    self.warm = self.cattention.CO0000000001;
+                }else if(cid == 'CO0000000002'){
+                    self.warm = self.cattention.CO0000000002;
+                }
                 self.$toast.clear();
             },function(code,data){
                 self.$toast.clear();
