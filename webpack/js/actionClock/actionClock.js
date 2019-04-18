@@ -135,11 +135,10 @@ var actionClock = new Vue({
                     //         item.state = 'RELAY'
                     //     }
                     // }}
-                    if(item.id == 0){
-                        item.state == 'NONE';
-                        if(item.dateStamp >= lastattend && item.state == 'NONE'){
-                            $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                        }
+                    if(item.id == "0" && data.lastattend == -1){
+                        $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        self.btnTxt = '点击"..."分享';
+                        self.isdisabled = true;
                     }
                     if(item.dateStamp >= lastattend && item.state == 'NONE'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
