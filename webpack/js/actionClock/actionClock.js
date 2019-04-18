@@ -123,7 +123,8 @@ var actionClock = new Vue({
                             self.btnTxt = '已打卡';
                             self.isdisabled = true;
                         }
-                    // }else{
+                    }
+                    // else{
                     //     if(!item.hasOwnProperty('today') && item.lastattend == -1 && item.id == "0"){
                     //         self.btnTxt = '点击"..."分享';
                     //         self.isdisabled = true;
@@ -133,7 +134,7 @@ var actionClock = new Vue({
                     //         self.isdisabled = true;
                     //         item.state = 'RELAY'
                     //     }
-                    // }
+                    // }}
                     if(item.dateStamp >= lastattend && item.state == 'NONE'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == 'NONE'){
