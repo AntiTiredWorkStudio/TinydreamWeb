@@ -276,7 +276,8 @@ var friend = new Vue({
                 cid:cid,
                 oid:oid,
                 uid:uid,
-                theme:theme
+                theme:theme,
+                icode:$_GET.opid
             },function(code,data){
                 window.location.href = '../actionClock/actionClock.html?time='+new Date().getTime();
             },function(code,data){
