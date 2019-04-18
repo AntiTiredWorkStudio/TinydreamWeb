@@ -122,7 +122,7 @@ var actionClock = new Vue({
                             self.isdisabled = true;
                         }
                     }
-                    if(item.id == 0 && item.Date == self.date){
+                    if(item.id == 0 && item.date == self.date){
                         isDate = true;
                     }
                     // else{
