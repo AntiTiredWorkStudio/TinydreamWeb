@@ -205,7 +205,11 @@ var actionClock = new Vue({
                     console.log(res)
                     if(res){
                         self.isshow = false;
-                        self.share(self,opid,date);
+                        if(isDate){
+                            self.share(self,opid,self.date);
+                        }else{
+                            self.share(self,opid,date);
+                        }
                     }else if(res){
                         self.$toast.fail('您取消了分享')
                     }
@@ -214,7 +218,11 @@ var actionClock = new Vue({
                     console.log(res);
                     if(res){
                         self.isshow = false;
-                        self.share(self,opid,date);
+                        if(isDate){
+                            self.share(self,opid,self.date);
+                        }else{
+                            self.share(self,opid,date);
+                        }
                     }else if(res){
                         self.$toast.fail('您取消了分享')
                     }
