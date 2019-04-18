@@ -43,13 +43,13 @@ var pay = new Vue({
                     var dt = new Date(time);    
                     item.time = dt.toLocaleString().replace(/\//g,'-')                
                     if(item.oid.substr(0,1) == 1 && item.did.substr(0,2) == 'DR'){
-                        item.title = '购买小梦想互助'
+                        item.title = '[支出]购买小梦想互助'
                     }else if(item.oid.substr(0,1) == 1 && item.did.substr(0,2) == 'TR'){
-                        item.title = '购买小生意互助'
+                        item.title = '[支出]购买小生意互助'
                     }else if(item.oid.substr(0,1) == 3){
-                        item.title = '购买行动打卡合约'
+                        item.title = '[支出]购买行动打卡合约'
                     }else if(item.oid.substr(0,1) == 9){
-                        item.title = '购买小梦想梦想互助--红包领取'
+                        item.title = '[支出]购买小梦想梦想互助--红包领取'
                     }
                     self.list.push(item);
                 })

@@ -40,7 +40,7 @@
                     <van-tab title="支出" class="tab">
                         <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="load">
                             <van-cell v-for="list in list">
-                                <h3 class="title">[支出]{{list.title}}</h3>
+                                <h3 class="title">{{list.title}}</h3>
                                 <div class="pay right" style="color:red">-{{list.bill / 100}}</div>
                                 <br>
                                 <p>{{list.time}}</p>
