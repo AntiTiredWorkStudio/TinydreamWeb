@@ -1,11 +1,5 @@
 var uid = Options.GetUserInfo().openid;
 
-WebApp.JSAPI.InitShare({
-    title:'追梦行动派',
-    desc:"有梦就行动，坚持返现金！",
-    link:'http://tinydream.ivkcld.cn/TinydreamWeb/webpack/html/clockIn/clockIn.html?time='+new Date().getTime(),
-    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
-});
 var actionClock = new Vue({
     el:'#actionClock',
     data:{
@@ -88,7 +82,31 @@ var actionClock = new Vue({
                 console.log(data);
                 self.btnTxt = '已打卡';
                 self.isdisabled = true;
-                self.clockInfo(self,opid,data.attendance.date);
+                WebApp.JSAPI.InitShare({
+                    title:'追梦行动派',
+                    desc:"有梦就行动，坚持返现金！",
+                    link:'http://tinydream.ivkcld.cn/TinydreamWeb/webpack/html/payInfo/clockIn.html?time='+new Date().getTime(),
+                    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+                });
+                WebApp.JSAPI.OnShareTimeLine = function(res){
+                    console.log(res)
+                    if(res){
+                        self.isshow = false;
+                        self.share(self,opid,data.date);
+                    }else if(res){
+                        self.$toast.fail('您取消了分享')
+                    }
+                }
+                WebApp.JSAPI.OnShareFriend = function(res){
+                    console.log(res);
+                    if(res){
+                        self.isshow = false;
+                        self.share(self,opid,data.date);
+                    }else if(res){
+                        self.$toast.fail('您取消了分享')
+                    }
+                }
+                // self.clockInfo(self,opid,data.attendance.date);
             })
         },
         // 生成日历
