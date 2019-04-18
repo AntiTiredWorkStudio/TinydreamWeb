@@ -35,11 +35,18 @@ var fill = new Vue({
                 loadingType:'circular',
                 message:'信息加载中...'
             })
+            
             TD_Request('op','uinfo',{uid:uid},function(code,data){
                 self.$toast.clear();
                 console.log(data)
                 var menchance = data.info.menchance;
                 TD_Request('op','oif',{opid:opid,uid:uid},function(code,data){
+                    WebApp.JSAPI.InitShare({
+                        title:data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天',
+                        desc:"有梦就行动，坚持返现金！",
+                        link:'http://tinydream.ivkcld.cn/TinydreamWeb/webpack/html/payInfo/friend.html?time='+new Date().getTime()+'&opid='+opid,
+                        imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+                    });
                     console.log(data);
                     self.cardinfo = {
                         menchance:menchance,

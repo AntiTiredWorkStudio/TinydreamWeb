@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>追梦行动派</title>
+    <link rel="stylesheet" href="http://tinydream.antit.top/TinydreamWeb/css/public.css">
+    <link rel="stylesheet" href="//unpkg.com/vue-ydui/dist/ydui.rem.css">
+    <script src="//unpkg.com/vue-ydui/dist/ydui.flexible.js"></script>
+    <link rel="stylesheet" href="../../lib/vant.css">
+    <link rel="stylesheet/less" type="text/css" href="../../css/friend/friend.less" />
+    <link rel="stylesheet" href="../../css/index/index.less">
+    <script src="../../lib/less.js" ></script>
+</head>
+<body>
+    <div id="friend">
+        <van-col class="friend" span="24">
+            <van-col span="24" class="banner"></van-col>
+            <van-col span="24" class="friend_info">
+                <van-col span="16">
+                    <div class="left">
+                        <div class="headicon"></div>
+                        <p>{{nickname == '' ? '--' : nickname}}已在追梦行动派连续为</p>
+                        <p>{{theme == '' ? '--' : theme}}行动打卡<span style="font-size:0.38rem">{{alrday == '' ? '--' : alrday}}</span>天</p>
+                        <p>现邀请您一起加入</p>
+                        <p style="text-align:center;margin-top:0.2rem;width:3.4rem;height:0.46rem;line-height: 0.46rem;color:#fff;background: #00d094;">坚持行动可以得200元现金</p>
+                    </div>
+                </van-col>
+                <van-col span="8">
+                    <div class="right" style="float:right;margin-right: 0.3rem">
+                        <div class="qr">
+                            <img src="http://cloud.antit.top/LongPress2ShareQR01.jpg" alt="">
+                        </div>
+                        <p>长按二维码</p>
+                        <p>加入行动派</p>
+                    </div>
+                </van-col>
+            </van-col>
+            <van-col span="24" class="contract">
+                <div class="main">
+                    <van-col span="24">
+                        <div class="day-100" @click="buy(contracts[1].cid)">
+                            <h3 class="title">{{contracts == '' ? '--' : contracts[1].title}}</h3>
+                            <p class="desc">
+                                {{contracts == '' ? '--' : contracts[1].description}}
+                            </p>
+                        </div>
+                    </van-col>
+                    <van-col span="24">
+                        <div class="day-21" @click="buy(contracts[0].cid)">
+                            <h3 class="title right">{{contracts == '' ? '--' : contracts[0].title}}</h3>
+                            <p class="desc right">
+                                {{contracts == '' ? '--' : contracts[0].description}}
+                            </p> 
+                        </div>
+                    </van-col>
+                </div>
+            </van-col>
+            <!-- 弹出层 -->
+            <van-popup v-model="show" position="bottom" :overlay="true">
+                <div class="popup">
+                    <van-col span="24" class="title_big">
+                        <van-icon name="cross" @click="close"></van-icon>
+                        <span class="title">{{title == '' ? '--' : title}}</span>
+                    </van-col>
+                    <van-col span='24' class="bill">
+                        <span class="unit">￥</span>
+                        <span class="bill_num">{{price == '' ? '--' : price}}</span>
+                    </van-col>
+                    <van-col span="24" class="tip">
+                        <p class="tip_txt">支付{{desc == '' ? '--' : desc}}</p>
+                    </van-col>
+                    <van-col span="24" class="main_title">
+                        <p class="main_tit_txt">选择行动主题:</p>
+                    </van-col>
+                    <van-col span="24" class="clock_type">
+                        <ul>
+                            <li v-for="(contract,index) in contractType" class="contract" :class="index == status ? 'active' : ''" @click.stop="conType(index,contract.check,contract.title)">
+                                <van-icon :name="index == status ? contract.active : contract.normal"></van-icon>
+                                <span class="cont_title">{{contractType == '' ? '--' : contract.title}}</span>
+                            </li>
+                            <li class="contract" style="width:100%" :class="status == 12 ? 'active' : ''" @click="conType(12)">
+                                <van-icon :name="status == 12 ? 'https://tdream.antit.top/5drinkingIA.png' : 'https://tdream.antit.top/5drinkingIU.png'"></van-icon>
+                                <span class="cont_title">{{status == 12 ? custom : '其他'}}</span>
+                            </li>
+                        </ul>
+                        <van-dialog
+                        v-model="isshow"
+                        title="自定义主题(8字以内)"
+                        show-cancel-button
+                        @confirm="confirm"
+                        @cancel="cancel"
+                        >
+                            <van-field v-model="value" id="theme" placeholder="请输入主题" />
+                        </van-dialog>
+                    </van-col>
+                    <van-col span="24" class="warm">
+                        <p class="warning">注意事项:</p>
+                    </van-col>
+                    <van-col span="24">
+                        <p class="warm_txt">
+                            1.返现机制：每天完成打卡返现1元，连续完成打卡21天后再返77元，打卡中断则停止返现！
+                        </p>
+                        <p class="warm_txt">
+                            2.打卡时间：北京时间24点前进入平台点击”打卡“有效；从支付后第二天开始计算。
+                        </p>
+                    </van-col>
+                    <van-col span="24" class="btn">
+                        <van-button type="primary" round size="normal" @click="pay(cid)">立即支付</van-button>
+                    </van-col>
+                </div>
+            </van-popup>
+            <!-- 弹出层 -->
+            <van-popup v-model="payCancel" class="contrace">
+                <div class="paycancel">
+                    <div class="main">
+                        <div class="avatar"></div>
+                        <div class="text">
+                            <div class="container">
+                                <p>寻梦导师</p>
+                                <p>追梦行动达人</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <div class="left">
+                            <van-button round class="callMe" @click="callMe">和她聊聊</van-button>
+                        </div>
+                        <div class="right">
+                            <van-button round class="againPay" @click="againPay">重新支付</van-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon" style="text-align:center;font-size:0.88rem;margin-top: 0.6rem">
+                    <van-icon name="https://tdream.antit.top/DaKaOKX.png" @click="payCancel = false"></van-icon>
+                </div>
+            </van-popup>
+        </van-col>
+    </div>
+
+    <script src="http://tinydream.antit.top/TinydreamWeb/lib/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="//unpkg.com/vue-ydui/dist/ydui.rem.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script>
+    <script src="../../js/common/common.js"></script>
+    <script src="../../js/friend/friend.js"></script>
+</body>
+</html>
