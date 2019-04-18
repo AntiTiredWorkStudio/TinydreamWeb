@@ -135,7 +135,7 @@ var actionClock = new Vue({
                     //         item.state = 'RELAY'
                     //     }
                     // }}
-                    if(item.id == "0" && data.lastattend == -1){
+                    if(item.id == "0" && lastattend == -1){
                         $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                         self.btnTxt = '点击"..."分享';
                         self.isdisabled = true;
