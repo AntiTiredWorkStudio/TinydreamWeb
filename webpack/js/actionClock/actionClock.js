@@ -145,6 +145,8 @@ var actionClock = new Vue({
                         self.isdisabled = true;
                     }else if(item.id == "0" && lastattend == -2){
                         $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        self.btnTxt = '已打卡';
+                        self.isdisabled = true;
                     }
                     if(item.dateStamp >= lastattend && item.state == 'NONE'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
