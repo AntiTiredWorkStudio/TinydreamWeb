@@ -86,12 +86,9 @@ var actionClock = new Vue({
                 self.isshow = true;
             },function(code,data){
                 console.log(data);
-                if(code == 86){
-                    self.$dialog.alert({
-                        title:'温馨提示',
-                        message:data.context
-                    })
-                }
+                self.btnTxt = '已打卡';
+                self.isdisabled = true;
+                self.clockInfo(self,opid,data.attendance.date);
             })
         },
         // 生成日历
