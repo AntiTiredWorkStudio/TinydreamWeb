@@ -137,7 +137,10 @@ var actionClock = new Vue({
                     // }}
                     if(item.id == 0){
                         item.state == 'NONE';
+
+
                     }
+                    alert(item.state)
                     if(item.dateStamp >= lastattend && item.state == 'NONE'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == 'NONE'){
