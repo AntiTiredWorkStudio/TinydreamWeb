@@ -64,7 +64,7 @@ var actionClock = new Vue({
                 self.opid = data.calendar.opid;
                 console.log(data.calendar.days);
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
-                self.refreshDate(data.calendar.days,self,data.lastattend);
+                self.refreshDate(data.calendar.days,self,data.lastattend,data.cid);
             },function(code,data){
                 self.$toast.clear();
                 self.$dialog.alert({
@@ -95,7 +95,7 @@ var actionClock = new Vue({
             })
         },
         // 生成日历
-        refreshDate(days,self,lastattend){
+        refreshDate(days,self,lastattend,cid){
             $('.weekDate .day').html('');
             var str = "";
             var totalDay = days.length;//天数
@@ -144,9 +144,18 @@ var actionClock = new Vue({
                     $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                 }
             })
-            $('li.enable.leakage').click(function(){
-                self.card(self,$(this).attr('id'));
-            })
+            if(cid == 'CO0000000001'){
+                $('li.enable.leakage').click(function(){
+                    self.$dialog.alert({
+                        title:'温馨提示',
+                        message:'该合约无法补卡'
+                    });
+                })
+            }else if(cid == 'CO0000000002'){
+                $('li.enable.leakage').click(function(){
+                    self.card(self,$(this).attr('id'));
+                })
+            }
             self.clockInfo(self,self.opid,$('li.share').attr('id'));
         },
         // 打卡信息
