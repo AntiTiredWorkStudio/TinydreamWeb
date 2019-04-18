@@ -87,6 +87,7 @@ var actionClock = new Vue({
                 console.log(data);
                 self.btnTxt = '已打卡';
                 self.isdisabled = true;
+                self.clockInfo(self,opid,self.date);
                 // self.clockInfo(self,opid,data.attendance.date);
             })
         },
