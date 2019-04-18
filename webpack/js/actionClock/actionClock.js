@@ -161,6 +161,7 @@ var actionClock = new Vue({
             TD_Request('op','oif',{opid:opid},function(code,data){
                 console.log(data)
                 self.$toast.clear();
+                alert('yes')
                 WebApp.JSAPI.InitShare({
                     title:data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天',
                     desc:"有梦就行动，坚持返现金！",
