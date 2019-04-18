@@ -1,4 +1,5 @@
 var uid = Options.GetUserInfo().openid;
+var isDate = false;
 
 var actionClock = new Vue({
     el:'#actionClock',
@@ -16,6 +17,8 @@ var actionClock = new Vue({
         seek:-1,//日历翻页
         date:'',//当前打卡、补卡日期
         countMonth:'',//月份总数
+        date:'',
+        shareTitle:''
     },
     created(){
         Options.TestServer = true;
@@ -56,34 +59,11 @@ var actionClock = new Vue({
                 self.clockInfo(self,data.calendar.opid);
                 self.countMonth = data.calendar.monthIndex.length - 1;
                 self.opid = data.calendar.opid;
+                self.date = data.date;
                 console.log(data.calendar.days);
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
                 self.refreshDate(data.calendar.days,self,data.lastattend,data.cid);
                 // 新用户分享
-                WebApp.JSAPI.InitShare({
-                    title:'追梦行动派',
-                    desc:"有梦就行动，坚持返现金！",
-                    link:'http://tinydream.ivkcld.cn/TinydreamWeb/webpack/html/payInfo/clockIn.html?time='+new Date().getTime(),
-                    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
-                });
-                WebApp.JSAPI.OnShareTimeLine = function(res){
-                    console.log(res)
-                    if(res){
-                        self.isshow = false;
-                        self.share(self,self.opid,data.date);
-                    }else if(res){
-                        self.$toast.fail('您取消了分享')
-                    }
-                }
-                WebApp.JSAPI.OnShareFriend = function(res){
-                    console.log(res);
-                    if(res){
-                        self.isshow = false;
-                        self.share(self,self.opid,data.date);
-                    }else if(res){
-                        self.$toast.fail('您取消了分享')
-                    }
-                }
             },function(code,data){
                 self.$toast.clear();
                 self.$dialog.alert({
@@ -134,7 +114,6 @@ var actionClock = new Vue({
             for (let i = 0; i < firstDay; i++) {
                 $('<li>&nbsp;</li>').appendTo('.weekDate .day');
             }
-            console.log(totalDay,firstDay);
             $.each(days,function(index,item){
                 if(item.hasOwnProperty('id')){
                     if(item.hasOwnProperty('today')){
@@ -142,6 +121,9 @@ var actionClock = new Vue({
                             self.btnTxt = '已打卡';
                             self.isdisabled = true;
                         }
+                    }
+                    if(item.id == 0 && item.Date == self.date){
+                        isDate = true;
                     }
                     // else{
                     //     if(!item.hasOwnProperty('today') && item.lastattend == -1 && item.id == "0"){
@@ -207,8 +189,14 @@ var actionClock = new Vue({
                 console.log(data)
                 self.$toast.clear();
                 // alert('yes')
+                // self.shareTitle = 
+                if(isDate){
+                    self.shareTitle = '追梦行动派'
+                } else {
+                    self.shareTitle = data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天'
+                }
                 WebApp.JSAPI.InitShare({
-                    title:data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天',
+                    title:self.shareTitle,
                     desc:"有梦就行动，坚持返现金！",
                     link:'http://tinydream.ivkcld.cn/TinydreamWeb/webpack/html/payInfo/friend.html?time='+new Date().getTime()+'&opid='+opid,
                     imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
