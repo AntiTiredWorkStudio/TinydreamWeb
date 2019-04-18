@@ -21,6 +21,7 @@ var friend = new Vue({
         nickname:'',//好友昵称
         theme:'',//好友参加的主题
         alrday:'',//打卡天数
+        refund:'',//返还金额
     },
     created(){
        if($_GET.opid){
@@ -46,6 +47,7 @@ var friend = new Vue({
                 console.log(data)
                 $('.headicon').css('background','url('+data.headicon+') no-repeat center center / 1rem 1rem');
                 self.nickname = data.nickname;
+                self.refund = data.refund;
                 TD_Request('op','oif',{opid:opid,uid:uid},function(code,data){
                     console.log(data)
                     self.theme = data.info.theme;
