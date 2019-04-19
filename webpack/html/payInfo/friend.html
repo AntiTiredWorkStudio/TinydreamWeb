@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -11,8 +12,9 @@
     <link rel="stylesheet" href="../../lib/vant.css">
     <link rel="stylesheet/less" type="text/css" href="../../css/friend/friend.less" />
     <link rel="stylesheet" href="../../css/index/index.less">
-    <script src="../../lib/less.js" ></script>
+    <script src="../../lib/less.js"></script>
 </head>
+
 <body>
     <div id="friend">
         <van-col class="friend" span="24">
@@ -22,9 +24,11 @@
                     <div class="left">
                         <div class="headicon"></div>
                         <p>{{nickname == '' ? '--' : nickname}}已在追梦行动派连续为</p>
-                        <p>{{theme == '' ? '--' : theme}}行动打卡<span style="font-size:0.38rem">{{alrday == '' ? '--' : alrday}}</span>天</p>
+                        <p>{{theme == '' ? '--' : theme}}行动打卡<span style="font-size:0.38rem">{{alrday == '' ? '--' :
+                                alrday}}</span>天</p>
                         <p>现邀请您一起加入</p>
-                        <p style="text-align:center;margin-top:0.2rem;width:3.4rem;height:0.46rem;line-height: 0.46rem;color:#fff;background: #00d094;">坚持行动可以得{{refund == '' ? '--' : refund / 100}}元现金</p>
+                        <p style="text-align:center;margin-top:0.2rem;width:3.4rem;height:0.46rem;line-height: 0.46rem;color:#fff;background: #00d094;">坚持行动可以得{{refund
+                            == '' ? '--' : refund / 100}}元现金</p>
                     </div>
                 </van-col>
                 <van-col span="8">
@@ -52,7 +56,7 @@
                             <h3 class="title right">{{contracts == '' ? '--' : contracts[0].title}}</h3>
                             <p class="desc right">
                                 {{contracts == '' ? '--' : contracts[0].description}}
-                            </p> 
+                            </p>
                         </div>
                     </van-col>
                 </div>
@@ -76,7 +80,8 @@
                     </van-col>
                     <van-col span="24" class="clock_type">
                         <ul>
-                            <li v-for="(contract,index) in contractType" class="contract" :class="index == status ? 'active' : ''" @click.stop="conType(index,contract.check,contract.title)">
+                            <li v-for="(contract,index) in contractType" class="contract" :class="index == status ? 'active' : ''"
+                                @click.stop="conType(index,contract.check,contract.title)">
                                 <van-icon :name="index == status ? contract.active : contract.normal"></van-icon>
                                 <span class="cont_title">{{contractType == '' ? '--' : contract.title}}</span>
                             </li>
@@ -85,13 +90,7 @@
                                 <span class="cont_title">{{status == 12 ? custom : '其他'}}</span>
                             </li>
                         </ul>
-                        <van-dialog
-                        v-model="isshow"
-                        title="自定义主题(8字以内)"
-                        show-cancel-button
-                        @confirm="confirm"
-                        @cancel="cancel"
-                        >
+                        <van-dialog v-model="isshow" title="自定义主题(8字以内)" show-cancel-button @confirm="confirm" @cancel="cancel">
                             <van-field v-model="value" id="theme" placeholder="请输入主题" />
                         </van-dialog>
                     </van-col>
@@ -144,10 +143,10 @@
     <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="../../lib/vue.js"></script>
+    <script src="../../lib/vant.js"></script>
     <script src="//unpkg.com/vue-ydui/dist/ydui.rem.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script>
-    <script src="../../js/common/common.js"></script>
     <script src="../../js/friend/friend.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -11,8 +12,9 @@
     <link rel="stylesheet" href="../../lib/vant.css">
     <link rel="stylesheet/less" type="text/css" href="../../css/payInfo/payInfo.less" />
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1122473_52hzskf2zhd.css">
-    <script src="../../lib/less.js" ></script>
+    <script src="../../lib/less.js"></script>
 </head>
+
 <body>
     <div id="pay" style="overflow:hidden;">
         <div class="pay">
@@ -27,7 +29,8 @@
                             <span class="timeout">{{timeout}}</span>
                         </van-col>
                         <van-col span="24">
-                            <p style="font-size:0.6rem;color:#ffc054;margin: 0.3rem 0 0.2rem" class="ubill">{{pool == '' ? '--' : (pool.realBill + pool.realUnit)}}</p>
+                            <p style="font-size:0.6rem;color:#ffc054;margin: 0.3rem 0 0.2rem" class="ubill">{{pool ==
+                                '' ? '--' : (pool.realBill + pool.realUnit)}}</p>
                             <p style="font-size:0.24rem;color:#999">{{pool == '' ? '--' : pool.billHint}}</p>
                         </van-col>
                     </yd-progressbar>
@@ -61,29 +64,26 @@
                     </van-col>
                 </van-row>
                 <van-col span="24" style="text-align:center">
-                    <span style="font-size:0.26rem;color:#999">{{pool == '' ? '--' : (pool.rubillValue + pool.rubillUnit)}}结算：</span>
+                    <span style="font-size:0.26rem;color:#999">{{pool == '' ? '--' : (pool.rubillValue +
+                        pool.rubillUnit)}}结算：</span>
                     <span style="color:#00d094;font-size:0.36rem">{{ pay == '' ? '--' : pay }}元</span>
                 </van-col>
                 <van-col span="24" style="padding-bottom:2rem;margin-top: 0.2rem" @click="wxPay">
                     <van-button type="primary" @click.stop="wxPay" size='large' round>微信支付</van-button>
                 </van-col>
-                <van-actionsheet
-                    v-model="show"
-                    :actions="actions"
-                    cancel-text="取消"
-                    @select="onSelect"
-                    @cancel="onCancel"
-                />
+                <van-actionsheet v-model="show" :actions="actions" cancel-text="取消" @select="onSelect" @cancel="onCancel" />
             </div>
         </div>
     </div>
     <script src="http://tinydream.antit.top/TinydreamWeb/lib/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
     <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="../../lib/vue.js"></script>
+    <script src="../../lib/vant.js"></script>
     <script src="//unpkg.com/vue-ydui/dist/ydui.rem.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script>
     <script src="../../js/payInfo/payInfo.js"></script>
 </body>
+
 </html>

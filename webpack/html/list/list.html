@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -10,19 +11,20 @@
     <script src="//unpkg.com/vue-ydui/dist/ydui.flexible.js"></script>
     <link rel="stylesheet" href="../../lib/vant.css">
     <link rel="stylesheet/less" type="text/css" href="../../css/list/list.less" />
-    <script src="../../lib/less.js" ></script>
+    <script src="../../lib/less.js"></script>
 </head>
+
 <body>
     <div id="list">
         <div class="list">
             <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="load">
                 <van-cell class="mt-20">
-                   <div class="right" v-for="list in list">
-                       <van-icon :name="list.url" class="icon"></van-icon>
-                       <div class="btn">
+                    <div class="right" v-for="list in list">
+                        <van-icon :name="list.url" class="icon"></van-icon>
+                        <div class="btn">
                             <van-button round @click="get(list.cid,list.alrday,list.menday,list.misday,list.conday)">查看打卡详情</van-button>
-                       </div>
-                   </div>
+                        </div>
+                    </div>
                 </van-cell>
             </van-list>
             <!-- 弹窗 -->
@@ -59,9 +61,10 @@
     <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="../../lib/vue.js"></script>
+    <script src="../../lib/vant.js"></script>
     <script src="//unpkg.com/vue-ydui/dist/ydui.rem.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script>
     <script src="../../js/list/list.js"></script>
 </body>
+
 </html>

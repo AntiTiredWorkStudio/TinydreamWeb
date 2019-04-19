@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -10,8 +11,9 @@
     <script src="//unpkg.com/vue-ydui/dist/ydui.flexible.js"></script>
     <link rel="stylesheet" href="../../lib/vant.css">
     <link rel="stylesheet/less" type="text/css" href="../../css/actionClock/actionClock.less" />
-    <script src="../../lib/less.js" ></script>
+    <script src="../../lib/less.js"></script>
 </head>
+
 <body>
     <diV id="actionClock" style="overflow:hidden">
         <div class="actionClock">
@@ -19,8 +21,10 @@
                 <!-- 打卡进度 -->
                 <van-col span="24" class="clock">
                     <van-col span="24">
-                        <yd-progressbar :progress="colckinfo.precentage" trail-width="8" trail-color="#ffc054" class="progress">{{colckinfo == '' ? '--': colckinfo.prec}}%</yd-progressbar>
-                        <span style="color:#00d094;text-decoration:underline;position:absolute;top: 0.5rem;right:0.5rem" @click="jl">合约记录</span>
+                        <yd-progressbar :progress="colckinfo.precentage" trail-width="8" trail-color="#ffc054" class="progress">{{colckinfo
+                            == '' ? '--': colckinfo.prec}}%</yd-progressbar>
+                        <span style="color:#00d094;text-decoration:underline;position:absolute;top: 0.5rem;right:0.5rem"
+                            @click="jl">合约记录</span>
                     </van-col>
                     <!-- 打卡信息 -->
                     <van-col span="24" class="clockInfo">
@@ -67,7 +71,7 @@
                                 <li>{{week[6]}}</li>
                             </ul>
                             <ul class="day">
-                                
+
                             </ul>
                         </div>
                         <div class="module">
@@ -113,7 +117,8 @@
                         </div>
                         <div class="tip">
                             <p>您已在追梦行动派</p>
-                            <p>连续为{{colckinfo == '' ? '--' : colckinfo.theme}}行动打卡{{colckinfo == '' ? '--' : colckinfo.conday}}天</p>
+                            <p>连续为{{colckinfo == '' ? '--' : colckinfo.theme}}行动打卡{{colckinfo == '' ? '--' :
+                                colckinfo.conday}}天</p>
                         </div>
                         <p class="shareBtn">点击右上角“...”立即分享今日打卡</p>
                         <p style="text-align:center;font-size:0.26rem;padding-bottom:0.4rem;color:#4c4c4c">每成功邀请1位好友参与合约可获得1次补卡机会</p>
@@ -123,7 +128,7 @@
             </van-popup>
             <!-- tabbar -->
             <van-tabbar v-model="actives" active-color="#00d094">
-                <van-tabbar-item v-for="tab in tabbar" :url="tab.url" :info="tab.info"> 
+                <van-tabbar-item v-for="tab in tabbar" :url="tab.url" :info="tab.info">
                     <span>{{tab.title}}</span>
                     <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
                 </van-tabbar-item>
@@ -136,10 +141,11 @@
     <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="../../lib/vue.js"></script>
+    <script src="../../lib/vant.js"></script>
     <script src="//unpkg.com/vue-ydui/dist/ydui.rem.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script>
     <script src="../../js/common/common.js"></script>
     <script src="../../js/actionClock/actionClock.js"></script>
 </body>
+
 </html>

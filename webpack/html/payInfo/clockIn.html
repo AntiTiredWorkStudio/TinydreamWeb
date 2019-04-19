@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -10,8 +11,9 @@
     <script src="//unpkg.com/vue-ydui/dist/ydui.flexible.js"></script>
     <link rel="stylesheet" href="../../lib/vant.css">
     <link rel="stylesheet/less" type="text/css" href="../../css/clockIn/clockIn.less" />
-    <script src="../../lib/less.js" ></script>
+    <script src="../../lib/less.js"></script>
 </head>
+
 <body>
     <diV id="clockIn" style="overflow:hidden">
         <div class="clockIn">
@@ -25,7 +27,8 @@
             <van-col span="24" style="background: #fff;margin-top:0.3rem">
                 <div class="screen">
                     <span class="circle">·</span>
-                    <span class="info">{{order == '' ? '--' : order.nickname}}支付{{order == '' ? '--' : order.bill / 100}}元合约</span>
+                    <span class="info">{{order == '' ? '--' : order.nickname}}支付{{order == '' ? '--' : order.bill /
+                        100}}元合约</span>
                     <span class="time">刚刚</span>
                 </div>
             </van-col>
@@ -62,7 +65,9 @@
             <van-col span="24" class="feedback">
                 <van-row class="feed_main" v-for="feed in feedback">
                     <van-col span="5">
-                        <div class="head"><van-icon :name="feed.headicon"></van-icon></div>
+                        <div class="head">
+                            <van-icon :name="feed.headicon"></van-icon>
+                        </div>
                     </van-col>
                     <van-col span="19">
                         <h3 class="type">{{feed.title}}<span class="nickname">{{feed.username}}</span></h3>
@@ -74,7 +79,7 @@
             </van-col>
             <!-- tabbar -->
             <van-tabbar v-model="actives" active-color="#00d094">
-                <van-tabbar-item v-for="tab in tabbar" :url="tab.url" :info="tab.info"> 
+                <van-tabbar-item v-for="tab in tabbar" :url="tab.url" :info="tab.info">
                     <span>{{tab.title}}</span>
                     <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
                 </van-tabbar-item>
@@ -98,7 +103,8 @@
                     </van-col>
                     <van-col span="24" class="clock_type">
                         <ul>
-                            <li v-for="(contract,index) in contractType" class="contract" :class="index == status ? 'active' : ''" @click.stop="conType(index,contract.check,contract.title)">
+                            <li v-for="(contract,index) in contractType" class="contract" :class="index == status ? 'active' : ''"
+                                @click.stop="conType(index,contract.check,contract.title)">
                                 <van-icon :name="index == status ? contract.active : contract.normal"></van-icon>
                                 <span class="cont_title">{{contractType == '' ? '--' : contract.title}}</span>
                             </li>
@@ -107,13 +113,7 @@
                                 <span class="cont_title">{{status == 12 ? custom : '其他'}}</span>
                             </li>
                         </ul>
-                        <van-dialog
-                        v-model="isshow"
-                        title="自定义主题(8字以内)"
-                        show-cancel-button
-                        @confirm="confirm"
-                        @cancel="cancel"
-                        >
+                        <van-dialog v-model="isshow" title="自定义主题(8字以内)" show-cancel-button @confirm="confirm" @cancel="cancel">
                             <van-field v-model="value" id="theme" placeholder="请输入主题" />
                         </van-dialog>
                     </van-col>
@@ -121,7 +121,7 @@
                         <p class="warning">注意事项:</p>
                     </van-col>
                     <van-col span="24" id="warm">
-                        
+
                     </van-col>
                     <van-col span="24" class="btn">
                         <van-button type="primary" round size="normal" @click="pay(cid)">立即支付</van-button>
@@ -157,14 +157,15 @@
     </diV>
 
     <script src="http://tinydream.antit.top/TinydreamWeb/lib/jquery-1.12.3.min.js"></script>
-    <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
     <script type="text/javascript" src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="../../lib/vue.js"></script>
+    <script src="../../lib/vant.js"></script>
     <script src="//unpkg.com/vue-ydui/dist/ydui.rem.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script>
     <script src="../../js/common/common.js"></script>
     <script src="../../js/clockIn/clockIn.js"></script>
 </body>
+
 </html>
