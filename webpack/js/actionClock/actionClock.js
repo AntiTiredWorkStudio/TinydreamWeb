@@ -21,7 +21,7 @@ var actionClock = new Vue({
         shareTitle:''
     },
     created(){
-        Options.TestServer = true;
+        Options.TestServer = false;
         // alert(Options.TestServer)
         // alert(uid)
         this.tabbar = common.tabbar;
