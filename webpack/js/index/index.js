@@ -41,7 +41,7 @@ var app = new Vue({
                 console.log(common)
                 self.userInfo = Options.GetUserInfo();
                 // 开启测试服务器
-                Options.TestServer = true;
+                Options.TestServer = false;
                 self.$toast.clear();
                 self.$toast.loading({
                     duration:0,
