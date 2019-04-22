@@ -1,6 +1,6 @@
 <template>
     <div class="fill">
-            <div class="top">
+            <div class="top" :style="css">
                 <p>当前剩余{{cardinfo == '' ? '--' : cardinfo.menchance}}次补卡机会</p>
             </div>
             <div class="middle">
@@ -29,28 +29,36 @@
                 </van-col>
             </div>
             <div class="tip"></div>
-            <div class="bottom" v-for="(headicon,index) in headicons" :key="index">
+            <div class="bottom">
                 <van-icon :name="headicon" v-for="(headicon,index) in headicons" class="icon" :key="index"></van-icon>
             </div>
         </div>
 </template>
 
 <script>
+var uid = Options.GetUserInfo().openid;
 export default {
     name:'fill',
     data () {
         return {
             headicons:'',//头像
             cardinfo:'',//详情信息
+            css:''
         }
     },
     created(){
-        Options.TestServer = true;
-        if($_GET.opid){
+        Options.TestServer = false;
+        if($_GET.opid != ''){
             if($_GET.state == 'success'){
-                $('.top').css('background','url(https://tdream.antit.top/image/rightframe.png) no-repeat center center / 5.86rem 2.19rem')
+                this.css = {
+                    background:'url(https://tdream.antit.top/image/rightframe.png) no-repeat',
+                    'background-size':'5.86rem 2.19rem'
+                }
             }else{
-                $('.top').css('background','url(https://tdream.antit.top/BuKaCiShuBeiJing.png) no-repeat center center / 5.86rem 2.19rem')
+                this.css = {
+                    'background-image':'url(https://tdream.antit.top/BuKaCiShuBeiJing.png)',
+                    'background-size':'5.86rem 2.19rem'
+                }
             }
             this.Info(this,$_GET.opid)
             this.headIcon(this);
@@ -67,7 +75,6 @@ export default {
                 loadingType:'circular',
                 message:'信息加载中...'
             })
-            
             TD_Request('op','uinfo',{uid:uid},function(code,data){
                 self.$toast.clear();
                 console.log(data)

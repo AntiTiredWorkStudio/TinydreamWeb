@@ -5,10 +5,10 @@
                 <van-col span="16">
                     <div class="left">
                         <div class="headicon"></div>
-                        <p>{{nickname == '' ? '--' : nickname}}已在追梦行动派连续为</p>
-                        <p>{{theme == '' ? '--' : theme}}行动打卡<span style="font-size:0.38rem">{{alrday == '' ? '--' :
+                        <p class="msg">{{nickname == '' ? '--' : nickname}}{{type == true ? '已加入追梦行动派' : '已在追梦行动派连续为'}}</p>
+                        <p class="isshow" :style="{display: type == true ? 'none' : 'inline-block'}">{{theme == '' ? '--' : theme}}行动打卡<span style="font-size:0.38rem">{{alrday == '' ? '--' :
                                 alrday}}</span>天</p>
-                        <p>现邀请您一起加入</p>
+                        <p>现邀请您一起加入!</p>
                         <p style="text-align:center;margin-top:0.2rem;width:3.4rem;height:0.46rem;line-height: 0.46rem;color:#fff;background: #00d094;">坚持行动可以得{{refund
                             == '' ? '--' : refund / 100}}元现金</p>
                     </div>
@@ -31,6 +31,7 @@
                             <p class="desc">
                                 {{contracts == '' ? '--' : contracts[1].description}}
                             </p>
+                            <van-button round size="small" type="primary" class="buy" @click.stop="buy(contracts[1].cid)">立即购买</van-button>
                         </div>
                     </van-col>
                     <van-col span="24">
@@ -39,9 +40,32 @@
                             <p class="desc right">
                                 {{contracts == '' ? '--' : contracts[0].description}}
                             </p>
+                            <van-col span="24" style="text-align:right">
+                                <van-button round size="small" class="buy right" type="primary" @click.stop="buy(contracts[0].cid)">立即购买</van-button>
+                            </van-col>
                         </div>
                     </van-col>
                 </div>
+            </van-col>
+            <!-- 用户反馈 -->
+            <van-col class="model" style="width:6.8rem;margin:0 0 0 0.3rem">
+                <span></span>
+                <h3 class="title">用户反馈</h3>
+            </van-col>
+            <van-col span="24" class="feedback">
+                <van-row class="feed_main" v-for="(feed,index) in feedback" :key="index">
+                    <van-col span="5">
+                        <div class="head">
+                            <van-icon :name="feed.headicon"></van-icon>
+                        </div>
+                    </van-col>
+                    <van-col span="19">
+                        <h3 class="type">{{feed.title}}<span class="nickname">{{feed.username}}</span></h3>
+                        <p class="message">
+                            {{feed.content}}
+                        </p>
+                    </van-col>
+                </van-row>
             </van-col>
             <!-- 弹出层 -->
             <van-popup v-model="show" position="bottom" :overlay="true">
@@ -140,6 +164,9 @@ export default {
             theme:'',//好友参加的主题
             alrday:'',//打卡天数
             refund:'',//返还金额
+            cattention:'',
+            type:false,//是否为新用户，
+            feedback:'',//用户反馈
         }
     },
     created(){
@@ -149,6 +176,9 @@ export default {
             // 返回信息
             this.Info(this,$_GET.opid);
             this.Orders(this)
+            if($_GET.type == 'new'){
+                this.type = true;
+            }
        }else{
            window.location.href = 'clock.html?time='+new Date().getTime();
        }
@@ -221,6 +251,7 @@ export default {
         buy(cid){
             this.show = true;
             // 合约信息
+            this.cid = cid;
             this.ContractInfo(this,cid);
         },
         // checkbox
@@ -244,11 +275,11 @@ export default {
         },
         Orders(self){
             TD_Request('op','eomp',{uid:uid},function(code,data){
-                return;
+                self.feedback = data.feedback;
             },function(code,data){
                 console.log(data)
                 if(code == 82){
-                    // window.location.href = 'actionClock.html?time='+new Date().getTime();
+                    window.location.href = 'actionClock.html?time='+new Date().getTime();
                 }
             })
         },
@@ -279,6 +310,7 @@ export default {
                 self.contractType = data.themes;
                 self.contracts = data.contracts;
                 self.$toast.clear()
+                self.cattention = data.cattention;
             },function(code,data){
                 self.$toast.clear();
                 alert(data.context)
@@ -298,18 +330,18 @@ export default {
                 self.desc = data.contract.description;
                 self.price = data.contract.price / 100;
                 self.cid = data.contract.cid;
+                self.$toast.clear();
                 if(cid == 'CO0000000001'){
-                    $('#warm').html( self.cattention.CO0000000001).css({
+                    $('#warm').html(self.cattention.CO0000000001).css({
                         'font-size': '0.26rem',
                         color: '#999'
                     });
                 }else if(cid == 'CO0000000002'){
-                    $('#warm').html( self.cattention.CO0000000002).css({
+                    $('#warm').html(self.cattention.CO0000000002).css({
                         'font-size': '0.26rem',
                         color: '#999'
                     });
                 }
-                self.$toast.clear();
             },function(code,data){
                 self.$toast.clear();
                 alert(data.context);
@@ -389,7 +421,6 @@ export default {
                 "signType":pay.signType,         //微信签名方式：     
                 "paySign":pay.paySign //微信签名 
                 },function(res){
-                    alert(JSON.stringify(res))
                   if(res.err_msg == "get_brand_wcpay_request:ok" ){
                   // 使用以上方式判断前端返回,微信团队郑重提示：
                         //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
@@ -408,7 +439,7 @@ export default {
                 theme:theme,
                 icode:$_GET.opid
             },function(code,data){
-                window.location.href = '../actionClock/actionClock.html?time='+new Date().getTime();
+                window.location.href = 'actionClock.html?time='+new Date().getTime();
             },function(code,data){
                 alert(code)
             })
@@ -448,7 +479,7 @@ export default {
     watch:{
         value(data){
             if(data.length >= 8){
-                this.value = data.substr(0,20);
+                this.value = data.substr(0,8);
                 console.log(this.value)
             }
         }
@@ -465,6 +496,52 @@ export default {
         height: 100%;
         overflow: hidden;
         background: #fff;
+        // 用户反馈
+        .model{
+            width: 100%;
+            margin-bottom: 0.2rem;;
+            span{
+                font-size: 0.28rem;
+                color: #00d094;
+                font-weight: bolder;
+                display: inline-block;
+                width: 0.06rem;
+                height: 0.28rem;
+                background: #00d094;
+                margin-right: 0.1rem;
+                vertical-align: middle;
+            }
+            .title{
+                display: inline-block;
+                font-size: 0.28rem;
+            }
+        }
+        .feedback{
+            width: 100%;
+            padding-bottom: 1.2rem;
+            margin-top: 0.3rem;
+            .feed_main{
+                width: 6.8rem;
+                margin: 0 auto;
+                height: 3.22rem;
+                border-radius: 0.1rem;
+                background: #fff;
+                padding: 0.2rem;
+                margin-bottom: 0.2rem;
+                .head{
+                    font-size: 1rem;
+                }
+                .type{
+                    font-size: 0.3rem;
+                    color: #4c4c4c;
+                    margin-bottom: 0.2rem;
+                }
+                .message{
+                    font-size: 0.26rem;
+                    color: #999;
+                }
+            }
+        }
         .friend{
             width: 100%;
             height: 100%;
