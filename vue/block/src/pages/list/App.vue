@@ -5,7 +5,7 @@
                     <div class="right" v-for="(list,index) in list" :key="index">
                         <van-icon :name="list.url" class="icon"></van-icon>
                         <div class="btn">
-                            <van-button round @click="get(list.cid,list.alrday,list.menday,list.misday,list.conday)">查看打卡详情</van-button>
+                            <van-button round @click="get(list.cid,list.alrday,list.menday,list.misday,list.conday,list.opid)">查看打卡详情</van-button>
                         </div>
                     </div>
                 </van-cell>
@@ -45,7 +45,7 @@ var uid = Options.GetUserInfo().openid;
 WebApp.JSAPI.InitShare({
     title:'追梦行动派',
     desc:"有梦就行动，坚持返现金！",
-    link:'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/clock.html?time='+new Date(),
+    link:'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/clock.html?time='+new Date().getTime(),
     imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
 });
 export default {
@@ -61,7 +61,8 @@ export default {
             alrday:'',
             menday:'',
             misday:'',
-            conday:''
+            conday:'',
+            opid:''
         }
     },
      methods:{
@@ -76,6 +77,9 @@ export default {
             TD_Request('op','olist',{uid:uid,seek:self.seek,count:10},function(code,data){
                 console.log(data)
                 self.loading = false;
+                if(data.operations.length == 0){
+                    self.finished = true;
+                }
                 $.each(data.operations,function(index,item){
                     if(item.state == 'DOING'){
                        item.url = 'https://tdream.antit.top/active.png'
@@ -102,15 +106,34 @@ export default {
                 console.log(data)
             })
         },
-        get(cid,alrday,menday,misday,conday){
+        get(cid,alrday,menday,misday,conday,opid){
             this.alrday = alrday
             this.menday = menday
             this.misday = misday
             this.conday = conday
+            this.opid = opid
             this.isshow = true;
         },
         close(){
             this.isshow = false;
+        }
+    },
+    watch:{
+        opid (data) {
+            if(data != ''){
+                // alert(2)
+                if($_GET.type == 'new'){
+                    var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+this.opid+'&type=new'
+                }else{
+                    var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+this.opid
+                }
+                WebApp.JSAPI.InitShare({
+                    title:'追梦行动派',
+                    desc:"有梦就行动，坚持返现金！",
+                    link:url,
+                    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+                });
+            }
         }
     }
 }

@@ -142,7 +142,7 @@
 </template>
 
 <script>
-var uid = Options.GetUserInfo().openid;
+// var uid = Options.GetUserInfo().openid;
 export default {
     name:'payInfo',
     data () {
@@ -178,9 +178,10 @@ export default {
         // this.tabbar = common.tabbar;
         // common.notice(this,uid);
         Options.TestServer = false;
+        console.log(this)
         // 获取合约列表
         this.list(this)
-        // this.Orders(this)
+        this.Orders(this)
     },
     methods:{
         // 点击购买合约
@@ -290,7 +291,7 @@ export default {
                 loadingType:'circular',
                 message:'准备中...'
             })
-            TD_Request('op','joi',{cid:cid,uid:uid},function(code,data){
+            TD_Request('op','joi',{cid:cid,uid:Options.GetUserInfo().openid},function(code,data){
                 console.log(data)
                 self.$toast.clear();
                 self.wxpayweb(self,data.pay,data.order.oid,cid,theme)
@@ -359,7 +360,7 @@ export default {
                   if(res.err_msg == "get_brand_wcpay_request:ok" ){
                   // 使用以上方式判断前端返回,微信团队郑重提示：
                         //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
-                        self.paySuccess(cid,oid,uid,theme)
+                        self.paySuccess(cid,oid,Options.GetUserInfo().openid,theme)
                   } else if(res.err_msg == "get_brand_wcpay_request:cancel" ){
                         self.$toast.fail('支付取消');
                   }
@@ -373,7 +374,7 @@ export default {
                 uid:uid,
                 theme:theme
             },function(code,data){
-                window.location.href = '../actionClock/actionClock.html?time='+ new Date().getTime();
+                window.location.href = 'actionClock.html?time='+ new Date().getTime();
             },function(code,data){
                 alert(code)
             })
@@ -407,38 +408,35 @@ export default {
             window.location.href = '../../../html/cach.html?time='+new Date().getTime()
         },
         // 订单信息
-        // Orders(self){
-        //     TD_Request('op','eomp',{uid:uid},function(code,data){
-        //         console.log(data)
-        //         self.feedback = data.feedback;
-        //         var order = data.orders.shift();
-        //         self.cPerson = data.cPerson;
-        //         self.cAttendence = data.cAttendence;
-        //         self.order = order;
-        //         data.orders.push(order);
-        //         self.orders = data.orders;
-        //         self.loop(self)
-        //         console.log(data.orders);
-        //     },function(code,data){
-        //         console.log(data)
-        //         if(code == 82){
-        //             $('body').html('');
-        //             window.location.href = '../actionClock/actionClock.html?time='+new Date().getTime();
-        //         }
-        //     })
-        // },
-        // loop(self){
-        //     setInterval(function(){
-        //         var order = self.orders.shift();
-        //         self.order = order;
-        //         self.orders.push(order)
-        //     },3000)
-        // }
+        Orders(self){
+            TD_Request('op','eomp',{uid:Options.GetUserInfo().openid},function(code,data){
+                console.log(data)
+                console.log(self.feedback)
+                self.feedback = data.feedback;
+                var order = data.orders.shift();
+                self.cPerson = data.cPerson;
+                self.cAttendence = data.cAttendence;
+                self.order = order;
+                data.orders.push(order);
+                self.orders = data.orders;
+                self.loop(self)
+                console.log(data.orders);
+            },function(code,data){
+                console.log(data)
+            })
+        },
+        loop(self){
+            setInterval(function(){
+                var order = self.orders.shift();
+                self.order = order;
+                self.orders.push(order)
+            },3000)
+        }
     },
     watch:{
         value(data){
             if(data.length >= 8){
-                this.value = data.substr(0,20);
+                this.value = data.substr(0,8);
                 console.log(this.value)
             }
         }

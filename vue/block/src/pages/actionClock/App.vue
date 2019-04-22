@@ -185,6 +185,8 @@ export default {
                 self.countMonth = data.calendar.monthIndex.length - 1;
                 self.opid = data.calendar.opid;
                 self.date = data.date;
+                console.log(self.date)
+                console.log(new Date(self.date) / 1000 - 28800);
                 console.log(data.calendar.days);
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
                 self.refreshDate(data.calendar.days,self,data.lastattend,data.cid);
@@ -195,7 +197,7 @@ export default {
                     title:'温馨提示',
                     message:data.context
                 }).then(()=>{
-                    window.location.href = '../../index.html?time='+new Date().getTime();
+                    window.location.href = 'clock.html?time='+new Date().getTime();
                 });
             })
         },
@@ -273,9 +275,13 @@ export default {
                         self.btnTxt = '已打卡';
                         self.isdisabled = true;
                     }
-                    if(item.dateStamp >= lastattend && item.state == 'NONE'){
+                    if(item.dateStamp < (Math.round(new Date(self.date) / 1000) - 28800)  && item.state == 'NOTRELAY'){
+                        $('<li class="enable leakage" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                    }else if(item.dateStamp < (Math.round(new Date(self.date) / 1000) - 28800)  && item.state == 'NONE'){
+                        $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                    }else if(item.dateStamp >= lastattend && item.state == 'NONE'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                    }else if(item.state == 'NONE'){
+                    }else if(item.state == 'NONE' ){
                         $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "NOTRELAY"){
                         $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
@@ -360,14 +366,16 @@ export default {
                 // alert('yes')
                 // self.shareTitle = 
                 if(isDate){
-                    self.shareTitle = '追梦行动派'
+                    self.shareTitle = data.info.nickname + '刚刚加入追梦行动派，邀请您一起加入！'
+                    var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid+'&type=new'
                 } else {
-                    self.shareTitle = data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天'
+                    self.shareTitle = data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+1+'天'
+                    var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid
                 }
                 WebApp.JSAPI.InitShare({
                     title:self.shareTitle,
                     desc:"有梦就行动，坚持返现金！",
-                    link:'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid,
+                    link:url,
                     imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
                 });
                 WebApp.JSAPI.OnShareTimeLine = function(res){
@@ -411,7 +419,7 @@ export default {
                 console.log(data)
                 self.$toast.clear();
                 self.Mat(self);
-                window.location.href = '../fill/fill.html?time='+new Date().getTime()+'&opid='+self.opid+'&state=success';
+                window.location.href = 'fill.html?time='+new Date().getTime()+'&opid='+self.opid+'&state=success';
             },function(code,data){
                 self.$toast.clear();
                 if(code == 87){
@@ -425,7 +433,7 @@ export default {
                         message:data.context
                     })
                 }else if(code == 89){
-                    window.location.href = '../fill/fill.html?time='+new Date().getTime()+'&opid='+self.opid+'&state=fail'
+                    window.location.href = 'fill.html?time='+new Date().getTime()+'&opid='+self.opid+'&state=fail'
                 }else if(code == 90){
                     self.$dialog.alert({
                         title:'温馨提示',
@@ -450,6 +458,7 @@ export default {
                     self.Mat(self)
                 },function(code,data){
                     self.$toast.fail('分享失败')
+                    console.log(date);
                 })
             }else{
                 window.location.href = 'actionClock.html?time='+new Date().getTime();
@@ -479,7 +488,12 @@ export default {
             this.Mat(this);
         },
         jl(){
-            window.location.href = '../list/list.html?time='+ new Date().getTime();
+            if(isDate){
+                window.location.href = 'list.html?time='+ new Date().getTime()+'&type=new';
+            }else{
+                window.location.href = 'list.html?time='+ new Date().getTime();
+            }
+            
         }
     }
 }

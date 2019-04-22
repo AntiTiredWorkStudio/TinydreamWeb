@@ -41,12 +41,6 @@
 
 <script>
 var uid = Options.GetUserInfo().openid;
-WebApp.JSAPI.InitShare({
-    title:'追梦行动派',
-    desc:"有梦就行动，坚持返现金！",
-    link:'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/clock.html?time='+new Date(),
-    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
-});
 export default {
     name:'payRecord',
     data () {
@@ -61,6 +55,12 @@ export default {
     },
      created(){
         // 消费信息
+        WebApp.JSAPI.InitShare({
+            title:'追梦行动派',
+            desc:"有梦就行动，坚持返现金！",
+            link:'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/clock.html?time='+new Date().getTime(),
+            imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+        });
         Options.TestServer = false;
         this.income(this,this.seek)
     },
