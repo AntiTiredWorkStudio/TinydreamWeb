@@ -264,7 +264,7 @@ export default {
                     //         item.state = 'RELAY'
                     //     }
                     // }}
-                    if(item.id == "0" && lastattend == 0 ){
+                    if(item.id == "0" && lastattend == 0 || item.id=="0"){
                         $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.id == "0" && lastattend == -1){
                         $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');

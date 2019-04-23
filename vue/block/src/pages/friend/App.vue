@@ -728,7 +728,7 @@ export default {
                     color: #999;
                 }
                 .btn{
-                    margin-top: 1.8rem;
+                    margin-top: 0.6rem;
                     text-align: center;
                     padding-bottom: 0.55rem;
                 }
