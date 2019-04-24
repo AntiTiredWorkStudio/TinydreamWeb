@@ -89,6 +89,12 @@ export default {
             headicon:self.userInfo.headimgurl
         },function(code,data){
             console.log(data)
+            WebApp.JSAPI.InitShare({
+                title:self.userInfo.nickname+'已加入追梦行动派',
+                desc:"有梦就行动，坚持返现金！",
+                link:'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/clock.html?time='+new Date().getTime(),
+                imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+            });
             self.$toast.clear();
             self.Orders(self,self.userInfo.openid)
         },function(code,data){

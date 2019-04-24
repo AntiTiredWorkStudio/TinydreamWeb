@@ -4,7 +4,7 @@
             <!-- banner -->
             <van-col span="24">
                 <div class="banner">
-                    <p>已成功帮助{{cPerson == '' ? '--' : cPerson}}追梦人，坚持行动{{cAttendence == '' ? '--' : cAttendence}}次！</p>
+                    <p>已成功帮助{{cPerson == '' ? '--' : cPerson}}位追梦人，坚持行动{{cAttendence == '' ? '--' : cAttendence}}次！</p>
                 </div>
             </van-col>
             <!-- screen公屏 -->
@@ -29,7 +29,7 @@
                         </div>
                     </van-col>
                     <van-col span="24">
-                        <div class="day-21" @click.stop="buy(contracts[1].cid)">
+                        <div class="day-21" @click.stop="buy(contracts[0].cid)">
                             <h3 class="title right">{{contracts == '' ? '--' : contracts[0].title}}</h3>
                             <p class="desc right">
                                 {{contracts == '' ? '--' : contracts[0].description}}
@@ -119,7 +119,7 @@
                         <div class="avatar"></div>
                         <div class="text">
                             <div class="container">
-                                <p>寻梦导师</p>
+                                <!-- <p>寻梦导师</p> -->
                                 <p>追梦行动达人</p>
                             </div>
                         </div>
@@ -450,7 +450,7 @@ export default {
     .banner{
         width: 100%;
         height: 2.3rem;
-        background: url('https://tdream.antit.top/ActiveContractBanner.jpg') no-repeat;
+        background: url('https://tdream.antit.top/ActiveContractBanner.jpg?time=20190423') no-repeat;
         background-size:7.5rem 2.3rem;
         p{
             padding-top: 1.82rem;
@@ -522,12 +522,12 @@ export default {
             .title{
                 padding-top: 0.3rem;
                 margin-left: 0.3rem;
-                font-size: 0.42rem;
+                font-size: 0.4rem;
                 margin-bottom: 0.1rem;
                 color: #9b500e;
             }
             .desc{
-                font-size: 0.26rem;
+                font-size: 0.24rem;
                 color: #9b500e;
                 margin-left: 0.3rem;
                 line-height: 1.8;

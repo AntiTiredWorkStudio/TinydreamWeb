@@ -27,7 +27,7 @@
                         </van-row>
                     </van-col>
                     <van-col span="24" class="btn">
-                        <van-button @click="clock" class="clock_btn" round :disabled="isdisabled">{{btnTxt}}</van-button>
+                        <van-button @click="clock(btnTxt == '分 享' ? 'share' : '')" class="clock_btn" round :disabled="isdisabled">{{btnTxt}}</van-button>
                     </van-col>
                 </van-col>
                 <van-col span="24" class="date">
@@ -103,7 +103,7 @@
                             <p>连续为{{colckinfo == '' ? '--' : colckinfo.theme}}行动打卡{{colckinfo == '' ? '--' :
                                 colckinfo.conday}}天</p>
                         </div>
-                        <p class="shareBtn">点击右上角“...”立即分享今日打卡</p>
+                        <p class="shareBtn" @click="guid">分享本日打卡</p>
                         <p style="text-align:center;font-size:0.26rem;padding-bottom:0.4rem;color:#4c4c4c">每成功邀请1位好友参与合约可获得1次补卡机会</p>
                     </div>
                 </div>
@@ -116,6 +116,22 @@
                     <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
                 </van-tabbar-item>
             </van-tabbar>
+            <!-- 分享指引 -->
+            <van-popup v-model="ishare" class="guid_mask">
+                <div class="guid"></div>
+                <div class="btn" @click="guid_close"></div>
+            </van-popup>
+            <!-- 合约完成弹窗 -->
+             <van-popup v-model="issuccess" class="bgd">
+                <div class="bg" :style='{background:"url("+url+") no-repeat center center / 7.12rem 8.62rem"}'>
+                    <p>{{state == true ? '恭喜您完成'+totalday+'天的行动合约' : '您的表现优秀，但最终未完成'+totalday+'天 '}}</p>
+                    <p class="tip" :style="{display:state == true ? 'block' : 'none'}">平台即将给您颁发{{bill == '' ? '--' : bill}}元奖励金</p>
+                    <p class="tip" :style="{display:state == true ? 'block' : 'none'}">7天内审核朋友圈转发情况</p>
+                    <p class="tip" :style="{display:state == true ? 'block' : 'none'}">没问图自动给您返款</p>
+                    <p class="tip" :style="{display:state == true ? 'block' : 'none'}">请注意查收！</p>
+                    <van-button @click="hy_close">我知道了</van-button>
+                </div>
+            </van-popup>
         </div>
 </template>
 
@@ -141,7 +157,13 @@ export default {
             date:'',//当前打卡、补卡日期
             countMonth:'',//月份总数
             date:'',
-            shareTitle:''
+            shareTitle:'',
+            ishare:false,//分享弹窗
+            issuccess:false,
+            state:true,
+            url:'',
+            bill:'',
+            totalday:''
         }
     },
     created(){
@@ -158,12 +180,16 @@ export default {
     },
     methods:{
         // 打卡
-        clock(){
+        clock(msg){
             // alert(uid)
-            this.Clock(this,this.opid);
+            if(msg == 'share'){
+                this.ishare = true;
+                this.isshow = false;
+            }else{this.Clock(this,this.opid)};
+            
         },
         // 创建日历
-        Mat(self){
+        Mat(self,firstday){
             self.$toast.loading({
                 duration:0,
                 forbidClick:true,
@@ -189,7 +215,7 @@ export default {
                 console.log(new Date(self.date) / 1000 - 28800);
                 console.log(data.calendar.days);
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
-                self.refreshDate(data.calendar.days,self,data.lastattend,data.cid);
+                self.refreshDate(data.calendar.days,self,data.lastattend,data.cid,firstday);
                 // 新用户分享
             },function(code,data){
                 self.$toast.clear();
@@ -210,16 +236,39 @@ export default {
                 console.log(data);
                 self.clockInfo(self,opid,data.attendance.date);
                 self.isshow = true;
+                if(data.end == 'SUCCESS'){
+                    // 合约成功
+                    self.issuccess = true;
+                    self.url = 'https://tdream.antit.top/share_mmexportOK.png' 
+                    self.state = true;
+                }else if(end == 'FAILD'){
+                    // 合约失败
+                    self.state = false;
+                    self.issuccess = true;
+                    self.url = 'https://tdream.antit.top/share_mmexport.png'
+                }
             },function(code,data){
                 console.log(data);
                 self.btnTxt = '已打卡';
+                self.isshow = true;
                 self.isdisabled = true;
-                self.Mat(self);
+                $('.mask .tip').html('<p style="color:00d094">打卡成功</p>');
+                self.Mat(self,data.firstday);
                 // self.clockInfo(self,opid,data.attendance.date);
             })
         },
+        hy_close(){
+            this.issuccess = false;
+        },
         // 生成日历
-        refreshDate(days,self,lastattend,cid){
+        refreshDate(days,self,lastattend,cid,firstday = ''){
+            TD_Request('co','info',{cid:cid},function(code,data){
+                console.log(data)
+                self.bill = data.contract.refund / 100;
+                self.totalday = data.contract.durnation
+            },function(code,data){
+                console.log(data)
+            })
             $('.weekDate .day').html('');
             var str = "";
             var totalDay = days.length;//天数
@@ -264,18 +313,20 @@ export default {
                     //         item.state = 'RELAY'
                     //     }
                     // }}
-                    if(item.id == "0" && lastattend == 0 || item.id=="0"){
+                    
+                    if(item.id == "0" && item.state=="NONE" && item.dateStamp >= lastattend){
                         $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                    }else if(item.id == "0" && lastattend == -1){
+                    }else if(item.id == "0" && firstday == 'NONE' && item.date == self.date){
+                        $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                    }else if(item.id == "0" && firstday == 'NOTRELAY' && item.date == self.date){
                         $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                        self.btnTxt = '点击"..."分享';
-                        self.isdisabled = true;
-                    }else if(item.id == "0" && lastattend == -2){
-                        $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        self.btnTxt = '分 享';
+                        self.isdisabled = false;
+                    }else if(item.id == "0" && firstday == "RELAY" && item.date == self.date){
                         self.btnTxt = '已打卡';
                         self.isdisabled = true;
-                    }
-                    if(item.dateStamp < (Math.round(new Date(self.date) / 1000) - 28800)  && item.state == 'NOTRELAY'){
+                        $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                    }else if(item.dateStamp < (Math.round(new Date(self.date) / 1000) - 28800)  && item.state == 'NOTRELAY'){
                         $('<li class="enable leakage" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.dateStamp < (Math.round(new Date(self.date) / 1000) - 28800)  && item.state == 'NONE'){
                         $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
@@ -285,9 +336,11 @@ export default {
                         $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == "NOTRELAY"){
                         $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                        self.btnTxt = '点击"..."分享';
-                        self.isdisabled = true;
+                        self.btnTxt = '分 享';
+                        self.isdisabled = false;
                     }else if(item.state == "RELAY"){
+                        self.btnTxt = '已打卡';
+                        self.isdisabled = true;
                         $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == 'SUPPLY'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal green">'+item.Day+'</span></li>').appendTo('.weekDate .day');
@@ -494,6 +547,13 @@ export default {
                 window.location.href = 'list.html?time='+ new Date().getTime();
             }
             
+        },
+        guid(){
+            this.ishare = true;
+            this.isshow = false;
+        },
+        guid_close(){
+            this.ishare = false;
         }
     }
 }
@@ -653,6 +713,67 @@ export default {
             }
             .close{
                 font-size: 0.88rem;
+            }
+        }
+        // 分享指引
+        .guid_mask{
+            background: rgba(0,0,0,0);
+            text-align: center;
+            position: absolute;
+            top: 4rem;
+            .guid{
+                width: 7.5rem;
+                height: 3.97rem;
+                background: url(https://tdream.antit.top/share_toup.png) no-repeat center center / 5.62rem 3.97rem;
+                position: relative;
+                left: 0.5rem;
+            }
+            .btn{
+                width: 2.56rem;
+                height: 0.7rem;
+                margin-top: 2.8rem;
+                background: url(https://tdream.antit.top/share_iok.png) no-repeat center center / 2.56rem 0.7rem;
+                margin: 2.8rem auto 0;
+            }
+        }
+        .bgd{
+            width: 7.12rem;
+            margin: 0 auto;
+            height: 8.62rem;
+            background: rgba(0,0,0,0);
+            .bg{
+                padding-top: 4.1rem;
+                width: 7.12rem;
+                height: 8.62rem;
+                background:url(https://tdream.antit.top/share_mmexportOK.png) no-repeat center center / 7.12rem 8.62rem;
+                p{
+                    width: 3.84rem;
+                    margin: 0 auto;
+                    color: #00d094;
+                    font-size: 0.36rem;
+                    margin-top: 0.3rem;
+                    text-align: center;
+                }
+                .tip{
+                    margin-top: 0.1rem;
+                    width: 5.8rem;
+                    font-size: 0.3rem;
+                    color: #b3b3b3;
+                    text-align: center;
+                }
+                .van-button{
+                    margin-top: 0.1rem;
+                    width: 3.8rem;
+                    height:0.88rem;
+                    line-height: 0.88rem;
+                    border-radius: 0.44rem;
+                    position: relative;
+                    border: none;
+                    left:50%;
+                    transform: translateX(-50%);
+                    background: #00d094;
+                    color: #fff;
+                }
             }
         }
     }

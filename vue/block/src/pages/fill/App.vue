@@ -7,7 +7,7 @@
                 <p>成功补卡{{cardinfo == '' ? '--' : cardinfo.menday}}次还有{{cardinfo=='' ? '--' : cardinfo.misday}}次未打卡</p>
             </div>
             <div class="center">
-                <p>点击右上角“...”立即分享今日打卡</p>
+                <p @click="guid">立即分享今日打卡</p>
             </div>
             <div class="center_b">
                 <p>赶紧转发今日的打卡到朋友圈吧，</p>
@@ -32,6 +32,11 @@
             <div class="bottom">
                 <van-icon :name="headicon" v-for="(headicon,index) in headicons" class="icon" :key="index"></van-icon>
             </div>
+            <!-- 分享指引 -->
+            <van-popup v-model="ishare" class="guid_mask">
+                <div class="guid"></div>
+                <div class="btn" @click="guid_close"></div>
+            </van-popup>
         </div>
 </template>
 
@@ -43,7 +48,8 @@ export default {
         return {
             headicons:'',//头像
             cardinfo:'',//详情信息
-            css:''
+            css:'',
+            ishare:false
         }
     },
     created(){
@@ -67,6 +73,9 @@ export default {
         }
     },
     methods:{
+        guid(){
+            this.ishare = true;
+        },
         // 详情信息
         Info(self,opid){
             self.$toast.loading({
@@ -80,10 +89,17 @@ export default {
                 console.log(data)
                 var menchance = data.info.menchance;
                 TD_Request('op','oif',{opid:opid,uid:uid},function(code,data){
+                    if($_GET.type == 'new'){
+                        var title = data.info.nickname + '已加入追梦行动派'
+                        var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid+'&type=new'
+                    }else{
+                        'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid
+                        data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天'
+                    }
                     WebApp.JSAPI.InitShare({
-                        title:data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天',
+                        title:title,
                         desc:"有梦就行动，坚持返现金！",
-                        link:'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid,
+                        link:url,
                         imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
                     });
                     console.log(data);
@@ -110,6 +126,9 @@ export default {
             },function(code,data){
                 console.log(data);
             })
+        },
+        guid_close(){
+            this.ishare = false;
         }
     }
 }
@@ -216,6 +235,26 @@ export default {
                 color: #999;
                 display: none;
                 font-size: 0.24rem;
+            }
+        }
+        .guid_mask{
+            background: rgba(0,0,0,0);
+            text-align: center;
+            position: absolute;
+            top: 4rem;
+            .guid{
+                width: 7.5rem;
+                height: 3.97rem;
+                background: url(https://tdream.antit.top/share_toup.png) no-repeat center center / 5.62rem 3.97rem;
+                position: relative;
+                left: 0.5rem;
+            }
+            .btn{
+                width: 2.56rem;
+                height: 0.7rem;
+                margin-top: 2.8rem;
+                background: url(https://tdream.antit.top/share_iok.png) no-repeat center center / 2.56rem 0.7rem;
+                margin: 2.8rem auto 0;
             }
         }
     }

@@ -1,8 +1,8 @@
 <template>
     <div class="list">
             <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="load">
-                <van-cell class="mt-20">
-                    <div class="right" v-for="(list,index) in list" :key="index">
+                <van-cell class="mt-20" v-for="(list,index) in list" :key="index" :style="{background:'url('+list.bg+') no-repeat center center / 6.8rem 2.7rem'}">
+                    <div class="right">
                         <van-icon :name="list.url" class="icon"></van-icon>
                         <div class="btn">
                             <van-button round @click="get(list.cid,list.alrday,list.menday,list.misday,list.conday,list.opid)">查看打卡详情</van-button>
@@ -31,11 +31,15 @@
                             <p class="num">{{menday}}</p>
                         </van-col>
                     </div>
-                    <p class="tip">点击右上角“...”立即分享打卡历程</p>
+                    <p class="tip" @click="guid">立即分享打卡历程</p>
                 </div>
                 <div class="close" style="text-align:center">
                     <van-icon name="https://tdream.antit.top/DaKaOKX.png" class="icon" @click="close"></van-icon>
                 </div>
+            </van-popup>
+            <van-popup v-model="ishare" class="guid_mask">
+                <div class="guid"></div>
+                <div class="btn" @click="guid_close"></div>
             </van-popup>
         </div>
 </template>
@@ -62,7 +66,8 @@ export default {
             menday:'',
             misday:'',
             conday:'',
-            opid:''
+            opid:'',
+            ishare:false
         }
     },
      methods:{
@@ -72,6 +77,13 @@ export default {
                 this.seek++;
                 this.getList(this)
             }
+        },
+        guid(){
+            this.ishare = true;
+        },
+        guid_close(){
+            this.isshow = false;
+            this.ishare = false;
         },
         getList(self){
             TD_Request('op','olist',{uid:uid,seek:self.seek,count:10},function(code,data){
@@ -89,13 +101,13 @@ export default {
                         item.url = 'https://tdream.antit.top/unactive.png'
                     }
                     if(item.cid == "CO0000000002" && item.state == 'DOING' || item.cid == "CO0000000002" && item.state == 'SUCCESS'){
-                        $('.mt-20').css('background','url(https://tdream.antit.top/image/Contract100.png) no-repeat center center / 6.8rem 2.7rem')
+                        item.bg = 'https://tdream.antit.top/image/Contract100.png'
                     }else if(item.cid == "CO0000000001" && item.state == 'DOING' || item.cid == "CO0000000001" && item.state == 'SUCCESS'){
-                        $('.mt-20').css('background','url(https://tdream.antit.top/image/Contract21.png) no-repeat center center / 6.8rem 2.7rem')
+                        item.bg = 'https://tdream.antit.top/image/Contract21.png'
                     }else if(item.cid == "CO0000000002" && item.state == 'FAILED'){
-                        $('.mt-20').css('background','url(https://tdream.antit.top/hylb100.png) no-repeat center center / 6.8rem 2.7rem')
+                        item.bg = 'https://tdream.antit.top/hylb100.png'
                     }else if(item.cid == "CO0000000001" && item.state == 'FAILED'){
-                        $('.mt-20').css('background','url(https://tdream.antit.top/hylb21.png) no-repeat center center / 6.8rem 2.7rem')
+                        item.bg = 'https://tdream.antit.top/hylb21.png'
                     }
                     self.list.push(item)
                     if(self.list.length >= self.count){
@@ -146,6 +158,7 @@ export default {
     .mt-20{
         margin-top: 0.2rem;
         height: 2.7rem;
+        // background: url(https://tdream.antit.top/image/Contract100.png) no-repeat center center / 6.8rem 2.7rem;
         .right{
             float: right;
             .icon{
@@ -206,5 +219,25 @@ export default {
             font-size: 0.8rem;
         }
     }
+    .guid_mask{
+            background: rgba(0,0,0,0);
+            text-align: center;
+            position: absolute;
+            top: 4rem;
+            .guid{
+                width: 7.5rem;
+                height: 3.97rem;
+                background: url(https://tdream.antit.top/share_toup.png) no-repeat center center / 5.62rem 3.97rem;
+                position: relative;
+                left: 0.5rem;
+            }
+            .btn{
+                width: 2.56rem;
+                height: 0.7rem;
+                margin-top: 2.8rem;
+                background: url(https://tdream.antit.top/share_iok.png) no-repeat center center / 2.56rem 0.7rem;
+                margin: 2.8rem auto 0;
+            }
+        }
 }
 </style>

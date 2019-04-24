@@ -171,19 +171,67 @@ export default {
     },
     created(){
        if($_GET.opid){
-            // 合约列表
-            this.list(this);
-            // 返回信息
-            this.Info(this,$_GET.opid);
-            this.Orders(this)
-            if($_GET.type == 'new'){
+           if($_GET.type == 'new'){
                 this.type = true;
+            }
+           if(Options.GetUserInfo().openid == null){
+                this.GetUserInfo(this)
+            }else{
+                // 合约列表
+                this.list(this);
+                // 返回信息
+                this.Info(this,$_GET.opid);
+                this.Orders(this)
             }
        }else{
            window.location.href = 'clock.html?time='+new Date().getTime();
        }
     },
     methods:{
+        GetUserInfo(self){
+            self.$toast.loading({
+                duration:0,
+                forbidClick:true,
+                loadingType:'circular',
+                message:'信息拉取中...'
+            })
+            WebApp.Init('wxc5216d15dd321ac5',//appid
+            function(result,data){//result:请求状态,data 请求结果
+                console.log(Options.GetUserInfo());
+                // self.tabbar = common.tabbar;
+                self.userInfo = Options.GetUserInfo();
+                // 开启测试服务器
+                Options.TestServer = false;
+                self.$toast.clear();
+                // 新用户注册信息
+                self.Register(self);
+            });
+        },
+        // 信息注册
+        Register(self){
+            self.$toast.loading({
+            duration:0,
+            forbidClick:true,
+            loadingType:'circular',
+            message:'信息注册中...'
+            })
+            TD_Request('us','enter',{
+                uid:self.userInfo.openid,
+                nickname:self.userInfo.nickname,
+                headicon:self.userInfo.headimgurl
+            },function(code,data){
+                console.log(data)
+                self.$toast.clear();
+                // 合约列表
+                this.list(this);
+                // 返回信息
+                this.Info(this,$_GET.opid);
+                this.Orders(this)
+            },function(code,data){
+                console.log(data)
+                self.$toast.clear()
+            })
+        },
         // 个人打卡信息
         Info(self,opid){
             self.$toast.loading({
@@ -201,10 +249,17 @@ export default {
                     console.log(data)
                     self.theme = data.info.theme;
                     self.alrday = data.info.alrday;
+                    if(self.type){
+                        var title = data.info.nickname+'已加入追梦行动派！'
+                        var url =  'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid+'type=new'
+                    }else{
+                        var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid
+                        var title = data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天'
+                    }
                     WebApp.JSAPI.InitShare({
-                        title:data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天',
+                        title:title,
                         desc:"有梦就行动，坚持返现金！",
-                        link:'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid,
+                        link:url,
                         imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
                     });
                     WebApp.JSAPI.OnShareTimeLine = function(res){
@@ -634,7 +689,7 @@ export default {
                         color: #9b500e;
                     }
                     .desc{
-                        font-size: 0.26rem;
+                        font-size: 0.24rem;
                         color: #9b500e;
                         margin-left: 0.3rem;
                         line-height: 1.8;
