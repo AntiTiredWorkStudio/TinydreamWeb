@@ -145,6 +145,12 @@ export default {
                     link:url,
                     imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
                 });
+                  WebApp.JSAPI.OnShareTimeLine = function(res){
+                    self.ishare = false;
+                }
+                WebApp.JSAPI.OnShareFriend = function(res){
+                    self.ishare = false;
+                }
             }
         }
     }

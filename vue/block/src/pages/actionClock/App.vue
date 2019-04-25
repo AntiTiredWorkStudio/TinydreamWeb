@@ -241,7 +241,7 @@ export default {
                     self.issuccess = true;
                     self.url = 'https://tdream.antit.top/share_mmexportOK.png' 
                     self.state = true;
-                }else if(end == 'FAILD'){
+                }else if(data.end == 'FAILD'){
                     // 合约失败
                     self.state = false;
                     self.issuccess = true;
@@ -313,16 +313,16 @@ export default {
                     //         item.state = 'RELAY'
                     //     }
                     // }}
-                    
+                    console.log(firstday)
                     if(item.id == "0" && item.state=="NONE" && item.dateStamp >= lastattend){
                         $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                    }else if(item.id == "0" && firstday == 'NONE' && item.date == self.date){
+                    }else if(item.id == "0" && firstday == 'NONE'){
                         $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                    }else if(item.id == "0" && firstday == 'NOTRELAY' && item.date == self.date){
+                    }else if(item.id == "0" && firstday == 'NOTRELAY'){
                         $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                         self.btnTxt = '分 享';
                         self.isdisabled = false;
-                    }else if(item.id == "0" && firstday == "RELAY" && item.date == self.date){
+                    }else if(item.id == "0" && firstday == "RELAY"){
                         self.btnTxt = '已打卡';
                         self.isdisabled = true;
                         $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
@@ -332,18 +332,19 @@ export default {
                         $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.dateStamp >= lastattend && item.state == 'NONE'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                    }else if(item.state == 'NONE' ){
+                    }else if(item.state == 'NONE' && item.date == self.date ){
                         $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                    }else if(item.state == "NOTRELAY"){
+                    }else if(item.state == "NOTRELAY" && item.date == self.date){
                         $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                         self.btnTxt = '分 享';
                         self.isdisabled = false;
-                    }else if(item.state == "RELAY"){
-                        self.btnTxt = '已打卡';
-                        self.isdisabled = true;
+                    }else if(item.state == 'RELAY'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                     }else if(item.state == 'SUPPLY'){
                         $('<li class="enable" id="'+item.date+'"><span class="normal green">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                    }else{
+                        self.btnTxt = '立即打卡'
+                        self.isdisabled = false;
                     }
                 }else{
                     $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
@@ -422,7 +423,7 @@ export default {
                     self.shareTitle = data.info.nickname + '刚刚加入追梦行动派，邀请您一起加入！'
                     var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid+'&type=new'
                 } else {
-                    self.shareTitle = data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+1+'天'
+                    self.shareTitle = data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天'
                     var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid
                 }
                 WebApp.JSAPI.InitShare({
@@ -432,6 +433,7 @@ export default {
                     imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
                 });
                 WebApp.JSAPI.OnShareTimeLine = function(res){
+                    self.issuccess = false;
                     console.log(res)
                     if(res){
                         self.isshow = false;
@@ -441,6 +443,7 @@ export default {
                     }
                 }
                 WebApp.JSAPI.OnShareFriend = function(res){
+                    self.issuccess = false;
                     console.log(res);
                     if(res){
                         self.isshow = false;
