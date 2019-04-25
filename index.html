@@ -172,7 +172,7 @@
             </div>
         </div>
     </div>
-
+    </div>
     <div id="footer">
       <van-tabbar v-model="actives" active-color="#00d094">
         <van-tabbar-item v-for="(tab,index) in tabbar" :url="tab.url" :key="index">
@@ -180,7 +180,6 @@
             <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
         </van-tabbar-item>
       </van-tabbar>
-    </div>
     <script src="lib/jquery-1.12.3.min.js"></script>
     <script src="lib/rem.js"></script>
     <script src="lib/swipeslider.js"></script>
