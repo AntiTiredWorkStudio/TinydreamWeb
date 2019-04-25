@@ -412,6 +412,10 @@ export default {
             TD_Request('op','eomp',{uid:Options.GetUserInfo().openid},function(code,data){
                 console.log(data)
                 console.log(self.feedback)
+                if(data.orders.length == 0){
+                    $('.info').hide();
+                    $('.time').html('暂无人购买合约')
+                }
                 self.feedback = data.feedback;
                 var order = data.orders.shift();
                 self.cPerson = data.cPerson;
