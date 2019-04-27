@@ -26,7 +26,7 @@ $(function(){
     $('ul.tab li').click(function(){
         $(this).addClass('active').siblings().removeClass('active')
     })
-    $('.tab li.active').click(function(){
+    $('ul.tab li').click(function(){
         $('.questionInfo').html('')
         get($(this).html())
     })
