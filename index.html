@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="css/swipeslider.css">
     <link rel="stylesheet" href="css/ub.css">
     <link rel="stylesheet" href="css/ydui.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@1.6/lib/index.css">
 </head>
 <body>
     <div class="home">
@@ -173,14 +172,28 @@
         </div>
     </div>
     
-    <div id="footer">
-      <van-tabbar v-model="actives" active-color="#00d094">
-        <van-tabbar-item v-for="(tab,index) in tabbar" :url="tab.url" :key="index">
-            <span>{{tab.title}}</span>
-            <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
-        </van-tabbar-item>
-      </van-tabbar>
-    </div>
+    <div class="footer">
+      <ul>
+          <li class="active">
+              <a href="index.html">
+              <i class="icon icon_home"></i>
+              <p class="text">梦想互助</p>
+              </a>
+          </li>
+          <li>
+          <a href="vue/block/dist/clock.html">
+              <i class="icon icon_dream"></i>
+              <p class="text">行动打卡</p>
+          </a>
+          </li>
+          <li>
+          <a href="vue/block/dist/user.html">
+              <i class="icon icon_user"></i>
+              <p class="text">个人中心</p>
+          </a>
+          </li>
+      </ul>
+  </div>
     <script src="lib/jquery-1.12.3.min.js"></script>
     <script src="lib/rem.js"></script>
     <script src="lib/swipeslider.js"></script>
@@ -193,35 +206,5 @@
     <script src="js/ydui.js"></script>
     <script src="js/index.js"></script>
     <script src="js/idx.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script>
-    <script>
-        var home = new Vue({
-          el:'#footer',
-          data:{
-            tabbar:[
-            {
-                title:'梦想互助',
-                normal:'http://tdream.antit.top/image/nav_index_disable.png',
-                active:'http://tdream.antit.top/image/nav_index.png',
-                url:'http://tinydream.ivkcld.cn/TinydreamWeb/index.html',
-            },
-            {
-                title:'行动打卡',
-                normal:'https://tdream.antit.top/ActiveSignInOff.png',
-                active:'https://tdream.antit.top/ActiveSignInOk.png',
-                url:'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/clock.html',
-            },
-            {
-                title:'个人中心',
-                normal:'http://tdream.antit.top/image/nav_owner_disable.png',
-                active:'http://tdream.antit.top/image/nav_owner.png',
-                url:'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/user.html',
-            }
-        ],
-        actives:0
-          }
-        })
-    </script>
 </body>
 </html>
