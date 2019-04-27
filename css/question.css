@@ -13,12 +13,13 @@ body{
 }
 .question ul li{
     float: left;
-    width: 3.4rem;
-    background: #00d094;
-    color: #fff;
+    width: 3.2rem;
+    background: #fff;
+    color: #999;
     height: 0.88rem;
     border-radius: 0.1rem;
     line-height: 0.88rem;
+    text-align: center
 }
 .question ul li:nth-child(2){
     float: right;
