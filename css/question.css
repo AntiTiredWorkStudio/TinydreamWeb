@@ -6,6 +6,15 @@ body{
     background-color: #fff;
     margin-top: 0.38rem;
 }
+.question ul li{
+    float: left;
+    width: 3.4rem;
+    background: #00d094;
+    color: #fff;
+}
+.question ul li:nth-child(2){
+    float: right;
+}
 .questionInfo{
     width: 6.90rem;
     margin: 0 auto;
