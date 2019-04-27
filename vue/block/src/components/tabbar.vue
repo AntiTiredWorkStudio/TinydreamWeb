@@ -5,7 +5,7 @@ export default {
     data: {
         tabbar:[
             {
-                title:'参与互助',
+                title:'梦想互助',
                 normal:'http://tdream.antit.top/image/nav_index_disable.png',
                 active:'http://tdream.antit.top/image/nav_index.png',
                 url:'http://tinydream.ivkcld.cn/TinydreamWeb/index.html',
@@ -26,3 +26,6 @@ export default {
     }
 }
 </script>
+
+
+

@@ -20,11 +20,11 @@
                         <p class="font-24">互助总数</p>
                     </van-col>
                     <van-col span="6" class="middle">
-                        <p class="font-40">{{cAttendence == '' ? '--' : cAttendence}}</p>
+                        <p class="font-40">{{cAttendence == '' ? 0 : cAttendence}}</p>
                         <p class="font-24">打卡总数</p>
                     </van-col>
                     <van-col span="6" class="middle">
-                        <p class="font-40">{{conday == '' ? '--' : conday}}</p>
+                        <p class="font-40">{{conday == '' ? 0 : conday}}</p>
                         <p class="font-24">连续打卡次数</p>
                     </van-col>
                 </van-row>
@@ -47,7 +47,7 @@
                     </a>
                 </van-col>
                 <van-col span="8">
-                    <a href="clock.html">
+                    <a href="http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/clock.html">
                         <div class="icon icon_clock"></div>
                         <p class="tip">行动打卡</p>
                     </a>
@@ -333,3 +333,5 @@ export default {
     }
 }
 </style>
+
+

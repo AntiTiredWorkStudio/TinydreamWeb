@@ -98,12 +98,9 @@
                         <div class="avatar">
                             <img :src="headicon" alt="">
                         </div>
-                        <div class="tip">
-                            <p>您已在追梦行动派</p>
-                            <p>连续为{{colckinfo == '' ? '--' : colckinfo.theme}}行动打卡{{colckinfo == '' ? '--' :
-                                colckinfo.conday}}天</p>
+                        <div class="tip" v-html="alert.msg">
                         </div>
-                        <p class="shareBtn" @click="guid">分享本日打卡</p>
+                        <p class="shareBtn" @click="guid">分享今日打卡</p>
                         <p style="text-align:center;font-size:0.26rem;padding-bottom:0.4rem;color:#4c4c4c">每成功邀请1位好友参与合约可获得1次补卡机会</p>
                     </div>
                 </div>
@@ -159,11 +156,13 @@ export default {
             date:'',
             shareTitle:'',
             ishare:false,//分享弹窗
+            cid:'',//合约的 cid
             issuccess:false,
             state:true,
             url:'',
             bill:'',
-            totalday:''
+            totalday:'',
+            alert:''
         }
     },
     created(){
@@ -189,7 +188,7 @@ export default {
             
         },
         // 创建日历
-        Mat(self,firstday){
+        Mat(self,firstday = ''){
             self.$toast.loading({
                 duration:0,
                 forbidClick:true,
@@ -211,11 +210,13 @@ export default {
                 self.countMonth = data.calendar.monthIndex.length - 1;
                 self.opid = data.calendar.opid;
                 self.date = data.date;
+                self.cid = data.cid;
                 console.log(self.date)
                 console.log(new Date(self.date) / 1000 - 28800);
                 console.log(data.calendar.days);
                 self.currentMonth = data.calendar.currentMonth.substr(0,4) + '.' + data.calendar.currentMonth.substr(4,6);
                 self.refreshDate(data.calendar.days,self,data.lastattend,data.cid,firstday);
+                
                 // 新用户分享
             },function(code,data){
                 self.$toast.clear();
@@ -234,7 +235,12 @@ export default {
                 self.btnTxt = '已打卡';
                 self.isdisabled = true;
                 console.log(data);
-                self.clockInfo(self,opid,data.attendance.date);
+                self.alert = {msg:"<p>您已在追梦行动派</p><p>连续为"+self.colckinfo.theme+"行动打卡"+self.colckinfo.conday+"天</p>"}
+                if(data.attendance.date == 'undefined'){
+                    data.attendance.date = self.date;
+                }
+                // alert(data.attendance.date)
+                // self.clockInfo(self,opid,data.attendance.date);
                 self.isshow = true;
                 if(data.end == 'SUCCESS'){
                     // 合约成功
@@ -247,12 +253,14 @@ export default {
                     self.issuccess = true;
                     self.url = 'https://tdream.antit.top/share_mmexport.png'
                 }
+                self.Mat(self);
             },function(code,data){
                 console.log(data);
                 self.btnTxt = '已打卡';
+                self.alert = {msg:"<p style='color:#00d094'>打卡成功</p>"}
                 self.isshow = true;
                 self.isdisabled = true;
-                $('.mask .tip').html('<p style="color:00d094">打卡成功</p>');
+                self.isstate = false;
                 self.Mat(self,data.firstday);
                 // self.clockInfo(self,opid,data.attendance.date);
             })
@@ -299,7 +307,7 @@ export default {
                             self.isdisabled = true;
                         }
                     }
-                    if(item.id == 0 && item.date == self.date){
+                    if(item.id == 0 && item.date == self.date || item.id == 1 && item.date == self.date){
                         isDate = true;
                     }
                     // else{
@@ -314,37 +322,73 @@ export default {
                     //     }
                     // }}
                     console.log(firstday)
-                    if(item.id == "0" && item.state=="NONE" && item.dateStamp >= lastattend){
-                        $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                    }else if(item.id == "0" && firstday == 'NONE'){
-                        $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                    }else if(item.id == "0" && firstday == 'NOTRELAY'){
-                        $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                        self.btnTxt = '分 享';
-                        self.isdisabled = false;
-                    }else if(item.id == "0" && firstday == "RELAY"){
-                        self.btnTxt = '已打卡';
-                        self.isdisabled = true;
-                        $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                    }else if(item.dateStamp < (Math.round(new Date(self.date) / 1000) - 28800)  && item.state == 'NOTRELAY'){
-                        $('<li class="enable leakage" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                    }else if(item.dateStamp < (Math.round(new Date(self.date) / 1000) - 28800)  && item.state == 'NONE'){
-                        $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                    }else if(item.dateStamp >= lastattend && item.state == 'NONE'){
-                        $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                    }else if(item.state == 'NONE' && item.date == self.date ){
-                        $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                    }else if(item.state == "NOTRELAY" && item.date == self.date){
-                        $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                        self.btnTxt = '分 享';
-                        self.isdisabled = false;
-                    }else if(item.state == 'RELAY'){
-                        $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                    }else if(item.state == 'SUPPLY'){
-                        $('<li class="enable" id="'+item.date+'"><span class="normal green">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                    if(firstday != ''){
+                        if(item.id == "0" && item.state=="NONE" && item.dateStamp >= lastattend){
+                            $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.id == "0" && firstday == 'NONE'){
+                            $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.id == "0" && firstday == 'NOTRELAY'){
+                            $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                            self.btnTxt = '分 享';
+                            self.isdisabled = false;
+                        }else if(item.id == "0" && firstday == "RELAY"){
+                            self.btnTxt = '已打卡';
+                            self.isdisabled = true;
+                            $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.dateStamp < (Math.round(new Date(self.date) / 1000) - 28800)  && item.state == 'NOTRELAY'){
+                            $('<li class="enable leakage" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.dateStamp < (Math.round(new Date(self.date) / 1000) - 28800)  && item.state == 'NONE'){
+                            $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.dateStamp >= lastattend && item.state == 'NONE'){
+                            $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.state == 'NONE' && item.date == self.date ){
+                            $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.state == "NOTRELAY" && item.date == self.date){
+                            $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                            self.btnTxt = '分 享';
+                            self.isdisabled = false;
+                        }else if(item.state == 'RELAY'){
+                            $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.state == 'SUPPLY'){
+                            $('<li class="enable" id="'+item.date+'"><span class="normal green">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else{
+                            self.btnTxt = '立即打卡'
+                            self.isdisabled = false;
+                        }
                     }else{
-                        self.btnTxt = '立即打卡'
-                        self.isdisabled = false;
+                        if(item.id == "0" && item.state=="NONE" && item.dateStamp >= lastattend){
+                            $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.id == "0" && item.state == 'NONE'){
+                            $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.id == "0" && item.state == 'NOTRELAY'){
+                            $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                            self.btnTxt = '分 享';
+                            self.isdisabled = false;
+                        }else if(item.id == "0" && item.state == "RELAY"){
+                            // self.btnTxt = '已打卡';
+                            // self.isdisabled = true;
+                            $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.dateStamp < (Math.round(new Date(self.date) / 1000) - 28800)  && item.state == 'NOTRELAY'){
+                            $('<li class="enable leakage" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.dateStamp < (Math.round(new Date(self.date) / 1000) - 28800)  && item.state == 'NONE'){
+                            $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.dateStamp >= lastattend && item.state == 'NONE'){
+                            $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.state == 'NONE' && item.date == self.date ){
+                            $('<li class="enable leakage" data-stamp="'+item.dateStamp+'" id="'+item.date+'"><span class="normal gray">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else if(item.state == "NOTRELAY" && item.date == self.date){
+                            $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                            self.btnTxt = '分 享';
+                            self.isdisabled = false;
+                        }else if(item.state == 'RELAY' && item.date == self.date){
+                            $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                            self.btnTxt = '已打卡';
+                        }else if(item.state == 'SUPPLY'){
+                            $('<li class="enable" id="'+item.date+'"><span class="normal green">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                        }else{
+                            self.btnTxt = '立即打卡'
+                            self.isdisabled = false;
+                        }
                     }
                 }else{
                     $('<li class="disabled"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
@@ -403,23 +447,26 @@ export default {
                     self.card(self,$(this).attr('id'));
                 })
             }
-            self.clockInfo(self,self.opid,$('li.share').attr('id'));
+            self.clockInfo(self,self.opid,self.date);
         },
         // 打卡信息
-        clockInfo(self,opid,date){
+        clockInfo(self,opid,date = ''){
             console.log(date)
             self.$toast.loading({
-                duration:0,
-                forbidClick:true,
-                loadingType:'circular',
-                message:'信息加载中...'
+                message:'加载中...'
             })
             TD_Request('op','oif',{opid:opid},function(code,data){
                 console.log(data)
                 self.$toast.clear();
+                if(window.navigator.userAgent.toLowerCase().indexOf("android") !== -1){
+                    // alert('android')
+                }else{
+                    // alert('ios');
+                    self.$toast.clear();
+                }
                 // alert('yes')
                 // self.shareTitle = 
-                if(isDate){
+                if(self.colckinfo.alrday == 0){
                     self.shareTitle = data.info.nickname + '刚刚加入追梦行动派，邀请您一起加入！'
                     var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid+'&type=new'
                 } else {
@@ -433,23 +480,27 @@ export default {
                     imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
                 });
                 WebApp.JSAPI.OnShareTimeLine = function(res){
-                    self.issuccess = false;
                     console.log(res)
-                    if(res){
+                    if(res){ 
                         self.isshow = false;
                         self.share(self,opid,date);
-                    }else if(res){
-                        self.$toast.fail('您取消了分享')
+                    }else if(!res){
+                        self.$toast.fail('转发失败')
                     }
                 }
                 WebApp.JSAPI.OnShareFriend = function(res){
                     self.issuccess = false;
                     console.log(res);
                     if(res){
-                        self.isshow = false;
-                        self.share(self,opid,date);
-                    }else if(res){
-                        self.$toast.fail('您取消了分享')
+                        if(self.cid == "CO0000000001"){
+                            self.isshow = false;
+                            self.share(self,opid,date);
+                        }else{
+                            self.isshow = false;
+                            self.$toast.success('转发成功')
+                        }
+                    }else if(!res){
+                        self.$toast.fail('转发失败')
                     }
                 }
                 data.info.prec = parseInt(data.info.precentage * 100);
@@ -505,16 +556,23 @@ export default {
         },
         // 分享
         share(self,opid,date){
-            console.log(date);
+            this.ishare = false;
+            if(date == ''){
+                date = self.date;
+            }
+            // alert(date)
             if(typeof date != 'undefined'){
-                console.log(date)
+                // console.log(date)
                 TD_Request('op','rep',{opid:opid,date:date,uid:uid},function(code,data){
+                    // alert(JSON.stringify(data))
                     self.$toast.success('分享成功')
-                    // return;
-                    self.Mat(self)
+                    // // return;
+                    // self.issuccess = false;
+                    setTimeout(function(){
+                        self.Mat(self)
+                    },2000)
                 },function(code,data){
                     self.$toast.fail('分享失败')
-                    console.log(date);
                 })
             }else{
                 window.location.href = 'actionClock.html?time='+new Date().getTime();
@@ -722,7 +780,7 @@ export default {
         .guid_mask{
             background: rgba(0,0,0,0);
             text-align: center;
-            position: absolute;
+            position: fixed;
             top: 4rem;
             .guid{
                 width: 7.5rem;
@@ -781,3 +839,6 @@ export default {
         }
     }
 </style>
+
+
+

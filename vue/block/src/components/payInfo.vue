@@ -412,14 +412,27 @@ export default {
             TD_Request('op','eomp',{uid:Options.GetUserInfo().openid},function(code,data){
                 console.log(data)
                 console.log(self.feedback)
+                if(data.cPerson < 1000){
+                    var person = parseInt(data.cPerson);
+                    person += 1000
+                }else{
+                    var person = data.cPerson;
+                }
+                if(data.cAttendence < 10000){
+                    var num = parseInt(data.cAttendence);
+                    num += 10000
+                }else{
+                    var num = data.cAttendence;
+                }
+                self.cPerson = person;
+                self.cAttendence = num;
+                self.feedback = data.feedback;
                 if(data.orders.length == 0){
                     $('.info').hide();
-                    $('.time').html('暂无人购买合约')
+                    $('.time').html('暂无人购买合约');
+                    return;
                 }
-                self.feedback = data.feedback;
                 var order = data.orders.shift();
-                self.cPerson = data.cPerson;
-                self.cAttendence = data.cAttendence;
                 self.order = order;
                 data.orders.push(order);
                 self.orders = data.orders;
@@ -676,7 +689,7 @@ export default {
         .paycancel{
             width: 5.8rem;
             height: 6.9rem;
-            background: url(https://tdream.antit.top/image/contract.jpg) no-repeat center center / 5.8rem 6.9rem;
+            background: url(https://tdream.antit.top/image/contract.jpg?time=20190424) no-repeat center center / 5.8rem 6.9rem;
             position: relative;
             .main{
               position: relative;  
@@ -743,3 +756,4 @@ export default {
     }
 }
 </style>
+
