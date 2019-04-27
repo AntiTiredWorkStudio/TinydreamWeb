@@ -6,12 +6,12 @@ body{
     background-color: #fff;
     margin-top: 0.38rem;
 }
-.question ul{
+ul.tab{
     width: 6.8rem;
     margin: 0 auto;
     overflow: hidden;
 }
-.question ul li{
+ul.tab li{
     float: left;
     width: 3.2rem;
     background: #fff;
@@ -21,8 +21,11 @@ body{
     line-height: 0.88rem;
     text-align: center
 }
-.question ul li:nth-child(2){
+ul.tab li:nth-child(2){
     float: right;
+}
+ul.tab li.active{
+    color: #00d094;
 }
 .questionInfo{
     width: 6.90rem;
