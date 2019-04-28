@@ -1,5 +1,6 @@
 <template>
-    <div class="user">
+    <div class="users">
+        <div class="user">
             <div class="header">
                 <van-row class="head_main">
                     <van-col span="18">
@@ -98,14 +99,31 @@
                     </a>
                 </van-col>
             </van-row>
-            <!-- tabbar -->
-            <van-tabbar v-model="actives" active-color="#00d094">
-                <van-tabbar-item v-for="(tab,index) in tabbar" :url="tab.url" :key="index">
-                    <span>{{tab.title}}</span>
-                    <img slot-scope="props" slot="icon" :src="props.active ? tab.active : tab.normal">
-                </van-tabbar-item>
-            </van-tabbar>
         </div>
+        <!-- tabbar -->
+            <div class="footer">
+                <ul>
+                    <li>
+                        <a href="../../../index.html">
+                        <i class="icon icon_home"></i>
+                        <p class="text">梦想互助</p>
+                        </a>
+                    </li>
+                    <li>
+                    <a href="clock.html">
+                        <i class="icon icon_dream"></i>
+                        <p class="text">行动打卡</p>
+                    </a>
+                    </li>
+                    <li class="active">
+                    <a href="user.html">
+                        <i class="icon icon_user"></i>
+                        <p class="text">个人中心</p>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+    </div>
 </template>
 
 <script>
@@ -200,6 +218,7 @@ export default {
     .user{
     width: 6.9rem;
     margin: 0.3rem auto;
+    padding-bottom: 1.29rem;
     .header{
         width: 100%;
         height: 3.2rem;
@@ -332,6 +351,59 @@ export default {
         }
     }
 }
+.footer{
+        height: 1.28rem;
+        border-top:1px solid #ddd;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #fff;
+    }
+    .footer ul li{
+        float: left;
+        width: 2.50rem;
+        text-align: center;
+        margin-top: 0.2rem;
+    }
+    .footer ul li a{
+        color: #b2b2b2;
+        font-size: 0.22rem;
+    }
+    .footer ul li .icon_home{
+        display: inline-block;
+        width: 0.38rem;
+        height: 0.42rem;
+        background: url(http://tdream.antit.top/image/nav_index_disable.png) no-repeat;
+        background-size: 0.38rem 0.42rem; 
+    }
+    .footer ul li .icon_user{
+        display: inline-block;
+        width: 0.38rem;
+        height: 0.42rem;
+        background: url(http://tdream.antit.top/image/nav_index_disable.png) no-repeat;
+        background-size: 0.38rem 0.42rem; 
+    }
+    .footer ul li .icon_dream{
+        display: inline-block;
+        width: 0.38rem;
+        height: 0.42rem;
+        background: url(https://tdream.antit.top/ActiveSignInOff.png) no-repeat;
+        background-size: 0.38rem 0.42rem; 
+    }
+    .footer ul li .icon_user{
+        display: inline-block;
+        width: 0.38rem;
+        height: 0.42rem;
+        background: url(http://tdream.antit.top/image/nav_owner_disable.png) no-repeat;
+        background-size: 0.38rem 0.42rem; 
+    }
+    .footer ul li.active a{
+        color:#00d094;
+    }
+    .footer ul li.active .icon{
+        background: url(http://tdream.antit.top/image/nav_owner.png) no-repeat;
+        background-size: 0.38rem 0.42rem; 
+    }
 </style>
 
 

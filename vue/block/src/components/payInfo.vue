@@ -464,6 +464,7 @@ export default {
 <style lang="less" scoped>
     .clockIn{
     width: 100%;
+    padding-bottom: 1.29rem;
     .banner{
         width: 100%;
         height: 2.3rem;
