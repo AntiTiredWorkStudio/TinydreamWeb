@@ -246,7 +246,7 @@ export default {
         .guid_mask{
             background: rgba(0,0,0,0);
             text-align: center;
-            position: absolute;
+            position: fixed;
             top: 4rem;
             .guid{
                 width: 7.5rem;

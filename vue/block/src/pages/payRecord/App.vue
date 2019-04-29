@@ -77,7 +77,7 @@ export default {
                 console.log(data)
                 self.loading = false;
                 self.total = data.total;
-                if(data.total == 0){
+                if(data.total == 0 || data.orders.length == 0){
                     self.finished = true;
                     return;
                 }
@@ -97,6 +97,7 @@ export default {
                     }
                     self.list.push(item);
                 })
+                console.log(list,self.total)
                 if(self.list.length>=self.total){
                     self.finished = true;
                 } else {
@@ -120,12 +121,12 @@ export default {
                 self.loading = false;
                 self.$toast.clear();
                 self.total = data.count;
-                if(data.count == 0){
+                if(data.count == 0 || data.refund.length == 0){
                     self.finished = true;
                     return;
                 }
                 $.each(data.refund,function(index,item){
-                    var time = parseInt(item.ptime) * 1000;
+                    var time = parseInt(item.time) * 1000;
                     var dt = new Date(time);    
                     item.time = dt.toLocaleString().replace(/\//g,'-')                
                     self.list.push(item);
