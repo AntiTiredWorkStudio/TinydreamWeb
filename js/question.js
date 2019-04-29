@@ -7,13 +7,28 @@ WebApp.JSAPI.Init({
 $(function(){
     var templateStr = $('#template').html();
     var complate = _.template(templateStr);
-    $.get('../data/data.json',function(data){
-        console.log(data)
-        _.each(data.data,function(item){
-            var str = complate(item);
-            var $dom = $(str);
-            $dom.appendTo('.questionInfo');
+    get();
+    function get(msg = ''){
+        $.get('../data/data.json',function(data){
+            console.log(data)
+            if(msg == '行动打卡'){
+                var obj = data.clock;
+            }else{
+                var obj = data.data
+            }
+            _.each(obj,function(item){
+                var str = complate(item);
+                var $dom = $(str);
+                $dom.appendTo('.questionInfo');
+            })
         })
+    }
+    $('ul.tab li').click(function(){
+        $(this).addClass('active').siblings().removeClass('active')
+    })
+    $('ul.tab li').click(function(){
+        $('.questionInfo').html('')
+        get($(this).html())
     })
     // WebApp.JSAPI.Init()
 })

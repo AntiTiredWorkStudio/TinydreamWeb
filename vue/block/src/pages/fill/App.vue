@@ -37,11 +37,13 @@
                 <div class="guid"></div>
                 <div class="btn" @click="guid_close"></div>
             </van-popup>
+            <tab />
         </div>
 </template>
 
 <script>
 var uid = Options.GetUserInfo().openid;
+import tab from '@/components/tab.vue'
 export default {
     name:'fill',
     data () {
@@ -51,6 +53,9 @@ export default {
             css:'',
             ishare:false
         }
+    },
+    components:{
+        tab
     },
     created(){
         Options.TestServer = false;
@@ -266,3 +271,4 @@ export default {
     }
 }
 </style>
+
