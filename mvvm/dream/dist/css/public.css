@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #fff;
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+    -moz-text-size-adjust: 100% !important;
+}
+input{
+    background-color: #fff;
+    border: none;
+}
+ul,li,ol{
+    list-style: none;
+}
+h1,h2,h3,h4,h5,h6,div,p,span{
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+button{
+    border:none;
+    outline: 0 !important;
+}
+img{
+    border: none;
+}
