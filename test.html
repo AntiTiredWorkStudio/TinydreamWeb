@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>授权测试</title>
+</head>
+<body>
+    <script src="https://tinydream.antit.top/admin/js/jquery-1.12.3.min.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/WebApp.js"></script>
+    <script>
+        WebApp.Init('wxc5216d15dd321ac5',//appid
+        function(result,data){//result:请求状态,data 请求结果
+            console.log(Options.GetUserInfo());
+            self.userInfo = Options.GetUserInfo()
+      });
+    </script>
+</body>
+</html>
