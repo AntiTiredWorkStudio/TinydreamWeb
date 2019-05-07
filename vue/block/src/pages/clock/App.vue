@@ -77,7 +77,7 @@ export default {
             duration:0,
             forbidClick:true,
             loadingType:'circular',
-            message:'信息拉取中...'
+            message:'加载中...'
         })
         WebApp.Init('wxc5216d15dd321ac5',//appid
         function(result,data){//result:请求状态,data 请求结果
@@ -97,7 +97,7 @@ export default {
           duration:0,
           forbidClick:true,
           loadingType:'circular',
-          message:'信息注册中...'
+          message:'加载中...'
         })
         TD_Request('us','enter',{
             uid:self.userInfo.openid,
@@ -124,7 +124,7 @@ export default {
         duration:0,
         forbidClick:true,
         loadingType:'circular',
-        message:'数据加载中...'
+        message:'加载中...'
       })
       TD_Request('op','eomp',{uid:uid},function(code,data){
           self.ispay = true;

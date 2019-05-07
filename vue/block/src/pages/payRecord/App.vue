@@ -71,7 +71,7 @@ export default {
                 duration:0,
                 forbidClick:true,
                 loadingType:'circular',
-                message:'订单加载中...'
+                message:'加载中...'
             })
             TD_Request('ds','oinfo',{uid:uid,seek:seek,count:10},function(code,data){
                 console.log(data)
@@ -114,7 +114,7 @@ export default {
                 duration:0,
                 forbidClick:true,
                 loadingType:'circular',
-                message:'订单加载中...'
+                message:'加载中...'
             })
             TD_Request('ds','rinfo',{uid:uid,seek:seek,count:10},function(code,data){
                 console.log(data)

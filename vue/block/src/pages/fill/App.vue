@@ -4,7 +4,7 @@
                 <p>当前剩余{{cardinfo == '' ? '--' : cardinfo.menchance}}次补卡机会</p>
             </div>
             <div class="middle">
-                <p>成功补卡{{cardinfo == '' ? '--' : cardinfo.menday}}次还有{{cardinfo=='' ? '--' : cardinfo.misday}}次未打卡</p>
+                <p>{{msg}}</p>
             </div>
             <div class="center">
                 <p @click="guid">立即分享今日打卡</p>
@@ -37,7 +37,7 @@
                 <div class="guid"></div>
                 <div class="btn" @click="guid_close"></div>
             </van-popup>
-            <tab />
+            <!-- <tab /> -->
         </div>
 </template>
 
@@ -51,7 +51,8 @@ export default {
             headicons:'',//头像
             cardinfo:'',//详情信息
             css:'',
-            ishare:false
+            ishare:false,
+            msg:'',
         }
     },
     components:{
@@ -65,11 +66,13 @@ export default {
                     background:'url(https://tdream.antit.top/image/rightframe.png) no-repeat',
                     'background-size':'5.86rem 2.19rem'
                 }
+                this.mes = '补卡成功'
             }else{
                 this.css = {
                     'background-image':'url(https://tdream.antit.top/BuKaCiShuBeiJing.png)',
                     'background-size':'5.86rem 2.19rem'
                 }
+                this.msg = '补卡失败'
             }
             this.Info(this,$_GET.opid)
             this.headIcon(this);
@@ -87,7 +90,7 @@ export default {
                 duration:0,
                 forbidClick:true,
                 loadingType:'circular',
-                message:'信息加载中...'
+                message:'加载中...'
             })
             TD_Request('op','uinfo',{uid:uid},function(code,data){
                 self.$toast.clear();
@@ -98,8 +101,8 @@ export default {
                         var title = data.info.nickname + '已加入追梦行动派'
                         var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid+'&type=new'
                     }else{
-                        'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid
-                        data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天'
+                        var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid
+                        var title = data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天'
                     }
                     WebApp.JSAPI.InitShare({
                         title:title,

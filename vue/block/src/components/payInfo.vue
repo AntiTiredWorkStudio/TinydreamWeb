@@ -239,7 +239,7 @@ export default {
                 duraction:0,
                 forbidClick:true,
                 loadingType:'circular',
-                message:'列表获取中...'
+                message:'加载中...'
             })
             TD_Request('co','list',{},function(code,data){
                 console.log(data);
@@ -258,7 +258,7 @@ export default {
                 duraction:0,
                 forbidClick:true,
                 loadingType:'circular',
-                message:'信息获取中...'
+                message:'加载中...'
             })
             TD_Request('co','info',{cid:cid},function(code,data){
                 console.log(data)
@@ -289,7 +289,7 @@ export default {
                 duraction:0,
                 forbidClick:true,
                 loadingType:'circular',
-                message:'准备中...'
+                message:'支付中...'
             })
             TD_Request('op','joi',{cid:cid,uid:Options.GetUserInfo().openid},function(code,data){
                 console.log(data)

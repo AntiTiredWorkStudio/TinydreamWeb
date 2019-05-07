@@ -1,16 +1,56 @@
 <template>
   <div id="app">
     <router-view/>
-    <tabbar />
+    <router-view name="payInfo"></router-view>
+    <router-view name="share"></router-view>
+    <router-view name='poolinfo'></router-view>
+    <router-view name="dream"></router-view>
+    <tab-bar v-if="istab"></tab-bar>
   </div>
 </template>
 
 <script>
-import tabbar from '@/components/tabbar/Tabbar'
+import Tabbar from '@/components/tabbar/Tabbar'
 export default {
-  name: 'App',
+  name:'App',
+  data () {
+    return {
+      istab:true,
+    }
+  },
+  created(){
+    console.error('End.vue尚未接入')
+    let href = window.location.href;
+    if(href.includes(''))
+    if(this.$route.path != '/' && this.$route.path != '/clock' && this.$route.path != '/user'){
+      this.istab = false;
+    }else{
+      this.istab = true;
+    }
+    this.$store.commit('uid',JSON.parse(GetStorage('userInfo')).openid)
+  },
+  methods:{
+    
+  },
   components:{
-    tabbar
+    TabBar:Tabbar
+  },
+  mounted(){
+    this.$store.commit('uid',JSON.parse(GetStorage('userInfo')).openid)
+  },
+  watch:{
+    $route(to,from){
+      if (/iPhone|mac|iPod|iPad/i.test(navigator.userAgent)) {
+        location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#' + to.path
+      }
+      this.$store.commit('uid',JSON.parse(GetStorage('userInfo')).openid)
+      console.log(to.path,to)
+      if(to.path != '/' && to.path != '/clock' && to.path != '/user'){
+        this.istab = false;
+      }else{
+        this.istab = true;
+      }
+    }
   }
 }
 </script>

@@ -46,6 +46,17 @@ export default {
         }else if(this.$route.path == '/user'){
             this.active = 2;
         }
+    },
+    watch:{
+        $route(to,from){
+            if(to.path == '/'){
+                this.active = 0
+            }else if(to.path == '/clock'){
+                this.active = 1
+            }else if(to.path == '/user'){
+                this.active = 2
+            }
+        }
     }
 }
 </script>

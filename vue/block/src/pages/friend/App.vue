@@ -140,7 +140,6 @@
 </template>
 
 <script>
-var uid = Options.GetUserInfo().openid;
 export default {
     name:'friend',
     data () {
@@ -166,7 +165,8 @@ export default {
             refund:'',//返还金额
             cattention:'',
             type:false,//是否为新用户，
-            feedback:'',//用户反馈
+            feedback:'',//用户反馈，
+            uid:''
         }
     },
     created(){
@@ -174,10 +174,11 @@ export default {
            if($_GET.type == 'new'){
                 this.type = true;
             }
-           if(Options.GetUserInfo().openid == null){
+           if(Options.GetUserInfo() == null){
                 this.GetUserInfo(this)
             }else{
                 // 合约列表
+                this.uid = Options.GetUserInfo().openid;
                 this.list(this);
                 // 返回信息
                 this.Info(this,$_GET.opid);
@@ -193,11 +194,12 @@ export default {
                 duration:0,
                 forbidClick:true,
                 loadingType:'circular',
-                message:'信息拉取中...'
+                message:'加载中...'
             })
             WebApp.Init('wxc5216d15dd321ac5',//appid
             function(result,data){//result:请求状态,data 请求结果
                 console.log(Options.GetUserInfo());
+                self.uid = Options.GetUserInfo().openid;
                 // self.tabbar = common.tabbar;
                 self.userInfo = Options.GetUserInfo();
                 // 开启测试服务器
@@ -213,7 +215,7 @@ export default {
             duration:0,
             forbidClick:true,
             loadingType:'circular',
-            message:'信息注册中...'
+            message:'加载中...'
             })
             TD_Request('us','enter',{
                 uid:self.userInfo.openid,
@@ -238,14 +240,14 @@ export default {
                 duraction:0,
                 forbidClick:true,
                 loadingType:"circular",
-                message:'信息加载中...'
+                message:'加载中...'
             })
             TD_Request('op','oshar',{opid:opid},function(code,data){
                 console.log(data)
                 $('.headicon').css('background','url('+data.headicon+') no-repeat center center / 1rem 1rem');
                 self.nickname = data.nickname;
                 self.refund = data.refund;
-                TD_Request('op','oif',{opid:opid,uid:uid},function(code,data){
+                TD_Request('op','oif',{opid:opid,uid:self.uid},function(code,data){
                     console.log(data)
                     self.theme = data.info.theme;
                     self.alrday = data.info.alrday;
@@ -291,7 +293,7 @@ export default {
             console.log(date);
             if(typeof date != 'undefined'){
                 console.log(date)
-                TD_Request('op','rep',{opid:opid,date:date,uid:uid},function(code,data){
+                TD_Request('op','rep',{opid:opid,date:date,uid:self.uid},function(code,data){
                     self.$toast.success('分享成功')
                     // return;
                     self.Mat(self)
@@ -329,7 +331,7 @@ export default {
             }
         },
         Orders(self){
-            TD_Request('op','eomp',{uid:uid},function(code,data){
+            TD_Request('op','eomp',{uid:self.uid},function(code,data){
                 self.feedback = data.feedback;
             },function(code,data){
                 console.log(data)
@@ -359,7 +361,7 @@ export default {
                 duraction:0,
                 forbidClick:true,
                 loadingType:'circular',
-                message:'列表获取中...'
+                message:'加载中...'
             })
             TD_Request('co','list',{},function(code,data){
                 self.contractType = data.themes;
@@ -377,7 +379,7 @@ export default {
                 duraction:0,
                 forbidClick:true,
                 loadingType:'circular',
-                message:'信息获取中...'
+                message:'加载中...'
             })
             TD_Request('co','info',{cid:cid},function(code,data){
                 console.log(data)
@@ -408,9 +410,9 @@ export default {
                 duraction:0,
                 forbidClick:true,
                 loadingType:'circular',
-                message:'准备中...'
+                message:'支付中...'
             })
-            TD_Request('op','joi',{cid:cid,uid:uid},function(code,data){
+            TD_Request('op','joi',{cid:cid,uid:self.uid},function(code,data){
                 console.log(data)
                 self.$toast.clear();
                 self.wxpayweb(self,data.pay,data.order.oid,cid,theme)
@@ -479,7 +481,7 @@ export default {
                   if(res.err_msg == "get_brand_wcpay_request:ok" ){
                   // 使用以上方式判断前端返回,微信团队郑重提示：
                         //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
-                        self.paySuccess(cid,oid,uid,theme)
+                        self.paySuccess(cid,oid,self.uid,theme)
                   } else if(res.err_msg == "get_brand_wcpay_request:cancel" ){
                         self.$toast.fail('支付取消');
                   }

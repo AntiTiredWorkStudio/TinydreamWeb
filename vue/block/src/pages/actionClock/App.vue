@@ -32,7 +32,7 @@
                 </van-col>
                 <van-col span="24" class="date">
                     <div class="warper">
-                        <van-row class="date" style="width:5.88rem;margin:0 auto;padding: 0.38rem 0 0.5rem 0">
+                        <van-row class="date" style="width:5.88rem;margin:0 auto;padding: 0.38rem 0 0.5rem 0;text-align:center">
                             <van-col span="8" style="text-align:left;color:#999">
                                 <van-icon name="arrow-left" @click="left" class="icon-left"></van-icon>
                             </van-col>
@@ -181,6 +181,7 @@ export default {
             alert:'',
             today:'',//今天的json
             first:'',//第一天json
+            currentindex:'',//当前月份的index
         }
     },
     created(){
@@ -211,18 +212,20 @@ export default {
                 duration:0,
                 forbidClick:true,
                 loadingType:'circular',
-                message:'日历创建中...'
+                message:'加载中...'
             })
             TD_Request('op','cal',{uid:uid,seek: self.seek,full:'month'},function(code,data){
                 console.log(data)
                 self.$toast.clear();
                 if(data.calendar.monthIndex.length == 1){
-                    $('.icon-left,.icon-right').hide();
+                    $('.icon-left,.icon-right').css('opacity',0);
                 }
                 if(data.calendar.monthIndex.length - 1 == self.seek){
                     $('.icon-right').hide();
                 }
+                self.currentindex = data.calendar.monthIndex.length - 1;
                 self.seek = data.calendar.currentIndex;
+
                 // 打卡信息
                 self.clockInfo(self,data.calendar.opid);
                 self.countMonth = data.calendar.monthIndex.length - 1;
@@ -599,7 +602,16 @@ export default {
                     console.log(res)
                     if(res){ 
                         self.isshow = false;
-                        self.share(self,opid,date);
+                        self.$toast.loading({
+                            duration:0,
+                            forbidClick:true,
+                            loadingType:'circular',
+                            message:'加载中...'
+                        })
+                        setTimeout(function(){
+                            self.$toast.clear();
+                            self.share(self,opid,date);
+                        },500)
                     }else if(!res){
                         self.$toast.fail('转发失败')
                     }
@@ -682,7 +694,7 @@ export default {
                 // alert('opid:'+opid)
                 // alert('uid:'+uid)
                 // console.log(date)
-                TD_Request('op','rep',{opid:opid,date:date,uid:uid},function(code,data){
+                TD_Request('op','rep',{opid:self.opid,date:self.date,uid:uid},function(code,data){
                     // alert(JSON.stringify(data))
                     self.$toast.success('分享成功')
                     // // return;
@@ -693,7 +705,26 @@ export default {
                 },function(code,data){
                    if(code == 84){
                        self.$toast.success('分享成功')
-                   }   
+                   } else if(code == 92) {
+                       self.$dialog.alert({
+                           title:'温馨提示',
+                           message:'您尚未打卡'
+                       })
+                   } else if (code == 93){
+                       self.$dialog.alert({
+                           title:'温馨提示',
+                           message:'您的打卡已超时'
+                       })
+                   } else if (code == -1){
+                       self.$dialog.alert({
+                           title:'温馨提示',
+                           message:'服务器异常，请联系客服处理'
+                       }).then(function(){
+                           alert(JSON.stringify(err))
+                           return
+                           window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/html/cach.html?time='+new Date().getTime();
+                       })
+                   }
                 })
             }else{
                 window.location.href = 'actionClock.html?time='+new Date().getTime();
@@ -702,6 +733,10 @@ export default {
         // 打卡日历
         left(){
             console.log(this.seek)
+            if(self.seek >= self.currentindex){
+                self.seek = self.currentindex
+                return;
+            }
             $('.icon-right').show();
             if(this.seek == 0){
                 self.seek == 0;
@@ -712,6 +747,10 @@ export default {
             this.Mat(this)
         },
         right(){
+            if(self.seek <= 0){
+                self.seek = 0
+                return;
+            }
             console.log(this.seek,this.countMonth)
             $('.icon-left').show();
             if(this.seek == this.countMonth){

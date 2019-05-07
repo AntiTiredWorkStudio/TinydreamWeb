@@ -164,7 +164,7 @@ export default {
                 duration:0,
                 forbidClick:true,
                 loadingType:'circular',
-                message:'获取信息中...'
+                message:'加载中...'
             })
             TD_Request('us','selfinfo',{uid:uid},function(code,data){
                 console.log(data);
