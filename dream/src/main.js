@@ -21,7 +21,14 @@ Vue.use(Actionsheet)//actionsheet
 import {Toast} from 'vant'
 Vue.use(Toast)//toast
 import {List} from 'vant'
-Vue.use(List).use(Cell)
+Vue.use(List)//list
+import {Field} from 'vant'
+Vue.use(Field)//field
+import { Uploader } from 'vant';
+Vue.use(Uploader);//upload
+import { Checkbox, CheckboxGroup } from 'vant';
+Vue.use(Checkbox).use(CheckboxGroup);//checkbox
+
 
 
 import {ProgressBar} from 'vue-ydui/dist/lib.rem/progressbar';
@@ -31,7 +38,7 @@ Vue.component(Step.name, Step);
 Vue.component(StepItem.name, StepItem);//step
 
 Vue.config.productionTip = false
-
+router.push('/')
 new Vue({
   store,
   router,

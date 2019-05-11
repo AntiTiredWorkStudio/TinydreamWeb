@@ -174,7 +174,7 @@ export default {
                 console.log(data)
                 var dream = [];
                 $.each(data.dreams,function(index,item){
-                    if(item.state == 'SUBMIT' || item.state == 'FAILD'){
+                    if(item.state == 'SUBMIT' || item.state == 'FAILED'){
                        dream.push({name:item.title,value:item.did});
                     }
                 })

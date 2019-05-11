@@ -65,10 +65,12 @@
                 <p class="tip">没人支付少量互助金，从中随机产生1名幸运者成为指定目标的免费获得者</p>
             </van-tab>
         </van-tabs>
+         <pop :state="stat" :did="did" :title="dtitle" :content="dinfo" />
     </div>
 </template>
 
 <script>
+import pop from '@/components/dream/add/Add'
 export default {
     name:'pool',
     data () {
@@ -76,9 +78,14 @@ export default {
             mainpool:'',//梦想池
             trade:'',//生意池
             active:0,//默认 tab
-            timeout:this.timeout()
+            timeout:this.timeout(),
+            state:'',//梦想状态
+            did:'',//中奖 did
+            dtitle:'',//梦想标题
+            dinfo:'',//梦想简介
         }
     },
+    components:{pop},
     props:{
         pools:{
             type:[Array,Object],

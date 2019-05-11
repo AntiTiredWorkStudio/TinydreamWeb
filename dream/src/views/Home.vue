@@ -24,15 +24,16 @@
       <div class="award">
         <div class="main">
           <p class="title">幸运提示</p>
-          <p class="msg">
-            恭喜您成为梦想互助20190312期幸运者，请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内给您颁发梦想互助金！
+          <p class="msg" :style="style">
+            {{tip}}
           </p>
           <div class="fbtn">
-            <van-button type="primary" size="large" round>完善梦想</van-button>
+            <van-button type="primary" size="large" round @click="perfect(btnTxt,did,tpid)">{{btnTxt}}</van-button>
           </div>
         </div>
       </div>
     </van-popup>
+    <pop :show="ishow" :did="isdid" :state="state"/>
   </div>
 </template>
 
@@ -42,6 +43,7 @@ import { slider, slideritem } from 'vue-concise-slider'
 import screen from '@/components/index/screen/Screen'//首页公屏
 import pool from '@/components/index/mainpool/Mainpool'//梦想池--生意池
 import rules from '@/components/index/rules/Rules'//规则
+import pop from '@/components/dream/add/Add'
 export default {
   name: 'home',
   data () {
@@ -64,7 +66,15 @@ export default {
       userInfo:'',//存贮个人信息
       orders:'',//订单
       pools:'',//梦想池--生意池
-      isdaward:true,//小梦想弹窗
+      isdaward:false,//小梦想弹窗
+      style:'',//样式
+      state:'all',//梦想状态
+      did:'',//中奖 did
+      isdid:'',
+      tip:'',//中奖信息
+      btnTxt:'',
+      ishow:false,
+      tpid:''
     }
   },
   components:{
@@ -72,7 +82,8 @@ export default {
     slideritem,
     screen,
     pool,
-    rules
+    rules,
+    pop
   },
   created(){
     if(!ExistStorage("userInfo")){
@@ -89,11 +100,38 @@ export default {
         // 存储 uid
         self.$store.commit('uid',JSON.parse(GetStorage('userInfo')).openid)
         self.orders = data.buyinfo;//最近 8 条购买信息
+        
         if(data.mainpool.length != 0){
           DreamPoolAnalysis(data.mainpool)
         }
         if(data.maintrade.length != 0){
           DreamPoolAnalysis(data.maintrade)
+        }
+        if(data.award.result){
+            self.style = {
+              width: '4.98rem',
+              margin: '0 auto',
+              'text-align': 'center',
+              'line-height': '1.5',
+              'font-size': '.32rem',
+              color: 'grey',
+              'margin-top': '.5rem',
+            }
+            self.tip = '恭喜您成为梦想互助'+data.award.pid+'幸运者,请您在7个工作日内完善梦想并实名认证，通过审核后3个工作日内为您颁发梦想互助金!'
+            self.did = data.award.did;
+            console.log(data.award.did);
+            self.isdaward = true;
+            self.realname(self,'dream')
+        }else if(data.tradeaward.length != 0){
+            self.style = {
+              'font-size':'0.24rem'
+            }
+            self.type = 'trade'
+            self.tip = "恭喜您参与的小生意互助"+data.tradeaward.pid+"期成为幸运者，幸运编号为"+data.tradeaward.lid+"，本期免费获得项目为："+data.tradeaward.trade.title+".   我们工作人员会在3个工作日内联系您安排项目对接，请您保持电话畅通。 提示：为更好地给您对接项目，请您务必在7个工作日内完成实名认证。"
+            self.isdaward = true;
+            self.tpid = data.tradeaward.pid;
+            console.error('Home.vue未写小生意中奖逻辑')
+            self.realname(self,'trade')
         }
         if(data.mainpool.length == 0 && data.maintrade.length != 0){
             var poolArr = [{"code":1,"mainpool":data.mainpool,"context":'暂无更多梦想池',"maintrade":data.maintrade}]
@@ -107,6 +145,40 @@ export default {
         self.pools = poolArr
       },function(code,data){
         console.log(data);
+      })
+    },
+    // 完善梦想按钮
+    perfect(msg,did = '',pid=''){
+      if(msg == '实名认证'){
+        this.$router.push('/auth/lucky')
+      }else if(msg == 'ok,我知道了'){
+        this.end(app,pid)
+      }else if(msg == '完善梦想'){
+        this.ishow = true;
+        this.isdid = did;
+      }
+    },
+    // 小生意互助中奖结束
+    end(app,pid){
+      TD_Request('aw','aend',{pid:pid,url:true},function(code,data){
+        app.isdaward = false;
+      },function(code,data){
+        console.log(data)
+      })
+    },
+    // 是否实名
+    realname(app,type){
+      TD_Request('us','rnamegx',{uid:app.$store.state.uid},function(code,data){
+        console.log(data)
+        if(type == 'dream'){
+          app.btnTxt = '完善梦想'
+        }else if(type == 'trade'){
+          app.btnTxt = 'ok,我知道了'
+        }
+      },function(code,data){
+        if(code == 12){
+          app.btnTxt = '实名认证'
+        }
       })
     }
   }

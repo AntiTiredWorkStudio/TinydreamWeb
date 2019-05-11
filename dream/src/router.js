@@ -5,6 +5,10 @@ import PayInfo from './components/index/payInfo/PayInfo'
 import Share from './components/index/share/Share'
 import PoolInfo from './components/dreampool/poolinfo/PoolInfo'
 import Dream from './components/dream/dreams/Dream'
+import LuckyInfo from './components/dream/luckinfo/Luckyinfo'
+import refesh from './components/refesh'
+import User from './views/User'
+import Clock from './views/Clock'
 
 Vue.use(Router)
 
@@ -13,6 +17,11 @@ export default new Router({
   base: '/TinydreamWeb/dream/dist/',
   routes: [
     {
+      path:'/refesh',
+      name:'refesh',
+      component:refesh
+    },
+    {
       path: '/',//首页
       name: 'home',
       components:{
@@ -20,10 +29,31 @@ export default new Router({
       }
     },
     {
+      path:'/user',//个人中心
+      name:'user',
+      components:{
+        user:User
+      }
+    },
+    {
+      path:'/clock',
+      name:'clock',
+      components:{
+        clock:Clock
+      }
+    },
+    {
       path:'/dream',//小梦想
       name:'dream',
       components:{
         dream:Dream
+      }
+    },
+    {
+      path:'/lucky/:state/:ptitle/:bill/:lid/:title/:content/:did',//幸运梦想详情
+      name:'luckyinfo',
+      components:{
+        luckyinfo:LuckyInfo
       }
     },
     {

@@ -5,6 +5,9 @@
     <router-view name="share"></router-view>
     <router-view name='poolinfo'></router-view>
     <router-view name="dream"></router-view>
+    <router-view name="luckyinfo"></router-view>
+    <router-view name="user"></router-view>
+    <router-view name="clock"></router-view>
     <tab-bar v-if="istab"></tab-bar>
   </div>
 </template>
@@ -20,8 +23,9 @@ export default {
   },
   created(){
     console.error('End.vue尚未接入')
-    let href = window.location.href;
-    if(href.includes(''))
+    if(!ExistStorage("userInfo")){
+      window.location.href = 'http://tinydream.ivkcld.cn/TInydreamWeb/dream'
+    }
     if(this.$route.path != '/' && this.$route.path != '/clock' && this.$route.path != '/user'){
       this.istab = false;
     }else{
@@ -57,13 +61,14 @@ export default {
 
 
 <style>
-/* #app {
+#app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  width: 100%;
+  height: 100%;
 }
+/*
 #nav {
   padding: 30px;
 }
