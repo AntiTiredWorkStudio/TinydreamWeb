@@ -9,6 +9,7 @@ import LuckyInfo from './components/dream/luckinfo/Luckyinfo'
 import refesh from './components/refesh'
 import User from './views/User'
 import Clock from './views/Clock'
+import Phone from './components/phone/Phone'
 
 Vue.use(Router)
 
@@ -47,6 +48,13 @@ export default new Router({
       name:'dream',
       components:{
         dream:Dream
+      }
+    },
+    {
+      path:'/phone',
+      name:'phone',
+      components:{
+        phone:Phone
       }
     },
     {

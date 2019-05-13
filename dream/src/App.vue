@@ -8,6 +8,7 @@
     <router-view name="luckyinfo"></router-view>
     <router-view name="user"></router-view>
     <router-view name="clock"></router-view>
+    <router-view name="phone"></router-view>
     <tab-bar v-if="istab"></tab-bar>
   </div>
 </template>

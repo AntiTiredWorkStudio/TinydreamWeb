@@ -28,14 +28,15 @@ import { Uploader } from 'vant';
 Vue.use(Uploader);//upload
 import { Checkbox, CheckboxGroup } from 'vant';
 Vue.use(Checkbox).use(CheckboxGroup);//checkbox
-
+import { NumberKeyboard, PasswordInput } from 'vant';
+Vue.use(NumberKeyboard).use(PasswordInput);
 
 
 import {ProgressBar} from 'vue-ydui/dist/lib.rem/progressbar';
 Vue.component(ProgressBar.name, ProgressBar);//progress
-import {Step, StepItem} from 'vue-ydui/dist/lib.rem/step'
-Vue.component(Step.name, Step);
-Vue.component(StepItem.name, StepItem);//step
+import {SendCode} from 'vue-ydui/dist/lib.rem/sendcode';
+Vue.component(SendCode.name, SendCode);
+
 
 Vue.config.productionTip = false
 router.push('/')
