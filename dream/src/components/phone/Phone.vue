@@ -12,7 +12,7 @@
                 <van-password-input
             :value="code"
             info="请输入短信验证码"
-            :mask="true"
+            :mask="false"
         />
             </p>
             <div class="btn">
@@ -95,12 +95,25 @@ export default {
             },function(code,data){
                 console.log(data)
             })
+        },
+        bind(app){
+            TD_Request('va','bind',{uid:app.$store.state.uid,tele:app.phone,code:app.code},function(code,data){
+                console.log(data)
+                app.$toast.success('绑定成功')
+            },function(code,data){
+                app.$toast.fail('绑定失败')
+            })
         }
     },
     watch:{
         phoneNum(data){
             if(data.length > 11){
                 this.phoneNum = this.phoneNum.substr(0,11);
+            }
+        },
+        code(data){
+            if(code.length == 6){
+                this.bind(this)
             }
         }
     }
