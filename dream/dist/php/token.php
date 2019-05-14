@@ -22,6 +22,14 @@
             }
             return $data;
         }
+        // 获取身份证信息
+        public function ID(){
+            $url = 'https://aip.baidubce.com/rest/2.0/ocr/v1/idcard?access_token'.$this->getAccessToken();
+            $img = $_POST['img'];
+            $bodys = array('image'=>$img);
+            $data = $this->curl($url,$bodys);
+            return $data;
+        }
         // 定义curl方法
         public function curl($url,$data=[]){
             $ch = curl_init();
@@ -46,6 +54,6 @@
         }
     }
     $obj = new Wx();
-    $res = $obj->getAccessToken();
+    $res = $obj->ID();
     echo $res;
 ?>
