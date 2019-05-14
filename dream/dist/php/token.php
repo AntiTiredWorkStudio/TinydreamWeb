@@ -20,6 +20,7 @@
                 file_put_contents($dirname,'<?php return '.var_export($res,true).'; ?>');
                 $data = $res['access_token'];
             }
+            return $data;
         }
         // 定义curl方法
         public function curl($url,$data=[]){
