@@ -41,7 +41,7 @@
                 $res = curl_multi_getcontent($ch);
             }
             curl_close($ch);
-            return res;
+            return $res;
         }
     }
     $obj = new Wx();
