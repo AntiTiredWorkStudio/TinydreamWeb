@@ -26,7 +26,7 @@
         public function ID(){
             $url = 'https://aip.baidubce.com/rest/2.0/ocr/v1/idcard?access_token='.$this->getAccessToken();
             $img = $_POST['path'];
-            $file = $_FILES;
+            $file = $_FILES['file'];
             var_dump($file);
             die();
             $imgBase64Code = "data:image/jpeg;base64," . base64_encode($img);
