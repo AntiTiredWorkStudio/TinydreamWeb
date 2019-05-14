@@ -46,4 +46,5 @@
     }
     $obj = new Wx();
     $res = $obj->getAccessToken();
+    echo $res;
 ?>
