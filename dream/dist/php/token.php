@@ -24,7 +24,7 @@
         }
         // 获取身份证信息
         public function ID(){
-            $url = 'https://aip.baidubce.com/rest/2.0/ocr/v1/idcard?access_token'.$this->getAccessToken();
+            $url = 'https://aip.baidubce.com/rest/2.0/ocr/v1/idcard?access_token='.$this->getAccessToken();
             $img = $_POST['img'];
             $bodys = array('image'=>$img);
             $data = $this->curl($url,$bodys);
