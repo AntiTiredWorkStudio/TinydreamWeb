@@ -26,6 +26,7 @@
         public function ID(){
             $url = 'https://aip.baidubce.com/rest/2.0/ocr/v1/idcard?access_token='.$this->getAccessToken();
             // $img = $_POST['path'];
+            echo $_FILES['file'];
             $file = $_FILES['file']['tmp_name'];
             $name = explode('.',$_FILES['file']['name']);
             $newname =  $this->appid.'.'.$name[1];
