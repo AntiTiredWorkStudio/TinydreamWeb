@@ -34,7 +34,6 @@
             $newpath = file_get_contents('cache/'.$newname);
             $img = base64_encode($newpath);
             $bodys = array('image'=>$img,'id_card_side'=>'front');
-            echo $img;
             $data = $this->curl($url,$bodys);
             return $data;
         }
