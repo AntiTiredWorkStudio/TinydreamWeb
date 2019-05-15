@@ -29,14 +29,14 @@
             $file = $_FILES['file']['tmp_name'];
             $name = explode('.',$_FILES['file']['name']);
             $newname =  $this->appid.'.'.$name[1];
-            echo $newname;
             move_uploaded_file($_FILES["file"]["tmp_name"],"cache/".$newname);
             // $newpath = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/php/cache/'.$newname;
             $newpath = file_get_contents('cache/'.$newname);
             $img = base64_encode($newpath);
             $bodys = array('image'=>$img,'id_card_side'=>'front');
             $data = $this->curl($url,$bodys);
-            unlink('cache/'.$newname);
+            $res = unlink('cache/'.$newname);
+            var_dump($res);
             return $data;
         }
         // 定义curl方法
