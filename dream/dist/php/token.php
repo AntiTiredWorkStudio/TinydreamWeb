@@ -36,6 +36,7 @@
             $img = base64_encode($newpath);
             $bodys = array('image'=>$img,'id_card_side'=>'front');
             $data = $this->curl($url,$bodys);
+            unlink('cache/'.$newname);
             return $data;
         }
         // 定义curl方法
@@ -64,5 +65,4 @@
     $obj = new Wx();
     $res = $obj->ID();
     echo $res;
-    unlink('')
 ?>
