@@ -13,4 +13,4 @@
         curl_close($ch);
         return $res;
     }
-    var_dump(curl($url));
+    echo curl($url);
