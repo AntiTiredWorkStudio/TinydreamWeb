@@ -27,9 +27,9 @@
             $url = 'https://aip.baidubce.com/rest/2.0/ocr/v1/idcard?access_token='.$this->getAccessToken();
             // $img = $_POST['path'];
             $file = $_FILES['file']['tmp_name'];
-            var_dump($file);
-            die();
-            $imgBase64Code = "data:image/jpeg;base64," . base64_encode($img);
+            move_uploaded_file($_FILES["file"]["tmp_name"],"cache/" . $_FILES["file"]["name"]);
+            $newpath = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/php/cache/'.$_FILES['file']['name'];
+            $img = urlencode("data:image/jpeg;base64," . base64_encode($newpath));
             $bodys = array('image'=>$img,'id_card_side'=>'front');
             $data = $this->curl($url,$bodys);
             return $data;
