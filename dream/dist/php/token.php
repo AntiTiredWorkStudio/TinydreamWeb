@@ -30,7 +30,7 @@
             $file = $_FILES['file']['tmp_name'];
             $name = explode('.',$_FILES['file']['name']);
             $newname =  $this->appid.'.'.$name[1];
-            var_dump(move_uploaded_file($_FILES["file"]["tmp_name"],"cache/".$newname));
+            move_uploaded_file($_FILES["file"]["tmp_name"],"cache/".$newname);
             $newpath = file_get_contents('cache/'.$newname);
             $img = base64_encode($newpath);
             $bodys = array('image'=>$img,'id_card_side'=>'front');
