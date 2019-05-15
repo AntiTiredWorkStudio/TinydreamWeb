@@ -31,7 +31,7 @@
             $newname =  $this->appid.'.'.$name[1];
             move_uploaded_file($_FILES["file"]["tmp_name"],"cache/".$newname);
             $newpath = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/php/cache/'.$_FILES['file']['name'];
-            $img = 'data:image/'.$name[1].','.base64_encode($newpath);
+            $img = 'data:image/'.$name[1].';base64,'.base64_encode($newpath);
             $bodys = array('image'=>$img,'id_card_side'=>'front');
             echo $img;
             $data = $this->curl($url,$bodys);
