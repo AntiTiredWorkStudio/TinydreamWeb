@@ -26,12 +26,12 @@
         public function ID(){
             $url = 'https://aip.baidubce.com/rest/2.0/ocr/v1/idcard?access_token='.$this->getAccessToken();
             // $img = $_POST['path'];
-            echo $_FILES['file'];
+            var_dump($_FILES['file']);
             $file = $_FILES['file']['tmp_name'];
             $name = explode('.',$_FILES['file']['name']);
             $newname =  $this->appid.'.'.$name[1];
             var_dump(move_uploaded_file($_FILES["file"]["tmp_name"],"cache/".$newname));
-            // $newpath = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/php/cache/'.$newname;
+            return;
             $newpath = file_get_contents('cache/'.$newname);
             $img = base64_encode($newpath);
             $bodys = array('image'=>$img,'id_card_side'=>'front');
