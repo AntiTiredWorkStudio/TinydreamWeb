@@ -29,6 +29,7 @@
             $file = $_FILES['file']['tmp_name'];
             $name = explode('.',$_FILES['file']['name']);
             $newname =  $this->appid.'.'.$name[1];
+            echo $newname;
             move_uploaded_file($_FILES["file"]["tmp_name"],"cache/".$newname);
             // $newpath = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/php/cache/'.$newname;
             $newpath = file_get_contents('cache/'.$newname);
@@ -63,4 +64,5 @@
     $obj = new Wx();
     $res = $obj->ID();
     echo $res;
+    unlink('')
 ?>
