@@ -27,7 +27,7 @@
             $url = 'https://aip.baidubce.com/rest/2.0/face/v3/person/idmatch?access_token='.$this->getAccessToken();
             $id_card_number = $_POST['id_card_number'];
             $name = $_POST['name'];
-            $bodys = array('id_card_number'=>$$id_card_number,'name'=>$name);
+            $bodys = array('id_card_number'=>$id_card_number,'name'=>$name);
             $data = $this->curl($url,$bodys);
             unlink('cache/'.$newname);
             return $data;
