@@ -66,7 +66,8 @@ export default {
             loading:true,
             finished:false,
             dList:[],
-            tList:[]
+            tList:[],
+            seek:0,
         }
     },
     created(){
@@ -93,10 +94,10 @@ export default {
         },
         list(app,seek,type){
             TD_Request('aw','gplu',{seek:seek,count:5,awardtype:type},function(code,data){
+                app.loading = false;
                 if(data.awards.length == 0){
                     app.finished = true;
                 }
-                app.loading = false;
                 $.each(data.awards,function(index,item){
                     app.conversion(item);
                     if(type == 'DR'){
