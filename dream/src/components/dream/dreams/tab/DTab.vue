@@ -65,9 +65,18 @@ export default {
         this.getDreams(this)
     },
     methods:{
+        // 修改梦想状态
+        modify(app,did){
+            TD_Request('dr','sdjson',{did:did,state:JSON.stringify({state:'SUBMIT',payment:'0/1'})},function(code,data){
+                console.log(data)
+                app.getDreams(app)
+            },function(code,data){
+                console.log(data)
+            })
+        },
         // 获取梦想列表
         getDreams(app){
-            TD_Request('dr','dlist',{uid:app.$store.state.uid},function(code,data){
+            TD_Request('dr','dlist',{uid:app.$store.state.uid,trade:true},function(code,data){
                 console.log(data)
                 if(data.dcount.code == 14){
                     app.ishow = false;
@@ -75,7 +84,10 @@ export default {
                 var dreamList = [];//小梦想列表
                 var luckyList = [];//幸运梦想列表
                 $.each(data.dreams,function(index,item){
-                    if(item.state == "SUBMIT" || item.state == 'FAILED'){
+                    if(item.state == 'FAILED'){
+                        console.log(item.did);
+                        app.modify(app,item.did)
+                    }else if(item.state == "SUBMIT"){
                         item.stateTip = '未中奖'
                         dreamList.push(item);
                     } else if (item.state == 'SUCCESS'){
@@ -94,6 +106,7 @@ export default {
         },
         // 查看详情
         lookinfo(title,did,content){
+            console.log(did);
             console.log(title,did,content)
             this.title = title
             this.did = did

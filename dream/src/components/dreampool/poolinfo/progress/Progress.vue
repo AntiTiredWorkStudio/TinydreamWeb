@@ -57,7 +57,7 @@ export default {
         this.pool = JSON.parse(GetStorage('pinfo'));
         this.type = this.pool.state;
         this.count = JSON.parse(GetStorage('pinfo')).pcount;
-        if(this.pool.state == 'TRADE'){
+        if(this.pool.ptype == 'TRADE'){
             this.isshow = false
         }
         this.timeouts(this);

@@ -65,7 +65,7 @@
                 <p class="tip">没人支付少量互助金，从中随机产生1名幸运者成为指定目标的免费获得者</p>
             </van-tab>
         </van-tabs>
-         <pop :state="stat" :did="did" :title="dtitle" :content="dinfo" />
+         <pop :state="state" :show="status"/>
     </div>
 </template>
 
@@ -79,11 +79,27 @@ export default {
             trade:'',//生意池
             active:0,//默认 tab
             timeout:this.timeout(),
-            state:'',//梦想状态
+            state:'add',//梦想状态
             did:'',//中奖 did
             dtitle:'',//梦想标题
             dinfo:'',//梦想简介
+            status:false,//是否展示添加梦想弹窗
         }
+    },
+    beforeRouteEnter(to,from,next){
+        console.log(to,from,next)
+        if(from.path == '/phone'){
+            if(GetStorage('type') == 'dream'){
+                this.Buy('dream')
+            }else if(GetStorage('type') == 'trade'){
+                this.Buy('trade')
+            }else if(GetStorage('type') == 'clock'){
+                next(vm=>{
+                    vm.$router.push('/frined/'+JSON.parse(GetStorage('info')).type+'/'+JSON.parse(GetStorage('info')).opid)
+                })
+            }
+        }
+        next()
     },
     components:{pop},
     props:{
@@ -131,7 +147,7 @@ export default {
                         confirmButtonText:'去添加',
                         confirmButtonColor:'#00d094'
                     }).then(() => {
-                        console.error('跳转小梦想添加页面')
+                        app.status == true;
                     })
                 } else {
                     app.$store.commit('actions',data.actions)
@@ -149,7 +165,7 @@ export default {
                         confirmButtonText:'去绑定',
                         confirmButtonColor:'#00d094'
                     }).thne(() => {
-                        console.error('跳转手机绑定页面')
+                        app.$router.push('/phone')
                     })
                 }
             })
@@ -208,6 +224,7 @@ export default {
         margin: 0 auto;
         border-radius: 0.1rem;
         box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 54, 208, .1), -0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1), 0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1), 0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1);
+        background: #fff;
         min-height: 1.5rem;
         .van-tabs .van-hairline--top-bottom:after{
             border-width: 0!important;

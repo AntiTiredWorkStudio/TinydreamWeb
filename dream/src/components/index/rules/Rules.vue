@@ -44,7 +44,7 @@
                     <span>梦想报道 — — 梦想执行跟踪报道</span>
                 </p>
                 <p class="more">
-                    <span>了解更多</span>
+                    <span @click="look">了解更多</span>
                 </p>
             </div>
         </div>
@@ -53,7 +53,12 @@
 
 <script>
 export default {
-    name:'rules'
+    name:'rules',
+    methods:{
+        look(){
+            this.$router.push('/question')
+        }
+    }
 }
 </script>
 

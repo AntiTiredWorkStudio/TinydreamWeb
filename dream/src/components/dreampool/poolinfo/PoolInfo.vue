@@ -1,8 +1,8 @@
 <template>
     <div class="poolinfo">
         <Progress v-if="isrun"/>
-        <Tab />
         <End v-if="!isrun"/>
+        <Tab />
     </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
         this.pool = JSON.parse(GetStorage('pinfo'));
         if(this.pool.state == 'RUNNING'){
             this.isrun = true
-        }else if(this.state == 'FINISHE'){
+        }else if(this.pool.state == 'FINISHED'){
             this.isrun = false
         }
     },

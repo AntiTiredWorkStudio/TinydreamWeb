@@ -36,10 +36,10 @@
             </van-col>
             <van-row type="flex" align="center" justify="center" class="userApp">
                 <van-col span="8">
-                    <a href="../../../html/dreamHelp.html">
+                    <router-link to="/dreampool">
                         <div class="icon icon_join"></div>
                         <p class="tip">我的参与</p>
-                    </a>
+                    </router-link>
                 </van-col>
                 <van-col span="8" class="line">
                     <router-link to="/dream">
@@ -48,10 +48,10 @@
                     </router-link>
                 </van-col>
                 <van-col span="8">
-                    <a href="http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/clock.html">
+                    <router-link to="/clock">
                         <div class="icon icon_clock"></div>
                         <p class="tip">行动打卡</p>
-                    </a>
+                    </router-link>
                 </van-col>
             </van-row>
             <van-col span="24" class="model">
@@ -66,37 +66,37 @@
                     </a>
                 </van-col>
                 <van-col span="8" class="line">
-                    <a href="../../../html/phoneManage.html">
+                    <router-link to="/phone">
                         <div class="icon icon_phone"></div>
                         <p class="tip">手机号管理</p>
-                    </a>
+                    </router-link>
                 </van-col>
                 <van-col span="8">
-                    <a href="../../../html/auth.html">
+                    <router-link to="/auth">
                         <div class="icon icon_auth"></div>
                         <p class="tip">实名认证</p>
-                    </a>
+                    </router-link>
                 </van-col>
             </van-row>
             <van-row type="flex" align="center" justify="center" class="userApp">
                 <van-col span="8">
-                    <a href="../../../html/notice.html">
+                    <router-link to="/notice">
                         <div class="icon icon_notice" style="position:relative"></div>
                         <p class="tip">系统通知</p>
-                    </a>
+                    </router-link>
                 </van-col>
 
                 <van-col span="8" class="line">
-                    <a href="../../../html/cach.html">
+                    <router-link to="/cach">
                         <div class="icon icon_cach"></div>
                         <p class="tip">联系客服</p>
-                    </a>
+                    </router-link>
                 </van-col>
                 <van-col span="8">
-                    <a href="../../../html/question.html">
+                    <router-link to="/question">
                         <div class="icon icon_question"></div>
                         <p class="tip">新手指引</p>
-                    </a>
+                    </router-link>
                 </van-col>
             </van-row>
         </div>
@@ -145,8 +145,8 @@ export default {
             })
         },
         record(){
-
-        }
+            this.$router.push('/record')
+        }   
     }
 }
 </script>

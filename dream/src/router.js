@@ -10,6 +10,16 @@ import refesh from './components/refesh'
 import User from './views/User'
 import Clock from './views/Clock'
 import Phone from './components/phone/Phone'
+import Auth from './components/auth/Auth'
+import Help from './components/dream/dreamHelp/DreamHelp'
+import Fill from './components/fill/Fill'
+import List from './components/list/List'
+import Friend from './components/friend/Friend'
+import Pay from './components/pay/Pay'
+import Cach from './components/cach/Cach'
+import Question from './components/question/Question'
+import Notice from './components/notice/Notice'
+import History from './components/index/history/History'
 
 Vue.use(Router)
 
@@ -37,10 +47,59 @@ export default new Router({
       }
     },
     {
-      path:'/clock',
+      path:'/dreampool',//梦想池列表
+      name:'help',
+      components:{
+        help:Help
+      }
+    },
+    {
+      path:'/clock',//打卡
       name:'clock',
       components:{
         clock:Clock
+      }
+    },
+    {
+      path:'/fill/:opid/:state',//补卡
+      name:'fill',
+      components:{
+        fill:Fill
+      }
+    },
+    {
+      path:'/list/:type',//合约记录
+      name:'list',
+      components:{
+        list:List
+      }
+    },
+    {
+      path:'/notice',
+      name:'notice',
+      components:{
+        notice:Notice
+      }
+    },
+    {
+      path:'/record',
+      name:'payRecord',
+      components:{
+        payRecord:Pay
+      }
+    },
+    {
+      path:'/friend',
+      name:'friend',
+      components:{
+        friend:Friend
+      }
+    },
+    {
+      path:'/question',
+      name:'question',
+      components:{
+        question:Question
       }
     },
     {
@@ -51,10 +110,31 @@ export default new Router({
       }
     },
     {
-      path:'/phone',
+      path:'/phone',//绑定手机
       name:'phone',
       components:{
         phone:Phone
+      }
+    },
+    {
+      path:'/cach',
+      name:'cach',
+      components:{
+        cach:Cach
+      }
+    },
+    {
+      path:'/auth',
+      name:'auth',
+      components:{
+        auth:Auth
+      }
+    },
+    {
+      path:'/history',
+      name:'history',
+      components:{
+        history:History
       }
     },
     {

@@ -39,7 +39,7 @@
                 </van-row>
                 <van-row style="margin-bottom:0.56rem">
                     <van-col span="12">
-                        <span class="left">选择梦想</span>
+                        <span class="left">{{dream_context}}</span>
                     </van-col>
                     <van-col span="12" class="right">
                         <span class="right">
@@ -84,6 +84,7 @@ export default {
             pay:'',//支付的总金额
             show:false,//是否显示上拉菜单
             actions:[],//梦想列表
+            type:'',//池子类型
         }
     },
     
@@ -91,8 +92,10 @@ export default {
         if(!ExistStorage('action')){
             this.$router.push('/');
         }else{
-            var type = '';
-            type = GetStorage('type');
+            this.type = GetStorage('type')
+            if(this.type == 'trade'){
+                this.isshow = false;
+            }
             this.selectDream(this,GetStorage('type'));
             this.ord(this)
         }
@@ -250,7 +253,8 @@ export default {
                 alert(JSON.stringify(data))
                 var did = $('#dream').attr('data-did');
                 RemoveStorage('action');
-                app.$router.push('/share/'+app.pool.pid+'/'+did+'/'+app.$route.params.type);
+                RemoveStorage('type')
+                app.$router.push('/share/'+app.pool.pid+'/'+did+'/'+app.type);
             },function(code,data){
                 // alert('UID:'+app.$store.state.uid)
                 // alert('OID:'+app.pool.order.oid)

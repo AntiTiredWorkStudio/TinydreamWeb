@@ -29,7 +29,15 @@ Vue.use(Uploader);//upload
 import { Checkbox, CheckboxGroup } from 'vant';
 Vue.use(Checkbox).use(CheckboxGroup);//checkbox
 import { NumberKeyboard, PasswordInput } from 'vant';
-Vue.use(NumberKeyboard).use(PasswordInput);
+Vue.use(NumberKeyboard).use(PasswordInput);//passwordinput
+import { Step, Steps } from 'vant';
+Vue.use(Step).use(Steps);
+import { Area } from 'vant';
+Vue.use(Area);//area
+import { Picker } from 'vant';
+Vue.use(Picker);//picker
+import { Collapse, CollapseItem } from 'vant';
+Vue.use(Collapse).use(CollapseItem);
 
 
 import {ProgressBar} from 'vue-ydui/dist/lib.rem/progressbar';

@@ -86,9 +86,15 @@ export default {
     pop
   },
   created(){
+    // this.$router.push('/friend/new/135125797580')
     if(!ExistStorage("userInfo")){
       window.location.href = 'http://tinydream.ivkcld.cn/TInydreamWeb/dream'
     }else{
+      if(GetStorage('data') != null){
+        var data = JSON.parse(GetStorage('data'));
+        RemoveStorage('data')
+        this.router.push('/friend')
+      }
       this.Register(this,JSON.parse(GetStorage('userInfo')))
     }
   },

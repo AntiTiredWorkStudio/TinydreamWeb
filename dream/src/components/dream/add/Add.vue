@@ -15,7 +15,7 @@
             </div>
             <div class="up" :style="style">
                 <p class="title">上传打印盖章的<span style="font-size:0.26rem;">《幸运者梦想互助金申请公函》</span></p>
-                <p class="tip" style="color:#000">点击下载<a href="https://tdream.antit.top/%E5%B0%8F%E6%A2%A6%E6%83%B3%E4%BA%92%E5%8A%A9%E5%B9%B8%E8%BF%90%E8%80%85%E6%A2%A6%E6%83%B3%E4%BA%92%E5%8A%A9%E9%87%91%E7%94%B3%E8%AF%B7%E5%85%AC%E5%87%BD.pdf" download="Official_letter.pdf" mce_href="#" style="font-size:0.26rem;color:#00d094">《幸运者梦想互助金申请公函》</a></p>
+                <p class="tip" style="color:#000">点击下载<span style="font-size:0.26rem;color:#00d094" @click="download">《幸运者梦想互助金申请公函》</span></p>
                 <div class="upload">
                     <van-uploader :after-read="onRead" class="ptitle">
                         <van-button type='primary'>{{btnTxt}}</van-button>
@@ -68,7 +68,7 @@ export default {
         },
         did:{
             type:[String],
-        }
+        },
     },
     data(){
         return {
@@ -124,6 +124,7 @@ export default {
         submit(){
             console.log(this.checked)
             var app = this;
+            console.log(this.status)
             if(this.dtitle == ''){
                 this.$dialog.alert({
                     title:'温馨提示',
@@ -167,7 +168,8 @@ export default {
                     }
                            
                 })
-            }else if(this.state == 'all' && this.DataObj.dream.videourl == '' || this.src != this.DataObj.dream.videourl){
+            }else if(this.state == 'all'){
+                console.log(this.status)
                 this.upload(this)
             }else{
                 console.log(this.status)
@@ -244,6 +246,9 @@ export default {
         lookpic(){
             console.log(ImagePreview)
             ImagePreview([this.src])
+        },
+        download(){
+            ImagePreview(['http://tdream.antit.top/image/transactionform.jpg'])
         }
     },
     watch:{
@@ -276,10 +281,10 @@ export default {
         did(data){
             console.log(data)
             this.tdid = data;
-            if(this.isshow == true){
+            if(data != ''){
                 this.ready(this)
             }
-        }
+        },
     }
 }
 </script>

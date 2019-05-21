@@ -12,6 +12,31 @@
             <p @click="lookpress">查看领奖进度</p>
         </div>
         <popup :show="isshow" :title="title" :did="did" :content="content" :state="status"/>
+        <van-popup v-model="show" position="bottom">
+            <div class="step">
+                <van-col span="24">
+                    <div class="tip">
+                        <van-col span="15" style="text-align:left">
+                            <p class="title">{{audit[active].atitle}}</p>
+                            <p class="msg">{{audit[active].amsg}}</p>
+                        </van-col>
+                        <van-col span="9">
+                            <div class="state" :style="audit[active].style">{{audit[active].state}}</div>
+                        </van-col>
+                    </div>
+                    <van-col span="24">
+                        <div class="steps">
+                            <van-steps :active="active">
+                                <van-step>完善梦想</van-step>
+                                <van-step>资料审核</van-step>
+                                <van-step>等待打款</van-step>
+                                <van-step>互助金颁发</van-step>
+                            </van-steps>
+                        </div>
+                    </van-col>
+                </van-col>
+            </div>
+        </van-popup>
     </div>
 </template>
 
@@ -22,7 +47,7 @@ export default {
     data () {
         return {
             tip:'',
-            show:true,
+            show:false,
             disable:false,
             btntxt:'完善梦想',
             state:'',
@@ -31,7 +56,39 @@ export default {
             title:'',//梦想标题
             did:'',//梦想 id,
             content:'',//梦想简介
-            status:'all'
+            status:'all',
+            active:0,
+            audit:[
+                {
+                    atitle:'完善梦想',
+                    amsg:'小梦想——幸运梦想——完善梦想',
+                    state:'等待完善',
+                    style:{
+                        color: '#00d094',
+                        background:'',
+                    }
+                },
+                {
+                    atitle:'资料审核',
+                    amsg:'资料审核1-2个工作日',
+                    state:'资料审核中',
+                    style:{
+                        color: '#00d094',
+                        background:'',
+                    }
+                },
+                {
+
+                },
+                {
+                    atitle:'互助金颁发',
+                    amsg:'互助金已颁发',
+                    state:'',
+                    style:{
+                        background:'url(http://tdream.antit.top/image/paid.png) no-repeat center right / 1.4rem 1.4rem',
+                    }
+                }
+            ]
         }
     },
     components:{
@@ -47,13 +104,16 @@ export default {
                 this.type = 'primary'
                 this.btntxt = '审核通过'
                 this.show = false
+                this.active = 3
             }else if(this.$route.params.state == 'DOING'){
                 this.btntxt = '完善梦想'
                 this.type = 'primary'
+                this.active = 0;
             }else if(this.$route.params.state == 'VERIFY'){
                 this.disable = true
                 this.btntxt = '审核中'
                 this.type = 'warning'
+                this.active = 1;
             }
             this.tip = '恭喜您参与的'+this.$route.params.ptitle+'成为幸运者，幸运编号为'+this.$route.params.lid+'本期互资金为'+this.$route.params.bill+'元'
         }
@@ -87,7 +147,7 @@ export default {
             })
         },
         lookpress(){
-            
+            this.show = true;
         },
     },
     watch:{
@@ -149,6 +209,32 @@ export default {
                 text-decoration: underline;
                 font-size: 0.32rem;
                 color: #00d094;
+            }
+        }
+        .step{
+            width: 6.9rem;
+            height: 3.3rem;
+            margin: 0 auto;
+            .tip{
+                width: 6.3rem;
+                padding-top: 0.4rem;
+                margin: 0 auto;
+                border-bottom:1px dashed #00d094;
+                overflow: hidden;
+                .title{
+                    font-size: 0.34rem;
+                    color: #333;
+                }
+                .msg{
+                    font-size:0.24rem;
+                    color:#ccc;
+                    padding-bottom: 0.46rem;
+                }
+                .state{
+                    font-size: 0.3rem;
+                    width: 100%;
+                    height: 1.4rem;
+                }
             }
         }
     }

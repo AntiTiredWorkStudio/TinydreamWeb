@@ -53,8 +53,17 @@ export default {
             phone:''
         }
     },
-    mounted(){
-        
+    created(){
+        var app = this;
+        TD_Request('va','pbind',{uid:app.$store.state.uid},function(code,data){
+            if(data.tele != ''){
+                app.tip = '当前绑定的手机号为'+data.tele
+            }else{
+                app.tip = '您当前还没绑定手机'
+            }
+        },function(code,data){
+            console.log(data)
+        })
     },
     methods:{
         onInput(val){
@@ -92,6 +101,7 @@ export default {
         sendcode(app){
             TD_Request('va','gcode',{tele:app.phone},function(code,data){
                 console.log(data)
+                app.$toast.success('发送成功')
             },function(code,data){
                 console.log(data)
             })
@@ -100,6 +110,7 @@ export default {
             TD_Request('va','bind',{uid:app.$store.state.uid,tele:app.phone,code:app.code},function(code,data){
                 console.log(data)
                 app.$toast.success('绑定成功')
+                app.$router.replace('/')
             },function(code,data){
                 app.$toast.fail('绑定失败')
             })

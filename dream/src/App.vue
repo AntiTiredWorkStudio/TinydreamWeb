@@ -9,6 +9,16 @@
     <router-view name="user"></router-view>
     <router-view name="clock"></router-view>
     <router-view name="phone"></router-view>
+    <router-view name="auth"></router-view>
+    <router-view name="help"></router-view>
+    <router-view name='fill'></router-view>
+    <router-view name="list"></router-view>
+    <router-view name="friend"></router-view>
+    <router-view name="payRecord"></router-view>
+    <router-view name="cach"></router-view>
+    <router-view name="question"></router-view>
+    <router-view name="notice"></router-view>
+    <router-view name="history"></router-view>
     <tab-bar v-if="istab"></tab-bar>
   </div>
 </template>
