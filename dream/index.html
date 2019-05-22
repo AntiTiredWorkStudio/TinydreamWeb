@@ -18,7 +18,8 @@
         SaveStorage('share',JSON.stringify({type:$_GET.type,opid:$_GET.opid,url:'friend'}))
       }
       SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
-      Options.TestServer = true;
+      SaveStorage('opt',JSON.stringify(Options))
+    //   Options.TestServer = true;
       window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
    }
 );
