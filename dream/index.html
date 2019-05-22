@@ -15,9 +15,10 @@
    function(result,data){//result:请求状态,data 请求结果
       console.log(Options.GetUserInfo());
       if($_GET.state == 'clock'){
-        SaveStorage('clock',JSON.stringify('data',{type:$_GET.type,opid:$_GET.opid}))
+        SaveStorage('share',JSON.stringify({type:$_GET.type,opid:$_GET.opid,url:'friend'}))
       }
       SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
+      Options.TestServer = true;
       window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
    }
 );
