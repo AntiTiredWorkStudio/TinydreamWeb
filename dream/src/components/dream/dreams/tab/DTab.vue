@@ -12,7 +12,7 @@
                             <div class="title">{{dream.title}}</div>
                             <div class="time">
                                 <span class="time">{{dream.stateTip}}</span>
-                                <span class="btn" @click="lookinfo(dream.title,dream.did,dream.content)">查看详情</span>
+                                <span class="btn" @click="lookinfo(dream.title,dream.did,dream.content,dream.payment)">查看详情</span>
                             </div>
                         </van-col>
                     </div>
@@ -20,7 +20,7 @@
             </van-tab>
             <van-tab title="幸运梦想">
                 <van-row class="lucky" v-for="(dream,index) in luckyList" :key="index">
-                    <div class="main" @click="luckyinfo(dream.state,dream.pool.ptitle,dream.pool.cbill,dream.lottery.lid,dream.title,dream.content,dream.did)">
+                    <div class="main" @click="luckyinfo(dream.pool.ptype,dream.state,dream.pool.ptitle,dream.pool.cbill,dream.lottery.lid,dream.title,dream.content,dream.did,dream.payment)">
                         <van-col span="8">
                             <div class="bg">{{dream.pool.cbill / 100}}</div>
                         </van-col>
@@ -90,7 +90,7 @@ export default {
                     }else if(item.state == "SUBMIT"){
                         item.stateTip = '未中奖'
                         dreamList.push(item);
-                    } else if (item.state == 'SUCCESS'){
+                    } else if (item.state == 'SUCCESS' && item.payment == 1 || item.state == 'SUCCESS' && item.pool.ptype=='TRADE'){
                         item.src = 'http://tdream.antit.top/image/success.png'
                         luckyList.push(item)
                     }else{
@@ -120,8 +120,8 @@ export default {
             this.status = 'add'
         },
         // 幸运梦想详情
-        luckyinfo(state, ptitle, bill, lid, title, content, did){
-            console.log(state,ptitle,bill,lid,title,content,did)
+        luckyinfo(ptype,state, ptitle, bill, lid, title, content, did, payment){
+            console.log(state,ptitle,bill,lid,title,content,did, payment)
             /**
              * @params state 梦想状态
              * @params ptitle 梦想池标题
@@ -132,7 +132,12 @@ export default {
              * @params did 梦想标题
              * 
              */
-            this.$router.push(encodeURI('/lucky/'+state+'/'+ptitle+'/'+bill / 100 +'/'+lid+'/'+title+'/'+content+'/'+did))
+            console.log(ptype)
+            if(ptype == 'TRADE'){
+                return;
+            }else{
+                this.$router.push(encodeURI('/lucky/'+state+'/'+ptitle+'/'+bill / 100 +'/'+lid+'/'+title+'/'+content+'/'+did+'/'+payment))
+            }
         }
     }
 }

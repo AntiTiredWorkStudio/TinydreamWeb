@@ -170,12 +170,12 @@ export default {
         }
     },
     created(){
-       if(this.$route.params.opid != ''){
-           if(this.$route.params.type == 'new'){
+       if(JSON.parse(GetStorage('share')).opid != ''){
+           if(JSON.parse(GetStorage('share')).type == 'new'){
                 this.type = true;
             }
            if(GetStorage('userInfo') == null || GetStorage('userInfo') == ''){
-                window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/index.html?time='+new Date().getTime()+'&type='+this.$route.params.type+'&opid='+this.$route.params.opid+'&state=clock'
+                window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/index.html?time='+new Date().getTime()+'&type='+JSON.parse(GetStorage('share')).type+'&opid='+JSON.parse(GetStorage('share')).opid+'&state=clock'
             }else{
                 // 合约列表
                 this.uid = JSON.parse(GetStorage('userInfo')).openid;
@@ -197,7 +197,7 @@ export default {
                 // 合约列表
                 self.list(self);
                 // 返回信息
-                self.Info(self,self.$route.params.opid);
+                self.Info(self,JSON.parse(GetStorage('share')).opid);
                 self.Orders(self)
             },function(code,data){
                 console.log(data)
@@ -217,35 +217,35 @@ export default {
                     self.alrday = data.info.alrday;
                     if(self.type){
                         var title = data.info.nickname+'已加入追梦行动派！'
-                        var url =  'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid+'type=new'
+                        var url =  'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'type=clock&state=yes&opid='+opid+'status=new&url=friend'
                     }else{
-                        var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid
+                        var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'type=clock&state=yes&opid='+opid+'status=old&url=friend'
                         var title = data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天'
                     }
-                    // WebApp.JSAPI.InitShare({
-                    //     title:title,
-                    //     desc:"有梦就行动，坚持返现金！",
-                    //     link:url,
-                    //     imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
-                    // });
-                    // WebApp.JSAPI.OnShareTimeLine = function(res){
-                    //     console.log(res)
-                    //     if(res){
-                    //         self.isshow = false;
-                    //         self.share(self,opid,date);
-                    //     }else if(res){
-                    //         self.$toast.fail('您取消了分享')
-                    //     }
-                    // }
-                    // WebApp.JSAPI.OnShareFriend = function(res){
-                    //     console.log(res);
-                    //     if(res){
-                    //         self.isshow = false;
-                    //         self.share(self,opid,date);
-                    //     }else if(res){
-                    //         self.$toast.fail('您取消了分享')
-                    //     }
-                    // }
+                    WebApp.JSAPI.InitShare({
+                        title:title,
+                        desc:"有梦就行动，坚持返现金！",
+                        link:url,
+                        imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+                    });
+                    WebApp.JSAPI.OnShareTimeLine = function(res){
+                        console.log(res)
+                        if(res){
+                            self.isshow = false;
+                            self.share(self,opid,date);
+                        }else if(res){
+                            self.$toast.fail('您取消了分享')
+                        }
+                    }
+                    WebApp.JSAPI.OnShareFriend = function(res){
+                        console.log(res);
+                        if(res){
+                            self.isshow = false;
+                            self.share(self,opid,date);
+                        }else if(res){
+                            self.$toast.fail('您取消了分享')
+                        }
+                    }
                 },function(code,data){
                     console.log(data);
                 })
@@ -421,7 +421,7 @@ export default {
                 oid:oid,
                 uid:uid,
                 theme:theme,
-                icode:this.$route.params.opid
+                icode:JSON.parse(GetStorage('share')).opid
             },function(code,data){
                 self.$router.push('/clock')
             },function(code,data){
@@ -539,7 +539,7 @@ export default {
                 top: -0.22rem;
                 width: 6.8rem;
                 background: #fff;
-                height: 2.8rem;
+                min-height: 2.8rem;
                 border-radius: 0.1rem;
                 margin: 0 0.35rem;
                 box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 0, 0, .1), -0.02rem 0 0.1rem 0.02rem rgba(0, 0, 0, .1), 0 0.02rem 0.1rem 0.02rem rgba(0, 0, 0, .1), 0 -0.02rem 0.1rem 0.02rem rgba(0, 0, 0, .1);

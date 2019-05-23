@@ -1,47 +1,49 @@
 <template>
-    <van-popup class="add_popup" v-model="isshow" position="bottom">
-        <div class="close">
-            <span><van-icon class="cls" name="close" @click="close"></van-icon></span>
-        </div>
-        <div class="main">
-            <p class="title">梦想标题(20字以内)</p>
-            <p class="tip">梦想类型只支持:创业/投资/做生意</p>
-            <div class="ptitle">
-                <van-field placeholder="请输入梦想标题" v-model="dtitle"></van-field>
+    <div class="add_main">
+        <van-popup class="add_popup" v-model="isshow" position="bottom">
+            <div class="close">
+                <span><van-icon class="cls" name="close" @click="close"></van-icon></span>
             </div>
-            <p class="title">梦想简介(140字以内)</p>
-            <div class="pinfo ptitle">
-                <van-field placeholder="请输入梦想简介" v-model="dinfo" type="textarea" autosize rows="3"></van-field>
-            </div>
-            <div class="up" :style="style">
-                <p class="title">上传打印盖章的<span style="font-size:0.26rem;">《幸运者梦想互助金申请公函》</span></p>
-                <p class="tip" style="color:#000">点击下载<span style="font-size:0.26rem;color:#00d094" @click="download">《幸运者梦想互助金申请公函》</span></p>
-                <div class="upload">
-                    <van-uploader :after-read="onRead" class="ptitle">
-                        <van-button type='primary'>{{btnTxt}}</van-button>
-                    </van-uploader>
-                    <div class="img" v-show="src == '' ? false : true">
-                        <img :src="src" alt="">
-                        <span @click="lookpic">查看大图</span>
+            <div class="main">
+                <p class="title">梦想标题(20字以内)</p>
+                <p class="tip">梦想类型只支持:创业/投资/做生意</p>
+                <div class="ptitle">
+                    <van-field placeholder="请输入梦想标题" v-model="dtitle"></van-field>
+                </div>
+                <p class="title">梦想简介(140字以内)</p>
+                <div class="pinfo ptitle">
+                    <van-field placeholder="请输入梦想简介" v-model="dinfo" type="textarea" autosize rows="3"></van-field>
+                </div>
+                <div class="up" :style="style">
+                    <p class="title">上传打印盖章的<span style="font-size:0.26rem;">《幸运者梦想互助金申请公函》</span></p>
+                    <p class="tip" style="color:#000">点击下载<span style="font-size:0.26rem;color:#00d094" @click="download">《幸运者梦想互助金申请公函》</span></p>
+                    <div class="upload">
+                        <van-uploader :after-read="onRead" class="ptitle">
+                            <van-button type='primary'>{{btnTxt}}</van-button>
+                        </van-uploader>
+                        <div class="img" v-show="src == '' ? false : true">
+                            <img :src="src" alt="">
+                            <span @click="lookpic">查看大图</span>
+                        </div>
                     </div>
                 </div>
+                <div class="area">
+                    <p>我承诺:</p>
+                    <p class="txt">
+                        我填写的梦想是本人的真实梦想，不存在任何虚构、隐瞒及伪造的情况，并积极配合平台的的审核和采访报道。如违背上述说明，愿意承担全部法律责任，并不能获得幸运者梦想互助金！
+                    </p>
+                </div>
+                <div class="subbtn">
+                    <van-button type="primary" size="large" @click="submit" round>提 交</van-button>
+                </div>
+                <div class="check">
+                    <van-checkbox v-model="checked" checked-color="#00d094">
+                        <p style="font-size:0.26rem;color:#999">阅读并同意 <span style="color:#00d094">《梦想互助参与协议》</span></p>
+                    </van-checkbox>
+                </div>
             </div>
-            <div class="area">
-                <p>我承诺:</p>
-                <p class="txt">
-                    我填写的梦想是本人的真实梦想，不存在任何虚构、隐瞒及伪造的情况，并积极配合平台的的审核和采访报道。如违背上述说明，愿意承担全部法律责任，并不能获得幸运者梦想互助金！
-                </p>
-            </div>
-            <div class="subbtn">
-                <van-button type="primary" size="large" @click="submit" round>提 交</van-button>
-            </div>
-            <div class="check">
-                <van-checkbox v-model="checked" checked-color="#00d094">
-                    <p style="font-size:0.26rem;color:#999">阅读并同意 <span style="color:#00d094">《梦想互助参与协议》</span></p>
-                </van-checkbox>
-            </div>
-        </div>
-        <van-popup v-model="tipshow" class="pop">
+        </van-popup>
+        <van-popup v-model="tipshow" class="pop" :lock-scroll="true">
             <div class="bg">
                 <div class="title">资料提交成功</div>
                 <div class="tip">{{Tip}}</div>
@@ -50,11 +52,17 @@
                 </div>
             </div>
         </van-popup>
-    </van-popup>
+    </div>
 </template>
 
 <script>
 WebApp.InitUpload();
+WebApp.JSAPI.InitShare({
+    title:'追梦行动派',
+    desc:"我刚刚参与了一份小梦想，你也一起来吧！",
+    link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=dream&state=no',
+    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+});
 import { ImagePreview } from 'vant';
 
 export default {
@@ -91,6 +99,9 @@ export default {
         if(this.state == 'all'){
             this.style.display = 'block'
         } else {
+            if(this.state == 'add'){
+                this.status = 'add'
+            }
             this.style.display = 'none'
         }
     },
@@ -102,6 +113,7 @@ export default {
         },
         // 关闭弹窗
         close(){
+            RemoveStorage('type')
             this.$router.replace('/refesh');
         },
         // 准备编辑梦想
@@ -233,7 +245,12 @@ export default {
             TD_Request('dr','dedit',{uid:app.$store.state.uid,title:app.dtitle,content:app.dinfo},function(code,data){
                 console.log(data)
                 app.$toast.success('添加成功');
-                app.$router.replace('/refesh')
+                var type = GetStorage('type');
+                if(type == 'dream'){
+                    app.$router.push('/')
+                }else{
+                    app.$router.replace('/refesh')
+                }
             },function(code,data){
                 console.log(data)
             })
@@ -275,6 +292,7 @@ export default {
             }
         },
         state(data){
+            console.log(this.state)
             this.status = data;
             console.log(data)
         },
@@ -366,7 +384,8 @@ export default {
             }
 
         }
-        .pop{
+    }
+    .pop{
             background: rgba(0,0,0,0,);
             .bg{
                 width: 5.10rem;
@@ -396,5 +415,4 @@ export default {
                 }
             }
         }
-    }
 </style>

@@ -34,7 +34,7 @@
                 <span></span>
                 <h3 class="title">个人中心</h3>
             </van-col>
-            <van-row type="flex" align="center" justify="center" class="userApp">
+            <van-row type="flex" align="center" justify="center" class="userApp" style="margin:0">
                 <van-col span="8">
                     <router-link to="/dreampool">
                         <div class="icon icon_join"></div>
@@ -54,16 +54,24 @@
                     </router-link>
                 </van-col>
             </van-row>
+            <van-row type="flex" class="userApp">
+                <van-col span="8" class="line">
+                    <router-link to="/tool">
+                        <div class="icon icon_tool"></div>
+                        <p class="tip">行动工具</p>
+                    </router-link>
+                </van-col>
+            </van-row>
             <van-col span="24" class="model">
                 <span></span>
                 <h3 class="title">其他</h3>
             </van-col>
             <van-row type="flex" align="center" justify="center" class="userApp" style="margin:0;">
                 <van-col span="8">
-                    <a href="../../../html/RedEnvelope.html">
+                    <div @click="redpack">
                         <div class="icon icon_pack"></div>
                         <p class="tip">梦想红包</p>
-                    </a>
+                    </div>
                 </van-col>
                 <van-col span="8" class="line">
                     <router-link to="/phone">
@@ -146,6 +154,12 @@ export default {
         },
         record(){
             this.$router.push('/record')
+        },
+        redpack(){
+            this.$dialog.alert({
+                title:'系统提示',
+                message:'红包功能正在更新中，敬请期待...'
+            })
         }   
     }
 }
@@ -244,6 +258,9 @@ export default {
         }
         .icon_dream{
             background: url('https://tdream.antit.top/XMXICON.png') no-repeat center center / 0.6rem 0.66rem;
+        }
+        .icon_tool{
+            background: url('https://tdream.antit.top/190523_01.png') no-repeat center center / 0.6rem 0.66rem;
         }
         .icon_clock{
             background: url('https://tdream.antit.top/ActiveSignInOk.png') no-repeat center center / 0.6rem 0.66rem;

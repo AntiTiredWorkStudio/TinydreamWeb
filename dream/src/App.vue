@@ -19,6 +19,8 @@
     <router-view name="question"></router-view>
     <router-view name="notice"></router-view>
     <router-view name="history"></router-view>
+    <router-view name="historyinfo"></router-view>
+    <router-view name="tool"></router-view>
     <tab-bar v-if="istab"></tab-bar>
   </div>
 </template>
@@ -33,10 +35,23 @@ export default {
     }
   },
   created(){
-    console.error('End.vue尚未接入')
     if(!ExistStorage("userInfo")){
       window.location.href = 'http://tinydream.ivkcld.cn/TInydreamWeb/dream'
     }
+
+    // 分享
+    if(GetStorage('share') == 'guide'){
+      RemoveStorage('share')
+      this.$router.push('/question')//分享--指引
+    }else if(GetStorage('share') == 'clock'){
+      RemoveStorage('share')
+      this.$router.push('/clock')
+    }else if(JSON.parse(GetStorage('share')).url == 'friend'){
+      SaveStorage('share',JSON.stringify({opid:JSON.parse(GetStorage('share')).opid,type:JSON.parse(GetStorage('share')).type}))
+      this.$router.push('/friend')
+    }
+
+    //end
     if(this.$route.path != '/' && this.$route.path != '/clock' && this.$route.path != '/user'){
       this.istab = false;
     }else{

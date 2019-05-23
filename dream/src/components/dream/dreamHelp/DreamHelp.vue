@@ -84,6 +84,12 @@
 </template>
 
 <script>
+WebApp.JSAPI.InitShare({
+    title:'追梦行动派',
+    desc:"我刚刚参与了一份小梦想，你也一起来吧！",
+    link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=dream&state=no',
+    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+});
 import join from '@/components/index/mainpool/Mainpool'
 export default {
     name:'help',

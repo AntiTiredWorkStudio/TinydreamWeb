@@ -235,20 +235,13 @@ export default {
         },
         // 获取合约列表
         list(self){
-            self.$toast.loading({
-                duraction:0,
-                forbidClick:true,
-                loadingType:'circular',
-                message:'加载中...'
-            })
             TD_Request('co','list',{},function(code,data){
                 console.log(data);
                 self.contractType = data.themes;
                 self.contracts = data.contracts;
                 self.cattention = data.cattention;
-                self.$toast.clear()
+
             },function(code,data){
-                self.$toast.clear();
                 alert(data.context)
             })
         },
@@ -271,9 +264,9 @@ export default {
                         color: '#999'
                     });
                 }
-                self.$toast.clear();
+;
             },function(code,data){
-                self.$toast.clear();
+;
                 alert(data.context);
             })
         },
@@ -281,10 +274,10 @@ export default {
         wxpay(self,cid,theme){
             TD_Request('op','joi',{cid:cid,uid:Options.GetUserInfo().openid},function(code,data){
                 console.log(data)
-                self.$toast.clear();
+;
                 self.wxpayweb(self,data.pay,data.order.oid,cid,theme)
             },function(code,data){
-                self.$toast.clear();
+;
                 if(code == 81){
                     self.$dialog.alert({
                         title:'错误提示',

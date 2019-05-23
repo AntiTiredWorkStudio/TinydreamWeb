@@ -1,7 +1,7 @@
 <template>
     <div class="clock">
-        <action v-if="isshow"/>
-        <pay-info :feed="feedback" v-if="!isshow"/>
+        <action v-if="issshow"/>
+        <pay-info :feed="feedback" v-if="ispay"/>
     </div>
 </template>
 
@@ -43,7 +43,8 @@ export default {
             order:'',//订单信息
             orders:'',//订单列表
             cPerson:'',
-            cAttendence:''
+            cAttendence:'',
+            issshow:false,
         }
     },
     created(){
@@ -61,12 +62,12 @@ export default {
                 headicon:userInfo.headimgurl
             },function(code,data){
                 console.log(data)
-                // WebApp.JSAPI.InitShare({
-                //     title:self.userInfo.nickname+'已加入追梦行动派',
-                //     desc:"有梦就行动，坚持返现金！",
-                //     link:'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/clock.html?time='+new Date().getTime(),
-                //     imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
-                // });
+                WebApp.JSAPI.InitShare({
+                    title:self.userInfo.nickname+'已加入追梦行动派',
+                    desc:"有梦就行动，坚持返现金！",
+                    link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=clock&state=no',
+                    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+                });
                 self.Orders(self,userInfo.openid)
             },function(code,data){
                 console.log(data)
@@ -74,7 +75,7 @@ export default {
         },
         Orders(self,uid){
             TD_Request('op','eomp',{uid:uid},function(code,data){
-                self.isshow = false;
+                self.ispay = true;
                 console.log(data)
                 self.feedback = data.feedback;
                 var order = data.orders.shift();
@@ -89,7 +90,7 @@ export default {
             },function(code,data){
                 console.log(data)
                 if(code == 82){
-                    self.isshow = true;
+                    self.issshow = true;
                 }
             })
         },

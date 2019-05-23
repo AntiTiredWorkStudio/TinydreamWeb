@@ -8,7 +8,7 @@
 </head>
 <body>
     <script src="https://tinydream.antit.top/admin/js/jquery-1.12.3.min.js"></script>
-    <script src="http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/js/lib.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script>
         WebApp.Init('wxc5216d15dd321ac5',//appid
@@ -18,8 +18,8 @@
         SaveStorage('share',JSON.stringify({type:$_GET.type,opid:$_GET.opid,url:'friend'}))
       }
       SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
-    //   SaveStorage('opt',JSON.stringify(Options))
-      Options.TestServer = true;
+      SaveStorage('opt',JSON.stringify(Options))
+    //   Options.TestServer = true;
       window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
    }
 );

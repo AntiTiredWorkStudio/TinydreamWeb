@@ -1,6 +1,6 @@
 <template>
     <div class="auth">
-        <div class="warp">
+        <div class="warp" v-show="ismask">
             <div class="main">
                 <van-col span="24" v-show="is_card">
                     <div class="upload">
@@ -100,19 +100,26 @@
 
 <script>
 WebApp.InitUpload();
+WebApp.JSAPI.InitShare({
+    title:'追梦行动派',
+    desc:"我刚刚参与了一份小梦想，你也一起来吧！",
+    link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=dream&state=no',
+    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+});
 import areaList from 'vant/packages/area/demo/area.js'
 import { ImagePreview } from 'vant';
 export default {
     name:'auth',
     data () {
         return {
+            ismask:false,//展示实名信息
             realname:'',//姓名
             idcard_num:'',//身份证号
             bankcard:'',//银行卡号
             bank:'',//银行
             openbank:'',//开户行
-            is_card:true,//是否展示拍照按钮
-            is_bank:true,//是否展示拍照
+            is_card:false,//是否展示拍照按钮
+            is_bank:false,//是否展示拍照
             areaList:areaList,
             cityshow:false,
             columns:'',//支行地址
@@ -310,11 +317,14 @@ export default {
         },
         // 验证是否实名认证
         isauth(app){
-            TD_Request('us','rnamegx',{uid:/*app.$store.state.uid*/'oSORf5klCAE5_5r-l5CGBwWGR1Vg'},function(code,data){
+            TD_Request('us','rnamegx',{uid:app.$store.state.uid},function(code,data){
                 console.log(data)
                 if(data.realName[app.$store.state.uid].state == 'NONE'){
                     app.btnTxt = '提交审核';
                     app.btnType = 'primary';
+                    app.is_card = true;
+                    app.is_bank = true;
+                    app.ismask = true;
                 }else if(data.realName[app.$store.state.uid].state == 'SUBMIT'){
                     app.btnTxt = '审核中';
                     app.btnType = 'warning';
@@ -351,6 +361,7 @@ export default {
                     $('.up').html('<div class="bg" style="width: 4.3rem;height: 3.26rem;margin: 0 auto;background: url('+data['realName'][app.$store.state.uid].icardfurl+') no-repeat center center / 4.3rem 3.26rem;"></div>').click(function(){
                         ImagePreview([data['realName'][app.$store.state.uid].icardfurl])
                     });
+                    app.ismask = true;
                 }else if(data.realName[app.$store.state.uid].state == 'SUCCESS'){
                     app.btnTxt = '审核通过';
                     app.btnType = 'primary';
@@ -385,6 +396,7 @@ export default {
                     $('.up').html('<div class="bg" style="width: 4.3rem;height: 3.26rem;margin: 0 auto;background: url('+data['realName'][app.$store.state.uid].icardfurl+') no-repeat center center / 4.3rem 3.26rem;"></div>').click(function(){
                         ImagePreview([data['realName'][app.$store.state.uid].icardfurl])
                     });
+                    app.ismask = true;
                     app.is_card = false;
                     app.is_bank = false;
                 }else if(data.realName[app.$store.state.uid].state == 'FAILD'){
@@ -394,19 +406,26 @@ export default {
                     }).then(()=>{
                         app.btnTxt = '提交审核';
                         app.btnType = 'primary';
+                        app.is_card = true;
+                        app.is_bank = true;
+                        app.ismask = true;
                     })
                 }
             },function(code,data){
                 if(code == 12){
+                    app.is_card = true;
+                    app.is_bank = true;
+                    app.ismask = true;
                     app.Init(app)
                 }
             })
         },
         // 发起实名认证
         Init(app){
-            TD_Request('us','rnamesx',{uid:/*app.$store.state.uid*/'oSORf5klCAE5_5r-l5CGBwWGR1Vg'},function(code,data){
+            TD_Request('us','rnamesx',{uid:app.$store.state.uid},function(code,data){
                 console.log(data)
                 app.uploadData = data;
+
             },function(code,data){
                 console.log(data);
                 if(code == 37){
@@ -465,7 +484,7 @@ export default {
             }
         },
         matchid(app){
-            TD_Request('us','rnamefx',{uid:/*app.$store.state.uid*/'oSORf5klCAE5_5r-l5CGBwWGR1Vg',realname:app.realname,ccardnum:app.bankcard,icardnum:app.idcard_num,bank:app.bank,openbank:app.openbank},function(code,data){
+            TD_Request('us','rnamefx',{uid:app.$store.state.uid,realname:app.realname,ccardnum:app.bankcard,icardnum:app.idcard_num,bank:app.bank,openbank:app.openbank},function(code,data){
                 console.log(data)
                 app.$toast.success('提交成功');
                 setTimeout(()=>{

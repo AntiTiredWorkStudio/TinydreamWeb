@@ -6,8 +6,6 @@
                     <van-col span="24">
                         <yd-progressbar :progress="colckinfo.precentage" trail-width="8" trail-color="#ffc054" class="progress">{{colckinfo
                             == '' ? '--': colckinfo.prec}}%</yd-progressbar>
-                        <span style="color:#00d094;text-decoration:underline;position:absolute;top: 0.5rem;right:0.5rem"
-                            @click="jl">合约记录</span>
                     </van-col>
                     <!-- 打卡信息 -->
                     <van-col span="24" class="clockInfo">
@@ -116,6 +114,24 @@
                     <van-button @click="hy_close">我知道了</van-button>
                 </div>
             </van-popup>
+            <van-popup v-model="right" position="right" style="top:10%;background:rgba(0,0,0,0)" :overlay="false">
+                <div @click="jl(0)" style="padding: 0.1rem;
+    font-size: 0.26rem;
+    background: rgba(0,0,0,.5);
+    color: #fff;
+    border-top-left-radius: 0.26rem;
+    border-bottom-left-radius: 0.26rem; margin-bottom:0.2rem">
+                    合约记录
+                </div>
+                <div @click="jl(1)" style="padding: 0.1rem;
+    font-size: 0.26rem;
+    background: rgba(0,0,0,.5);
+    color: #fff;
+    border-top-left-radius: 0.26rem;
+    border-bottom-left-radius: 0.26rem;">
+                    行动工具
+                </div>
+            </van-popup>
         </div>
 </template>
 
@@ -154,6 +170,7 @@ export default {
             today:'',//今天的json
             first:'',//第一天json
             currentindex:'',//当前月份的index
+            right:true
         }
     },
     created(){
@@ -220,7 +237,7 @@ export default {
                 self.btnTxt = '已打卡';
                 self.isdisabled = true;
                 console.log(data);
-                
+                self.share(self,opid,self.date)
                 self.colckinfo.alrday = parseInt(self.colckinfo.alrday)+1;
                 self.alert = {msg:"<p>您已在追梦行动派</p><p>连续为"+self.colckinfo.theme+"行动打卡"+self.colckinfo.alrday+"天</p>"}
                 if(data.attendance.date == 'undefined'){
@@ -233,7 +250,7 @@ export default {
                     self.issuccess = true;
                     self.url = 'https://tdream.antit.top/share_mmexportOK.png' 
                     self.state = true;
-                }else if(data.end == 'FAILD'){
+                }else if(data.end == 'FAILED'){
                     // 合约失败
                     self.state = false;
                     self.issuccess = true;
@@ -454,54 +471,40 @@ export default {
                 console.log(self.first,self.today)
                 if(self.first.id == '0' && self.today == '' ){
                     self.shareTitle = data.info.nickname + '刚刚加入追梦行动派，邀请您一起加入！'
-                    var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid+'&type=new'
+                    var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=clock&state=yes&opid='+opid+'&status=new&url=friend'
                 } else if(self.today.state == 'NOTRELAY'){
                     data.info.alrday = parseInt(data.info.alrday)
                     self.shareTitle = data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+(data.info.alrday+1)+'天'
-                    var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid
+                    var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=clock&state=yes&opid='+opid+'&status=old&url=friend'
                 } else {
                     self.shareTitle = data.info.nickname+"已加入追梦行动派为 "+data.info.theme+' 坚持行动'+data.info.alrday+'天'
-                    var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+opid
+                    var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=clock&state=yes&opid='+opid+'&status=new&url=friend'
                 }
-                // WebApp.JSAPI.InitShare({
-                //     title:self.shareTitle,
-                //     desc:"有梦就行动，坚持返现金！",
-                //     link:url,
-                //     imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
-                // });
-                // WebApp.JSAPI.OnShareTimeLine = function(res){
-                //     console.log(res)
-                //     if(res){ 
-                //         self.isshow = false;
-                //         self.$toast.loading({
-                //             duration:0,
-                //             forbidClick:true,
-                //             loadingType:'circular',
-                //             message:'加载中...'
-                //         })
-                //         setTimeout(function(){
-                //             self.$toast.clear();
-                //             self.share(self,opid,date);
-                //         },500)
-                //     }else if(!res){
-                //         self.$toast.fail('转发失败')
-                //     }
-                // }
-                // WebApp.JSAPI.OnShareFriend = function(res){
-                //     self.issuccess = false;
-                //     console.log(res);
-                //     if(res){
-                //         if(self.cid == "CO0000000001"){
-                //             self.isshow = false;
-                //             self.share(self,opid,date);
-                //         }else{
-                //             self.isshow = false;
-                //             self.$toast.success('转发成功')
-                //         }
-                //     }else if(!res){
-                //         self.$toast.fail('转发失败')
-                //     }
-                // }
+                WebApp.JSAPI.InitShare({
+                    title:self.shareTitle,
+                    desc:"有梦就行动，坚持返现金！",
+                    link:url,
+                    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+                });
+                WebApp.JSAPI.OnShareTimeLine = function(res){
+                    console.log(res)
+                    if(res){ 
+                        self.isshow = false;
+                        self.$toast.success('转发成功')
+                    }else if(!res){
+                        self.$toast.fail('转发失败')
+                    }
+                }
+                WebApp.JSAPI.OnShareFriend = function(res){
+                    self.issuccess = false;
+                    console.log(res);
+                    if(res){
+                        self.isshow = false;
+                        self.$toast.success('转发成功')
+                    }else if(!res){
+                        self.$toast.fail('转发失败')
+                    }
+                }
                 data.info.prec = parseInt(data.info.precentage * 100);
                 self.colckinfo = data.info;
             },function(code,data){
@@ -624,11 +627,15 @@ export default {
             }
             this.Mat(this);
         },
-        jl(){
-            if(isDate){
-                this.$router.push('/list/new')
+        jl(index){
+            if(index == 0){
+                if(isDate){
+                    this.$router.push('/list/new')
+                }else{
+                    this.$router.push('/list/old')
+                }
             }else{
-               this.$router.push('/list/old')
+                this.$router.push('/tool')
             }
             
         },

@@ -20,6 +20,8 @@ import Cach from './components/cach/Cach'
 import Question from './components/question/Question'
 import Notice from './components/notice/Notice'
 import History from './components/index/history/History'
+import HistoryInfo from './components/index/history/HistoryInfo'
+import Tool from './components/tool/Tool'
 
 Vue.use(Router)
 
@@ -82,6 +84,13 @@ export default new Router({
       }
     },
     {
+      path:'/tool',
+      name:'tool',
+      components:{
+        tool:Tool
+      }
+    },
+    {
       path:'/record',
       name:'payRecord',
       components:{
@@ -138,7 +147,14 @@ export default new Router({
       }
     },
     {
-      path:'/lucky/:state/:ptitle/:bill/:lid/:title/:content/:did',//幸运梦想详情
+      path:'/historyinfo',
+      name:'historyinfo',
+      components:{
+        historyinfo:HistoryInfo
+      }
+    },
+    {
+      path:'/lucky/:state/:ptitle/:bill/:lid/:title/:content/:did/:payment',//幸运梦想详情
       name:'luckyinfo',
       components:{
         luckyinfo:LuckyInfo

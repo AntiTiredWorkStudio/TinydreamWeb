@@ -50,7 +50,9 @@ export default {
                 if(self.buyinfo != ''){
                     var info = self.buyinfo.shift()
                     var dt = new Date().getTime() / 1000;
-                    var time = DescriptionTime(dt - parseInt(info.ptime))
+                    var times = parseInt(dt) - parseInt(info.ptime)
+                    var time = DescriptionTime(times)
+                    console.log(times,time)
                     if(info.ptype == "STANDARD"){
                         var type = '小梦想';
                     }else if(info.ptype == "TRADE"){
@@ -69,7 +71,7 @@ export default {
                     self.interval();
                     clearInterval(timer);
                 }
-            },50)
+            },20)
         }
     },
     watch:{
@@ -100,6 +102,8 @@ export default {
                 border-radius: 50%;
                 margin: 0.1rem 0.1rem 0 0;
                 img{
+                    width: 0.48rem;
+                    height:0.48rem;
                     border-radius: 50%;
                 }
             }

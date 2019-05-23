@@ -48,12 +48,6 @@
 if(GetStorage('userInfo') != null){
     var uid = JSON.parse(GetStorage('userInfo')).openid;
 }
-// WebApp.JSAPI.InitShare({
-//     title:'追梦行动派',
-//     desc:"有梦就行动，坚持返现金！",
-//     link:'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/clock.html?time='+new Date().getTime(),
-//     imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
-// });
 export default {
     name:'list',
     data () {
@@ -71,6 +65,14 @@ export default {
             opid:'',
             ishare:false
         }
+    },
+    created(){
+        WebApp.JSAPI.InitShare({
+            title:'追梦行动派',
+            desc:"有梦就行动，坚持返现金！",
+            link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=clock&state=no',
+            imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+        });
     },
      methods:{
         load(){
@@ -137,22 +139,22 @@ export default {
             if(data != ''){
                 // alert(2)
                 if(this.$route.params.type == 'new'){
-                    var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+this.opid+'&type=new'
+                    var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=clock&state=yes&opid='+this.opid+'&status=new&url=friend'
                 }else{
-                    var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/friend.html?time='+new Date().getTime()+'&opid='+this.opid
+                    var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=clock&state=yes&opid='+this.opid+'&status=old&url=friend'
                 }
-                // WebApp.JSAPI.InitShare({
-                //     title:'追梦行动派',
-                //     desc:"有梦就行动，坚持返现金！",
-                //     link:url,
-                //     imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
-                // });
-                //   WebApp.JSAPI.OnShareTimeLine = function(res){
-                //     self.ishare = false;
-                // }
-                // WebApp.JSAPI.OnShareFriend = function(res){
-                //     self.ishare = false;
-                // }
+                WebApp.JSAPI.InitShare({
+                    title:'追梦行动派',
+                    desc:"有梦就行动，坚持返现金！",
+                    link:url,
+                    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+                });
+                  WebApp.JSAPI.OnShareTimeLine = function(res){
+                    self.ishare = false;
+                }
+                WebApp.JSAPI.OnShareFriend = function(res){
+                    self.ishare = false;
+                }
             }
         }
     }

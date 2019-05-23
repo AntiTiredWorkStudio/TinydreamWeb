@@ -56,6 +56,12 @@
 </template>
 
 <script>
+WebApp.JSAPI.InitShare({
+    title:'追梦行动派',
+    desc:"我刚刚参与了一份小梦想，你也一起来吧！",
+    link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=dream&state=no',
+    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+});
 export default {
     name:'history',
     data () {
@@ -119,7 +125,7 @@ export default {
         conversion(award){
             var realBill = award.abill / 100;
             var realUnit = award.abill >= 1000000 ? '万元' : '元';
-            var dtitle = award.content.length > 10 ? award.content.substr(0,10).concat('...') : award.content;
+            var dtitle = award.title.length > 10 ? award.title.substr(0,8).concat('...') : award.title;
             var ptitle = award.ptype == "STANDARD" ? '小梦想互助'+award.pid+'期幸运者' : '小生意互助'+award.pid+'期幸运者'
             award.realBill = realBill;
             award.realUnit = realUnit;

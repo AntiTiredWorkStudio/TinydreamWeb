@@ -41,6 +41,12 @@
 </template>
 
 <script>
+WebApp.JSAPI.InitShare({
+    title:'追梦行动派',
+    desc:"我刚刚参与了一份小梦想，你也一起来吧！",
+    link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=dream&state=no',
+    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+});
 import popup from '@/components/dream/add/Add'
 export default {
     name:'luckyinfo',
@@ -77,8 +83,14 @@ export default {
                         background:'',
                     }
                 },
-                {
-
+                {   
+                    atitle:'等待打款',
+                    amsg:'梦想通过审核后，7个工作日内为您打款',
+                    state:'等待打款',
+                    style:{
+                        color: '#00d094',
+                        background:'',
+                    }
                 },
                 {
                     atitle:'互助金颁发',
@@ -99,16 +111,21 @@ export default {
             this.$router.push('/')
         }else{
             this.state = this.$route.params.state
-            if(this.$route.params.state == 'SUCCESS'){
+            if(this.$route.params.state == 'SUCCESS' && this.$route.params.payment == 1){
                 this.disable = true
                 this.type = 'primary'
-                this.btntxt = '审核通过'
+                this.btntxt = '已打款'
                 this.show = false
                 this.active = 3
             }else if(this.$route.params.state == 'DOING'){
                 this.btntxt = '完善梦想'
                 this.type = 'primary'
                 this.active = 0;
+            }else if(this.$route.params.state == 'SUCCESS' && this.$route.params.payment == 0){
+                this.btntxt = '审核通过'
+                this.type = 'primary'
+                this.active = 2;
+                this.disable = true;
             }else if(this.$route.params.state == 'VERIFY'){
                 this.disable = true
                 this.btntxt = '审核中'

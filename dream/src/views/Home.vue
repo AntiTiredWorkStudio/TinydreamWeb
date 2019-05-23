@@ -3,7 +3,9 @@
     <div class="banner swipslider" id="banner">
         <slider ref="slider" :options="sliderinit">
             <!-- slideritem wrapped package with the components you need -->
-            <slideritem v-for="(item,index) in someList" :key="index" :style="item.style"></slideritem>
+            <slideritem v-for="(item,index) in someList" :key="index" class="banner_bg">
+              <img :src="item.style" alt="" @click="banner(index)">
+            </slideritem>
         </slider>
     </div>
     <screen :orders="orders" />
@@ -14,10 +16,10 @@
     <rules />
     <!-- 客服&消息 -->
     <div class="icon_notice">
-      <div class="left"></div>
-      <div class="right">
-        <div class="text ntext" style="font-size:6px">0</div>
-      </div>
+      <router-link tag="div" class="left" to="/cach"></router-link>
+      <router-link tag="div" to="/notice" class="right">
+        <div class="text ntext" style="font-size:6px">{{ncount}}</div>
+      </router-link>
     </div>
     <!-- 小梦想中奖弹窗 -->
     <van-popup class="dream" v-model="isdaward">
@@ -38,6 +40,12 @@
 </template>
 
 <script>
+WebApp.JSAPI.InitShare({
+    title:'追梦行动派',
+    desc:"我刚刚参与了一份小梦想，你也一起来吧！",
+    link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=dream&state=no',
+    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+});
 // 轮播图
 import { slider, slideritem } from 'vue-concise-slider'
 import screen from '@/components/index/screen/Screen'//首页公屏
@@ -57,10 +65,10 @@ export default {
       },//轮播图配置信息
       someList:[
         {
-          style:'background:url(http://tdream.antit.top/image/banner.png) no-repeat center center / 6.8rem 2rem'
+          style:'http://tdream.antit.top/image/banner.png'
         },
         {
-          style:'background:url(https://tdream.antit.top/image/Red_SendPack.jpg) no-repeat center center / 6.8rem 2rem;border-radius:0.2rem'
+          style:'https://tdream.antit.top/image/Red_SendPack.jpg'
         }
       ],//轮播图配置列表
       userInfo:'',//存贮个人信息
@@ -74,7 +82,8 @@ export default {
       tip:'',//中奖信息
       btnTxt:'',
       ishow:false,
-      tpid:''
+      tpid:'',
+      ncount:'',//通知条数
     }
   },
   components:{
@@ -149,6 +158,8 @@ export default {
             var poolArr = [{"code":0,"mainpool":data.mainpool,"context":'成功',"maintrade":data.maintrade}]
         }
         self.pools = poolArr
+        // 系统通知
+        self.notice(self)
       },function(code,data){
         console.log(data);
       })
@@ -156,9 +167,9 @@ export default {
     // 完善梦想按钮
     perfect(msg,did = '',pid=''){
       if(msg == '实名认证'){
-        this.$router.push('/auth/lucky')
+        this.$router.push('/auth')
       }else if(msg == 'ok,我知道了'){
-        this.end(app,pid)
+        this.end(this,pid)
       }else if(msg == '完善梦想'){
         this.ishow = true;
         this.isdid = did;
@@ -168,6 +179,27 @@ export default {
     end(app,pid){
       TD_Request('aw','aend',{pid:pid,url:true},function(code,data){
         app.isdaward = false;
+        app.$router.replace('/refesh')
+      },function(code,data){
+        console.log(data)
+      })
+    },
+    // 获取通知列表
+    notice(app){
+      TD_Request('no','nc',{uid:app.$store.state.uid},function(code,data){
+        app.ncount = data.ncount;
+        if(data.ncount == 0){
+          console.log(data.ncount)
+          $('.icon_notice').css({
+            'transition':'all .2s linear 0',
+            'transform':'translateX(50%)'
+          })
+        }else{
+          $('.icon_notice').css({
+            'transition':'all .2s linear 0',
+            'transform':'translateX(0)'
+          })
+        }
       },function(code,data){
         console.log(data)
       })
@@ -186,6 +218,18 @@ export default {
           app.btnTxt = '实名认证'
         }
       })
+    },
+    // banner图跳转
+    banner(index){
+      console.log(index)
+      if(index == 0){
+        this.$router.push('/question')
+      }else{
+        this.$dialog.alert({
+          title:'系统提示',
+          message:'红包功能正在更新，敬请期待...'
+        })
+      }
     }
   }
 }
@@ -199,6 +243,10 @@ export default {
         width: 6.8rem;
         height: 2.5rem;
         margin: 0 auto;
+    }
+    .banner_bg img{
+      width: 6.8rem;
+      height:2rem;
     }
     .luck{
         margin: 0.2rem auto 0; 
@@ -216,7 +264,7 @@ export default {
           top: 1.60rem;
           border-top-left-radius: 0.34rem;
           border-bottom-left-radius: 0.34rem;
-          transform: translate(0,0);
+          transform: translateX(0);
           z-index: 999;
           .left{
             width: 0.44rem;

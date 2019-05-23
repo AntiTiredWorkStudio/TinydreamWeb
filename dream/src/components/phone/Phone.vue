@@ -25,6 +25,7 @@
                     reset-str="重新获取"
                     size="large"
                     type="primary"
+                    storage-key="dream"
             ></yd-sendcode>
             </div>
         </div>
@@ -32,14 +33,21 @@
             :show="show"
             theme="custom"
             extra-key="."
-            close-button-text="完成"
+            :close-button-text="successText"
             @input="onInput"
             @delete="onDelete"
+            @close = closeBtn(successText)
         />
     </div>
 </template>
 
 <script>
+WebApp.JSAPI.InitShare({
+    title:'追梦行动派',
+    desc:"我刚刚参与了一份小梦想，你也一起来吧！",
+    link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=dream&state=no',
+    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+});
 export default {
     name:'phone',
     data () {
@@ -50,7 +58,8 @@ export default {
             start:false,
             isdisable:true,
             code:'',
-            phone:''
+            phone:'',
+            successText:'下一步'
         }
     },
     created(){
@@ -90,6 +99,7 @@ export default {
                     message:'手机号不合法'
                 })
             }else{
+                this.start = true;
                 this.phone = this.phoneNum;
                 this.tip = '您当前带绑定手机号为'+this.phone;
                 $('.phoneNum').hide()
@@ -110,10 +120,23 @@ export default {
             TD_Request('va','bind',{uid:app.$store.state.uid,tele:app.phone,code:app.code},function(code,data){
                 console.log(data)
                 app.$toast.success('绑定成功')
-                app.$router.replace('/')
+                app.$router.push('/')
             },function(code,data){
                 app.$toast.fail('绑定失败')
             })
+        },
+        closeBtn(msg){
+            if(msg == '下一步'){
+                this.code = '';
+                this.successText = '完成'
+                console.log(this.successText)
+                if(this.start == false){
+                    this.sendCode(this)
+                }
+            }else if(this.successText == '完成'){
+                this.show = false;
+                this.bind(this);
+            }
         }
     },
     watch:{
@@ -123,7 +146,7 @@ export default {
             }
         },
         code(data){
-            if(code.length == 6){
+            if(data.length == 6 && this.successText == '完成'){
                 this.bind(this)
             }
         }
@@ -147,7 +170,6 @@ export default {
     .phoneNum{
         width: 6.3rem;
         margin: 0 auto;
-        border-bottom: 1px solid #00d094;
         .van-field{
             padding-left: 0;
         }

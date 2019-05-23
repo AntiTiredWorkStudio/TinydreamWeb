@@ -47,24 +47,18 @@ export default {
     },
      created(){
         // 消费信息
-        // WebApp.JSAPI.InitShare({
-        //     title:'追梦行动派',
-        //     desc:"有梦就行动，坚持返现金！",
-        //     link:'http://tinydream.ivkcld.cn/TinydreamWeb/vue/block/dist/clock.html?time='+new Date().getTime(),
-        //     imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
-        // });
+        WebApp.JSAPI.InitShare({
+            title:'追梦行动派',
+            desc:"有梦就行动，坚持返现金！",
+            link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=clock&state=no',
+            imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+        });
         // Options.TestServer = false;
         this.income(this,this.seek)
     },
     methods:{
         // 消费信息
         spend(self,seek){
-            self.$toast.loading({
-                duration:0,
-                forbidClick:true,
-                loadingType:'circular',
-                message:'加载中...'
-            })
             TD_Request('ds','oinfo',{uid:uid,seek:seek,count:10},function(code,data){
                 console.log(data)
                 self.loading = false;

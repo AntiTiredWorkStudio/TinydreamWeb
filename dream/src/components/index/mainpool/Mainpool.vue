@@ -5,7 +5,7 @@
                 <div class="main">
                     <h3 class="title">{{mainpool != '' ? mainpool.ptitle : ''}}</h3>
                     <div class="progress">
-                       <yd-progressbar :progress="mainpool == '' ? 0 : mainpool.cbill / mainpool.tbill" trail-width="4" stroke-color="#edf0f5" trail-color="#ffc054">
+                       <yd-progressbar v-show="mainpool == '' ? false : true" :progress="mainpool == '' ? 0 : mainpool.cbill / mainpool.tbill" trail-width="4" stroke-color="#edf0f5" trail-color="#ffc054">
                            <van-col span="24" class="timeouts">
                                <van-icon name="clock-o" class="icon_clock"></van-icon>
                                <span>{{timeout == '' ? '' : timeout}}</span>
@@ -29,7 +29,7 @@
                         </van-col>
                     </div>
                     <div class="buybtn">
-                        <van-button type="primary" @click="join('dream')" size="large" round>参与互助</van-button>
+                        <van-button type="primary" @click.stop="join('dream')" size="large" round>参与互助</van-button>
                     </div>
                 </div>
                 <p class="tip">每个人支付少量互助金，从中随机产生1名幸运者获得累计互助金启动梦想！</p>
@@ -58,14 +58,14 @@
                             </van-col>
                         </div>
                         <div class="tradeBtn">
-                            <van-button type="primary" size="large" round @click="join('trade')">参与互助</van-button>
+                            <van-button type="primary" size="large" round @click.stop="join('trade')">参与互助</van-button>
                         </div>
                     </div>
                 </div>
                 <p class="tip">没人支付少量互助金，从中随机产生1名幸运者成为指定目标的免费获得者</p>
             </van-tab>
         </van-tabs>
-         <pop :state="state" :show="status"/>
+         <pop :show="status" :state="aStatus"/>
     </div>
 </template>
 
@@ -79,27 +79,21 @@ export default {
             trade:'',//生意池
             active:0,//默认 tab
             timeout:this.timeout(),
-            state:'add',//梦想状态
+            aStatus:"add",//梦想状态
             did:'',//中奖 did
             dtitle:'',//梦想标题
             dinfo:'',//梦想简介
             status:false,//是否展示添加梦想弹窗
         }
     },
-    beforeRouteEnter(to,from,next){
-        console.log(to,from,next)
-        if(from.path == '/phone'){
-            if(GetStorage('type') == 'dream'){
-                this.Buy('dream')
-            }else if(GetStorage('type') == 'trade'){
-                this.Buy('trade')
-            }else if(GetStorage('type') == 'clock'){
-                next(vm=>{
-                    vm.$router.push('/frined/'+JSON.parse(GetStorage('info')).type+'/'+JSON.parse(GetStorage('info')).opid)
-                })
-            }
+    mounted(){
+        if(GetStorage('type') == 'clock'){
+            var opid = JSON.parse(GetStorage('info')).opid;
+            var type = JSON.parse(GetStorage('info')).type;
+            SaveStorage('share',JSON.stringify({type:type,opid:opid}))
+            RemoveStorage('info');
+            this.$router.push('/frined')
         }
-        next()
     },
     components:{pop},
     props:{
@@ -137,6 +131,8 @@ export default {
             /**
              * @params app vue实例
              */
+            RemoveStorage('dream')
+            RemoveStorage('trade')
             var pid = type == 'dream' ? app.mainpool.pid : app.trade.pid;
             TD_Request('ds','buy',{uid:app.$store.state.uid,pid:pid},function(code,data){
                 console.log(data)
@@ -147,7 +143,10 @@ export default {
                         confirmButtonText:'去添加',
                         confirmButtonColor:'#00d094'
                     }).then(() => {
-                        app.status == true;
+                        SaveStorage('type','dream')
+                        app.status = true;
+                    }).catch(()=>{
+                        return;
                     })
                 } else {
                     app.$store.commit('actions',data.actions)
@@ -164,7 +163,8 @@ export default {
                         message:'您尚未绑定手机，绑定手机后就可以参与互助啦！',
                         confirmButtonText:'去绑定',
                         confirmButtonColor:'#00d094'
-                    }).thne(() => {
+                    }).then(() => {
+                        SaveStorage('type',type)
                         app.$router.push('/phone')
                     })
                 }
@@ -183,25 +183,29 @@ export default {
                 $('.dream').html(data[0].context).css({
                     color:'#999',
                     'font-size':'0.26rem',
-                    'line-height':'1.5rem'
+                    'line-height':'1.5rem',
+                    'text-align':'center'
                 })
             }else if(data[0].code == 2){
                 this.mainpool = data[0].mainpool;
                 $('.trade').html(data[0].context).css({
                     color:'#999',
                     'font-size':'0.26rem',
-                    'line-height':'1.5rem'
+                    'line-height':'1.5rem',
+                    'text-align':'center'
                 })
             }else if(data[0].code == -1){
                 $('.dream').html(data[0].tcontext).css({
                     color:'#999',
                     'font-size':'0.26rem',
-                    'line-height':'1.5rem'
+                    'line-height':'1.5rem',
+                    'text-align':'center'
                 })
                 $('.trade').html(data[0].context).css({
                     color:'#999',
                     'font-size':'0.26rem',
-                    'line-height':'1.5rem'
+                    'line-height':'1.5rem',
+                    'text-align':'center'
                 })
             }
             console.log(this.trade)
@@ -213,7 +217,19 @@ export default {
             if(data == '00:00:00'){
                 window.location.reload();
             }
-        }
+        },
+        mainpool(data){
+            if(GetStorage('type') == 'dream'){
+                this.join('dream')
+            }
+        },
+        trade(data){
+            if(data != ''){
+                if(GetStorage('type') == 'trade'){
+                    this.join('trade')
+                }
+            }
+        },
     }
 }
 </script>

@@ -11,7 +11,32 @@
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script>
-       
+       /**
+        * @params type:[dream,trade,clock]
+        * @params state:[yes,no]
+       */
+        RemoveStorage('share')
+        if($_GET.type == 'dream' && $_GET.state == 'no'){
+            window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
+        }else if($_GET.type == 'clock' && $_GET.state == 'no'){
+            SaveStorage('share','clock')
+            window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
+        }else if($_GET.type == 'dream' && $_GET.state == 'yes'){
+            if($_GET.status == 'guide'){
+                SaveStorage('share','guide');
+                window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
+            }
+        }else if($_GET.type == 'clock' && $_GET.state == 'yes'){
+            if($_GET.url == 'friend'){
+                var obj = {
+                    opid:$_GET.opid,
+                    type:$_GET.type,
+                    url:$_GET.url
+                }
+                SaveStorage('share',JSON.stringify(obj))
+                window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
+            }
+        }
     </script>
 </body>
 </html>
