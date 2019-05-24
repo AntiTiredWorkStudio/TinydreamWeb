@@ -245,12 +245,7 @@ export default {
             TD_Request('dr','dedit',{uid:app.$store.state.uid,title:app.dtitle,content:app.dinfo},function(code,data){
                 console.log(data)
                 app.$toast.success('添加成功');
-                var type = GetStorage('type');
-                if(type == 'dream'){
-                    app.$router.push('/')
-                }else{
-                    app.$router.replace('/refesh')
-                }
+                app.$router.replace('/refesh')
             },function(code,data){
                 console.log(data)
             })
