@@ -18,7 +18,41 @@
             width: 1.48rem;
             height:1.48rem;
             margin-bottom: 0.1rem;
-            background: url(https://tdream.antit.top/image/miniLogo.jpg) no-repeat;
+            background: url(https://tdream.antit.top/image/miniLogo.jpg) no-repeat center center / 1.48rem 1.48rem;
+            margin: 0 auto 0.1rem;
+            border-radius: 0.2rem;
+            border:1px solid #eee;
+        }
+        .appname{
+            font-size: 0.38rem;
+            text-align: center;
+        }
+        .info{
+            width: 6.3rem;
+            margin: 0 auto;
+            padding-top: 0.8rem;
+            border-top: 1px solid #eee;
+        }
+        .company{
+            font-size: 0.32rem;
+        }
+        .tip{
+            font-size: 0.28rem;
+            color: #999;
+            margin-top: 0.6rem;
+            text-align: center;
+            margin-bottom: 1.1rem;
+        }
+        .btn{
+            width: 100%;
+            height: 0.88rem;
+            background: #05bf02;
+            color: #fff;
+            text-align: center;
+            line-height: 0.88rem;
+            border: none;
+            outline: 0;
+            border-radius: 0.1rem;
         }
     </style>
 </head>
@@ -26,6 +60,12 @@
     <div class="warp">
         <div class="main">
             <div class="logo"></div>
+            <p class="appnme">追梦行动派</p>
+        </div>
+        <div class="info">
+            <p class="company">该公众号由北京圣寒科技有限公司开发，请确认以下信息</p>
+            <p class="tip">· 获得你的公开信息（昵称、头像等）</p>
+            <button class="btn">授权登录</button>
         </div>
     </div>
     <script src="https://tinydream.antit.top/admin/js/jquery-1.12.3.min.js"></script>
@@ -33,18 +73,20 @@
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script>
-//         WebApp.Init('wxc5216d15dd321ac5',//appid
-//    function(result,data){//result:请求状态,data 请求结果
-//       console.log(Options.GetUserInfo());
-//       if($_GET.state == 'clock'){
-//         SaveStorage('share',JSON.stringify({type:$_GET.type,opid:$_GET.opid,url:'friend'}))
-//       }
-//       SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
-//       SaveStorage('opt',JSON.stringify(Options))
-//     //   Options.TestServer = true;
-//       window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
-//    }
-// );
+        $('.btn').click(function(){
+                    WebApp.Init('wxc5216d15dd321ac5',//appid
+   function(result,data){//result:请求状态,data 请求结果
+      console.log(Options.GetUserInfo());
+      if($_GET.state == 'clock'){
+        SaveStorage('share',JSON.stringify({type:$_GET.type,opid:$_GET.opid,url:'friend'}))
+      }
+      SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
+      SaveStorage('opt',JSON.stringify(Options))
+    //   Options.TestServer = true;
+      window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
+   }
+);
+        })
     </script>
 </body>
 </html>
