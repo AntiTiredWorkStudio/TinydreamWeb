@@ -4,25 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+    <title>追梦行动派</title>
+    <link rel="stylesheet" href="http://tinydream.antit.top/TinydreamWeb/css/public.css">
+    <style>
+        .warp{
+            width: 100%;
+        }
+        .warp .main{
+            padding-top: 1rem;
+            padding-bottom: 0.8rem;
+        }
+        .logo{
+            width: 1.48rem;
+            height:1.48rem;
+            margin-bottom: 0.1rem;
+            background: url(https://tdream.antit.top/image/miniLogo.jpg) no-repeat;
+        }
+    </style>
 </head>
 <body>
+    <div class="warp">
+        <div class="main">
+            <div class="logo"></div>
+        </div>
+    </div>
     <script src="https://tinydream.antit.top/admin/js/jquery-1.12.3.min.js"></script>
+    <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script>
-        WebApp.Init('wxc5216d15dd321ac5',//appid
-   function(result,data){//result:请求状态,data 请求结果
-      console.log(Options.GetUserInfo());
-      if($_GET.state == 'clock'){
-        SaveStorage('share',JSON.stringify({type:$_GET.type,opid:$_GET.opid,url:'friend'}))
-      }
-      SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
-      SaveStorage('opt',JSON.stringify(Options))
-    //   Options.TestServer = true;
-      window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
-   }
-);
+//         WebApp.Init('wxc5216d15dd321ac5',//appid
+//    function(result,data){//result:请求状态,data 请求结果
+//       console.log(Options.GetUserInfo());
+//       if($_GET.state == 'clock'){
+//         SaveStorage('share',JSON.stringify({type:$_GET.type,opid:$_GET.opid,url:'friend'}))
+//       }
+//       SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
+//       SaveStorage('opt',JSON.stringify(Options))
+//     //   Options.TestServer = true;
+//       window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
+//    }
+// );
     </script>
 </body>
 </html>
