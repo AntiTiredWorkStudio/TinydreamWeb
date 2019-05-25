@@ -4,8 +4,8 @@
             <h3>需要绑定的手机号</h3>
             <p class="tip">{{tip}}</p>
             <p class="phoneNum">
-                <van-field v-model="phoneNum" placeholder="请输入手机号" @focus="onFocus">
-                    <van-icon slot="left-icon" name="http://tdream.antit.top/image/tele.png"></van-icon>
+                <van-field v-model="phoneNum" placeholder="请输入手机号" @focus="onFocus" :clearable="true">
+                    <!-- <van-icon slot="left-icon" name="http://tdream.antit.top/image/tele.png"></van-icon> -->
                 </van-field>
             </p>
             <p class="code">
@@ -31,12 +31,12 @@
         </div>
         <van-number-keyboard
             :show="show"
-            theme="custom"
-            extra-key="."
+            theme="default"
             :close-button-text="successText"
             @input="onInput"
             @delete="onDelete"
             @close = closeBtn(successText)
+            safe-area-inset-bottom
         />
     </div>
 </template>
@@ -52,7 +52,7 @@ export default {
     name:'phone',
     data () {
         return {
-            show:true,//是否显示键盘,
+            show:false,//是否显示键盘,
             phoneNum:'',
             tip:'',
             start:false,
@@ -85,6 +85,7 @@ export default {
             this.code = this.code.slice(0,this.code.length-1)
         },
         onFocus(){
+            this.show = true;
             document.activeElement.blur();
         },
         sendCode(){
@@ -100,6 +101,7 @@ export default {
                 })
             }else{
                 this.start = true;
+                this.successText = '完成'
                 this.phone = this.phoneNum;
                 this.tip = '您当前带绑定手机号为'+this.phone;
                 $('.phoneNum').hide()
@@ -128,7 +130,6 @@ export default {
         closeBtn(msg){
             if(msg == '下一步'){
                 this.code = '';
-                this.successText = '完成'
                 console.log(this.successText)
                 if(this.start == false){
                     this.sendCode(this)
@@ -156,7 +157,7 @@ export default {
 
 <style lang="less" scoped>
     h3{
-        margin-top: 0.8rem;
+        padding-top: 0.8rem;
         text-align: center;
         font-size: 0.36rem;
         margin-bottom: 0.2rem;
@@ -170,6 +171,7 @@ export default {
     .phoneNum{
         width: 6.3rem;
         margin: 0 auto;
+        border-bottom:1px solid #00d094;
         .van-field{
             padding-left: 0;
         }

@@ -1,11 +1,11 @@
 <template>
     <div class="pool">
-        <van-tabs v-model="active" swipeable title-active-color="#00d094" color="#00d094" line-width="20" line-height="1">
+        <van-tabs v-model="active" :border="false" swipeable title-active-color="#00d094" line-width="0" line-height="0" color="#00d094" title-inactive-color="#333">
             <van-tab title="梦想互助" class="dream">
-                <div class="main">
-                    <h3 class="title">{{mainpool != '' ? mainpool.ptitle : ''}}</h3>
+                <div class="main" @click.stop="info('dream')">
+                    <p class="title">{{mainpool != '' ? mainpool.ptitle : ''}}</p>
                     <div class="progress">
-                       <yd-progressbar v-show="mainpool == '' ? false : true" :progress="mainpool == '' ? 0 : mainpool.cbill / mainpool.tbill" trail-width="4" stroke-color="#edf0f5" trail-color="#ffc054">
+                       <yd-progressbar v-show="mainpool == '' ? false : true" :progress="mainpool == '' ? 0 : mainpool.cbill / mainpool.tbill" trail-width="6" stroke-color="#edf0f5" trail-color="#ffc054">
                            <van-col span="24" class="timeouts">
                                <van-icon name="clock-o" class="icon_clock"></van-icon>
                                <span>{{timeout == '' ? '' : timeout}}</span>
@@ -29,13 +29,13 @@
                         </van-col>
                     </div>
                     <div class="buybtn">
-                        <van-button type="primary" @click.stop="join('dream')" size="large" round>参与互助</van-button>
+                        <van-button @click.stop="join('dream')" size="large" round style="background:#00d094;color:#fff;border:none">参与互助</van-button>
                     </div>
                 </div>
                 <p class="tip">每个人支付少量互助金，从中随机产生1名幸运者获得累计互助金启动梦想！</p>
             </van-tab>
             <van-tab title="生意互助" class="trade">
-                <div class="main">
+                <div class="main" @click.stop="info('trade')">
                     <div class="banner" :style="{background:trade == '' ? '' : 'url('+trade.trade.bannerUrl+') no-repeat center center / 6.8rem 3.86rem'}">
                         <p>
                             <span>{{trade == '' ? '' : trade.ptitle}}</span>
@@ -58,7 +58,7 @@
                             </van-col>
                         </div>
                         <div class="tradeBtn">
-                            <van-button type="primary" size="large" round @click.stop="join('trade')">参与互助</van-button>
+                            <van-button size="large" round @click.stop="join('trade')" style="background:#00d094;border:none;color:#fff">参与互助</van-button>
                         </div>
                     </div>
                 </div>
@@ -114,8 +114,18 @@ export default {
                 var h = Math.floor(timestamp / 3600) >= 10 ? Math.floor(timestamp / 3600) : '0' + Math.floor(timestamp / 3600);
                 var m = Math.floor(timestamp / 60 % 60) >= 10 ? Math.floor(timestamp / 60 % 60) : '0' + Math.floor(timestamp / 60 % 60);
                 var s = Math.floor(timestamp % 60) >= 10 ? Math.floor(timestamp % 60) : '0' + Math.floor(timestamp % 60);
-                self.timeout = h + ':' + m + ':' + s;
+                var time = h + ':' + m + ':' + s;
+                self.timeout = time;
             },1000)
+        },
+        // info
+        info(type){
+            if(type == 'dream'){
+                SaveStorage('active',0);
+                this.$router.push('/dreampool')
+            }else{
+                this.$router.push('/trade/'+this.trade.trade.url+'/'+this.trade.pid)
+            }
         },
         // 参与互助
         join(type){
@@ -242,9 +252,6 @@ export default {
         box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 54, 208, .1), -0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1), 0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1), 0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1);
         background: #fff;
         min-height: 1.5rem;
-        .van-tabs .van-hairline--top-bottom:after{
-            border-width: 0!important;
-        }
         .dream{
             width: 100%;
             .main{
@@ -252,7 +259,9 @@ export default {
                 margin: 0 auto;
                 padding-top: 0.3rem;
                 .title{
-                    font-size: 0.32rem;
+                    font-size: 0.28rem;
+                    font-style: normal;
+                    color: #333;
                 }
                 .progress{
                     margin-top: 0.5rem;

@@ -110,6 +110,10 @@ export default {
         }
     },
     created(){
+        if(ExistStorage('active')){
+            this.active = GetStorage('active');
+            RemoveStorage('active')
+        }
         this.total(this,this.active)
     },
     methods:{
@@ -176,7 +180,8 @@ export default {
                 app.joinCount = data.ucount;
                 app.endCount = data.fcount;
                 if(index == 0){
-
+                    app.seek = 0
+                    app.running(app,app.seek)
                 }else if(index == 1){
                     app.seek = 0
                     app.joinning(app,app.seek)

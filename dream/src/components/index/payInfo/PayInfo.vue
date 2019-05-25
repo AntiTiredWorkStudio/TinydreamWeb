@@ -1,9 +1,9 @@
 <template>
     <div class="payInfo">
        <div class="info">
-            <h3 class="title">{{pool == '' ? '' : pool.ptitle}}</h3>
+            <p class="title">{{pool == '' ? '' : pool.ptitle}}</p>
             <div class="progress">
-                <yd-progressbar :progress="pool.cbill / pool.tbill" trail-width="4" stroke-color="#edf0f5" trail-color="#ffc054">
+                <yd-progressbar :progress="pool.cbill / pool.tbill" trail-width="6" stroke-color="#edf0f5" trail-color="#ffc054">
                         <van-col span="24" class="timeouts" v-show="isshow">
                             <van-icon name="clock-o" class="icon_clock"></van-icon>
                             <span>{{timeout == '' ? '' : timeout}}</span>
@@ -54,7 +54,7 @@
                         <span style="font-size:0.36rem;color:#00d094">{{count == '' ? '' : pool.rubillValue * count + '元'}}</span>
                     </van-col>
                 </van-row>
-                <van-button type="primary" round size="large" @click="payment(count)">立即支付</van-button>
+                <van-button round size="large" @click="payment(count)" style="background:#00d094;border:none;color:#fff">立即支付</van-button>
             </div>
             <van-actionsheet
                 v-model="show"
@@ -292,7 +292,7 @@ export default {
         margin: 0 auto 0;
         padding-top: .3rem;
         .title{
-            font-size: 0.32rem;
+            font-size: 0.28rem;
         }
         .progress{
             margin-top: 0.5rem;

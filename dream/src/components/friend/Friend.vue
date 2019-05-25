@@ -423,6 +423,7 @@ export default {
                 theme:theme,
                 icode:JSON.parse(GetStorage('share')).opid
             },function(code,data){
+                RemoveStorage('type')
                 self.$router.push('/clock')
             },function(code,data){
                 alert(code)

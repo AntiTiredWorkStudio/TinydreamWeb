@@ -38,7 +38,7 @@
                                 <p style="font-size:0.36rem">{{currentMonth == '' ? '--' : currentMonth}}</p>
                             </van-col>
                             <van-col span="8" style="text-align:right;color:#999">
-                                <van-icon name="arrow" @click="right" class="icon-right"></van-icon>
+                                <van-icon name="arrow" @click="right_ico" class="icon-right"></van-icon>
                             </van-col>
                         </van-row>
                         <div class="weekDate">
@@ -326,8 +326,11 @@ export default {
                                 $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                             }else if(firstday == 'NONE' && item.dateStamp < lastattend || firstday == 'NONE' && item.dateStamp < (new Date(self.date) / 1000) - 28800){
                                 $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                            }else if(firstday == 'NOTRELAY' && item.dateStamp >= (new Date(self.date) / 1000) - 28800){
+                                $('<li class="enable share" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                                self.btnTxt = '分 享'
                             }else if(firstday == 'NOTRELAY' && item.date == self.date){
-                                $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                                $('<li class="enable share" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                                 self.btnTxt = '分 享'
                             }else if(firstday == 'RELAY' && item.date == self.date){
                                 $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
@@ -365,9 +368,14 @@ export default {
                                 $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                             }else if(item.state == 'NONE' && item.dateStamp < lastattend || item.state == 'NONE' && item.dateStamp < (new Date(self.date) / 1000) - 28800){
                                 $('<li class="enable" id="'+item.date+'"><span class="normal">'+item.Day+'</span></li>').appendTo('.weekDate .day');
-                            }else if(item.state == 'NOTRELAY' && item.date != self.date){
-                                $('<li class="enable share" id="'+item.date+'"><span class="normal orange">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                            }
+                            else if(item.state == 'NOTRELAY' && item.date != self.date){
+                                $('<li class="enable share" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                                 self.btnTxt = '立即打卡'
+                            }else if(item.state == 'NOTRELAY' && item.date == self.date){
+                                $('<li class="enable share" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
+                                self.btnTxt = '已打卡'
+                                self.isdisabled = true;
                             }else if(item.state == 'RELAY' && item.date != self.date){
                                 $('<li class="enable" id="'+item.date+'"><span class="normal green_bg">'+item.Day+'</span></li>').appendTo('.weekDate .day');
                                 self.btnTxt == '立即打卡'
@@ -562,7 +570,7 @@ export default {
                 // console.log(date)
                 TD_Request('op','rep',{opid:self.opid,date:self.date,uid:uid},function(code,data){
                     // alert(JSON.stringify(data))
-                    self.$toast.success('分享成功')
+                    // self.$toast.success('分享成功')
                     // // return;
                     // self.issuccess = false;
                     setTimeout(function(){
@@ -612,7 +620,8 @@ export default {
             }
             this.Mat(this)
         },
-        right(){
+        right_ico(){
+            console.log(1)
             if(self.seek <= 0){
                 self.seek = 0
                 return;
@@ -654,6 +663,7 @@ export default {
     .actionClock{
         width: 100%;
         padding-bottom: 1.29rem;
+        overflow: hidden;
         .warp{
             padding-bottom: 1.2rem;
             width: 6.8rem;
@@ -661,7 +671,7 @@ export default {
             overflow: hidden;
             .clock{
                 border-radius: 0.1rem;
-                height: 5.6rem;
+                min-height: 5.6rem;
                 background: #fff;
                 margin-top: 0.3rem;
                 // 打卡进度
@@ -693,6 +703,7 @@ export default {
                 // 打卡按钮
                 .btn{
                     text-align: center;
+                    padding-bottom: 0.2rem;
                     .clock_btn{
                         width: 2.9rem;
                         height: 0.88rem;
@@ -735,6 +746,7 @@ export default {
                     }
                     .module{
                         border-top: 1px solid #eee;
+                        overflow: hidden;
                         .main{
                             width: 6.1rem;
                             padding-top: 0.1rem;

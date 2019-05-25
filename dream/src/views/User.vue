@@ -1,5 +1,5 @@
 <template>
-    <div class="users">
+    <div class="users" v-show="user">
         <div class="user">
             <div class="header">
                 <van-row class="head_main">
@@ -122,6 +122,7 @@ export default {
             cAttendence:'',
             cPerson:'',
             conday:'',
+            user:false,//是否显示用户页面
         }
     },
     created(){
@@ -147,6 +148,7 @@ export default {
                 self.cAttendence = data.total['SUM(`alrday`)'];
                 self.conday = data.total['SUM(`conday`)'];
                 
+                self.user = true;
                 
             },function(code,data){
                 console.log(data)
@@ -170,6 +172,7 @@ export default {
     width: 6.9rem;
     margin: 0.3rem auto;
     padding-bottom: 1.29rem;
+    background: #fff;
     .header{
         width: 100%;
         height: 3.2rem;

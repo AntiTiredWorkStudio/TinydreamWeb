@@ -31,7 +31,7 @@
                 </van-col>
             </div>
             <div class="join">
-                <van-button type="primary" round size="large" @click="join(type)">参与互助</van-button>
+                <van-button round size="large" @click="join(type)" style="background:#00d094;border:none;color:#fff">参与互助</van-button>
             </div>
         </div>
     </div>

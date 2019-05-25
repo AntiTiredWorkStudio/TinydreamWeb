@@ -22,6 +22,8 @@ import Notice from './components/notice/Notice'
 import History from './components/index/history/History'
 import HistoryInfo from './components/index/history/HistoryInfo'
 import Tool from './components/tool/Tool'
+import Trade from './components/index/trade/TradeInfo'
+import Agree from './components/agreement/Agree'
 
 Vue.use(Router)
 
@@ -42,10 +44,24 @@ export default new Router({
       }
     },
     {
+      path:'/trade/:id/:pid',
+      name:'tradeinfo',
+      components:{
+        tradeinfo:Trade
+      }
+    },
+    {
       path:'/user',//个人中心
       name:'user',
       components:{
         user:User
+      }
+    },
+    {
+      path:'/agree',
+      name:'agree',
+      components:{
+        agree:Agree
       }
     },
     {

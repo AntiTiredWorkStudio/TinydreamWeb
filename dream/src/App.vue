@@ -21,6 +21,8 @@
     <router-view name="history"></router-view>
     <router-view name="historyinfo"></router-view>
     <router-view name="tool"></router-view>
+    <router-view name="tradeinfo"></router-view>
+    <router-view name="agree"></router-view>
     <tab-bar v-if="istab"></tab-bar>
   </div>
 </template>
@@ -65,6 +67,11 @@ export default {
   components:{
     TabBar:Tabbar
   },
+  created(){
+    if(!ExistStorage("userInfo")){
+      window.location.href = 'http://tinydream.ivkcld.cn/TInydreamWeb/dream'
+    }
+  },
   mounted(){
     this.$store.commit('uid',JSON.parse(GetStorage('userInfo')).openid)
   },
@@ -88,11 +95,12 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  /* font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
   width: 100%;
   height: 100%;
+  background: #fff;
 }
 /*
 #nav {

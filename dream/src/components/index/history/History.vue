@@ -1,6 +1,6 @@
 <template>
     <div class="history">
-        <van-tabs v-model="active" @change="change" color="#00d094" title-active-color="#00d094">
+        <van-tabs v-model="active" :border="false" @change="change" color="#00d094" title-active-color="#00d094" title-inactive-color="#333" line-height="1">
             <van-tab title="小梦想互助幸运者">
                 <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad('DR')">
                     <div class="main" v-for="(list,index) in dList" :key="index">
@@ -28,15 +28,14 @@
             </van-tab>
             <van-tab title="小生意互助幸运者">
                 <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad('TR')">
-                    <div class="main" v-for="(list,index) in dList" :key="index">
+                    <div class="main" v-for="(list,index) in tList" :key="index">
                         <van-col span="8" style="text-align:center">
-                            <div class="headicon"><img src="http://thirdwx.qlogo.cn/mmopen/vi_32/VseOp8ojoYUkAWqtFu2FKOXlP5fib09mQwAKWkiaNODLxxa2EIPgFd1XtxqWCxeofAz80bcZgB1FWT8piawzDhLfw/132" alt=""></div>
+                            <div class="headicon"><img :src="list.headicon" alt=""></div>
                         </van-col>
                         <van-col span="12">
                             <p class="title">{{list.ptitle}}</p>
                             <p class="nickname txt">昵 称：{{list.nickname}}</p>
                             <p class="dtitle txt">梦 想：{{list.dtitle}}</p>
-                            <p class="bill txt">金 额：{{list.realBill + list.realUnit}}</p>
                         </van-col>
                         <van-col span="4" style="text-align:right">
                             <div class="right" @click="info(list)">
@@ -56,12 +55,6 @@
 </template>
 
 <script>
-WebApp.JSAPI.InitShare({
-    title:'追梦行动派',
-    desc:"我刚刚参与了一份小梦想，你也一起来吧！",
-    link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=dream&state=no',
-    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
-});
 export default {
     name:'history',
     data () {
@@ -77,6 +70,12 @@ export default {
         }
     },
     created(){
+        WebApp.JSAPI.InitShare({
+            title:'追梦行动派',
+            desc:"我刚刚参与了一份小梦想，你也一起来吧！",
+            link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=dream&state=no',
+            imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+        });
         this.count(this)
     },
     methods:{
@@ -92,7 +91,11 @@ export default {
             }
             TD_Request('aw','cplu',{awardtype:type},function(code,data){
                 console.log(data)
-                app.dcount = data.count;
+                if(type == "DR"){
+                    app.dcount = data.count;
+                }else{
+                    app.tcount = data.count;
+                }
                 app.list(app,0,type)
             },function(code,data){
                 console.log(data)

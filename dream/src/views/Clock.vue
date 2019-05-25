@@ -48,7 +48,6 @@ export default {
         }
     },
     created(){
-        $('body').css('background','#f0f0f0');
         if(!ExistStorage("userInfo")){
             window.location.href = 'http://tinydream.ivkcld.cn/TInydreamWeb/dream/index.html?time='+new Date().getTime()+'&type=clock'
         }
@@ -110,5 +109,6 @@ export default {
         background: #f0f0f0;
         width: 100%;
         height: 100%;
+        overflow: auto;
     }
 </style>

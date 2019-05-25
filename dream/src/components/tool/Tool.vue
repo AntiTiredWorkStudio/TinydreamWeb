@@ -6,7 +6,11 @@
 </template>
 
 <script>
-var uid = JSON.parse(GetStorage('userInfo')).openid;
+if(!ExistStorage("userInfo")){
+    window.location.href = 'http://tinydream.ivkcld.cn/TInydreamWeb/dream'
+}else{
+    var uid = JSON.parse(GetStorage('userInfo')).openid;
+}
 import toolList from '@/components/tool/ToolList'
 import classList from '@/components/tool/ClassList'
 export default {
@@ -22,6 +26,12 @@ export default {
         classList
     },
     created(){
+         WebApp.JSAPI.InitShare({
+            title:'追梦行动派',
+            desc:"有梦就行动，坚持返现金！",
+            link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=clock&state=no',
+            imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+        });
         this.eomp(this)
     },
     methods:{

@@ -1,6 +1,6 @@
 <template>
     <div class="question">
-        <van-tabs v-model="active" @change="onChange" color="#00d094" active-title-color="#00d094">
+        <van-tabs v-model="active" :border="false" @change="onChange" color="#00d094" title-active-color="#00d094" line-height="1" title-inactive-color="#999">
             <van-tab title="梦想互助">
                 <div class='question_list' v-for="(list,index) in list" :key="index">
                     <div class='title'>{{list.question}}</div>
@@ -15,7 +15,7 @@
             </van-tab>
         </van-tabs>
         <div class="question_list">
-            <p>注：如您还有疑问，欢迎扫码加客服微信详细咨询 </p>
+            <p style="margin:0">注：如您还有疑问，欢迎扫码加客服微信详细咨询 </p>
             <img src="https://tdream.antit.top/image/qrcode.jpg" alt="">
             <p class="tip">长按识别二维码</p>
         </div>
@@ -92,16 +92,19 @@ export default {
             margin-top: 0.3rem;
         }
         img{
-                width: 50%;
-                height: 50%;
+                width: 30%;
+                height: 30%;
                 position: relative;
                 transform: translateX(-50%);
                 left: 50%;
+                margin-top: 0.3rem;
             }
             .tip{
-                font-size: 0.36rem;
+                font-size: 0.3rem;
                 color: #999;
                 text-align: center;
+                margin: 0;
+
             }
     }
 </style>

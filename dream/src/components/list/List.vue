@@ -190,7 +190,7 @@ export default {
             height: 5.8rem;
             margin: 0 auto;
             .mt-80{
-                padding-top: 0.8rem;
+                padding-top: 0.6rem;
                 p{
                     font-size: 1rem;
                     color: #fff;

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" v-show="home">
     <div class="banner swipslider" id="banner">
         <slider ref="slider" :options="sliderinit">
             <!-- slideritem wrapped package with the components you need -->
@@ -47,7 +47,7 @@ WebApp.JSAPI.InitShare({
     imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
 });
 // 轮播图
-import { slider, slideritem } from 'vue-concise-slider'
+import { slider, slideritem } from 'vue-concise-slider'//
 import screen from '@/components/index/screen/Screen'//首页公屏
 import pool from '@/components/index/mainpool/Mainpool'//梦想池--生意池
 import rules from '@/components/index/rules/Rules'//规则
@@ -68,7 +68,7 @@ export default {
           style:'http://tdream.antit.top/image/banner.png'
         },
         {
-          style:'https://tdream.antit.top/image/Red_SendPack.jpg'
+          style:'https://tdream.antit.top/image/Red_SendPack.jpg?time='+new Date().getTime()
         }
       ],//轮播图配置列表
       userInfo:'',//存贮个人信息
@@ -84,6 +84,7 @@ export default {
       ishow:false,
       tpid:'',
       ncount:'',//通知条数
+      home:false,//是否显示首页
     }
   },
   components:{
@@ -200,6 +201,7 @@ export default {
             'transform':'translateX(0)'
           })
         }
+        app.home = true;
       },function(code,data){
         console.log(data)
       })

@@ -38,7 +38,7 @@
                 </div>
                 <div class="check">
                     <van-checkbox v-model="checked" checked-color="#00d094">
-                        <p style="font-size:0.26rem;color:#999">阅读并同意 <span style="color:#00d094">《梦想互助参与协议》</span></p>
+                        <p style="font-size:0.26rem;color:#999">阅读并同意 <router-link to="/agree" style="color:#00d094" tag="span">《梦想互助参与协议》</router-link></p>
                     </van-checkbox>
                 </div>
             </div>

@@ -48,7 +48,11 @@
 </template>
 
 <script>
-var uid = JSON.parse(GetStorage('userInfo')).openid
+if(!ExistStorage("userInfo")){
+    window.location.href = 'http://tinydream.ivkcld.cn/TInydreamWeb/dream'
+}else{
+    var uid = JSON.parse(GetStorage('userInfo')).openid;
+}
 export default {
     name:'toollist',
     data () {

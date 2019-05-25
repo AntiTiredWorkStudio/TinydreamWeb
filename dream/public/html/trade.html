@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>生意详情</title>
+    <link rel="stylesheet" href="http://tinydream.antit.top/TinydreamWeb/css/public.css">
+    <link rel="stylesheet" href="http://tinydream.antit.top/TinydreamWeb/css/trade.css">
+    <link rel="stylesheet" href="http://tinydream.antit.top/TinydreamWeb/css/weui.css">
+</head>
+<body>
+    <div class="warp">
+		<div id="container">
+        
+		</div>
+		
+        <div class="footer" style="margin-bottom:0.2rem;margin-top: 0.2rem">
+            <div class="info" style="width:95%;margin:0 auto;">
+                <p class="title">其他：</p>
+                <div class="infotxt" style="font-size:0.24rem;">
+                   <span style="display:inline-block;margin-bottom: 0.1rem">如您还有疑问，可以添加小梦想客服微信详细咨询！</span> 
+                    <img src="https://tdream.antit.top/image/qrcode.jpg" alt="" width="20%" height="auto" style="position:relative;left:50%;transform:translateX(-50%)">
+                    <span style="display:inline-block;width:100%;text-align:center">长按识别二维码</span>
+                </div>
+		   </div>
+		</div>
+    </div>
+    <div style="padding-top:1.2rem"></div>
+    <div class="fix" style="width:100%;position:fixed;bottom:0;border-top:1px solid #eee;background:#fff;height:1rem;">
+            <button style="width:100%;height:0.78rem;font-size:0.28rem;color:#fff;background:#00d094;text-align:center;line-height:0.78rem;top:50%;position: relative;transform: translateY(-50%)" id="btn">立即参与互助</button>
+    </div>
+    <script src="http://tinydream.antit.top/TinydreamWeb/lib/jquery-1.12.3.min.js"></script>
+    <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
+    <script type="text/javascript" src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	<script src="https://tinydream.antit.top/admin/js/lib.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
+    <script src="http://tinydream.antit.top/TinydreamWeb/lib/weui.js"></script>
+    <script src="http://tinydream.antit.top/TinydreamWeb/lib/weuiManager.js"></script>
+    <script>
+        Loading();
+        var userInfo = Options.GetUserInfo();
+        var pid = JSON.parse(GetStorage('award')).pid;
+        var title = decodeURI($_GET.trade);
+        console.log(title);
+        console.log($_GET.trade);
+        $('title').html('生意详情-'+JSON.parse(GetStorage('award')).title);
+        WebApp.JSAPI.InitShare({
+			title:'小生意互助',
+			desc:"本期小生意互助---"+JSON.parse(GetStorage('award')).title,
+			link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/trade.html?id='+JSON.parse(GetStorage('award')).tinfoid+'&time='+new Date().getTime(),
+			imgUrl:"https://tdream.antit.top/image/trade_ybshj.jpg"
+		});
+		if($_GET['id']){
+			WebApp.View.BuildLayout($_GET['id'],function(result,data){
+				if(result){
+					$("#container").html(data);
+                    FinishLoading();
+				}else{
+					$("#container").html(data.context);
+                    FinishLoading();
+				}
+			});
+		}
+
+        // 参与互助
+        $('#btn').click(function(){
+            TD_Request("ds","buy",{
+                uid:userInfo.openid,
+                pid:pid,
+            },function(code,data){
+                // console.log(data);
+                if(code == 0 || data.result == true){
+                    console.log(data)
+                    localStorage.setItem('buy',JSON.stringify(data.actions));
+                    // alert(1)
+                    window.location.href = "../html/payInfo.html?state=trade&time="+new Date().getTime();
+                }
+            },function(code,data){
+                FinishLoading()
+                if(code == 11 || !data.result){
+                    alert("您尚"+data.context+",绑定手机后才能继续参与互助");
+                    localStorage.setItem('mainpool',JSON.stringify(mainpool));
+                    window.location.href = "../html/phoneManage.html?time="+new Date().getTime();
+                }else if(code == 18){
+                    alert("您当日购买次数已达上限");
+                    return;
+                }else if(code == 5){
+                    alert(data.context);
+                }
+            })
+        })
+	</script>
+</body>
+</html>

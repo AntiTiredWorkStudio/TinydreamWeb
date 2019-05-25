@@ -488,7 +488,7 @@ export default {
                 console.log(data)
                 app.$toast.success('提交成功');
                 setTimeout(()=>{
-                    app.$router.replace('/refesh')
+                    app.$router.push('/')
                 },1000)
             },function(code,data){
                 app.$toast.fail('提交失败');

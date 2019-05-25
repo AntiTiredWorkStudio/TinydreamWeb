@@ -82,12 +82,6 @@ export default {
         },
         // 详情信息
         Info(self,opid){
-            self.$toast.loading({
-                duration:0,
-                forbidClick:true,
-                loadingType:'circular',
-                message:'加载中...'
-            })
             TD_Request('op','uinfo',{uid:uid},function(code,data){
                 self.$toast.clear();
                 console.log(data)

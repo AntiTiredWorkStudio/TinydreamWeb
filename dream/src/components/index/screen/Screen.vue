@@ -92,6 +92,7 @@ export default {
         border-radius: 0.10rem;
         margin-bottom: 0.20rem;
         box-shadow: 0.02rem 0px 0.1rem 0.02rem rgba(0, 54, 208, .1), -0.02rem 0 0.1rem 0.02rem rgba(0, 54, 208, .1), 0 0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1), 0 -0.02rem 0.1rem 0.02rem rgba(0, 54, 208, .1);
+        background: #fff;
         .warp{
             width: 6.4rem;
             margin: 0 auto;

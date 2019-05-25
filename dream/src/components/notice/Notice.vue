@@ -4,7 +4,8 @@
             <div class="message">
                 <div class="main">
                     <span>{{list.content}}</span>
-                    <span @click="info(list.action,list.nid,list.content)" style="text-decoration: underline;color:#00d094;font-size:0.28rem">查看详情</span>
+                    <br>
+                    <span v-show="list.show" @click="info(list.action,list.nid,list.content)" style="text-decoration: underline;color:#00d094;font-size:0.28rem">查看详情</span>
                 </div>
                 <div class="time">{{list.localTime}}</div>
             </div>
@@ -13,12 +14,6 @@
 </template>
 
 <script>
-WebApp.JSAPI.InitShare({
-    title:'追梦行动派',
-    desc:"我刚刚参与了一份小梦想，你也一起来吧！",
-    link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=dream&state=no',
-    imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
-});
 export default {
     name:'notice',
     data () {
@@ -27,6 +22,12 @@ export default {
         }
     },
     created(){
+        WebApp.JSAPI.InitShare({
+            title:'追梦行动派',
+            desc:"我刚刚参与了一份小梦想，你也一起来吧！",
+            link:'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/html/share.html?time='+new Date().getTime()+'&type=dream&state=no',
+            imgUrl:"https://tdream.antit.top/image/miniLogo.jpg"
+        });
         this.notice(this);
     },
     methods:{
@@ -49,6 +50,14 @@ export default {
                         item.content = "[未读]"+item.content
                     }else{
                         item.content = "[已读]"+item.content
+                    }
+                    if(eval("("+item.action+")").type == 'view'){
+                        item.show = false;
+                    }else if(eval("("+item.action+")").type == 'view' && item.state == "UNREAD"){
+                        item.show = false;
+                        app.read(app,item.nid,'',item.type)
+                    }else{
+                        item.show = true;
                     }
                     notice.push(item);
                 })
@@ -76,8 +85,10 @@ export default {
         },
         read(app,nid,content,type,title){
             TD_Request('no','nr',{nid:nid},function(code,data){
-                if(type == 'buy'){
+                if(type == 'buy' || type=="redpack" || type=="lucky"){
                     app.$router.push('/pinfo')
+                }else if(type == 'view'){
+                    app.$router.replace('/refesh');
                 }else{
                     app.$dialog.alert({
                         title:title.substr(4),
