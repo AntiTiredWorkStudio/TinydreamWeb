@@ -57,7 +57,7 @@
     </style>
 </head>
 <body>
-    <div class="warp">
+    <!-- <div class="warp">
         <div class="main">
             <div class="logo"></div>
             <p class="appname">追梦行动派</p>
@@ -67,13 +67,14 @@
             <p class="tip">· 获得你的公开信息（昵称、头像等）</p>
             <button class="btn">授权登录</button>
         </div>
-    </div>
+    </div> -->
     <script src="https://tinydream.antit.top/admin/js/jquery-1.12.3.min.js"></script>
     <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
     <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
     <script src="https://tinydream.antit.top/admin/js/webApp.js"></script>
     <script>
-        $('.btn').click(function(){
+        // $('.btn').click(function(){
+            
                     WebApp.Init('wxc5216d15dd321ac5',//appid
    function(result,data){//result:请求状态,data 请求结果
       console.log(Options.GetUserInfo());
@@ -86,7 +87,7 @@
       window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
    }
 );
-        })
+        // })
     </script>
 </body>
 </html>
