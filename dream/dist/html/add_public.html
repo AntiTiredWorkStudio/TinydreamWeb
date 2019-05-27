@@ -25,10 +25,11 @@
         WebApp.InitUpload();
         $('button').click(function(){
             var file = document.getElementById('logo');
-            var fileObj = file.files[0].F;
+            var fileObj = file.files[0];
             console.log(fileObj)
-            var files = fileObj.File
-            console.log(files);
+            var fromdata = new FormData();
+            fromdata.append('file',fileObj)
+            console.log(fromdata);
             TD_Request('us','rnamesx',{uid:"oSORf5hkHfOy3Yo4FQIPdbHKQljM"},function(code,data){
                 WebApp.UploadWithSDK(data.token,data.upurl,fileObj.fileObj,data.filename.id_f,function(res){
                     console.log(res)
