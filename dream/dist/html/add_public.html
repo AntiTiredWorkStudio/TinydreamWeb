@@ -12,7 +12,24 @@
         公众号名称：<input type="text" id="username">
         公众号描述：<input type="text" id="desc">
         公众号头像：<input type="text" id="icon">
-        公众号
+        公众号图标： <input type="file" id="logo">
+        <button>提交</button>
     </p>
+    <script type="text/javascript" src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/jquery-1.12.3.min.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
+    <script src="https://tinydream.antit.top/admin/js/WebApp.js"></script>
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan style='display:none' id='cnzz_stat_icon_1277470303'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1277470303%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+    <script>
+        var file = $('#logo');
+        var fileObj = file.files[0];
+        console.log(fileObj);
+        TD_Request('us','rnamesx',{uid:"oSORf5hkHfOy3Yo4FQIPdbHKQljM"},function(code,data){
+
+        },function(code,data){
+
+        })
+      </script>
 </body>
 </html>
