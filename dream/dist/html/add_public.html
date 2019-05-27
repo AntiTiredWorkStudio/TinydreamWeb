@@ -31,7 +31,7 @@
             fromdata.append('file',fileObj)
             console.log(fromdata);
             TD_Request('us','rnamesx',{uid:"oSORf5hkHfOy3Yo4FQIPdbHKQljM"},function(code,data){
-                WebApp.UploadWithSDK(data.token,data.upurl,fileObj.file.files[0],data.filename.id_f,function(res){
+                WebApp.UploadWithSDK(data.token,data.upurl,file.files[0],data.filename.id_f,function(res){
                     console.log(res)
                 })
             },function(code,data){
