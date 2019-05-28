@@ -20,11 +20,11 @@
         if($_GET.type == 'dream' && $_GET.state == 'no'){
             window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
         }else if($_GET.type == 'clock' && $_GET.state == 'no'){
-            SaveStorage('share','clock')
+            SaveStorage('share',JSON.stringify({type:'clock'}))
             window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
         }else if($_GET.type == 'dream' && $_GET.state == 'yes'){
             if($_GET.status == 'guide'){
-                SaveStorage('share','guide');
+                SaveStorage('share',JSON.stringify({type:'guide'}));
                 window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
             }
         }else if($_GET.type == 'clock' && $_GET.state == 'yes'){
