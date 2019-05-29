@@ -78,13 +78,13 @@
                     WebApp.Init('wxc5216d15dd321ac5',//appid
    function(result,data){//result:请求状态,data 请求结果
       console.log(Options.GetUserInfo());
-      return;
       if($_GET.state == 'clock'){
         SaveStorage('share',JSON.stringify({type:$_GET.type,opid:$_GET.opid,url:'friend'}))
       }else if($_GET.rid != ''){
         SaveStorage('share',JSON.stringify({type:'redpack'}))
         SaveStorage('rid',$_GET.rid);  
       }
+      return;
       SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
       SaveStorage('opt',JSON.stringify(Options))
     //   Options.TestServer = true;
