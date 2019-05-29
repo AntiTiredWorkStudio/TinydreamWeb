@@ -80,9 +80,9 @@
       console.log(Options.GetUserInfo());
       if($_GET.state == 'clock'){
         SaveStorage('share',JSON.stringify({type:$_GET.type,opid:$_GET.opid,url:'friend'}))
-      }else if($_GET.rid != ''){
+      }else if(GetStorage('rid') != null){
         SaveStorage('share',JSON.stringify({type:'redpack'}))
-        SaveStorage('rid',$_GET.rid);  
+        SaveStorage('rid',GetStorage('rid'));  
       }
       SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
       SaveStorage('opt',JSON.stringify(Options))
