@@ -29,8 +29,9 @@
         }else if($_GET.type == 'clock' && $_GET.state == 'yes'){
             if($_GET.url == 'friend'){
                 var obj = {
+                    type:'clock',
                     opid:$_GET.opid,
-                    type:$_GET.type,
+                    ctype:$_GET.type,
                     url:$_GET.url
                 }
                 SaveStorage('share',JSON.stringify(obj))
