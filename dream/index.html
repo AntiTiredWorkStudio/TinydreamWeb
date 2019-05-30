@@ -79,7 +79,7 @@
    function(result,data){//result:请求状态,data 请求结果
       console.log(Options.GetUserInfo());
       if($_GET.state == 'clock'){
-        SaveStorage('share',JSON.stringify({type:$_GET.type,opid:$_GET.opid,url:'friend'}))
+        SaveStorage('share',JSON.stringify({type:'clock',ctype:$_GET.type,opid:$_GET.opid,url:'friend'}))
       }else if(GetStorage('rid') != null){
         SaveStorage('rid',GetStorage('rid'));  
       }else if($_GET.type=='redpack' && $_GET.state == 'no'){
