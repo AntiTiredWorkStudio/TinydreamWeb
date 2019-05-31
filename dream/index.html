@@ -81,7 +81,7 @@
       if($_GET.state == 'clock'){
         var sfriend = JSON.parse(GetStorage('sfriend'))
         SaveStorage('share',JSON.stringify({type:'clock',ctype:sfriend.type,opid:sfriend.opid,url:'friend'}))
-        alert('auth:'+GetStorage('share'))
+        // alert('auth:'+GetStorage('share'))
       }else if(GetStorage('rid') != null){
         SaveStorage('rid',GetStorage('rid'));  
       }else if($_GET.type=='redpack' && $_GET.state == 'no'){
