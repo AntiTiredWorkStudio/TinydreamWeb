@@ -1,31 +1,78 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalabl=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>添加公众号</title>
 </head>
 <body>
-    <p>
-        公众号类型：<input type="text" id="type">
-        公众号名称：<input type="text" id="username">
-        公众号描述：<input type="text" id="desc">
-        公众号头像：<input type="text" id="icon">
-        公众号图标： <input type="file" id="logo">
-        <button>提交</button>
-    </p>
-    <script type="text/javascript" src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
-    <script src="http://tinydream.antit.top/TinydreamWeb/lib/rem.js"></script>
-    <script src="https://tinydream.antit.top/admin/js/jquery-1.12.3.min.js"></script>
-    <script src="https://tinydream.antit.top/admin/js/lib.js"></script>
-    <script src="https://tinydream.antit.top/admin/js/WebApp.js"></script>
-    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan style='display:none' id='cnzz_stat_icon_1277470303'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1277470303%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
-    <script>
-        WebApp.InitUpload();
-        $('button').click(function(){
-            
-        })
-      </script>
+<p>
+<input id="uploader" type="file" multiple />
+<button id="submit"/>上传</button>
+</p>
+<p>
+<td><textarea name="reworkmes"   cols="140"   rows="40"   ></textarea></td>
+</p>
+<script src="https://tinydream.ivkcld.cn/admin/js/jquery-1.11.3.min.js"></script>
+<script src="https://tinydream.ivkcld.cn/admin/js/lib.js"></script>
+<script src="https://tinydream.ivkcld.cn/admin/js/webApp.js"></script>
+<script>
+var fileList = [];
+var idArray = [];
+var fileArray = [];
+var tokens = {};
+WebApp.InitUpload();
+$("#uploader").change(function (res) {
+	fileList = res.target.files;
+})
+$('#submit').click(function(res){
+	for(var i in fileList){
+		if(isNaN(i)){
+			continue;
+		}
+		idArray.push(fileList[i].name);
+		fileArray.push(fileList[i]);
+	}
+	WebApp.GenerateTokens(
+		idArray,"icon",
+		function(result,token){
+			console.log(token);
+			tokens = token;
+			InitUploadQueue();
+		}
+	);
+});
+var resultArray = [];
+var InitUploadQueue = function(){
+	if(idArray == [] || fileArray == []){
+		console.log(resultArray);
+		return;
+	}
+	var file = fileArray.shift();
+	if(file==null){
+		UploadFinished();
+		console.log(resultArray);
+		return;
+	}
+	var token = tokens[file.name];
+	var url_prefix = token.domain;
+	console.log("准备上传:"+JSON.stringify(token));
+	WebApp.UploadWithSDK(token.uptoken, token.upurl,file,token.fileName,function(result){
+		console.log(result.imgName);
+		result.imgName = url_prefix+"/"+result.imgName;
+		resultArray.push(result.imgName);
+		InitUploadQueue();
+	});
+}
+
+var UploadFinished = function(){
+	TD_Request('view','upload_img',{imglist:JSON.stringify(resultArray)},function(code,data){
+		console.log(data);
+	},
+	function(code,data){
+		console.log(data);
+	});
+}
+</script>
 </body>
 </html>
