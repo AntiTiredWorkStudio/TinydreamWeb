@@ -80,6 +80,7 @@
       console.log(Options.GetUserInfo());
       if($_GET.state == 'clock'){
         SaveStorage('share',JSON.stringify({type:'clock',ctype:$_GET.type,opid:$_GET.opid,url:'friend'}))
+        alert(GetStorage('share'))
       }else if(GetStorage('rid') != null){
         SaveStorage('rid',GetStorage('rid'));  
       }else if($_GET.type=='redpack' && $_GET.state == 'no'){
