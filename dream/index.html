@@ -101,13 +101,15 @@
         SaveStorage('rid',GetStorage('rid'));  
       }else if(GetStorage('url') != null){
           window.location.href = GetStorage('url');
+      }else{
+            window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
       }
       alert(GetStorage('url'))
       SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
       SaveStorage('opt',JSON.stringify(Options))
     //   Options.TestServer = true;
     // return;
-      window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
+      
    }
 );
         // })
