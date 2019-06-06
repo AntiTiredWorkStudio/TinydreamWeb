@@ -97,7 +97,8 @@
                     WebApp.Init('wxc5216d15dd321ac5',//appid
    function(result,data){//result:请求状态,data 请求结果
       console.log(Options.GetUserInfo());
-      
+      alert(GetStorage('url'))
+      return;
       var tstate = GetStorage('tstate');
       if(GetStorage('rid') != null){
         SaveStorage('rid',GetStorage('rid'));  
@@ -105,9 +106,10 @@
         var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/clock';
         RemoveStorage('url')
       }else if(GetStorage('url') != null && GetStorage('url') == 'list'){
+         RemoveStorage('url')
           var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/list/old'
       }else{
-        var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
+        var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/'
       }
     //   alert('#'+url)
     //   return;
