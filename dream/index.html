@@ -75,15 +75,15 @@
     <script>
         // $('.btn').click(function(){
       var tstate = $_GET.tstate;
-    //   alert('tstate:'+tstate)
-    //   alert(window.location.href)
+      alert('tstate:'+tstate)
+      alert(window.location.href)
       SaveStorage('tstate',tstate)
-      if($_GET.type == 'clock'){
+      if($_GET.state == 'clock'){
         var sfriend = JSON.parse(GetStorage('sfriend'))
         SaveStorage('share',JSON.stringify({type:'clock',ctype:sfriend.type,opid:sfriend.opid,url:'friend'}))
       }else if($_GET.type=='redpack' && $_GET.state == 'no'){
           SaveStorage('rphome','redpack')
-      }else if($_GET.type == 'clock' && $_GET.state == 'no'){
+      }else if($_GET.type == 'clock'){
           SaveStorage('tstate','clock')
       }
 
