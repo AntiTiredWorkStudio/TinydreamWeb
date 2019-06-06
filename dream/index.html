@@ -78,19 +78,22 @@
       alert('tstate:'+tstate)
       alert(window.location.href)
       SaveStorage('tstate',tstate)
+      if($_GET.type == 'clock'){
+        var sfriend = JSON.parse(GetStorage('sfriend'))
+        SaveStorage('share',JSON.stringify({type:'clock',ctype:sfriend.type,opid:sfriend.opid,url:'friend'}))
+      }else if($_GET.type == 'clock'){
+        var sfriend = JSON.parse(GetStorage('sfriend'))
+        SaveStorage('share',JSON.stringify({type:'clock',ctype:sfriend.type,opid:sfriend.opid,url:'friend'}))
+      }else if($_GET.type=='redpack' && $_GET.state == 'no'){
+          SaveStorage('rphome','redpack')
+      }
 
                     WebApp.Init('wxc5216d15dd321ac5',//appid
    function(result,data){//result:请求状态,data 请求结果
       console.log(Options.GetUserInfo());
       var tstate = GetStorage('tstate');
-      if($_GET.type == 'clock'){
-        var sfriend = JSON.parse(GetStorage('sfriend'))
-        SaveStorage('share',JSON.stringify({type:'clock',ctype:sfriend.type,opid:sfriend.opid,url:'friend'}))
-        // alert('auth:'+GetStorage('share'))
-      }else if(GetStorage('rid') != null){
+      if(GetStorage('rid') != null){
         SaveStorage('rid',GetStorage('rid'));  
-      }else if($_GET.type=='redpack' && $_GET.state == 'no'){
-          SaveStorage('rphome','redpack')
       }else if(tstate == 'clock'){
           SaveStorage('tstate','clock')
       }else if(tstate == 'conrecord'){
