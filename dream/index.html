@@ -103,20 +103,14 @@
     //   var tstate = GetStorage('tstate');
       if(GetStorage('rid') != null){
         SaveStorage('rid',GetStorage('rid'));  
-      }else if(GetStorage('curl') == 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/clock'){
-        var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/clock';
-        RemoveStorage('curl')
-      }else if(GetStorage('curl') == 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/list/old'){
-          var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/list/old'
-          RemoveStorage('curl')
       }else{
         var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/'
       }
     //   alert('#'+url)
     //   return;
       window.location.href = url
-      alert(GetStorage('url')=null)
-      alert(GetStorage('url'))
+    //   alert(GetStorage('url')=null)
+    //   alert(GetStorage('url'))
       SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
       SaveStorage('opt',JSON.stringify(Options))
     //   Options.TestServer = true;
