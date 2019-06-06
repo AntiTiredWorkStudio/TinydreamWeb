@@ -96,14 +96,17 @@
                     WebApp.Init('wxc5216d15dd321ac5',//appid
    function(result,data){//result:请求状态,data 请求结果
       console.log(Options.GetUserInfo());
+      
       var tstate = GetStorage('tstate');
       if(GetStorage('rid') != null){
         SaveStorage('rid',GetStorage('rid'));  
       }else if(GetStorage('url') != null){
-          window.location.href = GetStorage('url');
+        var url = GetStorage('url');
+        RemoveStorage('url')
       }else{
-            window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
+        var url = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
       }
+      window.location.href = url
       alert(GetStorage('url')=null)
       alert(GetStorage('url'))
       SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
