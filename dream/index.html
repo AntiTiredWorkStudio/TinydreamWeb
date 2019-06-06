@@ -98,9 +98,9 @@
                     WebApp.Init('wxc5216d15dd321ac5',//appid
    function(result,data){//result:请求状态,data 请求结果
       console.log(Options.GetUserInfo());
-      alert(GetStorage('curl'))
-      return;
-      var tstate = GetStorage('tstate');
+    //   alert(GetStorage('curl'))
+    //   return;
+    //   var tstate = GetStorage('tstate');
       if(GetStorage('rid') != null){
         SaveStorage('rid',GetStorage('rid'));  
       }else if(GetStorage('curl') == 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/clock'){
