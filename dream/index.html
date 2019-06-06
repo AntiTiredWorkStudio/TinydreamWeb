@@ -79,7 +79,7 @@
    function(result,data){//result:请求状态,data 请求结果
       console.log(Options.GetUserInfo());
       var tstate = GetStorage('state');
-      alert(tstate)
+      alert('tstate:'+tstate)
       if($_GET.state == 'clock'){
         var sfriend = JSON.parse(GetStorage('sfriend'))
         SaveStorage('share',JSON.stringify({type:'clock',ctype:sfriend.type,opid:sfriend.opid,url:'friend'}))
