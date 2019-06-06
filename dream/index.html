@@ -84,8 +84,11 @@
         SaveStorage('share',JSON.stringify({type:'clock',ctype:sfriend.type,opid:sfriend.opid,url:'friend'}))
       }else if($_GET.type=='redpack' && $_GET.state == 'no'){
           SaveStorage('rphome','redpack')
-      }else if($_GET.type == 'clock'){
-          SaveStorage('tstate','clock')
+      }
+      if($_GET.type == 'clock'){
+          SaveStorage('url','http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/clock')
+      }else if($_GET.type == 'list'){
+        SaveStorage('url','http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/list/old')
       }
     //   alert(tstate)
     //   alert('tstate1:'+GetStorage('tstate'))
@@ -96,10 +99,8 @@
       var tstate = GetStorage('tstate');
       if(GetStorage('rid') != null){
         SaveStorage('rid',GetStorage('rid'));  
-      }else if(tstate == 'clock'){
-          SaveStorage('tstate','clock')
-      }else if(tstate == 'conrecord'){
-          SaveStorage('tstate','conrecord')
+      }else if(GetStorage('url') != null){
+          window.location.href = GetStorage('url');
       }
       SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
       SaveStorage('opt',JSON.stringify(Options))
