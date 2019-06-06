@@ -102,6 +102,7 @@
       }else if(GetStorage('url') != null){
           window.location.href = GetStorage('url');
       }
+      alert(GetStorage('url'))
       SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
       SaveStorage('opt',JSON.stringify(Options))
     //   Options.TestServer = true;
