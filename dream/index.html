@@ -78,8 +78,9 @@
                     WebApp.Init('wxc5216d15dd321ac5',//appid
    function(result,data){//result:请求状态,data 请求结果
       console.log(Options.GetUserInfo());
-      var tstate = GetStorage('tstate');
+      var tstate = $_GET.tstate;
       alert('tstate:'+tstate)
+      alert(window.location.href)
       if($_GET.state == 'clock'){
         var sfriend = JSON.parse(GetStorage('sfriend'))
         SaveStorage('share',JSON.stringify({type:'clock',ctype:sfriend.type,opid:sfriend.opid,url:'friend'}))
