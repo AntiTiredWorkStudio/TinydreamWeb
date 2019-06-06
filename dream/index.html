@@ -77,8 +77,9 @@
       var tstate = $_GET.tstate;
       alert('tstate:'+tstate)
       alert(window.location.href)
-      SaveStorage('tstate',tstate)
-      if($_GET.state == 'clock'){
+      if(typeof tstate != 'undefined'){
+        SaveStorage('tstate',tstate)
+      }else if($_GET.state == 'clock'){
         var sfriend = JSON.parse(GetStorage('sfriend'))
         SaveStorage('share',JSON.stringify({type:'clock',ctype:sfriend.type,opid:sfriend.opid,url:'friend'}))
       }else if($_GET.type=='redpack' && $_GET.state == 'no'){
