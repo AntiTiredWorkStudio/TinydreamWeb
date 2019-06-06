@@ -79,7 +79,7 @@
    function(result,data){//result:请求状态,data 请求结果
       console.log(Options.GetUserInfo());
       var tstate = GetStorage('tstate');
-      alert('tstate:'+tstate)
+    //   alert('tstate:'+tstate)
       if($_GET.state == 'clock'){
         var sfriend = JSON.parse(GetStorage('sfriend'))
         SaveStorage('share',JSON.stringify({type:'clock',ctype:sfriend.type,opid:sfriend.opid,url:'friend'}))
@@ -90,6 +90,8 @@
           SaveStorage('rphome','redpack')
       }else if(tstate == 'clock'){
           SaveStorage('state','clock')
+      }else if(tstate == 'conrecord'){
+          SaveStorage('state','conrecord')
       }
       SaveStorage('userInfo',JSON.stringify(Options.GetUserInfo()))
       SaveStorage('opt',JSON.stringify(Options))
