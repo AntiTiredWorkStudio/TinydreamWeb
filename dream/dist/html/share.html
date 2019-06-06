@@ -17,14 +17,14 @@
        */
         RemoveStorage('share')
         if($_GET.type == 'dream' && $_GET.state == 'no'){
-            window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
+            window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/'
         }else if($_GET.type == 'clock' && $_GET.state == 'no'){
             SaveStorage('share',JSON.stringify({type:'clock'}))
-            window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
+            window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/clock'
         }else if($_GET.type == 'dream' && $_GET.state == 'yes'){
             if($_GET.status == 'guide'){
                 SaveStorage('share',JSON.stringify({type:'guide'}));
-                window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
+                window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/question'
             }
         }else if($_GET.type == 'clock' && $_GET.state == 'yes'){
             if($_GET.url == 'friend'){
@@ -35,11 +35,11 @@
                     url:$_GET.url
                 }
                 SaveStorage('share',JSON.stringify(obj))
-                window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
+                window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/friend'
             }
         }else if($_GET.type == 'redpack' && $_GET.state == 'yes'){
             SaveStorage('share',JSON.stringify({rid:$_GET.rid,type:'redpack'}))
-            window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist'
+            window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/grpack/'+$_GET.rid
         }
     </script>
 </body>
