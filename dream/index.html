@@ -76,8 +76,8 @@
         // $('.btn').click(function(){
       var tstate = $_GET.tstate;
     //   alert('tstate:'+tstate)
-    //   alert(window.location.href)
-      if(typeof tstate != 'undefined' || tstate == null){
+      alert(window.location.href)
+      if(typeof tstate != 'undefined' || tstate != null){
         SaveStorage('tstate',tstate)
       }else if($_GET.state == 'clock'){
         var sfriend = JSON.parse(GetStorage('sfriend'))
@@ -87,6 +87,7 @@
       }else if($_GET.type == 'clock'){
           SaveStorage('tstate','clock')
       }
+      alert(tstate)
     //   alert('tstate1:'+GetStorage('tstate'))
 
                     WebApp.Init('wxc5216d15dd321ac5',//appid
