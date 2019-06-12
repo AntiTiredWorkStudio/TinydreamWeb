@@ -34,7 +34,7 @@
                     ctype:$_GET.status,
                     url:$_GET.url
                 }
-                SaveStorage('share',JSON.stringify(obj))
+                SaveStorage('friend',JSON.stringify(obj))
                 window.location.href = 'http://tinydream.ivkcld.cn/TinydreamWeb/dream/dist/#/friend'
             }
         }else if($_GET.type == 'redpack' && $_GET.state == 'yes'){
